@@ -241,7 +241,7 @@ void quit_game_maybe(GtkWidget *widget, gint button)
 	}
 }
 
-void quit_game_cb(GtkWidget *widget, gpointer data)
+gboolean quit_game_cb(GtkWidget *widget, gpointer data)
 {
 	GtkWidget *dialog;
 
@@ -268,9 +268,15 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 		gtk_widget_destroy (dialog);
 
 		if (response == GTK_RESPONSE_ACCEPT)
+        {
 			quit_game_maybe(NULL, 0);
+            return FALSE;
+        } else {
+            return TRUE;
+        }
 	} else {
 		quit_game_maybe(NULL, 0);
+        return FALSE;
 	}
 }
 
@@ -713,7 +719,7 @@ void create_window()
 
 	gtk_widget_realize(window);
 	gtk_window_set_resizable(GTK_WINDOW(window), FALSE);
-	g_signal_connect(GTK_OBJECT(window), "delete_event", GTK_SIGNAL_FUNC(quit_game_cb), NULL);
+	g_signal_connect(GTK_OBJECT(window), "delete_event", G_CALLBACK(quit_game_cb), NULL);
 
 	gnome_app_create_menus(GNOME_APP(window), mainmenu);
 
@@ -912,7 +918,7 @@ int main(int argc, char **argv)
 	gtk_object_sink(GTK_OBJECT(client));
 
 	g_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
-	g_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
+	g_signal_connect(GTK_OBJECT(client), "die", G_CALLBACK(quit_game_cb), argv[0]);
 
 	create_window();
 	

@@ -46,7 +46,7 @@ struct _MoveHistory
 
 void new_game_cb(GtkWidget *widget, gpointer data);
 void new_net_game_cb(GtkWidget *widget, gpointer data);
-void quit_game_cb(GtkWidget *widget, gpointer data);
+gboolean quit_game_cb(GtkWidget *widget, gpointer data);
 void undo_move_cb(GtkWidget *widget, gpointer data);
 void redo_move_cb(GtkWidget *widget, gpointer data);
 void black_level_cb (GtkWidget *widget, gpointer data);
