@@ -172,7 +172,7 @@
   <title>Posizione iniziale</title>
   <screenshot>
    <screeninfo>Schermata della posizione iniziale.</screeninfo>
-   <Graphic Format="png" Fileref="START.png" srccredit="Eric Baudais">
+   <graphic format="png" fileref="figures/START" srccredit="Eric Baudais">
    </graphic>
   </screenshot>
  </figure>
@@ -190,7 +190,7 @@
   <title>Prima mossa</title>
   <screenshot>
    <screeninfo>Scermata della prima mossa.</screeninfo>
-   <Graphic Format="png" Fileref="FIRST.png" srccredit="Eric Baudais">
+   <graphic format="png" fileref="figures/FIRST" srccredit="Eric Baudais">
    </graphic>
   </screenshot>
  </figure>
@@ -212,7 +212,7 @@
   nera che "blocca" la riga.</title>
   <screenshot>
    <screeninfo>Schermata del blocco del nero.</screeninfo>
-   <Graphic Format="png" Fileref="BLOCK.png" srccredit="Eric Baudais">
+   <graphic format="png" fileref="figures/BLOCK" srccredit="Eric Baudais">
    </graphic>
   </screenshot>
  </figure>
@@ -260,7 +260,7 @@
    <title>Il menu Preferenze con la scheda Giocatori evidenziata.</title>
    <screenshot>
     <screeninfo>Schermata delle impostazioni del giocatore.</screeninfo>
-    <Graphic Format="png" Fileref="PLAYER.png" srccredit="Eric Baudais">
+    <graphic format="png" fileref="figures/PLAYER" srccredit="Eric Baudais">
     </graphic>
    </screenshot>
   </figure>
@@ -367,7 +367,7 @@
    <title>Il menu preferenze con la scheda Animazione evidenziata.</title>
    <screenshot>
     <screeninfo>Schermata delle impostazioni dell'animazione.</screeninfo>
-    <graphic format="png" fileref="ANIMATION.png" srccredit="Eric Baudais">
+    <graphic format="png" fileref="figures/ANIMATION" srccredit="Eric Baudais">
     </graphic>
    </screenshot>
   </figure>
