@@ -37,8 +37,8 @@ appicon_DATA = gnothello.png
 Games_DATA = gnothello.desktop
 
 EXTRA_DIST = AUTHORS \
-             gnothello.desktop \
-             $(pixmap_DATA)
+             gnothello.desktop 	\
+             $(pixmap_DATA)	\
 	     $(appicon_DATA)
 
 install-data-local:
