@@ -25,7 +25,7 @@ $(CORBA_SRCS): game.idl
 gnothello_LDADD = \
 	$(GNOME_LIBDIR) \
 	$(GNOMEUI_LIBS)	\
-	$(ORBIT_LIBS) \
+	$(ORBIT_LIBS) -lgnorba \
 	$(INTLLIBS)
 
 pixmap_DATA = tiles.png
