@@ -31,9 +31,9 @@
 #include "othello.h"
 #include "network.h"
 
+GnomeAppBar *appbar;
 GtkWidget *window;
 GtkWidget *drawing_area;
-GtkWidget *statusbar;
 GtkWidget *tile_dialog;
 GtkWidget *black_score;
 GtkWidget *white_score;
@@ -106,26 +106,57 @@ static const struct poptOption options[] = {
   {NULL, '\0', 0, NULL, 0}
 };
 
+GnomeUIInfo file_menu[] = {
+        GNOMEUIINFO_MENU_EXIT_ITEM(quit_game_cb, NULL),
+	GNOMEUIINFO_END
+};
+
 GnomeUIInfo game_menu[] = {
-	{ GNOME_APP_UI_ITEM, N_("_New"), "Start a new game", new_game_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK, NULL },
-	{ GNOME_APP_UI_ITEM, N_("_Undo"), "Undo last move", undo_move_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_UNDO, 'z', GDK_CONTROL_MASK, NULL },
-	{ GNOME_APP_UI_ITEM, N_("E_xit"), "Exit Gnothello", quit_game_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK, NULL },
+        GNOMEUIINFO_MENU_NEW_GAME_ITEM(new_game_cb, NULL),
+
+	GNOMEUIINFO_SEPARATOR,
+
+	GNOMEUIINFO_MENU_UNDO_MOVE_ITEM(undo_move_cb, NULL),
+	
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo black_level_radio_list[] = {
-	{ GNOME_APP_UI_ITEM, N_("_Disabled"), NULL, black_level_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("Level _One"), NULL, black_level_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("Level _Two"), NULL, black_level_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"), NULL, black_level_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_Disabled"),
+	  N_("Disable the computer player"),
+	  black_level_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+	{ GNOME_APP_UI_ITEM, N_("Level _One"),
+	  N_("Enable the level 1 computer player"),
+	  black_level_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+	{ GNOME_APP_UI_ITEM, N_("Level _Two"),
+	  N_("Enable the level 2 computer player"),
+	  black_level_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"),
+	  N_("Enable the level 3 computer player"),
+	  black_level_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo white_level_radio_list[] = {
-	{ GNOME_APP_UI_ITEM, N_("_Disabled"), NULL, white_level_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("Level _One"), NULL, white_level_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("Level _Two"), NULL, white_level_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"), NULL, white_level_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_Disabled"),
+	  N_("Disable the computer player"),
+	  white_level_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+	{ GNOME_APP_UI_ITEM, N_("Level _One"),
+	  N_("Enable the level 1 computer player"),
+	  white_level_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+	{ GNOME_APP_UI_ITEM, N_("Level _Two"),
+	  N_("Enable the level 2 computer player"),
+	  white_level_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"),
+	  N_("Enable the level 3 computer player"),
+	  white_level_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
@@ -140,44 +171,73 @@ GnomeUIInfo white_level_menu[] = {
 };
 
 GnomeUIInfo comp_menu[] = {
-	{ GNOME_APP_UI_SUBTREE, N_("_Dark"), NULL, black_level_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
-	{ GNOME_APP_UI_SUBTREE, N_("_Light"), NULL, white_level_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
-	GNOMEUIINFO_SEPARATOR,
-	{ GNOME_APP_UI_TOGGLEITEM, N_("_Quick Moves"), "Computer makes quick moves", quick_moves_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	GNOMEUIINFO_END
 };
 
 GnomeUIInfo anim_radio_list[] = {
-	{ GNOME_APP_UI_ITEM, N_("_No Animation"), NULL, anim_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("_Some Animation"), NULL, anim_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("_Full Animation"), NULL, anim_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_No Animation"), N_("Turn animation off"),
+	  anim_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_Some Animation"),
+	  N_("Turn partial animation on"), anim_cb, "1", NULL,
+	  GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_Full Animation"),
+	  N_("Turn full animation on"), anim_cb, "2", NULL,
+	  GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
-GnomeUIInfo anim_type_menu[] = {
-	GNOMEUIINFO_RADIOLIST(anim_radio_list),
+GnomeUIInfo settings_computer_submenu[] = {
+        GNOMEUIINFO_SUBTREE_HINT(N_("_Dark"),
+				 N_("Configure the dark computer player"),
+				 black_level_menu),
+        GNOMEUIINFO_SUBTREE_HINT(N_("_Light"), 
+				 N_("Configure the light computer player"),
+				 white_level_menu),
+
+	GNOMEUIINFO_SEPARATOR,
+
+	GNOMEUIINFO_TOGGLEITEM(N_("_Quick moves"),
+			       N_("Turn on quick computer moves"),
+			       quick_moves_cb, NULL),
 	GNOMEUIINFO_END
 };
 
-GnomeUIInfo anim_menu[] = {
+GnomeUIInfo settings_animation_submenu[] = {
 	GNOMEUIINFO_RADIOLIST(anim_radio_list),
+
 	GNOMEUIINFO_SEPARATOR,
-	{ GNOME_APP_UI_TOGGLEITEM, N_("_Stagger Flips"), NULL, anim_stagger_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+	GNOMEUIINFO_TOGGLEITEM(N_("Sta_gger Flips"), N_("Stagger flips"),
+			       anim_stagger_cb, NULL),
+
 	GNOMEUIINFO_SEPARATOR,
-	{ GNOME_APP_UI_ITEM, N_("_Load Tiles..."), NULL, load_tiles_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+	{ GNOME_APP_UI_ITEM, N_("_Load Tiles..."), N_("Change the tile set"),
+	  load_tiles_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
 	GNOMEUIINFO_END
+};
+
+GnomeUIInfo settings_menu[] = {
+        GNOMEUIINFO_SUBTREE_HINT(N_("_Animation"),
+				 N_("Configure the animation"),
+				 settings_animation_submenu),
+        GNOMEUIINFO_SUBTREE_HINT(N_("_Computer"),
+				 N_("Configure the computer player"),
+				 settings_computer_submenu),
+        GNOMEUIINFO_END
 };
 
 GnomeUIInfo help_menu[] = {
-	{ GNOME_APP_UI_ITEM, N_("_About Gnothello"), NULL, about_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
+        GNOMEUIINFO_HELP("gnothello"),
+	GNOMEUIINFO_MENU_ABOUT_ITEM(about_cb, NULL),
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo mainmenu[] = {
-	{ GNOME_APP_UI_SUBTREE, N_("_Game"), NULL, game_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_SUBTREE, N_("_Computer"), NULL, comp_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_SUBTREE, N_("_Animation"), NULL, anim_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_SUBTREE, N_("_Help"), NULL, help_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+        GNOMEUIINFO_MENU_FILE_TREE(file_menu),
+        GNOMEUIINFO_MENU_GAME_TREE(game_menu),
+        GNOMEUIINFO_MENU_SETTINGS_TREE(settings_menu),
+        GNOMEUIINFO_MENU_HELP_TREE(help_menu),
 	GNOMEUIINFO_END
 };
 
@@ -748,7 +808,6 @@ void create_window()
 {
 	GtkWidget *table;
 	GtkWidget *sep;
-	GtkWidget *appbar;
 
 	window = gnome_app_new("gnothello", _("Gnothello"));
 
@@ -758,8 +817,8 @@ void create_window()
 
 	gnome_app_create_menus(GNOME_APP(window), mainmenu);
 
-	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(comp_menu[3].widget), gnome_config_get_bool("/gnothello/Preferences/quickmoves=FALSE"));
-	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(anim_menu[2].widget), gnome_config_get_int("/gnothello/Preferences/animstagger=0"));
+	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(settings_computer_submenu[3].widget), gnome_config_get_bool("/gnothello/Preferences/quickmoves=FALSE"));
+	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(settings_animation_submenu[2].widget), gnome_config_get_int("/gnothello/Preferences/animstagger=0"));
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(anim_radio_list[gnome_config_get_int("/gnothello/Preferences/animate=2")].widget), TRUE);
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(black_level_radio_list[gnome_config_get_int("/gnothello/Preferences/blacklevel=0")].widget), TRUE);
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(white_level_radio_list[gnome_config_get_int("/gnothello/Preferences/whitelevel=0")].widget), TRUE);
@@ -781,18 +840,13 @@ void create_window()
 	gtk_widget_set_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
 	gtk_widget_show(drawing_area);
 
-	appbar = gnome_appbar_new(FALSE, FALSE, FALSE);
+	appbar = GNOME_APPBAR (gnome_appbar_new(FALSE, TRUE, FALSE));
+	gnome_app_set_statusbar(GNOME_APP(window), GTK_WIDGET (appbar));
+	gnome_app_install_menu_hints(GNOME_APP (window), mainmenu);
 
 	table = gtk_table_new(1, 8, FALSE);
 //	gtk_table_set_col_spacing(GTK_TABLE(table), 1, 32);
 //	gtk_table_set_col_spacing(GTK_TABLE(table), 2, 32);
-
-	statusbar = gtk_statusbar_new();
-	gtk_frame_set_shadow_type(GTK_FRAME(GTK_STATUSBAR(statusbar)->frame), GTK_SHADOW_NONE);
-	gtk_widget_show(statusbar);
-	statusbar_id = gtk_statusbar_get_context_id(GTK_STATUSBAR(statusbar), "gnothello");
-
-	gtk_table_attach(GTK_TABLE(table), statusbar, 0, 1, 0, 1, GTK_EXPAND | GTK_FILL, 0, 3, 1);
 
 	black_score = gtk_label_new("Dark:");
 	gtk_widget_show(black_score);
@@ -832,11 +886,10 @@ void create_window()
 
 	gtk_widget_show(table);
 
-	gtk_box_pack_start(GTK_BOX(appbar), table, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(appbar), table, FALSE, TRUE, 0);
 
-	gnome_app_set_statusbar(GNOME_APP(window), appbar);
-
-	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("Welcome to Gnothello!"));
+	gnome_appbar_set_status(GNOME_APPBAR (appbar),
+				_("Welcome to Gnothello!"));
 }
 
 void gui_status()
@@ -851,8 +904,8 @@ void gui_status()
 
 void gui_message(gchar *message)
 {
-	gtk_statusbar_pop(GTK_STATUSBAR(statusbar), statusbar_id);
-	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, message);
+	gnome_appbar_pop(GNOME_APPBAR (appbar));
+        gnome_appbar_push(GNOME_APPBAR (appbar), message);
 }
 
 guint check_computer_players()

@@ -1,3 +1,9 @@
+1999-01-10  Nat Friedman  <nat@nat.org>
+
+	* gnothello.c: Standardized menus.
+	(create_window): Create a GnomeAppBar.
+	(gui_message): Use the appbar.
+
 1998-11-29  Justin Maurer  <justin@openprojects.net>
 
 	* gnothello.c: remove right-justification of help menu
