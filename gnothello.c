@@ -502,7 +502,12 @@ void create_menus()
 
 void create_drawing_area()
 {
+	gtk_widget_push_visual (gdk_imlib_get_visual ());
+	gtk_widget_push_colormap (gdk_imlib_get_colormap ());
 	drawing_area = gtk_drawing_area_new();
+	gtk_widget_pop_colormap ();
+	gtk_widget_pop_visual ();
+	
 	gnome_app_set_contents(GNOME_APP(window), drawing_area);
 	gtk_drawing_area_size(GTK_DRAWING_AREA(drawing_area), BOARDWIDTH, BOARDHEIGHT);
 	gtk_signal_connect(GTK_OBJECT(drawing_area), "expose_event", GTK_SIGNAL_FUNC(expose_event), NULL);
