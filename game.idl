@@ -1,0 +1,6 @@
+
+interface Gnothello {
+	void set_peer (in Object peer);
+	long move (in long x, in long y, in long me);
+	void new_game ();
+};
