@@ -1,3 +1,8 @@
+2001-06-03  Juan Pablo Mendoza Mendoza <pablo_juan@yahoo.com>
+
+	* gnothello.c (main): Don't try to free the gnome_master_client to
+	  silent a gtk warning on exit.
+
 2000-09-12  Dan Mueth <d-mueth@uchicago.edu>
 
         * help/it/Makefile.am: Fixed stylesheet-images/ stuff
