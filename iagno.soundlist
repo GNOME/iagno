@@ -1,6 +1,7 @@
 [__section_info__]
 description=Iagno
 description[da]=Iagno
+description[gl]=Iagno
 description[ko]=ΐΜΎΖ±Χ³λ
 description[no]=Iagno
 description[pl]=Iagno
@@ -13,6 +14,7 @@ description[da]=Spillet slut
 description[el]=Τέλος παιχνιδιού
 description[es]=Fin del juego
 description[fr]=Fin du jeu
+description[gl]=Xogo rematado
 description[ko]=°ΤΐΣ ³΅
 description[no]=Spillet over
 description[pl]=Zakoρczenie gry
@@ -25,6 +27,7 @@ description[da]=Vending af brik
 description[el]=Αλλαγή όψης κομματιού
 description[es]=Cambio de las piezas
 description[fr]=Changement des piθces
+description[gl]=Cambio das pezas
 description[ko]=µΉ µΪΑύ±β
 description[no]=Vending av brikke
 description[pl]=Obrσt kr±Ώka
