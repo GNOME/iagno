@@ -759,12 +759,13 @@ void create_window()
 
 	gtk_widget_push_visual (gdk_imlib_get_visual ());
 	gtk_widget_push_colormap (gdk_imlib_get_colormap ());
+
 	drawing_area = gtk_drawing_area_new();
+
 	gtk_widget_pop_colormap ();
 	gtk_widget_pop_visual ();
 
 	vbox = gtk_vbox_new(FALSE, 0);
-//	gtk_container_border_width(GTK_CONTAINER(vbox), GNOME_PAD_SMALL);
 	gtk_widget_show(vbox);
 	gnome_app_set_contents(GNOME_APP(window), vbox);
 
@@ -777,79 +778,45 @@ void create_window()
 	gtk_widget_set_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
 	gtk_widget_show(drawing_area);
 
-//	box = gtk_hbox_new(FALSE, 20);
-//	gtk_widget_show(box);
+	frame = gtk_frame_new(NULL);
+	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_OUT);
+	gtk_container_border_width(GTK_CONTAINER(frame), 0);
+	gtk_widget_show(frame);
 
 	table = gtk_table_new(1, 4, FALSE);
+	gtk_table_set_col_spacing(GTK_TABLE(table), 1, 32);
+	gtk_table_set_col_spacing(GTK_TABLE(table), 2, 32);
 
 	statusbar = gtk_statusbar_new();
 	gtk_frame_set_shadow_type(GTK_FRAME(GTK_STATUSBAR(statusbar)->frame), GTK_SHADOW_NONE);
 	gtk_widget_show(statusbar);
 	statusbar_id = gtk_statusbar_get_context_id(GTK_STATUSBAR(statusbar), "gnothello");
 
-//	gtk_box_pack_start(GTK_BOX(box), statusbar, TRUE, TRUE, 0);
-	gtk_table_attach(GTK_TABLE(table), statusbar, 0, 1, 0, 1, GTK_EXPAND | GTK_FILL, 0, GNOME_PAD_SMALL, GNOME_PAD_SMALL);
-
-/*
-	frame = gtk_frame_new(NULL);
-	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
-	gtk_container_border_width(GTK_CONTAINER(frame), 0);
-	gtk_widget_show(frame);
-*/
+	gtk_table_attach(GTK_TABLE(table), statusbar, 0, 1, 0, 1, GTK_EXPAND | GTK_FILL, 0, 3, 1);
 
 	sprintf(tmp, _("Dark: %.2d"), 0);
 	black_score = gtk_label_new(tmp);
 	gtk_widget_show(black_score);
 
-/*
-	gtk_container_add(GTK_CONTAINER(frame), black_score);
-*/
-
-	gtk_table_attach(GTK_TABLE(table), black_score, 1, 2, 0, 1, 0, 0, GNOME_PAD, GNOME_PAD_SMALL);
-
-/*
-	frame = gtk_frame_new(NULL);
-	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
-	gtk_container_border_width(GTK_CONTAINER(frame), 0);
-	gtk_widget_show(frame);
-*/
+	gtk_table_attach(GTK_TABLE(table), black_score, 1, 2, 0, 1, 0, 0, 3, 1);
 
 	sprintf(tmp, _("Light: %.2d"), 0);
 	white_score = gtk_label_new(tmp);
 	gtk_widget_show(white_score);
 
-/*
-	gtk_container_add(GTK_CONTAINER(frame), white_score);
-*/
-
-	gtk_table_attach(GTK_TABLE(table), white_score, 2, 3, 0, 1, 0, 0, GNOME_PAD, GNOME_PAD_SMALL);
-
-/*
-	frame = gtk_frame_new(NULL);
-	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
-	gtk_container_border_width(GTK_CONTAINER(frame), 0);
-	gtk_widget_show(frame);
-*/
-
-/*
-	sprintf(tmp, _("  %.2d:%.2d:%.2d  "), 0, 0, 0);
-	time_display = gtk_label_new(tmp);
-	gtk_widget_set_sensitive(time_display, FALSE);
-	gtk_widget_show(time_display);
-*/
+	gtk_table_attach(GTK_TABLE(table), white_score, 2, 3, 0, 1, 0, 0, 3, 1);
 
 	time_display = gtk_clock_new(GTK_CLOCK_INCREASING);
 	gtk_widget_set_sensitive(time_display, FALSE);
 	gtk_widget_show(time_display);
 
-/*
-	gtk_container_add(GTK_CONTAINER(frame), time_display);
-*/
-
-	gtk_table_attach(GTK_TABLE(table), time_display, 3, 4, 0, 1, 0, 0, GNOME_PAD, GNOME_PAD_SMALL);
+	gtk_table_attach(GTK_TABLE(table), time_display, 3, 4, 0, 1, 0, 0, 3, 1);
 
 	gtk_widget_show(table);
-	gtk_box_pack_end(GTK_BOX(vbox), table, TRUE, TRUE, 0);
+
+	gtk_container_add(GTK_CONTAINER(frame), table);
+
+	gtk_box_pack_start(GTK_BOX(vbox), frame, TRUE, TRUE, 0);
 
 	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("Welcome to Gnome Othello!"));
 }
