@@ -7,7 +7,7 @@ INCLUDES = 			\
 	-DHAVE_ORBIT \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)				 \
-	$(GNOME_INCLUDEDIR)
+	$(GNOME_INCLUDEDIR) -I.
 
 bin_PROGRAMS = gnothello
 
@@ -20,6 +20,8 @@ gnothello_SOURCES = \
 	$(CORBA_SRCS) \
 	othello.c \
 	othello.h
+
+$(srcdir)/network.c $(srcdir)/network.h: $(CORBA_SRCS)
 
 CLEANFILES = $(CORBA_SRCS)
 
