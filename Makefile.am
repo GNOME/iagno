@@ -30,7 +30,9 @@ gnothello_LDADD = \
 	$(ORBIT_LIBS) \
 	$(INTLLIBS)
 
-pixmap_DATA = flip.png
+pixmap_DATA = \
+	flip.png \
+	blend.png
 
 appicon_DATA = gnothello.png
 
