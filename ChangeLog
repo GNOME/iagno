@@ -1,3 +1,9 @@
+2003-06-10  William Jon McCann  <mccann@jhu.edu>
+
+	* gnothello.c: Removed separators from appbar.
+
+	* properties.c: HIG fixes for preferences dialog.
+
 2003-06-09  William Jon McCann  <mccann@jhu.edu>
 
 	* gnothello.c: 

@@ -762,11 +762,6 @@ void create_window()
 
 	gtk_table_attach(GTK_TABLE(table), black_score, 2, 3, 0, 1, 0, 0, 3, 1);
 
-	sep = gtk_vseparator_new();
-	gtk_widget_show(sep);
-
-	gtk_table_attach(GTK_TABLE(table), sep, 3, 4, 0, 1, 0, GTK_FILL, 3, 3);
-
 	white_score = gtk_label_new(_("Light:"));
 	gtk_widget_show(white_score);
 
@@ -776,11 +771,6 @@ void create_window()
 	gtk_widget_show(white_score);
 
 	gtk_table_attach(GTK_TABLE(table), white_score, 5, 6, 0, 1, 0, 0, 3, 1);
-
-	sep = gtk_vseparator_new();
-	gtk_widget_show(sep);
-
-	gtk_table_attach(GTK_TABLE(table), sep, 6, 7, 0, 1, 0, GTK_FILL, 3, 3);
 
 	time_display = games_clock_new();
 	gtk_widget_set_sensitive(time_display, FALSE);
