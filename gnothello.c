@@ -81,6 +81,7 @@ int session_ypos = -1;
 int session_position = 0;
 
 gchar tile_set[255];
+gchar tile_set_tmp[255];
 
 static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
@@ -354,6 +355,7 @@ void load_tiles_callback(GtkWidget *widget, void *data)
 	gint i, j;
 
 	cancel(0,0);
+	strncpy(tile_set, tile_set_tmp, 255);
 	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
 	load_pixmaps();
 	for(i = 0; i < 8; i++)
@@ -403,7 +405,7 @@ void free_str(GtkWidget *widget, void *data)
 
 void set_selection(GtkWidget *widget, void *data)
 {
-	strncpy(tile_set, data, 255);
+	strncpy(tile_set_tmp, data, 255);
 }
 
 void cancel(GtkWidget *widget, void *data)
