@@ -22,8 +22,6 @@
 #ifndef _OTHELLO_H_
 #define _OTHELLO_H_
 
-#define MAX_DEPTH 4;
-
 gint is_valid_move (guint, guint, guint);
 gint is_valid_move_board (gint8[8][8], guint, guint, guint);
 gint move (guint, guint, guint);

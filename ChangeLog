@@ -1,3 +1,9 @@
+2005-01-12  Richard Hoelscher  <rah@rahga.com>
+
+	* othello.h: 
+	* othello.c: Fix define for MAX_DEPTH, add defines for winning and
+	losing games. Remove the pass tests for AI #1 and #2.
+
 2005-01-11  Richard Hoelscher  <rah@rahga.com>
 
 	* othello.c (computer_move_3): ai#3 crashers. Bug #163403 et al.

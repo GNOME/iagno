@@ -32,6 +32,10 @@
 #define WHITE_TURN 31
 #define BLACK_TURN 1
 
+#define MAX_DEPTH 7
+
+#define S_LOSING_GAME -10000
+#define S_WINNING_GAME 10000
 
 guint heuristic[8][8] = {{512,4,128,256,256,128,4,512},
 			 {4,2,8,16,16,8,2,4},
@@ -455,10 +459,8 @@ computer_move_1 (guint me)
 				num_moves++;
 			}
 
-	if (num_moves) {
-		i = (rand ()>>3) % num_moves;
-		move (xs[i], ys[i], me);
-	}
+	i = (rand ()>>3) % num_moves;
+	move (xs[i], ys[i], me);
 
 	return (FALSE);
 }
@@ -468,7 +470,7 @@ computer_move_2 (guint me)
 {
 	guint i, j;
 	guint best_x = 8, best_y = 8;
-	gint best_move = -10000;
+	gint best_move = S_LOSING_GAME;
 	gint tmp_move;
 	gint8 tboard[8][8];
 
@@ -484,7 +486,7 @@ computer_move_2 (guint me)
 					best_y = j;
 				}
 				if (tmp_move > best_move
-				    && (best_move == -10000
+				    && (best_move == S_LOSING_GAME
 					|| rand() * 100 > 85)) {
 					best_move = tmp_move;
 					best_x = i;
@@ -492,9 +494,7 @@ computer_move_2 (guint me)
 				}
 			}
 
-	if (best_move != -10000) {
-		move (best_x, best_y, me);
-	}
+	move (best_x, best_y, me);
 
 	return (FALSE);
 }
@@ -505,7 +505,7 @@ computer_move_3(guint me)
 	guint best_x, best_y;
 
 
-	find_best_move (board, me, 7, 10000, -10000, &best_x, &best_y);
+	find_best_move (board, me, MAX_DEPTH, S_WINNING_GAME, S_LOSING_GAME, &best_x, &best_y);
 	
 	if (best_x == 8 && best_y == 8)
 		computer_move_1 (me);
@@ -753,28 +753,10 @@ eval_heuristic (gint8 board[8][8], guint me)
 		for (j = 0; j < 8; j++) {
 			if (board[i][j] == me)
 				score += heuristic[i][j];
-/*			if (board[i][j] == not_me)
-				score -= heuristic[i][j]; */
 		}
 
 	return (score);
 }
-
-#if 0
-static gint
-mobility (gint8 board[8][8], guint me)
-{
-	guint i, j;
-	guint moves = 0;
-
-	for (i = 0; i < 8; i++)
-		for (j = 0; j < 8; j++)
-			if (is_valid_move_board (board, i, j, me))
-				moves++;
-
-	return (moves);
-}
-#endif
 
 gint 
 eval_board (gint8 board[8][8], guint me)
@@ -804,18 +786,15 @@ eval_board (gint8 board[8][8], guint me)
 		
 	// check if a player is dead
 	if (!found_me && found_not_me)
-		return (-10000);
+		return (S_LOSING_GAME);
 	else if (found_me && !found_not_me)
-		return (10000);
+		return (S_WINNING_GAME);
 	
 	// if the game is finished, return the actual score rather than
 	// a huristic
 	if (!found_free)
 		return (actual_score);
 	
-/*	mobility_score = (32 - mobility (board, not_me) - move_count);
-	mobility_score = (mobility_score > 0) ? mobility_score : 0; */
-
 	heuristic_score = eval_heuristic (board, me);
 
 	return (heuristic_score);
