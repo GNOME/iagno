@@ -453,7 +453,7 @@ void show_properties_dialog ()
 	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD_SMALL);
 	gtk_widget_show (vbox);
 	
-	button = gtk_radio_button_new_with_label (NULL, _("Human"));
+	button = gtk_radio_button_new_with_label (NULL, _("None"));
 	if (animate == 0)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
