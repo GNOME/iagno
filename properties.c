@@ -64,7 +64,7 @@ void load_properties ()
 		error = NULL;
 	}
 
-	if (gconf_client_get_bool (client, "/apps/iagno/quick-moves", NULL))
+	if (gconf_client_get_bool (client, "/apps/iagno/quick-moves", &error))
 		computer_speed = COMPUTER_MOVE_DELAY / 2;
 	else
 		computer_speed = COMPUTER_MOVE_DELAY;
@@ -130,21 +130,42 @@ void load_properties ()
 void reset_properties ()
 {
 	GConfClient *client;
+	GError      *error = NULL;
 
 	client = gconf_client_get_default ();
 
 	t_black_computer_level = black_computer_level =
-		gconf_client_get_int (client, "/apps/iagno/black-level", NULL);
+		gconf_client_get_int (client, "/apps/iagno/black-level", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
 
 	t_white_computer_level = white_computer_level =
-		gconf_client_get_int (client, "/apps/iagno/white-level", NULL);
+		gconf_client_get_int (client, "/apps/iagno/white-level", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
 
-	t_quick_moves = gconf_client_get_bool (client, "/apps/iagno/quick-moves", NULL);
+	t_quick_moves = gconf_client_get_bool (client, "/apps/iagno/quick-moves", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
 
 	if (tile_set_tmp)
 		g_free (tile_set_tmp);
 
-	tile_set_tmp = gconf_client_get_string (client, "/apps/iagno/tileset", NULL);
+	tile_set_tmp = gconf_client_get_string (client, "/apps/iagno/tileset", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
 
 	t_animate         = animate;
 	t_animate_stagger = animate_stagger;

@@ -502,7 +502,7 @@ void load_pixmaps()
 
 	image = gdk_pixbuf_new_from_file(fname, &error);
 	if (error) {
-		g_warning (G_STRLOC ": gconf error %s\n", error->message);
+		g_warning (G_STRLOC ": gdk-pixbuf error %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}

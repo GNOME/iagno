@@ -1,3 +1,9 @@
+2002-01-09  Mark McLoughlin  <mark@skynet.ie>
+
+	* gnothello.c: (load_pixmaps):
+	* properties.c: (load_properties), (reset_properties):
+	fixup some gconf error handling.
+
 2001-12-23  Mark McLoughlin  <mark@skynet.ie>
 
 	* gnothello.c, properties.c, othello.c: use the GameClock
