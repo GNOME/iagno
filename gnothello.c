@@ -602,7 +602,7 @@ void load_pixmaps()
 	GdkImlibImage *image;
 	GdkVisual *visual;
 
-	tmp = g_copy_strings("gnothello/", tile_set, NULL);
+	tmp = g_strconcat("gnothello/", tile_set, NULL);
 	fname = gnome_unconditional_pixmap_file(tmp);
 	g_free(tmp);
 
