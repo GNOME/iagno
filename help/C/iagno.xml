@@ -374,10 +374,8 @@
  <title>Authors</title>
   <para>
    <application>Iagno</application> was written by Ian Peters
-   (<email>itp@gnu.org</email>). To find more information about
-   <application>Iagno</application>, please visit the <ulink
-   url="http://www.my-gnome-app.org" type="http">MY-GNOME-APP Web
-   page</ulink>.  Please send all comments, suggestions, and bug
+   (<email>itp@gnu.org</email>).
+   Please send all comments, suggestions, and bug
    reports to the <ulink url="http://bugs.gnome.org" type="http">GNOME
    bug tracking database</ulink>. (Instructions for submitting bug
    reports can be found <ulink
