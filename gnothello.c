@@ -343,8 +343,8 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 
 	gtk_box_pack_start_defaults(GTK_BOX(GNOME_DIALOG(tile_dialog)->vbox), frame);
 
-	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 0, GTK_SIGNAL_FUNC(cancel), (gpointer)1);
-	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 1, GTK_SIGNAL_FUNC(load_tiles_callback), NULL);
+	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 0, GTK_SIGNAL_FUNC(load_tiles_callback), NULL);
+	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 1, GTK_SIGNAL_FUNC(cancel), (gpointer)1);
 
 	gtk_widget_show (tile_dialog);
 }
@@ -352,6 +352,8 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 void load_tiles_callback(GtkWidget *widget, void *data)
 {
 	gint i, j;
+
+	printf("Me called first!\n");
 
 	cancel(0,0);
 	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
@@ -476,6 +478,8 @@ void load_pixmaps()
 	char *fname;
 	GdkImlibImage *image;
 	GdkVisual *visual;
+
+	printf("I was called\n");
 
 	tmp = g_copy_strings("gnothello/", tile_set, NULL);
 	fname = gnome_unconditional_pixmap_file(tmp);
