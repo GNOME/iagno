@@ -1,8 +1,9 @@
 [Desktop Entry]
+Encoding=UTF-8
 Icon=iagno.png
 _Name=Iagno
 _Comment=Reversi game
 Exec=iagno
-Terminal=0
+Terminal=false
 Type=Application
-Categories=Application;Game;
+Categories=GNOME;Application;Game;
