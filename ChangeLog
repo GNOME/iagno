@@ -1,4 +1,4 @@
-1998-11-12  Andrew T. Veliath  <andrewv@usa.net>
+1998-11-12  Andrew T. Veliath  <andrewtv@usa.net>
 
 	* Makefile.am: Add CORBA_SRCS to CLEANFILES. Rewrite orbit-idl
 	rule to use ORBIT_IDL + dependency.  Replace GNOMEUI_LIBS +
