@@ -452,7 +452,8 @@ void show_properties_dialog ()
 			GTK_WINDOW (window),
 			0,
 			GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, NULL);
-
+        gtk_window_set_title (GTK_WINDOW(propbox), _("Iagno Preferences"));
+        
         gtk_dialog_set_has_separator (GTK_DIALOG (propbox), FALSE);
 	notebook = gtk_notebook_new ();
 	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (propbox)->vbox),

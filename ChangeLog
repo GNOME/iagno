@@ -1,3 +1,8 @@
+2003-06-13  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* properties.c (show_properties_dialog): Fix the properties window
+	title.
+
 2003-06-11  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnothello.c : i18n fixes from Christian Neumair (bug #114875). 
