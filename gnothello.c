@@ -564,67 +564,91 @@ gint flip_pixmaps(gpointer data)
 	return(TRUE);
 }
 
-void init_new_game()
+static void
+redraw_board(void)
 {
-	guint i, j;
+  guint i, j;
 
-	if (flip_final_id) {
-		gtk_timeout_remove(flip_final_id);
-		flip_final_id = 0;
-	}
+  gui_status();
 
-	if (black_computer_id) {
-		gtk_timeout_remove(black_computer_id);
-		black_computer_id = 0;
-	}
+  for(i = 0; i < 8; i++)
+    for(j = 0; j < 8; j++)
+      gui_draw_pixmap_buffer(pixmaps[i][j], i, j);
 
-	if (white_computer_id) {
-		gtk_timeout_remove(white_computer_id);
-		white_computer_id = 0;
-	}
+  gui_draw_grid();
+}
 
-	game_in_progress = 1;
-	move_count = 0;
+void
+clear_board(void)
+{
+  guint i, j;
 
-	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++)
-			board[i][j] = 0;
-	board[3][3] = WHITE_TURN;
-	board[3][4] = BLACK_TURN;
-	board[4][3] = BLACK_TURN;
-	board[4][4] = WHITE_TURN;
+  if (flip_final_id) {
+    gtk_timeout_remove(flip_final_id);
+    flip_final_id = 0;
+  }
 
-	bcount = 2;
-	wcount = 2;
+  if (black_computer_id) {
+    gtk_timeout_remove(black_computer_id);
+    black_computer_id = 0;
+  }
 
-	gui_status();
+  if (white_computer_id) {
+    gtk_timeout_remove(white_computer_id);
+    white_computer_id = 0;
+  }
 
-	memcpy(pixmaps, board, sizeof(gint8) * 8 * 8);
-	memcpy(game[0].board, board, sizeof(gint8) * 8 * 8);
+  game_in_progress = 0;
+  move_count = 0;
+  for(i = 0; i < 8; i++)
+    for(j = 0; j < 8; j++)
+      board[i][j] = 0;
 
-	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++)
-			gui_draw_pixmap_buffer(pixmaps[i][j], i, j);
+  memcpy(pixmaps, board, sizeof(gint8) * 8 * 8);
+  memcpy(game[0].board, board, sizeof(gint8) * 8 * 8);
 
-        gui_draw_grid();
+  bcount = 0;
+  wcount = 0;
 
-	whose_turn = BLACK_TURN;
-	gui_message(_("Dark's move"));
+  redraw_board();
+}
 
-	gtk_clock_stop(GTK_CLOCK(time_display));
-	gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+void init_new_game(void)
+{
+  clear_board();
+  game_in_progress = 1;
+  move_count = 0;
 
-	if(black_computer_level ^ white_computer_level) {
-		if(!black_computer_level)
-			gtk_clock_start(GTK_CLOCK(time_display));
-		gtk_widget_set_sensitive(time_display, TRUE);
-		timer_valid = 1;
-	} else {
-		gtk_widget_set_sensitive(time_display, FALSE);
-		timer_valid = 0;
-	}
+  board[3][3] = WHITE_TURN;
+  board[3][4] = BLACK_TURN;
+  board[4][3] = BLACK_TURN;
+  board[4][4] = WHITE_TURN;
 
-	check_computer_players();
+  bcount = 2;
+  wcount = 2;
+
+  memcpy(pixmaps, board, sizeof(gint8) * 8 * 8);
+  memcpy(game[0].board, board, sizeof(gint8) * 8 * 8);
+
+  redraw_board();
+
+  whose_turn = BLACK_TURN;
+  gui_message(_("Dark's move"));
+
+  gtk_clock_stop(GTK_CLOCK(time_display));
+  gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+
+  if(black_computer_level ^ white_computer_level) {
+    if(!black_computer_level)
+      gtk_clock_start(GTK_CLOCK(time_display));
+    gtk_widget_set_sensitive(time_display, TRUE);
+    timer_valid = 1;
+  } else {
+    gtk_widget_set_sensitive(time_display, FALSE);
+    timer_valid = 0;
+  }
+
+  check_computer_players();
 }
 
 void create_window()

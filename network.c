@@ -39,6 +39,7 @@ typedef struct {
   GIOChannel *fd_gioc;
   guint read_tag, write_tag;
   int mycolor;
+  int sent_newgame;
 
   enum { CONNECTING, CONNECTED, DISCONNECTED } status;
 
@@ -64,10 +65,6 @@ network_start(void)
 
   netgame = nng = g_new0(NetworkGame, 1);
   nng->outbuf = g_string_new("");
-  nng->fd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
-  g_assert(nng->fd >= 0);
-  fcntl(nng->fd, F_SETFL, O_NONBLOCK);
-  nng->fd_gioc = g_io_channel_unix_new(nng->fd);
   network_set_status(nng, DISCONNECTED, _("Network initialization complete."));
 }
 
@@ -79,9 +76,7 @@ network_stop(void)
 
   network_set_status(netgame, DISCONNECTED, _("Network shutdown in progress."));
   network_io_setup(netgame, CALLER_OTHER);
-  g_io_channel_unref(netgame->fd_gioc);
   g_string_free(netgame->outbuf, TRUE);
-  close(netgame->fd);
   g_free(netgame);
   netgame = NULL;
 }
@@ -91,6 +86,12 @@ network_set_status(NetworkGame *ng, int status, const char *message)
 {
   if(status != CONNECTED)
     game_in_progress = 0;
+
+  if(status == DISCONNECTED)
+    {
+      close(ng->fd); ng->fd = -1; g_io_channel_unref(ng->fd_gioc); ng->fd_gioc = NULL;
+      g_string_truncate(netgame->outbuf, 0);
+    }
 
   ng->status = status;
   ng->mycolor = 0;
@@ -167,9 +168,9 @@ network_handle_read(GIOChannel *source, GIOCondition cond, gpointer data)
       int itmp;
       *(ctmp++) = '\0';
       network_handle_input(ng, ng->inbuf);
-      itmp = ctmp - ng->inbuf;
+      itmp = ng->inpos - (ctmp - ng->inbuf);
       memmove(ng->inbuf, ctmp, itmp);
-      ng->inpos -= itmp;
+      ng->inpos -= ctmp - ng->inbuf;
       ng->inbuf[ng->inpos] = '\0';
     }
 
@@ -177,7 +178,6 @@ network_handle_read(GIOChannel *source, GIOCondition cond, gpointer data)
 
  errout:     
   /* Shut down the connection, either it was broken or someone is messing with us */
-  shutdown(ng->fd, 2);
   network_set_status(ng, DISCONNECTED, _("The remote player disconnected"));
   return network_io_setup(ng, CALLER_READ_CB);
 }
@@ -208,7 +208,6 @@ network_handle_write(GIOChannel *source, GIOCondition cond, gpointer data)
   n = write(ng->fd, ng->outbuf->str, ng->outbuf->len);
   if(n <= 0)
     {
-      shutdown(ng->fd, 2);
       network_set_status(ng, DISCONNECTED, _("Error occurred during write."));
     }
   else
@@ -262,6 +261,10 @@ network_handle_input(NetworkGame *ng, char *buf)
     {
       gui_message(_("New game started"));
 
+      if(!ng->sent_newgame)
+	g_string_sprintfa(netgame->outbuf, "new_game\n");
+      ng->sent_newgame = 0;
+
       whose_turn = BLACK_TURN;
       init_new_game();
     }
@@ -313,15 +316,26 @@ network_connect (void)
   if(x)
     return network_set_status(netgame, DISCONNECTED, gai_strerror(x));
 
-  if(netgame->status == CONNECTED)
-    shutdown(netgame->fd, SHUT_RDWR);
+  if(netgame->status != DISCONNECTED)
+    {
+      network_set_status(netgame, DISCONNECTED, _("Cleaning up connection"));
+      network_io_setup(netgame, CALLER_OTHER);
+    }
+
+  netgame->fd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+  g_assert(netgame->fd >= 0);
+  fcntl(netgame->fd, F_SETFL, O_NONBLOCK);
+  netgame->fd_gioc = g_io_channel_unix_new(netgame->fd);
   x = connect(netgame->fd, res->ai_addr, res->ai_addrlen);
   if(x)
     {
       if(errno == EINPROGRESS)
 	network_set_status(netgame, CONNECTING, _("Connection in progress..."));
       else
-	network_set_status(netgame, DISCONNECTED, _("Connection failed"));
+	{
+	  perror("gnothello");
+	  network_set_status(netgame, DISCONNECTED, _("Connection failed"));
+	}
     }
   else
     network_set_status(netgame, CONNECTED, _("Connection succeeded, waiting for opponent"));
@@ -339,16 +353,13 @@ network_new(void)
   if(!game_server)
     return network_set_status(netgame, DISCONNECTED, _("No game server defined"));
 
-  if(netgame->status == DISCONNECTED)
+  if(netgame->status != CONNECTED)
     network_connect();
+
+  clear_board();
  
   g_string_sprintfa(netgame->outbuf, "new_game\n");
-
-  if(game_in_progress)
-    {
-      whose_turn = BLACK_TURN;
-      init_new_game();
-    }
+  netgame->sent_newgame = 1;
 
   network_io_setup(netgame, CALLER_OTHER);
 }
