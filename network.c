@@ -64,6 +64,7 @@ network_start(void)
     return;
 
   netgame = nng = g_new0(NetworkGame, 1);
+  nng->fd = -1;
   nng->outbuf = g_string_new("");
   network_set_status(nng, DISCONNECTED, _("Network initialization complete."));
 }
@@ -89,7 +90,14 @@ network_set_status(NetworkGame *ng, int status, const char *message)
 
   if(status == DISCONNECTED)
     {
-      close(ng->fd); ng->fd = -1; g_io_channel_unref(ng->fd_gioc); ng->fd_gioc = NULL;
+      if(ng->fd >= 0)
+	{
+	  close(ng->fd); ng->fd = -1;
+	}
+      if(ng->fd_gioc)
+	{
+	  g_io_channel_unref(ng->fd_gioc); ng->fd_gioc = NULL;
+	}
       g_string_truncate(netgame->outbuf, 0);
     }
 
