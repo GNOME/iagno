@@ -32,7 +32,8 @@ gnothello_LDADD = \
 
 pixmap_DATA = \
 	flip.png \
-	blend.png
+	blend.png \
+	shrink.png
 
 appicon_DATA = gnothello.png
 
