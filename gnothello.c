@@ -261,6 +261,7 @@ gboolean quit_game_cb(GtkWidget *widget, gpointer data)
 		gtk_dialog_set_default_response (GTK_DIALOG (dialog),
 				GTK_RESPONSE_REJECT);
 
+                gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
 		gtk_widget_show_all (dialog);
 		response = gtk_dialog_run (GTK_DIALOG(dialog));
 		gtk_widget_destroy (dialog);

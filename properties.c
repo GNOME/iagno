@@ -453,6 +453,7 @@ void show_properties_dialog ()
 			GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
 			GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
 
+        gtk_dialog_set_has_separator (GTK_DIALOG (propbox), FALSE);
 	notebook = gtk_notebook_new();
 	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (propbox)->vbox),
 			notebook);
