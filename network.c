@@ -275,7 +275,7 @@ network_handle_input(NetworkGame *ng, char *buf)
       gui_message(_("New game started"));
 
       if(!ng->sent_newgame)
-	g_string_sprintfa(netgame->outbuf, "new_game\n");
+	g_string_append_printf(netgame->outbuf, "new_game\n");
       ng->sent_newgame = 0;
 
       whose_turn = BLACK_TURN;
@@ -297,7 +297,7 @@ game_move (guint x, guint y, guint me)
 
       if(ng->status == CONNECTED)
 	{
-	  g_string_sprintfa(ng->outbuf, "move %u %u %u\n", x, y, me);
+	  g_string_append_printf(ng->outbuf, "move %u %u %u\n", x, y, me);
 	  network_io_setup(ng, CALLER_OTHER);
 	}
     }
@@ -375,7 +375,7 @@ network_new(void)
 
   clear_board();
  
-  g_string_sprintfa(netgame->outbuf, "new_game\n");
+  g_string_append_printf(netgame->outbuf, "new_game\n");
   netgame->sent_newgame = 1;
 
   network_io_setup(netgame, CALLER_OTHER);

@@ -231,11 +231,11 @@ void quit_game_maybe(GtkWidget *widget, gint button)
 			gtk_timeout_remove(white_computer_id);
 
 		if(buffer_pixmap)
-			gdk_pixmap_unref(buffer_pixmap);
+			gdk_drawable_unref(buffer_pixmap);
 		if(tiles_pixmap)
-			gdk_pixmap_unref(tiles_pixmap);
+			gdk_drawable_unref(tiles_pixmap);
 		if(tiles_mask)
-			gdk_pixmap_unref(tiles_mask);
+			gdk_drawable_unref(tiles_mask);
 
 		gtk_main_quit();
 	}
@@ -246,13 +246,23 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 	GtkWidget *box;
 
 	if(game_in_progress) {
-		box = gnome_message_box_new(_("Do you really want to quit?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
-		gtk_window_set_transient_for (GTK_WINDOW(box),
-				GTK_WINDOW(window));
-		gnome_dialog_set_default(GNOME_DIALOG(box), 0);
-		gtk_window_set_modal(GTK_WINDOW(box), TRUE);
-		gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)quit_game_maybe, NULL);
-		gtk_widget_show(box);
+		gint response;
+
+		box = gtk_dialog_new_with_buttons (NULL,
+				GTK_WINDOW (window),
+				GTK_DIALOG_MODAL,
+				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
+				GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
+				_("Do you really want to quit?"),
+				NULL);
+		gtk_dialog_set_default_response (GTK_DIALOG (box),
+				GTK_RESPONSE_REJECT);
+
+		response = gtk_dialog_run (GTK_DIALOG(box));
+		gtk_widget_destroy (box);
+
+		if (response == GTK_RESPONSE_ACCEPT)
+			quit_game_maybe(NULL, 0);
 	} else {
 		quit_game_maybe(NULL, 0);
 	}
@@ -396,10 +406,15 @@ void about_cb(GtkWidget *widget, gpointer data)
 
 	{
 		char *filename = NULL;
-		filename = gnome_pixmap_file ("iagno.png");
+
+		filename = gnome_program_locate_file (NULL,
+				GNOME_FILE_DOMAIN_PIXMAP,  ("iagno.png"),
+				TRUE, NULL);
 		if (filename != NULL)
+		{
 			pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
-		g_free (filename);
+			g_free (filename);
+		}
 	}
 
 	about = gnome_about_new(_("Iagno"), VERSION, 
@@ -411,7 +426,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 				pixbuf);
 			
 			
-	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
+	g_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);
 	gtk_window_set_transient_for (GTK_WINDOW(about), GTK_WINDOW(window));
 
@@ -425,7 +440,7 @@ void properties_cb (GtkWidget *widget, gpointer data)
 
 gint expose_event(GtkWidget *widget, GdkEventExpose *event)
 {
-	gdk_draw_pixmap(widget->window, widget->style->fg_gc[GTK_WIDGET_STATE(widget)], buffer_pixmap, event->area.x, event->area.y, event->area.x, event->area.y, event->area.width, event->area.height);
+	gdk_draw_drawable(widget->window, widget->style->fg_gc[GTK_WIDGET_STATE(widget)], buffer_pixmap, event->area.x, event->area.y, event->area.x, event->area.y, event->area.width, event->area.height);
 
 	return(FALSE);
 }
@@ -470,13 +485,13 @@ gint button_press_event(GtkWidget *widget, GdkEventButton *event)
 
 void gui_draw_pixmap(gint which, gint x, gint y)
 {
-	gdk_draw_pixmap(drawing_area->window, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
-	gdk_draw_pixmap(buffer_pixmap, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+	gdk_draw_drawable(drawing_area->window, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+	gdk_draw_drawable(buffer_pixmap, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
 }
 
 void gui_draw_pixmap_buffer(gint which, gint x, gint y)
 {
-	gdk_draw_pixmap(buffer_pixmap, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+	gdk_draw_drawable(buffer_pixmap, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
 }
 
 void gui_draw_grid()
@@ -490,7 +505,7 @@ void gui_draw_grid()
 					  0, i*BOARDHEIGHT/8-1, BOARDWIDTH, i*BOARDHEIGHT/8-1);
 	}
 	
-	gdk_draw_pixmap(drawing_area->window, gridGC[0], buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
+	gdk_draw_drawable(drawing_area->window, gridGC[0], buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
 }
 
 void load_pixmaps()
@@ -503,10 +518,11 @@ void load_pixmaps()
 	g_return_if_fail (tile_set != NULL && tile_set [0] != '0');
 
 	tmp = g_strconcat("iagno/", tile_set, NULL);
-	fname = gnome_unconditional_pixmap_file(tmp);
+	fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP,
+			tmp, FALSE, NULL);
 	g_free(tmp);
 
-	if(!g_file_exists(fname)) {
+	if(!g_file_test(fname, G_FILE_TEST_EXISTS|G_FILE_TEST_IS_REGULAR)) {
 		g_print(_("Could not find \'%s\' pixmap file for Iagno\n"), fname);
 		exit(1);
 	}
@@ -691,11 +707,11 @@ void create_window()
 
 	gtk_widget_realize(window);
 	gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE);
-	gtk_signal_connect(GTK_OBJECT(window), "delete_event", GTK_SIGNAL_FUNC(quit_game_cb), NULL);
+	g_signal_connect(GTK_OBJECT(window), "delete_event", GTK_SIGNAL_FUNC(quit_game_cb), NULL);
 
 	gnome_app_create_menus(GNOME_APP(window), mainmenu);
 
-	gtk_widget_push_colormap (gdk_rgb_get_cmap ());
+	/* gtk_widget_push_colormap (gdk_rgb_get_cmap ()); */
 
 	drawing_area = gtk_drawing_area_new();
 
@@ -704,9 +720,9 @@ void create_window()
 	gnome_app_set_contents(GNOME_APP(window), drawing_area);
 
 	gtk_drawing_area_size(GTK_DRAWING_AREA(drawing_area), BOARDWIDTH, BOARDHEIGHT);
-	gtk_signal_connect(GTK_OBJECT(drawing_area), "expose_event", GTK_SIGNAL_FUNC(expose_event), NULL);
-	gtk_signal_connect(GTK_OBJECT(window), "configure_event", GTK_SIGNAL_FUNC(configure_event), NULL);
-	gtk_signal_connect(GTK_OBJECT(drawing_area), "button_press_event", GTK_SIGNAL_FUNC(button_press_event), NULL);
+	g_signal_connect(GTK_OBJECT(drawing_area), "expose_event", GTK_SIGNAL_FUNC(expose_event), NULL);
+	g_signal_connect(GTK_OBJECT(window), "configure_event", GTK_SIGNAL_FUNC(configure_event), NULL);
+	g_signal_connect(GTK_OBJECT(drawing_area), "button_press_event", GTK_SIGNAL_FUNC(button_press_event), NULL);
 	gtk_widget_set_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
 	gtk_widget_show(drawing_area);
 
@@ -764,9 +780,9 @@ void gui_status()
 	gchar message[3];
 
 	sprintf(message, _("%.2d"), bcount);
-	gtk_label_set(GTK_LABEL(black_score), message);
+	gtk_label_set_text(GTK_LABEL(black_score), message);
 	sprintf(message, _("%.2d"), wcount);
-	gtk_label_set(GTK_LABEL(white_score), message);
+	gtk_label_set_text(GTK_LABEL(white_score), message);
 }
 
 void gui_message(gchar *message)
@@ -811,15 +827,15 @@ void set_bg_color()
 	GdkImage *tmpimage;
 	GdkColor bgcolor;
 
-	tmpimage = gdk_image_get(tiles_pixmap, 0, 0, 1, 1);
+	tmpimage = gdk_drawable_get_image (tiles_pixmap, 0, 0, 1, 1);
 	bgcolor.pixel = gdk_image_get_pixel(tmpimage, 0, 0);
 	gdk_window_set_background(drawing_area->window, &bgcolor);
 
 	if (gridGC[0])
-	  gdk_gc_destroy(gridGC[0]);
+	  gdk_gc_unref(gridGC[0]);
 	gridGC[0] = gdk_gc_new (drawing_area->window);
 	if (gridGC[1])
-	  gdk_gc_destroy(gridGC[1]);
+	  gdk_gc_unref(gridGC[1]);
 	gridGC[1] = gdk_gc_new (drawing_area->window);
 
 	gdk_gc_copy (gridGC [0],drawing_area->style->bg_gc[0]);
@@ -837,7 +853,7 @@ void set_bg_color()
 				    GDK_LINE_ON_OFF_DASH,
 				    GDK_CAP_BUTT, GDK_JOIN_MITER);
 	
-	gdk_image_destroy (tmpimage);
+	gdk_image_unref (tmpimage);
 }
 
 static char *nstr(int n)
@@ -892,9 +908,10 @@ int main(int argc, char **argv)
 	gtk_object_ref(GTK_OBJECT(client));
 	gtk_object_sink(GTK_OBJECT(client));
 
-	gtk_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
-	gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
-
+	g_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
+#if 0
+	g_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
+#endif
 	create_window();
 	
 	load_properties ();
