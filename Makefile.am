@@ -37,14 +37,16 @@ pixmap_DATA = \
 
 appicon_DATA = iagno.png
 
-Games_DATA = iagno.desktop
+Games_in_files = iagno.desktop.in
+Games_DATA = $(Games_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
 schemadir   = $(sysconfdir)/gconf/schemas
 schema_DATA = iagno.schemas
 
 EXTRA_DIST = AUTHORS \
-             iagno.desktop 	\
-	     iagno.soundlist \
+             iagno.desktop.in 	\
+	     iagno.soundlist.in \
              $(pixmap_DATA)	\
 	     $(appicon_DATA)
 
@@ -72,7 +74,9 @@ install-data-local:
 	-chgrp games $(DESTDIR)$(bindir)/iagno && chmod 2111 $(DESTDIR)$(bindir)/iagno
 
 soundlistdir = $(sysconfdir)/sound/events
-soundlist_DATA = iagno.soundlist
+soundlist_in_files = iagno.soundlist.in
+soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
+@INTLTOOL_SOUNDLIST_RULE@
 
 SUBDIRS=sounds help
 
