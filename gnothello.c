@@ -25,6 +25,7 @@
 
 #include <sys/time.h>
 #include <string.h>
+#include <dirent.h>
 
 #include "gnothello.h"
 #include "othello.h"
@@ -33,6 +34,7 @@
 GtkWidget *window;
 GtkWidget *drawing_area;
 GtkWidget *statusbar;
+GtkWidget *tile_dialog;
 
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixmap *tiles_pixmap = NULL;
@@ -76,6 +78,8 @@ int session_flag = 0;
 int session_xpos = 0;
 int session_ypos = 0;
 int session_position = 0;
+
+gchar tile_set[255];
 
 static struct argp_option options[] =
 {
@@ -128,8 +132,12 @@ GnomeUIInfo white_level_menu[] = {
 };
 
 GnomeUIInfo comp_menu[] = {
-	GNOMEUIINFO_SUBTREE(N_("_Black"), black_level_menu),
-	GNOMEUIINFO_SUBTREE(N_("_White"), white_level_menu),
+//	GNOMEUIINFO_SUBTREE(N_("_Black"), black_level_menu),
+//	GNOMEUIINFO_SUBTREE(N_("_White"), white_level_menu),
+	{ GNOME_APP_UI_SUBTREE, N_("_Black"), NULL, black_level_menu, NULL, NULL,
+	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
+	{ GNOME_APP_UI_SUBTREE, N_("_White"), NULL, white_level_menu, NULL, NULL,
+	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
 	GNOMEUIINFO_SEPARATOR,
 	GNOMEUIINFO_TOGGLEITEM(N_("_Quick Moves"), NULL, quick_moves_cb, NULL),
 	GNOMEUIINFO_END
@@ -142,10 +150,24 @@ GnomeUIInfo anim_radio_list[] = {
 	GNOMEUIINFO_END
 };
 
-GnomeUIInfo anim_menu[] = {
+GnomeUIInfo anim_type_menu[] = {
 	GNOMEUIINFO_RADIOLIST(anim_radio_list),
+	GNOMEUIINFO_END
+};
+
+GnomeUIInfo anim_menu[] = {
+//	GNOMEUIINFO_SUBTREE(N_("_Type"), anim_type_menu),
+	{ GNOME_APP_UI_SUBTREE, N_("_Type"), NULL, anim_type_menu, NULL, NULL,
+	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
 	GNOMEUIINFO_SEPARATOR,
 	GNOMEUIINFO_TOGGLEITEM(N_("_Stagger Flips"), NULL, anim_stagger_cb, NULL),
+	GNOMEUIINFO_SEPARATOR,
+//	GNOMEUIINFO_ITEM_NONE(N_("_Change Tiles"), NULL, new_game_cb),
+//	GNOMEUIINFO_ITEM(N_("_Change Tiles"), NULL, new_game_cb, NULL),
+//	{ GNOME_APP_UI_ITEM, N_("_Load Tiles"), NULL, new_game_cb, NULL, NULL,
+//	  GNOME_APP_PIXMAP_NONE, NULL, 't', GDK_CONTROL_MASK },
+	{ GNOME_APP_UI_ITEM, N_("_Load Tiles"), NULL, load_tiles_cb, NULL, NULL,
+	  GNOME_APP_PIXMAP_DATA, NULL, 0, GDK_CONTROL_MASK },
 	GNOMEUIINFO_END
 };
 
@@ -316,6 +338,120 @@ void anim_stagger_cb(GtkWidget *widget, gpointer data)
 	gnome_config_sync();
 }
 
+void load_tiles_cb(GtkWidget *widget, gpointer data)
+{
+	GtkWidget *menu, *options_menu, *frame, *hbox, *label, *button;
+	GtkDialog *dialog;
+
+	if (tile_dialog)
+		return;
+
+	tile_dialog = gtk_dialog_new();
+	dialog = GTK_DIALOG(tile_dialog);
+	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event", (GtkSignalFunc)cancel, NULL);
+
+	options_menu = gtk_option_menu_new();
+	menu = gtk_menu_new();
+	fill_menu(menu);
+	gtk_widget_show(options_menu);
+	gtk_option_menu_set_menu(GTK_OPTION_MENU(options_menu), menu);
+
+	frame = gtk_frame_new(_("Tile Set"));
+	gtk_container_border_width(GTK_CONTAINER(frame), 5);
+
+	hbox = gtk_hbox_new(FALSE, FALSE);
+	gtk_container_border_width(GTK_CONTAINER(hbox), 5);
+	gtk_widget_show(hbox);
+
+	label = gtk_label_new(_("Select Tile Set: "));
+	gtk_widget_show(label);
+
+	gtk_box_pack_start_defaults(GTK_BOX(hbox), label);
+	gtk_box_pack_start_defaults(GTK_BOX(hbox), options_menu);
+
+	gtk_container_add(GTK_CONTAINER(frame), hbox);
+	gtk_widget_show(frame);
+
+	gtk_box_pack_start_defaults(GTK_BOX(dialog->vbox), frame);
+
+	button = gnome_stock_button(GNOME_STOCK_BUTTON_OK);
+	gtk_signal_connect(GTK_OBJECT(button), "clicked",
+	                   GTK_SIGNAL_FUNC(load_tiles_callback), NULL);
+	gtk_box_pack_start(GTK_BOX(dialog->action_area), button, TRUE, TRUE, 5);
+	gtk_widget_show(button);
+	button = gnome_stock_button(GNOME_STOCK_BUTTON_CANCEL);
+	gtk_signal_connect(GTK_OBJECT(button), "clicked",
+	                   (GtkSignalFunc)cancel,
+	                   (gpointer)1);
+	gtk_box_pack_start(GTK_BOX(dialog->action_area), button, TRUE, TRUE, 5);
+	gtk_widget_show(button);
+
+	gtk_widget_show (tile_dialog);
+}
+
+void load_tiles_callback(GtkWidget *widget, void *data)
+{
+	gint i, j;
+
+	cancel(0,0);
+	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
+	load_pixmaps();
+	for(i = 0; i < 8; i++)
+		for(j = 0; j < 8; j++)
+			gui_draw_pixmap(pixmaps[i][j], i, j);
+}
+
+void fill_menu(GtkWidget *menu)
+{
+	struct dirent *e;
+	char *dname = gnome_unconditional_pixmap_file("gnothello");
+	DIR *dir;
+	int itemno = 0;
+
+	dir = opendir(dname);
+
+	if(!dir)
+		return;
+
+	while((e = readdir(dir)) != NULL) {
+		GtkWidget *item;
+		char *s = strdup(e->d_name);
+		if(!strstr(e->d_name, ".png")) {
+			free(s);
+			continue;
+		}
+
+		item = gtk_menu_item_new_with_label(s);
+		gtk_widget_show(item);
+		gtk_menu_append(GTK_MENU(menu), item);
+		gtk_signal_connect(GTK_OBJECT(item), "activate", (GtkSignalFunc)set_selection, s);
+		gtk_signal_connect(GTK_OBJECT(item), "destroy", (GtkSignalFunc)free_str, s);
+
+		if (!strcmp(tile_set, s)) {
+			gtk_menu_set_active(GTK_MENU(menu), itemno);
+		}
+
+		itemno++;
+	}
+	closedir(dir);
+}
+
+void free_str(GtkWidget *widget, void *data)
+{
+	free(data);
+}
+
+void set_selection(GtkWidget *widget, void *data)
+{
+	strncpy(tile_set, data, 255);
+}
+
+void cancel(GtkWidget *widget, void *data)
+{
+	gtk_widget_destroy(tile_dialog);
+	tile_dialog = NULL;
+}
+
 gint expose_event(GtkWidget *widget, GdkEventExpose *event)
 {
         gdk_draw_pixmap(widget->window, widget->style->fg_gc[GTK_WIDGET_STATE(widget)], buffer_pixmap, event->area.x, event->area.y, event->area.x, event->area.y, event->area.width, event->area.height);
@@ -381,7 +517,7 @@ void load_pixmaps()
 	GdkImlibImage *image;
 	GdkVisual *visual;
 
-	tmp = g_copy_strings("gnothello/", PIXMAP_NAME, NULL);
+	tmp = g_copy_strings("gnothello/", tile_set, NULL);
 	fname = gnome_unconditional_pixmap_file(tmp);
 	g_free(tmp);
 
@@ -671,6 +807,7 @@ int main(int argc, char **argv)
 	create_drawing_area();
 	create_statusbar();
 
+	strncpy(tile_set, gnome_config_get_string("/gnothello/preferences/tileset=flip.png"), 255);
 	load_pixmaps();
 
 	check_valid_moves_id = gtk_timeout_add(1000, check_valid_moves, NULL);

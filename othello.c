@@ -167,11 +167,11 @@ gint move(guint x, guint y, guint me)
 	if(me == WHITE_TURN) {
 		not_me = BLACK_TURN;
 		if(animate && animate_stagger)
-			adder_diff = -2;
+			adder_diff = -PIXMAP_STAGGER_DELAY;
 	} else {
 		not_me = WHITE_TURN;
 		if(animate && animate_stagger)
-			adder_diff = 2;
+			adder_diff = PIXMAP_STAGGER_DELAY;
 	}
 
 	if(whose_turn == WHITE_TURN) {

@@ -20,10 +20,10 @@
  */
 
 #define GNOTHELLO_VERSION "0.2.0"
-#define PIXMAP_NAME "tiles.png"
 #define BLACK_TURN 1
 #define WHITE_TURN 31
 #define PIXMAP_FLIP_DELAY 20
+#define PIXMAP_STAGGER_DELAY 3
 #define COMPUTER_MOVE_DELAY 1000
 
 #define TILEWIDTH 60
@@ -42,6 +42,12 @@ void comp_white_cb (GtkWidget *widget, gpointer data);
 void quick_moves_cb (GtkWidget *widget, gpointer data);
 void anim_cb (GtkWidget *widget, gpointer data);
 void anim_stagger_cb (GtkWidget *widget, gpointer data);
+void load_tiles_cb(GtkWidget *widget, gpointer data);
+void fill_menu(GtkWidget *menu);
+void set_selection(GtkWidget *widget, void *data);
+void free_str(GtkWidget *widget, void *data);
+void load_tiles_callback(GtkWidget *widget, void *data);
+void cancel(GtkWidget *widget, void *data);
 gint expose_event (GtkWidget *widget ,GdkEventExpose *event);
 gint configure_event (GtkWidget *widget, GdkEventConfigure *event);
 gint button_press_event (GtkWidget *widget, GdkEventButton *event);
@@ -55,5 +61,6 @@ void create_drawing_area();
 void create_statusbar();
 void gui_message(gchar *message);
 guint check_computer_players();
+void load_pixmaps();
 
 extern guint whose_turn;
