@@ -650,8 +650,6 @@ void create_window()
 	gnome_app_install_menu_hints(GNOME_APP (window), mainmenu);
 
 	table = gtk_table_new(1, 8, FALSE);
-//	gtk_table_set_col_spacing(GTK_TABLE(table), 1, 32);
-//	gtk_table_set_col_spacing(GTK_TABLE(table), 2, 32);
 
 	black_score = gtk_label_new("Dark:");
 	gtk_widget_show(black_score);
