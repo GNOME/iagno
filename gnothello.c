@@ -229,6 +229,7 @@ static void undo_set_sensitive (gboolean state)
 void
 quit_game_cb (GtkWidget *widget, gpointer data)
 {
+  games_kill_server ();
   gtk_main_quit ();
 }
 
