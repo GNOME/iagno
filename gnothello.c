@@ -457,8 +457,16 @@ gint expose_event(GtkWidget *widget, GdkEventExpose *event)
 
 gint configure_event(GtkWidget *widget, GdkEventConfigure *event)
 {
+	static int old_width = 0, old_height = 0;
 	guint i, j;
 
+	if (old_width == event->width && old_height == event->height) {
+		return TRUE;
+	} else {
+		old_width = event->width;
+		old_height = event->height;
+	}
+	
 	if (gridGC[0] != 0) {
 		gdk_draw_rectangle(buffer_pixmap,gridGC[0],1,0,0,BOARDWIDTH,BOARDHEIGHT);
 		for(i = 0; i < 8; i++)
