@@ -48,6 +48,7 @@ Games_DATA = gnothello.desktop
 
 EXTRA_DIST = AUTHORS \
              gnothello.desktop 	\
+	     gnothello.soundlist \
              $(pixmap_DATA)	\
 	     $(appicon_DATA)
 
