@@ -240,12 +240,16 @@ network_handle_input(NetworkGame *ng, char *buf)
     {
       int me;
 
-      if(ng->mycolor)
-	return network_set_status(ng, DISCONNECTED, _("Invalid move attempted"));
+      if(ng->mycolor) {
+	network_set_status(ng, DISCONNECTED, _("Invalid move attempted"));
+	return;
+      }
 	
       if(!args || sscanf(args, "%d", &me) != 1
-	 || (me != WHITE_TURN && me != BLACK_TURN))
-	return network_set_status(ng, DISCONNECTED, _("Invalid game data (set_peer)"));
+	 || (me != WHITE_TURN && me != BLACK_TURN)) {
+	network_set_status(ng, DISCONNECTED, _("Invalid game data (set_peer)"));
+	return;
+      }
 
       white_level_cb(NULL, "0");
       black_level_cb(NULL, "0");
@@ -259,8 +263,10 @@ network_handle_input(NetworkGame *ng, char *buf)
 
       if(!args || sscanf(args, "%d %d %d", &x, &y, &me) != 3
 	 || !me || me != (32-ng->mycolor)
-	 || x >= 8 || y >= 8)
-	return network_set_status(ng, DISCONNECTED, _("Invalid game data (move)"));
+	 || x >= 8 || y >= 8) {
+	network_set_status(ng, DISCONNECTED, _("Invalid game data (move)"));
+	return;
+      }
 
       move(x, y, me);
     }
@@ -320,8 +326,10 @@ network_connect (void)
   memset(&hints, 0, sizeof(hints));
   hints.ai_socktype = SOCK_STREAM;
   x = getaddrinfo(game_server, GAME_PORT, &hints, &res);
-  if(x)
-    return network_set_status(netgame, DISCONNECTED, gai_strerror(x));
+  if(x) {
+    network_set_status(netgame, DISCONNECTED, gai_strerror(x));
+    return;
+  }
 
   if(netgame->status != DISCONNECTED)
     {
@@ -357,8 +365,10 @@ network_new(void)
 {
   network_start();
 
-  if(!game_server)
-    return network_set_status(netgame, DISCONNECTED, _("No game server defined"));
+  if(!game_server) {
+    network_set_status(netgame, DISCONNECTED, _("No game server defined"));
+    return;
+  }
 
   if(netgame->status != CONNECTED)
     network_connect();
