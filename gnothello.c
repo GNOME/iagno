@@ -250,6 +250,8 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 
 	gtk_timeout_remove(flip_final_id);
 
+	game_in_progress = 1;
+
 	if(black_computer_level || white_computer_level) {
 		if(black_computer_level)
 			which_computer = BLACK_TURN;
