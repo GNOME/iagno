@@ -242,7 +242,7 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	if(black_computer_level || white_computer_level) {
 		if(black_computer_level)
 			which_computer = BLACK_TURN;
-		if(white_computer_level)
+		else
 			which_computer = WHITE_TURN;
 		move_count--;
 		while(game[move_count].me == which_computer && move_count > 0) {
@@ -258,6 +258,11 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	}
 
 	whose_turn = game[move_count].me;
+
+	if(whose_turn == WHITE_TURN)
+		gui_message(_("White's turn"));
+	else
+		gui_message(_("Black's turn"));
 
 	wcount = 0;
 	bcount = 0;
