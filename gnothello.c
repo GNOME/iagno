@@ -54,6 +54,7 @@ guint black_computer_id;
 guint white_computer_id;
 guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
+guint tiles_to_flip = 0;
 
 gint milliseconds_total = 0;
 gint milliseconds_current_start = 0;
@@ -286,6 +287,8 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	milliseconds_total = 0;
 	milliseconds_current_start = 0;
 	timer_update(NULL);
+
+	tiles_to_flip = 1;
 }
 
 void black_level_cb(GtkWidget *widget, gpointer data)
@@ -606,12 +609,17 @@ void load_pixmaps()
 gint flip_pixmaps(gpointer data)
 {
 	guint i, j;
+	guint flipped_tiles = 0;
+
+	if(!tiles_to_flip)
+		return(TRUE);
 
 	for(i = 0; i < 8; i++)
 		for(j = 0; j < 8; j++) {
 			if(pixmaps[i][j] == 100) {
 				pixmaps[i][j] = 101;
 				gui_draw_pixmap(0, i, j);
+				flipped_tiles = 1;
 			} else if(pixmaps[i][j] < board[i][j]) {
 				if(animate == 0) {
 					if(pixmaps[i][j] == BLACK_TURN)
@@ -635,6 +643,7 @@ gint flip_pixmaps(gpointer data)
 					pixmaps[i][j]++;
 				if(pixmaps[i][j] > 0)
 					gui_draw_pixmap(pixmaps[i][j], i, j);
+				flipped_tiles = 1;
 			} else if(pixmaps[i][j] > board[i][j] && pixmaps[i][j] != 101) {
 				if(animate == 0) {
 					if(pixmaps[i][j] == WHITE_TURN)
@@ -658,8 +667,13 @@ gint flip_pixmaps(gpointer data)
 					pixmaps[i][j]--;
 				if(pixmaps[i][j] < 32)
 					gui_draw_pixmap(pixmaps[i][j], i, j);
+				flipped_tiles = 1;
 			}
 		}
+
+	if(!flipped_tiles)
+		tiles_to_flip = 0;
+
 	return(TRUE);
 }
 

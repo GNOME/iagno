@@ -71,6 +71,8 @@ extern gint milliseconds_current_start;
 
 extern gint timer_update_id;
 
+extern guint tiles_to_flip;
+
 /* Wrapper for is_valid_move_board, to maintain API for CORBA stuff */
 
 gint is_valid_move(guint x, guint y, guint me)
@@ -438,6 +440,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 		check_valid_moves();
 		check_computer_players();
+		tiles_to_flip = 1;
 	}
 
 	return(FALSE);
@@ -563,6 +566,8 @@ gint flip_final_results()
 				adder++;
 		}
 	}
+
+	tiles_to_flip = 1;
 
 	return(FALSE);
 }
