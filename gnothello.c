@@ -97,7 +97,7 @@ int session_position = 0;
 gchar tile_set[255];
 gchar tile_set_tmp[255];
 
-GdkGC *gridGC[2];
+GdkGC *gridGC[2] = { 0 };
 
 static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
@@ -472,8 +472,6 @@ void gui_draw_grid()
 	int i;
 	GdkGC *gridcolor;
         
-	printf("Drawing grid\n");
-        
 	for(i = 1; i < 8; i++) {
 		gdk_draw_line(buffer_pixmap, gridGC[grid],
 					  i*BOARDWIDTH/8-1, 0, i*BOARDWIDTH/8-1, BOARDHEIGHT);
@@ -773,7 +771,11 @@ void set_bg_color()
 	bgcolor.pixel = gdk_image_get_pixel(tmpimage, 0, 0);
 	gdk_window_set_background(drawing_area->window, &bgcolor);
 
+	if (gridGC[0])
+	  gdk_gc_destroy(gridGC[0]);
 	gridGC[0] = gdk_gc_new (drawing_area->window);
+	if (gridGC[1])
+	  gdk_gc_destroy(gridGC[1]);
 	gridGC[1] = gdk_gc_new (drawing_area->window);
 
 	gdk_gc_copy (gridGC [0],drawing_area->style->bg_gc[0]);
