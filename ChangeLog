@@ -1,5 +1,7 @@
 2003-06-13  Callum McKenzie  <callum@physics.otago.ac.nz>
 
+	* gnothello.c: Removing "Are you sure" questions.
+
 	* properties.c (show_properties_dialog): Fix the properties window
 	title.
 

@@ -220,63 +220,9 @@ GnomeUIInfo mainmenu[] = {
 	GNOMEUIINFO_END
 };
 
-void quit_game_maybe(GtkWidget *widget, gint button)
-{
-	if(button == 0) {
-		if (flip_pixmaps_id)
-			gtk_timeout_remove(flip_pixmaps_id);
-		if (black_computer_id)
-			gtk_timeout_remove(black_computer_id);
-		if (white_computer_id)
-			gtk_timeout_remove(white_computer_id);
-
-		if(buffer_pixmap)
-			g_object_unref(buffer_pixmap);
-		if(tiles_pixmap)
-			g_object_unref(tiles_pixmap);
-		if(tiles_mask)
-			g_object_unref(tiles_mask);
-
-		gtk_main_quit();
-	}
-}
-
 gboolean quit_game_cb(GtkWidget *widget, gpointer data)
 {
-	GtkWidget *dialog;
-
-	if(game_in_progress) {
-		gint response;
-
-		dialog = gtk_message_dialog_new (GTK_WINDOW (window),
-				GTK_DIALOG_MODAL,
-				GTK_MESSAGE_QUESTION,
-				GTK_BUTTONS_NONE,
-				_("Are you sure you want to quit Iagno?"), NULL);
-
-		gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-					GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
-					GTK_STOCK_QUIT, GTK_RESPONSE_ACCEPT, 
-					NULL);
-		gtk_dialog_set_default_response (GTK_DIALOG (dialog),
-				GTK_RESPONSE_REJECT);
-
-                gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
-		gtk_widget_show_all (dialog);
-		response = gtk_dialog_run (GTK_DIALOG(dialog));
-		gtk_widget_destroy (dialog);
-
-		if (response == GTK_RESPONSE_ACCEPT)
-		{
-			quit_game_maybe(NULL, 0);
-			return FALSE;
-		} else {
-			return TRUE;
-		}
-	} else {
-	  quit_game_maybe(NULL, 0);
-	  return FALSE;
-	}
+  gtk_main_quit ();
 }
 
 static void
