@@ -1,3 +1,9 @@
+2002-10-21  Ross Burton  <ross@burtonini.com>
+
+	* othello.c (computer_move_3): Add a factor of uncertaintly by
+	making the computer only 85% accurate, making the game more
+	fun. Thanks to Samuel Stringham for the patch, closing #14528.
+
 2002-08-18  Ross Burton  <ross@burtonini.com>
 
 	* gnothello.c (quit_game_cb): HIG-ify the Quit dialog. Based on
