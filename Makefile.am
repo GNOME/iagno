@@ -57,26 +57,26 @@ EXTRA_DIST = AUTHORS \
 	     $(appicon_DATA)
 
 install-data-local:
-	-$(mkinstalldirs) $(scoredir)
-	touch $(scoredir)/iagno.w1.scores
-	touch $(scoredir)/iagno.w2.scores
-	touch $(scoredir)/iagno.w3.scores
-	touch $(scoredir)/iagno.b1.scores
-	touch $(scoredir)/iagno.b2.scores
-	touch $(scoredir)/iagno.b3.scores
-	-chown games.games $(scoredir)/iagno.w1.scores
-	-chown games.games $(scoredir)/iagno.w2.scores
-	-chown games.games $(scoredir)/iagno.w3.scores
-	-chown games.games $(scoredir)/iagno.b1.scores
-	-chown games.games $(scoredir)/iagno.b2.scores
-	-chown games.games $(scoredir)/iagno.b3.scores
-	-chmod 664 $(scoredir)/iagno.w1.scores
-	-chmod 664 $(scoredir)/iagno.w2.scores
-	-chmod 664 $(scoredir)/iagno.w3.scores
-	-chmod 664 $(scoredir)/iagno.b1.scores
-	-chmod 664 $(scoredir)/iagno.b2.scores
-	-chmod 664 $(scoredir)/iagno.b3.scores
-	-chgrp games $(bindir)/iagno && chmod 2111 $(bindir)/iagno
+	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
+	touch $(DESTDIR)$(scoredir)/iagno.w1.scores
+	touch $(DESTDIR)$(scoredir)/iagno.w2.scores
+	touch $(DESTDIR)$(scoredir)/iagno.w3.scores
+	touch $(DESTDIR)$(scoredir)/iagno.b1.scores
+	touch $(DESTDIR)$(scoredir)/iagno.b2.scores
+	touch $(DESTDIR)$(scoredir)/iagno.b3.scores
+	-chown games.games $(DESTDIR)$(scoredir)/iagno.w1.scores
+	-chown games.games $(DESTDIR)$(scoredir)/iagno.w2.scores
+	-chown games.games $(DESTDIR)$(scoredir)/iagno.w3.scores
+	-chown games.games $(DESTDIR)$(scoredir)/iagno.b1.scores
+	-chown games.games $(DESTDIR)$(scoredir)/iagno.b2.scores
+	-chown games.games $(DESTDIR)$(scoredir)/iagno.b3.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/iagno.w1.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/iagno.w2.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/iagno.w3.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b1.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b2.scores
+	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b3.scores
+	-chgrp games $(DESTDIR)$(bindir)/iagno && chmod 2111 $(DESTDIR)$(bindir)/iagno
 
 soundlistdir = $(sysconfdir)/sound/events
 soundlist_DATA = iagno.soundlist
