@@ -3,6 +3,7 @@ Gamesdir = $(datadir)/apps/Games
 appicondir=$(datadir)/pixmaps
 
 INCLUDES = 			\
+	-DHAVE_ORBIT \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)				 \
 	$(GNOME_INCLUDEDIR)

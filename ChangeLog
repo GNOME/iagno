@@ -2,7 +2,8 @@
 
 	* Makefile.am: Add CORBA_SRCS to CLEANFILES. Rewrite orbit-idl
 	rule to use ORBIT_IDL + dependency.  Replace GNOMEUI_LIBS +
-	ORBIT_LIBS in gnothello_LDADD with GNOMEGNORBA_LIBS.
+	ORBIT_LIBS in gnothello_LDADD with GNOMEGNORBA_LIBS.  Add
+	-DHAVE_ORBIT to defines since it is now implicit.
 
 1998-10-15  Carsten Schaar  <nhadcasc@fs-maphy.uni-hannover.de>
 
