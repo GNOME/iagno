@@ -2,6 +2,15 @@
 
 	* gnothello.c: Kill file menu again.
 
+1999-01-27  Ian Peters  <ipeters@acm.org>
+
+	* properties.c: New propbox stuff
+	* properties.h: New propbox stuff
+	* gnothello.c: Changes for new propbox stuff
+	* gnothello.h: Added multiple inclusion stuff
+	* othello.c: Changes for new propbox stuff
+	* othello.h: Added multiple inclusion stuff
+
 1999-01-26  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnothello.c: Kill file menu.
