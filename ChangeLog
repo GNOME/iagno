@@ -1,3 +1,7 @@
+2003-04-30  Abel Cheung  <maddog@linux.org.hk>
+
+	* ChangeLog: Convert to UTF-8.
+
 2003-03-24  Ross Burton  <ross@burtonini.com>
 
 	* othello.c (computer_move_3): Actually let the computer player
@@ -348,7 +352,7 @@ Sun Apr 16 22:50:13 2000  George Lebl <jirka@5z.com>
 	not reflect actual case.
 	* othello.c: updates to match changes in gnothello.c
 
-1998-09-30  Ville Pätsi <drc@zoo-gate.fi>
+1998-09-30  Ville PÃ¤tsi <drc@zoo-gate.fi>
 
 	* Makefile.am: Added gnothello.png installation
 	* gnothello.png: Created
