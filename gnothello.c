@@ -209,7 +209,7 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 
 	box = gnome_message_box_new(_("Quit Gnothello?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
 	gnome_dialog_set_default(GNOME_DIALOG(box), 1);
-//	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
+/*	gtk_window_set_modal(GTK_WINDOW(box), TRUE); */
 	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)quit_game_maybe, NULL);
 	gtk_widget_show(box);
 }
@@ -228,7 +228,7 @@ void new_game_cb(GtkWidget *widget, gpointer data)
 
 	box = gnome_message_box_new(_("Start a new game?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
 	gnome_dialog_set_default(GNOME_DIALOG(box), 0);
-//	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
+/*	gtk_window_set_modal(GTK_WINDOW(box), TRUE); */
 	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)new_game_maybe, NULL);
 	gtk_widget_show(box);
 }
@@ -425,7 +425,7 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(options_menu), menu);
 
 	frame = gtk_frame_new(_("Tile Set"));
-//	gtk_container_border_width(GTK_CONTAINER(frame), 5);
+/*	gtk_container_border_width(GTK_CONTAINER(frame), 5); */
 
 	hbox = gtk_hbox_new(FALSE, FALSE);
 	gtk_container_border_width(GTK_CONTAINER(hbox), GNOME_PAD_SMALL);
@@ -931,7 +931,7 @@ void timer_start()
 	gettimeofday(&tv, NULL);
 	milliseconds_current_start = 1000000 * tv.tv_sec + tv.tv_usec;
 
-//	gtk_widget_set_sensitive(time_display, TRUE);
+/*	gtk_widget_set_sensitive(time_display, TRUE); */
 }
 
 void timer_end()
@@ -942,7 +942,7 @@ void timer_end()
 	milliseconds_total += (1000000 * tv.tv_sec + tv.tv_usec) - milliseconds_current_start;
 	milliseconds_current_start = 0;
 
-//	gtk_widget_set_sensitive(time_display, FALSE);
+/*	gtk_widget_set_sensitive(time_display, FALSE); */
 }
 
 gint timer_update(gpointer data)

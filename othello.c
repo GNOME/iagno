@@ -71,14 +71,14 @@ extern gint milliseconds_current_start;
 
 extern gint timer_update_id;
 
-// Wrapper for is_valid_move_board, to maintain API for CORBA stuff
+/* Wrapper for is_valid_move_board, to maintain API for CORBA stuff */
 
 gint is_valid_move(guint x, guint y, guint me)
 {
 	return is_valid_move_board(board, x, y, me);
 }
 
-// Check if a given square is a valid move for one of the players
+/* Check if a given square is a valid move for one of the players */
 
 gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 {
@@ -90,7 +90,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	if(board[x][y] != 0)
 		return(FALSE);
 
-	// Check for flips going left
+	/* Check for flips going left */
 
 	tmp_x = x - 1;
 	while(tmp_x >= 0 && board[tmp_x][y] == not_me)
@@ -98,7 +98,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	if(tmp_x >= 0 && board[tmp_x][y] == me && tmp_x != x - 1)
 		return(TRUE);
 
-	// Check for flips going right
+	/* Check for flips going right */
 
 	tmp_x = x + 1;
 	while(tmp_x < 8 && board[tmp_x][y] == not_me)
@@ -106,7 +106,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	if(tmp_x < 8 && board[tmp_x][y] == me && tmp_x != x + 1)
 		return(TRUE);
 
-	// Check for flips going up
+	/* Check for flips going up */
 
 	tmp_y = y - 1;
 	while(tmp_y >= 0 && board[x][tmp_y] == not_me)
@@ -114,7 +114,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	if(tmp_y >= 0 && board[x][tmp_y] == me && tmp_y != y - 1)
 		return(TRUE);
 
-	// Check for flips going down
+	/* Check for flips going down */
 
 	tmp_y = y + 1;
 	while(tmp_y < 8 && board[x][tmp_y] == not_me)
@@ -122,7 +122,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	if(tmp_y < 8 && board[x][tmp_y] == me && tmp_y != y + 1)
 		return(TRUE);
 
-	// Check for flips going up/left
+	/* Check for flips going up/left */
 
 	tmp_x = x - 1;
 	tmp_y = y - 1;
@@ -133,7 +133,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	if(tmp_x >= 0 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x - 1)
 		return(TRUE);
 
-	// Check for flips going up/right
+	/* Check for flips going up/right */
 
 	tmp_x = x + 1;
 	tmp_y = y - 1;
@@ -144,7 +144,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	if(tmp_x < 8 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x + 1)
 		return(TRUE);
 
-	// Check for flips going down/left
+	/* Check for flips going down/left */
 
 	tmp_x = x - 1;
 	tmp_y = y + 1;
@@ -155,7 +155,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	if(tmp_x >= 0 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x - 1)
 		return(TRUE);
 
-	// Check for flips going down/right
+	/* Check for flips going down/right */
 
 	tmp_x = x + 1;
 	tmp_y = y + 1;
@@ -169,7 +169,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 	return(FALSE);
 }
 
-// Wrapper for move_board, to maintain API for CORBA stuff
+/* Wrapper for move_board, to maintain API for CORBA stuff */
 
 gint move(guint x, guint y, guint me)
 {
@@ -185,15 +185,15 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 	int animate_stagger = 0;
 	gint count = 1;
 
-	// Just in case we didn't know this, a game is in progress
+	/* Just in case we didn't know this, a game is in progress */
 
 	new_game = 0;
 
-	// Stuff to do if this is a ``real'' move
+	/* Stuff to do if this is a ``real'' move */
 
 	if(real) {
 
-		// Copy the old board and move info to the undo buffer
+		/* Copy the old board and move info to the undo buffer */
 
 		memcpy(game[move_count].board, board, sizeof(gint8) * 8 * 8);
 		game[move_count].x = x;
@@ -210,14 +210,14 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 			gui_message(_("Dark's move"));
 			if(!white_computer_level) {
 				timer_end();
-//				gtk_timeout_remove(timer_update_id);
+/*				gtk_timeout_remove(timer_update_id); */
 			}
 		} else {
 			whose_turn = WHITE_TURN;
 			gui_message(_("Light's move"));
 			if(!black_computer_level) {
 				timer_end();
-//				gtk_timeout_remove(timer_update_id);
+/*				gtk_timeout_remove(timer_update_id); */
 			}
 		}
 
@@ -237,7 +237,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 	board[x][y] = me;
 
-	// Flip going left
+	/* Flip going left */
 
 	adder = 0;
 
@@ -256,7 +256,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		}
 	}
 
-	// Flip going right
+	/* Flip going right */
 
 	adder = 0;
 
@@ -275,7 +275,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		}
 	}
 
-	// Flip going up
+	/* Flip going up */
 
 	adder = 0;
 
@@ -294,7 +294,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		}
 	}
 
-	// Flip going down
+	/* Flip going down */
 
 	adder = 0;
 
@@ -313,7 +313,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		}
 	}
 
-	// Flip going up/left
+	/* Flip going up/left */
 
 	adder = 0;
 
@@ -337,7 +337,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		}
 	}
 
-	// Flip going up/right
+	/* Flip going up/right */
 
 	adder = 0;
 
@@ -361,7 +361,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		}
 	}
 
-	// Flip going down/left
+	/* Flip going down/left */
 
 	adder = 0;
 
@@ -385,7 +385,7 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		}
 	}
 
-	// Flip going down/right
+	/* Flip going down/right */
 
 	adder = 0;
 
@@ -409,11 +409,11 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		}
 	}
 
-	// More stuff for a ``real'' move
+	/* More stuff for a ``real'' move */
 
 	if(real) {
 
-		// Update the statusbar counters
+		/* Update the statusbar counters */
 
 		if(me == BLACK_TURN) {
 			bcount += count;
@@ -427,14 +427,14 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 		if(not_me == BLACK_TURN && !black_computer_level) {
 			timer_start();
-//			timer_update_id = gtk_timeout_add(1000, timer_update, NULL);
+/*			timer_update_id = gtk_timeout_add(1000, timer_update, NULL); */
 		}
 		if(not_me == WHITE_TURN && !white_computer_level) {
 			timer_start();
-//			timer_update_id = gtk_timeout_add(1000, timer_update, NULL);
+/*			timer_update_id = gtk_timeout_add(1000, timer_update, NULL); */
 		}
 
-		// Check for end of game or pass situations
+		/* Check for end of game or pass situations */
 
 		check_valid_moves();
 	}
@@ -663,8 +663,8 @@ gint eval_heuristic(gint8 board[8][8], guint me)
 		for(j = 0; j < 8; j++) {
 			if(board[i][j] == me)
 				score += heuristic[i][j];
-//			if(board[i][j] == not_me)
-//				score -= heuristic[i][j];
+/*			if(board[i][j] == not_me)
+				score -= heuristic[i][j]; */
 		}
 
 	return(score);
@@ -690,8 +690,8 @@ gint eval_board(gint8 board[8][8], guint me)
 
 	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
 
-//	mobility_score = (32 - mobility(board, not_me) - move_count);
-//	mobility_score = (mobility_score > 0) ? mobility_score : 0;
+/*	mobility_score = (32 - mobility(board, not_me) - move_count);
+	mobility_score = (mobility_score > 0) ? mobility_score : 0; */
 
 	heuristic_score = eval_heuristic(board, me);
 
