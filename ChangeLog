@@ -1,3 +1,9 @@
+1999-01-27  Ian Peters  <ipeters@acm.org>
+
+	* othello.c: Added support for optional flip final results
+	* properties.c: Added check button for optionally flipping final
+	results.
+
 1999-01-27  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnothello.c: Kill file menu again.

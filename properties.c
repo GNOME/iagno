@@ -22,12 +22,14 @@ extern gint8 pixmaps[8][8];
 extern gint animate;
 extern gint animate_stagger;
 extern gint flip_pixmaps_id;
+extern gint flip_final;
 
 guint t_black_computer_level;
 guint t_white_computer_level;
 gint t_animate;
 gint t_quick_moves;
 gint t_animate_stagger;
+gint t_flip_final;
 
 int mapped = 0;
 
@@ -46,6 +48,8 @@ void load_properties ()
 		computer_speed = COMPUTER_MOVE_DELAY / 2;
 	else
 		computer_speed = COMPUTER_MOVE_DELAY;
+	flip_final = gnome_config_get_int
+		("/gnothello/Preferences/flipfinal=1");
 	
 	switch (animate) {
 		case 0:
@@ -73,6 +77,7 @@ void reset_properties ()
 	t_quick_moves = gnome_config_get_int
 		("/gnothello/Preferences/quickmoves");
 	t_animate_stagger = animate_stagger;
+	t_flip_final = flip_final;
 }
 
 void black_computer_level_select (GtkWidget *widget, gpointer data)
@@ -103,6 +108,16 @@ void quick_moves_select (GtkWidget *widget, gpointer data)
 		t_quick_moves = 1;
 	else
 		t_quick_moves = 0;
+
+	gnome_property_box_changed (GNOME_PROPERTY_BOX (propbox));
+}
+
+void flip_final_select (GtkWidget *widget, gpointer data)
+{
+	if (GTK_TOGGLE_BUTTON (widget)->active)
+		t_flip_final = 1;
+	else
+		t_flip_final = 0;
 
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (propbox));
 }
@@ -189,6 +204,8 @@ void apply_changes ()
 	}
 	
 	animate_stagger = t_animate_stagger;
+
+	flip_final = t_flip_final;
 	
 	check_computer_players ();
 }
@@ -206,6 +223,7 @@ void save_properties ()
 	gnome_config_set_int ("/gnothello/Preferences/animate", animate);
 	gnome_config_set_int ("/gnothello/Preferences/animstagger",
 			animate_stagger);
+	gnome_config_set_int ("/gnothello/Preferences/flipfinal", flip_final);
 	
 	gnome_config_sync ();
 }
@@ -478,6 +496,15 @@ void show_properties_dialog ()
 			GTK_SIGNAL_FUNC (animate_stagger_select), NULL);
 	gtk_widget_show (button);
 	
+	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+
+	button = gtk_check_button_new_with_label (_("Flip final results"));
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+			t_flip_final);
+	gtk_signal_connect (GTK_OBJECT (button), "toggled",
+			GTK_SIGNAL_FUNC (flip_final_select), NULL);
+	gtk_widget_show (button);
+
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	
 	hbox = gtk_hbox_new (FALSE, GNOME_PAD_SMALL);

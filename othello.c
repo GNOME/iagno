@@ -48,6 +48,7 @@ guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
 			 {9,2,7,8,8,7,2,9}};
 
 guint flip_final_id = 0;
+gint flip_final;
 
 extern guint black_computer_level;
 extern guint white_computer_level;
@@ -612,7 +613,9 @@ gint check_valid_moves()
 			gui_message(_("The game was a draw."));
 		whose_turn = 0;
 		game_in_progress = 0;
-		flip_final_id = gtk_timeout_add(3000, flip_final_results, NULL);
+		if (flip_final)
+			flip_final_id = gtk_timeout_add(3000,
+					flip_final_results, NULL);
 		return(TRUE);
 	}
 
