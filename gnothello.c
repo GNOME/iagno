@@ -741,6 +741,7 @@ void create_window()
 	GtkWidget *vbox;
 	GtkWidget *frame;
 	GtkWidget *table;
+	GtkWidget *sep;
 	char tmp[100];
 
 	window = gnome_app_new("gnothello", _("Gnome Othello"));
@@ -783,9 +784,9 @@ void create_window()
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
 
-	table = gtk_table_new(1, 4, FALSE);
-	gtk_table_set_col_spacing(GTK_TABLE(table), 1, 32);
-	gtk_table_set_col_spacing(GTK_TABLE(table), 2, 32);
+	table = gtk_table_new(1, 6, FALSE);
+//	gtk_table_set_col_spacing(GTK_TABLE(table), 1, 32);
+//	gtk_table_set_col_spacing(GTK_TABLE(table), 2, 32);
 
 	statusbar = gtk_statusbar_new();
 	gtk_frame_set_shadow_type(GTK_FRAME(GTK_STATUSBAR(statusbar)->frame), GTK_SHADOW_NONE);
@@ -800,17 +801,27 @@ void create_window()
 
 	gtk_table_attach(GTK_TABLE(table), black_score, 1, 2, 0, 1, 0, 0, 3, 1);
 
+	sep = gtk_vseparator_new();
+	gtk_widget_show(sep);
+
+	gtk_table_attach(GTK_TABLE(table), sep, 2, 3, 0, 1, 0, GTK_FILL, 3, 3);
+
 	sprintf(tmp, _("Light: %.2d"), 0);
 	white_score = gtk_label_new(tmp);
 	gtk_widget_show(white_score);
 
-	gtk_table_attach(GTK_TABLE(table), white_score, 2, 3, 0, 1, 0, 0, 3, 1);
+	gtk_table_attach(GTK_TABLE(table), white_score, 3, 4, 0, 1, 0, 0, 3, 1);
+
+	sep = gtk_vseparator_new();
+	gtk_widget_show(sep);
+
+	gtk_table_attach(GTK_TABLE(table), sep, 4, 5, 0, 1, 0, GTK_FILL, 3, 3);
 
 	time_display = gtk_clock_new(GTK_CLOCK_INCREASING);
 	gtk_widget_set_sensitive(time_display, FALSE);
 	gtk_widget_show(time_display);
 
-	gtk_table_attach(GTK_TABLE(table), time_display, 3, 4, 0, 1, 0, 0, 3, 1);
+	gtk_table_attach(GTK_TABLE(table), time_display, 5, 6, 0, 1, 0, 0, 3, 1);
 
 	gtk_widget_show(table);
 
