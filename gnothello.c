@@ -909,7 +909,7 @@ int main(int argc, char **argv)
 	
 	create_window();
 
-	strncpy(tile_set, gnome_config_get_string("/gnothello/preferences/tileset=flip.png"), 255);
+	strncpy(tile_set, gnome_config_get_string("/gnothello/preferences/tileset=classic.png"), 255);
 	load_pixmaps();
 
 	animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
