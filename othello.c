@@ -48,8 +48,6 @@ guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
 			 {9,2,7,8,8,7,2,9}};
 
 guint flip_final_id;
-guint black_computer_busy = 0;
-guint white_computer_busy = 0;
 
 extern guint black_computer_level;
 extern guint white_computer_level;
@@ -175,7 +173,10 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 
 gint move(guint x, guint y, guint me)
 {
-	return move_board(board, x, y, me, 1);
+	move_board(board, x, y, me, 1);
+
+	check_valid_moves();
+	check_computer_players();
 }
 
 gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
@@ -429,17 +430,11 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 		if(not_me == BLACK_TURN && !black_computer_level) {
 			timer_start();
-/*			timer_update_id = gtk_timeout_add(1000, timer_update, NULL); */
 		}
 		if(not_me == WHITE_TURN && !white_computer_level) {
 			timer_start();
-/*			timer_update_id = gtk_timeout_add(1000, timer_update, NULL); */
 		}
 
-		/* Check for end of game or pass situations */
-
-		check_valid_moves();
-		check_computer_players();
 		tiles_to_flip = 1;
 	}
 
@@ -467,11 +462,6 @@ gint computer_move_1(guint me)
 		i = (rand()>>3) % num_moves;
 		move(xs[i], ys[i], me);
 	}
-
-	if(me == WHITE_TURN)
-		white_computer_busy = 0;
-	else
-		black_computer_busy = 0;
 
 	return(FALSE);
 }
@@ -507,11 +497,6 @@ gint computer_move_3(guint me)
 	if (best_move != -10000) {
 		move(best_x, best_y, me);
 	}
-
-	if(me == WHITE_TURN)
-		white_computer_busy = 0;
-	else
-		black_computer_busy = 0;
 
 	return(FALSE);
 }

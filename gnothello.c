@@ -87,8 +87,6 @@ MoveHistory game[61];
 gint8 move_count = 0;
 
 extern guint flip_final_id;
-extern guint black_computer_busy;
-extern guint white_computer_busy;
 
 int session_flag = 0;
 int session_xpos = -1;
@@ -210,7 +208,7 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 
 	box = gnome_message_box_new(_("Quit Gnothello?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
 	gnome_dialog_set_default(GNOME_DIALOG(box), 1);
-/*	gtk_window_set_modal(GTK_WINDOW(box), TRUE); */
+	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
 	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)quit_game_maybe, NULL);
 	gtk_widget_show(box);
 }
@@ -229,7 +227,7 @@ void new_game_cb(GtkWidget *widget, gpointer data)
 
 	box = gnome_message_box_new(_("Start a new game?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
 	gnome_dialog_set_default(GNOME_DIALOG(box), 0);
-/*	gtk_window_set_modal(GTK_WINDOW(box), TRUE); */
+	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
 	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)new_game_maybe, NULL);
 	gtk_widget_show(box);
 }
@@ -309,6 +307,8 @@ void black_level_cb(GtkWidget *widget, gpointer data)
 		milliseconds_current_start = 0;
 		timer_update(NULL);
 	}
+
+	check_computer_players();
 }
 
 void white_level_cb(GtkWidget *widget, gpointer data)
@@ -329,6 +329,8 @@ void white_level_cb(GtkWidget *widget, gpointer data)
 		milliseconds_current_start = 0;
 		timer_update(NULL);
 	}
+
+	check_computer_players();
 }
 
 void anim_cb(GtkWidget *widget, gpointer data)
@@ -708,8 +710,6 @@ void init_new_game()
 
 	gdk_draw_pixmap(drawing_area->window, drawing_area->style->fg_gc[GTK_WIDGET_STATE(drawing_area)], buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
 	whose_turn = BLACK_TURN;
-	black_computer_busy = 0;
-	white_computer_busy = 0;
 	gui_message(_("Dark's move"));
 
 	milliseconds_total = 0;
@@ -726,6 +726,8 @@ void init_new_game()
 		gtk_timeout_remove(timer_update_id);
 		timer_update(NULL);
 	}
+
+	check_computer_players();
 }
 
 void create_window()
@@ -851,47 +853,31 @@ void gui_message(gchar *message)
 
 guint check_computer_players()
 {
-	if(black_computer_level && !black_computer_busy && whose_turn == BLACK_TURN)
+	if(black_computer_level && whose_turn == BLACK_TURN)
 		switch(black_computer_level) {
 			case 1:
 				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) BLACK_TURN);
-				black_computer_busy = 1;
 			break;
 			case 2:
 				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
-				black_computer_busy = 1;
 			break;
 			case 3:
 				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
-				black_computer_busy = 1;
 			break;
 		}
 
-	if(whose_turn == WHITE_TURN && black_computer_busy) {
-		gtk_timeout_remove(black_computer_id);
-		black_computer_busy = 0;
-	}
-
-	if(white_computer_level && !white_computer_busy && whose_turn == WHITE_TURN)
+	if(white_computer_level && whose_turn == WHITE_TURN)
 		switch(white_computer_level) {
 			case 1:
 				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) WHITE_TURN);
-				white_computer_busy = 1;
 			break;
 			case 2:
 				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
-				white_computer_busy = 1;
 			break;
 			case 3:
 				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
-				white_computer_busy = 1;
 			break;
 		}
-
-	if(whose_turn == BLACK_TURN && white_computer_busy) {
-		gtk_timeout_remove(white_computer_id);
-		white_computer_busy = 0;
-	}
 
 	return(TRUE);
 }
