@@ -240,9 +240,9 @@ reset_properties (void)
 static void 
 black_computer_level_select (GtkWidget *widget, gpointer data)
 {
-	if (((guint) data != t_black_computer_level) 
+	if ((GPOINTER_TO_INT(data) != t_black_computer_level) 
 	    && (GTK_TOGGLE_BUTTON (widget)->active)) {
-		t_black_computer_level = (guint) data;
+		t_black_computer_level = GPOINTER_TO_INT(data);
 		apply_changes ();
 	}
 }
@@ -250,9 +250,9 @@ black_computer_level_select (GtkWidget *widget, gpointer data)
 static void 
 white_computer_level_select (GtkWidget *widget, gpointer data)
 {
-	if (((guint) data != t_white_computer_level)
+	if ((GPOINTER_TO_INT(data) != t_white_computer_level)
 	    && (GTK_TOGGLE_BUTTON (widget)->active)) {
-		t_white_computer_level = (guint) data;
+		t_white_computer_level = GPOINTER_TO_INT(data);
 		apply_changes ();
 	}
 }
@@ -301,7 +301,7 @@ static void
 animate_select (GtkWidget *widget, gpointer data)
 {
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
-		t_animate = (gint) data;
+		t_animate = GPOINTER_TO_INT(data);
 	}
 	apply_changes ();	
 }

@@ -1,3 +1,8 @@
+2004-05-26  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c:
+	* properties.c: Fix compiler warnings.
+
 2004-04-25  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnothello.c: Added a new AI from Bevan Collins. See bug #139560
