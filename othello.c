@@ -27,6 +27,7 @@
 #define WHITE_TURN 31
 #define BLACK_TURN 1
 
+/*
 guint heuristic[8][8] = {{512,4,128,256,256,128,4,512},
 			 {4,2,8,16,16,8,2,4},
 			 {128,8,64,32,32,64,8,128},
@@ -35,8 +36,8 @@ guint heuristic[8][8] = {{512,4,128,256,256,128,4,512},
 			 {128,8,64,32,32,64,8,128},
 			 {4,2,8,16,16,8,2,4},
 			 {512,4,128,256,256,128,4,512}};
+*/
 
-/*
 guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
 			 {2,1,3,4,4,3,1,2},
 			 {7,3,6,5,5,6,3,7},
@@ -45,11 +46,13 @@ guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
 			 {7,3,6,5,5,6,3,7},
 			 {2,1,3,4,4,3,1,2},
 			 {9,2,7,8,8,7,2,9}};
-*/
 
 guint flip_final_id;
 guint black_computer_busy = 0;
 guint white_computer_busy = 0;
+
+extern guint black_computer_level;
+extern guint white_computer_level;
 
 extern guint whose_turn;
 extern guint new_game;
@@ -199,10 +202,10 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 		if(whose_turn == WHITE_TURN) {
 			whose_turn = BLACK_TURN;
-			gui_message(_("Black's turn"));
+			gui_message(_("Black's move"));
 		} else {
 			whose_turn = WHITE_TURN;
-			gui_message(_("White's turn"));
+			gui_message(_("White's move"));
 		}
 
 		pixmaps[x][y] = me;
@@ -447,71 +450,6 @@ gint computer_move_1(guint me)
 	return(FALSE);
 }
 
-void minimax(gint8 board[8][8], gint* score, gint* x, gint* y, gint depth, guint me)
-{
-	gint best_score = -15000;
-	gint i, j;
-	gint xs[32], ys[32], num_moves = 0;
-	gint8 tboard[8][8];
-	gint the_score, the_x, the_y;
-	gint best_x, best_y;
-	guint not_me;
-
-	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
-
-	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++)
-			if(is_valid_move_board(board, i, j, me)) {
-				if(!depth)
-					printf("%d, %d\n", i, j);
-				xs[num_moves] = i;
-				ys[num_moves] = j;
-				num_moves++;
-			}
-
-	for(i = 0; i < num_moves; i++) {
-		memcpy(tboard, board, sizeof(gint8) * 8 * 8);
-		move_board(tboard, xs[i], ys[i], me, 0);
-		if(depth == 4) {
-			the_score = eval_board(board, me);
-			the_x = xs[i];
-			the_y = ys[i];
-		} else {
-			minimax(tboard, &the_score, &the_x, &the_y, depth + 1, not_me);
-		}
-		if(the_score > best_score) {
-			best_score = the_score;
-			best_x = the_x;
-			best_y = the_y;
-		}
-	}
-
-	*score = best_score;
-	*x = best_x;
-	*y = best_y;
-}
-
-gint computer_move_2(guint me)
-{
-	gint x, y, score;
-
-	if(whose_turn != me)
-		return(FALSE);
-
-	minimax(board, &score, &x, &y, 0, me);
-
-	printf("%d, %d\n", x, y);
-
-	move(x, y, me);
-
-	if(me == WHITE_TURN)
-		white_computer_busy = 0;
-	else
-		black_computer_busy = 0;
-
-	return(FALSE);
-}
-
 gint computer_move_3(guint me)
 {
 	guint i, j;
@@ -540,8 +478,9 @@ gint computer_move_3(guint me)
 				}
 			}
 
-	if (best_move)
+	if (best_move != -10000) {
 		move(best_x, best_y, me);
+	}
 
 	if(me == WHITE_TURN)
 		white_computer_busy = 0;
@@ -664,13 +603,13 @@ gint check_valid_moves()
 	}
 
 	if(whose_turn == WHITE_TURN) {
-		gui_message(_("White must pass, Black's turn"));
+		gui_message(_("White must pass, Black's move"));
 		whose_turn = BLACK_TURN;
 		return(TRUE);
 	}
 
 	if(whose_turn == BLACK_TURN) {
-		gui_message(_("Black must pass, White's turn"));
+		gui_message(_("Black must pass, White's move"));
 		whose_turn = WHITE_TURN;
 		return(TRUE);
 	}
@@ -690,8 +629,8 @@ gint eval_heuristic(gint8 board[8][8], guint me)
 		for(j = 0; j < 8; j++) {
 			if(board[i][j] == me)
 				score += heuristic[i][j];
-			if(board[i][j] == not_me)
-				score -= heuristic[i][j];
+//			if(board[i][j] == not_me)
+//				score -= heuristic[i][j];
 		}
 
 	return(score);
@@ -717,10 +656,10 @@ gint eval_board(gint8 board[8][8], guint me)
 
 	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
 
-	mobility_score = (32 - mobility(board, not_me) - move_count);
-	mobility_score = (mobility_score > 0) ? mobility_score : 0;
+//	mobility_score = (32 - mobility(board, not_me) - move_count);
+//	mobility_score = (mobility_score > 0) ? mobility_score : 0;
 
 	heuristic_score = eval_heuristic(board, me);
 
-	return(heuristic_score + mobility_score);
+	return(heuristic_score);
 }

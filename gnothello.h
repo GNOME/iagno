@@ -19,7 +19,7 @@
  * For more details see the file COPYING.
  */
 
-#define GNOTHELLO_VERSION "0.3.0"
+#define GNOTHELLO_VERSION "0.8.0"
 #define BLACK_TURN 1
 #define WHITE_TURN 31
 #define PIXMAP_FLIP_DELAY 20
@@ -59,7 +59,7 @@ void fill_menu(GtkWidget *menu);
 void set_selection(GtkWidget *widget, void *data);
 void free_str(GtkWidget *widget, void *data);
 void load_tiles_callback(GtkWidget *widget, void *data);
-void do_close(GtkWidget *widget, void *data);
+void cancel(GtkWidget *widget, void *data);
 gint expose_event (GtkWidget *widget ,GdkEventExpose *event);
 gint configure_event (GtkWidget *widget, GdkEventConfigure *event);
 gint button_press_event (GtkWidget *widget, GdkEventButton *event);

@@ -29,6 +29,5 @@ gint count_pieces(gint);
 gint flip_final_results();
 gint check_valid_moves();
 gint computer_move_1(guint);
-gint computer_move_2(guint);
 gint computer_move_3(guint);
 gint eval_board(gint8[8][8], guint);

@@ -37,6 +37,7 @@ GtkWidget *statusbar;
 GtkWidget *tile_dialog;
 GtkWidget *black_score;
 GtkWidget *white_score;
+GtkWidget *time_display;
 
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixmap *tiles_pixmap = NULL;
@@ -164,7 +165,7 @@ GnomeUIInfo anim_menu[] = {
 };
 
 GnomeUIInfo help_menu[] = {
-	{ GNOME_APP_UI_ITEM, N_("_About Gnothello..."), NULL, about_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_About..."), NULL, about_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
@@ -172,7 +173,7 @@ GnomeUIInfo mainmenu[] = {
 	{ GNOME_APP_UI_SUBTREE, N_("_Game"), NULL, game_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	{ GNOME_APP_UI_SUBTREE, N_("_Computer"), NULL, comp_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	{ GNOME_APP_UI_SUBTREE, N_("_Animation"), NULL, anim_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	GNOMEUIINFO_JUSTIFY_RIGHT,
+//	GNOMEUIINFO_JUSTIFY_RIGHT,
 	{ GNOME_APP_UI_SUBTREE, N_("_Help"), NULL, help_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
@@ -204,7 +205,7 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 
 	box = gnome_message_box_new(_("Quit Gnothello?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
 	gnome_dialog_set_default(GNOME_DIALOG(box), 1);
-	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
+//	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
 	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)quit_game_maybe, NULL);
 	gtk_widget_show(box);
 }
@@ -223,7 +224,7 @@ void new_game_cb(GtkWidget *widget, gpointer data)
 
 	box = gnome_message_box_new(_("Start a new game?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
 	gnome_dialog_set_default(GNOME_DIALOG(box), 0);
-	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
+//	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
 	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)new_game_maybe, NULL);
 	gtk_widget_show(box);
 }
@@ -260,9 +261,9 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	whose_turn = game[move_count].me;
 
 	if(whose_turn == WHITE_TURN)
-		gui_message(_("White's turn"));
+		gui_message(_("White's move"));
 	else
-		gui_message(_("Black's turn"));
+		gui_message(_("Black's move"));
 
 	wcount = 0;
 	bcount = 0;
@@ -389,23 +390,20 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	if (tile_dialog)
 		return;
 
-	tile_dialog = gnome_property_box_new ();
-	gtk_window_set_title (GTK_WINDOW (tile_dialog), _("Gnothello options"));
-
-#if 0
 	tile_dialog = gnome_dialog_new(_("Load Tile Set"), GNOME_STOCK_BUTTON_OK, GNOME_STOCK_BUTTON_CANCEL, NULL);
-#endif
-	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event",
-			   GTK_SIGNAL_FUNC (do_close), NULL);
-	
+	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event", (GtkSignalFunc)cancel, NULL);
+
 	options_menu = gtk_option_menu_new();
 	menu = gtk_menu_new();
 	fill_menu(menu);
 	gtk_widget_show(options_menu);
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(options_menu), menu);
 
+	frame = gtk_frame_new(_("Tile Set"));
+//	gtk_container_border_width(GTK_CONTAINER(frame), 5);
+
 	hbox = gtk_hbox_new(FALSE, FALSE);
-	gtk_container_border_width(GTK_CONTAINER(hbox), 5);
+	gtk_container_border_width(GTK_CONTAINER(hbox), GNOME_PAD_SMALL);
 	gtk_widget_show(hbox);
 
 	label = gtk_label_new(_("Select Tile Set: "));
@@ -414,19 +412,13 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	gtk_box_pack_start_defaults(GTK_BOX(hbox), label);
 	gtk_box_pack_start_defaults(GTK_BOX(hbox), options_menu);
 
-	gnome_property_box_append_page (
-		GNOME_PROPERTY_BOX (tile_dialog),
-		hbox,
-		gtk_label_new (_("Tile set")));
+	gtk_container_add(GTK_CONTAINER(frame), hbox);
+	gtk_widget_show(frame);
 
-	gtk_signal_connect (GTK_OBJECT (tile_dialog), "apply",
-			    GTK_SIGNAL_FUNC (load_tiles_callback), NULL);
+	gtk_box_pack_start_defaults(GTK_BOX(GNOME_DIALOG(tile_dialog)->vbox), frame);
 
-	gtk_signal_connect (GTK_OBJECT (tile_dialog), "delete_event",
-			    GTK_SIGNAL_FUNC (do_close), NULL);
-	
-	gtk_signal_connect (GTK_OBJECT (tile_dialog), "destroy",
-			    GTK_SIGNAL_FUNC (do_close), NULL);
+	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 0, GTK_SIGNAL_FUNC(load_tiles_callback), NULL);
+	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 1, GTK_SIGNAL_FUNC(cancel), (gpointer)1);
 
 	gtk_widget_show (tile_dialog);
 }
@@ -435,6 +427,7 @@ void load_tiles_callback(GtkWidget *widget, void *data)
 {
 	gint i, j;
 
+	cancel(0,0);
 	strncpy(tile_set, tile_set_tmp, 255);
 	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
 	load_pixmaps();
@@ -485,12 +478,12 @@ void free_str(GtkWidget *widget, void *data)
 
 void set_selection(GtkWidget *widget, void *data)
 {
-	gnome_property_box_changed (GNOME_PROPERTY_BOX (tile_dialog));
 	strncpy(tile_set_tmp, data, 255);
 }
 
-void do_close (GtkWidget *widget, void *data)
+void cancel(GtkWidget *widget, void *data)
 {
+	gtk_widget_destroy(tile_dialog);
 	tile_dialog = NULL;
 }
 
@@ -674,7 +667,7 @@ void init_new_game()
 	whose_turn = BLACK_TURN;
 	black_computer_busy = 0;
 	white_computer_busy = 0;
-	gui_message(_("Black's turn"));
+	gui_message(_("Black's move"));
 }
 
 void create_window()
@@ -704,8 +697,8 @@ void create_window()
 	gtk_widget_pop_colormap ();
 	gtk_widget_pop_visual ();
 
-	vbox = gtk_vbox_new(FALSE, 5);
-	gtk_container_border_width(GTK_CONTAINER(vbox), 5);
+	vbox = gtk_vbox_new(FALSE, GNOME_PAD_SMALL);
+	gtk_container_border_width(GTK_CONTAINER(vbox), GNOME_PAD_SMALL);
 	gtk_widget_show(vbox);
 	gnome_app_set_contents(GNOME_APP(window), vbox);
 
@@ -723,7 +716,7 @@ void create_window()
 	gtk_widget_set_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
 	gtk_widget_show(drawing_area);
 
-	box = gtk_hbox_new(FALSE, 5);
+	box = gtk_hbox_new(FALSE, GNOME_PAD_SMALL);
 	gtk_widget_show(box);
 
 	frame = gtk_frame_new(NULL);
@@ -763,7 +756,21 @@ void create_window()
 
 	gtk_box_pack_start(GTK_BOX(box), frame, FALSE, TRUE, 0);
 
-	gtk_box_pack_start(GTK_BOX(vbox), box, TRUE, TRUE, 0);
+	frame = gtk_frame_new(NULL);
+	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
+	gtk_container_border_width(GTK_CONTAINER(frame), 0);
+	gtk_widget_show(frame);
+
+	sprintf(tmp, _("  %.2d:%.2d:%.2d  "), 0, 0, 0);
+	time_display = gtk_label_new(tmp);
+	gtk_widget_set_sensitive(time_display, FALSE);
+	gtk_widget_show(time_display);
+
+	gtk_container_add(GTK_CONTAINER(frame), time_display);
+
+	gtk_box_pack_start(GTK_BOX(box), frame, FALSE, TRUE, 0);
+
+	gtk_box_pack_end(GTK_BOX(vbox), box, TRUE, TRUE, 0);
 
 	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("Welcome to Gnome Othello!"));
 }
@@ -793,7 +800,7 @@ guint check_computer_players()
 				black_computer_busy = 1;
 			break;
 			case 2:
-				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_2, (gpointer) BLACK_TURN);
+				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
 				black_computer_busy = 1;
 			break;
 			case 3:
@@ -814,7 +821,7 @@ guint check_computer_players()
 				white_computer_busy = 1;
 			break;
 			case 2:
-				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_2, (gpointer) WHITE_TURN);
+				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
 				white_computer_busy = 1;
 			break;
 			case 3:
