@@ -1,4 +1,4 @@
-<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.0//EN"[
+<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN"[
 <!ENTITY version "1.0.51">
 ]>
 
@@ -107,7 +107,7 @@
  </sect2>
 
  <sect2 id="why">
-  <title>Why is Othello called Iagno? 
+  <title>Why is Othello called Iagno?</title>
   <para>
   You're probably wondering why this game is called
   <application>Iagno</application> instead of Othello or
@@ -200,6 +200,7 @@
    </graphic>
   </screenshot>
  </figure>
+ </para>
 
 </sect1>
 
