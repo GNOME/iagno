@@ -498,25 +498,29 @@ show_properties_dialog (void)
 			GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, NULL);
         
         gtk_dialog_set_has_separator (GTK_DIALOG (propbox), FALSE);
+	gtk_container_set_border_width (GTK_CONTAINER (propbox), 5);
+	gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (propbox)->vbox), 2);
+	gtk_window_set_resizable (GTK_WINDOW (propbox), FALSE);
 	notebook = gtk_notebook_new ();
+	gtk_container_set_border_width (GTK_CONTAINER (notebook), 5);
 	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (propbox)->vbox),
                            notebook);
 
-	label = gtk_label_new_with_mnemonic (_("_Players"));
+	label = gtk_label_new (_("Players"));
 
-	vbox = gtk_vbox_new (FALSE, 0);
+	vbox = gtk_vbox_new (FALSE, 18);
+	gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
 	gtk_notebook_append_page (GTK_NOTEBOOK (notebook),
                                   vbox, label);
         
         table = gtk_table_new (1, 2, FALSE);
-        gtk_container_set_border_width (GTK_CONTAINER (table), 0);
+	gtk_table_set_col_spacings (GTK_TABLE (table), 18);
         gtk_box_pack_start (GTK_BOX (vbox), table, FALSE, FALSE, 0);
 
-	vbox2 = gtk_vbox_new (FALSE, FALSE);
-	gtk_container_set_border_width (GTK_CONTAINER (vbox2), 12);
+	vbox2 = gtk_vbox_new (FALSE, 0);
         gtk_box_pack_start (GTK_BOX (vbox), vbox2, FALSE, FALSE, 0);
 
-	button = gtk_check_button_new_with_label (_("Use quick moves"));
+	button = gtk_check_button_new_with_mnemonic (_("_Use quick moves"));
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
                                       (computer_speed == COMPUTER_MOVE_DELAY / 2));
 	g_signal_connect (G_OBJECT (button), "toggled", G_CALLBACK
@@ -528,8 +532,7 @@ show_properties_dialog (void)
 	frame = games_frame_new (_("Dark"));
         gtk_table_attach_defaults (GTK_TABLE (table), frame, 0, 1, 0, 1);
 
-	vbox = gtk_vbox_new (TRUE, 0);
-	gtk_container_set_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
+	vbox = gtk_vbox_new (FALSE, 6);
 
 	button = gtk_radio_button_new_with_label (NULL, _("Human"));
 	if (black_computer_level == 0)
@@ -575,8 +578,7 @@ show_properties_dialog (void)
 	frame = games_frame_new (_("Light"));
         gtk_table_attach_defaults (GTK_TABLE (table), frame, 1, 2, 0, 1);
 	
-	vbox = gtk_vbox_new (TRUE, 0);
-	gtk_container_set_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
+	vbox = gtk_vbox_new (FALSE, 6);
 	
 	button = gtk_radio_button_new_with_label (NULL, _("Human"));
 	if (white_computer_level == 0)
@@ -622,10 +624,11 @@ show_properties_dialog (void)
 	gtk_container_add (GTK_CONTAINER (frame), vbox);
 
 
-        label = gtk_label_new_with_mnemonic (_("_Appearance"));
+        label = gtk_label_new (_("Appearance"));
 
 	table = gtk_table_new (1, 2, FALSE);
-	gtk_container_set_border_width (GTK_CONTAINER (table), 0);
+	gtk_table_set_col_spacings (GTK_TABLE (table), 18);
+	gtk_container_set_border_width (GTK_CONTAINER (table), 12);
 	
 	frame = games_frame_new (_("Animation"));
 	
@@ -664,7 +667,7 @@ show_properties_dialog (void)
         frame = games_frame_new (_("Options"));
 	vbox = gtk_vbox_new (FALSE, 6);
 	gtk_container_add (GTK_CONTAINER (frame), vbox);
-	button = gtk_check_button_new_with_label (_("Stagger flips"));
+	button = gtk_check_button_new_with_mnemonic (_("_Stagger flips"));
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 			t_animate_stagger);
 	g_signal_connect (G_OBJECT (button), "toggled",
@@ -672,7 +675,7 @@ show_properties_dialog (void)
 	
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 
-	button = gtk_check_button_new_with_label (_("Show grid"));
+	button = gtk_check_button_new_with_mnemonic (_("S_how grid"));
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 			t_grid);
 	g_signal_connect (G_OBJECT (button), "toggled",
@@ -680,7 +683,7 @@ show_properties_dialog (void)
 	
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 
-	button = gtk_check_button_new_with_label (_("Flip final results"));
+	button = gtk_check_button_new_with_mnemonic (_("_Flip final results"));
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 			t_flip_final);
 	g_signal_connect (G_OBJECT (button), "toggled",
@@ -688,13 +691,14 @@ show_properties_dialog (void)
 
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	
-	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
+	hbox = gtk_hbox_new (FALSE, 12);
 	
-	label2 = gtk_label_new (_("Tile set:"));
+	label2 = gtk_label_new_with_mnemonic (_("_Tile set:"));
 	
 	gtk_box_pack_start (GTK_BOX (hbox), label2, FALSE, FALSE, 0);
 	
 	option_menu = fill_menu ();
+	gtk_label_set_mnemonic_widget (GTK_LABEL (label2), option_menu);
 	g_signal_connect(G_OBJECT(option_menu), "changed",
 			 G_CALLBACK (set_selection), NULL);
 	gtk_box_pack_start (GTK_BOX (hbox), option_menu, TRUE, TRUE, 0);

@@ -1,3 +1,9 @@
+2005-03-23  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c:	
+	* properties.c: Patches from Dennis Cranston
+	<dennis_cranston@yahoo.com> to make the game more HIG compliant.
+
 2005-03-02  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/iagno.xml: Bump the app version number. No revisions.

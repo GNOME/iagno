@@ -115,7 +115,7 @@ static const struct poptOption options[] = {
 GnomeUIInfo game_menu[] = {
         GNOMEUIINFO_MENU_NEW_GAME_ITEM(new_game_cb, NULL),
 
-	GNOMEUIINFO_ITEM(N_("New net_work game"), NULL, new_network_game_cb, NULL),
+	GNOMEUIINFO_ITEM(N_("New Net_work Game"), NULL, new_network_game_cb, NULL),
 
 	GNOMEUIINFO_SEPARATOR,
 
