@@ -856,13 +856,6 @@ void set_bg_color()
 	gdk_image_unref (tmpimage);
 }
 
-static char *nstr(int n)
-{
-	char buf[20];
-	sprintf(buf, "%d", n);
-	return strdup(buf);
-}
-
 static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_style, gint shutdown, GnomeInteractStyle interact_style, gint fast, gpointer client_data)
 {
 	char *argv[20];
@@ -874,9 +867,9 @@ static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_st
 	i = 0;
 	argv[i++] = (char *)client_data;
 	argv[i++] = "-x";
-	argv[i++] = nstr(xpos);
+	argv[i++] = g_strdup_printf("%d", xpos);
 	argv[i++] = "-y";
-	argv[i++] = nstr(ypos);
+	argv[i++] = g_strdup_printf("%d", ypos);
 
 	gnome_client_set_restart_command(client, i, argv);
 	gnome_client_set_clone_command(client, 0, NULL);

@@ -1,5 +1,10 @@
 2002-04-15  Bastien Nocera  <hadess@hadess.net>
 
+	* gnothello.c: (save_state): remove nstr(), patch from
+	r_kinder@yahoo.com (Richard Kinder)
+
+2002-04-15  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am:
 	* gnothello.c: (quit_game_maybe), (quit_game_cb), (about_cb),
 	(expose_event), (gui_draw_pixmap), (gui_draw_pixmap_buffer),
