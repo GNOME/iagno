@@ -54,6 +54,7 @@ guint white_computer_id = 0;
 guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
 gint animate_stagger;
+gint grid = 0;
 guint tiles_to_flip = 0;
 
 gint64 milliseconds_total = 0;
@@ -95,6 +96,8 @@ int session_position = 0;
 
 gchar tile_set[255];
 gchar tile_set_tmp[255];
+
+GdkGC *gridGC[2];
 
 static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
@@ -410,24 +413,24 @@ void properties_cb (GtkWidget *widget, gpointer data)
 
 gint expose_event(GtkWidget *widget, GdkEventExpose *event)
 {
-        gdk_draw_pixmap(widget->window, widget->style->fg_gc[GTK_WIDGET_STATE(widget)], buffer_pixmap, event->area.x, event->area.y, event->area.x, event->area.y, event->area.width, event->area.height);
+	gdk_draw_pixmap(widget->window, widget->style->fg_gc[GTK_WIDGET_STATE(widget)], buffer_pixmap, event->area.x, event->area.y, event->area.x, event->area.y, event->area.width, event->area.height);
 
-        return(FALSE);
+	return(FALSE);
 }
 
 gint configure_event(GtkWidget *widget, GdkEventConfigure *event)
 {
-        guint i, j;
+	guint i, j;
 
-        if(buffer_pixmap)
-                gdk_pixmap_unref(buffer_pixmap);
-        buffer_pixmap = gdk_pixmap_new(widget->window, widget->allocation.width, widget->allocation.height, -1);
-
-	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++)
-			gui_draw_pixmap_buffer(pixmaps[i][j], i, j);
-
-        return(TRUE);
+	if (gridGC[0] != 0) {
+		gdk_draw_rectangle(buffer_pixmap,gridGC[0],1,0,0,BOARDWIDTH,BOARDHEIGHT);
+		for(i = 0; i < 8; i++)
+			for(j = 0; j < 8; j++)
+				gui_draw_pixmap_buffer(pixmaps[i][j], i, j);
+		gui_draw_grid();
+	}
+	
+	return(TRUE);
 }
 
 gint button_press_event(GtkWidget *widget, GdkEventButton *event)
@@ -444,8 +447,8 @@ gint button_press_event(GtkWidget *widget, GdkEventButton *event)
 		return(TRUE);
 
 	if(event->button == 1) {
-		x = event->x / TILEWIDTH;
-		y = event->y / TILEHEIGHT;
+		x = event->x / (TILEWIDTH+GRIDWIDTH);
+		y = event->y / (TILEHEIGHT+GRIDWIDTH);
 		if(is_valid_move(x, y, whose_turn))
 			game_move(x, y, whose_turn);
 	}
@@ -455,13 +458,30 @@ gint button_press_event(GtkWidget *widget, GdkEventButton *event)
 
 void gui_draw_pixmap(gint which, gint x, gint y)
 {
-	gdk_draw_pixmap(drawing_area->window, drawing_area->style->fg_gc[GTK_WIDGET_STATE(drawing_area)], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * TILEWIDTH, y * TILEHEIGHT, TILEWIDTH, TILEHEIGHT);
-	gdk_draw_pixmap(buffer_pixmap, drawing_area->style->fg_gc[GTK_WIDGET_STATE(drawing_area)], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * TILEWIDTH, y * TILEHEIGHT, TILEWIDTH, TILEHEIGHT);
+	gdk_draw_pixmap(drawing_area->window, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+	gdk_draw_pixmap(buffer_pixmap, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
 }
 
 void gui_draw_pixmap_buffer(gint which, gint x, gint y)
 {
-	gdk_draw_pixmap(buffer_pixmap, drawing_area->style->fg_gc[GTK_WIDGET_STATE(drawing_area)], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * TILEWIDTH, y * TILEHEIGHT, TILEWIDTH, TILEHEIGHT);
+	gdk_draw_pixmap(buffer_pixmap, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+}
+
+void gui_draw_grid()
+{
+	int i;
+	GdkGC *gridcolor;
+        
+	printf("Drawing grid\n");
+        
+	for(i = 1; i < 8; i++) {
+		gdk_draw_line(buffer_pixmap, gridGC[grid],
+					  i*BOARDWIDTH/8-1, 0, i*BOARDWIDTH/8-1, BOARDHEIGHT);
+		gdk_draw_line(buffer_pixmap, gridGC[grid],
+					  0, i*BOARDHEIGHT/8-1, BOARDWIDTH, i*BOARDHEIGHT/8-1);
+	}
+	
+	gdk_draw_pixmap(drawing_area->window, gridGC[0], buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
 }
 
 void load_pixmaps()
@@ -596,7 +616,8 @@ void init_new_game()
 		for(j = 0; j < 8; j++)
 			gui_draw_pixmap_buffer(pixmaps[i][j], i, j);
 
-	gdk_draw_pixmap(drawing_area->window, drawing_area->style->fg_gc[GTK_WIDGET_STATE(drawing_area)], buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
+        gui_draw_grid();
+
 	whose_turn = BLACK_TURN;
 	gui_message(_("Dark's move"));
 
@@ -751,6 +772,18 @@ void set_bg_color()
 	tmpimage = gdk_image_get(tiles_pixmap, 0, 0, 1, 1);
 	bgcolor.pixel = gdk_image_get_pixel(tmpimage, 0, 0);
 	gdk_window_set_background(drawing_area->window, &bgcolor);
+
+	gdk_gc_copy(gridGC[0],drawing_area->style->bg_gc[0]);
+	gdk_gc_copy(gridGC[1],drawing_area->style->bg_gc[0]);
+	
+	gdk_gc_set_background (gridGC[0],&bgcolor);
+	gdk_gc_set_foreground (gridGC[0],&bgcolor);
+	
+	/* Create a complementary color to use for the ON state */
+	bgcolor.pixel = 0xFFFFFF - bgcolor.pixel;
+	gdk_gc_set_background (gridGC[1],&bgcolor);
+	gdk_gc_set_foreground (gridGC[1],&bgcolor);
+	
 	gdk_image_destroy(tmpimage);
 }
 
@@ -826,14 +859,19 @@ int main(int argc, char **argv)
 
 	gtk_widget_show(window);
 
+	buffer_pixmap = gdk_pixmap_new(drawing_area->window, BOARDWIDTH, BOARDHEIGHT, -1);
+
+	gridGC[0] = gdk_gc_new(window->window);
+	gridGC[1] = gdk_gc_new(window->window);
+
 	set_bg_color();
 
-	gdk_window_clear_area(drawing_area->window, 0, 0, BOARDWIDTH, BOARDHEIGHT);
-
 	network_init();
+
 	gtk_main();
 
 	gtk_object_unref(GTK_OBJECT(client));
 
 	return 0;
 }
+

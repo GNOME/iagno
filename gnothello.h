@@ -28,10 +28,11 @@
 #define PIXMAP_STAGGER_DELAY 3
 #define COMPUTER_MOVE_DELAY 1000
 
-#define TILEWIDTH 60
-#define TILEHEIGHT 60
-#define BOARDWIDTH TILEWIDTH * 8
-#define BOARDHEIGHT TILEHEIGHT * 8
+#define TILEWIDTH   60
+#define TILEHEIGHT  60
+#define GRIDWIDTH   1
+#define BOARDWIDTH  ((TILEWIDTH+GRIDWIDTH)  * 8)
+#define BOARDHEIGHT ((TILEHEIGHT+GRIDWIDTH) * 8)
 
 typedef struct _MoveHistory MoveHistory;
 
@@ -75,6 +76,8 @@ void gui_message(gchar *message);
 guint check_computer_players();
 void load_pixmaps();
 void properties_cb (GtkWidget *widget, gpointer data);
+void set_bg_color(void);
+void gui_draw_grid(void);
 
 extern guint whose_turn;
 

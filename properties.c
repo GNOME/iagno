@@ -23,6 +23,7 @@ extern gint animate;
 extern gint animate_stagger;
 extern gint flip_pixmaps_id;
 extern gint flip_final;
+extern gint grid;
 
 guint t_black_computer_level;
 guint t_white_computer_level;
@@ -30,6 +31,7 @@ gint t_animate;
 gint t_quick_moves;
 gint t_animate_stagger;
 gint t_flip_final;
+gint t_grid;
 
 int mapped = 0;
 
@@ -44,6 +46,8 @@ void load_properties ()
 	animate = gnome_config_get_int ("/iagno/Preferences/animate=2");
 	animate_stagger = gnome_config_get_int
 		("/iagno/Preferences/animstagger=0");
+	grid = gnome_config_get_int
+		("/iagno/Preferences/grid=0");
 	if (gnome_config_get_int ("/iagno/Preferences/quickmoves=0"))
 		computer_speed = COMPUTER_MOVE_DELAY / 2;
 	else
@@ -77,6 +81,7 @@ void reset_properties ()
 	t_quick_moves = gnome_config_get_int
 		("/iagno/Preferences/quickmoves");
 	t_animate_stagger = animate_stagger;
+	t_grid = grid;
 	t_flip_final = flip_final;
 }
 
@@ -132,6 +137,16 @@ void animate_stagger_select (GtkWidget *widget, gpointer data)
 	gnome_property_box_changed (GNOME_PROPERTY_BOX (propbox));
 }
 
+void grid_select (GtkWidget *widget, gpointer data)
+{
+	if (GTK_TOGGLE_BUTTON (widget)->active)
+		t_grid = 1;
+	else
+		t_grid = 0;
+	
+	gnome_property_box_changed (GNOME_PROPERTY_BOX (propbox));
+}
+
 void animate_select (GtkWidget *widget, gpointer data)
 {
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
@@ -173,13 +188,15 @@ void apply_changes ()
 	if (strcmp (tile_set, tile_set_tmp)) {
 		strncpy (tile_set, tile_set_tmp, 255);
 		load_pixmaps ();
+	    set_bg_color();
 		for (i = 0; i < 8; i++)
 			for (j = 0; j < 8; j++)
 				if (pixmaps [i][j] >= BLACK_TURN &&
 						pixmaps[i][j] <= WHITE_TURN)
-					gui_draw_pixmap (pixmaps[i][j], i, j);
+					gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
 				else
-					gui_draw_pixmap (0, i, j);
+					gui_draw_pixmap_buffer (0, i, j);
+		gui_draw_grid();
 	}
 	
 	animate = t_animate;
@@ -206,7 +223,12 @@ void apply_changes ()
 	animate_stagger = t_animate_stagger;
 
 	flip_final = t_flip_final;
-	
+
+	if (grid!=t_grid) {
+			grid = t_grid;
+			gui_draw_grid();
+	}
+
 	check_computer_players ();
 }
 
@@ -223,6 +245,8 @@ void save_properties ()
 	gnome_config_set_int ("/iagno/Preferences/animate", animate);
 	gnome_config_set_int ("/iagno/Preferences/animstagger",
 			animate_stagger);
+	gnome_config_set_int ("/iagno/Preferences/grid",
+			grid);
 	gnome_config_set_int ("/iagno/Preferences/flipfinal", flip_final);
 	
 	gnome_config_sync ();
@@ -494,6 +518,15 @@ void show_properties_dialog ()
 			t_animate_stagger);
 	gtk_signal_connect (GTK_OBJECT (button), "toggled",
 			GTK_SIGNAL_FUNC (animate_stagger_select), NULL);
+	gtk_widget_show (button);
+	
+	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+
+	button = gtk_check_button_new_with_label (_("Show grid"));
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+			t_grid);
+	gtk_signal_connect (GTK_OBJECT (button), "toggled",
+			GTK_SIGNAL_FUNC (grid_select), NULL);
 	gtk_widget_show (button);
 	
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);

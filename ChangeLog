@@ -1,3 +1,7 @@
+1999-04-11  Scott D. Heavner  <sdh@po.cwru.edu>
+
+	* Add grid option.
+
 1999-02-13  Ian Peters  <itp@gnu.org>
 
 	* gnothello.[c|h]: Removed GNOTHELLO_VERSION, use VERSION, so now maybe
