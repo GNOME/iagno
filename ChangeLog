@@ -1,3 +1,14 @@
+2004-04-04  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c: 
+	* properties.c: GTK_OBJECT -> G_OBJECT
+
+	* proprties.c: GTK_SIGNAL_FUNC -> G_CALLBACK
+
+2004-02-17  Paolo Borelli  <pborelli@katamail.com>
+
+	* properties.c: do not leak theme_list.
+
 2004-03-06  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* properties.c: Slight tweak to Jonathan's patch to avoid the use
