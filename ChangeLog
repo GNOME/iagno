@@ -1,3 +1,8 @@
+2002-08-18  Ross Burton  <ross@burtonini.com>
+
+	* gnothello.c (quit_game_cb): HIG-ify the Quit dialog. Based on
+	work by Samuel Stringham <sams@e-sa.com>, fixing #73031.
+
 2002-08-17  Juan Pablo Mendoza  <jpablo@gnome.org>
 
 	* sunmoon.png: New file by DarkAlloy.

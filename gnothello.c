@@ -248,18 +248,16 @@ gboolean quit_game_cb(GtkWidget *widget, gpointer data)
 	if(game_in_progress) {
 		gint response;
 
-		dialog = gtk_dialog_new_with_buttons (NULL,
-				GTK_WINDOW (window),
+		dialog = gtk_message_dialog_new (GTK_WINDOW (window),
 				GTK_DIALOG_MODAL,
-				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
-				GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
-				NULL);
-		{
-			GtkWidget *label = gtk_label_new (_("Do you really want to quit?"));
-			gtk_container_add (GTK_CONTAINER (GTK_DIALOG (dialog)->vbox),
-					label);
-		}
+				GTK_MESSAGE_QUESTION,
+				GTK_BUTTONS_NONE,
+				_("Really quit GNOME Iagno?"), NULL);
 
+		gtk_dialog_add_buttons (GTK_DIALOG (dialog),
+					GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
+					GTK_STOCK_QUIT, GTK_RESPONSE_ACCEPT, 
+					NULL);
 		gtk_dialog_set_default_response (GTK_DIALOG (dialog),
 				GTK_RESPONSE_REJECT);
 
@@ -268,15 +266,15 @@ gboolean quit_game_cb(GtkWidget *widget, gpointer data)
 		gtk_widget_destroy (dialog);
 
 		if (response == GTK_RESPONSE_ACCEPT)
-        {
+		{
 			quit_game_maybe(NULL, 0);
-            return FALSE;
-        } else {
-            return TRUE;
-        }
+			return FALSE;
+		} else {
+			return TRUE;
+		}
 	} else {
-		quit_game_maybe(NULL, 0);
-        return FALSE;
+	  quit_game_maybe(NULL, 0);
+	  return FALSE;
 	}
 }
 
