@@ -43,9 +43,12 @@ guint white_computer_busy = 0;
 extern guint whose_turn;
 extern guint new_game;
 
-extern gint pixmaps[8][8];
+extern gint8 pixmaps[8][8];
+extern gint8 board[8][8];
+extern MoveHistory game[61];
 
-extern gint board[8][8];
+extern gint8 move_count;
+extern gint8 max_move_count;
 
 gint is_valid_move(guint x, guint y, guint me)
 {
@@ -160,6 +163,15 @@ gint move(guint x, guint y, guint me)
 	int animate_stagger;
 
 	new_game = 0;
+
+	memcpy(game[move_count].board, board, sizeof(gint8) * 8 * 8);
+	game[move_count].x = x;
+	game[move_count].y = y;
+	game[move_count].me = me;
+
+	move_count++;
+	if(move_count != max_move_count)
+		max_move_count = move_count;
 
 	animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
 	animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
@@ -443,7 +455,7 @@ gint flip_final_results()
 	guint adder = 0;
 	guint animate_stagger;
 
-	animate_stagger = gnome_config_get_bool("/gnothello/Preferences/animstagger=0");
+	animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
 
 	white_pieces = count_pieces(WHITE_TURN);
 	black_pieces = count_pieces(BLACK_TURN);

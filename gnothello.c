@@ -53,7 +53,7 @@ guint white_computer_id;
 guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
 
-gint pixmaps[8][8] = {{0,0,0,0,0,0,0,0},
+gint8 pixmaps[8][8] = {{0,0,0,0,0,0,0,0},
 		      {0,0,0,0,0,0,0,0},
 		      {0,0,0,0,0,0,0,0},
 		      {0,0,0,0,0,0,0,0},
@@ -62,7 +62,7 @@ gint pixmaps[8][8] = {{0,0,0,0,0,0,0,0},
 		      {0,0,0,0,0,0,0,0},
 		      {0,0,0,0,0,0,0,0}};
 
-gint board[8][8] = {{0,0,0,0,0,0,0,0},
+gint8 board[8][8] = {{0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0},
@@ -70,6 +70,11 @@ gint board[8][8] = {{0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0}};
+
+MoveHistory game[61];
+
+gint8 move_count = 0;
+gint8 max_move_count = 0;
 
 extern guint flip_final_id;
 extern guint black_computer_busy;
@@ -93,27 +98,26 @@ static const struct poptOption options[] = {
   {NULL, '\0', 0, NULL, 0}
 };
 
-GnomeUIInfo file_menu[] = {
-	{ GNOME_APP_UI_ITEM, N_("_New"), NULL, new_game_cb, NULL, NULL,
-	  GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK },
-	{ GNOME_APP_UI_ITEM, N_("_Quit"), NULL, quit_game_cb, NULL, NULL,
-	  GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK },
+GnomeUIInfo game_menu[] = {
+	{ GNOME_APP_UI_ITEM, N_("_New..."), "Start a new game", new_game_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_Undo"), "Undo last move", undo_move_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_UNDO, 'z', GDK_CONTROL_MASK, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_Exit..."), "Exit Gnothello", quit_game_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK, NULL },
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo black_level_radio_list[] = {
-	GNOMEUIINFO_ITEM_DATA(N_("_Disabled"), NULL, black_level_cb, "0", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level _One"), NULL, black_level_cb, "1", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level _Two"), NULL, black_level_cb, "2", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level _Three"), NULL, black_level_cb, "3", NULL),
+	{ GNOME_APP_UI_ITEM, N_("_Disabled"), NULL, black_level_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("Level _One"), NULL, black_level_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("Level _Two"), NULL, black_level_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"), NULL, black_level_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo white_level_radio_list[] = {
-	GNOMEUIINFO_ITEM_DATA(N_("_Disabled"), NULL, white_level_cb, "0", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level _One"), NULL, white_level_cb, "1", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level _Two"), NULL, white_level_cb, "2", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level _Three"), NULL, white_level_cb, "3", NULL),
+	{ GNOME_APP_UI_ITEM, N_("_Disabled"), NULL, white_level_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("Level _One"), NULL, white_level_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("Level _Two"), NULL, white_level_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"), NULL, white_level_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
@@ -128,21 +132,17 @@ GnomeUIInfo white_level_menu[] = {
 };
 
 GnomeUIInfo comp_menu[] = {
-//	GNOMEUIINFO_SUBTREE(N_("_Black"), black_level_menu),
-//	GNOMEUIINFO_SUBTREE(N_("_White"), white_level_menu),
-	{ GNOME_APP_UI_SUBTREE, N_("_Black"), NULL, black_level_menu, NULL, NULL,
-	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
-	{ GNOME_APP_UI_SUBTREE, N_("_White"), NULL, white_level_menu, NULL, NULL,
-	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
+	{ GNOME_APP_UI_SUBTREE, N_("_Black"), NULL, black_level_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
+	{ GNOME_APP_UI_SUBTREE, N_("_White"), NULL, white_level_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
 	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_TOGGLEITEM(N_("_Quick Moves"), NULL, quick_moves_cb, NULL),
+	{ GNOME_APP_UI_TOGGLEITEM, N_("_Quick Moves"), "Computer makes quick moves", quick_moves_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo anim_radio_list[] = {
-	GNOMEUIINFO_ITEM_DATA(N_("_No Animation"), NULL, anim_cb, "0", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("_Some Animation"), NULL, anim_cb, "1", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("_Full Animation"), NULL, anim_cb, "2", NULL),
+	{ GNOME_APP_UI_ITEM, N_("_No Animation"), NULL, anim_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_Some Animation"), NULL, anim_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_Full Animation"), NULL, anim_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
@@ -152,58 +152,109 @@ GnomeUIInfo anim_type_menu[] = {
 };
 
 GnomeUIInfo anim_menu[] = {
-//	GNOMEUIINFO_SUBTREE(N_("_Type"), anim_type_menu),
-//	{ GNOME_APP_UI_SUBTREE, N_("_Type"), NULL, anim_type_menu, NULL, NULL,
-//	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
 	GNOMEUIINFO_RADIOLIST(anim_radio_list),
 	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_TOGGLEITEM(N_("_Stagger Flips"), NULL, anim_stagger_cb, NULL),
+	{ GNOME_APP_UI_TOGGLEITEM, N_("_Stagger Flips"), NULL, anim_stagger_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_SEPARATOR,
-//	GNOMEUIINFO_ITEM_NONE(N_("_Change Tiles"), NULL, load_tiles_cb),
-//	GNOMEUIINFO_ITEM(N_("_Change Tiles"), NULL, load_tiles_cb, NULL),
-	{ GNOME_APP_UI_ITEM, N_("_Load Tiles"), NULL, load_tiles_cb, NULL, NULL,
-	  GNOME_APP_PIXMAP_DATA, NULL, 0, GDK_CONTROL_MASK },
+	{ GNOME_APP_UI_ITEM, N_("_Load Tiles..."), NULL, load_tiles_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo help_menu[] = {
-	GNOMEUIINFO_ITEM_STOCK(N_("_About..."), NULL, about_cb, "Menu_About"),
+	{ GNOME_APP_UI_ITEM, N_("_About..."), NULL, about_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo mainmenu[] = {
-	GNOMEUIINFO_SUBTREE(N_("_Game"), file_menu),
-	GNOMEUIINFO_SUBTREE(N_("_Computer"), comp_menu),
-	GNOMEUIINFO_SUBTREE(N_("_Animation"), anim_menu),
+	{ GNOME_APP_UI_SUBTREE, N_("_Game"), NULL, game_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_SUBTREE, N_("_Computer"), NULL, comp_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	{ GNOME_APP_UI_SUBTREE, N_("_Animation"), NULL, anim_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_JUSTIFY_RIGHT,
-	GNOMEUIINFO_SUBTREE(N_("_Help"), help_menu),
+	{ GNOME_APP_UI_SUBTREE, N_("_Help"), NULL, help_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
+void quit_game_maybe(GtkWidget *widget, int button)
+{
+	if(button == 0) {
+		gnome_config_sync();
+
+		gtk_timeout_remove(flip_pixmaps_id);
+		gtk_timeout_remove(black_computer_id);
+		gtk_timeout_remove(white_computer_id);
+		gtk_timeout_remove(check_valid_moves_id);
+		gtk_timeout_remove(check_computer_players_id);
+
+		if(buffer_pixmap)
+			gdk_pixmap_unref(buffer_pixmap);
+		if(tiles_pixmap)
+			gdk_pixmap_unref(tiles_pixmap);
+		if(tiles_mask)
+			gdk_pixmap_unref(tiles_mask);
+
+		gtk_main_quit();
+	}
+}
+
 void quit_game_cb(GtkWidget *widget, gpointer data)
 {
-	gnome_config_sync();
+	GtkWidget *box;
 
-	gtk_timeout_remove(flip_pixmaps_id);
-	gtk_timeout_remove(black_computer_id);
-	gtk_timeout_remove(white_computer_id);
-	gtk_timeout_remove(check_valid_moves_id);
-	gtk_timeout_remove(check_computer_players_id);
+	box = gnome_message_box_new(_("Quit Gnothello?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
+	gnome_dialog_set_default(GNOME_DIALOG(box), 1);
+	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
+	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)quit_game_maybe, NULL);
+	gtk_widget_show(box);
+}
 
-	if(buffer_pixmap)
-		gdk_pixmap_unref(buffer_pixmap);
-	if(tiles_pixmap)
-		gdk_pixmap_unref(tiles_pixmap);
-	if(tiles_mask)
-		gdk_pixmap_unref(tiles_mask);
-
-	gtk_main_quit();
+void new_game_maybe(GtkWidget *widget, int button)
+{
+	if (button == 0) {
+		network_new();
+		init_new_game();
+	}
 }
 
 void new_game_cb(GtkWidget *widget, gpointer data)
 {
-	network_new ();
-	init_new_game();
+	GtkWidget *box;
+
+	box = gnome_message_box_new(_("Start a new game?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
+	gnome_dialog_set_default(GNOME_DIALOG(box), 0);
+	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
+	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)new_game_maybe, NULL);
+	gtk_widget_show(box);
+}
+
+void undo_move_cb(GtkWidget *widget, gpointer data)
+{
+	gint8 which_computer;
+
+	if(black_computer_level && white_computer_level || !move_count)
+		return;
+
+	if(flip_final_id)
+		gtk_timeout_remove(flip_final_id);
+
+	if(black_computer_level || white_computer_level) {
+		if(black_computer_level)
+			which_computer = BLACK_TURN;
+		if(white_computer_level)
+			which_computer = WHITE_TURN;
+		move_count--;
+		while(game[move_count].me == which_computer && move_count > 0) {
+			pixmaps[game[move_count].x][game[move_count].y] = 100;
+			move_count--;
+		}
+		pixmaps[game[move_count].x][game[move_count].y] = 100;
+		memcpy(board, game[move_count].board, sizeof(gint8) * 8 * 8);
+	} else {
+		move_count--;
+		memcpy(board, game[move_count].board, sizeof(gint8) * 8 * 8);
+		pixmaps[game[move_count].x][game[move_count].y] = 100;
+	}
+
+	whose_turn = game[move_count].me;
 }
 
 void black_level_cb(GtkWidget *widget, gpointer data)
@@ -566,7 +617,10 @@ void init_new_game()
 	guint i, j;
 
 	gtk_timeout_remove(flip_final_id);
+
 	new_game = 1;
+	move_count = 0;
+
 	for(i = 0; i < 8; i++)
 		for(j = 0; j < 8; j++)
 			board[i][j] = 0;
@@ -574,16 +628,14 @@ void init_new_game()
 	board[3][4] = BLACK_TURN;
 	board[4][3] = BLACK_TURN;
 	board[4][4] = WHITE_TURN;
-	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++)
-			pixmaps[i][j] = 0;
-	pixmaps[3][3] = WHITE_TURN;
-	pixmaps[3][4] = BLACK_TURN;
-	pixmaps[4][3] = BLACK_TURN;
-	pixmaps[4][4] = WHITE_TURN;
+
+	memcpy(pixmaps, board, sizeof(gint8) * 8 * 8);
+	memcpy(game[0].board, board, sizeof(gint8) * 8 * 8);
+
 	for(i = 0; i < 8; i++)
 		for(j = 0; j < 8; j++)
 			gui_draw_pixmap_buffer(pixmaps[i][j], i, j);
+
 	gdk_draw_pixmap(drawing_area->window, drawing_area->style->fg_gc[GTK_WIDGET_STATE(drawing_area)], buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
 	whose_turn = BLACK_TURN;
 	black_computer_busy = 0;

@@ -31,9 +31,21 @@
 #define BOARDWIDTH TILEWIDTH * 8
 #define BOARDHEIGHT TILEHEIGHT * 8
 
+typedef struct _MoveHistory MoveHistory;
+
+struct _MoveHistory
+{
+        gint8 board[8][8];
+        gint8 x;
+        gint8 y;
+	gint8 me;
+};
+
 void new_game_cb(GtkWidget *widget, gpointer data);
 void new_net_game_cb(GtkWidget *widget, gpointer data);
 void quit_game_cb(GtkWidget *widget, gpointer data);
+void undo_move_cb(GtkWidget *widget, gpointer data);
+void redo_move_cb(GtkWidget *widget, gpointer data);
 void black_level_cb (GtkWidget *widget, gpointer data);
 void white_level_cb (GtkWidget *widget, gpointer data);
 void about_cb (GtkWidget *widget, gpointer data);
