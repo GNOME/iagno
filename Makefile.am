@@ -84,6 +84,6 @@ install-data-local:
 soundlistdir = $(sysconfdir)/sound/events
 soundlist_DATA = iagno.soundlist
 
-SUBDIRS=sounds
+SUBDIRS=sounds help
 
 CLEAN_FILES=built_corba_srcs
