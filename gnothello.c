@@ -773,18 +773,21 @@ void set_bg_color()
 	bgcolor.pixel = gdk_image_get_pixel(tmpimage, 0, 0);
 	gdk_window_set_background(drawing_area->window, &bgcolor);
 
-	gdk_gc_copy(gridGC[0],drawing_area->style->bg_gc[0]);
-	gdk_gc_copy(gridGC[1],drawing_area->style->bg_gc[0]);
+	gridGC[0] = gdk_gc_new (drawing_area->window);
+	gridGC[1] = gdk_gc_new (drawing_area->window);
+
+	gdk_gc_copy (gridGC [0],drawing_area->style->bg_gc[0]);
+	gdk_gc_copy (gridGC [1],drawing_area->style->bg_gc[0]);
 	
-	gdk_gc_set_background (gridGC[0],&bgcolor);
-	gdk_gc_set_foreground (gridGC[0],&bgcolor);
+	gdk_gc_set_background (gridGC [0],&bgcolor);
+	gdk_gc_set_foreground (gridGC [0],&bgcolor);
 	
 	/* Create a complementary color to use for the ON state */
 	bgcolor.pixel = 0xFFFFFF - bgcolor.pixel;
-	gdk_gc_set_background (gridGC[1],&bgcolor);
-	gdk_gc_set_foreground (gridGC[1],&bgcolor);
+	gdk_gc_set_background (gridGC [1],&bgcolor);
+	gdk_gc_set_foreground (gridGC [1],&bgcolor);
 	
-	gdk_image_destroy(tmpimage);
+	gdk_image_destroy (tmpimage);
 }
 
 static char *nstr(int n)
@@ -860,9 +863,6 @@ int main(int argc, char **argv)
 	gtk_widget_show(window);
 
 	buffer_pixmap = gdk_pixmap_new(drawing_area->window, BOARDWIDTH, BOARDHEIGHT, -1);
-
-	gridGC[0] = gdk_gc_new(window->window);
-	gridGC[1] = gdk_gc_new(window->window);
 
 	set_bg_color();
 
