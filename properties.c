@@ -1,5 +1,28 @@
+/* -*- mode:C; indent-tabs-mode:t; tab-width:8; c-basic-offset:8; -*- */
+
+/*
+ * Properties.c - Properties and preferences part of iagno
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * For more details see the file COPYING.
+ */
+
 #include <config.h>
 #include <gnome.h>
+#include <string.h>
 #include <dirent.h>
 #include <gconf/gconf-client.h>
 #include <games-gconf.h>
@@ -43,7 +66,8 @@ gint t_grid;
  *	It doesn't abide by the HIG.
  */
 
-void load_properties ()
+void 
+load_properties (void)
 {
 	GConfClient *client;
 	GError      *error = NULL;
@@ -129,7 +153,8 @@ void load_properties ()
 	}
 }
 
-void reset_properties ()
+static void
+reset_properties (void)
 {
 	GConfClient *client;
 	GError      *error = NULL;
@@ -175,23 +200,26 @@ void reset_properties ()
 	t_flip_final      = flip_final;
 }
 
-void black_computer_level_select (GtkWidget *widget, gpointer data)
+static void 
+black_computer_level_select (GtkWidget *widget, gpointer data)
 {
-	if (((guint) data != t_black_computer_level) &&
-		       (GTK_TOGGLE_BUTTON (widget)->active)) {
+	if (((guint) data != t_black_computer_level) 
+	    && (GTK_TOGGLE_BUTTON (widget)->active)) {
 		t_black_computer_level = (guint) data;
 	}
 }
 
-void white_computer_level_select (GtkWidget *widget, gpointer data)
+static void 
+white_computer_level_select (GtkWidget *widget, gpointer data)
 {
-	if (((guint) data != t_white_computer_level) &&
-		       (GTK_TOGGLE_BUTTON (widget)->active)) {
+	if (((guint) data != t_white_computer_level)
+	    && (GTK_TOGGLE_BUTTON (widget)->active)) {
 		t_white_computer_level = (guint) data;
 	}
 }
 
-void quick_moves_select (GtkWidget *widget, gpointer data)
+static void 
+quick_moves_select (GtkWidget *widget, gpointer data)
 {
 	if (GTK_TOGGLE_BUTTON (widget)->active)
 		t_quick_moves = 1;
@@ -199,7 +227,8 @@ void quick_moves_select (GtkWidget *widget, gpointer data)
 		t_quick_moves = 0;
 }
 
-void flip_final_select (GtkWidget *widget, gpointer data)
+static void 
+flip_final_select (GtkWidget *widget, gpointer data)
 {
 	if (GTK_TOGGLE_BUTTON (widget)->active)
 		t_flip_final = 1;
@@ -207,7 +236,8 @@ void flip_final_select (GtkWidget *widget, gpointer data)
 		t_flip_final = 0;
 }
 
-void animate_stagger_select (GtkWidget *widget, gpointer data)
+static void
+animate_stagger_select (GtkWidget *widget, gpointer data)
 {
 	if (GTK_TOGGLE_BUTTON (widget)->active)
 		t_animate_stagger = 1;
@@ -215,7 +245,8 @@ void animate_stagger_select (GtkWidget *widget, gpointer data)
 		t_animate_stagger = 0;
 }
 
-void grid_select (GtkWidget *widget, gpointer data)
+static void
+grid_select (GtkWidget *widget, gpointer data)
 {
 	if (GTK_TOGGLE_BUTTON (widget)->active)
 		t_grid = 1;
@@ -223,14 +254,16 @@ void grid_select (GtkWidget *widget, gpointer data)
 		t_grid = 0;
 }
 
-void animate_select (GtkWidget *widget, gpointer data)
+static void
+animate_select (GtkWidget *widget, gpointer data)
 {
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
 		t_animate = (gint) data;
 	}
 }
 
-void apply_changes ()
+static void
+apply_changes (void)
 {
 	guint i, j;
 	
@@ -264,7 +297,7 @@ void apply_changes ()
 		g_free (tile_set);
 		tile_set = g_strdup (tile_set_tmp);
 		load_pixmaps ();
-	    set_bg_color();
+		set_bg_color ();
 		for (i = 0; i < 8; i++)
 			for (j = 0; j < 8; j++)
 				if (pixmaps [i][j] >= BLACK_TURN &&
@@ -285,14 +318,14 @@ void apply_changes ()
 	switch (animate) {
 		case 0:
 			flip_pixmaps_id = gtk_timeout_add (100, flip_pixmaps,
-					NULL);
+							   NULL);
 			break;
 		case 1:
-			flip_pixmaps_id = gtk_timeout_add (PIXMAP_FLIP_DELAY *
-					8, flip_pixmaps, NULL);
+			flip_pixmaps_id = gtk_timeout_add (PIXMAP_FLIP_DELAY * 8,
+							   flip_pixmaps, NULL);
 			break;
 		case 2: flip_pixmaps_id = gtk_timeout_add (PIXMAP_FLIP_DELAY,
-					flip_pixmaps, NULL);
+							   flip_pixmaps, NULL);
 			break;
 	}
 	
@@ -300,15 +333,16 @@ void apply_changes ()
 
 	flip_final = t_flip_final;
 
-	if (grid!=t_grid) {
+	if (grid != t_grid) {
 			grid = t_grid;
-			gui_draw_grid();
+			gui_draw_grid ();
 	}
 
 	check_computer_players ();
 }
 
-void save_properties ()
+static void
+save_properties (void)
 {
 	GConfClient *client;
 
@@ -336,24 +370,27 @@ void save_properties ()
 			       flip_final, NULL);
 }
 
-void apply_cb (GtkWidget *widget, gint arg1, gpointer data)
+static void
+apply_cb (GtkWidget *widget, gint arg1, gpointer data)
 {
 	gtk_widget_hide (widget);
 
 	if (arg1 == GTK_RESPONSE_REJECT)
 		return;
 
-	apply_changes();
+	apply_changes ();
 	
 	save_properties ();
 }
 
-void destroy_cb (GtkWidget *widget, gpointer data)
+static void
+destroy_cb (GtkWidget *widget, gpointer data)
 {
 
 }
 
-void set_selection(GtkWidget *widget, gpointer data)
+void
+set_selection (GtkWidget *widget, gpointer data)
 {
 	if (strcmp ((gchar *)data, tile_set_tmp) != 0) {
 		g_free (tile_set_tmp);
@@ -361,12 +398,14 @@ void set_selection(GtkWidget *widget, gpointer data)
 	}
 }
 
-void free_str(GtkWidget *widget, void *data)
+void
+free_str (GtkWidget *widget, void *data)
 {
         g_free(data);
 }
 
-void fill_menu(GtkWidget *menu)
+void
+fill_menu (GtkWidget *menu)
 {
         struct dirent *e;
         char *dname = NULL;
@@ -407,7 +446,7 @@ void fill_menu(GtkWidget *menu)
 	g_free (dname);
 }
 
-void
+static void
 dialog_help_callback (GtkWidget *box, gint page_num)
 {
 #if 0
@@ -427,7 +466,8 @@ dialog_help_callback (GtkWidget *box, gint page_num)
 #endif
 }
 
-void show_properties_dialog ()
+void
+show_properties_dialog (void)
 {
 	GtkWidget *notebook;
 	GtkWidget *hbox;

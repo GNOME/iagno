@@ -1,3 +1,12 @@
+2003-06-18  William Jon McCann  <mccann@jhu.edu>
+
+	* properties.h: 
+	* properties.c: 
+	* gnothello.h: 
+	* gnothello.c: 
+	* network.h: 
+	* network.c: Fixed compiler warnings.
+
 2003-06-17  William Jon McCann  <mccann@jhu.edu>
 
 	* gnothello.c (load_pixmaps): Use g_build_filename to

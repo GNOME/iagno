@@ -1,3 +1,5 @@
+/* -*- mode:C; indent-tabs-mode:t; tab-width:8; c-basic-offset:8; -*- */
+
 /*
  * gnothello.c - Main GUI part of iagno
  * written by Ian Peters <itp@gnu.org>
@@ -220,80 +222,83 @@ GnomeUIInfo mainmenu[] = {
 	GNOMEUIINFO_END
 };
 
-gboolean quit_game_cb(GtkWidget *widget, gpointer data)
+gboolean
+quit_game_cb (GtkWidget *widget, gpointer data)
 {
   gtk_main_quit ();
 }
 
 static void
-new_network_game_cb(GtkWidget *widget, gpointer data)
+new_network_game_cb (GtkWidget *widget, gpointer data)
 {
-  network_new();
+  network_new ();
 }
 
-void new_game_cb(GtkWidget *widget, gpointer data)
+void
+new_game_cb (GtkWidget *widget, gpointer data)
 {
-  network_stop();
-  init_new_game();
+  network_stop ();
+  init_new_game ();
 }
 
-void undo_move_cb(GtkWidget *widget, gpointer data)
+void
+undo_move_cb (GtkWidget *widget, gpointer data)
 {
 	gint8 which_computer;
 	gint i, j;
 
-	if((black_computer_level && white_computer_level) || !move_count)
+	if ((black_computer_level && white_computer_level) || !move_count)
 		return;
 
 	if (flip_final_id) {
-		gtk_timeout_remove(flip_final_id);
+		gtk_timeout_remove (flip_final_id);
 		flip_final_id = 0;
 	}
 
 	game_in_progress = 1;
 
-	if(black_computer_level || white_computer_level) {
-		if(black_computer_level)
+	if (black_computer_level || white_computer_level) {
+		if (black_computer_level)
 			which_computer = BLACK_TURN;
 		else
 			which_computer = WHITE_TURN;
 		move_count--;
-		while(game[move_count].me == which_computer && move_count > 0) {
+		while (game[move_count].me == which_computer && move_count > 0) {
 			pixmaps[game[move_count].x][game[move_count].y] = 100;
 			move_count--;
 		}
 		pixmaps[game[move_count].x][game[move_count].y] = 100;
-		memcpy(board, game[move_count].board, sizeof(gint8) * 8 * 8);
+		memcpy (board, game[move_count].board, sizeof (gint8) * 8 * 8);
 	} else {
 		move_count--;
-		memcpy(board, game[move_count].board, sizeof(gint8) * 8 * 8);
+		memcpy (board, game[move_count].board, sizeof (gint8) * 8 * 8);
 		pixmaps[game[move_count].x][game[move_count].y] = 100;
 	}
 
 	whose_turn = game[move_count].me;
 
-	if(whose_turn == WHITE_TURN)
-		gui_message(_("Light's move"));
+	if (whose_turn == WHITE_TURN)
+		gui_message (_("Light's move"));
 	else
-		gui_message(_("Dark's move"));
+		gui_message (_("Dark's move"));
 
 	wcount = 0;
 	bcount = 0;
 
-	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++) {
-			if(board[i][j] == WHITE_TURN)
+	for (i = 0; i < 8; i++)
+		for (j = 0; j < 8; j++) {
+			if (board[i][j] == WHITE_TURN)
 				wcount++;
-			if(board[i][j] == BLACK_TURN)
+			if (board[i][j] == BLACK_TURN)
 				bcount++;
 		}
 
-	gui_status();
+	gui_status ();
 
-	if(timer_valid) {
-		games_clock_stop(GAMES_CLOCK(time_display));
-		gtk_widget_set_sensitive(time_display, FALSE);
-		games_clock_set_seconds(GAMES_CLOCK(time_display), 0);
+	if (timer_valid) {
+		games_clock_stop (GAMES_CLOCK (time_display));
+		gtk_widget_set_sensitive (time_display, FALSE);
+		games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
 		timer_valid = 0;
 	}
 
@@ -302,50 +307,53 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	check_computer_players ();
 }
 
-void black_level_cb(GtkWidget *widget, gpointer data)
+void
+black_level_cb (GtkWidget *widget, gpointer data)
 {
         int tmp;
 
-        tmp = atoi((gchar *)data);
+        tmp = atoi ((gchar *)data);
 
-        gnome_config_set_int("/iagno/Preferences/blacklevel", tmp);
-        gnome_config_sync();
+        gnome_config_set_int ("/iagno/Preferences/blacklevel", tmp);
+        gnome_config_sync ();
 
         black_computer_level = tmp;
 
-        if(game_in_progress) {
+        if (game_in_progress) {
 
-                games_clock_stop(GAMES_CLOCK(time_display));
-                gtk_widget_set_sensitive(time_display, FALSE);
-                games_clock_set_seconds(GAMES_CLOCK(time_display), 0);
+                games_clock_stop (GAMES_CLOCK (time_display));
+                gtk_widget_set_sensitive (time_display, FALSE);
+                games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
                 timer_valid = 0;
         }
 
-        check_computer_players();
+        check_computer_players ();
 }
 
-void white_level_cb(GtkWidget *widget, gpointer data)
+void
+white_level_cb (GtkWidget *widget, gpointer data)
 {
         int tmp;
 
-        tmp = atoi((gchar *)data);
+        tmp = atoi ((gchar *)data);
 
-        gnome_config_set_int("/iagno/Preferences/whitelevel", tmp);
-        gnome_config_sync();
+        gnome_config_set_int ("/iagno/Preferences/whitelevel", tmp);
+        gnome_config_sync ();
 
         white_computer_level = tmp;
 
-        if(game_in_progress) {
-                games_clock_stop(GAMES_CLOCK(time_display));
-                gtk_widget_set_sensitive(time_display, FALSE);
-                games_clock_set_seconds(GAMES_CLOCK(time_display), 0);
+        if (game_in_progress) {
+                games_clock_stop (GAMES_CLOCK (time_display));
+                gtk_widget_set_sensitive (time_display, FALSE);
+                games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
                 timer_valid = 0;
         }
 
-        check_computer_players();
+        check_computer_players ();
 }
 
-void about_cb(GtkWidget *widget, gpointer data)
+void
+about_cb (GtkWidget *widget, gpointer data)
 {
 	static GtkWidget *about;
 	GdkPixbuf *pixbuf = NULL;
@@ -363,48 +371,57 @@ void about_cb(GtkWidget *widget, gpointer data)
 	{
 		char *filename = NULL;
 
-		filename = gnome_program_locate_file (NULL,
-				GNOME_FILE_DOMAIN_APP_PIXMAP,  ("iagno.png"),
-				TRUE, NULL);
+		filename = gnome_program_locate_file 
+			(NULL,
+			 GNOME_FILE_DOMAIN_APP_PIXMAP,  ("iagno.png"),
+			 TRUE, NULL);
 		if (filename != NULL)
 		{
-			pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+			pixbuf = gdk_pixbuf_new_from_file (filename, NULL);
 			g_free (filename);
 		}
 	}
 
-	about = gnome_about_new(_("Iagno"), VERSION, 
-			        "Copyright \xc2\xa9 1998-2003 Ian Peters",
-				_("GNOME version of the popular Othello disk "
-				  "flipping game."), 
-				(const char **)authors, 
-				(const char **)documenters,
-				strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
-				pixbuf);
-			
+	about = gnome_about_new (_("Iagno"), VERSION, 
+				 "Copyright \xc2\xa9 1998-2003 Ian Peters",
+				 _("GNOME version of the popular Othello disk "
+				   "flipping game."), 
+				 (const char **)authors, 
+				 (const char **)documenters,
+				 strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
+				 pixbuf);
+	
 	if (pixbuf != NULL)
 		gdk_pixbuf_unref (pixbuf);
 				
-	g_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
-			(gtk_widget_destroyed), &about);
+	g_signal_connect (G_OBJECT (about), "destroy",
+			  G_CALLBACK (gtk_widget_destroyed), &about);
 	gtk_window_set_transient_for (GTK_WINDOW(about), GTK_WINDOW(window));
 
-	gtk_widget_show(about);
+	gtk_widget_show (about);
 }
 
-void properties_cb (GtkWidget *widget, gpointer data)
+void
+properties_cb (GtkWidget *widget, gpointer data)
 {
 	show_properties_dialog ();
 }
 
-gint expose_event(GtkWidget *widget, GdkEventExpose *event)
+gint
+expose_event (GtkWidget *widget, GdkEventExpose *event)
 {
-	gdk_draw_drawable(widget->window, widget->style->fg_gc[GTK_WIDGET_STATE(widget)], buffer_pixmap, event->area.x, event->area.y, event->area.x, event->area.y, event->area.width, event->area.height);
+	gdk_draw_drawable (widget->window,
+			   widget->style->fg_gc[GTK_WIDGET_STATE(widget)],
+			   buffer_pixmap,
+			   event->area.x, event->area.y,
+			   event->area.x, event->area.y,
+			   event->area.width, event->area.height);
 
 	return(FALSE);
 }
 
-gint configure_event(GtkWidget *widget, GdkEventConfigure *event)
+gint
+configure_event (GtkWidget *widget, GdkEventConfigure *event)
 {
 	static int old_width = 0, old_height = 0;
 	guint i, j;
@@ -417,65 +434,86 @@ gint configure_event(GtkWidget *widget, GdkEventConfigure *event)
 	}
 	
 	if (gridGC[0] != 0) {
-		gdk_draw_rectangle(buffer_pixmap,gridGC[0],1,0,0,BOARDWIDTH,BOARDHEIGHT);
-		for(i = 0; i < 8; i++)
-			for(j = 0; j < 8; j++)
-				gui_draw_pixmap_buffer(pixmaps[i][j], i, j);
-		gui_draw_grid();
+		gdk_draw_rectangle (buffer_pixmap, gridGC[0], 1,
+				    0, 0, BOARDWIDTH, BOARDHEIGHT);
+		for (i = 0; i < 8; i++)
+			for (j = 0; j < 8; j++)
+				gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
+		gui_draw_grid ();
 	}
 	
-	return(TRUE);
+	return TRUE;
 }
 
-gint button_press_event(GtkWidget *widget, GdkEventButton *event)
+gint
+button_press_event (GtkWidget *widget, GdkEventButton *event)
 {
 	guint x, y;
 
 	if (!network_allow ())
-		return (TRUE);
+		return TRUE;
 	
-	if((whose_turn == WHITE_TURN) && white_computer_level)
-		return (TRUE);
+	if ((whose_turn == WHITE_TURN) && white_computer_level)
+		return TRUE;
 
-	if((whose_turn == BLACK_TURN) && black_computer_level)
-		return(TRUE);
+	if ((whose_turn == BLACK_TURN) && black_computer_level)
+		return TRUE;
 
-	if(event->button == 1) {
-		x = event->x / (TILEWIDTH+GRIDWIDTH);
-		y = event->y / (TILEHEIGHT+GRIDWIDTH);
-		if(is_valid_move(x, y, whose_turn))
-			game_move(x, y, whose_turn);
+	if (event->button == 1) {
+		x = event->x / (TILEWIDTH + GRIDWIDTH);
+		y = event->y / (TILEHEIGHT + GRIDWIDTH);
+		if (is_valid_move (x, y, whose_turn))
+			game_move (x, y, whose_turn);
 	}
 
-	return(TRUE);
+	return TRUE;
 }
 
-void gui_draw_pixmap(gint which, gint x, gint y)
+void
+gui_draw_pixmap (gint which, gint x, gint y)
 {
-	gdk_draw_drawable(drawing_area->window, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
-	gdk_draw_drawable(buffer_pixmap, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+	gdk_draw_drawable (drawing_area->window, gridGC[0], tiles_pixmap,
+			   (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT,
+			   x * (TILEWIDTH + GRIDWIDTH),
+			   y * (TILEHEIGHT + GRIDWIDTH),
+			   TILEWIDTH, TILEHEIGHT);
+	gdk_draw_drawable (buffer_pixmap, gridGC[0], tiles_pixmap,
+			   (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT,
+			   x * (TILEWIDTH + GRIDWIDTH),
+			   y * (TILEHEIGHT + GRIDWIDTH),
+			   TILEWIDTH, TILEHEIGHT);
 }
 
-void gui_draw_pixmap_buffer(gint which, gint x, gint y)
+void
+gui_draw_pixmap_buffer (gint which, gint x, gint y)
 {
-	gdk_draw_drawable(buffer_pixmap, gridGC[0], tiles_pixmap, (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT, x * (TILEWIDTH+GRIDWIDTH), y * (TILEHEIGHT+GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+	gdk_draw_drawable (buffer_pixmap, gridGC[0], tiles_pixmap,
+			   (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT,
+			   x * (TILEWIDTH + GRIDWIDTH),
+			   y * (TILEHEIGHT + GRIDWIDTH),
+			   TILEWIDTH, TILEHEIGHT);
 }
 
-void gui_draw_grid()
+void
+gui_draw_grid (void)
 {
 	int i;
         
-	for(i = 1; i < 8; i++) {
-		gdk_draw_line(buffer_pixmap, gridGC[grid],
-					  i*BOARDWIDTH/8-1, 0, i*BOARDWIDTH/8-1, BOARDHEIGHT);
-		gdk_draw_line(buffer_pixmap, gridGC[grid],
-					  0, i*BOARDHEIGHT/8-1, BOARDWIDTH, i*BOARDHEIGHT/8-1);
+	for (i = 1; i < 8; i++) {
+		gdk_draw_line (buffer_pixmap, gridGC[grid],
+			       i * BOARDWIDTH / 8 - 1, 0,
+			       i * BOARDWIDTH / 8 - 1, BOARDHEIGHT);
+		gdk_draw_line (buffer_pixmap, gridGC[grid],
+			       0, i * BOARDHEIGHT / 8 - 1,
+			       BOARDWIDTH, i * BOARDHEIGHT / 8 - 1);
 	}
 	
-	gdk_draw_drawable(drawing_area->window, gridGC[0], buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
+	gdk_draw_drawable (drawing_area->window, gridGC[0], buffer_pixmap,
+			   0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
 }
 
-void load_pixmaps()
+void
+load_pixmaps (void)
 {
 	GdkPixbuf *image;
 	GError    *error = NULL;
@@ -487,312 +525,326 @@ void load_pixmaps()
 	tmp = g_build_filename ("iagno", tile_set, NULL);
 	fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_PIXMAP,
                                            tmp, FALSE, NULL);
-	g_free(tmp);
+	g_free (tmp);
 
-	if(! g_file_test (fname, G_FILE_TEST_EXISTS|G_FILE_TEST_IS_REGULAR)) {
+	if (! g_file_test (fname,
+			   G_FILE_TEST_EXISTS | G_FILE_TEST_IS_REGULAR)) {
 		g_print (_("Could not find \'%s\' pixmap file for Iagno\n"), fname);
 		exit (1);
 	}
 
-	image = gdk_pixbuf_new_from_file(fname, &error);
+	image = gdk_pixbuf_new_from_file (fname, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gdk-pixbuf error %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
 
-	gdk_pixbuf_render_pixmap_and_mask(image, &tiles_pixmap, &tiles_mask, 127);
+	gdk_pixbuf_render_pixmap_and_mask (image, &tiles_pixmap,
+					   &tiles_mask, 127);
 
-	gdk_pixbuf_unref(image);
-	g_free(fname);
+	gdk_pixbuf_unref (image);
+	g_free (fname);
 }
 
-gint flip_pixmaps(gpointer data)
+gint
+flip_pixmaps (gpointer data)
 {
 	guint i, j;
 	guint flipped_tiles = 0;
 
-	if(!tiles_to_flip)
-		return(TRUE);
+	if (! tiles_to_flip)
+		return TRUE;
 	
-	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++) {
-			if(pixmaps[i][j] == 100) {
+	for (i = 0; i < 8; i++)
+		for (j = 0; j < 8; j++) {
+			if (pixmaps[i][j] == 100) {
 				pixmaps[i][j] = 101;
-				gui_draw_pixmap(0, i, j);
+				gui_draw_pixmap (0, i, j);
 				flipped_tiles = 1;
-			} else if(pixmaps[i][j] < board[i][j]) {
-				if(animate == 0) {
-					if(pixmaps[i][j] == BLACK_TURN)
+			} else if (pixmaps[i][j] < board[i][j]) {
+				if (animate == 0) {
+					if (pixmaps[i][j] == BLACK_TURN)
 						pixmaps[i][j] = board[i][j];
 					else
 						pixmaps[i][j]++;
-				} else if(animate == 1) {
-					if(pixmaps[i][j] < 1)
+				} else if (animate == 1) {
+					if (pixmaps[i][j] < 1)
 						pixmaps[i][j] += 2;
-					else if(pixmaps[i][j] >= 1 && pixmaps[i][j] < 8)
+					else if (pixmaps[i][j] >= 1 && pixmaps[i][j] < 8)
 						pixmaps[i][j] = 8;
-					else if(pixmaps[i][j] >= 8 && pixmaps[i][j] < 16)
+					else if (pixmaps[i][j] >= 8 && pixmaps[i][j] < 16)
 						pixmaps[i][j] = 16;
-					else if(pixmaps[i][j] >= 16 && pixmaps[i][j] < 23)
+					else if (pixmaps[i][j] >= 16 && pixmaps[i][j] < 23)
 						pixmaps[i][j] = 23;
-					else if(pixmaps[i][j] >= 23 && pixmaps[i][j] < 31)
+					else if (pixmaps[i][j] >= 23 && pixmaps[i][j] < 31)
 						pixmaps[i][j] = 31;
-					else if(pixmaps[i][j] > 31)
+					else if (pixmaps[i][j] > 31)
 						pixmaps[i][j] = 31;
-				} else if(animate == 2)
+				} else if (animate == 2)
 					pixmaps[i][j]++;
-				if(pixmaps[i][j] > 0)
-					gui_draw_pixmap(pixmaps[i][j], i, j);
+				if (pixmaps[i][j] > 0)
+					gui_draw_pixmap (pixmaps[i][j], i, j);
 				flipped_tiles = 1;
-			} else if(pixmaps[i][j] > board[i][j] && pixmaps[i][j] != 101) {
-				if(animate == 0) {
-					if(pixmaps[i][j] == WHITE_TURN)
+			} else if (pixmaps[i][j] > board[i][j] && pixmaps[i][j] != 101) {
+				if (animate == 0) {
+					if (pixmaps[i][j] == WHITE_TURN)
 						pixmaps[i][j] = board[i][j];
 					else
 						pixmaps[i][j]--;
-				} else if(animate == 1) {
-					if(pixmaps[i][j] > 31)
+				} else if (animate == 1) {
+					if (pixmaps[i][j] > 31)
 						pixmaps[i][j] -= 2;
-					else if(pixmaps[i][j] <= 31 && pixmaps[i][j] > 23)
+					else if (pixmaps[i][j] <= 31 && pixmaps[i][j] > 23)
 						pixmaps[i][j] = 23;
-					else if(pixmaps[i][j] <= 23 && pixmaps[i][j] > 16)
+					else if (pixmaps[i][j] <= 23 && pixmaps[i][j] > 16)
 						pixmaps[i][j] = 16;
-					else if(pixmaps[i][j] <= 16 && pixmaps[i][j] > 8)
+					else if (pixmaps[i][j] <= 16 && pixmaps[i][j] > 8)
 						pixmaps[i][j] = 8;
-					else if(pixmaps[i][j] <= 8 && pixmaps[i][j] > 1)
+					else if (pixmaps[i][j] <= 8 && pixmaps[i][j] > 1)
 						pixmaps[i][j] = 1;
-					else if(pixmaps[i][j] < 1)
+					else if (pixmaps[i][j] < 1)
 						pixmaps[i][j] = 1;
-				} else if(animate == 2)
+				} else if (animate == 2)
 					pixmaps[i][j]--;
-				if(pixmaps[i][j] < 32)
-					gui_draw_pixmap(pixmaps[i][j], i, j);
+				if (pixmaps[i][j] < 32)
+					gui_draw_pixmap (pixmaps[i][j], i, j);
 				flipped_tiles = 1;
 			}
 		}
 
-	if(!flipped_tiles)
+	if (! flipped_tiles)
 		tiles_to_flip = 0;
 
-	return(TRUE);
+	return TRUE;
 }
 
 static void
-redraw_board(void)
+redraw_board (void)
 {
-  guint i, j;
+	guint i, j;
 
-  gui_status();
+	gui_status();
 
-  for(i = 0; i < 8; i++)
-    for(j = 0; j < 8; j++)
-      gui_draw_pixmap_buffer(pixmaps[i][j], i, j);
+	for (i = 0; i < 8; i++)
+		for (j = 0; j < 8; j++)
+			gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
 
-  gui_draw_grid();
+	gui_draw_grid ();
 }
 
 void
-clear_board(void)
+clear_board (void)
 {
-  guint i, j;
+	guint i, j;
 
-  if (flip_final_id) {
-    gtk_timeout_remove(flip_final_id);
-    flip_final_id = 0;
-  }
+	if (flip_final_id) {
+		gtk_timeout_remove (flip_final_id);
+		flip_final_id = 0;
+	}
 
-  if (black_computer_id) {
-    gtk_timeout_remove(black_computer_id);
-    black_computer_id = 0;
-  }
+	if (black_computer_id) {
+		gtk_timeout_remove (black_computer_id);
+		black_computer_id = 0;
+	}
 
-  if (white_computer_id) {
-    gtk_timeout_remove(white_computer_id);
-    white_computer_id = 0;
-  }
+	if (white_computer_id) {
+		gtk_timeout_remove (white_computer_id);
+		white_computer_id = 0;
+	}
 
-  game_in_progress = 0;
-  move_count = 0;
-  for(i = 0; i < 8; i++)
-    for(j = 0; j < 8; j++)
-      board[i][j] = 0;
+	game_in_progress = 0;
+	move_count = 0;
+	for (i = 0; i < 8; i++)
+		for (j = 0; j < 8; j++)
+			board[i][j] = 0;
 
-  memcpy(pixmaps, board, sizeof(gint8) * 8 * 8);
-  memcpy(game[0].board, board, sizeof(gint8) * 8 * 8);
+	memcpy (pixmaps, board, sizeof (gint8) * 8 * 8);
+	memcpy (game[0].board, board, sizeof (gint8) * 8 * 8);
 
-  bcount = 0;
-  wcount = 0;
+	bcount = 0;
+	wcount = 0;
 
-  redraw_board();
+	redraw_board ();
 }
 
-void init_new_game(void)
+void
+init_new_game (void)
 {
-  clear_board();
-  game_in_progress = 1;
-  move_count = 0;
+	clear_board ();
+	game_in_progress = 1;
+	move_count = 0;
 
-  board[3][3] = WHITE_TURN;
-  board[3][4] = BLACK_TURN;
-  board[4][3] = BLACK_TURN;
-  board[4][4] = WHITE_TURN;
+	board[3][3] = WHITE_TURN;
+	board[3][4] = BLACK_TURN;
+	board[4][3] = BLACK_TURN;
+	board[4][4] = WHITE_TURN;
 
-  bcount = 2;
-  wcount = 2;
+	bcount = 2;
+	wcount = 2;
 
-  memcpy(pixmaps, board, sizeof(gint8) * 8 * 8);
-  memcpy(game[0].board, board, sizeof(gint8) * 8 * 8);
+	memcpy (pixmaps, board, sizeof (gint8) * 8 * 8);
+	memcpy (game[0].board, board, sizeof (gint8) * 8 * 8);
 
-  redraw_board();
+	redraw_board ();
 
-  whose_turn = BLACK_TURN;
-  gui_message(_("Dark's move"));
+	whose_turn = BLACK_TURN;
+	gui_message (_("Dark's move"));
 
-  games_clock_stop(GAMES_CLOCK(time_display));
-  games_clock_set_seconds(GAMES_CLOCK(time_display), 0);
+	games_clock_stop (GAMES_CLOCK (time_display));
+	games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
 
-  if(black_computer_level ^ white_computer_level) {
-   if(!black_computer_level)
-      games_clock_start(GAMES_CLOCK(time_display));
-    gtk_widget_set_sensitive(time_display, TRUE);
-    timer_valid = 1;
-  } else {
-    gtk_widget_set_sensitive(time_display, FALSE);
-    timer_valid = 0;
-  }
+	if (black_computer_level ^ white_computer_level) {
+		if (! black_computer_level)
+			games_clock_start (GAMES_CLOCK (time_display));
+		gtk_widget_set_sensitive (time_display, TRUE);
+		timer_valid = 1;
+	} else {
+		gtk_widget_set_sensitive (time_display, FALSE);
+		timer_valid = 0;
+	}
 
-  check_computer_players();
+	check_computer_players ();
 }
 
-void create_window()
+void
+create_window (void)
 {
 	GtkWidget *table;
-	GtkWidget *sep;
 
-	window = gnome_app_new("iagno", _("Iagno"));
+	window = gnome_app_new ("iagno", _("Iagno"));
 
-	gtk_widget_realize(window);
-	gtk_window_set_resizable(GTK_WINDOW(window), FALSE);
-	g_signal_connect(GTK_OBJECT(window), "delete_event", G_CALLBACK(quit_game_cb), NULL);
+	gtk_widget_realize (window);
+	gtk_window_set_resizable (GTK_WINDOW (window), FALSE);
+	g_signal_connect (G_OBJECT (window), "delete_event",
+			  G_CALLBACK (quit_game_cb), NULL);
 
-	gnome_app_create_menus(GNOME_APP(window), mainmenu);
+	gnome_app_create_menus (GNOME_APP (window), mainmenu);
 
 	/* gtk_widget_push_colormap (gdk_rgb_get_cmap ()); */
 
-	drawing_area = gtk_drawing_area_new();
+	drawing_area = gtk_drawing_area_new ();
 
 	gtk_widget_pop_colormap ();
 
-	gnome_app_set_contents(GNOME_APP(window), drawing_area);
+	gnome_app_set_contents (GNOME_APP (window), drawing_area);
 
-	gtk_widget_set_size_request(GTK_WIDGET(drawing_area), BOARDWIDTH, BOARDHEIGHT);
-	g_signal_connect(GTK_OBJECT(drawing_area), "expose_event", GTK_SIGNAL_FUNC(expose_event), NULL);
-	g_signal_connect(GTK_OBJECT(window), "configure_event", GTK_SIGNAL_FUNC(configure_event), NULL);
-	g_signal_connect(GTK_OBJECT(drawing_area), "button_press_event", GTK_SIGNAL_FUNC(button_press_event), NULL);
-	gtk_widget_set_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
-	gtk_widget_show(drawing_area);
+	gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
+				     BOARDWIDTH, BOARDHEIGHT);
+	g_signal_connect (G_OBJECT (drawing_area), "expose_event",
+			  G_CALLBACK (expose_event), NULL);
+	g_signal_connect (G_OBJECT (window), "configure_event",
+			  G_CALLBACK (configure_event), NULL);
+	g_signal_connect (G_OBJECT (drawing_area), "button_press_event",
+			  G_CALLBACK (button_press_event), NULL);
+	gtk_widget_set_events (drawing_area,
+			       GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
+	gtk_widget_show (drawing_area);
 
-	appbar = GNOME_APPBAR (gnome_appbar_new(FALSE, TRUE, FALSE));
-	gnome_app_set_statusbar(GNOME_APP(window), GTK_WIDGET (appbar));
-	gnome_app_install_menu_hints(GNOME_APP (window), mainmenu);
+	appbar = GNOME_APPBAR (gnome_appbar_new (FALSE, TRUE, FALSE));
+	gnome_app_set_statusbar (GNOME_APP (window), GTK_WIDGET (appbar));
+	gnome_app_install_menu_hints (GNOME_APP (window), mainmenu);
 
-	table = gtk_table_new(1, 8, FALSE);
+	table = gtk_table_new (1, 8, FALSE);
 
-	black_score = gtk_label_new(_("Dark:"));
-	gtk_widget_show(black_score);
+	black_score = gtk_label_new (_("Dark:"));
+	gtk_widget_show (black_score);
 
-	gtk_table_attach(GTK_TABLE(table), black_score, 1, 2, 0, 1, 0, 0, 3, 1);
+	gtk_table_attach (GTK_TABLE (table), black_score, 1, 2, 0, 1, 0, 0, 3, 1);
 
-	black_score = gtk_label_new("00");
-	gtk_widget_show(black_score);
+	black_score = gtk_label_new ("00");
+	gtk_widget_show (black_score);
 
-	gtk_table_attach(GTK_TABLE(table), black_score, 2, 3, 0, 1, 0, 0, 3, 1);
+	gtk_table_attach (GTK_TABLE (table), black_score, 2, 3, 0, 1, 0, 0, 3, 1);
 
-	white_score = gtk_label_new(_("Light:"));
-	gtk_widget_show(white_score);
+	white_score = gtk_label_new (_("Light:"));
+	gtk_widget_show (white_score);
 
-	gtk_table_attach(GTK_TABLE(table), white_score, 4, 5, 0, 1, 0, 0, 3, 1);
+	gtk_table_attach (GTK_TABLE (table), white_score, 4, 5, 0, 1, 0, 0, 3, 1);
 
-	white_score = gtk_label_new("00");
-	gtk_widget_show(white_score);
+	white_score = gtk_label_new ("00");
+	gtk_widget_show (white_score);
 
-	gtk_table_attach(GTK_TABLE(table), white_score, 5, 6, 0, 1, 0, 0, 3, 1);
+	gtk_table_attach (GTK_TABLE (table), white_score, 5, 6, 0, 1, 0, 0, 3, 1);
 
-	time_display = games_clock_new();
-	gtk_widget_set_sensitive(time_display, FALSE);
-	gtk_widget_show(time_display);
+	time_display = games_clock_new ();
+	gtk_widget_set_sensitive (time_display, FALSE);
+	gtk_widget_show (time_display);
 
-	gtk_table_attach(GTK_TABLE(table), time_display, 7, 8, 0, 1, 0, 0, 3, 1);
-	gtk_widget_show(table);
+	gtk_table_attach (GTK_TABLE (table), time_display, 7, 8, 0, 1, 0, 0, 3, 1);
+	gtk_widget_show (table);
 
-	gtk_box_pack_start(GTK_BOX(appbar), table, FALSE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (appbar), table, FALSE, TRUE, 0);
 
-	gnome_appbar_set_status(GNOME_APPBAR (appbar),
-				_("Welcome to Iagno!"));
+	gnome_appbar_set_status (GNOME_APPBAR (appbar),
+				 _("Welcome to Iagno!"));
 }
 
-void gui_status()
+void
+gui_status (void)
 {
 	gchar message[3];
 
-	sprintf(message, _("%.2d"), bcount);
-	gtk_label_set_text(GTK_LABEL(black_score), message);
-	sprintf(message, _("%.2d"), wcount);
-	gtk_label_set_text(GTK_LABEL(white_score), message);
+	sprintf (message, _("%.2d"), bcount);
+	gtk_label_set_text (GTK_LABEL (black_score), message);
+	sprintf (message, _("%.2d"), wcount);
+	gtk_label_set_text (GTK_LABEL (white_score), message);
 }
 
-void gui_message(gchar *message)
+void
+gui_message (gchar *message)
 {
-	gnome_appbar_pop(GNOME_APPBAR (appbar));
-        gnome_appbar_push(GNOME_APPBAR (appbar), message);
+	gnome_appbar_pop (GNOME_APPBAR (appbar));
+        gnome_appbar_push (GNOME_APPBAR (appbar), message);
 }
 
-guint check_computer_players()
+guint
+check_computer_players (void)
 {
-	if(black_computer_level && whose_turn == BLACK_TURN)
-		switch(black_computer_level) {
-			case 1:
-				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) BLACK_TURN);
+	if (black_computer_level && whose_turn == BLACK_TURN)
+		switch (black_computer_level) {
+		case 1:
+			black_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_1, (gpointer) BLACK_TURN);
 			break;
-			case 2:
-				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
+		case 2:
+			black_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
 			break;
-			case 3:
-				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
+		case 3:
+			black_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
+			break;
+		}
+	
+	if (white_computer_level && whose_turn == WHITE_TURN)
+		switch (white_computer_level) {
+		case 1:
+			white_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_1, (gpointer) WHITE_TURN);
+			break;
+		case 2:
+			white_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
+			break;
+		case 3:
+			white_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
 			break;
 		}
 
-	if(white_computer_level && whose_turn == WHITE_TURN)
-		switch(white_computer_level) {
-			case 1:
-				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) WHITE_TURN);
-			break;
-			case 2:
-				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
-			break;
-			case 3:
-				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
-			break;
-		}
-
-	return(TRUE);
+	return TRUE;
 }
 
-void set_bg_color()
+void
+set_bg_color (void)
 {
 	GdkImage *tmpimage;
 	GdkColor bgcolor;
 
 	tmpimage = gdk_drawable_get_image (tiles_pixmap, 0, 0, 1, 1);
-	bgcolor.pixel = gdk_image_get_pixel(tmpimage, 0, 0);
-	gdk_window_set_background(drawing_area->window, &bgcolor);
+	bgcolor.pixel = gdk_image_get_pixel (tmpimage, 0, 0);
+	gdk_window_set_background (drawing_area->window, &bgcolor);
 
 	if (gridGC[0])
-	  g_object_unref(gridGC[0]);
+	  g_object_unref (gridGC[0]);
 	gridGC[0] = gdk_gc_new (drawing_area->window);
 	if (gridGC[1])
-	  g_object_unref(gridGC[1]);
+	  g_object_unref (gridGC[1]);
 	gridGC[1] = gdk_gc_new (drawing_area->window);
 
 	gdk_gc_copy (gridGC [0],drawing_area->style->bg_gc[0]);
@@ -813,75 +865,82 @@ void set_bg_color()
 	g_object_unref (tmpimage);
 }
 
-static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_style, gint shutdown, GnomeInteractStyle interact_style, gint fast, gpointer client_data)
+static int
+save_state (GnomeClient *client, gint phase, GnomeRestartStyle save_style,
+	    gint shutdown, GnomeInteractStyle interact_style,
+	    gint fast, gpointer client_data)
 {
 	char *argv[20];
 	int i;
 	gint xpos, ypos;
 
-	gdk_window_get_origin(window->window, &xpos, &ypos);
+	gdk_window_get_origin (window->window, &xpos, &ypos);
 
 	i = 0;
 	argv[i++] = (char *)client_data;
 	argv[i++] = "-x";
-	argv[i++] = g_strdup_printf("%d", xpos);
+	argv[i++] = g_strdup_printf ("%d", xpos);
 	argv[i++] = "-y";
-	argv[i++] = g_strdup_printf("%d", ypos);
+	argv[i++] = g_strdup_printf ("%d", ypos);
 
-	gnome_client_set_restart_command(client, i, argv);
-	gnome_client_set_clone_command(client, 0, NULL);
+	gnome_client_set_restart_command (client, i, argv);
+	gnome_client_set_clone_command (client, 0, NULL);
 
-	g_free(argv[2]);
-	g_free(argv[4]);
+	g_free (argv[2]);
+	g_free (argv[4]);
 
 	return TRUE;
 }
 
-int main(int argc, char **argv)
+int
+main (int argc, char **argv)
 {
 	GnomeClient *client;
 	struct timeval tv;
 
-	gnome_score_init("iagno");
+	gnome_score_init ("iagno");
 
-	bindtextdomain(GETTEXT_PACKAGE, GNOMELOCALEDIR);
+	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-	textdomain(GETTEXT_PACKAGE);
+	textdomain (GETTEXT_PACKAGE);
 
-	gettimeofday(&tv, NULL);
-	srand(tv.tv_usec);
+	gettimeofday (&tv, NULL);
+	srand (tv.tv_usec);
 
 	gnome_program_init ("iagno", VERSION,
-			LIBGNOMEUI_MODULE,
-			argc, argv,
-			GNOME_PARAM_POPT_TABLE, options,
-			GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
+			    LIBGNOMEUI_MODULE,
+			    argc, argv,
+			    GNOME_PARAM_POPT_TABLE, options,
+			    GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
 	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/iagno.png");
-	client= gnome_master_client();
+	client= gnome_master_client ();
 
-	g_object_ref(GTK_OBJECT(client));
-	gtk_object_sink(GTK_OBJECT(client));
+	g_object_ref (GTK_OBJECT (client));
+	gtk_object_sink (GTK_OBJECT (client));
 
-	g_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
-	g_signal_connect(GTK_OBJECT(client), "die", G_CALLBACK(quit_game_cb), argv[0]);
+	g_signal_connect (G_OBJECT (client), "save_yourself",
+			  G_CALLBACK (save_state), argv[0]);
+	g_signal_connect (G_OBJECT (client), "die",
+			  G_CALLBACK (quit_game_cb), argv[0]);
 
-	create_window();
+	create_window ();
 	
 	load_properties ();
 
-	load_pixmaps();
+	load_pixmaps ();
 
-	if(session_xpos >= 0 && session_ypos >= 0) {
-		gdk_window_move(window->window, session_xpos, session_ypos);
+	if (session_xpos >= 0 && session_ypos >= 0) {
+		gdk_window_move (window->window, session_xpos, session_ypos);
 	}
 
-	gtk_widget_show(window);
+	gtk_widget_show (window);
 
-	buffer_pixmap = gdk_pixmap_new(drawing_area->window, BOARDWIDTH, BOARDHEIGHT, -1);
+	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
+					BOARDWIDTH, BOARDHEIGHT, -1);
 
-	set_bg_color();
+	set_bg_color ();
 
-	gtk_main();
+	gtk_main ();
 
 	return 0;
 }
