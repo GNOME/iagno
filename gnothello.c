@@ -591,6 +591,16 @@ void init_new_game()
 		flip_final_id = 0;
 	}
 
+	if (black_computer_id) {
+		gtk_timeout_remove(black_computer_id);
+		black_computer_id = 0;
+	}
+
+	if (white_computer_id) {
+		gtk_timeout_remove(white_computer_id);
+		white_computer_id = 0;
+	}
+
 	game_in_progress = 1;
 	move_count = 0;
 
