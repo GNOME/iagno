@@ -1,6 +1,6 @@
 scoredir=$(localstatedir)/games
 pixmapdir=$(datadir)/pixmaps/iagno
-Gamesdir = $(datadir)/apps/Games
+Gamesdir = $(datadir)/gnome/apps/Games
 appicondir=$(datadir)/pixmaps
 
 INCLUDES = 			\
