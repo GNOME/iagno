@@ -383,6 +383,7 @@ gint move(guint x, guint y, guint me)
 		bcount -= count - 1;
 	}
 
+	check_valid_moves();
 	gui_status();
 
 	if(valid)

@@ -43,7 +43,6 @@ GdkPixmap *tiles_pixmap = NULL;
 GdkPixmap *tiles_mask = NULL;
 
 gint flip_pixmaps_id = 0;
-gint check_valid_moves_id;
 gint check_computer_players_id;
 gint statusbar_id;
 guint whose_turn = BLACK_TURN;
@@ -187,7 +186,6 @@ void quit_game_maybe(GtkWidget *widget, int button)
 		gtk_timeout_remove(flip_pixmaps_id);
 		gtk_timeout_remove(black_computer_id);
 		gtk_timeout_remove(white_computer_id);
-		gtk_timeout_remove(check_valid_moves_id);
 		gtk_timeout_remove(check_computer_players_id);
 
 		if(buffer_pixmap)
@@ -720,6 +718,7 @@ void create_window()
 	gtk_widget_show(frame);
 
 	statusbar = gtk_statusbar_new();
+	gtk_frame_set_shadow_type(GTK_FRAME(GTK_STATUSBAR(statusbar)->frame), GTK_SHADOW_ETCHED_IN);
 	gtk_widget_show(statusbar);
 	statusbar_id = gtk_statusbar_get_context_id(GTK_STATUSBAR(statusbar), "gnothello");
 
@@ -895,7 +894,6 @@ int main(int argc, char **argv)
 
 	animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
 
-	check_valid_moves_id = gtk_timeout_add(1000, check_valid_moves, NULL);
 	check_computer_players_id = gtk_timeout_add(100, (GtkFunction)check_computer_players, NULL);
 
 	if(session_xpos >= 0 && session_ypos >= 0) {
