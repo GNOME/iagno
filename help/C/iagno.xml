@@ -2,12 +2,12 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY appversion "2.0">
-  <!ENTITY manrevision "2.0">
+  <!ENTITY appversion "2.4">
+  <!ENTITY manrevision "2.4">
   <!ENTITY date "March 2002">
   <!ENTITY app "<application>Iagno</application>">
   <!ENTITY appname "Iagno">
-  <!ENTITY version "1.0.51">
+  <!ENTITY version "2.4">
 ]>
 
 <!-- 
@@ -213,7 +213,7 @@
 </sect1>
 
 <sect1 id="playing">
- <title>Playing Othello</title>
+ <title>Playing Iagno</title>
  <para>
  The board starts with four tiles arranged in a box on the 
  middle of the board. The tiles have the same color at each 
@@ -267,8 +267,11 @@
  The game ends when it is no longer possible for either player to move.
 
  <figure id="block-shot">
-  <title>Black cannot take the white tile because there is a black tile 
-  "blocking" the row.</title>
+  <title>White cannot capture the black tile in the center of the
+  middle column because there are white tiles blocking the ends of that
+  column. If it where blacks turn instead, black could place a tile at
+  the top of the column but would only flip the first of the two white
+  tiles.</title>
   <screenshot>
     <mediaobject> 
     <imageobject>
@@ -288,15 +291,17 @@
  <title>Game Settings</title>
 
  <sect2 id="player">
-  <title>Choosing A Color</title>
+  <title>Player Color and Difficulty</title>
  
   <para>
   When you start Iagno the human player plays black and the computer player 
-  plays white with the first level of difficulty. You can change either the 
-  color that you play or the level of difficulty in the <guimenu>Settings 
-  </guimenu> menu. Go to <guisubmenu>Preferences</guisubmenu> and in the 
-  <guimenuitem>Players</guimenuitem> tab pick the color you want and 
-  the difficulty level of the computer player.
+  plays white with the first level of difficulty. Using the
+  <guimenuitem>Players</guimenuitem> tab in the
+  <guisubmenu>Preferences</guisubmenu> dialog you can set the type of
+  player for each color. Human is of course you, level one is the
+  easiest computer player and level three is the hardest. You can set
+  both to human to play against a friend or set both to computer to
+  watch the computer play itself.
   </para>
  </sect2>
 
@@ -337,7 +342,7 @@
 </sect1>
 
 <sect1 id="animations">
- <title>Animations</title>
+ <title>Appearance</title>
 
  <para>
  All the animation option are in the 
@@ -345,11 +350,11 @@
   <guimenu>Settings</guimenu>
   <guisubmenu>Preferences </guisubmenu>
  </menuchoice>
- menus with the <guimenuitem>Animations</guimenuitem> tab highlighted.
+ menus with the <guimenuitem>Appearance</guimenuitem> tab highlighted.
  </para>
 
  <sect2 id="animation-amount">
-  <title>Amount of Animation</title>
+  <title>Animation</title>
 
   <para>
   This option controls the amount of animation present when each tile is 
@@ -368,7 +373,7 @@
   <para>
   This option causes captured tiles along a row, column, or diagonal to
   flip one after another, like dominoes, instead of all flipping
-  simultaneously.  It has no effect on game play.
+  simultaneously.  It has no effect on game play, but looks cool.
   </para>
 
  </sect2>
@@ -429,7 +434,7 @@
   </important>
 
   <figure id="animation-shot">
-   <title>The Preferences menu with the Animation tab highlighted.</title>
+   <title>The Preferences menu with the Appearance tab highlighted.</title>
    <screenshot>
     <mediaobject> 
     <imageobject>
@@ -452,9 +457,7 @@
  <itemizedlist mark="opencircle">
     <listitem>
      <para>
-	The computer player for Iagno is easy to beat.  Iagno2, currently in
-    	development and planned for release with GNOME 2.0, already contains much
-    	more challenging computer players.
+	The computer player for Iagno is easy to beat.
      </para>
     </listitem>
  </itemizedlist>

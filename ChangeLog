@@ -1,3 +1,7 @@
+2003-08-03  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* help/C/iagno.xml: Updated docs for 2.4, including images.
+
 2003-07-22  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* properties.c: Make the preferences auto-apply.
