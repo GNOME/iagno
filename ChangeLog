@@ -1,3 +1,8 @@
+2002-05-05  Chris Lyttle <chris@wilddev.net>
+
+	* help/C/Makefile.am: updated for new format of SK 0.3.8.
+	* help/C/iagno-C.omf: updated for new format of SK 0.3.8.
+	
 2002-04-16  Bastien Nocera  <hadess@hadess.net>
 
 	* gnothello.c: (main): un-comment "die" signal connection for now

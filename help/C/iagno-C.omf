@@ -1,14 +1,30 @@
 <?xml version="1.0" standalone="no"?>
 <omf>
-  <resource>
-    <title>
-      The Iagno Manual
-    </title>
-    <subject>
-      <category>GNOME|Games</category>
-    </subject>
-    <format mime="text/xml"/>
-    <identifier url="iagno.xml"/>
-    <language code="C"/>
-  </resource>
-</omf>
+       <resource>
+       <creator>
+    baudais@okstate.edu (Eric Baudais)
+   </creator>
+     <maintainer>
+    chris@wilddev.net (Chris Lyttle)
+   </maintainer>
+     <title>
+     The Iagno Manual
+   </title>
+     <date>
+    2002-05-05
+   </date>
+     <version identifier="2.0" date="2002-05-05" description="Updated to full OMF format"/>
+     <subject category="GNOME|Games"/>
+     <description>
+    Iagno is a computer version of the game Reversi, more popularly called Othello.
+   </description>
+     <type>
+     user's guide
+   </type>
+     <format mime="text/xml" dtd="-//OASIS//DTD DocBook XML V4.1.2//EN"/>
+     <identifier url="file://usr/share/gnome/help/iagno/C/iagno.xml"/>
+     <language code="C"/>
+     <relation seriesid="a4db0e44-6009-11d6-897e-a50fcdebe813"/>
+     <rights type="GNU FDL" license.version="1.1" holder="Eric Baudais"/>
+     </resource>
+     </omf>

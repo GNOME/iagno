@@ -1,9 +1,4 @@
-figs = \
-	figures/ANIMATION.png		\
-	figures/BLOCK.png		\
-	figures/FIRST.png		\
-	figures/PLAYER.png		\
-	figures/START.png
+figdir = figures
 docname = iagno
 lang = C
 omffile = iagno-C.omf
