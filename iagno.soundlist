@@ -5,6 +5,7 @@ description[ko]=ÀÌ¾Æ±×³ë
 [gameover]
 file=iagno/gameover.wav
 description=Game over
+description[ca]=Fi del joc
 description[es]=Fin del juego
 description[fr]=Fin du jeu
 description[ko]=°ÔÀÓ ³¡
@@ -12,6 +13,7 @@ description[ko]=°ÔÀÓ ³¡
 [flip-piece]
 file=iagno/flip-piece.wav
 description=Piece flipping
+description[ca]=Peces giravoltant
 description[es]=Cambio de las piezas
 description[fr]=Changement des pièces
 description[ko]=µ¹ µÚÁý±â
