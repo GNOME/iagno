@@ -36,7 +36,8 @@ pixmap_DATA = \
 	metal.png \
 	metal2.png \
 	shrink.png \
-	woodtrim.png
+	woodtrim.png \
+	sunmoon.png
 
 appicon_DATA = iagno.png
 
