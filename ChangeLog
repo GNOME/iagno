@@ -1,3 +1,9 @@
+2002-04-16  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am: added -Wall
+	* gnothello.c: (quit_game_maybe), (create_window), (set_bg_color),
+	(main): more gnome2 porting indeed
+
 2002-04-15  Bastien Nocera  <hadess@hadess.net>
 
 	* gnothello.c: (save_state): remove nstr(), patch from

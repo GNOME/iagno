@@ -231,11 +231,11 @@ void quit_game_maybe(GtkWidget *widget, gint button)
 			gtk_timeout_remove(white_computer_id);
 
 		if(buffer_pixmap)
-			gdk_drawable_unref(buffer_pixmap);
+			g_object_unref(buffer_pixmap);
 		if(tiles_pixmap)
-			gdk_drawable_unref(tiles_pixmap);
+			g_object_unref(tiles_pixmap);
 		if(tiles_mask)
-			gdk_drawable_unref(tiles_mask);
+			g_object_unref(tiles_mask);
 
 		gtk_main_quit();
 	}
@@ -706,7 +706,7 @@ void create_window()
 	window = gnome_app_new("iagno", _("Iagno"));
 
 	gtk_widget_realize(window);
-	gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE);
+	gtk_window_set_resizable(GTK_WINDOW(window), FALSE);
 	g_signal_connect(GTK_OBJECT(window), "delete_event", GTK_SIGNAL_FUNC(quit_game_cb), NULL);
 
 	gnome_app_create_menus(GNOME_APP(window), mainmenu);
@@ -719,7 +719,7 @@ void create_window()
 
 	gnome_app_set_contents(GNOME_APP(window), drawing_area);
 
-	gtk_drawing_area_size(GTK_DRAWING_AREA(drawing_area), BOARDWIDTH, BOARDHEIGHT);
+	gtk_widget_set_size_request(GTK_WIDGET(drawing_area), BOARDWIDTH, BOARDHEIGHT);
 	g_signal_connect(GTK_OBJECT(drawing_area), "expose_event", GTK_SIGNAL_FUNC(expose_event), NULL);
 	g_signal_connect(GTK_OBJECT(window), "configure_event", GTK_SIGNAL_FUNC(configure_event), NULL);
 	g_signal_connect(GTK_OBJECT(drawing_area), "button_press_event", GTK_SIGNAL_FUNC(button_press_event), NULL);
@@ -832,10 +832,10 @@ void set_bg_color()
 	gdk_window_set_background(drawing_area->window, &bgcolor);
 
 	if (gridGC[0])
-	  gdk_gc_unref(gridGC[0]);
+	  g_object_unref(gridGC[0]);
 	gridGC[0] = gdk_gc_new (drawing_area->window);
 	if (gridGC[1])
-	  gdk_gc_unref(gridGC[1]);
+	  g_object_unref(gridGC[1]);
 	gridGC[1] = gdk_gc_new (drawing_area->window);
 
 	gdk_gc_copy (gridGC [0],drawing_area->style->bg_gc[0]);
@@ -853,7 +853,7 @@ void set_bg_color()
 				    GDK_LINE_ON_OFF_DASH,
 				    GDK_CAP_BUTT, GDK_JOIN_MITER);
 	
-	gdk_image_unref (tmpimage);
+	g_object_unref (tmpimage);
 }
 
 static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_style, gint shutdown, GnomeInteractStyle interact_style, gint fast, gpointer client_data)
@@ -894,17 +894,21 @@ int main(int argc, char **argv)
 	gettimeofday(&tv, NULL);
 	srand(tv.tv_usec);
 
-	gnome_init_with_popt_table("iagno", VERSION, argc, argv, options, 0, NULL);
+	/* use #gnome_program_init with the LIBGNOMEUI_MODULE */
+	gnome_program_init ("iagno", VERSION,
+			LIBGNOMEUI_MODULE,
+			argc, argv,
+			GNOME_PARAM_POPT_TABLE, options,
+			NULL);
 	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/iagno.png");
 	client= gnome_master_client();
 
-	gtk_object_ref(GTK_OBJECT(client));
+	g_object_ref(GTK_OBJECT(client));
 	gtk_object_sink(GTK_OBJECT(client));
 
 	g_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
-#if 0
 	g_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
-#endif
+
 	create_window();
 	
 	load_properties ();
@@ -912,7 +916,7 @@ int main(int argc, char **argv)
 	load_pixmaps();
 
 	if(session_xpos >= 0 && session_ypos >= 0) {
-		gtk_widget_set_uposition(window, session_xpos, session_ypos);
+		gdk_window_move(window->window, session_xpos, session_ypos);
 	}
 
 	gtk_widget_show(window);

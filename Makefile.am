@@ -4,6 +4,7 @@ Gamesdir = $(datadir)/applications
 appicondir=$(datadir)/pixmaps
 
 INCLUDES =						\
+	-Wall						\
 	-I$(top_srcdir)/libgames-support		\
 	$(GNOME_GAMES_CFLAGS)				\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"	\
