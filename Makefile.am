@@ -29,11 +29,11 @@ CLEANFILES = $(CORBA_SRCS)
 
 BUILT_SOURCES = $(CORBA_SRCS)
 
-$(CORBA_SRCS): my_gnothello_idl
+$(CORBA_SRCS): built_corba_srcs
 
-my_gnothello_idl: $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
+built_corba_srcs: $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $<
-	touch my_gnothello_idl
+	touch built_corba_srcs
 
 iagno_LDADD = \
 	$(GNOME_LIBDIR) \
@@ -85,3 +85,5 @@ soundlistdir = $(sysconfdir)/sound/events
 soundlist_DATA = iagno.soundlist
 
 SUBDIRS=sounds
+
+CLEAN_FILES=built_corba_srcs
