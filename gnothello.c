@@ -856,8 +856,8 @@ static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_st
 	gnome_client_set_restart_command(client, i, argv);
 	gnome_client_set_clone_command(client, 0, NULL);
 
-	free(argv[2]);
-	free(argv[4]);
+	g_free(argv[2]);
+	g_free(argv[4]);
 
 	return TRUE;
 }
@@ -885,7 +885,7 @@ int main(int argc, char **argv)
 
 	gtk_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
 	gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
-	
+
 	create_window();
 	
 	load_properties ();

@@ -274,7 +274,8 @@ void apply_changes ()
 		computer_speed = COMPUTER_MOVE_DELAY;
 	
 	if (strcmp (tile_set, tile_set_tmp)) {
-		strncpy (tile_set, tile_set_tmp, 255);
+		g_free (tile_set);
+		tile_set = g_strdup (tile_set_tmp);
 		load_pixmaps ();
 	    set_bg_color();
 		for (i = 0; i < 8; i++)
@@ -362,15 +363,16 @@ void destroy_cb (GtkWidget *widget, gpointer data)
 
 void set_selection(GtkWidget *widget, gpointer data)
 {
-	if (strcmp ((gchar *)data, tile_set_tmp)) {
+	if (strcmp ((gchar *)data, tile_set_tmp) != 0) {
 		gnome_property_box_changed (GNOME_PROPERTY_BOX (propbox));
-	        strncpy(tile_set_tmp, data, 255);
+		g_free (tile_set_tmp);
+		tile_set_tmp = g_strdup (data);
 	}
 }
 
 void free_str(GtkWidget *widget, void *data)
 {
-        free(data);
+        g_free(data);
 }
 
 void fill_menu(GtkWidget *menu)
@@ -387,23 +389,24 @@ void fill_menu(GtkWidget *menu)
 
         while((e = readdir(dir)) != NULL) {
                 GtkWidget *item;
-                char *s = strdup(e->d_name);
-                if(!strstr(e->d_name, ".png")) {
-                        free(s);
+                char *s = g_strdup(e->d_name);
+                if(strstr(e->d_name, ".png") == 0) {
+                        g_free(s);
                         continue;
                 }
 
                 item = gtk_menu_item_new_with_label(s);
                 gtk_widget_show(item);
                 gtk_menu_append(GTK_MENU(menu), item);
+
+		if (strcmp(tile_set, s) == 0) {
+			gtk_menu_set_active(GTK_MENU(menu), itemno);
+		}
+
                 gtk_signal_connect(GTK_OBJECT(item), "activate",
 				(GtkSignalFunc)set_selection, s);
                 gtk_signal_connect(GTK_OBJECT(item), "destroy",
 				(GtkSignalFunc)free_str, s);
-
-                if (!strcmp(tile_set, s)) {
-                        gtk_menu_set_active(GTK_MENU(menu), itemno);
-                }
 
                 itemno++;
         }

@@ -1,3 +1,10 @@
+2002-04-15  Bastien Nocera  <hadess@hadess.net>
+
+	* gnothello.c: (save_state):
+	* properties.c: (apply_changes), (set_selection), (free_str),
+	(fill_menu): some g_-ification that fixes some double-free bugs
+	(Closes: #78130)
+
 2002-02-17  Chris Lyttle  <chris@wilddev.net>
 
 	* help/C/iagno.xml: updated for new template.
