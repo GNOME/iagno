@@ -421,10 +421,10 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 		gui_status();
 
-		if(not_me == BLACK_TURN && !black_computer_level) {
+		if(not_me == BLACK_TURN && !black_computer_level && timer_valid) {
 			gtk_clock_start(GTK_CLOCK(time_display));
 		}
-		if(not_me == WHITE_TURN && !white_computer_level) {
+		if(not_me == WHITE_TURN && !white_computer_level && timer_valid) {
 			gtk_clock_start(GTK_CLOCK(time_display));
 		}
 
@@ -628,7 +628,7 @@ gint check_valid_moves()
 		gui_message(_("Light must pass, Dark's move"));
 		whose_turn = BLACK_TURN;
 		if(white_computer_level ^ black_computer_level)
-			if(!black_computer_level)
+			if(!black_computer_level && timer_valid)
 				gtk_clock_start(GTK_CLOCK(time_display));
 			else
 				gtk_clock_stop(GTK_CLOCK(time_display));
@@ -639,7 +639,7 @@ gint check_valid_moves()
 		gui_message(_("Dark must pass, Light's move"));
 		whose_turn = WHITE_TURN;
 		if(white_computer_level ^ black_computer_level)
-			if(!white_computer_level)
+			if(!white_computer_level && timer_valid)
 				gtk_clock_start(GTK_CLOCK(time_display));
 			else
 				gtk_clock_stop(GTK_CLOCK(time_display));
