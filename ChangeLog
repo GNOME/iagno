@@ -1,3 +1,9 @@
+2003-05-28  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c (about_cb): 
+	* properties.c: Use gtk_window_present to show the dialogs.
+	Fixes bug #113895, thanks Steve.
+
 2003-04-30  Abel Cheung  <maddog@linux.org.hk>
 
 	* ChangeLog: Convert to UTF-8.

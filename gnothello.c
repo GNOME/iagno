@@ -409,8 +409,7 @@ void about_cb(GtkWidget *widget, gpointer data)
     	const gchar *translator_credits = _("translator_credits");
 	
 	if (about != NULL) {
-		gdk_window_raise (about->window);
-		gdk_window_show (about->window);
+                gtk_window_present (GTK_WINDOW (about));
 		return;
 	}
 

@@ -36,8 +36,6 @@ gint t_animate_stagger;
 gint t_flip_final;
 gint t_grid;
 
-int mapped = 0;
-
 /*
  * FIXME:
  * 	This was only a quick port to gconf.
@@ -340,7 +338,6 @@ void save_properties ()
 void apply_cb (GtkWidget *widget, gint arg1, gpointer data)
 {
 	gtk_widget_hide (widget);
-	mapped = 0;
 
 	if (arg1 == GTK_RESPONSE_REJECT)
 		return;
@@ -352,7 +349,7 @@ void apply_cb (GtkWidget *widget, gint arg1, gpointer data)
 
 void destroy_cb (GtkWidget *widget, gpointer data)
 {
-	mapped = 0;
+
 }
 
 void set_selection(GtkWidget *widget, gpointer data)
@@ -444,15 +441,8 @@ void show_properties_dialog ()
 
 	if (propbox)
 	{
-		if (mapped == 0)
-		{
-			gtk_widget_show(propbox);
-			mapped = 1;
-			reset_properties ();
-		} else {
-			gdk_window_raise (GTK_WIDGET(propbox)->window);
-		}
-		return;
+                gtk_window_present (GTK_WINDOW (propbox));
+                return;
 	}
 
 	reset_properties ();
@@ -707,5 +697,4 @@ void show_properties_dialog ()
 			(destroy_cb), NULL);
 
 	gtk_widget_show (propbox);
-	mapped = 1;
 }
