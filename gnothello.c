@@ -51,6 +51,7 @@ guint white_computer_level;
 guint black_computer_id;
 guint white_computer_id;
 guint computer_speed = COMPUTER_MOVE_DELAY;
+gint animate;
 
 gint pixmaps[8][8] = {{0,0,0,0,0,0,0,0},
 		      {0,0,0,0,0,0,0,0},
@@ -275,12 +276,15 @@ void anim_cb(GtkWidget *widget, gpointer data)
 	switch(tmp) {
 		case 0:
 			flip_pixmaps_id = gtk_timeout_add(100, flip_pixmaps, NULL);
+			animate = 0;
 			break;
 		case 1:
 			flip_pixmaps_id = gtk_timeout_add(PIXMAP_FLIP_DELAY * 8, flip_pixmaps, NULL);
+			animate = 1;
 			break;
 		case 2:
 			flip_pixmaps_id = gtk_timeout_add(PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
+			animate = 2;
 			break;
 	}
 }
@@ -542,9 +546,6 @@ void load_pixmaps()
 gint flip_pixmaps(gpointer data)
 {
 	guint i, j;
-	gint animate;
-
-	animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
 
 	for(i = 0; i < 8; i++)
 		for(j = 0; j < 8; j++) {
@@ -809,6 +810,8 @@ int main(int argc, char **argv)
 
 	strncpy(tile_set, gnome_config_get_string("/gnothello/preferences/tileset=flip.png"), 255);
 	load_pixmaps();
+
+	animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
 
 	check_valid_moves_id = gtk_timeout_add(1000, check_valid_moves, NULL);
 	check_computer_players_id = gtk_timeout_add(100, (GtkFunction)check_computer_players, NULL);
