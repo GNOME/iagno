@@ -5,7 +5,7 @@ appicondir=$(datadir)/pixmaps
 INCLUDES = 			\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)				 \
-	$(GNOME_INCLUDEDIR) $(ORBIT_CFLAGS)
+	$(GNOME_INCLUDEDIR)
 
 bin_PROGRAMS = gnothello
 
@@ -27,7 +27,7 @@ $(CORBA_SRCS): $(top_srcdir)/idl/gnothello-game.idl
 gnothello_LDADD = \
 	$(GNOME_LIBDIR) \
 	$(GNOMEUI_LIBS)	\
-	$(ORBIT_LIBS) -lgnorba \
+	$(ORBIT_LIBS) \
 	$(INTLLIBS)
 
 pixmap_DATA = tiles.png
