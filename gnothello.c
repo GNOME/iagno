@@ -947,8 +947,7 @@ int main(int argc, char **argv)
 
 #ifdef HAVE_ORBIT
 	CORBA_exception_init (&ev);
-	orb = gnome_CORBA_init_with_popt_table ("gnothello", VERSION, &argc, 
-						argv, options, 0, NULL, 0, &ev);
+	orb = gnome_CORBA_init_with_popt_table ("gnothello", VERSION, &argc, argv, options, 0, NULL, GNORBA_INIT_SERVER_FUNC|GNORBA_INIT_DISABLE_COOKIES, &ev);
 #else
 	gnome_init_with_popt_table("gnothello", VERSION, argc, argv, options, 0, NULL);
 #endif

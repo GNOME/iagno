@@ -1,0 +1,10 @@
+[__section_info__]
+description=gnothello game
+
+[gameover]
+file=gnothello/gameover.wav
+description=Game over
+
+[flip-piece]
+file=gnothello/flip-piece.wav
+description=Piece flipping

@@ -172,6 +172,7 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 
 gint move(guint x, guint y, guint me)
 {
+
 	move_board(board, x, y, me, 1);
 
 	check_valid_moves();

@@ -72,3 +72,6 @@ install-data-local:
 	-chmod 664 $(scoredir)/gnothello.b2.scores
 	-chmod 664 $(scoredir)/gnothello.b3.scores
 	-chgrp games $(bindir)/gnothello && chmod 2111 $(bindir)/gnothello
+
+soundlistdir = $(sysconfdir)/sound/events
+soundlist_DATA = gnothello.soundlist

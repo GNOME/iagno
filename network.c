@@ -127,6 +127,7 @@ network_init (void)
 extern gint
 game_move (guint x, guint y, guint me)
 {
+        gnome_triggers_do("", NULL, "gnothello", "flip-piece", NULL);
 	if (ior){
 		if (me == BLACK_TURN){
 			if (gnothello_peer)
