@@ -336,6 +336,8 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	}
 
 	tiles_to_flip = 1;
+
+	check_computer_players ();
 }
 
 void black_level_cb(GtkWidget *widget, gpointer data)
