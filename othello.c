@@ -637,9 +637,9 @@ check_valid_moves (void)
 		whose_turn = 0;
 		game_in_progress = 0;
 		if (flip_final)
-			flip_final_id = gtk_timeout_add (3000,
-							 flip_final_results,
-							 NULL);
+			flip_final_id = g_timeout_add (3000,
+						       flip_final_results,
+						       NULL);
 		return (TRUE);
 	}
 

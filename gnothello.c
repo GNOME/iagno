@@ -256,7 +256,7 @@ undo_move_cb (GtkWidget *widget, gpointer data)
 		return;
 
 	if (flip_final_id) {
-		gtk_timeout_remove (flip_final_id);
+		g_source_remove (flip_final_id);
 		flip_final_id = 0;
 	}
 
@@ -644,17 +644,17 @@ clear_board (void)
 	guint i, j;
 
 	if (flip_final_id) {
-		gtk_timeout_remove (flip_final_id);
+		g_source_remove (flip_final_id);
 		flip_final_id = 0;
 	}
 
 	if (black_computer_id) {
-		gtk_timeout_remove (black_computer_id);
+		g_source_remove (black_computer_id);
 		black_computer_id = 0;
 	}
 
 	if (white_computer_id) {
-		gtk_timeout_remove (white_computer_id);
+		g_source_remove (white_computer_id);
 		white_computer_id = 0;
 	}
 
@@ -815,26 +815,26 @@ check_computer_players (void)
 	if (black_computer_level && whose_turn == BLACK_TURN)
 		switch (black_computer_level) {
 		case 1:
-			black_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_1, (gpointer) BLACK_TURN);
+			black_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_1, (gpointer) BLACK_TURN);
 			break;
 		case 2:
-			black_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
+			black_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_3, (gpointer) BLACK_TURN);
 			break;
 		case 3:
-			black_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
+			black_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_3, (gpointer) BLACK_TURN);
 			break;
 		}
 	
 	if (white_computer_level && whose_turn == WHITE_TURN)
 		switch (white_computer_level) {
 		case 1:
-			white_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_1, (gpointer) WHITE_TURN);
+			white_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_1, (gpointer) WHITE_TURN);
 			break;
 		case 2:
-			white_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
+			white_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_3, (gpointer) WHITE_TURN);
 			break;
 		case 3:
-			white_computer_id = gtk_timeout_add (computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
+			white_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_3, (gpointer) WHITE_TURN);
 			break;
 		}
 

@@ -1,3 +1,10 @@
+2003-10-29  Callum McKenzie  <callum@localhost.localdomain>
+
+	* Makefile.am: Removed *_DISABLE_DEPRECATED.
+
+	* gnothello.c: 
+	* othello.c: Replacing gtk_timeout_add with g_timeout_add etc.
+
 2003-10-21  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* Makefile.am (install-data-local): Change the way gconf files are
