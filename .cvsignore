@@ -3,3 +3,7 @@ Makefile
 .deps
 .libs
 gnothello
+game.h
+game-common.c
+game-stubs.c
+game-skels.c
