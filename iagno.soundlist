@@ -1,10 +1,13 @@
 [__section_info__]
 description=Iagno
+description[ko]=이아그노
 
 [gameover]
 file=iagno/gameover.wav
 description=Game over
+description[ko]=게임 끝
 
 [flip-piece]
 file=iagno/flip-piece.wav
 description=Piece flipping
+description[ko]=돌 뒤집기
