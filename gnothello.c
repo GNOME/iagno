@@ -651,7 +651,7 @@ void create_window()
 
 	table = gtk_table_new(1, 8, FALSE);
 
-	black_score = gtk_label_new("Dark:");
+	black_score = gtk_label_new(_("Dark:"));
 	gtk_widget_show(black_score);
 
 	gtk_table_attach(GTK_TABLE(table), black_score, 1, 2, 0, 1, 0, 0, 3, 1);
@@ -666,7 +666,7 @@ void create_window()
 
 	gtk_table_attach(GTK_TABLE(table), sep, 3, 4, 0, 1, 0, GTK_FILL, 3, 3);
 
-	white_score = gtk_label_new("Light:");
+	white_score = gtk_label_new(_("Light:"));
 	gtk_widget_show(white_score);
 
 	gtk_table_attach(GTK_TABLE(table), white_score, 4, 5, 0, 1, 0, 0, 3, 1);
