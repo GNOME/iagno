@@ -1,3 +1,8 @@
+2004-04-25  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c: Added a new AI from Bevan Collins. See bug #139560
+	for details.
+
 2004-04-05  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* properties.c (close_cb): Never destroy the dialog once

@@ -32,7 +32,10 @@ gint count_pieces (gint);
 gboolean flip_final_results (gpointer data);
 gint check_valid_moves (void);
 gint computer_move_1 (guint);
+gint computer_move_2 (guint);
 gint computer_move_3 (guint);
+gint find_best_move(gint8[8][8], guint, gint, gint, gint,
+	guint*, guint*);
 gint eval_board (gint8[8][8], guint);
 
 #endif

@@ -32,7 +32,7 @@
 #define WHITE_TURN 31
 #define BLACK_TURN 1
 
-/*
+
 guint heuristic[8][8] = {{512,4,128,256,256,128,4,512},
 			 {4,2,8,16,16,8,2,4},
 			 {128,8,64,32,32,64,8,128},
@@ -41,16 +41,16 @@ guint heuristic[8][8] = {{512,4,128,256,256,128,4,512},
 			 {128,8,64,32,32,64,8,128},
 			 {4,2,8,16,16,8,2,4},
 			 {512,4,128,256,256,128,4,512}};
-*/
 
-guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
+
+/*guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
 			 {2,1,3,4,4,3,1,2},
 			 {7,3,6,5,5,6,3,7},
 			 {8,4,5,1,1,5,4,8},
 			 {8,4,5,1,1,5,4,8},
 			 {7,3,6,5,5,6,3,7},
 			 {2,1,3,4,4,3,1,2},
-			 {9,2,7,8,8,7,2,9}};
+			 {9,2,7,8,8,7,2,9}};*/
 
 guint flip_final_id = 0;
 gint flip_final;
@@ -474,7 +474,7 @@ computer_move_1 (guint me)
 }
 
 gint
-computer_move_3 (guint me)
+computer_move_2 (guint me)
 {
 	guint i, j;
 	guint best_x = 8, best_y = 8;
@@ -507,6 +507,76 @@ computer_move_3 (guint me)
 	}
 
 	return (FALSE);
+}
+
+gint
+computer_move_3(guint me)
+{
+	guint best_x, best_y;
+	find_best_move( board, me, 7, 10000, -10000, &best_x, &best_y);
+	
+	move(best_x, best_y, me);
+	
+	return (FALSE);
+}
+
+gint
+find_best_move(gint8 board[8][8], guint me, gint ply_depth,
+	gint use_thresh, gint pass_thresh,
+	guint* ret_best_x, guint* ret_best_y)
+{
+	guint not_me;
+	guint i, j;
+	guint best_x = 8;
+	guint best_y = 8;
+	gint tmp_move;
+	gint8 tboard[8][8];
+	gboolean exit_loops = FALSE;
+
+	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
+	
+	if (!ply_depth)
+		pass_thresh = eval_board(board, me);
+	else {
+		for (i = 0; i < 8 && !exit_loops; i++)
+			for (j = 0; j < 8 && !exit_loops; j++)
+				if (is_valid_move_board(board, i, j, me)) {
+					memcpy (tboard, board, sizeof (gint8) * 8 * 8);
+					move_board(tboard, i, j, me, 0);
+	
+					// assume that opponent takes best move
+					tmp_move = find_best_move(tboard, not_me, ply_depth-1,
+						-pass_thresh, -use_thresh, 0, 0);
+
+					tmp_move = -tmp_move;
+					
+					if (tmp_move > pass_thresh) {
+						pass_thresh = tmp_move;
+						best_x = i;
+						best_y = j;
+						
+						exit_loops = (pass_thresh >= use_thresh);
+					}
+				}
+		
+		// check if we have to pass
+		if (best_x == 8 && best_y == 8) {
+			tmp_move = find_best_move(board, not_me, ply_depth-1,
+				-pass_thresh, -use_thresh, 0, 0);
+			
+			tmp_move = -tmp_move;
+			
+			if (tmp_move > pass_thresh)
+				pass_thresh = tmp_move;
+		}	
+	}
+
+	if (ret_best_x && ret_best_y) {
+		*ret_best_x = best_x;
+		*ret_best_y = best_y;
+	}
+	
+	return (pass_thresh);
 }
 
 gint
@@ -709,11 +779,40 @@ mobility (gint8 board[8][8], guint me)
 gint 
 eval_board (gint8 board[8][8], guint me)
 {
+	guint i, j;
 	guint not_me;
 	gint heuristic_score;
+	gint actual_score = 0;
+	gboolean found_me = FALSE;
+	gboolean found_not_me = FALSE;
+	gboolean found_free = FALSE;
 
 	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
 
+	for (i = 0; i < 8; i++)
+		for (j = 0; j < 8; j++) {
+			if (board[i][j] == me)
+			{
+				found_me = TRUE;
+				actual_score++;
+			}
+			else if (board[i][j] == not_me)
+				found_not_me = TRUE;
+			else
+				found_free = TRUE;
+		}
+		
+	// check if a player is dead
+	if (!found_me && found_not_me)
+		return (-10000);
+	else if (found_me && !found_not_me)
+		return (10000);
+	
+	// if the game is finished, return the actual score rather than
+	// a huristic
+	if (!found_free)
+		return (actual_score);
+	
 /*	mobility_score = (32 - mobility (board, not_me) - move_count);
 	mobility_score = (mobility_score > 0) ? mobility_score : 0; */
 

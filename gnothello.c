@@ -818,7 +818,7 @@ check_computer_players (void)
 			black_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_1, (gpointer) BLACK_TURN);
 			break;
 		case 2:
-			black_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_3, (gpointer) BLACK_TURN);
+			black_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_2, (gpointer) BLACK_TURN);
 			break;
 		case 3:
 			black_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_3, (gpointer) BLACK_TURN);
@@ -831,7 +831,7 @@ check_computer_players (void)
 			white_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_1, (gpointer) WHITE_TURN);
 			break;
 		case 2:
-			white_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_3, (gpointer) WHITE_TURN);
+			white_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_2, (gpointer) WHITE_TURN);
 			break;
 		case 3:
 			white_computer_id = g_timeout_add (computer_speed, (GSourceFunc)computer_move_3, (gpointer) WHITE_TURN);
