@@ -48,7 +48,8 @@ EXTRA_DIST = AUTHORS \
              iagno.desktop.in 	\
 	     iagno.soundlist.in \
              $(pixmap_DATA)	\
-	     $(appicon_DATA)
+	     $(appicon_DATA)	\
+	     $(schema_DATA)
 
 install-data-local:
 	GCONF_CONFIG_SOURCE=$(GCONF_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
