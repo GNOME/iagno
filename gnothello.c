@@ -222,6 +222,11 @@ GnomeUIInfo mainmenu[] = {
 	GNOMEUIINFO_END
 };
 
+static void undo_set_sensitive (gboolean state)
+{
+	gtk_widget_set_sensitive (game_menu[3].widget, state);
+}
+
 gboolean
 quit_game_cb (GtkWidget *widget, gpointer data)
 {
@@ -675,6 +680,8 @@ init_new_game (void)
 	game_in_progress = 1;
 	move_count = 0;
 
+	undo_set_sensitive (FALSE);
+	
 	board[3][3] = WHITE_TURN;
 	board[3][4] = BLACK_TURN;
 	board[4][3] = BLACK_TURN;
@@ -772,6 +779,9 @@ create_window (void)
 	gtk_widget_show (time_display);
 
 	gtk_table_attach (GTK_TABLE (table), time_display, 7, 8, 0, 1, 0, 0, 3, 1);
+
+	undo_set_sensitive (FALSE);
+
 	gtk_widget_show (table);
 
 	gtk_box_pack_start (GTK_BOX (appbar), table, FALSE, TRUE, 0);
@@ -789,6 +799,7 @@ gui_status (void)
 	gtk_label_set_text (GTK_LABEL (black_score), message);
 	sprintf (message, _("%.2d"), wcount);
 	gtk_label_set_text (GTK_LABEL (white_score), message);
+	undo_set_sensitive (move_count > 0);
 }
 
 void
