@@ -1,3 +1,7 @@
+2000-09-12  Dan Mueth <d-mueth@uchicago.edu>
+
+        * help/it/Makefile.am: Fixed stylesheet-images/ stuff
+
 2000-05-22  Ian Peters  <itp@gnu.org>
 
 	* help/C/iagno.sgml: work some of my non-existant sgml-fu to make it

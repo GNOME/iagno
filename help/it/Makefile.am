@@ -26,7 +26,7 @@ dist-hook:
 	-mkdir $(distdir)/iagno
 	-mkdir $(distdir)/iagno/stylesheet-images
 	cp $(srcdir)/iagno/*.html $(distdir)/iagno
-	cp -R $(srcdir)/iagno/stylesheet-images/*.png $(distdir)/iagno/stylesheet-images
+	cp -R $(srcdir)/iagno/stylesheet-images/*.gif $(distdir)/iagno/stylesheet-images
 	cp $(srcdir)/iagno/*.css $(distdir)/iagno
 
 # No-op if db2html failed
@@ -40,8 +40,8 @@ install-data-local: index.html
 	  done; \
 	fi
 	-$(mkinstalldirs) $(DESTDIR)$(iagno_helpdir)/stylesheet-images
-	files=`echo $(srcdir)/iagno/stylesheet-images/*.png`; \
-	if test "$$files" != '$(srcdir)/iagno/stylesheet-images/*.png'; then \
+	files=`echo $(srcdir)/iagno/stylesheet-images/*.gif`; \
+	if test "$$files" != '$(srcdir)/iagno/stylesheet-images/*.gif'; then \
 	  for file in $$files; do \
 	    basefile=`echo $$file | sed -e 's,^.*/,,'`; \
 	    $(INSTALL_DATA) $$file $(DESTDIR)$(iagno_helpdir)/stylesheet-images/$$basefile; \
