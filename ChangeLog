@@ -1,3 +1,8 @@
+2004-02-11  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c (about_cb): translator_credits ->
+	translator-credits.
+
 2003-12-06  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* properties.c (set_selection): Fix a crasher when the preferences

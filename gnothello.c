@@ -366,7 +366,7 @@ about_cb (GtkWidget *widget, gpointer data)
 	const gchar *documenters[] = {
 	    			      NULL
     	};
-    	const gchar *translator_credits = _("translator_credits");
+    	const gchar *translator_credits = _("translator-credits");
 	
 	if (about != NULL) {
                 gtk_window_present (GTK_WINDOW (about));
@@ -393,7 +393,7 @@ about_cb (GtkWidget *widget, gpointer data)
 				   "flipping game."), 
 				 (const char **)authors, 
 				 (const char **)documenters,
-				 strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
+				 strcmp (translator_credits, "translator-credits") != 0 ? translator_credits : NULL,
 				 pixbuf);
 	
 	if (pixbuf != NULL)
