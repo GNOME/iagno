@@ -136,7 +136,7 @@ game_move (guint x, guint y, guint me)
 			g_warning ("impossible\n");
 	} else {
 		if (me == BLACK_TURN)
-			g_warning ("impossible\n");
+			return move (x, y, me);
 		else {
 			if (gnothello_peer)
 				Gnothello_move (gnothello_peer, x, y, me, &ev);
@@ -154,10 +154,7 @@ network_allow (void)
 		else
 			return FALSE;
 	} else {
-		if (whose_turn == BLACK_TURN)
-			return FALSE;
-		else
-			return TRUE;
+		return TRUE;
 	}
 }
 
