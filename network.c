@@ -4,7 +4,7 @@
 #include <string.h>
 #include <gnome.h>
 #include <orb/orbit.h>
-#include "game.h"
+#include "gnothello-game.h"
 #include "othello.h"
 #include "gnothello.h"
 #include "network.h"
