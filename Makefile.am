@@ -78,7 +78,7 @@ install-data-local:
 	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b1.scores
 	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b2.scores
 	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b3.scores
-	-chgrp games $(DESTDIR)$(bindir)/iagno && chmod 2111 $(DESTDIR)$(bindir)/iagno
+	-chgrp games $(DESTDIR)$(bindir)/iagno && chmod 2555 $(DESTDIR)$(bindir)/iagno
 
 soundlistdir = $(sysconfdir)/sound/events
 soundlist_in_files = iagno.soundlist.in
