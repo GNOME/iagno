@@ -904,7 +904,7 @@ int main(int argc, char **argv)
 			LIBGNOMEUI_MODULE,
 			argc, argv,
 			GNOME_PARAM_POPT_TABLE, options,
-			NULL);
+			GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
 	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/iagno.png");
 	client= gnome_master_client();
 
