@@ -1,0 +1,8 @@
+[Desktop Entry]
+Icon=iagno.png
+_Name=Iagno
+_Comment=Gnome Reversi game
+Exec=iagno
+Terminal=0
+Type=Application
+Categories=Application;Game;

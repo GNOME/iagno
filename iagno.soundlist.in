@@ -1,0 +1,10 @@
+[__section_info__]
+_description=Iagno
+
+[gameover]
+file=iagno/gameover.wav
+_description=Game over
+
+[flip-piece]
+file=iagno/flip-piece.wav
+_description=Piece flipping
