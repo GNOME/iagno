@@ -373,7 +373,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 
 	const gchar *authors[] = {"Ian Peters", NULL};
 
-	about = gnome_about_new(_("Gnome Othello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
+	about = gnome_about_new(_("Gnothello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
 	gtk_window_set_modal(GTK_WINDOW(about), TRUE);
 
 	gtk_widget_show(about);
@@ -743,7 +743,7 @@ void create_window()
 	GtkWidget *table;
 	GtkWidget *sep;
 
-	window = gnome_app_new("gnothello", _("Gnome Othello"));
+	window = gnome_app_new("gnothello", _("Gnothello"));
 
 	gtk_widget_realize(window);
 	gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE);
@@ -836,7 +836,7 @@ void create_window()
 
 	gtk_box_pack_start(GTK_BOX(vbox), frame, TRUE, TRUE, 0);
 
-	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("Welcome to Gnome Othello!"));
+	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("Welcome to Gnothello!"));
 }
 
 void gui_status()
