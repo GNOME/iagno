@@ -444,10 +444,9 @@ set_selection (GtkWidget *widget, gpointer data)
 	entry = g_list_nth (theme_list,
 			    gtk_combo_box_get_active (GTK_COMBO_BOX (widget)));
 	
-	if (strcmp ((gchar *)data, tile_set_tmp) != 0) {
-		g_free (tile_set_tmp);
-		tile_set_tmp = g_strdup (entry->data);
-	}
+	g_free (tile_set_tmp);
+	tile_set_tmp = g_strdup (entry->data);
+
 	apply_changes ();
 }
 

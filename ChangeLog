@@ -1,4 +1,9 @@
-2003-10-29  Callum McKenzie  <callum@localhost.localdomain>
+2003-12-06  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* properties.c (set_selection): Fix a crasher when the preferences
+	are selected (pointed out by Kaushal Kumar, bug #128584).
+
+2003-10-29  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* Makefile.am: Removed *_DISABLE_DEPRECATED.
 
