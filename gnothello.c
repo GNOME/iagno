@@ -56,10 +56,10 @@ guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
 guint tiles_to_flip = 0;
 
-gint milliseconds_total = 0;
-gint milliseconds_current_start = 0;
+gint64 milliseconds_total = 0;
+gint64 milliseconds_current_start = 0;
 
-gint timer_update_id;
+gint timer_valid = 0;
 
 gint bcount;
 gint wcount;
@@ -107,9 +107,9 @@ static const struct poptOption options[] = {
 };
 
 GnomeUIInfo game_menu[] = {
-	{ GNOME_APP_UI_ITEM, N_("_New..."), "Start a new game", new_game_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_New"), "Start a new game", new_game_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK, NULL },
 	{ GNOME_APP_UI_ITEM, N_("_Undo"), "Undo last move", undo_move_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_UNDO, 'z', GDK_CONTROL_MASK, NULL },
-	{ GNOME_APP_UI_ITEM, N_("_Exit..."), "Exit Gnothello", quit_game_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK, NULL },
+	{ GNOME_APP_UI_ITEM, N_("E_xit"), "Exit Gnothello", quit_game_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK, NULL },
 	GNOMEUIINFO_END
 };
 
@@ -169,7 +169,7 @@ GnomeUIInfo anim_menu[] = {
 };
 
 GnomeUIInfo help_menu[] = {
-	{ GNOME_APP_UI_ITEM, N_("_About..."), NULL, about_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_About Gnothello"), NULL, about_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
@@ -181,27 +181,25 @@ GnomeUIInfo mainmenu[] = {
 	GNOMEUIINFO_END
 };
 
-void quit_game_maybe(GtkWidget *widget, int button)
+void quit_game_cb(GtkWidget *widget, gpointer data)
 {
-	if(button == 0) {
-		gnome_config_sync();
+	gnome_config_sync();
 
-		gtk_timeout_remove(flip_pixmaps_id);
-		gtk_timeout_remove(black_computer_id);
-		gtk_timeout_remove(white_computer_id);
-//		gtk_timeout_remove(check_computer_players_id);
+	gtk_timeout_remove(flip_pixmaps_id);
+	gtk_timeout_remove(black_computer_id);
+	gtk_timeout_remove(white_computer_id);
 
-		if(buffer_pixmap)
-			gdk_pixmap_unref(buffer_pixmap);
-		if(tiles_pixmap)
-			gdk_pixmap_unref(tiles_pixmap);
-		if(tiles_mask)
-			gdk_pixmap_unref(tiles_mask);
+	if(buffer_pixmap)
+		gdk_pixmap_unref(buffer_pixmap);
+	if(tiles_pixmap)
+		gdk_pixmap_unref(tiles_pixmap);
+	if(tiles_mask)
+		gdk_pixmap_unref(tiles_mask);
 
-		gtk_main_quit();
-	}
+	gtk_main_quit();
 }
 
+/*
 void quit_game_cb(GtkWidget *widget, gpointer data)
 {
 	GtkWidget *box;
@@ -212,6 +210,7 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)quit_game_maybe, NULL);
 	gtk_widget_show(box);
 }
+*/
 
 void new_game_maybe(GtkWidget *widget, int button)
 {
@@ -225,11 +224,16 @@ void new_game_cb(GtkWidget *widget, gpointer data)
 {
 	GtkWidget *box;
 
-	box = gnome_message_box_new(_("Start a new game?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
-	gnome_dialog_set_default(GNOME_DIALOG(box), 0);
-	gtk_window_set_modal(GTK_WINDOW(box), TRUE);
-	gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)new_game_maybe, NULL);
-	gtk_widget_show(box);
+	if(!new_game) {
+		box = gnome_message_box_new(_("Start a new game?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
+		gnome_dialog_set_default(GNOME_DIALOG(box), 0);
+		gtk_window_set_modal(GTK_WINDOW(box), TRUE);
+		gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)new_game_maybe, NULL);
+		gtk_widget_show(box);
+	} else {
+		network_new();
+		init_new_game();
+	}
 }
 
 void undo_move_cb(GtkWidget *widget, gpointer data)
@@ -280,11 +284,12 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 
 	gui_status();
 
-	gtk_timeout_remove(timer_update_id);
-	gtk_widget_set_sensitive(time_display, FALSE);
-	milliseconds_total = 0;
-	milliseconds_current_start = 0;
-	timer_update(NULL);
+	if(timer_valid) {
+		gtk_clock_stop(GTK_CLOCK(time_display));
+		gtk_widget_set_sensitive(time_display, FALSE);
+		gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+		timer_valid = 0;
+	}
 
 	tiles_to_flip = 1;
 }
@@ -301,11 +306,10 @@ void black_level_cb(GtkWidget *widget, gpointer data)
 	black_computer_level = tmp;
 
 	if(!new_game) {
-		gtk_timeout_remove(timer_update_id);
+		gtk_clock_stop(GTK_CLOCK(time_display));
 		gtk_widget_set_sensitive(time_display, FALSE);
-		milliseconds_total = 0;
-		milliseconds_current_start = 0;
-		timer_update(NULL);
+		gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+		timer_valid = 0;
 	}
 
 	check_computer_players();
@@ -323,11 +327,10 @@ void white_level_cb(GtkWidget *widget, gpointer data)
 	white_computer_level = tmp;
 
 	if(!new_game) {
-		gtk_timeout_remove(timer_update_id);
+		gtk_clock_stop(GTK_CLOCK(time_display));
 		gtk_widget_set_sensitive(time_display, FALSE);
-		milliseconds_total = 0;
-		milliseconds_current_start = 0;
-		timer_update(NULL);
+		gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+		timer_valid = 0;
 	}
 
 	check_computer_players();
@@ -367,6 +370,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 	const gchar *authors[] = {"Ian Peters", NULL};
 
 	about = gnome_about_new(_("Gnome Othello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
+	gtk_window_set_modal(GTK_WINDOW(about), TRUE);
 
 	gtk_widget_show(about);
 }
@@ -712,19 +716,17 @@ void init_new_game()
 	whose_turn = BLACK_TURN;
 	gui_message(_("Dark's move"));
 
-	milliseconds_total = 0;
-	milliseconds_current_start = 0;
+	gtk_clock_stop(GTK_CLOCK(time_display));
+	gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
 
 	if(black_computer_level ^ white_computer_level) {
 		if(!black_computer_level)
-			timer_start();
+			gtk_clock_start(GTK_CLOCK(time_display));
 		gtk_widget_set_sensitive(time_display, TRUE);
-		timer_update_id = gtk_timeout_add(100, timer_update, NULL);
-		timer_update(NULL);
+		timer_valid = 1;
 	} else {
 		gtk_widget_set_sensitive(time_display, FALSE);
-		gtk_timeout_remove(timer_update_id);
-		timer_update(NULL);
+		timer_valid = 0;
 	}
 
 	check_computer_players();
@@ -776,7 +778,7 @@ void create_window()
 	gtk_widget_set_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
 	gtk_widget_show(drawing_area);
 
-	box = gtk_hbox_new(FALSE, GNOME_PAD_SMALL);
+	box = gtk_hbox_new(FALSE, 20);
 	gtk_widget_show(box);
 
 	frame = gtk_frame_new(NULL);
@@ -790,45 +792,63 @@ void create_window()
 
 	gtk_box_pack_start(GTK_BOX(box), statusbar, TRUE, TRUE, 0);
 
+/*
 	frame = gtk_frame_new(NULL);
 	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
+*/
 
-	sprintf(tmp, _("  Dark: %.2d  "), 0);
+	sprintf(tmp, _("Dark: %.2d"), 0);
 	black_score = gtk_label_new(tmp);
 	gtk_widget_show(black_score);
 
+/*
 	gtk_container_add(GTK_CONTAINER(frame), black_score);
+*/
 
-	gtk_box_pack_start(GTK_BOX(box), frame, FALSE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(box), black_score, FALSE, TRUE, 0);
 
+/*
 	frame = gtk_frame_new(NULL);
 	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
+*/
 
-	sprintf(tmp, _("  Light: %.2d  "), 0);
+	sprintf(tmp, _("Light: %.2d"), 0);
 	white_score = gtk_label_new(tmp);
 	gtk_widget_show(white_score);
 
+/*
 	gtk_container_add(GTK_CONTAINER(frame), white_score);
+*/
 
-	gtk_box_pack_start(GTK_BOX(box), frame, FALSE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(box), white_score, FALSE, TRUE, 0);
 
+/*
 	frame = gtk_frame_new(NULL);
 	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
+*/
 
+/*
 	sprintf(tmp, _("  %.2d:%.2d:%.2d  "), 0, 0, 0);
 	time_display = gtk_label_new(tmp);
 	gtk_widget_set_sensitive(time_display, FALSE);
 	gtk_widget_show(time_display);
+*/
 
+	time_display = gtk_clock_new(GTK_CLOCK_INCREASING);
+	gtk_widget_set_sensitive(time_display, FALSE);
+	gtk_widget_show(time_display);
+
+/*
 	gtk_container_add(GTK_CONTAINER(frame), time_display);
+*/
 
-	gtk_box_pack_start(GTK_BOX(box), frame, FALSE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(box), time_display, FALSE, TRUE, 0);
 
 	gtk_box_pack_end(GTK_BOX(vbox), box, TRUE, TRUE, 0);
 
@@ -839,9 +859,9 @@ void gui_status()
 {
 	gchar message[100];
 
-	sprintf(message, _("  Dark: %.2d  "), bcount);
+	sprintf(message, _("Dark: %.2d"), bcount);
 	gtk_label_set(GTK_LABEL(black_score), message);
-	sprintf(message, _("  Light: %.2d  "), wcount);
+	sprintf(message, _("Light: %.2d"), wcount);
 	gtk_label_set(GTK_LABEL(white_score), message);
 }
 
@@ -924,61 +944,14 @@ static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_st
 	return TRUE;
 }
 
-void timer_start()
-{
-	struct timeval tv;
-
-	gettimeofday(&tv, NULL);
-	milliseconds_current_start = 1000000 * tv.tv_sec + tv.tv_usec;
-
-/*	gtk_widget_set_sensitive(time_display, TRUE); */
-}
-
-void timer_end()
-{
-	struct timeval tv;
-
-	gettimeofday(&tv, NULL);
-	milliseconds_total += (1000000 * tv.tv_sec + tv.tv_usec) - milliseconds_current_start;
-	milliseconds_current_start = 0;
-
-/*	gtk_widget_set_sensitive(time_display, FALSE); */
-}
-
-gint timer_update(gpointer data)
-{
-	gint seconds;
-	struct timeval tv;
-	gint sec, min, hour;
-	char tmp[100];
-	gchar *tmp2;
-
-	if(milliseconds_current_start) {
-		gettimeofday(&tv, NULL);
-
-		seconds = milliseconds_total + (1000000 * tv.tv_sec + tv.tv_usec) - milliseconds_current_start;
-		seconds /= 1000000;
-	} else {
-		seconds = milliseconds_total / 1000000;
-	}
-
-	sec = seconds % 60;
-	min = (seconds / 60) % 60;
-	hour = seconds / 3600;
-
-	sprintf(tmp, " %.2d:%.2d:%.2d ", hour, min, sec);
-	gtk_label_get(GTK_LABEL(time_display), &tmp2);
-	if(strncmp(tmp, tmp2, 12))
-		gtk_label_set(GTK_LABEL(time_display), tmp);
-
-	return(TRUE);
-}
-
 int main(int argc, char **argv)
 {
 	GnomeClient *client;
 	CORBA_def(CORBA_Environment ev;)
 	struct timeval tv;
+	gint i;
+
+	gnome_score_init("gnothello");
 
 	bindtextdomain(PACKAGE, GNOMELOCALEDIR);
 	textdomain(PACKAGE);

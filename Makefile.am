@@ -1,3 +1,4 @@
+scoredir=$(localstatedir)/games
 pixmapdir=$(datadir)/pixmaps/gnothello
 Gamesdir = $(datadir)/apps/Games
 appicondir=$(datadir)/pixmaps
@@ -51,4 +52,23 @@ EXTRA_DIST = AUTHORS \
 	     $(appicon_DATA)
 
 install-data-local:
+	-$(mkinstalldirs) $(scoredir)
+	touch $(scoredir)/gnothello.w1.scores
+	touch $(scoredir)/gnothello.w2.scores
+	touch $(scoredir)/gnothello.w3.scores
+	touch $(scoredir)/gnothello.b1.scores
+	touch $(scoredir)/gnothello.b2.scores
+	touch $(scoredir)/gnothello.b3.scores
+	-chown games.games $(scoredir)/gnothello.w1.scores
+	-chown games.games $(scoredir)/gnothello.w2.scores
+	-chown games.games $(scoredir)/gnothello.w3.scores
+	-chown games.games $(scoredir)/gnothello.b1.scores
+	-chown games.games $(scoredir)/gnothello.b2.scores
+	-chown games.games $(scoredir)/gnothello.b3.scores
+	-chmod 664 $(scoredir)/gnothello.w1.scores
+	-chmod 664 $(scoredir)/gnothello.w2.scores
+	-chmod 664 $(scoredir)/gnothello.w3.scores
+	-chmod 664 $(scoredir)/gnothello.b1.scores
+	-chmod 664 $(scoredir)/gnothello.b2.scores
+	-chmod 664 $(scoredir)/gnothello.b3.scores
 	-chgrp games $(bindir)/gnothello && chmod 2111 $(bindir)/gnothello

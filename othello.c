@@ -64,10 +64,9 @@ extern gint8 move_count;
 extern gint bcount;
 extern gint wcount;
 
-extern gint milliseconds_total;
-extern gint milliseconds_current_start;
+extern gint timer_valid;
 
-extern gint timer_update_id;
+extern GtkWidget *time_display;
 
 extern guint tiles_to_flip;
 
@@ -212,15 +211,13 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 			whose_turn = BLACK_TURN;
 			gui_message(_("Dark's move"));
 			if(!white_computer_level) {
-				timer_end();
-/*				gtk_timeout_remove(timer_update_id); */
+				gtk_clock_stop(GTK_CLOCK(time_display));
 			}
 		} else {
 			whose_turn = WHITE_TURN;
 			gui_message(_("Light's move"));
 			if(!black_computer_level) {
-				timer_end();
-/*				gtk_timeout_remove(timer_update_id); */
+				gtk_clock_stop(GTK_CLOCK(time_display));
 			}
 		}
 
@@ -429,10 +426,10 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		gui_status();
 
 		if(not_me == BLACK_TURN && !black_computer_level) {
-			timer_start();
+			gtk_clock_start(GTK_CLOCK(time_display));
 		}
 		if(not_me == WHITE_TURN && !white_computer_level) {
-			timer_start();
+			gtk_clock_start(GTK_CLOCK(time_display));
 		}
 
 		tiles_to_flip = 1;
@@ -521,6 +518,7 @@ gint flip_final_results()
 	guint black_pieces;
 	guint adder = 0;
 	guint animate_stagger;
+	gchar foo[20];
 
 	animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
 
@@ -553,6 +551,20 @@ gint flip_final_results()
 	}
 
 	tiles_to_flip = 1;
+
+/*
+	if(white_computer_level && !black_computer_level && (black_pieces > white_pieces) && timer_valid) {
+		sprintf(foo, "w%d", white_computer_level);
+		i = gnome_score_log(milliseconds_total/100000-black_pieces, foo, FALSE);
+		gnome_scores_display(_("Gnothello"), "gnothello", foo, i);
+	}
+
+	if(black_computer_level && !white_computer_level && (white_pieces > black_pieces) && timer_valid) {
+		sprintf(foo, "b%d", black_computer_level);
+		i = gnome_score_log(milliseconds_total/100000-white_pieces, foo, FALSE);
+		gnome_scores_display(_("Gnothello"), "gnothello", foo, i);
+	}
+*/
 
 	return(FALSE);
 }
@@ -601,8 +613,7 @@ gint check_valid_moves()
 	}
 
 	if(!white_moves && !black_moves) {
-		timer_end();
-		gtk_timeout_remove(timer_update_id);
+		gtk_clock_stop(GTK_CLOCK(time_display));
 		white_moves = count_pieces(WHITE_TURN);
 		black_moves = count_pieces(BLACK_TURN);
 		if(white_moves > black_moves)
@@ -622,9 +633,9 @@ gint check_valid_moves()
 		whose_turn = BLACK_TURN;
 		if(white_computer_level ^ black_computer_level)
 			if(!black_computer_level)
-				timer_start();
+				gtk_clock_start(GTK_CLOCK(time_display));
 			else
-				timer_end();
+				gtk_clock_stop(GTK_CLOCK(time_display));
 		return(TRUE);
 	}
 
@@ -633,9 +644,9 @@ gint check_valid_moves()
 		whose_turn = WHITE_TURN;
 		if(white_computer_level ^ black_computer_level)
 			if(!white_computer_level)
-				timer_start();
+				gtk_clock_start(GTK_CLOCK(time_display));
 			else
-				timer_end();
+				gtk_clock_stop(GTK_CLOCK(time_display));
 		return(TRUE);
 	}
 
