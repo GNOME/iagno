@@ -9,10 +9,10 @@ INCLUDES = 			\
 	-I$(includedir)				 \
 	$(GNOME_INCLUDEDIR) -I.
 
-bin_PROGRAMS = gnothello
+bin_PROGRAMS = reversi
 
 CORBA_SRCS = gnothello-game-common.c gnothello-game-skels.c gnothello-game-stubs.c gnothello-game.h
-gnothello_SOURCES = \
+reversi_SOURCES = \
 	gnothello.c \
 	gnothello.h \
 	network.c   \
@@ -30,7 +30,7 @@ BUILT_SOURCES = $(CORBA_SRCS)
 $(CORBA_SRCS): $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $<
 
-gnothello_LDADD = \
+reversi_LDADD = \
 	$(GNOME_LIBDIR) \
 	$(GNOMEGNORBA_LIBS)	\
 	$(INTLLIBS)
