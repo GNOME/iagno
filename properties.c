@@ -416,10 +416,12 @@ apply_changes (void)
 	save_properties ();
 }
 
-static void
-close_cb (GtkWidget *widget, gint arg1, gpointer data)
+static gboolean
+close_cb (GtkWidget *widget)
 {
 	gtk_widget_hide (widget);
+
+	return TRUE;
 }
 
 void
@@ -705,6 +707,8 @@ show_properties_dialog (void)
                                   label);
         
 	g_signal_connect (G_OBJECT (propbox), "response", G_CALLBACK
+			(close_cb), NULL);
+	g_signal_connect (G_OBJECT (propbox), "delete_event", G_CALLBACK
 			(close_cb), NULL);
 
 	gtk_widget_show_all (propbox);

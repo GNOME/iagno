@@ -1,3 +1,8 @@
+2004-04-05  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* properties.c (close_cb): Never destroy the dialog once
+	created. This fixes a leak of the file list.
+
 2004-04-04  Callum McKenzie  <callum@physics.otago.ac.nz>
         
 	* properties.c: convert to games_file_list which mostly
