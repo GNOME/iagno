@@ -1,3 +1,8 @@
+1999-09-25  Ian Peters  <itp@gnu.org>
+
+	* gnothello.c: attach to configure_event of window, not drawing_area.
+	  Seems to fix a niggling bugglet.
+
 1999-04-18  Scott D. Heavner  <sdh@po.cwru.edu>
 
 	* gnothello.c (set_bg_color): Free old grid gc's before creating.
