@@ -19,15 +19,16 @@ gnothello_SOURCES = \
 	othello.c \
 	othello.h
 
+CLEANFILES = $(CORBA_SRCS)
+
 BUILT_SOURCES = $(CORBA_SRCS)
 
-$(CORBA_SRCS): $(top_srcdir)/idl/gnothello-game.idl
-	orbit-idl $<
+$(CORBA_SRCS): $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
+	$(ORBIT_IDL) $<
 
 gnothello_LDADD = \
 	$(GNOME_LIBDIR) \
-	$(GNOMEUI_LIBS)	\
-	$(ORBIT_LIBS) \
+	$(GNOMEGNORBA_LIBS)	\
 	$(INTLLIBS)
 
 pixmap_DATA = \
