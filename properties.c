@@ -411,6 +411,7 @@ void fill_menu(GtkWidget *menu)
                 itemno++;
         }
         closedir(dir);
+	g_free (dname);
 }
 
 void
@@ -451,7 +452,8 @@ void show_properties_dialog ()
 	reset_properties ();
 	
 	propbox = gnome_property_box_new ();
-	gnome_dialog_set_parent (GNOME_DIALOG (propbox), GTK_WINDOW (window));
+	gtk_window_set_transient_for (GTK_WINDOW(propbox),
+			GTK_WINDOW (window));
 	gtk_signal_connect (GTK_OBJECT (propbox), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &propbox);
 	

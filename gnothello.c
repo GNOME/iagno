@@ -247,7 +247,8 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 
 	if(game_in_progress) {
 		box = gnome_message_box_new(_("Do you really want to quit?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
-		gnome_dialog_set_parent(GNOME_DIALOG(box), GTK_WINDOW(window));
+		gtk_window_set_transient_for (GTK_WINDOW(box),
+				GTK_WINDOW(window));
 		gnome_dialog_set_default(GNOME_DIALOG(box), 0);
 		gtk_window_set_modal(GTK_WINDOW(box), TRUE);
 		gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)quit_game_maybe, NULL);
@@ -380,7 +381,7 @@ void white_level_cb(GtkWidget *widget, gpointer data)
 void about_cb(GtkWidget *widget, gpointer data)
 {
 	static GtkWidget *about;
-
+	GdkPixbuf *pixbuf = NULL;
 	const gchar *authors[] = {"Ian Peters", NULL};
 	const gchar *documenters[] = {
 	    			      NULL
@@ -393,18 +394,25 @@ void about_cb(GtkWidget *widget, gpointer data)
 		return;
 	}
 
+	{
+		char *filename = NULL;
+		filename = gnome_unconditional_pixmap_file("iagno.png");
+		pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+		g_free (filename);
+	}
+
 	about = gnome_about_new(_("Iagno"), VERSION, 
 			        _("(C) 1998 Ian Peters"),
 				_("Send comments and bug reports to: itp@gnu.org\nTiles under the General Public License."), 
 				(const char **)authors, 
 				(const char **)documenters,
 				strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
-				NULL);
+				pixbuf);
 			
 			
 	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);
-	gnome_dialog_set_parent(GNOME_DIALOG(about), GTK_WINDOW(window));
+	gtk_window_set_transient_for (GTK_WINDOW(about), GTK_WINDOW(window));
 
 	gtk_widget_show(about);
 }
