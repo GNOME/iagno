@@ -69,6 +69,8 @@ gint t_animate_stagger;
 gint t_flip_final;
 gint t_grid;
 
+GList * theme_list = NULL;
+
 static void apply_changes (void);
 
 /*
@@ -351,12 +353,12 @@ apply_changes (void)
 	white_computer_level = t_white_computer_level;
 	
 	if (black_computer_id) {
-		gtk_timeout_remove (black_computer_id);
+		g_source_remove (black_computer_id);
 		black_computer_id = 0;
 	}
 	
 	if (white_computer_id) {
-		gtk_timeout_remove (white_computer_id);
+		g_source_remove (white_computer_id);
 		white_computer_id = 0;
 	}
 	
@@ -383,21 +385,21 @@ apply_changes (void)
 	animate = t_animate;
 	
 	if (flip_pixmaps_id) {
-		gtk_timeout_remove (flip_pixmaps_id);
+		g_source_remove (flip_pixmaps_id);
 		flip_pixmaps_id = 0;
 	}
 	
 	switch (animate) {
 		case 0:
-			flip_pixmaps_id = gtk_timeout_add (100, flip_pixmaps,
+			flip_pixmaps_id = g_timeout_add (100, flip_pixmaps,
 							   NULL);
 			break;
 		case 1:
-			flip_pixmaps_id = gtk_timeout_add (PIXMAP_FLIP_DELAY * 8,
-							   flip_pixmaps, NULL);
+			flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY * 8,
+							 flip_pixmaps, NULL);
 			break;
-		case 2: flip_pixmaps_id = gtk_timeout_add (PIXMAP_FLIP_DELAY,
-							   flip_pixmaps, NULL);
+		case 2: flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY,
+							 flip_pixmaps, NULL);
 			break;
 	}
 	
@@ -437,9 +439,14 @@ destroy_cb (GtkWidget *widget, gpointer data)
 void
 set_selection (GtkWidget *widget, gpointer data)
 {
+	GList * entry;
+
+	entry = g_list_nth (theme_list,
+			    gtk_combo_box_get_active (GTK_COMBO_BOX (widget)));
+	
 	if (strcmp ((gchar *)data, tile_set_tmp) != 0) {
 		g_free (tile_set_tmp);
-		tile_set_tmp = g_strdup (data);
+		tile_set_tmp = g_strdup (entry->data);
 	}
 	apply_changes ();
 }
@@ -462,29 +469,28 @@ fill_menu (GtkWidget *menu)
 			GNOME_FILE_DOMAIN_APP_PIXMAP,  "iagno", FALSE, NULL);
         dir = opendir(dname);
 
+	if (theme_list) {
+		g_list_foreach (theme_list, (GFunc) g_free, NULL);
+		g_list_free (theme_list);
+		theme_list = NULL;
+	}
+	
         if(!dir)
                 return;
 
         while((e = readdir(dir)) != NULL) {
-                GtkWidget *item;
                 char *s = g_strdup(e->d_name);
                 if(strstr(e->d_name, ".png") == 0) {
                         g_free(s);
                         continue;
                 }
 
-                item = gtk_menu_item_new_with_label(s);
-                gtk_widget_show(item);
-                gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+		gtk_combo_box_append_text (GTK_COMBO_BOX (menu), s);
+		theme_list = g_list_append (theme_list, s);
 
 		if (strcmp(tile_set, s) == 0) {
-			gtk_menu_set_active(GTK_MENU(menu), itemno);
+			gtk_combo_box_set_active(GTK_COMBO_BOX(menu), itemno);
 		}
-
-                g_signal_connect(GTK_OBJECT(item), "activate",
-				(GtkSignalFunc)set_selection, s);
-                g_signal_connect(GTK_OBJECT(item), "destroy",
-				(GtkSignalFunc)free_str, s);
 
                 itemno++;
         }
@@ -504,7 +510,6 @@ show_properties_dialog (void)
 	GtkWidget *frame;
 	GtkWidget *vbox, *vbox2;
 	GtkWidget *option_menu;
-	GtkWidget *menu;
 
 	if (propbox)
 	{
@@ -717,11 +722,10 @@ show_properties_dialog (void)
 	
 	gtk_box_pack_start (GTK_BOX (hbox), label2, FALSE, FALSE, 0);
 	
-	option_menu = gtk_option_menu_new ();
-	menu = gtk_menu_new ();
-	fill_menu (menu);
-	gtk_option_menu_set_menu (GTK_OPTION_MENU (option_menu), menu);
-	
+	option_menu = gtk_combo_box_new_text ();
+	g_signal_connect(GTK_OBJECT(option_menu), "changed",
+			 (GtkSignalFunc)set_selection, NULL);
+	fill_menu (option_menu);
 	gtk_box_pack_start (GTK_BOX (hbox), option_menu, TRUE, TRUE, 0);
 	
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
