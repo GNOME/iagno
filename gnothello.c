@@ -430,6 +430,8 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	if (tile_dialog)
 		return;
 
+	strncpy(tile_set_tmp, tile_set, 255);
+
 	tile_dialog = gnome_dialog_new(_("Load Tile Set"), GNOME_STOCK_BUTTON_OK, GNOME_STOCK_BUTTON_CANCEL, NULL);
 	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event", (GtkSignalFunc)cancel, NULL);
 
@@ -468,7 +470,7 @@ void load_tiles_callback(GtkWidget *widget, void *data)
 	gint i, j;
 
 	cancel(0,0);
-	strncpy(tile_set_tmp, tile_set, 255);
+	strncpy(tile_set, tile_set_tmp, 255);
 	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
 	load_pixmaps();
 	for(i = 0; i < 8; i++)
@@ -744,6 +746,7 @@ void create_window()
 	GtkWidget *frame;
 	GtkWidget *table;
 	GtkWidget *sep;
+	GtkWidget *appbar;
 
 	window = gnome_app_new("gnothello", _("Gnothello"));
 
@@ -767,12 +770,8 @@ void create_window()
 	gtk_widget_pop_colormap ();
 	gtk_widget_pop_visual ();
 
-	vbox = gtk_vbox_new(FALSE, 0);
-	gtk_widget_show(vbox);
-	gnome_app_set_contents(GNOME_APP(window), vbox);
+	gnome_app_set_contents(GNOME_APP(window), drawing_area);
 
-	gtk_box_pack_start(GTK_BOX(vbox), drawing_area, TRUE, TRUE, 0);
-	
 	gtk_drawing_area_size(GTK_DRAWING_AREA(drawing_area), BOARDWIDTH, BOARDHEIGHT);
 	gtk_signal_connect(GTK_OBJECT(drawing_area), "expose_event", GTK_SIGNAL_FUNC(expose_event), NULL);
 	gtk_signal_connect(GTK_OBJECT(drawing_area), "configure_event", GTK_SIGNAL_FUNC(configure_event), NULL);
@@ -780,10 +779,7 @@ void create_window()
 	gtk_widget_set_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
 	gtk_widget_show(drawing_area);
 
-	frame = gtk_frame_new(NULL);
-	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_OUT);
-	gtk_container_border_width(GTK_CONTAINER(frame), 0);
-	gtk_widget_show(frame);
+	appbar = gnome_appbar_new(FALSE, FALSE, FALSE);
 
 	table = gtk_table_new(1, 8, FALSE);
 //	gtk_table_set_col_spacing(GTK_TABLE(table), 1, 32);
@@ -834,9 +830,9 @@ void create_window()
 
 	gtk_widget_show(table);
 
-	gtk_container_add(GTK_CONTAINER(frame), table);
+	gtk_box_pack_start(GTK_BOX(appbar), table, TRUE, TRUE, 0);
 
-	gtk_box_pack_start(GTK_BOX(vbox), frame, TRUE, TRUE, 0);
+	gnome_app_set_statusbar(GNOME_APP(window), appbar);
 
 	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("Welcome to Gnothello!"));
 }
