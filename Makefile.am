@@ -87,3 +87,4 @@ soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
 
 SUBDIRS=sounds help
 
+CLEANFILES = $(Games_DATA) $(schema_DATA) $(soundlist_DATA)
