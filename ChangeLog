@@ -1,3 +1,22 @@
+2001-12-23  Mark McLoughlin  <mark@skynet.ie>
+
+	* gnothello.c, properties.c, othello.c: use the GameClock
+	widget.
+
+	* Makefile.am: don't build clock.[ch].
+
+2001-12-23  Mark McLoughlin  <mark@skynet.ie>
+
+	* gnothello.c: (set_bg_color): make the grid dashed.
+	(load_pixmaps): use GError.
+
+	* properties.c: (load_properties), (reset_properties),
+	(save_properties): quick port from gnome_config to gconf.
+
+	* iagno.schemas: new file.
+
+	* Makefile.am: install iagno.schemas.
+
 2001-12-19  Seth Nickell  <snickell@stanford.edu>
 
 	* Makefile.am:

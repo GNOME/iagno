@@ -1,6 +1,8 @@
 #include <config.h>
 #include <gnome.h>
 #include <dirent.h>
+#include <gconf/gconf-client.h>
+#include <games-clock.h>
 
 #include "properties.h"
 #include "gnothello.h"
@@ -16,8 +18,8 @@ extern guint computer_speed;
 extern gint timer_valid;
 extern guint black_computer_id;
 extern guint white_computer_id;
-extern gchar tile_set[255];
-extern gchar tile_set_tmp[255];
+extern gchar *tile_set;
+extern gchar *tile_set_tmp;
 extern gint8 pixmaps[8][8];
 extern gint animate;
 extern gint animate_stagger;
@@ -35,54 +37,119 @@ gint t_grid;
 
 int mapped = 0;
 
+/*
+ * FIXME:
+ * 	This was only a quick port to gconf.
+ *	It doesn't abide by the HIG.
+ */
+
 void load_properties ()
 {
-	black_computer_level = gnome_config_get_int
-		("/iagno/Preferences/blacklevel=0");
-	white_computer_level = gnome_config_get_int
-		("/iagno/Preferences/whitelevel=0");
-	strncpy (tile_set, gnome_config_get_string
-			("/iagno/Preferences/tileset=classic.png"), 255);
-	animate = gnome_config_get_int ("/iagno/Preferences/animate=2");
-	animate_stagger = gnome_config_get_int
-		("/iagno/Preferences/animstagger=0");
-	grid = gnome_config_get_int
-		("/iagno/Preferences/grid=0");
-	if (gnome_config_get_int ("/iagno/Preferences/quickmoves=0"))
+	GConfClient *client;
+	GError      *error = NULL;
+
+	client = gconf_client_get_default ();
+
+	black_computer_level = gconf_client_get_int (client, "/apps/iagno/black-level", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
+	white_computer_level = gconf_client_get_int (client, "/apps/iagno/white-level", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
+	if (gconf_client_get_bool (client, "/apps/iagno/quick-moves", NULL))
 		computer_speed = COMPUTER_MOVE_DELAY / 2;
 	else
 		computer_speed = COMPUTER_MOVE_DELAY;
-	flip_final = gnome_config_get_int
-		("/iagno/Preferences/flipfinal=1");
-	
+
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
+	if (tile_set)
+		g_free (tile_set);
+
+	tile_set = gconf_client_get_string (client, "/apps/iagno/tileset", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
+	animate = gconf_client_get_int (client, "/apps/iagno/animate", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
+	animate_stagger = gconf_client_get_bool (client, "/apps/iagno/animate-stagger", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
+	grid = gconf_client_get_bool (client, "/apps/iagno/show-grid", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
+	flip_final = gconf_client_get_bool (client, "/apps/iagno/flip-final-results", &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
 	switch (animate) {
-		case 0:
-			flip_pixmaps_id = gtk_timeout_add (100, flip_pixmaps,
-					NULL);
-			break;
-		case 1:
-			flip_pixmaps_id = gtk_timeout_add (PIXMAP_FLIP_DELAY *
-					8, flip_pixmaps, NULL);
-			break;
-		case 2: flip_pixmaps_id = gtk_timeout_add (PIXMAP_FLIP_DELAY,
-					flip_pixmaps, NULL);
-			break;
+	case 0:
+		flip_pixmaps_id = g_timeout_add (100, flip_pixmaps, &error);
+		break;
+	case 1:
+		flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY * 8, flip_pixmaps, NULL);
+		break;
+	default:
+	case 2:
+		flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
+		break;
 	}
 }
 
 void reset_properties ()
 {
-	t_black_computer_level = black_computer_level = gnome_config_get_int
-		("/iagno/Preferences/blacklevel=0");
-	t_white_computer_level = white_computer_level = gnome_config_get_int
-		("/iagno/Preferences/whitelevel=0");
-        strncpy (tile_set_tmp, tile_set, 255);
-	t_animate = animate;
-	t_quick_moves = gnome_config_get_int
-		("/iagno/Preferences/quickmoves");
+	GConfClient *client;
+
+	client = gconf_client_get_default ();
+
+	t_black_computer_level = black_computer_level =
+		gconf_client_get_int (client, "/apps/iagno/black-level", NULL);
+
+	t_white_computer_level = white_computer_level =
+		gconf_client_get_int (client, "/apps/iagno/white-level", NULL);
+
+	t_quick_moves = gconf_client_get_bool (client, "/apps/iagno/quick-moves", NULL);
+
+	if (tile_set_tmp)
+		g_free (tile_set_tmp);
+
+	tile_set_tmp = gconf_client_get_string (client, "/apps/iagno/tileset", NULL);
+
+	t_animate         = animate;
 	t_animate_stagger = animate_stagger;
-	t_grid = grid;
-	t_flip_final = flip_final;
+	t_grid            = grid;
+	t_flip_final      = flip_final;
 }
 
 void black_computer_level_select (GtkWidget *widget, gpointer data)
@@ -161,11 +228,9 @@ void apply_changes ()
 	
 	if ((black_computer_level != t_black_computer_level) ||
 			(white_computer_level != t_white_computer_level)) {
-	#if 0
-		gtk_clock_stop (GTK_CLOCK (time_display));
+		games_clock_stop (GAMES_CLOCK (time_display));
 		gtk_widget_set_sensitive (time_display, FALSE);
-		gtk_clock_set_seconds (GTK_CLOCK (time_display), 0);
-	#endif
+		games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
 		timer_valid = 0;
 	}
 
@@ -236,22 +301,30 @@ void apply_changes ()
 
 void save_properties ()
 {
-	gnome_config_set_int ("/iagno/Preferences/blacklevel",
-			black_computer_level);
-	gnome_config_set_int ("/iagno/Preferences/whitelevel",
-			white_computer_level);
-	gnome_config_set_int ("/iagno/Preferences/quickmoves",
-			t_quick_moves);
-	gnome_config_set_string ("/iagno/Preferences/tileset",
-			tile_set_tmp);
-	gnome_config_set_int ("/iagno/Preferences/animate", animate);
-	gnome_config_set_int ("/iagno/Preferences/animstagger",
-			animate_stagger);
-	gnome_config_set_int ("/iagno/Preferences/grid",
-			grid);
-	gnome_config_set_int ("/iagno/Preferences/flipfinal", flip_final);
-	
-	gnome_config_sync ();
+	GConfClient *client;
+
+	client = gconf_client_get_default ();
+
+	gconf_client_set_int (client, "/apps/iagno/black-level",
+			      black_computer_level, NULL);
+	gconf_client_set_int (client, "/apps/iagno/white-level",
+			      white_computer_level, NULL);
+
+	gconf_client_set_bool (client, "/apps/iagno/quick-moves",
+			       t_quick_moves, NULL);
+
+	gconf_client_set_string (client, "/apps/iagno/tileset",
+				 tile_set_tmp, NULL);
+
+	gconf_client_set_int (client, "/apps/iagno/animate",
+			      animate, NULL);
+
+	gconf_client_set_bool (client, "/apps/iagno/animate-stagger",
+			       animate_stagger, NULL);
+	gconf_client_set_bool (client, "/apps/iagno/show-grid",
+			       grid, NULL);
+	gconf_client_set_bool (client, "/apps/iagno/flip-final-results",
+			       flip_final, NULL);
 }
 
 void apply_cb (GtkWidget *widget, gpointer data)

@@ -24,6 +24,7 @@
 #include <libgnomeui/gnome-window-icon.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <games-clock.h>
 
 #include <sys/time.h>
 #include <string.h>
@@ -32,7 +33,6 @@
 #include "othello.h"
 #include "properties.h"
 #include "network.h"
-#include "clock.h"
 
 GnomeAppBar *appbar;
 GtkWidget *window;
@@ -97,8 +97,8 @@ int session_xpos = -1;
 int session_ypos = -1;
 int session_position = 0;
 
-gchar tile_set[255];
-gchar tile_set_tmp[255];
+gchar *tile_set = NULL;
+gchar *tile_set_tmp = NULL;
 
 GdkGC *gridGC[2] = { 0 };
 
@@ -323,9 +323,9 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	gui_status();
 
 	if(timer_valid) {
-		clock_stop(CLOCK(time_display));
+		games_clock_stop(GAMES_CLOCK(time_display));
 		gtk_widget_set_sensitive(time_display, FALSE);
-		clock_set_seconds(CLOCK(time_display), 0);
+		games_clock_set_seconds(GAMES_CLOCK(time_display), 0);
 		timer_valid = 0;
 	}
 
@@ -347,9 +347,9 @@ void black_level_cb(GtkWidget *widget, gpointer data)
 
         if(game_in_progress) {
 
-                clock_stop(CLOCK(time_display));
+                games_clock_stop(GAMES_CLOCK(time_display));
                 gtk_widget_set_sensitive(time_display, FALSE);
-                clock_set_seconds(CLOCK(time_display), 0);
+                games_clock_set_seconds(GAMES_CLOCK(time_display), 0);
                 timer_valid = 0;
         }
 
@@ -368,9 +368,9 @@ void white_level_cb(GtkWidget *widget, gpointer data)
         white_computer_level = tmp;
 
         if(game_in_progress) {
-                clock_stop(CLOCK(time_display));
+                games_clock_stop(GAMES_CLOCK(time_display));
                 gtk_widget_set_sensitive(time_display, FALSE);
-                clock_set_seconds(CLOCK(time_display), 0);
+                games_clock_set_seconds(GAMES_CLOCK(time_display), 0);
                 timer_valid = 0;
         }
 
@@ -486,9 +486,10 @@ void gui_draw_grid()
 
 void load_pixmaps()
 {
-	char *tmp;
-	char *fname;
 	GdkPixbuf *image;
+	GError    *error = NULL;
+	char      *tmp;
+	char      *fname;
 
 	tmp = g_strconcat("iagno/", tile_set, NULL);
 	fname = gnome_unconditional_pixmap_file(tmp);
@@ -499,7 +500,13 @@ void load_pixmaps()
 		exit(1);
 	}
 
-	image = gdk_pixbuf_new_from_file(fname, NULL);
+	image = gdk_pixbuf_new_from_file(fname, &error);
+	if (error) {
+		g_warning (G_STRLOC ": gconf error %s\n", error->message);
+		g_error_free (error);
+		error = NULL;
+	}
+
 	gdk_pixbuf_render_pixmap_and_mask(image, &tiles_pixmap, &tiles_mask, 127);
 
 	gdk_pixbuf_unref(image);
@@ -648,12 +655,12 @@ void init_new_game(void)
   whose_turn = BLACK_TURN;
   gui_message(_("Dark's move"));
 
-  clock_stop(CLOCK(time_display));
-  clock_set_seconds(CLOCK(time_display), 0);
+  games_clock_stop(GAMES_CLOCK(time_display));
+  games_clock_set_seconds(GAMES_CLOCK(time_display), 0);
 
   if(black_computer_level ^ white_computer_level) {
    if(!black_computer_level)
-      clock_start(CLOCK(time_display));
+      games_clock_start(GAMES_CLOCK(time_display));
     gtk_widget_set_sensitive(time_display, TRUE);
     timer_valid = 1;
   } else {
@@ -730,7 +737,7 @@ void create_window()
 
 	gtk_table_attach(GTK_TABLE(table), sep, 6, 7, 0, 1, 0, GTK_FILL, 3, 3);
 
-	time_display = clock_new();
+	time_display = games_clock_new();
 	gtk_widget_set_sensitive(time_display, FALSE);
 	gtk_widget_show(time_display);
 
@@ -816,6 +823,10 @@ void set_bg_color()
 	bgcolor.pixel = 0xFFFFFF - bgcolor.pixel;
 	gdk_gc_set_background (gridGC [1],&bgcolor);
 	gdk_gc_set_foreground (gridGC [1],&bgcolor);
+
+	gdk_gc_set_line_attributes (gridGC [1], 0,
+				    GDK_LINE_ON_OFF_DASH,
+				    GDK_CAP_BUTT, GDK_JOIN_MITER);
 	
 	gdk_image_destroy (tmpimage);
 }

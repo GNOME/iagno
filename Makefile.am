@@ -3,10 +3,11 @@ pixmapdir=$(datadir)/pixmaps/iagno
 Gamesdir = $(datadir)/applications
 appicondir=$(datadir)/pixmaps
 
-INCLUDES = 	$(GNOME_GAMES_CFLAGS)		\
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-I$(includedir)				 \
-	 -I. 
+INCLUDES =						\
+	-I$(top_srcdir)/libgames-support		\
+	$(GNOME_GAMES_CFLAGS)				\
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"	\
+	-I$(includedir)
 
 bin_PROGRAMS = iagno
 
@@ -18,12 +19,11 @@ iagno_SOURCES = \
 	othello.c \
 	othello.h \
 	properties.c \
-	properties.h \
-	clock.c \
-	clock.h
+	properties.h
 
 iagno_LDADD = \
 	$(GNOME_GAMES_LIBS) \
+	../libgames-support/libgames-support.la \
 	$(INTLLIBS)
 
 pixmap_DATA = \
@@ -39,6 +39,9 @@ appicon_DATA = iagno.png
 
 Games_DATA = iagno.desktop
 
+schemadir   = $(sysconfdir)/gconf/schemas
+schema_DATA = iagno.schemas
+
 EXTRA_DIST = AUTHORS \
              iagno.desktop 	\
 	     iagno.soundlist \
@@ -46,6 +49,7 @@ EXTRA_DIST = AUTHORS \
 	     $(appicon_DATA)
 
 install-data-local:
+	GCONF_CONFIG_SOURCE=$(GCONF_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	touch $(DESTDIR)$(scoredir)/iagno.w1.scores
 	touch $(DESTDIR)$(scoredir)/iagno.w2.scores
