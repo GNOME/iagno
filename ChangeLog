@@ -1,3 +1,8 @@
+1998-11-22  Carsten Schaar  <nhadcasc@fs-maphy.uni-hannover.de>
+
+	* gnothello.c (main): Replaced 'gnome_new_default_client' by
+ 	'gnome_master_client'.
+
 1998-11-18  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnothello.c (load_tiles_cb): Start to use a property-box instead

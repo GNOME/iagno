@@ -899,7 +899,7 @@ int main(int argc, char **argv)
 	gnome_init_with_popt_table("gnothello", VERSION, argc, argv, options, 0, NULL);
 #endif
 
-	client = gnome_client_new_default();
+	client= gnome_master_client();
 
 	gtk_object_ref(GTK_OBJECT(client));
 	gtk_object_sink(GTK_OBJECT(client));
