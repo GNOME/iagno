@@ -27,14 +27,8 @@ iagno_LDADD = \
 	$(INTLLIBS)
 
 pixmap_DATA = \
-	blend.png \
 	classic.png \
-	flipblend.png \
-	metal.png \
-	metal2.png \
-	shrink.png \
-	woodtrim.png \
-	sunmoon.png
+	woodtrim.png
 
 appicon_DATA = iagno.png
 

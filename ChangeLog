@@ -1,3 +1,13 @@
+2004-08-15  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* blend.png:
+	* flipblend.png:
+	* metal.png:
+	* metal2.png:
+	* shrink.png:
+	* sunmoon.png: Moved these themes to the gnome-games-extra-data
+	package.
+
 2004-07-20  Christian Neumair  <chris@gnome-de.org>
 
 	* gnothello.c (load_pixmaps): Assimilate gettextized warning to other
