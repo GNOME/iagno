@@ -1,5 +1,8 @@
 2004-04-04  Callum McKenzie  <callum@physics.otago.ac.nz>
-
+        
+	* properties.c: convert to games_file_list which mostly
+	obliterates Paolo's patch.
+	
 	* gnothello.c: 
 	* properties.c: GTK_OBJECT -> G_OBJECT
 

@@ -926,8 +926,8 @@ main (int argc, char **argv)
 	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/iagno.png");
 	client= gnome_master_client ();
 
-	g_object_ref (GTK_OBJECT (client));
-	gtk_object_sink (GTK_OBJECT (client));
+	g_object_ref (G_OBJECT (client));
+	gtk_object_sink (G_OBJECT (client));
 
 	g_signal_connect (G_OBJECT (client), "save_yourself",
 			  G_CALLBACK (save_state), argv[0]);

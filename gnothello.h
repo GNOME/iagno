@@ -58,7 +58,6 @@ void quick_moves_cb (GtkWidget *widget, gpointer data);
 void anim_cb (GtkWidget *widget, gpointer data);
 void anim_stagger_cb (GtkWidget *widget, gpointer data);
 void load_tiles_cb (GtkWidget *widget, gpointer data);
-void fill_menu (GtkWidget *menu);
 void set_selection (GtkWidget *widget, void *data);
 void free_str (GtkWidget *widget, void *data);
 void load_tiles_callback (GtkWidget *widget, void *data);
