@@ -1,5 +1,5 @@
 [__section_info__]
-description=gnothello game
+description=Iagno
 
 [gameover]
 file=gnothello/gameover.wav
