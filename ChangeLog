@@ -1,3 +1,9 @@
+1998-09-30  Ville Pätsi <drc@zoo-gate.fi>
+
+	* Makefile.am: Added gnothello.png installation
+	* gnothello.png: Created
+	* gnothello.desktop: Added icon
+
 1998-09-24  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnothello.c: Add hotkey support.  Add some common control bindings.
