@@ -207,6 +207,7 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 
 	if(game_in_progress) {
 		box = gnome_message_box_new(_("Do you really want to quit?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
+		gnome_dialog_set_parent(GNOME_DIALOG(box), GTK_WINDOW(window));
 		gnome_dialog_set_default(GNOME_DIALOG(box), 0);
 		gtk_window_set_modal(GTK_WINDOW(box), TRUE);
 		gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)quit_game_maybe, NULL);
@@ -230,6 +231,7 @@ void new_game_cb(GtkWidget *widget, gpointer data)
 
 	if(game_in_progress) {
 		box = gnome_message_box_new(_("Do you really want to end this game?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
+		gnome_dialog_set_parent(GNOME_DIALOG(box), GTK_WINDOW(window));
 		gnome_dialog_set_default(GNOME_DIALOG(box), 0);
 		gtk_window_set_modal(GTK_WINDOW(box), TRUE);
 		gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)new_game_maybe, NULL);
@@ -376,6 +378,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 	const gchar *authors[] = {"Ian Peters", NULL};
 
 	about = gnome_about_new(_("Gnothello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
+	gnome_dialog_set_parent(GNOME_DIALOG(about), GTK_WINDOW(window));
 	gtk_window_set_modal(GTK_WINDOW(about), TRUE);
 
 	gtk_widget_show(about);
@@ -433,6 +436,7 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	strncpy(tile_set_tmp, tile_set, 255);
 
 	tile_dialog = gnome_dialog_new(_("Load Tile Set"), GNOME_STOCK_BUTTON_OK, GNOME_STOCK_BUTTON_CANCEL, NULL);
+	gnome_dialog_set_parent(GNOME_DIALOG(tile_dialog), GTK_WINDOW(window));
 	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event", (GtkSignalFunc)cancel, NULL);
 
 	options_menu = gtk_option_menu_new();
