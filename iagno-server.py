@@ -89,7 +89,6 @@ class Server:
 
     def run(self):
         while 1:
-            print self.cnxlist, self.ccount
             try:
                 evs = self.poller.poll()
             except select.error, e:
