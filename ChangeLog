@@ -1,4 +1,9 @@
-2004-09-09  callum  <callum@spooky-possum.org>
+2004-09-20 Andreas Røsdal <andrearo@stud.ntnu.no>
+	
+	* network.c: Use the new games_send_gamedata (),
+	and callback functions.
+
+2004-09-09  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/iagno.xml: Update version number for 2.8.
 

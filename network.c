@@ -38,6 +38,8 @@
 char *game_server = "gnothello.gnome.org"; 
 char *game_port = "26478";
 
+static void game_handle_input (NetworkGame *ng, char *buf);
+
 void
 network_start (void)
 {
@@ -53,7 +55,15 @@ network_stop (void)
 int
 game_move (guint x, guint y, guint me)
 {
-  return games_game_move (x, y, me);
+  static char msgbuf[256];
+
+  gnome_triggers_do ("", NULL, "gnothello", "flip-piece", NULL);
+
+  snprintf (msgbuf, sizeof (msgbuf), "move %u %u %u\n", x, y, me);
+
+  games_send_gamedata(msgbuf);
+
+  return move (x, y, me);
 }
 
 int
@@ -66,11 +76,14 @@ network_allow (void)
 void
 network_new (GtkWidget *parent_window)
 {
+  set_game_input_cb (game_handle_input);
+  set_game_clear_cb (clear_board);
+  set_game_msg_cb (gui_message);
   games_network_new (game_server, game_port, parent_window);
 }
 
 
-void 
+static void 
 game_handle_input (NetworkGame *ng, char *buf)
 {
   char *args;

@@ -51,8 +51,6 @@ GdkPixmap *tiles_mask = NULL;
 
 gint flip_pixmaps_id = 0;
 gint statusbar_id;
-guint whose_turn = BLACK_TURN;
-guint game_in_progress = 0;
 guint black_computer_level;
 guint white_computer_level;
 guint black_computer_id = 0;
@@ -680,6 +678,7 @@ init_new_game (void)
 	clear_board ();
 	game_in_progress = 1;
 	move_count = 0;
+	whose_turn = BLACK_TURN;
 
 	undo_set_sensitive (FALSE);
 	
