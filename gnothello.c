@@ -468,7 +468,7 @@ void load_tiles_callback(GtkWidget *widget, void *data)
 	gint i, j;
 
 	cancel(0,0);
-	strncpy(tile_set, tile_set_tmp, 255);
+	strncpy(tile_set_tmp, tile_set, 255);
 	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
 	load_pixmaps();
 	for(i = 0; i < 8; i++)
