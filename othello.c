@@ -375,7 +375,7 @@ gint computer_move_1(guint me)
 			}
 
 	if(num_moves) {
-		i = rand() % num_moves;
+		i = (rand()>>3) % num_moves;
 		move(xs[i], ys[i], me);
 	}
 
@@ -400,7 +400,7 @@ gint computer_move_3(guint me)
 	for(i = 0; i < 8; i++)
 		for(j = 0; j < 8; j++) {
 			tmp_move = is_valid_move(i, j, me);
-			if(tmp_move == best_move && rand() % 2) {
+			if(tmp_move == best_move && (rand()>>4) % 2) {
 				best_x = i;
 				best_y = j;
 			}
