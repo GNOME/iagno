@@ -7,7 +7,7 @@ figs = \
 docname = iagno
 lang = C
 omffile = iagno-C.omf
-sgml_ents = 
-include $(top_srcdir)/sgmldocs.make
+entities = 
+include $(top_srcdir)/xmldocs.make
 dist-hook: app-dist-hook
 
