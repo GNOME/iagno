@@ -13,6 +13,7 @@ gnothello_SOURCES = \
 	gnothello.c \
 	gnothello.h \
 	network.c   \
+	network.h	\
 	$(CORBA_SRCS) \
 	othello.c \
 	othello.h
