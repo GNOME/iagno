@@ -21,6 +21,7 @@
 
 #include <config.h>
 #include <gnome.h>
+#include <gdk/gdkkeysyms.h>
 
 #include <sys/time.h>
 #include <string.h>
@@ -650,20 +651,20 @@ int main(int argc, char **argv)
 	gettimeofday(&tv, NULL);
 	srand(tv.tv_usec);
 
-	client = gnome_client_new_default();
-
-	gtk_object_ref(GTK_OBJECT(client));
-	gtk_object_sink(GTK_OBJECT(client));
-
-	gtk_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
-	gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
-
 #ifdef HAVE_ORBIT
 	CORBA_exception_init (&ev);
 	orb = gnome_CORBA_init ("gnothello", &parser, &argc, argv, 0, NULL, &ev);
 #else
 	gnome_init("gnothello", &parser, argc, argv, 0, NULL);
 #endif
+
+	client = gnome_master_client();
+
+	gtk_object_ref(GTK_OBJECT(client));
+	gtk_object_sink(GTK_OBJECT(client));
+
+	gtk_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
+	gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
 	
 	create_window();
 	create_menus();

@@ -1,3 +1,8 @@
+1998-10-15  Carsten Schaar  <nhadcasc@fs-maphy.uni-hannover.de>
+
+	* gnothello.c (main): Substituted 'gnome_client_new_default' with
+ 	'gnome_master_client'.
+
 1998-10-05  Arturo Espinosa <arturo@nuclecu.unam.mx>
 
 	* gnothello.c, network.h, network.c: Erased a few warnings and
