@@ -18,7 +18,9 @@ iagno_SOURCES = \
 	othello.c \
 	othello.h \
 	properties.c \
-	properties.h
+	properties.h \
+	clock.c \
+	clock.h
 
 iagno_LDADD = \
 	$(GNOME_GAMES_LIBS) \

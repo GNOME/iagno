@@ -32,6 +32,7 @@
 #include "othello.h"
 #include "properties.h"
 #include "network.h"
+#include "clock.h"
 
 GnomeAppBar *appbar;
 GtkWidget *window;
@@ -322,11 +323,9 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	gui_status();
 
 	if(timer_valid) {
-#if 0
-		gtk_clock_stop(GTK_CLOCK(time_display));
+		clock_stop(CLOCK(time_display));
 		gtk_widget_set_sensitive(time_display, FALSE);
-		gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
-#endif
+		clock_set_seconds(CLOCK(time_display), 0);
 		timer_valid = 0;
 	}
 
@@ -347,11 +346,10 @@ void black_level_cb(GtkWidget *widget, gpointer data)
         black_computer_level = tmp;
 
         if(game_in_progress) {
-#if 0
-                gtk_clock_stop(GTK_CLOCK(time_display));
+
+                clock_stop(CLOCK(time_display));
                 gtk_widget_set_sensitive(time_display, FALSE);
-                gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
-#endif
+                clock_set_seconds(CLOCK(time_display), 0);
                 timer_valid = 0;
         }
 
@@ -370,11 +368,9 @@ void white_level_cb(GtkWidget *widget, gpointer data)
         white_computer_level = tmp;
 
         if(game_in_progress) {
-#if 0
-                gtk_clock_stop(GTK_CLOCK(time_display));
+                clock_stop(CLOCK(time_display));
                 gtk_widget_set_sensitive(time_display, FALSE);
-                gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
-#endif
+                clock_set_seconds(CLOCK(time_display), 0);
                 timer_valid = 0;
         }
 
@@ -652,22 +648,16 @@ void init_new_game(void)
   whose_turn = BLACK_TURN;
   gui_message(_("Dark's move"));
 
-#if 0
-  gtk_clock_stop(GTK_CLOCK(time_display));
-  gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
-#endif
+  clock_stop(CLOCK(time_display));
+  clock_set_seconds(CLOCK(time_display), 0);
 
   if(black_computer_level ^ white_computer_level) {
-#if 0
-    if(!black_computer_level)
-      gtk_clock_start(GTK_CLOCK(time_display));
+   if(!black_computer_level)
+      clock_start(CLOCK(time_display));
     gtk_widget_set_sensitive(time_display, TRUE);
-#endif
     timer_valid = 1;
   } else {
-#if 0
     gtk_widget_set_sensitive(time_display, FALSE);
-#endif
     timer_valid = 0;
   }
 
@@ -740,13 +730,11 @@ void create_window()
 
 	gtk_table_attach(GTK_TABLE(table), sep, 6, 7, 0, 1, 0, GTK_FILL, 3, 3);
 
-#if 0
-	time_display = gtk_clock_new(GTK_CLOCK_INCREASING);
+	time_display = clock_new();
 	gtk_widget_set_sensitive(time_display, FALSE);
 	gtk_widget_show(time_display);
 
 	gtk_table_attach(GTK_TABLE(table), time_display, 7, 8, 0, 1, 0, 0, 3, 1);
-#endif
 	gtk_widget_show(table);
 
 	gtk_box_pack_start(GTK_BOX(appbar), table, FALSE, TRUE, 0);

@@ -1,3 +1,8 @@
+2001-11-24  Kevin Vandersloot <kfv101@psu.edu>
+
+	* othello.c, gnothello.c, clock.c: bring back clock
+	functionality
+
 2001-07-27  Abel Cheung  <maddog@linux.org.hk>
 
 	* iagno.desktop: Added traditional Chinese translation.
