@@ -900,7 +900,6 @@ int main(int argc, char **argv)
 	gettimeofday(&tv, NULL);
 	srand(tv.tv_usec);
 
-	/* use #gnome_program_init with the LIBGNOMEUI_MODULE */
 	gnome_program_init ("iagno", VERSION,
 			LIBGNOMEUI_MODULE,
 			argc, argv,
@@ -913,9 +912,8 @@ int main(int argc, char **argv)
 	gtk_object_sink(GTK_OBJECT(client));
 
 	g_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
-#if 0
 	g_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
-#endif
+
 	create_window();
 	
 	load_properties ();

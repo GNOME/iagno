@@ -1,5 +1,9 @@
 2002-04-16  Bastien Nocera  <hadess@hadess.net>
 
+	* gnothello.c: (main): un-comment "die" signal connection for now
+
+2002-04-16  Bastien Nocera  <hadess@hadess.net>
+
 	* gnothello.c: (quit_game_cb), (main): oops, some more fixes for my
 	crappy code
 
