@@ -513,9 +513,8 @@ gint
 computer_move_3(guint me)
 {
 	guint best_x, best_y;
-	find_best_move( board, me, 7, 10000, -10000, &best_x, &best_y);
-	
-	move(best_x, best_y, me);
+	if (find_best_move(board, me, 7, 10000, -10000, &best_x, &best_y) != -10000)
+		move(best_x, best_y, me);
 	
 	return (FALSE);
 }

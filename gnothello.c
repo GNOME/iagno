@@ -545,8 +545,9 @@ load_pixmaps (void)
 		error = NULL;
 	}
 
-	gdk_pixbuf_render_pixmap_and_mask_for_colormap (image, &tiles_pixmap,
+	gdk_pixbuf_render_pixmap_and_mask_for_colormap (image, 
 							gdk_colormap_get_system(),
+							&tiles_pixmap,
 							&tiles_mask, 127);
 
 	gdk_pixbuf_unref (image);

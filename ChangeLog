@@ -1,3 +1,13 @@
+2004-12-13  Richard Hoelscher  <rah@rahga.com>
+ 
+ 	* othello.c (computer_move_3): Support cases where ai level 3's 
+ 	find_best_move doesn't always find a best move. (bug #161052)
+ 
+2004-12-14  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c: Get the order of arguments right for last nights
+	fix.
+
 2004-12-13  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnothello.c: gdk_pixbuf_render_pixmap_and_mask -> 
