@@ -483,7 +483,7 @@ gint computer_move_3(guint me)
 					best_x = i;
 					best_y = j;
 				}
-				if(tmp_move > best_move && (rand() * 100 > 85)) {
+				if(tmp_move > best_move && (best_move == -10000 || rand() * 100 > 85)) {
 					best_move = tmp_move;
 					best_x = i;
 					best_y = j;
