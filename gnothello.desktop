@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Gnothello
+Name[es]=Gnothello
+Name[de]=Gnothello
+Name[ko]=Gnothello
+Name[fr]=Gnothello
+Name[no]=Gnothello
+Comment=Gnome Othello game
+Comment[es]=Gnome Othello game
+Comment[de]=Gnome Othello game
+Comment[ko]=Gnome Othello game
+Comment[fr]=Gnome Othello game
+Comment[no]=Gnome Othello game
+Exec=gnothello
+Terminal=0
+Type=Application
