@@ -32,6 +32,7 @@
 #define BOARDHEIGHT TILEHEIGHT * 8
 
 void new_game_cb(GtkWidget *widget, gpointer data);
+void new_net_game_cb(GtkWidget *widget, gpointer data);
 void quit_game_cb(GtkWidget *widget, gpointer data);
 void black_level_cb (GtkWidget *widget, gpointer data);
 void white_level_cb (GtkWidget *widget, gpointer data);
@@ -54,3 +55,5 @@ void create_drawing_area();
 void create_statusbar();
 void gui_message(gchar *message);
 guint check_computer_players();
+
+extern guint whose_turn;

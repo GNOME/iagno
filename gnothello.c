@@ -27,6 +27,7 @@
 
 #include "gnothello.h"
 #include "othello.h"
+#include "network.h"
 
 GtkWidget *window;
 GtkWidget *drawing_area;
@@ -77,8 +78,11 @@ int session_position = 0;
 
 static struct argp_option options[] =
 {
-	{NULL, 'x', N_("X"), OPTION_HIDDEN, NULL, 1},
-	{NULL, 'y', N_("Y"), OPTION_HIDDEN, NULL, 1},
+	{NULL, 'x', N_("X"),   OPTION_HIDDEN, NULL, 1},
+	{NULL, 'y', N_("Y"),   OPTION_HIDDEN, NULL, 1},
+#ifdef HAVE_ORBIT
+	{"ior",'i', N_("IOR"), 0,             N_("IOR of remote Gnothello server"), 1 },
+#endif
 	{NULL, 0, NULL, 0, NULL, 0}
 };
 
@@ -167,6 +171,11 @@ static error_t parse_args(int key, char *arg, struct argp_state *state)
 			session_flag |= 2;
 			session_ypos = atoi(arg);
 			break;
+#ifdef HAVE_ORBIT
+	        case 'i':
+			ior = arg;
+			break;
+#endif
 		case ARGP_KEY_SUCCESS:
 			if(session_flag == 3) session_position = 1;
 			break;
@@ -199,6 +208,7 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 
 void new_game_cb(GtkWidget *widget, gpointer data)
 {
+	network_new ();
 	init_new_game();
 }
 
@@ -329,6 +339,9 @@ gint button_press_event(GtkWidget *widget, GdkEventButton *event)
 {
 	guint x, y;
 
+	if (!network_allow ())
+		return (TRUE);
+	
 	if(whose_turn == WHITE_TURN)
 		if(gnome_config_get_int("/gnothello/Preferences/whitelevel=0"))
 			return(TRUE);
@@ -341,7 +354,7 @@ gint button_press_event(GtkWidget *widget, GdkEventButton *event)
 		x = event->x / TILEWIDTH;
 		y = event->y / TILEHEIGHT;
 		if(is_valid_move(x, y, whose_turn))
-			move(x, y, whose_turn);
+			game_move(x, y, whose_turn);
 	}
 
 	return(TRUE);
@@ -624,6 +637,7 @@ static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_st
 int main(int argc, char **argv)
 {
 	GnomeClient *client;
+	CORBA_def(CORBA_Environment ev;)
 	struct timeval tv;
 
 	argp_program_version = GNOTHELLO_VERSION;
@@ -642,9 +656,13 @@ int main(int argc, char **argv)
 	gtk_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
 	gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
 
+#ifdef HAVE_ORBIT
+	CORBA_exception_init (&ev);
+	orb = gnome_CORBA_init ("gnothello", &parser, &argc, argv, 0, NULL);
+#else
 	gnome_init("gnothello", &parser, argc, argv, 0, NULL);
-	gdk_imlib_init();
-
+#endif
+	
 	create_window();
 	create_menus();
 	create_drawing_area();
@@ -665,6 +683,7 @@ int main(int argc, char **argv)
 
 	gdk_window_clear_area(drawing_area->window, 0, 0, BOARDWIDTH, BOARDHEIGHT);
 
+	network_init();
 	gtk_main();
 
 	gtk_object_unref(GTK_OBJECT(client));

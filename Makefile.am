@@ -11,9 +11,17 @@ bin_PROGRAMS = gnothello
 gnothello_SOURCES = \
 	gnothello.c \
 	gnothello.h \
+	network.c   \
+	game-common.c \
+	game-skels.c \
+	game-stubs.c \
 	othello.c \
+	game.h \
 	othello.h
 
+game-common.c game-skels.c game-stubs.c game.h: game.idl
+	orbit-idl game.idl
+	
 gnothello_LDADD = \
 	$(GNOME_LIBDIR) \
 	$(GNOMEUI_LIBS)	\
@@ -24,6 +32,7 @@ pixmap_DATA = tiles.png
 Games_DATA = gnothello.desktop
 
 EXTRA_DIST = AUTHORS \
+	     game.idl \
              gnothello.desktop \
              $(pixmap_DATA)
 
