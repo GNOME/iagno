@@ -22,7 +22,6 @@
 #ifndef _GNOTHELLO_H_
 #define _GNOTHELLO_H_
 
-#define GNOTHELLO_VERSION "0.8.0"
 #define BLACK_TURN 1
 #define WHITE_TURN 31
 #define PIXMAP_FLIP_DELAY 20

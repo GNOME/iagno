@@ -1,3 +1,13 @@
+1999-02-13  Ian Peters  <ipeters@acm.org>
+
+	* gnothello.[c|h]: Removed GNOTHELLO_VERSION, use VERSION, so now maybe
+	the version will actually change sometimes.
+
+1999-02-13  Ian Peters  <ipeters@acm.org>
+
+	* properties.c: Changed "Computer" to "Players", "Disabled" to "Human",
+	thanks to Tim Gerla for the idea.  Much more logical.
+
 1999-02-06  Changwoo Ryu  <cwryu@adam.kaist.ac.kr>
 
 	* properties.c (show_properties_dialog): Mark "Tile set:" as a

@@ -312,7 +312,7 @@ void show_properties_dialog ()
 	gtk_signal_connect (GTK_OBJECT (propbox), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &propbox);
 	
-	label = gtk_label_new (_("Computer"));
+	label = gtk_label_new (_("Players"));
 	gtk_widget_show (label);
 	
 	table = gtk_table_new (2, 2, FALSE);
@@ -337,7 +337,7 @@ void show_properties_dialog ()
 	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD_SMALL);
 	gtk_widget_show (vbox);
 	
-	button = gtk_radio_button_new_with_label (NULL, _("Disabled"));
+	button = gtk_radio_button_new_with_label (NULL, _("Human"));
 	if (black_computer_level == 0)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
@@ -390,7 +390,7 @@ void show_properties_dialog ()
 	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD_SMALL);
 	gtk_widget_show (vbox);
 	
-	button = gtk_radio_button_new_with_label (NULL, _("Disabled"));
+	button = gtk_radio_button_new_with_label (NULL, _("Human"));
 	if (white_computer_level == 0)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
@@ -453,7 +453,7 @@ void show_properties_dialog ()
 	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD_SMALL);
 	gtk_widget_show (vbox);
 	
-	button = gtk_radio_button_new_with_label (NULL, _("Disabled"));
+	button = gtk_radio_button_new_with_label (NULL, _("Human"));
 	if (animate == 0)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
 				TRUE);
