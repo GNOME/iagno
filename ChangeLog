@@ -1,3 +1,8 @@
+2004-12-13  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c: gdk_pixbuf_render_pixmap_and_mask -> 
+	gdk_pixbuf_render_pixmap_and_mask_for_colormap.
+
 2004-10-04 Andreas Røsdal <andrearo@stud.ntnu.no>
 	
 	* main.c: Kill server when game is over. 
