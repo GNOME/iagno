@@ -1,3 +1,7 @@
+2003-06-20  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c: Make undo appropriately sensitive.
+
 2003-06-19  William Jon McCann  <mccann@jhu.edu>
 
 	* properties.c: #define gconf key names.
