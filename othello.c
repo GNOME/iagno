@@ -36,6 +36,17 @@ guint heuristic[8][8] = {{512,4,128,256,256,128,4,512},
 			 {4,2,8,16,16,8,2,4},
 			 {512,4,128,256,256,128,4,512}};
 
+/*
+guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
+			 {2,1,3,4,4,3,1,2},
+			 {7,3,6,5,5,6,3,7},
+			 {8,4,5,1,1,5,4,8},
+			 {8,4,5,1,1,5,4,8},
+			 {7,3,6,5,5,6,3,7},
+			 {2,1,3,4,4,3,1,2},
+			 {9,2,7,8,8,7,2,9}};
+*/
+
 guint flip_final_id;
 guint black_computer_busy = 0;
 guint white_computer_busy = 0;
@@ -48,137 +59,155 @@ extern gint8 board[8][8];
 extern MoveHistory game[61];
 
 extern gint8 move_count;
-extern gint8 max_move_count;
 
 extern gint bcount;
 extern gint wcount;
 
+// Wrapper for is_valid_move_board, to maintain API for CORBA stuff
+
 gint is_valid_move(guint x, guint y, guint me)
 {
-	gint tmp;
+	return is_valid_move_board(board, x, y, me);
+}
+
+// Check if a given square is a valid move for one of the players
+
+gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
+{
 	gint tmp_x, tmp_y;
-	guint valid = 0;
 	guint not_me;
 
-	if(me == WHITE_TURN)
-		not_me = BLACK_TURN;
-	else
-		not_me = WHITE_TURN;
+	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
 
 	if(board[x][y] != 0)
 		return(FALSE);
 
-	tmp = 0;
+	// Check for flips going left
+
 	tmp_x = x - 1;
-	while(tmp_x >= 0 && board[tmp_x][y] == not_me) {
-		tmp += heuristic[tmp_x][y];
+	while(tmp_x >= 0 && board[tmp_x][y] == not_me)
 		tmp_x--;
-	}
 	if(tmp_x >= 0 && board[tmp_x][y] == me && tmp_x != x - 1)
-		valid += tmp;
+		return(TRUE);
 
-	tmp = 0;
+	// Check for flips going right
+
 	tmp_x = x + 1;
-	while(tmp_x < 8 && board[tmp_x][y] == not_me) {
-		tmp += heuristic[tmp_x][y];
+	while(tmp_x < 8 && board[tmp_x][y] == not_me)
 		tmp_x++;
-	}
 	if(tmp_x < 8 && board[tmp_x][y] == me && tmp_x != x + 1)
-		valid += tmp;
+		return(TRUE);
 
-	tmp = 0;
+	// Check for flips going up
+
 	tmp_y = y - 1;
-	while(tmp_y >= 0 && board[x][tmp_y] == not_me) {
-		tmp += heuristic[x][tmp_y];
+	while(tmp_y >= 0 && board[x][tmp_y] == not_me)
 		tmp_y--;
-	}
 	if(tmp_y >= 0 && board[x][tmp_y] == me && tmp_y != y - 1)
-		valid += tmp;
+		return(TRUE);
 
-	tmp = 0;
+	// Check for flips going down
+
 	tmp_y = y + 1;
-	while(tmp_y < 8 && board[x][tmp_y] == not_me) {
-		tmp += heuristic[x][tmp_y];
+	while(tmp_y < 8 && board[x][tmp_y] == not_me)
 		tmp_y++;
-	}
 	if(tmp_y < 8 && board[x][tmp_y] == me && tmp_y != y + 1)
-		valid += tmp;
+		return(TRUE);
 
-	tmp = 0;
+	// Check for flips going up/left
+
 	tmp_x = x - 1;
 	tmp_y = y - 1;
 	while(tmp_y >= 0 && tmp_x >= 0 && board[tmp_x][tmp_y] == not_me) {
-		tmp += heuristic[tmp_x][tmp_y];
 		tmp_x--;
 		tmp_y--;
 	}
 	if(tmp_x >= 0 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x - 1)
-		valid += tmp;
+		return(TRUE);
 
-	tmp = 0;
+	// Check for flips going up/right
+
 	tmp_x = x + 1;
 	tmp_y = y - 1;
 	while(tmp_y >= 0 && tmp_x < 8 && board[tmp_x][tmp_y] == not_me) {
-		tmp += heuristic[tmp_x][tmp_y];
 		tmp_x++;
 		tmp_y--;
 	}
 	if(tmp_x < 8 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x + 1)
-		valid += tmp;
+		return(TRUE);
 
-	tmp = 0;
+	// Check for flips going down/left
+
 	tmp_x = x - 1;
 	tmp_y = y + 1;
 	while(tmp_y < 8 && tmp_x >= 0 && board[tmp_x][tmp_y] == not_me) {
-		tmp += heuristic[tmp_x][tmp_y];
 		tmp_x--;
 		tmp_y++;
 	}
 	if(tmp_x >= 0 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x - 1)
-		valid += tmp;
+		return(TRUE);
 
-	tmp = 0;
+	// Check for flips going down/right
+
 	tmp_x = x + 1;
 	tmp_y = y + 1;
 	while(tmp_y < 8 && tmp_x < 8 && board[tmp_x][tmp_y] == not_me) {
-		tmp += heuristic[tmp_x][tmp_y];
 		tmp_x++;
 		tmp_y++;
 	}
 	if(tmp_x < 8 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x + 1)
-		valid += tmp;
-
-	if(valid) {
-		valid += heuristic[x][y];
-		return(valid);
-	}
+		return(TRUE);
 
 	return(FALSE);
 }
 
+// Wrapper for move_board, to maintain API for CORBA stuff
+
 gint move(guint x, guint y, guint me)
 {
+	return move_board(board, x, y, me, 1);
+}
+
+gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
+{
 	gint tmp_x, tmp_y;
-	guint valid;
 	guint not_me;
 	gint adder = 0, adder_diff = 0;
-	int animate;
-	int animate_stagger;
+	int animate = 0;
+	int animate_stagger = 0;
 	gint count = 1;
+
+	// Just in case we didn't know this, a game is in progress
 
 	new_game = 0;
 
-	memcpy(game[move_count].board, board, sizeof(gint8) * 8 * 8);
-	game[move_count].x = x;
-	game[move_count].y = y;
-	game[move_count].me = me;
+	// Stuff to do if this is a ``real'' move
 
-	move_count++;
-	if(move_count != max_move_count)
-		max_move_count = move_count;
+	if(real) {
 
-	animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
-	animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
+		// Copy the old board and move info to the undo buffer
+
+		memcpy(game[move_count].board, board, sizeof(gint8) * 8 * 8);
+		game[move_count].x = x;
+		game[move_count].y = y;
+		game[move_count].me = me;
+
+		move_count++;
+
+		animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
+		animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
+
+		if(whose_turn == WHITE_TURN) {
+			whose_turn = BLACK_TURN;
+			gui_message(_("Black's turn"));
+		} else {
+			whose_turn = WHITE_TURN;
+			gui_message(_("White's turn"));
+		}
+
+		pixmaps[x][y] = me;
+		gui_draw_pixmap(me, x, y);
+	}
 
 	if(me == WHITE_TURN) {
 		not_me = BLACK_TURN;
@@ -190,31 +219,20 @@ gint move(guint x, guint y, guint me)
 			adder_diff = PIXMAP_STAGGER_DELAY;
 	}
 
-	if(whose_turn == WHITE_TURN) {
-		whose_turn = BLACK_TURN;
-		gui_message(_("  Black's turn..."));
-	} else {
-		whose_turn = WHITE_TURN;
-		gui_message(_("  White's turn..."));
-	}
-
 	board[x][y] = me;
-	pixmaps[x][y] = me;
 
-	gui_draw_pixmap(me, x, y);
+	// Flip going left
 
-	valid = 0;
+	adder = 0;
 
 	tmp_x = x - 1;
 	while(tmp_x >= 0 && board[tmp_x][y] == not_me)
 		tmp_x--;
-	if(tmp_x >= 0 && board[tmp_x][y] == me && tmp_x != x - 1)
-		valid++;
-	if(valid) {
+	if(tmp_x >= 0 && board[tmp_x][y] == me && tmp_x != x - 1) {
 		tmp_x = x - 1;
 		while(tmp_x >= 0 && board[tmp_x][y] == not_me) {
 			board[tmp_x][y] = me;
-			if(pixmaps[tmp_x][y] == not_me)
+			if((pixmaps[tmp_x][y] == not_me) && real)
 				pixmaps[tmp_x][y] += adder;
 			adder += adder_diff;
 			tmp_x--;
@@ -222,18 +240,18 @@ gint move(guint x, guint y, guint me)
 		}
 	}
 
-	valid = 0;
+	// Flip going right
+
+	adder = 0;
 
 	tmp_x = x + 1;
 	while(tmp_x < 8 && board[tmp_x][y] == not_me)
 		tmp_x++;
-	if(tmp_x < 8 && board[tmp_x][y] == me && tmp_x != x + 1)
-		valid++;
-	if(valid) {
+	if(tmp_x < 8 && board[tmp_x][y] == me && tmp_x != x + 1) {
 		tmp_x = x + 1;
 		while(tmp_x < 8 && board[tmp_x][y] == not_me) {
 			board[tmp_x][y] = me;
-			if(pixmaps[tmp_x][y] == not_me)
+			if((pixmaps[tmp_x][y] == not_me) && real)
 				pixmaps[tmp_x][y] += adder;
 			adder += adder_diff;
 			tmp_x++;
@@ -241,18 +259,18 @@ gint move(guint x, guint y, guint me)
 		}
 	}
 
-	valid = 0;
+	// Flip going up
+
+	adder = 0;
 
 	tmp_y = y - 1;
 	while(tmp_y >= 0 && board[x][tmp_y] == not_me)
 		tmp_y--;
-	if(tmp_y >= 0 && board[x][tmp_y] == me && tmp_y != y - 1)
-		valid++;
-	if(valid) {
+	if(tmp_y >= 0 && board[x][tmp_y] == me && tmp_y != y - 1) {
 		tmp_y = y - 1;
 		while(tmp_y >= 0 && board[x][tmp_y] == not_me) {
 			board[x][tmp_y] = me;
-			if(pixmaps[x][tmp_y] == not_me)
+			if((pixmaps[x][tmp_y] == not_me) && real)
 				pixmaps[x][tmp_y] += adder;
 			adder += adder_diff;
 			tmp_y--;
@@ -260,18 +278,18 @@ gint move(guint x, guint y, guint me)
 		}
 	}
 
-	valid = 0;
+	// Flip going down
+
+	adder = 0;
 
 	tmp_y = y + 1;
 	while(tmp_y < 8 && board[x][tmp_y] == not_me)
 		tmp_y++;
-	if(tmp_y < 8 && board[x][tmp_y] == me && tmp_y != y + 1)
-		valid++;
-	if(valid) {
+	if(tmp_y < 8 && board[x][tmp_y] == me && tmp_y != y + 1) {
 		tmp_y = y + 1;
 		while(tmp_y < 8 && board[x][tmp_y] == not_me) {
 			board[x][tmp_y] = me;
-			if(pixmaps[x][tmp_y] == not_me)
+			if((pixmaps[x][tmp_y] == not_me) && real)
 				pixmaps[x][tmp_y] += adder;
 			adder += adder_diff;
 			tmp_y++;
@@ -279,7 +297,9 @@ gint move(guint x, guint y, guint me)
 		}
 	}
 
-	valid = 0;
+	// Flip going up/left
+
+	adder = 0;
 
 	tmp_x = x - 1;
 	tmp_y = y - 1;
@@ -287,14 +307,12 @@ gint move(guint x, guint y, guint me)
 		tmp_x--;
 		tmp_y--;
 	}
-	if(tmp_x >= 0 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x - 1)
-		valid++;
-	if(valid) {
+	if(tmp_x >= 0 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x - 1) {
 		tmp_x = x - 1;
 		tmp_y = y - 1;
 		while(tmp_y >= 0 && tmp_x >= 0 && board[tmp_x][tmp_y] == not_me) {
 			board[tmp_x][tmp_y] = me;
-			if(pixmaps[tmp_x][tmp_y] == not_me)
+			if((pixmaps[tmp_x][tmp_y] == not_me) && real)
 				pixmaps[tmp_x][tmp_y] += adder;
 			adder += adder_diff;
 			tmp_x--;
@@ -303,7 +321,9 @@ gint move(guint x, guint y, guint me)
 		}
 	}
 
-	valid = 0;
+	// Flip going up/right
+
+	adder = 0;
 
 	tmp_x = x + 1;
 	tmp_y = y - 1;
@@ -311,14 +331,12 @@ gint move(guint x, guint y, guint me)
 		tmp_x++;
 		tmp_y--;
 	}
-	if(tmp_x < 8 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x + 1)
-		valid++;
-	if(valid) {
+	if(tmp_x < 8 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x + 1) {
 		tmp_x = x + 1;
 		tmp_y = y - 1;
 		while(tmp_x < 8 && tmp_y >= 0 && board[tmp_x][tmp_y] == not_me) {
 			board[tmp_x][tmp_y] = me;
-			if(pixmaps[tmp_x][tmp_y] == not_me)
+			if((pixmaps[tmp_x][tmp_y] == not_me) && real)
 				pixmaps[tmp_x][tmp_y] += adder;
 			adder += adder_diff;
 			tmp_x++;
@@ -327,7 +345,9 @@ gint move(guint x, guint y, guint me)
 		}
 	}
 
-	valid = 0;
+	// Flip going down/left
+
+	adder = 0;
 
 	tmp_x = x - 1;
 	tmp_y = y + 1;
@@ -335,14 +355,12 @@ gint move(guint x, guint y, guint me)
 		tmp_x--;
 		tmp_y++;
 	}
-	if(tmp_x >= 0 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x - 1)
-		valid++;
-	if(valid) {
+	if(tmp_x >= 0 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x - 1) {
 		tmp_x = x - 1;
 		tmp_y = y + 1;
 		while(tmp_x >= 0 && tmp_y < 8 && board[tmp_x][tmp_y] == not_me) {
 			board[tmp_x][tmp_y] = me;
-			if(pixmaps[tmp_x][tmp_y] == not_me)
+			if((pixmaps[tmp_x][tmp_y] == not_me) && real)
 				pixmaps[tmp_x][tmp_y] += adder;
 			adder += adder_diff;
 			tmp_x--;
@@ -351,7 +369,9 @@ gint move(guint x, guint y, guint me)
 		}
 	}
 
-	valid = 0;
+	// Flip going down/right
+
+	adder = 0;
 
 	tmp_x = x + 1;
 	tmp_y = y + 1;
@@ -359,14 +379,12 @@ gint move(guint x, guint y, guint me)
 		tmp_x++;
 		tmp_y++;
 	}
-	if(tmp_x < 8 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x + 1)
-		valid++;
-	if(valid) {
+	if(tmp_x < 8 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x + 1) {
 		tmp_x = x + 1;
 		tmp_y = y + 1;
 		while(tmp_x < 8 && tmp_y < 8 && board[tmp_x][tmp_y] == not_me) {
 			board[tmp_x][tmp_y] = me;
-			if(pixmaps[tmp_x][tmp_y] == not_me)
+			if((pixmaps[tmp_x][tmp_y] == not_me) && real)
 				pixmaps[tmp_x][tmp_y] += adder;
 			adder += adder_diff;
 			tmp_x++;
@@ -375,19 +393,26 @@ gint move(guint x, guint y, guint me)
 		}
 	}
 
-	if(me == BLACK_TURN) {
-		bcount += count;
-		wcount -= count - 1;
-	} else {
-		wcount += count;
-		bcount -= count - 1;
+	// More stuff for a ``real'' move
+
+	if(real) {
+
+		// Update the statusbar counters
+
+		if(me == BLACK_TURN) {
+			bcount += count;
+			wcount -= count - 1;
+		} else {
+			wcount += count;
+			bcount -= count - 1;
+		}
+
+		gui_status();
+
+		// Check for end of game or pass situations
+
+		check_valid_moves();
 	}
-
-	check_valid_moves();
-	gui_status();
-
-	if(valid)
-		return(TRUE);
 
 	return(FALSE);
 }
@@ -422,29 +447,98 @@ gint computer_move_1(guint me)
 	return(FALSE);
 }
 
+void minimax(gint8 board[8][8], gint* score, gint* x, gint* y, gint depth, guint me)
+{
+	gint best_score = -15000;
+	gint i, j;
+	gint xs[32], ys[32], num_moves = 0;
+	gint8 tboard[8][8];
+	gint the_score, the_x, the_y;
+	gint best_x, best_y;
+	guint not_me;
+
+	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
+
+	for(i = 0; i < 8; i++)
+		for(j = 0; j < 8; j++)
+			if(is_valid_move_board(board, i, j, me)) {
+				if(!depth)
+					printf("%d, %d\n", i, j);
+				xs[num_moves] = i;
+				ys[num_moves] = j;
+				num_moves++;
+			}
+
+	for(i = 0; i < num_moves; i++) {
+		memcpy(tboard, board, sizeof(gint8) * 8 * 8);
+		move_board(tboard, xs[i], ys[i], me, 0);
+		if(depth == 4) {
+			the_score = eval_board(board, me);
+			the_x = xs[i];
+			the_y = ys[i];
+		} else {
+			minimax(tboard, &the_score, &the_x, &the_y, depth + 1, not_me);
+		}
+		if(the_score > best_score) {
+			best_score = the_score;
+			best_x = the_x;
+			best_y = the_y;
+		}
+	}
+
+	*score = best_score;
+	*x = best_x;
+	*y = best_y;
+}
+
+gint computer_move_2(guint me)
+{
+	gint x, y, score;
+
+	if(whose_turn != me)
+		return(FALSE);
+
+	minimax(board, &score, &x, &y, 0, me);
+
+	printf("%d, %d\n", x, y);
+
+	move(x, y, me);
+
+	if(me == WHITE_TURN)
+		white_computer_busy = 0;
+	else
+		black_computer_busy = 0;
+
+	return(FALSE);
+}
+
 gint computer_move_3(guint me)
 {
 	guint i, j;
 	guint best_x = 8, best_y = 8;
-	guint best_move = 0;
-	guint tmp_move;
+	gint best_move = -10000;
+	gint tmp_move;
+	gint8 tboard[8][8];
 
 	if(whose_turn != me)
 		return(FALSE);
 
 	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++) {
-			tmp_move = is_valid_move(i, j, me);
-			if(tmp_move == best_move && (rand()>>4) % 2) {
-				best_x = i;
-				best_y = j;
+		for(j = 0; j < 8; j++)
+			if(is_valid_move(i, j, me)) {
+				memcpy(tboard, board, sizeof(gint8) * 8 * 8);
+				move_board(tboard, i, j, me, 0);
+				tmp_move = eval_board(tboard, me);
+				if(tmp_move == best_move && (rand()>>4) % 2) {
+					best_x = i;
+					best_y = j;
+				}
+				if(tmp_move > best_move) {
+					best_move = tmp_move;
+					best_x = i;
+					best_y = j;
+				}
 			}
-			if(tmp_move > best_move) {
-				best_move = tmp_move;
-				best_x = i;
-				best_y = j;
-			}
-		}
 
 	if (best_move)
 		move(best_x, best_y, me);
@@ -558,11 +652,11 @@ gint check_valid_moves()
 		white_moves = count_pieces(WHITE_TURN);
 		black_moves = count_pieces(BLACK_TURN);
 		if(white_moves > black_moves)
-			gui_message(_("  White player wins!"));
+			gui_message(_("White player wins!"));
 		if(black_moves > white_moves)
-			gui_message(_("  Black player wins!"));
+			gui_message(_("Black player wins!"));
 		if(white_moves == black_moves)
-			gui_message(_("  The game was a draw."));
+			gui_message(_("The game was a draw."));
 		whose_turn = 0;
 		new_game = 1;
 		flip_final_id = gtk_timeout_add(3000, flip_final_results, NULL);
@@ -570,16 +664,63 @@ gint check_valid_moves()
 	}
 
 	if(whose_turn == WHITE_TURN) {
-		gui_message(_("  White must pass...Black's turn..."));
+		gui_message(_("White must pass, Black's turn"));
 		whose_turn = BLACK_TURN;
 		return(TRUE);
 	}
 
 	if(whose_turn == BLACK_TURN) {
-		gui_message(_("  Black must pass...White's turn..."));
+		gui_message(_("Black must pass, White's turn"));
 		whose_turn = WHITE_TURN;
 		return(TRUE);
 	}
 
 	return(TRUE);
+}
+
+gint eval_heuristic(gint8 board[8][8], guint me)
+{
+	guint i, j;
+	guint not_me;
+	gint score = 0;
+
+	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
+
+	for(i = 0; i < 8; i++)
+		for(j = 0; j < 8; j++) {
+			if(board[i][j] == me)
+				score += heuristic[i][j];
+			if(board[i][j] == not_me)
+				score -= heuristic[i][j];
+		}
+
+	return(score);
+}
+
+gint mobility(gint8 board[8][8], guint me)
+{
+	guint i, j;
+	guint moves = 0;
+
+	for(i = 0; i < 8; i++)
+		for(j = 0; j < 8; j++)
+			if(is_valid_move_board(board, i, j, me))
+				moves++;
+
+	return(moves);
+}
+
+gint eval_board(gint8 board[8][8], guint me)
+{
+	guint not_me;
+	gint mobility_score, heuristic_score;
+
+	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
+
+	mobility_score = (32 - mobility(board, not_me) - move_count);
+	mobility_score = (mobility_score > 0) ? mobility_score : 0;
+
+	heuristic_score = eval_heuristic(board, me);
+
+	return(heuristic_score + mobility_score);
 }

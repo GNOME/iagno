@@ -78,7 +78,6 @@ gint8 board[8][8] = {{0,0,0,0,0,0,0,0},
 MoveHistory game[61];
 
 gint8 move_count = 0;
-gint8 max_move_count = 0;
 
 extern guint flip_final_id;
 extern guint black_computer_busy;
@@ -165,7 +164,7 @@ GnomeUIInfo anim_menu[] = {
 };
 
 GnomeUIInfo help_menu[] = {
-	{ GNOME_APP_UI_ITEM, N_("_About..."), NULL, about_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
+	{ GNOME_APP_UI_ITEM, N_("_About Gnothello..."), NULL, about_cb, NULL, NULL, GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
@@ -662,7 +661,7 @@ void init_new_game()
 	whose_turn = BLACK_TURN;
 	black_computer_busy = 0;
 	white_computer_busy = 0;
-	gui_message(_("  Black's turn..."));
+	gui_message(_("Black's turn"));
 }
 
 void create_window()
@@ -670,6 +669,7 @@ void create_window()
 	GtkWidget *vbox;
 	GtkWidget *frame;
 	GtkWidget *box;
+	char tmp[100];
 
 	window = gnome_app_new("gnothello", _("Gnome Othello"));
 
@@ -718,11 +718,9 @@ void create_window()
 	gtk_widget_show(frame);
 
 	statusbar = gtk_statusbar_new();
-	gtk_frame_set_shadow_type(GTK_FRAME(GTK_STATUSBAR(statusbar)->frame), GTK_SHADOW_ETCHED_IN);
+	gtk_frame_set_shadow_type(GTK_FRAME(GTK_STATUSBAR(statusbar)->frame), GTK_SHADOW_NONE);
 	gtk_widget_show(statusbar);
 	statusbar_id = gtk_statusbar_get_context_id(GTK_STATUSBAR(statusbar), "gnothello");
-
-//	gtk_container_add(GTK_CONTAINER(frame), statusbar);
 
 	gtk_box_pack_start(GTK_BOX(box), statusbar, TRUE, TRUE, 0);
 
@@ -731,7 +729,8 @@ void create_window()
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
 
-	black_score = gtk_label_new(_("  Black: 00  "));
+	sprintf(tmp, _("  Black: %.2d  "), 0);
+	black_score = gtk_label_new(tmp);
 	gtk_widget_show(black_score);
 
 	gtk_container_add(GTK_CONTAINER(frame), black_score);
@@ -743,7 +742,8 @@ void create_window()
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
 
-	white_score = gtk_label_new(_("  White: 00  "));
+	sprintf(tmp, _("  White: %.2d  "), 0);
+	white_score = gtk_label_new(tmp);
 	gtk_widget_show(white_score);
 
 	gtk_container_add(GTK_CONTAINER(frame), white_score);
@@ -752,7 +752,7 @@ void create_window()
 
 	gtk_box_pack_start(GTK_BOX(vbox), box, TRUE, TRUE, 0);
 
-	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("  Welcome to Gnome Othello!"));
+	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("Welcome to Gnome Othello!"));
 }
 
 void gui_status()
@@ -780,7 +780,7 @@ guint check_computer_players()
 				black_computer_busy = 1;
 			break;
 			case 2:
-				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) BLACK_TURN);
+				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_2, (gpointer) BLACK_TURN);
 				black_computer_busy = 1;
 			break;
 			case 3:
@@ -801,7 +801,7 @@ guint check_computer_players()
 				white_computer_busy = 1;
 			break;
 			case 2:
-				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) WHITE_TURN);
+				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_2, (gpointer) WHITE_TURN);
 				white_computer_busy = 1;
 			break;
 			case 3:
