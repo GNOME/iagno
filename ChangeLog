@@ -1,3 +1,7 @@
+2005-01-11  Richard Hoelscher  <rah@rahga.com>
+
+	* othello.c (computer_move_3): ai#3 crashers. Bug #163403 et al.
+
 2004-12-14  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnothello.c: Fall back to a default theme if the selected one is

@@ -42,16 +42,6 @@ guint heuristic[8][8] = {{512,4,128,256,256,128,4,512},
 			 {4,2,8,16,16,8,2,4},
 			 {512,4,128,256,256,128,4,512}};
 
-
-/*guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
-			 {2,1,3,4,4,3,1,2},
-			 {7,3,6,5,5,6,3,7},
-			 {8,4,5,1,1,5,4,8},
-			 {8,4,5,1,1,5,4,8},
-			 {7,3,6,5,5,6,3,7},
-			 {2,1,3,4,4,3,1,2},
-			 {9,2,7,8,8,7,2,9}};*/
-
 guint flip_final_id = 0;
 gint flip_final;
 
@@ -513,9 +503,15 @@ gint
 computer_move_3(guint me)
 {
 	guint best_x, best_y;
-	if (find_best_move(board, me, 7, 10000, -10000, &best_x, &best_y) != -10000)
-		move(best_x, best_y, me);
+
+
+	find_best_move (board, me, 7, 10000, -10000, &best_x, &best_y);
 	
+	if (best_x == 8 && best_y == 8)
+		computer_move_1 (me);
+	else
+		move(best_x, best_y, me); 
+
 	return (FALSE);
 }
 
@@ -531,19 +527,24 @@ find_best_move(gint8 board[8][8], guint me, gint ply_depth,
 	gint tmp_move;
 	gint8 tboard[8][8];
 	gboolean exit_loops = FALSE;
+	gboolean pass = TRUE;
 
 	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
 	
 	if (!ply_depth)
 		pass_thresh = eval_board(board, me);
 	else {
+		/* Scan the board for possible moves and calculate
+		 * their cost/benefit. */
 		for (i = 0; i < 8 && !exit_loops; i++)
 			for (j = 0; j < 8 && !exit_loops; j++)
 				if (is_valid_move_board(board, i, j, me)) {
+
+					pass = FALSE;
 					memcpy (tboard, board, sizeof (gint8) * 8 * 8);
 					move_board(tboard, i, j, me, 0);
 	
-					// assume that opponent takes best move
+					/* Assume that the opponent takes best move. */
 					tmp_move = find_best_move(tboard, not_me, ply_depth-1,
 						-pass_thresh, -use_thresh, 0, 0);
 
@@ -553,21 +554,21 @@ find_best_move(gint8 board[8][8], guint me, gint ply_depth,
 						pass_thresh = tmp_move;
 						best_x = i;
 						best_y = j;
-						
 						exit_loops = (pass_thresh >= use_thresh);
 					}
+
 				}
 		
-		// check if we have to pass
-		if (best_x == 8 && best_y == 8) {
+		/* Deal with the case where there aren't any valid moves. */
+		if (pass) {
 			tmp_move = find_best_move(board, not_me, ply_depth-1,
-				-pass_thresh, -use_thresh, 0, 0);
-			
+						  -pass_thresh, -use_thresh, 0, 0);
 			tmp_move = -tmp_move;
-			
+
 			if (tmp_move > pass_thresh)
 				pass_thresh = tmp_move;
-		}	
+		}
+
 	}
 
 	if (ret_best_x && ret_best_y) {
