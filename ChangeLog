@@ -1,5 +1,10 @@
 2002-04-16  Bastien Nocera  <hadess@hadess.net>
 
+	* gnothello.c: (quit_game_cb), (main): oops, some more fixes for my
+	crappy code
+
+2002-04-16  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am: added -Wall
 	* gnothello.c: (quit_game_maybe), (create_window), (set_bg_color),
 	(main): more gnome2 porting indeed

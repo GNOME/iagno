@@ -243,23 +243,29 @@ void quit_game_maybe(GtkWidget *widget, gint button)
 
 void quit_game_cb(GtkWidget *widget, gpointer data)
 {
-	GtkWidget *box;
+	GtkWidget *dialog;
 
 	if(game_in_progress) {
 		gint response;
 
-		box = gtk_dialog_new_with_buttons (NULL,
+		dialog = gtk_dialog_new_with_buttons (NULL,
 				GTK_WINDOW (window),
 				GTK_DIALOG_MODAL,
 				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
 				GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
-				_("Do you really want to quit?"),
 				NULL);
-		gtk_dialog_set_default_response (GTK_DIALOG (box),
+		{
+			GtkWidget *label = gtk_label_new (_("Do you really want to quit?"));
+			gtk_container_add (GTK_CONTAINER (GTK_DIALOG (dialog)->vbox),
+					label);
+		}
+
+		gtk_dialog_set_default_response (GTK_DIALOG (dialog),
 				GTK_RESPONSE_REJECT);
 
-		response = gtk_dialog_run (GTK_DIALOG(box));
-		gtk_widget_destroy (box);
+		gtk_widget_show_all (dialog);
+		response = gtk_dialog_run (GTK_DIALOG(dialog));
+		gtk_widget_destroy (dialog);
 
 		if (response == GTK_RESPONSE_ACCEPT)
 			quit_game_maybe(NULL, 0);
@@ -907,8 +913,9 @@ int main(int argc, char **argv)
 	gtk_object_sink(GTK_OBJECT(client));
 
 	g_signal_connect(GTK_OBJECT(client), "save_yourself", GTK_SIGNAL_FUNC(save_state), argv[0]);
+#if 0
 	g_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
-
+#endif
 	create_window();
 	
 	load_properties ();
