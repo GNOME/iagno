@@ -161,9 +161,11 @@ void apply_changes ()
 	
 	if ((black_computer_level != t_black_computer_level) ||
 			(white_computer_level != t_white_computer_level)) {
+	#if 0
 		gtk_clock_stop (GTK_CLOCK (time_display));
 		gtk_widget_set_sensitive (time_display, FALSE);
 		gtk_clock_set_seconds (GTK_CLOCK (time_display), 0);
+	#endif
 		timer_valid = 0;
 	}
 
@@ -317,6 +319,7 @@ void fill_menu(GtkWidget *menu)
 void
 dialog_help_callback (GnomePropertyBox *box, gint page_num)
 {
+#if 0
   GnomeHelpMenuEntry settings_entry = { "iagno", "settings.html" };
   GnomeHelpMenuEntry animation_entry = { "iagno", "animations.html" };
 
@@ -330,6 +333,7 @@ dialog_help_callback (GnomePropertyBox *box, gint page_num)
   default:
     break;
   }
+#endif
 }
 
 void show_properties_dialog ()

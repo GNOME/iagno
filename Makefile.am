@@ -3,10 +3,10 @@ pixmapdir=$(datadir)/pixmaps/iagno
 Gamesdir = $(datadir)/gnome/apps/Games
 appicondir=$(datadir)/pixmaps
 
-INCLUDES = 			\
+INCLUDES = 	$(GNOME_GAMES_CFLAGS)		\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)				 \
-	$(GNOME_INCLUDEDIR) -I. $(GDK_PIXBUF_CFLAGS)
+	 -I. 
 
 bin_PROGRAMS = iagno
 
@@ -21,9 +21,7 @@ iagno_SOURCES = \
 	properties.h
 
 iagno_LDADD = \
-	$(GNOME_LIBDIR) \
-	$(GNOMEUI_LIBS)	\
-	$(GDK_PIXBUF_LIBS) \
+	$(GNOME_GAMES_LIBS) \
 	$(INTLLIBS)
 
 pixmap_DATA = \

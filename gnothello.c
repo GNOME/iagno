@@ -322,9 +322,11 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	gui_status();
 
 	if(timer_valid) {
+#if 0
 		gtk_clock_stop(GTK_CLOCK(time_display));
 		gtk_widget_set_sensitive(time_display, FALSE);
 		gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+#endif
 		timer_valid = 0;
 	}
 
@@ -345,9 +347,11 @@ void black_level_cb(GtkWidget *widget, gpointer data)
         black_computer_level = tmp;
 
         if(game_in_progress) {
+#if 0
                 gtk_clock_stop(GTK_CLOCK(time_display));
                 gtk_widget_set_sensitive(time_display, FALSE);
                 gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+#endif
                 timer_valid = 0;
         }
 
@@ -366,9 +370,11 @@ void white_level_cb(GtkWidget *widget, gpointer data)
         white_computer_level = tmp;
 
         if(game_in_progress) {
+#if 0
                 gtk_clock_stop(GTK_CLOCK(time_display));
                 gtk_widget_set_sensitive(time_display, FALSE);
                 gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+#endif
                 timer_valid = 0;
         }
 
@@ -380,6 +386,10 @@ void about_cb(GtkWidget *widget, gpointer data)
 	static GtkWidget *about;
 
 	const gchar *authors[] = {"Ian Peters", NULL};
+	const gchar *documenters[] = {
+	    			      NULL
+    	};
+    	const gchar *translator_credits = _("");
 	
 	if (about != NULL) {
 		gdk_window_raise (about->window);
@@ -387,8 +397,15 @@ void about_cb(GtkWidget *widget, gpointer data)
 		return;
 	}
 
-	about = gnome_about_new(_("Iagno"), VERSION, _("(C) 1998 Ian Peters"),
-			(const char **)authors, _("Send comments and bug reports to: itp@gnu.org\nTiles under the General Public License."), NULL);
+	about = gnome_about_new(_("Iagno"), VERSION, 
+			        _("(C) 1998 Ian Peters"),
+				_("Send comments and bug reports to: itp@gnu.org\nTiles under the General Public License."), 
+				(const char **)authors, 
+				(const char **)documenters,
+			     	(const char *)translator_credits,
+				NULL);
+			
+			
 	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);
 	gnome_dialog_set_parent(GNOME_DIALOG(about), GTK_WINDOW(window));
@@ -486,7 +503,7 @@ void load_pixmaps()
 		exit(1);
 	}
 
-	image = gdk_pixbuf_new_from_file(fname);
+	image = gdk_pixbuf_new_from_file(fname, NULL);
 	gdk_pixbuf_render_pixmap_and_mask(image, &tiles_pixmap, &tiles_mask, 127);
 
 	gdk_pixbuf_unref(image);
@@ -635,16 +652,22 @@ void init_new_game(void)
   whose_turn = BLACK_TURN;
   gui_message(_("Dark's move"));
 
+#if 0
   gtk_clock_stop(GTK_CLOCK(time_display));
   gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+#endif
 
   if(black_computer_level ^ white_computer_level) {
+#if 0
     if(!black_computer_level)
       gtk_clock_start(GTK_CLOCK(time_display));
     gtk_widget_set_sensitive(time_display, TRUE);
+#endif
     timer_valid = 1;
   } else {
+#if 0
     gtk_widget_set_sensitive(time_display, FALSE);
+#endif
     timer_valid = 0;
   }
 
@@ -717,12 +740,13 @@ void create_window()
 
 	gtk_table_attach(GTK_TABLE(table), sep, 6, 7, 0, 1, 0, GTK_FILL, 3, 3);
 
+#if 0
 	time_display = gtk_clock_new(GTK_CLOCK_INCREASING);
 	gtk_widget_set_sensitive(time_display, FALSE);
 	gtk_widget_show(time_display);
 
 	gtk_table_attach(GTK_TABLE(table), time_display, 7, 8, 0, 1, 0, 0, 3, 1);
-
+#endif
 	gtk_widget_show(table);
 
 	gtk_box_pack_start(GTK_BOX(appbar), table, FALSE, TRUE, 0);
