@@ -1,3 +1,9 @@
+1998-09-07  Raja R Harinath  <harinath@cs.umn.edu>
+
+	* Makefile.am (BUILT_SOURCES): Add $(CORBA_SRCS).
+	(INCLUDES): Include $(ORBIT_CFLAGS).
+	(gnothello_LDADD): Include $(ORBIT_LIBS).
+
 1998-08-20  Nuno Ferreira  <nmrf@rnl.ist.utl.pt>
 
 	* gnothello.desktop: Added Portuguese translation.

@@ -4,27 +4,28 @@ Gamesdir = $(datadir)/apps/Games
 INCLUDES = 			\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)				 \
-	$(GNOME_INCLUDEDIR)
+	$(GNOME_INCLUDEDIR) $(ORBIT_CFLAGS)
 
 bin_PROGRAMS = gnothello
 
+CORBA_SRCS = game-common.c game-skels.c game-stubs.c game.h
 gnothello_SOURCES = \
 	gnothello.c \
 	gnothello.h \
 	network.c   \
-	game-common.c \
-	game-skels.c \
-	game-stubs.c \
+	$(CORBA_SRCS) \
 	othello.c \
-	game.h \
 	othello.h
 
-game-common.c game-skels.c game-stubs.c game.h: game.idl
-	orbit-idl game.idl
-	
+BUILT_SOURCES = $(CORBA_SRCS)
+
+$(CORBA_SRCS): game.idl
+	orbit-idl $<
+
 gnothello_LDADD = \
 	$(GNOME_LIBDIR) \
 	$(GNOMEUI_LIBS)	\
+	$(ORBIT_LIBS) \
 	$(INTLLIBS)
 
 pixmap_DATA = tiles.png
