@@ -82,6 +82,7 @@ static struct argp_option options[] =
 	{NULL, 0, NULL, 0, NULL, 0}
 };
 
+static error_t parse_args(int key, char *arg, struct argp_state *state);
 static struct argp parser =
 {
 	options, parse_args, NULL, NULL, NULL, NULL, NULL
@@ -253,9 +254,9 @@ void about_cb(GtkWidget *widget, gpointer data)
 {
 	GtkWidget *about;
 
-	gchar *authors[] = {"Ian Peters", NULL};
+	const gchar *authors[] = {"Ian Peters", NULL};
 
-	about = gnome_about_new(_("Gnome Othello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
+	about = gnome_about_new(_("Gnome Othello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
 
 	gtk_widget_show(about);
 }
@@ -531,15 +532,15 @@ guint check_computer_players()
 	if(black_computer_level && !black_computer_busy && whose_turn == BLACK_TURN)
 		switch(black_computer_level) {
 			case 1:
-				black_computer_id = gtk_timeout_add(computer_speed, computer_move_1, (gpointer) BLACK_TURN);
+				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) BLACK_TURN);
 				black_computer_busy = 1;
 			break;
 			case 2:
-				black_computer_id = gtk_timeout_add(computer_speed, computer_move_1, (gpointer) BLACK_TURN);
+				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) BLACK_TURN);
 				black_computer_busy = 1;
 			break;
 			case 3:
-				black_computer_id = gtk_timeout_add(computer_speed, computer_move_3, (gpointer) BLACK_TURN);
+				black_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) BLACK_TURN);
 				black_computer_busy = 1;
 			break;
 		}
@@ -552,15 +553,15 @@ guint check_computer_players()
 	if(white_computer_level && !white_computer_busy && whose_turn == WHITE_TURN)
 		switch(white_computer_level) {
 			case 1:
-				white_computer_id = gtk_timeout_add(computer_speed, computer_move_1, (gpointer) WHITE_TURN);
+				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) WHITE_TURN);
 				white_computer_busy = 1;
 			break;
 			case 2:
-				white_computer_id = gtk_timeout_add(computer_speed, computer_move_1, (gpointer) WHITE_TURN);
+				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_1, (gpointer) WHITE_TURN);
 				white_computer_busy = 1;
 			break;
 			case 3:
-				white_computer_id = gtk_timeout_add(computer_speed, computer_move_3, (gpointer) WHITE_TURN);
+				white_computer_id = gtk_timeout_add(computer_speed, (GtkFunction)computer_move_3, (gpointer) WHITE_TURN);
 				white_computer_busy = 1;
 			break;
 		}
@@ -647,7 +648,7 @@ int main(int argc, char **argv)
 	load_pixmaps();
 
 	check_valid_moves_id = gtk_timeout_add(1000, check_valid_moves, NULL);
-	check_computer_players_id = gtk_timeout_add(100, check_computer_players, NULL);
+	check_computer_players_id = gtk_timeout_add(100, (GtkFunction)check_computer_players, NULL);
 
 	if(session_position) {
 		gtk_widget_set_uposition(window, session_xpos, session_ypos);

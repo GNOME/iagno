@@ -54,4 +54,3 @@ void create_drawing_area();
 void create_statusbar();
 void gui_message(gchar *message);
 guint check_computer_players();
-static error_t parse_args(int key, char *arg, struct argp_state *state);
