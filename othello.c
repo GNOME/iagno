@@ -444,9 +444,6 @@ gint computer_move_1(guint me)
 	guint num_moves = 0;
 	guint i, j;
 
-	if(whose_turn != me)
-		return(FALSE);
-
 	for(i = 0; i < 8; i++)
 		for(j = 0; j < 8; j++)
 			if(is_valid_move(i, j, me)) {
@@ -470,9 +467,6 @@ gint computer_move_3(guint me)
 	gint best_move = -10000;
 	gint tmp_move;
 	gint8 tboard[8][8];
-
-	if(whose_turn != me)
-		return(FALSE);
 
 	for(i = 0; i < 8; i++)
 		for(j = 0; j < 8; j++)
