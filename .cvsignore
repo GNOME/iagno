@@ -6,7 +6,7 @@ game-common.c
 game-skels.c
 game-stubs.c
 game.h
-gnothello
+iagno
 gnothello-game-common.c
 gnothello-game-skels.c
 gnothello-game-stubs.c

@@ -1,5 +1,5 @@
 scoredir=$(localstatedir)/games
-pixmapdir=$(datadir)/pixmaps/gnothello
+pixmapdir=$(datadir)/pixmaps/iagno
 Gamesdir = $(datadir)/apps/Games
 appicondir=$(datadir)/pixmaps
 
@@ -9,10 +9,10 @@ INCLUDES = 			\
 	-I$(includedir)				 \
 	$(GNOME_INCLUDEDIR) -I.
 
-bin_PROGRAMS = gnothello
+bin_PROGRAMS = iagno
 
 CORBA_SRCS = gnothello-game-common.c gnothello-game-skels.c gnothello-game-stubs.c gnothello-game.h
-gnothello_SOURCES = \
+iagno_SOURCES = \
 	gnothello.c \
 	gnothello.h \
 	network.c   \
@@ -32,7 +32,7 @@ BUILT_SOURCES = $(CORBA_SRCS)
 $(CORBA_SRCS): $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $<
 
-gnothello_LDADD = \
+iagno_LDADD = \
 	$(GNOME_LIBDIR) \
 	$(GNOMEGNORBA_LIBS)	\
 	$(INTLLIBS)
@@ -46,37 +46,37 @@ pixmap_DATA = \
 	shrink.png \
 	woodtrim.png
 
-appicon_DATA = gnothello.png
+appicon_DATA = iagno.png
 
-Games_DATA = gnothello.desktop
+Games_DATA = iagno.desktop
 
 EXTRA_DIST = AUTHORS \
-             gnothello.desktop 	\
-	     gnothello.soundlist \
+             iagno.desktop 	\
+	     iagno.soundlist \
              $(pixmap_DATA)	\
 	     $(appicon_DATA)
 
 install-data-local:
 	-$(mkinstalldirs) $(scoredir)
-	touch $(scoredir)/gnothello.w1.scores
-	touch $(scoredir)/gnothello.w2.scores
-	touch $(scoredir)/gnothello.w3.scores
-	touch $(scoredir)/gnothello.b1.scores
-	touch $(scoredir)/gnothello.b2.scores
-	touch $(scoredir)/gnothello.b3.scores
-	-chown games.games $(scoredir)/gnothello.w1.scores
-	-chown games.games $(scoredir)/gnothello.w2.scores
-	-chown games.games $(scoredir)/gnothello.w3.scores
-	-chown games.games $(scoredir)/gnothello.b1.scores
-	-chown games.games $(scoredir)/gnothello.b2.scores
-	-chown games.games $(scoredir)/gnothello.b3.scores
-	-chmod 664 $(scoredir)/gnothello.w1.scores
-	-chmod 664 $(scoredir)/gnothello.w2.scores
-	-chmod 664 $(scoredir)/gnothello.w3.scores
-	-chmod 664 $(scoredir)/gnothello.b1.scores
-	-chmod 664 $(scoredir)/gnothello.b2.scores
-	-chmod 664 $(scoredir)/gnothello.b3.scores
-	-chgrp games $(bindir)/gnothello && chmod 2111 $(bindir)/gnothello
+	touch $(scoredir)/iagno.w1.scores
+	touch $(scoredir)/iagno.w2.scores
+	touch $(scoredir)/iagno.w3.scores
+	touch $(scoredir)/iagno.b1.scores
+	touch $(scoredir)/iagno.b2.scores
+	touch $(scoredir)/iagno.b3.scores
+	-chown games.games $(scoredir)/iagno.w1.scores
+	-chown games.games $(scoredir)/iagno.w2.scores
+	-chown games.games $(scoredir)/iagno.w3.scores
+	-chown games.games $(scoredir)/iagno.b1.scores
+	-chown games.games $(scoredir)/iagno.b2.scores
+	-chown games.games $(scoredir)/iagno.b3.scores
+	-chmod 664 $(scoredir)/iagno.w1.scores
+	-chmod 664 $(scoredir)/iagno.w2.scores
+	-chmod 664 $(scoredir)/iagno.w3.scores
+	-chmod 664 $(scoredir)/iagno.b1.scores
+	-chmod 664 $(scoredir)/iagno.b2.scores
+	-chmod 664 $(scoredir)/iagno.b3.scores
+	-chgrp games $(bindir)/iagno && chmod 2111 $(bindir)/iagno
 
 soundlistdir = $(sysconfdir)/sound/events
-soundlist_DATA = gnothello.soundlist
+soundlist_DATA = iagno.soundlist

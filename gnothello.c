@@ -1,5 +1,5 @@
 /*
- * gnothello.c - Main GUI part of gnothello
+ * gnothello.c - Main GUI part of iagno
  * written by Ian Peters <ipeters@acm.org>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -100,7 +100,7 @@ static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
   {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
 #ifdef HAVE_ORBIT
-  {"ior", '\0', POPT_ARG_STRING, &ior, 0, N_("IOR of remote Gnothello server"),
+  {"ior", '\0', POPT_ARG_STRING, &ior, 0, N_("IOR of remote Iagno server"),
    N_("IOR")},
 #endif
   {NULL, '\0', 0, NULL, 0}
@@ -201,7 +201,7 @@ GnomeUIInfo settings_menu[] = {
 };
 
 GnomeUIInfo help_menu[] = {
-        GNOMEUIINFO_HELP("gnothello"),
+        GNOMEUIINFO_HELP("iagno"),
 	GNOMEUIINFO_MENU_ABOUT_ITEM(about_cb, NULL),
 	GNOMEUIINFO_END
 };
@@ -344,7 +344,7 @@ void black_level_cb(GtkWidget *widget, gpointer data)
 
         tmp = atoi((gchar *)data);
 
-        gnome_config_set_int("/gnothello/Preferences/blacklevel", tmp);
+        gnome_config_set_int("/iagno/Preferences/blacklevel", tmp);
         gnome_config_sync();
 
         black_computer_level = tmp;
@@ -365,7 +365,7 @@ void white_level_cb(GtkWidget *widget, gpointer data)
 
         tmp = atoi((gchar *)data);
 
-        gnome_config_set_int("/gnothello/Preferences/whitelevel", tmp);
+        gnome_config_set_int("/iagno/Preferences/whitelevel", tmp);
         gnome_config_sync();
 
         white_computer_level = tmp;
@@ -392,7 +392,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 		return;
 	}
 
-	about = gnome_about_new(_("Gnothello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
+	about = gnome_about_new(_("Iagno"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
 	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);
 	gnome_dialog_set_parent(GNOME_DIALOG(about), GTK_WINDOW(window));
@@ -468,12 +468,12 @@ void load_pixmaps()
 	GdkImlibImage *image;
 	GdkVisual *visual;
 
-	tmp = g_strconcat("gnothello/", tile_set, NULL);
+	tmp = g_strconcat("iagno/", tile_set, NULL);
 	fname = gnome_unconditional_pixmap_file(tmp);
 	g_free(tmp);
 
 	if(!g_file_exists(fname)) {
-		g_print(_("Could not find \'%s\' pixmap file for Gnothello\n"), fname);
+		g_print(_("Could not find \'%s\' pixmap file for Iagno\n"), fname);
 		exit(1);
 	}
 
@@ -618,7 +618,7 @@ void create_window()
 	GtkWidget *table;
 	GtkWidget *sep;
 
-	window = gnome_app_new("gnothello", _("Gnothello"));
+	window = gnome_app_new("iagno", _("Iagno"));
 
 	gtk_widget_realize(window);
 	gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE);
@@ -692,7 +692,7 @@ void create_window()
 	gtk_box_pack_start(GTK_BOX(appbar), table, FALSE, TRUE, 0);
 
 	gnome_appbar_set_status(GNOME_APPBAR (appbar),
-				_("Welcome to Gnothello!"));
+				_("Welcome to Iagno!"));
 }
 
 void gui_status()
@@ -790,7 +790,7 @@ int main(int argc, char **argv)
 	CORBA_def(CORBA_Environment ev;)
 	struct timeval tv;
 
-	gnome_score_init("gnothello");
+	gnome_score_init("iagno");
 
 	bindtextdomain(PACKAGE, GNOMELOCALEDIR);
 	textdomain(PACKAGE);
@@ -800,9 +800,9 @@ int main(int argc, char **argv)
 
 #ifdef HAVE_ORBIT
 	CORBA_exception_init (&ev);
-	orb = gnome_CORBA_init_with_popt_table ("gnothello", VERSION, &argc, argv, options, 0, NULL, GNORBA_INIT_SERVER_FUNC|GNORBA_INIT_DISABLE_COOKIES, &ev);
+	orb = gnome_CORBA_init_with_popt_table ("iagno", VERSION, &argc, argv, options, 0, NULL, GNORBA_INIT_SERVER_FUNC|GNORBA_INIT_DISABLE_COOKIES, &ev);
 #else
-	gnome_init_with_popt_table("gnothello", VERSION, argc, argv, options, 0, NULL);
+	gnome_init_with_popt_table("iagno", VERSION, argc, argv, options, 0, NULL);
 #endif
 
 	client= gnome_master_client();

@@ -36,20 +36,20 @@ int mapped = 0;
 void load_properties ()
 {
 	black_computer_level = gnome_config_get_int
-		("/gnothello/Preferences/blacklevel=0");
+		("/iagno/Preferences/blacklevel=0");
 	white_computer_level = gnome_config_get_int
-		("/gnothello/Preferences/whitelevel=0");
+		("/iagno/Preferences/whitelevel=0");
 	strncpy (tile_set, gnome_config_get_string
-			("/gnothello/Preferences/tileset=classic.png"), 255);
-	animate = gnome_config_get_int ("/gnothello/Preferences/animate=2");
+			("/iagno/Preferences/tileset=classic.png"), 255);
+	animate = gnome_config_get_int ("/iagno/Preferences/animate=2");
 	animate_stagger = gnome_config_get_int
-		("/gnothello/Preferences/animstagger=0");
-	if (gnome_config_get_int ("/gnothello/Preferences/quickmoves=0"))
+		("/iagno/Preferences/animstagger=0");
+	if (gnome_config_get_int ("/iagno/Preferences/quickmoves=0"))
 		computer_speed = COMPUTER_MOVE_DELAY / 2;
 	else
 		computer_speed = COMPUTER_MOVE_DELAY;
 	flip_final = gnome_config_get_int
-		("/gnothello/Preferences/flipfinal=1");
+		("/iagno/Preferences/flipfinal=1");
 	
 	switch (animate) {
 		case 0:
@@ -69,13 +69,13 @@ void load_properties ()
 void reset_properties ()
 {
 	t_black_computer_level = black_computer_level = gnome_config_get_int
-		("/gnothello/Preferences/blacklevel=0");
+		("/iagno/Preferences/blacklevel=0");
 	t_white_computer_level = white_computer_level = gnome_config_get_int
-		("/gnothello/Preferences/whitelevel=0");
+		("/iagno/Preferences/whitelevel=0");
         strncpy (tile_set_tmp, tile_set, 255);
 	t_animate = animate;
 	t_quick_moves = gnome_config_get_int
-		("/gnothello/Preferences/quickmoves");
+		("/iagno/Preferences/quickmoves");
 	t_animate_stagger = animate_stagger;
 	t_flip_final = flip_final;
 }
@@ -212,18 +212,18 @@ void apply_changes ()
 
 void save_properties ()
 {
-	gnome_config_set_int ("/gnothello/Preferences/blacklevel",
+	gnome_config_set_int ("/iagno/Preferences/blacklevel",
 			black_computer_level);
-	gnome_config_set_int ("/gnothello/Preferences/whitelevel",
+	gnome_config_set_int ("/iagno/Preferences/whitelevel",
 			white_computer_level);
-	gnome_config_set_int ("/gnothello/Preferences/quickmoves",
+	gnome_config_set_int ("/iagno/Preferences/quickmoves",
 			t_quick_moves);
-	gnome_config_set_string ("/gnothello/Preferences/tileset",
+	gnome_config_set_string ("/iagno/Preferences/tileset",
 			tile_set_tmp);
-	gnome_config_set_int ("/gnothello/Preferences/animate", animate);
-	gnome_config_set_int ("/gnothello/Preferences/animstagger",
+	gnome_config_set_int ("/iagno/Preferences/animate", animate);
+	gnome_config_set_int ("/iagno/Preferences/animstagger",
 			animate_stagger);
-	gnome_config_set_int ("/gnothello/Preferences/flipfinal", flip_final);
+	gnome_config_set_int ("/iagno/Preferences/flipfinal", flip_final);
 	
 	gnome_config_sync ();
 }
@@ -256,7 +256,7 @@ void free_str(GtkWidget *widget, void *data)
 void fill_menu(GtkWidget *menu)
 {
         struct dirent *e;
-        char *dname = gnome_unconditional_pixmap_file("gnothello");
+        char *dname = gnome_unconditional_pixmap_file("iagno");
         DIR *dir;
         int itemno = 0;
 

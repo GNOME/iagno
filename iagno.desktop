@@ -1,12 +1,12 @@
 [Desktop Entry]
 Icon=gnothello.png
-Name=GNOME Reversi game
-Name[de]=Gnothello
-Name[es]=Gnothello
-Name[fr]=Gnothello
-Name[ko]=Gnothello
-Name[no]=Gnothello
-Name[pt]=Gnothello
+Name=Iagno
+Name[de]=Iagno
+Name[es]=Iagno
+Name[fr]=Iagno
+Name[ko]=Iagno
+Name[no]=Iagno
+Name[pt]=Iagno
 Comment=Gnome Reversi game
 Comment[de]=Gnome Reversi Spiele
 Comment[es]=Juego Gnome Reversi
@@ -14,6 +14,6 @@ Comment[fr]=Jeu GNOME Reversi
 Comment[ko]=Gnome ¿Àµ¨·Î
 Comment[no]=Gnome Reversi game
 Comment[pt]=Versão Gnome do jogo Reversi
-Exec=reversi
+Exec=iagno
 Terminal=0
 Type=Application
