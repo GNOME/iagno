@@ -525,7 +525,7 @@ show_properties_dialog (void)
 	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (propbox)->vbox),
                            notebook);
 
-	label = gtk_label_new (_("Players"));
+	label = gtk_label_new_with_mnemonic (_("_Players"));
 
 	vbox = gtk_vbox_new (FALSE, 0);
 	gtk_notebook_append_page (GTK_NOTEBOOK (notebook),
@@ -645,7 +645,7 @@ show_properties_dialog (void)
 	gtk_container_add (GTK_CONTAINER (frame), vbox);
 
 
-        label = gtk_label_new (_("Appearance"));
+        label = gtk_label_new_with_mnemonic (_("_Appearance"));
 
 	table = gtk_table_new (1, 2, FALSE);
 	gtk_container_set_border_width (GTK_CONTAINER (table), 0);
