@@ -79,6 +79,6 @@ void properties_cb (GtkWidget *widget, gpointer data);
 void set_bg_color(void);
 void gui_draw_grid(void);
 
-extern guint whose_turn;
+extern guint whose_turn, game_in_progress;
 
 #endif

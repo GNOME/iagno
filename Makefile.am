@@ -4,40 +4,25 @@ Gamesdir = $(datadir)/gnome/apps/Games
 appicondir=$(datadir)/pixmaps
 
 INCLUDES = 			\
-	-DHAVE_ORBIT \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)				 \
 	$(GNOME_INCLUDEDIR) -I. $(GDK_PIXBUF_CFLAGS)
 
 bin_PROGRAMS = iagno
 
-CORBA_SRCS = gnothello-game-common.c gnothello-game-skels.c gnothello-game-stubs.c gnothello-game.h
 iagno_SOURCES = \
 	gnothello.c \
 	gnothello.h \
 	network.c   \
 	network.h	\
-	$(CORBA_SRCS) \
 	othello.c \
 	othello.h \
 	properties.c \
 	properties.h
 
-$(srcdir)/network.c $(srcdir)/network.h: $(CORBA_SRCS)
-
-CLEANFILES = $(CORBA_SRCS)
-
-BUILT_SOURCES = $(CORBA_SRCS)
-
-$(CORBA_SRCS): built_corba_srcs
-
-built_corba_srcs: $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
-	$(ORBIT_IDL) $<
-	touch built_corba_srcs
-
 iagno_LDADD = \
 	$(GNOME_LIBDIR) \
-	$(GNOMEGNORBA_LIBS)	\
+	$(GNOMEUI_LIBS)	\
 	$(GDK_PIXBUF_LIBS) \
 	$(INTLLIBS)
 
@@ -87,4 +72,3 @@ soundlist_DATA = iagno.soundlist
 
 SUBDIRS=sounds help
 
-CLEAN_FILES=built_corba_srcs

@@ -101,18 +101,19 @@ gchar tile_set_tmp[255];
 
 GdkGC *gridGC[2] = { 0 };
 
+static void new_network_game_cb(GtkWidget *widget, gpointer data);
+
 static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
   {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
-#ifdef HAVE_ORBIT
-  {"ior", '\0', POPT_ARG_STRING, &ior, 0, N_("IOR of remote Iagno server"),
-   N_("IOR")},
-#endif
+  {"server", 's', POPT_ARG_STRING, &game_server, 0, N_("Iagno server to use")},
   {NULL, '\0', 0, NULL, 0}
 };
 
 GnomeUIInfo game_menu[] = {
         GNOMEUIINFO_MENU_NEW_GAME_ITEM(new_game_cb, NULL),
+
+	GNOMEUIINFO_ITEM(N_("New net_work game"), NULL, new_network_game_cb, NULL),
 
 	GNOMEUIINFO_SEPARATOR,
 
@@ -255,29 +256,16 @@ void quit_game_cb(GtkWidget *widget, gpointer data)
 	}
 }
 
-void new_game_maybe(GtkWidget *widget, int button)
+static void
+new_network_game_cb(GtkWidget *widget, gpointer data)
 {
-	if (button == 0) {
-		network_new();
-		init_new_game();
-	}
+  network_new();
 }
 
 void new_game_cb(GtkWidget *widget, gpointer data)
 {
-	GtkWidget *box;
-
-	if(game_in_progress) {
-		box = gnome_message_box_new(_("Do you really want to end this game?"), GNOME_MESSAGE_BOX_QUESTION, GNOME_STOCK_BUTTON_YES, GNOME_STOCK_BUTTON_NO, NULL);
-		gnome_dialog_set_parent(GNOME_DIALOG(box), GTK_WINDOW(window));
-		gnome_dialog_set_default(GNOME_DIALOG(box), 0);
-		gtk_window_set_modal(GTK_WINDOW(box), TRUE);
-		gtk_signal_connect(GTK_OBJECT(box), "clicked", (GtkSignalFunc)new_game_maybe, NULL);
-		gtk_widget_show(box);
-	} else {
-		network_new();
-		init_new_game();
-	}
+  network_stop();
+  init_new_game();
 }
 
 void undo_move_cb(GtkWidget *widget, gpointer data)
@@ -472,7 +460,6 @@ void gui_draw_pixmap_buffer(gint which, gint x, gint y)
 void gui_draw_grid()
 {
 	int i;
-	GdkGC *gridcolor;
         
 	for(i = 1; i < 8; i++) {
 		gdk_draw_line(buffer_pixmap, gridGC[grid],
@@ -831,7 +818,6 @@ static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_st
 int main(int argc, char **argv)
 {
 	GnomeClient *client;
-	CORBA_def(CORBA_Environment ev;)
 	struct timeval tv;
 
 	gnome_score_init("iagno");
@@ -842,12 +828,7 @@ int main(int argc, char **argv)
 	gettimeofday(&tv, NULL);
 	srand(tv.tv_usec);
 
-#ifdef HAVE_ORBIT
-	CORBA_exception_init (&ev);
-	orb = gnome_CORBA_init_with_popt_table ("iagno", VERSION, &argc, argv, options, 0, NULL, GNORBA_INIT_SERVER_FUNC|GNORBA_INIT_DISABLE_COOKIES, &ev);
-#else
 	gnome_init_with_popt_table("iagno", VERSION, argc, argv, options, 0, NULL);
-#endif
 	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/iagno.png");
 	client= gnome_master_client();
 
@@ -872,8 +853,6 @@ int main(int argc, char **argv)
 	buffer_pixmap = gdk_pixmap_new(drawing_area->window, BOARDWIDTH, BOARDHEIGHT, -1);
 
 	set_bg_color();
-
-	network_init();
 
 	gtk_main();
 
