@@ -1,3 +1,10 @@
+1998-09-30  Ian Peters  <ipeters@acm.org>
+
+	* gnothello.c: fixed an bug with animstagger where, when playing for
+	the first time, animstagger was incorrectly set, and the menu did
+	not reflect actual case.
+	* othello.c: updates to match changes in gnothello.c
+
 1998-09-30  Ville Pätsi <drc@zoo-gate.fi>
 
 	* Makefile.am: Added gnothello.png installation

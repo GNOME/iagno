@@ -443,7 +443,7 @@ gint flip_final_results()
 	guint adder = 0;
 	guint animate_stagger;
 
-	animate_stagger = gnome_config_get_bool("/gnothello/Preferences/animstagger=TRUE");
+	animate_stagger = gnome_config_get_bool("/gnothello/Preferences/animstagger=0");
 
 	white_pieces = count_pieces(WHITE_TURN);
 	black_pieces = count_pieces(BLACK_TURN);
