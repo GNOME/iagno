@@ -252,7 +252,7 @@ gboolean quit_game_cb(GtkWidget *widget, gpointer data)
 				GTK_DIALOG_MODAL,
 				GTK_MESSAGE_QUESTION,
 				GTK_BUTTONS_NONE,
-				_("Really quit GNOME Iagno?"), NULL);
+				_("Are you sure you want to quit Iagno?"), NULL);
 
 		gtk_dialog_add_buttons (GTK_DIALOG (dialog),
 					GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
