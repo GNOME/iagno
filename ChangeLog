@@ -1,3 +1,7 @@
+1999-01-26  Miguel de Icaza  <miguel@nuclecu.unam.mx>
+
+	* gnothello.c: Kill file menu.
+
 1999-01-10  Nat Friedman  <nat@nat.org>
 
 	* gnothello.c: Standardized menus.
