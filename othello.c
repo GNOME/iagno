@@ -47,7 +47,7 @@ guint heuristic[8][8] = {{9,2,7,8,8,7,2,9},
 			 {2,1,3,4,4,3,1,2},
 			 {9,2,7,8,8,7,2,9}};
 
-guint flip_final_id;
+guint flip_final_id = 0;
 
 extern guint black_computer_level;
 extern guint white_computer_level;

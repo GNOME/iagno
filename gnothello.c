@@ -44,14 +44,13 @@ GdkPixmap *tiles_pixmap = NULL;
 GdkPixmap *tiles_mask = NULL;
 
 gint flip_pixmaps_id = 0;
-//gint check_computer_players_id;
 gint statusbar_id;
 guint whose_turn = BLACK_TURN;
 guint game_in_progress = 0;
 guint black_computer_level;
 guint white_computer_level;
-guint black_computer_id;
-guint white_computer_id;
+guint black_computer_id = 0;
+guint white_computer_id = 0;
 guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
 guint tiles_to_flip = 0;
@@ -246,9 +245,12 @@ void quit_game_maybe(GtkWidget *widget, gint button)
 	if(button == 0) {
 		gnome_config_sync();
 
-		gtk_timeout_remove(flip_pixmaps_id);
-		gtk_timeout_remove(black_computer_id);
-		gtk_timeout_remove(white_computer_id);
+		if (flip_pixmaps_id)
+			gtk_timeout_remove(flip_pixmaps_id);
+		if (black_computer_id)
+			gtk_timeout_remove(black_computer_id);
+		if (white_computer_id)
+			gtk_timeout_remove(white_computer_id);
 
 		if(buffer_pixmap)
 			gdk_pixmap_unref(buffer_pixmap);
@@ -310,7 +312,10 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	if((black_computer_level && white_computer_level) || !move_count)
 		return;
 
-	gtk_timeout_remove(flip_final_id);
+	if (flip_final_id) {
+		gtk_timeout_remove(flip_final_id);
+		flip_final_id = 0;
+	}
 
 	game_in_progress = 1;
 
@@ -412,8 +417,10 @@ void anim_cb(GtkWidget *widget, gpointer data)
 	gnome_config_set_int("/gnothello/Preferences/animate", tmp);
 	gnome_config_sync();
 
-	if(flip_pixmaps_id)
+	if(flip_pixmaps_id) {
 		gtk_timeout_remove(flip_pixmaps_id);
+		flip_pixmaps_id = 0;
+	}
 
 	switch(tmp) {
 		case 0:
@@ -759,7 +766,10 @@ void init_new_game()
 {
 	guint i, j;
 
-	gtk_timeout_remove(flip_final_id);
+	if (flip_final_id) {
+		gtk_timeout_remove(flip_final_id);
+		flip_final_id = 0;
+	}
 
 	game_in_progress = 1;
 	move_count = 0;
