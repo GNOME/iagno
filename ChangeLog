@@ -1,5 +1,10 @@
 2000-04-23  Ian Peters  <itp@gnu.org>
 
+	* apparently only have link to the main help document in menu says drake
+	* fix email address in about box
+
+2000-04-23  Ian Peters  <itp@gnu.org>
+
 	* make property box load appropriate help pages
 
 2000-04-23  Ian Peters  <itp@gnu.org>
