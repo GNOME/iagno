@@ -308,9 +308,9 @@ void quick_moves_cb(GtkWidget *widget, gpointer data)
 void anim_stagger_cb(GtkWidget *widget, gpointer data)
 {
 	if(GTK_CHECK_MENU_ITEM(widget)->active) {
-		gnome_config_set_bool("/gnothello/Preferences/animstagger", TRUE);
+		gnome_config_set_int("/gnothello/Preferences/animstagger", 1);
 	} else {
-		gnome_config_set_bool("/gnothello/Preferences/animstagger", FALSE);
+		gnome_config_set_int("/gnothello/Preferences/animstagger", 0);
 	}
 	gnome_config_sync();
 }
@@ -509,7 +509,7 @@ void create_menus()
 	gnome_app_create_menus(GNOME_APP(window), mainmenu);
 
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(comp_menu[3].widget), gnome_config_get_bool("/gnothello/Preferences/quickmoves=FALSE"));
-	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(anim_menu[2].widget), gnome_config_get_bool("/gnothello/Preferences/animstagger=FALSE"));
+	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(anim_menu[2].widget), gnome_config_get_int("/gnothello/Preferences/animstagger=0"));
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(anim_radio_list[gnome_config_get_int("/gnothello/Preferences/animate=2")].widget), TRUE);
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(black_level_radio_list[gnome_config_get_int("/gnothello/Preferences/blacklevel=0")].widget), TRUE);
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(white_level_radio_list[gnome_config_get_int("/gnothello/Preferences/whitelevel=0")].widget), TRUE);

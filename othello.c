@@ -162,7 +162,7 @@ gint move(guint x, guint y, guint me)
 	new_game = 0;
 
 	animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
-	animate_stagger = gnome_config_get_bool("/gnothello/Preferences/animstagger=TRUE");
+	animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
 
 	if(me == WHITE_TURN) {
 		not_me = BLACK_TURN;
