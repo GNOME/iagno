@@ -1,3 +1,10 @@
+2001-12-19  Seth Nickell  <snickell@stanford.edu>
+
+	* Makefile.am:
+	* iagno.desktop:
+
+	Install into the panel2 menus correctly.
+	
 2001-11-24  Kevin Vandersloot <kfv101@psu.edu>
 
 	* othello.c, gnothello.c, clock.c: bring back clock

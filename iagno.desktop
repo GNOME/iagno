@@ -43,3 +43,4 @@ Comment[zh_TW]=Gnome ¶Â¥Õ´Ñ
 Exec=iagno
 Terminal=0
 Type=Application
+Categories=Application;Game;
