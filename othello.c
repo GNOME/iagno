@@ -172,11 +172,14 @@ gint is_valid_move_board(gint8 board[8][8], guint x, guint y, guint me)
 
 gint move(guint x, guint y, guint me)
 {
+        int retval;
 
-	move_board(board, x, y, me, 1);
+	retval = move_board(board, x, y, me, 1);
 
 	check_valid_moves();
 	check_computer_players();
+
+	return retval;
 }
 
 gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
@@ -515,7 +518,6 @@ gint flip_final_results()
 	guint black_pieces;
 	guint adder = 0;
 	guint animate_stagger;
-	gchar foo[20];
 
 	animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
 
@@ -628,22 +630,24 @@ gint check_valid_moves()
 	if(whose_turn == WHITE_TURN) {
 		gui_message(_("Light must pass, Dark's move"));
 		whose_turn = BLACK_TURN;
-		if(white_computer_level ^ black_computer_level)
+		if(white_computer_level ^ black_computer_level) {
 			if(!black_computer_level && timer_valid)
 				gtk_clock_start(GTK_CLOCK(time_display));
 			else
 				gtk_clock_stop(GTK_CLOCK(time_display));
+		}
 		return(TRUE);
 	}
 
 	if(whose_turn == BLACK_TURN) {
 		gui_message(_("Dark must pass, Light's move"));
 		whose_turn = WHITE_TURN;
-		if(white_computer_level ^ black_computer_level)
+		if(white_computer_level ^ black_computer_level) {
 			if(!white_computer_level && timer_valid)
 				gtk_clock_start(GTK_CLOCK(time_display));
 			else
 				gtk_clock_stop(GTK_CLOCK(time_display));
+		}
 		return(TRUE);
 	}
 
@@ -685,7 +689,7 @@ gint mobility(gint8 board[8][8], guint me)
 gint eval_board(gint8 board[8][8], guint me)
 {
 	guint not_me;
-	gint mobility_score, heuristic_score;
+	gint heuristic_score;
 
 	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
 

@@ -746,8 +746,6 @@ void init_new_game()
 
 void create_window()
 {
-	GtkWidget *vbox;
-	GtkWidget *frame;
 	GtkWidget *table;
 	GtkWidget *sep;
 	GtkWidget *appbar;
@@ -935,7 +933,6 @@ int main(int argc, char **argv)
 	GnomeClient *client;
 	CORBA_def(CORBA_Environment ev;)
 	struct timeval tv;
-	gint i;
 
 	gnome_score_init("gnothello");
 
