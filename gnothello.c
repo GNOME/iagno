@@ -742,7 +742,6 @@ void create_window()
 	GtkWidget *frame;
 	GtkWidget *table;
 	GtkWidget *sep;
-	char tmp[100];
 
 	window = gnome_app_new("gnothello", _("Gnome Othello"));
 
@@ -784,7 +783,7 @@ void create_window()
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
 
-	table = gtk_table_new(1, 6, FALSE);
+	table = gtk_table_new(1, 8, FALSE);
 //	gtk_table_set_col_spacing(GTK_TABLE(table), 1, 32);
 //	gtk_table_set_col_spacing(GTK_TABLE(table), 2, 32);
 
@@ -795,33 +794,41 @@ void create_window()
 
 	gtk_table_attach(GTK_TABLE(table), statusbar, 0, 1, 0, 1, GTK_EXPAND | GTK_FILL, 0, 3, 1);
 
-	sprintf(tmp, _("Dark: %.2d"), 0);
-	black_score = gtk_label_new(tmp);
+	black_score = gtk_label_new("Dark:");
 	gtk_widget_show(black_score);
 
 	gtk_table_attach(GTK_TABLE(table), black_score, 1, 2, 0, 1, 0, 0, 3, 1);
 
+	black_score = gtk_label_new("00");
+	gtk_widget_show(black_score);
+
+	gtk_table_attach(GTK_TABLE(table), black_score, 2, 3, 0, 1, 0, 0, 3, 1);
+
 	sep = gtk_vseparator_new();
 	gtk_widget_show(sep);
 
-	gtk_table_attach(GTK_TABLE(table), sep, 2, 3, 0, 1, 0, GTK_FILL, 3, 3);
+	gtk_table_attach(GTK_TABLE(table), sep, 3, 4, 0, 1, 0, GTK_FILL, 3, 3);
 
-	sprintf(tmp, _("Light: %.2d"), 0);
-	white_score = gtk_label_new(tmp);
+	white_score = gtk_label_new("Light:");
 	gtk_widget_show(white_score);
 
-	gtk_table_attach(GTK_TABLE(table), white_score, 3, 4, 0, 1, 0, 0, 3, 1);
+	gtk_table_attach(GTK_TABLE(table), white_score, 4, 5, 0, 1, 0, 0, 3, 1);
+
+	white_score = gtk_label_new("00");
+	gtk_widget_show(white_score);
+
+	gtk_table_attach(GTK_TABLE(table), white_score, 5, 6, 0, 1, 0, 0, 3, 1);
 
 	sep = gtk_vseparator_new();
 	gtk_widget_show(sep);
 
-	gtk_table_attach(GTK_TABLE(table), sep, 4, 5, 0, 1, 0, GTK_FILL, 3, 3);
+	gtk_table_attach(GTK_TABLE(table), sep, 6, 7, 0, 1, 0, GTK_FILL, 3, 3);
 
 	time_display = gtk_clock_new(GTK_CLOCK_INCREASING);
 	gtk_widget_set_sensitive(time_display, FALSE);
 	gtk_widget_show(time_display);
 
-	gtk_table_attach(GTK_TABLE(table), time_display, 5, 6, 0, 1, 0, 0, 3, 1);
+	gtk_table_attach(GTK_TABLE(table), time_display, 7, 8, 0, 1, 0, 0, 3, 1);
 
 	gtk_widget_show(table);
 
@@ -834,11 +841,11 @@ void create_window()
 
 void gui_status()
 {
-	gchar message[100];
+	gchar message[3];
 
-	sprintf(message, _("Dark: %.2d"), bcount);
+	sprintf(message, _("%.2d"), bcount);
 	gtk_label_set(GTK_LABEL(black_score), message);
-	sprintf(message, _("Light: %.2d"), wcount);
+	sprintf(message, _("%.2d"), wcount);
 	gtk_label_set(GTK_LABEL(white_score), message);
 }
 
