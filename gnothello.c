@@ -93,24 +93,26 @@ static struct argp parser =
 };
 
 GnomeUIInfo file_menu[] = {
-	GNOMEUIINFO_ITEM_STOCK(N_("New Game"), NULL, new_game_cb, "Menu_New"),
-	GNOMEUIINFO_ITEM_STOCK(N_("Quit"), NULL, quit_game_cb, "Menu_Quit"),
+	{ GNOME_APP_UI_ITEM, N_("_New"), NULL, new_game_cb, NULL, NULL,
+	  GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, GDK_n, GDK_CONTROL_MASK },
+	{ GNOME_APP_UI_ITEM, N_("_Quit"), NULL, quit_game_cb, NULL, NULL,
+	  GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, GDK_q, GDK_CONTROL_MASK },
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo black_level_radio_list[] = {
-	GNOMEUIINFO_ITEM_DATA(N_("Disabled"), NULL, black_level_cb, "0", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level One"), NULL, black_level_cb, "1", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level Two"), NULL, black_level_cb, "2", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level Three"), NULL, black_level_cb, "3", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("_Disabled"), NULL, black_level_cb, "0", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level _One"), NULL, black_level_cb, "1", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level _Two"), NULL, black_level_cb, "2", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level _Three"), NULL, black_level_cb, "3", NULL),
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo white_level_radio_list[] = {
-	GNOMEUIINFO_ITEM_DATA(N_("Disabled"), NULL, white_level_cb, "0", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level One"), NULL, white_level_cb, "1", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level Two"), NULL, white_level_cb, "2", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Level Three"), NULL, white_level_cb, "3", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("_Disabled"), NULL, white_level_cb, "0", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level _One"), NULL, white_level_cb, "1", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level _Two"), NULL, white_level_cb, "2", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level _Three"), NULL, white_level_cb, "3", NULL),
 	GNOMEUIINFO_END
 };
 
@@ -125,38 +127,38 @@ GnomeUIInfo white_level_menu[] = {
 };
 
 GnomeUIInfo comp_menu[] = {
-	GNOMEUIINFO_SUBTREE(N_("Black"), black_level_menu),
-	GNOMEUIINFO_SUBTREE(N_("White"), white_level_menu),
+	GNOMEUIINFO_SUBTREE(N_("_Black"), black_level_menu),
+	GNOMEUIINFO_SUBTREE(N_("_White"), white_level_menu),
 	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_TOGGLEITEM(N_("Quick Moves"), NULL, quick_moves_cb, NULL),
+	GNOMEUIINFO_TOGGLEITEM(N_("_Quick Moves"), NULL, quick_moves_cb, NULL),
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo anim_radio_list[] = {
-	GNOMEUIINFO_ITEM_DATA(N_("No Animation"), NULL, anim_cb, "0", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Some Animation"), NULL, anim_cb, "1", NULL),
-	GNOMEUIINFO_ITEM_DATA(N_("Full Animation"), NULL, anim_cb, "2", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("_No Animation"), NULL, anim_cb, "0", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("_Some Animation"), NULL, anim_cb, "1", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("_Full Animation"), NULL, anim_cb, "2", NULL),
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo anim_menu[] = {
 	GNOMEUIINFO_RADIOLIST(anim_radio_list),
 	GNOMEUIINFO_SEPARATOR,
-	GNOMEUIINFO_TOGGLEITEM(N_("Stagger Flips"), NULL, anim_stagger_cb, NULL),
+	GNOMEUIINFO_TOGGLEITEM(N_("_Stagger Flips"), NULL, anim_stagger_cb, NULL),
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo help_menu[] = {
-	GNOMEUIINFO_ITEM_STOCK(N_("About..."), NULL, about_cb, "Menu_About"),
+	GNOMEUIINFO_ITEM_STOCK(N_("_About..."), NULL, about_cb, "Menu_About"),
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo mainmenu[] = {
-	GNOMEUIINFO_SUBTREE(N_("Game"), file_menu),
-	GNOMEUIINFO_SUBTREE(N_("Computer"), comp_menu),
-	GNOMEUIINFO_SUBTREE(N_("Animation"), anim_menu),
+	GNOMEUIINFO_SUBTREE(N_("_Game"), file_menu),
+	GNOMEUIINFO_SUBTREE(N_("_Computer"), comp_menu),
+	GNOMEUIINFO_SUBTREE(N_("_Animation"), anim_menu),
 	GNOMEUIINFO_JUSTIFY_RIGHT,
-	GNOMEUIINFO_SUBTREE(N_("Help"), help_menu),
+	GNOMEUIINFO_SUBTREE(N_("_Help"), help_menu),
 	GNOMEUIINFO_END
 };
 
