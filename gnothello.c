@@ -158,8 +158,9 @@ GnomeUIInfo anim_type_menu[] = {
 
 GnomeUIInfo anim_menu[] = {
 //	GNOMEUIINFO_SUBTREE(N_("_Type"), anim_type_menu),
-	{ GNOME_APP_UI_SUBTREE, N_("_Type"), NULL, anim_type_menu, NULL, NULL,
-	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
+//	{ GNOME_APP_UI_SUBTREE, N_("_Type"), NULL, anim_type_menu, NULL, NULL,
+//	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
+	GNOMEUIINFO_RADIOLIST(anim_radio_list),
 	GNOMEUIINFO_SEPARATOR,
 	GNOMEUIINFO_TOGGLEITEM(N_("_Stagger Flips"), NULL, anim_stagger_cb, NULL),
 	GNOMEUIINFO_SEPARATOR,
