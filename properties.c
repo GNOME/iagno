@@ -463,6 +463,7 @@ fill_menu (GtkWidget *menu)
         char *dname = NULL;
         DIR *dir;
         int itemno = 0;
+	gboolean found_default = FALSE;
 
 	dname = gnome_program_locate_file (NULL,
 			GNOME_FILE_DOMAIN_APP_PIXMAP,  "iagno", FALSE, NULL);
@@ -484,10 +485,11 @@ fill_menu (GtkWidget *menu)
                         continue;
                 }
 
-		gtk_combo_box_append_text (GTK_COMBO_BOX (menu), s);
 		theme_list = g_list_append (theme_list, s);
+		gtk_combo_box_append_text (GTK_COMBO_BOX (menu), s);
 
 		if (strcmp(tile_set, s) == 0) {
+			found_default = TRUE;
 			gtk_combo_box_set_active(GTK_COMBO_BOX(menu), itemno);
 		}
 
@@ -495,6 +497,17 @@ fill_menu (GtkWidget *menu)
         }
         closedir(dir);
 	g_free (dname);
+
+	/* FIXME: Should popup an error dialog if no themes were found */
+	if (itemno == 0) {
+		gtk_widget_set_sensitive (menu, FALSE);
+		return;
+	} 
+
+	if (! found_default) {
+		/* Set the theme arbitrarily to be the first one. */
+		gtk_combo_box_set_active(GTK_COMBO_BOX(menu), 0);
+	}
 }
 
 void
@@ -722,9 +735,9 @@ show_properties_dialog (void)
 	gtk_box_pack_start (GTK_BOX (hbox), label2, FALSE, FALSE, 0);
 	
 	option_menu = gtk_combo_box_new_text ();
+	fill_menu (option_menu);
 	g_signal_connect(GTK_OBJECT(option_menu), "changed",
 			 (GtkSignalFunc)set_selection, NULL);
-	fill_menu (option_menu);
 	gtk_box_pack_start (GTK_BOX (hbox), option_menu, TRUE, TRUE, 0);
 	
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);

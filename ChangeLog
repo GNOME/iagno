@@ -1,3 +1,14 @@
+2004-03-06  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* properties.c: Slight tweak to Jonathan's patch to avoid the use
+	of _signal_handlers_block/unblock, i.e. remove the ugly bit.
+
+Thu Mar  4 20:29:07 2004  Jonathan Blandford  <jrb@gnome.org>
+
+	* properties.c (fill_menu): Prevent signals on the combo while
+	filling it.  Also, make the code a bit more robust against unfound
+	themes.
+
 2004-03-04  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/iagno.xml: Updated version to 2.6.
