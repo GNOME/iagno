@@ -57,7 +57,9 @@ EXTRA_DIST = AUTHORS \
 	$(schema_in_files)
 
 install-data-local:
+if GCONF_SCHEMAS_INSTALL
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
+endif
 
 soundlistdir = $(sysconfdir)/sound/events
 soundlist_in_files = iagno.soundlist.in
