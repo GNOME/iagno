@@ -77,6 +77,16 @@ static void apply_changes (void);
  *	It doesn't abide by the HIG.
  */
 
+static gint clamp_int (gint input, gint low, gint high)
+{
+        if (input < low)
+                input = low;
+        if (input > high)
+                input = high;
+
+        return input;
+}
+
 void 
 load_properties (void)
 {
@@ -93,14 +103,16 @@ load_properties (void)
 		g_error_free (error);
 		error = NULL;
 	}
-
+        black_computer_level = clamp_int (black_computer_level, 0, 3);
+	
 	white_computer_level = gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
-
+        white_computer_level = clamp_int (white_computer_level, 0, 3);
+	
 	if (gconf_client_get_bool (client, KEY_QUICK_MOVES, &error))
 		computer_speed = COMPUTER_MOVE_DELAY / 2;
 	else
@@ -121,13 +133,16 @@ load_properties (void)
 		g_error_free (error);
 		error = NULL;
 	}
-
+	if (tile_set == NULL)
+		tile_set = g_strdup ("classic.png");
+	
 	animate = gconf_client_get_int (client, KEY_ANIMATE, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
+        animate = clamp_int (animate, 0, 2);
 
 	animate_stagger = gconf_client_get_bool (client, KEY_ANIMATE_STAGGER, &error);
 	if (error) {
@@ -174,22 +189,26 @@ reset_properties (void)
 
 	client = gconf_client_get_default ();
 
-	t_black_computer_level = black_computer_level =
+	black_computer_level =
 		gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
+        t_black_computer_level = black_computer_level
+		= clamp_int (black_computer_level, 0, 3);
 
-	t_white_computer_level = white_computer_level =
+	white_computer_level =
 		gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
-
+        t_white_computer_level = white_computer_level
+		= clamp_int (white_computer_level, 0, 3);
+	
 	t_quick_moves = gconf_client_get_bool (client, KEY_QUICK_MOVES, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
@@ -206,7 +225,9 @@ reset_properties (void)
 		g_error_free (error);
 		error = NULL;
 	}
-
+	if (tile_set_tmp == NULL)
+		tile_set_tmp = g_strdup("classic.png");
+	
 	t_animate         = animate;
 	t_animate_stagger = animate_stagger;
 	t_grid            = grid;
