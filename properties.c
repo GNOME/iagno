@@ -314,6 +314,24 @@ void fill_menu(GtkWidget *menu)
         closedir(dir);
 }
 
+void
+dialog_help_callback (GnomePropertyBox *box, gint page_num)
+{
+  GnomeHelpMenuEntry settings_entry = { "iagno", "settings.html" };
+  GnomeHelpMenuEntry animation_entry = { "iagno", "animations.html" };
+
+  switch (page_num) {
+  case 0:
+    gnome_help_display (0, &settings_entry);
+    break;
+  case 1:
+    gnome_help_display (0, &animation_entry);
+    break;
+  default:
+    break;
+  }
+}
+
 void show_properties_dialog ()
 {
 	GtkWidget *hbox;
@@ -568,6 +586,8 @@ void show_properties_dialog ()
 			(apply_cb), NULL);
 	gtk_signal_connect (GTK_OBJECT (propbox), "destroy", GTK_SIGNAL_FUNC
 			(destroy_cb), NULL);
+  gtk_signal_connect (GTK_OBJECT (propbox), "help",
+                      GTK_SIGNAL_FUNC (dialog_help_callback), NULL);
 	
 	gtk_widget_show (propbox);
 	mapped = 1;

@@ -1,5 +1,9 @@
 2000-04-23  Ian Peters  <itp@gnu.org>
 
+	* make property box load appropriate help pages
+
+2000-04-23  Ian Peters  <itp@gnu.org>
+
 	* added help subdir
 
 Sun Apr 16 22:50:13 2000  George Lebl <jirka@5z.com>
