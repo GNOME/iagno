@@ -1,6 +1,3 @@
-# This is awful but the scores directory is actually kept by libgnome
-# and it may not have the same prefix as us.
-scoredir=`pkg-config libgnome-2.0 --variable=prefix`/var/games
 pixmapdir=$(datadir)/pixmaps/iagno
 Gamesdir = $(datadir)/applications
 appicondir=$(datadir)/pixmaps
@@ -61,26 +58,6 @@ EXTRA_DIST = AUTHORS \
 
 install-data-local:
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
-	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
-	touch $(DESTDIR)$(scoredir)/iagno.w1.scores
-	touch $(DESTDIR)$(scoredir)/iagno.w2.scores
-	touch $(DESTDIR)$(scoredir)/iagno.w3.scores
-	touch $(DESTDIR)$(scoredir)/iagno.b1.scores
-	touch $(DESTDIR)$(scoredir)/iagno.b2.scores
-	touch $(DESTDIR)$(scoredir)/iagno.b3.scores
-	-chown games.games $(DESTDIR)$(scoredir)/iagno.w1.scores
-	-chown games.games $(DESTDIR)$(scoredir)/iagno.w2.scores
-	-chown games.games $(DESTDIR)$(scoredir)/iagno.w3.scores
-	-chown games.games $(DESTDIR)$(scoredir)/iagno.b1.scores
-	-chown games.games $(DESTDIR)$(scoredir)/iagno.b2.scores
-	-chown games.games $(DESTDIR)$(scoredir)/iagno.b3.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/iagno.w1.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/iagno.w2.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/iagno.w3.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b1.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b2.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/iagno.b3.scores
-	-chgrp games $(DESTDIR)$(bindir)/iagno && chmod 2555 $(DESTDIR)$(bindir)/iagno
 
 soundlistdir = $(sysconfdir)/sound/events
 soundlist_in_files = iagno.soundlist.in
