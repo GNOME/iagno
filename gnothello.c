@@ -385,7 +385,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 	const gchar *documenters[] = {
 	    			      NULL
     	};
-    	const gchar *translator_credits = _("");
+    	const gchar *translator_credits = _("translator_credits");
 	
 	if (about != NULL) {
 		gdk_window_raise (about->window);
@@ -398,7 +398,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 				_("Send comments and bug reports to: itp@gnu.org\nTiles under the General Public License."), 
 				(const char **)authors, 
 				(const char **)documenters,
-			     	(const char *)translator_credits,
+				strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
 				NULL);
 			
 			

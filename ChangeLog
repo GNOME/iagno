@@ -1,3 +1,7 @@
+2002-02-02  Zbigniew Chyla  <cyba@gnome.pl>
+
+	* gnothello.c (about_cb): Don't try to translate empty string.
+
 2002-01-09  Mark McLoughlin  <mark@skynet.ie>
 
 	* gnothello.c: (load_pixmaps): add pre-condition.
