@@ -1,3 +1,7 @@
+2003-03-07  Ross Burton  <ross@burtonini.com>
+
+	* properties.c (load_properties): Add GConf sanity check.
+
 2002-12-17  Ross Burton  <ross@burtonini.com>
 
 	* Makefile.am (schema_in_files): Fix the GConf schema path.

@@ -2,6 +2,7 @@
 #include <gnome.h>
 #include <dirent.h>
 #include <gconf/gconf-client.h>
+#include <games-gconf.h>
 #include <games-clock.h>
 
 #include "properties.h"
@@ -49,7 +50,9 @@ void load_properties ()
 	GError      *error = NULL;
 
 	client = gconf_client_get_default ();
-
+	if (!games_gconf_sanity_check_string (client, "/apps/iagno/tileset")) {
+		exit(1);
+	}
 	black_computer_level = gconf_client_get_int (client, "/apps/iagno/black-level", &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
