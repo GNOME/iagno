@@ -1,6 +1,6 @@
 pixmapdir=$(datadir)/pixmaps/gnothello
 Gamesdir = $(datadir)/apps/Games
-appicondir=$(datadir)/share/pixmaps
+appicondir=$(datadir)/pixmaps
 
 INCLUDES = 			\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
