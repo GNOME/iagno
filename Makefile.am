@@ -45,7 +45,7 @@ Games_in_files = iagno.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-schemadir   = $(sysconfdir)/gconf/schemas
+schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = iagno.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 @INTLTOOL_SCHEMAS_RULE@
