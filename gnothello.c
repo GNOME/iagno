@@ -428,8 +428,9 @@ void about_cb(GtkWidget *widget, gpointer data)
 	}
 
 	about = gnome_about_new(_("Iagno"), VERSION, 
-			        _("(C) 1998 Ian Peters"),
-				_("Send comments and bug reports to: itp@gnu.org\nTiles under the General Public License."), 
+			        "Copyright \xc2\xa9 1998-2003 Ian Peters",
+				_("GNOME version of the popular Othello disk "
+				  "flipping game."), 
 				(const char **)authors, 
 				(const char **)documenters,
 				strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
