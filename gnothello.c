@@ -34,6 +34,7 @@
 #include "gnothello.h"
 #include "othello.h"
 #include "properties.h"
+#include "games-network.h"
 #include "network.h"
 
 GnomeAppBar *appbar;
@@ -236,7 +237,7 @@ quit_game_cb (GtkWidget *widget, gpointer data)
 static void
 new_network_game_cb (GtkWidget *widget, gpointer data)
 {
-  network_new ();
+  network_new (window);
 }
 
 void

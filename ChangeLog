@@ -1,3 +1,11 @@
+2004-07-20  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* network.c:
+	* network.h:
+	* gnothello.c:	
+	* gnothello.h: Move the networking code into
+	libgames-support. (Patch from Andreas Røsdal.)
+
 2004-05-26  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnothello.c:
