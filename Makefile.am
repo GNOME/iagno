@@ -33,10 +33,8 @@ gnothello_LDADD = \
 	$(INTLLIBS)
 
 pixmap_DATA = \
-	flip.png \
-	blend.png \
-	shrink.png \
-	classic.png
+	classic.png \
+	metal.png
 
 appicon_DATA = gnothello.png
 
