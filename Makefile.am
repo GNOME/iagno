@@ -8,7 +8,7 @@ INCLUDES = 			\
 
 bin_PROGRAMS = gnothello
 
-CORBA_SRCS = game-common.c game-skels.c game-stubs.c game.h
+CORBA_SRCS = gnothello-game-common.c gnothello-game-skels.c gnothello-game-stubs.c gnothello-game.h
 gnothello_SOURCES = \
 	gnothello.c \
 	gnothello.h \
@@ -19,7 +19,7 @@ gnothello_SOURCES = \
 
 BUILT_SOURCES = $(CORBA_SRCS)
 
-$(CORBA_SRCS): game.idl
+$(CORBA_SRCS): $(top_srcdir)/idl/gnothello-game.idl
 	orbit-idl $<
 
 gnothello_LDADD = \
@@ -33,7 +33,6 @@ pixmap_DATA = tiles.png
 Games_DATA = gnothello.desktop
 
 EXTRA_DIST = AUTHORS \
-	     game.idl \
              gnothello.desktop \
              $(pixmap_DATA)
 
