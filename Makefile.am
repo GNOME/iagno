@@ -7,7 +7,7 @@ INCLUDES = 			\
 	-DHAVE_ORBIT \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)				 \
-	$(GNOME_INCLUDEDIR) -I.
+	$(GNOME_INCLUDEDIR) -I. $(GDK_PIXBUF_CFLAGS)
 
 bin_PROGRAMS = iagno
 
@@ -38,6 +38,7 @@ built_corba_srcs: $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
 iagno_LDADD = \
 	$(GNOME_LIBDIR) \
 	$(GNOMEGNORBA_LIBS)	\
+	$(GDK_PIXBUF_LIBS) \
 	$(INTLLIBS)
 
 pixmap_DATA = \

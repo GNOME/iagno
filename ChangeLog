@@ -1,3 +1,7 @@
+2001-07-07  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* gnothello.c: expugne imlib.
+
 2001-06-03  Juan Pablo Mendoza Mendoza <pablo_juan@yahoo.com>
 
 	* gnothello.c (main): Don't try to free the gnome_master_client to
