@@ -690,6 +690,7 @@ eval_heuristic (gint8 board[8][8], guint me)
 	return (score);
 }
 
+#if 0
 static gint
 mobility (gint8 board[8][8], guint me)
 {
@@ -703,6 +704,7 @@ mobility (gint8 board[8][8], guint me)
 
 	return (moves);
 }
+#endif
 
 gint 
 eval_board (gint8 board[8][8], guint me)

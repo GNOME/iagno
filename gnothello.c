@@ -227,7 +227,7 @@ static void undo_set_sensitive (gboolean state)
 	gtk_widget_set_sensitive (game_menu[3].widget, state);
 }
 
-gboolean
+void
 quit_game_cb (GtkWidget *widget, gpointer data)
 {
   gtk_main_quit ();

@@ -1,3 +1,16 @@
+2003-07-22  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* properties.c: Make the preferences auto-apply.
+
+	* othello.c:
+        * properties.c: Fix compiler warnings.
+
+	* properties.c:
+	* iagno.schemas.in: Convert "-" to "_".
+
+	* gnothello.c:
+	* gnothello.h: Fix a compiler warning.
+
 2003-07-09  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* iagno.desktop.in: Update name to fit HIG (bug 116916).

@@ -34,13 +34,13 @@
 #include "othello.h"
 
 #define KEY_TILESET "/apps/iagno/tileset"
-#define KEY_BLACK_LEVEL "/apps/iagno/black-level"
-#define KEY_WHITE_LEVEL "/apps/iagno/white-level"
-#define KEY_QUICK_MOVES "/apps/iagno/quick-moves"
+#define KEY_BLACK_LEVEL "/apps/iagno/black_level"
+#define KEY_WHITE_LEVEL "/apps/iagno/white_level"
+#define KEY_QUICK_MOVES "/apps/iagno/quick_moves"
 #define KEY_ANIMATE "/apps/iagno/animate"
-#define KEY_ANIMATE_STAGGER "/apps/iagno/animate-stagger"
-#define KEY_SHOW_GRID "/apps/iagno/show-grid"
-#define KEY_FLIP_FINAL_RESULTS "/apps/iagno/flip-final-results"
+#define KEY_ANIMATE_STAGGER "/apps/iagno/animate_stagger"
+#define KEY_SHOW_GRID "/apps/iagno/show_grid"
+#define KEY_FLIP_FINAL_RESULTS "/apps/iagno/flip_final_results"
 
 static GtkWidget *propbox = NULL;
 
@@ -68,6 +68,8 @@ gint t_quick_moves;
 gint t_animate_stagger;
 gint t_flip_final;
 gint t_grid;
+
+static void apply_changes (void);
 
 /*
  * FIXME:
@@ -219,6 +221,7 @@ black_computer_level_select (GtkWidget *widget, gpointer data)
 	if (((guint) data != t_black_computer_level) 
 	    && (GTK_TOGGLE_BUTTON (widget)->active)) {
 		t_black_computer_level = (guint) data;
+		apply_changes ();
 	}
 }
 
@@ -228,6 +231,7 @@ white_computer_level_select (GtkWidget *widget, gpointer data)
 	if (((guint) data != t_white_computer_level)
 	    && (GTK_TOGGLE_BUTTON (widget)->active)) {
 		t_white_computer_level = (guint) data;
+		apply_changes ();
 	}
 }
 
@@ -238,6 +242,7 @@ quick_moves_select (GtkWidget *widget, gpointer data)
 		t_quick_moves = 1;
 	else
 		t_quick_moves = 0;
+	apply_changes ();
 }
 
 static void 
@@ -247,6 +252,7 @@ flip_final_select (GtkWidget *widget, gpointer data)
 		t_flip_final = 1;
 	else
 		t_flip_final = 0;
+	apply_changes ();	
 }
 
 static void
@@ -256,6 +262,7 @@ animate_stagger_select (GtkWidget *widget, gpointer data)
 		t_animate_stagger = 1;
 	else
 		t_animate_stagger = 0;
+	apply_changes ();	
 }
 
 static void
@@ -265,6 +272,7 @@ grid_select (GtkWidget *widget, gpointer data)
 		t_grid = 1;
 	else
 		t_grid = 0;
+	apply_changes ();
 }
 
 static void
@@ -273,6 +281,36 @@ animate_select (GtkWidget *widget, gpointer data)
 	if (GTK_TOGGLE_BUTTON (widget)->active) {
 		t_animate = (gint) data;
 	}
+	apply_changes ();	
+}
+
+static void
+save_properties (void)
+{
+	GConfClient *client;
+
+	client = gconf_client_get_default ();
+
+	gconf_client_set_int (client, KEY_BLACK_LEVEL,
+			      black_computer_level, NULL);
+	gconf_client_set_int (client, KEY_WHITE_LEVEL,
+			      white_computer_level, NULL);
+
+	gconf_client_set_bool (client, KEY_QUICK_MOVES,
+			       t_quick_moves, NULL);
+
+	gconf_client_set_string (client, KEY_TILESET,
+				 tile_set_tmp, NULL);
+
+	gconf_client_set_int (client, KEY_ANIMATE,
+			      animate, NULL);
+
+	gconf_client_set_bool (client, KEY_ANIMATE_STAGGER,
+			       animate_stagger, NULL);
+	gconf_client_set_bool (client, KEY_SHOW_GRID,
+			       grid, NULL);
+	gconf_client_set_bool (client, KEY_FLIP_FINAL_RESULTS,
+			       flip_final, NULL);
 }
 
 static void
@@ -352,48 +390,21 @@ apply_changes (void)
 	}
 
 	check_computer_players ();
+
+	save_properties ();
 }
 
 static void
-save_properties (void)
-{
-	GConfClient *client;
-
-	client = gconf_client_get_default ();
-
-	gconf_client_set_int (client, KEY_BLACK_LEVEL,
-			      black_computer_level, NULL);
-	gconf_client_set_int (client, KEY_WHITE_LEVEL,
-			      white_computer_level, NULL);
-
-	gconf_client_set_bool (client, KEY_QUICK_MOVES,
-			       t_quick_moves, NULL);
-
-	gconf_client_set_string (client, KEY_TILESET,
-				 tile_set_tmp, NULL);
-
-	gconf_client_set_int (client, KEY_ANIMATE,
-			      animate, NULL);
-
-	gconf_client_set_bool (client, KEY_ANIMATE_STAGGER,
-			       animate_stagger, NULL);
-	gconf_client_set_bool (client, KEY_SHOW_GRID,
-			       grid, NULL);
-	gconf_client_set_bool (client, KEY_FLIP_FINAL_RESULTS,
-			       flip_final, NULL);
-}
-
-static void
-apply_cb (GtkWidget *widget, gint arg1, gpointer data)
+close_cb (GtkWidget *widget, gint arg1, gpointer data)
 {
 	gtk_widget_hide (widget);
 
-	if (arg1 == GTK_RESPONSE_REJECT)
+/*	if (arg1 == GTK_RESPONSE_REJECT)
 		return;
 
 	apply_changes ();
 	
-	save_properties ();
+	save_properties (); */
 }
 
 static void
@@ -409,6 +420,7 @@ set_selection (GtkWidget *widget, gpointer data)
 		g_free (tile_set_tmp);
 		tile_set_tmp = g_strdup (data);
 	}
+	apply_changes ();
 }
 
 void
@@ -457,26 +469,6 @@ fill_menu (GtkWidget *menu)
         }
         closedir(dir);
 	g_free (dname);
-}
-
-static void
-dialog_help_callback (GtkWidget *box, gint page_num)
-{
-#if 0
-  GnomeHelpMenuEntry settings_entry = { "iagno", "settings.html" };
-  GnomeHelpMenuEntry animation_entry = { "iagno", "animations.html" };
-
-  switch (page_num) {
-  case 0:
-    gnome_help_display (0, &settings_entry);
-    break;
-  case 1:
-    gnome_help_display (0, &animation_entry);
-    break;
-  default:
-    break;
-  }
-#endif
 }
 
 void
@@ -719,7 +711,7 @@ show_properties_dialog (void)
                                   label);
         
 	g_signal_connect (GTK_OBJECT (propbox), "response", GTK_SIGNAL_FUNC
-			(apply_cb), NULL);
+			(close_cb), NULL);
 	g_signal_connect (GTK_OBJECT (propbox), "destroy", GTK_SIGNAL_FUNC
 			(destroy_cb), NULL);
 	g_signal_connect (GTK_OBJECT (propbox), "close", GTK_SIGNAL_FUNC

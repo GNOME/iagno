@@ -2,8 +2,8 @@
     <schemalist>    
 
       <schema>
-        <key>/schemas/apps/iagno/black-level</key>
-        <applyto>/apps/iagno/black-level</applyto>
+        <key>/schemas/apps/iagno/black_level</key>
+        <applyto>/apps/iagno/black_level</applyto>
         <owner>iagno</owner>
         <type>int</type>
         <default>0</default>
@@ -14,8 +14,8 @@
       </schema>
 
       <schema>
-        <key>/schemas/apps/iagno/white-level</key>
-        <applyto>/apps/iagno/white-level</applyto>
+        <key>/schemas/apps/iagno/white_level</key>
+        <applyto>/apps/iagno/white_level</applyto>
         <owner>iagno</owner>
         <type>int</type>
         <default>0</default>
@@ -26,8 +26,8 @@
       </schema>
 
       <schema>
-        <key>/schemas/apps/iagno/quick-moves</key>
-        <applyto>/apps/iagno/quick-moves</applyto>
+        <key>/schemas/apps/iagno/quick_moves</key>
+        <applyto>/apps/iagno/quick_moves</applyto>
         <owner>iagno</owner>
         <type>bool</type>
         <default>false</default>
@@ -62,8 +62,8 @@
       </schema>
 
       <schema>
-        <key>/schemas/apps/iagno/animate-stagger</key>
-        <applyto>/apps/iagno/animate-stagger</applyto>
+        <key>/schemas/apps/iagno/animate_stagger</key>
+        <applyto>/apps/iagno/animate_stagger</applyto>
         <owner>iagno</owner>
         <type>bool</type>
         <default>false</default>
@@ -74,8 +74,8 @@
       </schema>
 
       <schema>
-        <key>/schemas/apps/iagno/show-grid</key>
-        <applyto>/apps/iagno/show-grid</applyto>
+        <key>/schemas/apps/iagno/show_grid</key>
+        <applyto>/apps/iagno/show_grid</applyto>
         <owner>iagno</owner>
         <type>bool</type>
         <default>false</default>
@@ -86,8 +86,8 @@
       </schema>
 
       <schema>
-        <key>/schemas/apps/iagno/flip-final-results</key>
-        <applyto>/apps/iagno/flip-final-results</applyto>
+        <key>/schemas/apps/iagno/flip_final_results</key>
+        <applyto>/apps/iagno/flip_final_results</applyto>
         <owner>iagno</owner>
         <type>bool</type>
         <default>true</default>
