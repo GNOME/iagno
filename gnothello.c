@@ -1,6 +1,6 @@
 /*
  * gnothello.c - Main GUI part of iagno
- * written by Ian Peters <itp@acm.org>
+ * written by Ian Peters <itp@gnu.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

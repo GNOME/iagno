@@ -1,9 +1,9 @@
-1999-02-13  Ian Peters  <ipeters@acm.org>
+1999-02-13  Ian Peters  <itp@gnu.org>
 
 	* gnothello.[c|h]: Removed GNOTHELLO_VERSION, use VERSION, so now maybe
 	the version will actually change sometimes.
 
-1999-02-13  Ian Peters  <ipeters@acm.org>
+1999-02-13  Ian Peters  <itp@gnu.org>
 
 	* properties.c: Changed "Computer" to "Players", "Disabled" to "Human",
 	thanks to Tim Gerla for the idea.  Much more logical.
@@ -13,11 +13,11 @@
 	* properties.c (show_properties_dialog): Mark "Tile set:" as a
 	translatable string.
 
-1999-01-29  Ian Peters  <ipeters@acm.org>
+1999-01-29  Ian Peters  <itp@gnu.org>
 
 	* Changed all user-visible occurences of gnothello to iagno.
 
-1999-01-27  Ian Peters  <ipeters@acm.org>
+1999-01-27  Ian Peters  <itp@gnu.org>
 
 	* othello.c: Added support for optional flip final results
 	* properties.c: Added check button for optionally flipping final
@@ -27,7 +27,7 @@
 
 	* gnothello.c: Kill file menu again.
 
-1999-01-27  Ian Peters  <ipeters@acm.org>
+1999-01-27  Ian Peters  <itp@gnu.org>
 
 	* properties.c: New propbox stuff
 	* properties.h: New propbox stuff
@@ -84,7 +84,7 @@
 	a missing argument for gnome_CORBA_init (shouldn't gnome_CORBA_init
 	require the same arguments as gnome_init?).
 
-1998-09-30  Ian Peters  <ipeters@acm.org>
+1998-09-30  Ian Peters  <itp@gnu.org>
 
 	* gnothello.c: fixed an bug with animstagger where, when playing for
 	the first time, animstagger was incorrectly set, and the menu did
