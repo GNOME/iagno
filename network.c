@@ -129,7 +129,8 @@ game_move (guint x, guint y, guint me)
 {
 	if (ior){
 		if (me == BLACK_TURN){
-			Gnothello_move (gnothello_peer, x, y, me, &ev);
+			if (gnothello_peer)
+				Gnothello_move (gnothello_peer, x, y, me, &ev);
 			return move (x, y, me);
 		} else
 			g_warning ("impossible\n");
@@ -137,7 +138,8 @@ game_move (guint x, guint y, guint me)
 		if (me == BLACK_TURN)
 			g_warning ("impossible\n");
 		else {
-			Gnothello_move (gnothello_peer, x, y, me, &ev);
+			if (gnothello_peer)
+				Gnothello_move (gnothello_peer, x, y, me, &ev);
 			return move (x, y, me);
 		}
 	}
@@ -162,7 +164,8 @@ network_allow (void)
 void
 network_new (void)
 {
-	Gnothello_new_game (gnothello_peer, &ev);
+	if (gnothello_peer)
+		Gnothello_new_game (gnothello_peer, &ev);
 }
 
 #endif

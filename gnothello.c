@@ -99,18 +99,18 @@ GnomeUIInfo file_menu[] = {
 };
 
 GnomeUIInfo black_level_radio_list[] = {
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Disabled"), NULL, black_level_cb, "0", NULL),
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Level One"), NULL, black_level_cb, "1", NULL),
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Level Two"), NULL, black_level_cb, "2", NULL),
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Level Three"), NULL, black_level_cb, "3", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Disabled"), NULL, black_level_cb, "0", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level One"), NULL, black_level_cb, "1", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level Two"), NULL, black_level_cb, "2", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level Three"), NULL, black_level_cb, "3", NULL),
 	GNOMEUIINFO_END
 };
 
 GnomeUIInfo white_level_radio_list[] = {
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Disabled"), NULL, white_level_cb, "0", NULL),
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Level One"), NULL, white_level_cb, "1", NULL),
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Level Two"), NULL, white_level_cb, "2", NULL),
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Level Three"), NULL, white_level_cb, "3", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Disabled"), NULL, white_level_cb, "0", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level One"), NULL, white_level_cb, "1", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level Two"), NULL, white_level_cb, "2", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Level Three"), NULL, white_level_cb, "3", NULL),
 	GNOMEUIINFO_END
 };
 
@@ -133,9 +133,9 @@ GnomeUIInfo comp_menu[] = {
 };
 
 GnomeUIInfo anim_radio_list[] = {
-	GNOMEUIINFO_RADIOITEM_DATA(N_("No Animation"), NULL, anim_cb, "0", NULL),
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Some Animation"), NULL, anim_cb, "1", NULL),
-	GNOMEUIINFO_RADIOITEM_DATA(N_("Full Animation"), NULL, anim_cb, "2", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("No Animation"), NULL, anim_cb, "0", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Some Animation"), NULL, anim_cb, "1", NULL),
+	GNOMEUIINFO_ITEM_DATA(N_("Full Animation"), NULL, anim_cb, "2", NULL),
 	GNOMEUIINFO_END
 };
 
