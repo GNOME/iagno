@@ -1,10 +1,12 @@
-<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN"[
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
 <!ENTITY version "1.0.51">
 ]>
 
 <article id="index">
 
-<artheader>
+<articleinfo>
  <title>Iagno Users Guide</title>
 
  <copyright>
@@ -77,7 +79,7 @@
  This is version 1.0 of Iagno Manual.
  </releaseinfo>
 
-</artheader>
+</articleinfo>
 
 <sect1 id="intro">
  <title>Introduction</title>
@@ -152,15 +154,20 @@
  <para>
  The board starts with four tiles arranged in a box on the 
  middle of the board. The tiles have the same color at each 
- corner, as shown in <xref linkend="start-shot">. 
+ corner, as shown in <xref linkend="start-shot"/>. 
  </para>
  
  <figure id="start-shot">
   <title>Starting Position</title>
   <screenshot>
-   <screeninfo>Screenshot of the starting position.</screeninfo>
-   <graphic format="png" fileref="figures/START" srccredit="Eric Baudais">
-   </graphic>
+    <mediaobject> 
+    <imageobject>
+  <imagedata fileref="figures/START.png" format="PNG" srccredit="Eric Baudais"/>
+   </imageobject>
+    <textobject> 
+      <phrase>Screenshot of the starting position.</phrase> 
+    </textobject> 
+  </mediaobject>
   </screenshot>
  </figure>
 
@@ -169,22 +176,27 @@
  traps white's tiles between two of black's tiles. When black places 
  a tile on the board all of white's tiles between black's newly placed 
  tile and another black tile, in a horizontal, vertical, or diagonal row, are flipped over 
- and become black, as shown in <xref linkend="first-shot">.
+ and become black, as shown in <xref linkend="first-shot"/>.
  </para>
 
  <figure id="first-shot">
   <title>First Move</title>
   <screenshot>
-   <screeninfo>Screenshot of the first move.</screeninfo>
-   <graphic format="png" fileref="figures/FIRST" srccredit="Eric Baudais">
-   </graphic>
+    <mediaobject> 
+    <imageobject>
+  <imagedata fileref="figures/FIRST.png" format="PNG" srccredit="Eric Baudais"/>
+   </imageobject>
+    <textobject> 
+      <phrase>Screenshot of the first move.</phrase> 
+    </textobject> 
+  </mediaobject>
   </screenshot>
  </figure>
 
  <para>
  When there is tile trapped between two tiles, of an identical color 
  in the same row, the player captures tiles until another tile of the 
- player's color is encountered, as shown in <xref linkend="block-shot">.  
+ player's color is encountered, as shown in <xref linkend="block-shot"/>.  
  The player can only take tiles that are 
  a direct result of the placing a tile on the board. Once a tile is 
  placed on the board the player cannot remove it and place the tile 
@@ -195,9 +207,14 @@
   <title>Black cannot take the white tile because there is a black tile 
   "blocking" the row.</title>
   <screenshot>
-   <screeninfo>Screenshot of black blocking.</screeninfo>
-   <graphic format="png" fileref="figures/BLOCK" srccredit="Eric Baudais">
-   </graphic>
+    <mediaobject> 
+    <imageobject>
+  <imagedata format="PNG" fileref="figures/BLOCK.png" srccredit="Eric Baudais"/>
+   </imageobject>
+    <textobject> 
+      <phrase>Screenshot of black blocking.</phrase> 
+    </textobject> 
+  </mediaobject>
   </screenshot>
  </figure>
  </para>
@@ -241,9 +258,14 @@
   <figure id="player-shot">
    <title>The Preferences menu with the Player tab highlighted.</title>
    <screenshot>
-    <screeninfo>Screenshot of the player settings.</screeninfo>
-    <graphic format="png" fileref="figures/PLAYER" srccredit="Eric Baudais">
-    </graphic>
+    <mediaobject> 
+    <imageobject>
+  <imagedata format="PNG" fileref="figures/PLAYER.png" srccredit="Eric Baudais"/>
+   </imageobject>
+    <textobject> 
+      <phrase>Screenshot of the player settings.</phrase> 
+    </textobject> 
+  </mediaobject>
    </screenshot>
   </figure>
 
@@ -346,9 +368,14 @@
   <figure id="animation-shot">
    <title>The Preferences menu with the Animation tab highlighted.</title>
    <screenshot>
-    <screeninfo>Screenshot of the animation settings.</screeninfo>
-    <graphic format="png" fileref="figures/ANIMATION" srccredit="Eric Baudais">
-    </graphic>
+    <mediaobject> 
+    <imageobject>
+  <imagedata format="PNG" fileref="figures/ANIMATION.png" srccredit="Eric Baudais"/>
+    </imageobject>
+    <textobject> 
+      <phrase>Screenshot of the animation settings.</phrase> 
+    </textobject> 
+  </mediaobject>
    </screenshot>
   </figure>
 
