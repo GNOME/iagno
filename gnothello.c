@@ -396,8 +396,9 @@ void about_cb(GtkWidget *widget, gpointer data)
 
 	{
 		char *filename = NULL;
-		filename = gnome_unconditional_pixmap_file("iagno.png");
-		pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+		filename = gnome_pixmap_file ("iagno.png");
+		if (filename != NULL)
+			pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
 		g_free (filename);
 	}
 

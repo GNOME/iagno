@@ -1,5 +1,10 @@
 2002-04-15  Bastien Nocera  <hadess@hadess.net>
 
+	* gnothello.c: (about_cb): don't use deprecated
+	gnome_unconditional_pixmap_file()
+
+2002-04-15  Bastien Nocera  <hadess@hadess.net>
+
 	* gnothello.c: (quit_game_cb), (about_cb):
 	* properties.c: (fill_menu), (show_properties_dialog):
 	don't use gnome_dialog_set_parent, show a nice icon in the about box
