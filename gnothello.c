@@ -106,11 +106,6 @@ static const struct poptOption options[] = {
   {NULL, '\0', 0, NULL, 0}
 };
 
-GnomeUIInfo file_menu[] = {
-        GNOMEUIINFO_MENU_EXIT_ITEM(quit_game_cb, NULL),
-	GNOMEUIINFO_END
-};
-
 GnomeUIInfo game_menu[] = {
         GNOMEUIINFO_MENU_NEW_GAME_ITEM(new_game_cb, NULL),
 
@@ -118,6 +113,10 @@ GnomeUIInfo game_menu[] = {
 
 	GNOMEUIINFO_MENU_UNDO_MOVE_ITEM(undo_move_cb, NULL),
 	
+	GNOMEUIINFO_SEPARATOR,
+
+        GNOMEUIINFO_MENU_EXIT_ITEM(quit_game_cb, NULL),
+
 	GNOMEUIINFO_END
 };
 
@@ -208,7 +207,6 @@ GnomeUIInfo help_menu[] = {
 };
 
 GnomeUIInfo mainmenu[] = {
-        GNOMEUIINFO_MENU_FILE_TREE(file_menu),
         GNOMEUIINFO_MENU_GAME_TREE(game_menu),
         GNOMEUIINFO_MENU_SETTINGS_TREE(settings_menu),
         GNOMEUIINFO_MENU_HELP_TREE(help_menu),
