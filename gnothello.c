@@ -383,7 +383,7 @@ void load_pixmaps()
 	g_free(tmp);
 
 	if(!g_file_exists(fname)) {
-		g_print(N_("Could not fine \'%s\' pixmap file for Gnothello\n"), fname);
+		g_print(N_("Could not find \'%s\' pixmap file for Gnothello\n"), fname);
 		exit(1);
 	}
 
