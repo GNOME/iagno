@@ -1,3 +1,8 @@
+2004-12-14  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnothello.c: Fall back to a default theme if the selected one is
+	missing. (Josselin Mouette, bug #160684.)
+
 2004-12-13  Richard Hoelscher  <rah@rahga.com>
  
  	* othello.c (computer_move_3): Support cases where ai level 3's 

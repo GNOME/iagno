@@ -532,6 +532,14 @@ load_pixmaps (void)
                                            tmp, FALSE, NULL);
 	g_free (tmp);
 
+	if (! g_file_test (fname, G_FILE_TEST_EXISTS)) {
+		g_free (fname);
+		fname = gnome_program_locate_file (NULL,
+						   GNOME_FILE_DOMAIN_APP_PIXMAP,
+		                                   "iagno/classic.png",
+						   FALSE, NULL);
+	}
+
 	if (! g_file_test (fname,
 			   G_FILE_TEST_EXISTS | G_FILE_TEST_IS_REGULAR)) {
 		g_print (_("Could not find \'%s\' pixmap file\n"), fname);
