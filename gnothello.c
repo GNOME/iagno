@@ -389,17 +389,20 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	if (tile_dialog)
 		return;
 
-	tile_dialog = gnome_dialog_new(_("Load Tile Set"), GNOME_STOCK_BUTTON_OK, GNOME_STOCK_BUTTON_CANCEL, NULL);
-	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event", (GtkSignalFunc)cancel, NULL);
+	tile_dialog = gnome_property_box_new ();
+	gtk_window_set_title (GTK_WINDOW (tile_dialog), _("Gnothello options"));
 
+#if 0
+	tile_dialog = gnome_dialog_new(_("Load Tile Set"), GNOME_STOCK_BUTTON_OK, GNOME_STOCK_BUTTON_CANCEL, NULL);
+#endif
+	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event",
+			   GTK_SIGNAL_FUNC (do_close), NULL);
+	
 	options_menu = gtk_option_menu_new();
 	menu = gtk_menu_new();
 	fill_menu(menu);
 	gtk_widget_show(options_menu);
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(options_menu), menu);
-
-	frame = gtk_frame_new(_("Tile Set"));
-//	gtk_container_border_width(GTK_CONTAINER(frame), 5);
 
 	hbox = gtk_hbox_new(FALSE, FALSE);
 	gtk_container_border_width(GTK_CONTAINER(hbox), 5);
@@ -411,13 +414,19 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	gtk_box_pack_start_defaults(GTK_BOX(hbox), label);
 	gtk_box_pack_start_defaults(GTK_BOX(hbox), options_menu);
 
-	gtk_container_add(GTK_CONTAINER(frame), hbox);
-	gtk_widget_show(frame);
+	gnome_property_box_append_page (
+		GNOME_PROPERTY_BOX (tile_dialog),
+		hbox,
+		gtk_label_new (_("Tile set")));
 
-	gtk_box_pack_start_defaults(GTK_BOX(GNOME_DIALOG(tile_dialog)->vbox), frame);
+	gtk_signal_connect (GTK_OBJECT (tile_dialog), "apply",
+			    GTK_SIGNAL_FUNC (load_tiles_callback), NULL);
 
-	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 0, GTK_SIGNAL_FUNC(load_tiles_callback), NULL);
-	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 1, GTK_SIGNAL_FUNC(cancel), (gpointer)1);
+	gtk_signal_connect (GTK_OBJECT (tile_dialog), "delete_event",
+			    GTK_SIGNAL_FUNC (do_close), NULL);
+	
+	gtk_signal_connect (GTK_OBJECT (tile_dialog), "destroy",
+			    GTK_SIGNAL_FUNC (do_close), NULL);
 
 	gtk_widget_show (tile_dialog);
 }
@@ -426,7 +435,6 @@ void load_tiles_callback(GtkWidget *widget, void *data)
 {
 	gint i, j;
 
-	cancel(0,0);
 	strncpy(tile_set, tile_set_tmp, 255);
 	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
 	load_pixmaps();
@@ -477,12 +485,12 @@ void free_str(GtkWidget *widget, void *data)
 
 void set_selection(GtkWidget *widget, void *data)
 {
+	gnome_property_box_changed (GNOME_PROPERTY_BOX (tile_dialog));
 	strncpy(tile_set_tmp, data, 255);
 }
 
-void cancel(GtkWidget *widget, void *data)
+void do_close (GtkWidget *widget, void *data)
 {
-	gtk_widget_destroy(tile_dialog);
 	tile_dialog = NULL;
 }
 

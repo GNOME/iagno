@@ -1,3 +1,9 @@
+1998-11-18  Miguel de Icaza  <miguel@nuclecu.unam.mx>
+
+	* gnothello.c (load_tiles_cb): Start to use a property-box instead
+	of the old dialog box.  We should move some of the other
+	configuration options here too.
+
 1998-11-12  Andrew T. Veliath  <andrewtv@usa.net>
 
 	* Makefile.am: Add CORBA_SRCS to CLEANFILES. Rewrite orbit-idl
