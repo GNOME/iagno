@@ -157,16 +157,14 @@ GnomeUIInfo anim_type_menu[] = {
 };
 
 GnomeUIInfo anim_menu[] = {
-	GNOMEUIINFO_SUBTREE(N_("_Type"), anim_type_menu),
-//	{ GNOME_APP_UI_SUBTREE, N_("_Type"), NULL, anim_type_menu, NULL, NULL,
-//	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
+//	GNOMEUIINFO_SUBTREE(N_("_Type"), anim_type_menu),
+	{ GNOME_APP_UI_SUBTREE, N_("_Type"), NULL, anim_type_menu, NULL, NULL,
+	  GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
 	GNOMEUIINFO_SEPARATOR,
 	GNOMEUIINFO_TOGGLEITEM(N_("_Stagger Flips"), NULL, anim_stagger_cb, NULL),
 	GNOMEUIINFO_SEPARATOR,
-//	GNOMEUIINFO_ITEM_NONE(N_("_Change Tiles"), NULL, new_game_cb),
-//	GNOMEUIINFO_ITEM(N_("_Change Tiles"), NULL, new_game_cb, NULL),
-//	{ GNOME_APP_UI_ITEM, N_("_Load Tiles"), NULL, new_game_cb, NULL, NULL,
-//	  GNOME_APP_PIXMAP_NONE, NULL, 't', GDK_CONTROL_MASK },
+//	GNOMEUIINFO_ITEM_NONE(N_("_Change Tiles"), NULL, load_tiles_cb),
+//	GNOMEUIINFO_ITEM(N_("_Change Tiles"), NULL, load_tiles_cb, NULL),
 	{ GNOME_APP_UI_ITEM, N_("_Load Tiles"), NULL, load_tiles_cb, NULL, NULL,
 	  GNOME_APP_PIXMAP_DATA, NULL, 0, GDK_CONTROL_MASK },
 	GNOMEUIINFO_END
