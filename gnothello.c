@@ -491,6 +491,8 @@ void load_pixmaps()
 	char      *tmp;
 	char      *fname;
 
+	g_return_if_fail (tile_set != NULL && tile_set [0] != '0');
+
 	tmp = g_strconcat("iagno/", tile_set, NULL);
 	fname = gnome_unconditional_pixmap_file(tmp);
 	g_free(tmp);
