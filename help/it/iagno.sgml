@@ -1,0 +1,466 @@
+<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN"[
+<!ENTITY version "1.0.51">
+]>
+
+<article id="index">
+
+<artheader>
+ <title>Iagno - Guida utente</title>
+
+ <copyright>
+  <year>2000</year>
+  <holder>Eric Baudais</holder>
+ </copyright>
+
+ <legalnotice>
+   <para>
+    Permission is granted to copy, distribute and/or modify this
+    document under the terms of the <citetitle>GNU Free Documentation
+    License</citetitle>, Version 1.1 or any later version published
+    by the Free Software Foundation with no Invariant Sections, no
+    Front-Cover Texts, and no Back-Cover Texts. You may obtain a copy
+    of the <citetitle>GNU Free Documentation License</citetitle> from
+    the Free Software Foundation by visiting <ulink type="http"
+    url="http://www.fsf.org">their Web site</ulink> or by writing to:
+    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+    Boston, MA 02111-1307, USA.
+   </para>
+   <para>
+    &Egrave; permesso copiare, distribuire e/o modificare questo
+    documento rispettando i termini della <citetitle>GNU Free
+    Documentation License</citetitle>, Versione 1.1 o altra versione 
+    successiva pubblicata dalla Free Software Foundation senza Sezioni
+    invarianti, testi in copertina e testi in ultima di copertina.
+    Potete procurarvi una copia della <citetitle>GNU Free Documentation
+    License</citetitle> dalla Free Software Foundation visitando <ulink
+    type="http" url="http://www.fsf.org">il loro sito Web</ulink> o
+    scrivendo a:
+    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+    Boston, MA 02111-1307, USA.
+   </para>
+   <para>
+    Molti dei nomi usati dalle ditte per distinguere i loro prodotti e
+    servizi sono dichiarati come marchi registrati. Ovunque tali nomi
+    compaiano nella documentazione di GNOME, e quando tali marchi siano
+    noti ai membri dello GNOME Documentation Project, i nomi sono stati
+    evidenziati in maiuscolo o con l'iniziale maiuscola.
+   </para>
+ </legalnotice>
+ <revhistory>
+  <revision>
+   <revnumber>0.1</revnumber>
+   <date>4 febbraio 2000</date>
+   <authorinitials>EB</authorinitials>
+   <revremark>
+   Prima bozza completata.
+   </revremark>
+  </revision>
+
+  <revision>
+   <revnumber>0.2</revnumber>
+   <date>5 febbraio 2000</date>
+   <authorinitials>EB</authorinitials>
+   <revremark>
+   Aggiunta una nota a piè di pagina alla sezione perché. Corretti dei refusi.
+   </revremark>
+  </revision>
+
+  <revision>
+   <revnumber>0.3</revnumber>
+   <date>7 febbraio 2000</date>
+   <authorinitials>EB</authorinitials>
+   <revremark>
+   Il documento viene reso compatibile con il template GDP. Chiarita la
+   sezione riguardante il come si gioca.
+   </revremark>
+  </revision>
+
+  <revision>
+   <revnumber>1.0</revnumber>
+   <date>7 aprile 2000</date>
+   <authorinitials>EB</authorinitials>
+   <revremark>
+   Il Manuale di Iagno viene rialsciato sotto la FDL. Aggiornate le 
+   schermate con il tema MircoGUI, lo standard di GDP.
+   </revremark>
+  </revision>
+ </revhistory>
+
+ <releaseinfo>
+ Questa è la versione 1.0 del Manuale di Iagno.
+ </releaseinfo>
+
+</artheader>
+
+<sect1 id="intro">
+ <title>Introduzione</title>
+ <sect2 id="what">
+  <title>Cos'è Iagno?</title>
+  
+  <para>
+  <application>Iagno</application> è la versione per computer
+  del gioco Reversi, meglio noto come Othello.
+  <application>Iagno</application> è un gioco di strategia per
+  due giocatori simile a Go. La tavola di gioco è formta da 8
+  per 8 caselle, le pedine sono nere da un lato e bianche dall'altro.
+  Lo scopo di <application>Iagno</application> è di girare quante
+  più pedine avversarie possibili, in modo da farle diventare del vostro
+  colore, impedendo all'avversario di fare altrettanto. Ciò si 
+  ottiene intrappolando le pedine del vostro avversario fra due
+  pedine del vostro colore.
+  </para>
+
+  <para>
+   Per lanciare <application>Iagno</application>, selezionate
+   <guimenuitem>Iagno</guimenuitem> dal sottomenu
+   <guisubmenu>Giochi</guisubmenu> del <guimenu>Menu di sistema
+   </guimenu>, oppure battete <command>iagno</command> sulla riga
+   di comando. 
+  </para>
+ </sect2>
+
+ <sect2 id="why">
+  <title>Perché Othello viene chiamato Iagno?</title>
+  <para>
+  Probabilmente vi stupisce che questo gioco si chiama
+  <application>Iagno</application> invece di Othello o
+  gnothello. La risposta è complicata e c'entrano cose tipo
+  i marchi registrati, gli avvocati e altra roba.
+  Invece di lasciar perdere vi racconterò una lunga e complicata
+  bugia riguardante l'origine del nome <application>Iagno</application>.
+  </para>
+  <para>
+  In una notte nuvolosa, di quelle tanto descritte in Inghilterra,
+  un programmatore solitario era seduto davanti al suo computer.
+  Ian aveva finito il suo gioco capolavoro. Era una versione di 
+  Othello completamente interattiva e decise di giocare col nome
+  e chiamarlo gnothello, visto che il gioco era stato scritto usando
+  GNOME.
+  </para>
+  <para>
+  Più tardi i suoi amici vennero a trovarlo e, come tutti i
+  programmatori, lui gli mostrò il suo capolavoro. Essi gli
+  risero in faccia e dissero a Ian che il suo gioco era solo
+  un inutile e pietoso tentativo di essere un vero hacker.
+  Dopo averli sbattuti fuori a calci Ian decise di cambiar nome
+  al programma e chiamarlo Iago,
+  <footnote>
+   <para>
+   Iago è la nemesi di Othello nel gioco <citetitle>Othello
+   </citetitle> di William Shakespeare.
+   </para>
+  </footnote>
+  dal diavolo che si era manifestato a causa del gioco.
+  Ma ancora non suonava bene. Tutti i programmi per GNOME hanno
+  una parte di GNOME nel nome, pensò Ian. Dopo un gran rimuginare
+  decise per il nome che ci è caro, <application>Iagno
+  </application>.
+  </para>
+ </sect2>
+</sect1>
+
+<sect1 id="playing">
+ <title>Giocare ad Othello</title>
+ <para>
+ La tavola viene preparata con quattro pedine sistemate in un
+ riquadro al centro della stessa. Le pedine sugli angoli hanno
+ lo stesso colore, come mostrato nella
+<xref linkend="start-shot">. 
+ </para>
+ 
+ <figure id="start-shot">
+  <title>Posizione iniziale</title>
+  <screenshot>
+   <screeninfo>Schermata della posizione iniziale.</screeninfo>
+   <Graphic Format="png" Fileref="START.png" srccredit="Eric Baudais">
+   </graphic>
+  </screenshot>
+ </figure>
+
+ <para>
+ Inizia il nero e mette una pedina sulla tavola in modo tale da
+ intrappolare le pedine bianche fra due pedine nere. Quando il nero
+ mette una pedina sulla tavola, tutte le pedine bianche che si trovano
+ fra la pedina nera appena messa e un'altra pedina nera, in orizzontale,
+ verticale o diagonale, vengono girate e diventano nere, come mostrato in
+ <xref linkend="first-shot">.
+ </para>
+
+ <figure id="first-shot">
+  <title>Prima mossa</title>
+  <screenshot>
+   <screeninfo>Scermata della prima mossa.</screeninfo>
+   <Graphic Format="png" Fileref="FIRST.png" srccredit="Eric Baudais">
+   </graphic>
+  </screenshot>
+ </figure>
+
+ <para>
+ Quando una pedina viene intrappolata fra due pedine dello stesso colore
+ sulla stessa riga, il giocatore cattura tutte le pedine fino a che
+ non ne incontra una dello stesso colore di quella del giocatore,
+ come mostrato in <xref linkend="block-shot">.  
+ Il giocatore può prendere solo quelle pedine direttamente coinvolte
+ con la pedina appena mesa sulla tavola. Una volta che la pedina viene
+ messa sulla tavola il giocatore non può toglierla e metterla in un
+ altra casella. Se un giocatore non può muovere perde il suo turno.
+ Il gioco finisce quando non è più possibile muovere per nessuno dei
+ due giocatori.
+
+ <figure id="block-shot">
+  <title>Il nero non può prendere la pedina bianca perché c'è una pedina
+  nera che "blocca" la riga.</title>
+  <screenshot>
+   <screeninfo>Schermata del blocco del nero.</screeninfo>
+   <Graphic Format="png" Fileref="BLOCK.png" srccredit="Eric Baudais">
+   </graphic>
+  </screenshot>
+ </figure>
+ </para>
+
+</sect1>
+
+<sect1 id="settings">
+ <title>Impostazioni di gioco</title>
+
+ <sect2 id="player">
+  <title>Scegliere un colore</title>
+ 
+  <para>
+  Quando si avvia Iagno il giocatore umano gioca con il nero e il giocatore
+  gestito dal computer gioca con il bianco al primo livello di difficoltà.
+  Potete cambirare sia il colore con cui giocare che il livello di
+  difficoltà nel menu <guimenu>Opzioni</guimenu>. Andate in <guisubmenu>
+  Preferenze</guisubmenu> e nella scheda <guimenuitem>Giocatori
+  </guimenuitem> scegliete il colore che volete e il livello di
+  difficoltà del giocatore gestito dal computer.
+  </para>
+ </sect2>
+
+ <sect2 id="quick-moves">
+  <title>Opzione Mosse veloci</title>
+
+  <para>
+  Questa opzione è nel menu <guimenu>Opzioni</guimenu>. Poi andate nel
+  sottomenu <guisubmenu>Preferenze</guisubmenu> scheda <guimenuitem>
+  Giocatori</guimenuitem> e la troverete inizialmente disabilitata.
+  Quando abilitata questa opzione fa in modo che il computer faccia le
+  sue mosse più velocemente.
+  </para>
+
+  <note>
+   <title>Nota:</title>
+   <para>
+   L'abilitazione di questa opzione non forza il giocatore gestito dal
+   computer a muovere e non riduce il livello di difficoltà.
+   </para>
+  </note>
+
+  <figure id="player-shot">
+   <title>Il menu Preferenze con la scheda Giocatori evidenziata.</title>
+   <screenshot>
+    <screeninfo>Schermata delle impostazioni del giocatore.</screeninfo>
+    <Graphic Format="png" Fileref="PLAYER.png" srccredit="Eric Baudais">
+    </graphic>
+   </screenshot>
+  </figure>
+
+ </sect2>
+
+</sect1>
+
+<sect1 id="animations">
+ <title>Animazioni</title>
+
+ <para>
+ Tutte le opzioni di animazione sono nel menu
+ <menuchoice>
+  <guimenu>Opzioni</guimenu>
+  <guisubmenu>Preferenze</guisubmenu>
+ </menuchoice>
+ nella scheda <guimenuitem>Animazione</guimenuitem>.
+ </para>
+
+ <sect2 id="animation-amount">
+  <title>Quantità di animazioni</title>
+
+  <para>
+  Questa opzione controlla la quantità di animazioni usata quando
+  viene girata una pedina; si selezioni una voce dell'elenco. La
+  selezione dell'opzione <guibutton>nessuna</guibutton> provocherà il
+  cambiamento istantaneo del colore. Selezionando l'opzione 
+  <guibutton>parziale</guibutton> la rotazione delle pedine sarà lenta.
+  Selezionando l'opzione <guibutton>completa</guibutton> le pedine
+  ruoteranno lentamente e dolcemente.
+  </para>
+
+ </sect2>
+
+ <sect2 id="stagger-flips">
+  <title>Rotazioni sfalsate</title>
+  
+  <para>
+  Questa opzione indica che le pedine lungo una riga, colonna o diagonale
+  devono ruotare una dopo l'altra, come nel domino, invece che girare
+  tutte contemporaneamente. Non ha nessun effetto sulla parita.
+  </para>
+
+ </sect2>
+
+ <sect2 id="grid">
+  <title>Mostra griglia</title>
+
+  <para>
+  Questa opzione serve per mostrare una griglia sulla superficie di
+  gioco. La griglia è utile perché mostra al giocatore esattamente 
+  dove sta mettendo ogni pedina.
+  </para>
+
+  <tip>
+   <title>Suggerimento:</title>
+   <para>
+   Questa opzione dovrebbe essere abilitata dai principianti per vedere
+   più chiaramente il tavolo di gioco.
+   </para>
+  </tip>
+
+ </sect2>
+
+ <sect2 id="flip-final">
+  <title>Raggruppa alla fine</title>
+
+  <para>
+  Questa opzione serve per far raggruppare tutti i pezzi neri in cima e
+  i pezzi bianchi in fondo al tavolo di gioco alla fine della partita.
+  Ciò è utile per avere una chiara immagine del risultato della partita.
+  </para>
+
+  <note>
+   <title>Nota:</title>
+   <para>
+   Questa opzione non influenza in nessun modo l'esito della partita.
+   </para>
+  </note>
+
+ </sect2>
+
+ <sect2 id="tile-set">
+  <title>Pedine</title>
+  <para>
+  Questa opzione permette di scegliere il tipo di tavolo di gioco e di
+  pedine che verranno mostrati. Se volete preparare le vostre pedine 
+  usate le pedine classiche come modello e cambiatene la trama e i
+  colori per ottenere effetti diversi. Quando avete disegnato delle nuove
+  pedine che funzionano con Iagno mandatele a Ian Peters <email>
+  itp@gnu.org</email> e lui le includerà nella prossima distribuzione.
+  </para>
+
+  <important>
+   <title>Importante:</title>
+   <para>
+   Ci sono tre tipi di pedine che si somigliano, ma hanno animazioni
+   diverse:  woodtrim, shrink, e blend.
+   </para>
+  </important>
+
+  <figure id="animation-shot">
+   <title>Il menu preferenze con la scheda Animazione evidenziata.</title>
+   <screenshot>
+    <screeninfo>Schermata delle impostazioni dell'animazione.</screeninfo>
+    <graphic format="png" fileref="ANIMATION.png" srccredit="Eric Baudais">
+    </graphic>
+   </screenshot>
+  </figure>
+
+ </sect2>
+
+</sect1>
+
+<sect1 id="bugs">
+ <title>Bug noti e limitazioni</title>
+
+ <itemizedlist mark="opencircle">
+    <listitem>
+     <para>
+        Il giocatore gestito dal computer di Iagno è facile da battere.
+        Iagno2, attualmente in sviluppo e di cui è previsto il rilascio
+        con GNOME 2.0, contiene già giocatori computerizzati più capaci.
+     </para>
+    </listitem>
+ </itemizedlist>
+
+</sect1>
+
+<sect1 id="credits">
+ <title>Autori</title>
+  <para>
+   <application>Iagno</application> è stato scritto da Ian Peters
+   (<email>itp@gnu.org</email>).
+   Prego, inviate commenti, suggerimenti e rapporti sui bug allo 
+   <ulink url="http://bugs.gnome.org" type="http">GNOME
+   bug tracking database</ulink> (si possono trovare istruzioni su
+   come sottoporre i rapporti sui bug <ulink
+   url="http://bugs.gnome.org/Reporting.html" type="http">
+   on-line</ulink>). Se state usando GNOME 1.1 o successivo potete
+   usare anche il <application>Bug Report Tool</application> 
+   (<command>bug-buddy</command>), disponibile nel sottomenu 
+   <guisubmenu>Utilità</guisubmenu> del <guimenu>Menu di sistema</guimenu>,
+   per sottoporre i rapporti sui bug.
+  </para>
+
+  <para>
+   Questo manuale è stato scritto da Eric Baudais
+   (<email>baudais@okstate.edu</email>). Prego, inviate tutti i commenti
+   e i suggerimenti riguardanti questo manuale allo <ulink type="http"
+   url="http://www.gnome.org/gdp">GNOME Documentation Project</ulink> 
+   mandando una email a <email>docs@gnome.org</email>. Potete anche 
+   aggiungere i vostri commenti online usando la <ulink type="http"
+   url="http://www.gnome.org/gdp/doctable/">GNOME Documentation Status
+   Table</ulink>.
+  </para>
+
+  <para>
+   La traduzione italiana è opera di Fabrizio Stefani
+   (<email>fabrizio_stefani@yahoo.it</email>). Per favore, mandate tutti
+   i commenti e i suggerimenti riguardanti la presente traduzione
+   al suddetto indirizzo.
+  </para>
+
+
+ </sect1>
+
+
+ <!-- ============= Application License ============================= -->
+
+ <sect1 id="license">
+  <title>Licenza</title>
+  <para>
+   Questo programma è software libero; potete ridistribuirlo e/o
+   modificarlo sotto i termini della <citetitle>Licenza Pubblica
+   Genereale GNU</citetitle> pubblicata dalla Free Software Foundation;
+   nella versione 2 della licenza, o (a vostra scelta) qualsiasi versione
+   successiva.
+  </para>
+  <para>
+   Questo programma è distribuito nella speranza che sia utile, ma SENZA
+   NESSUNA GARANZIA; senza nemmeno la garanzia implicita di COMMERCIABILITA'
+   o UTILIZZABILITA' PER UN PARTICOLARE SCOPO. Vedere la <citetitle>GNU
+   General Public License</citetitle> per maggiori dettagli.
+  </para>
+  <para>
+   Una copia della <citetitle>GNU General Public License</citetitle> è
+   inclusa come appendice nella <citetitle>Guida utente di GNOME
+   </citetitle>. Potete anche ottenere una copia della 
+   <citetitle>GNU General Public License</citetitle> dalla Free
+   Software Foundation visitando <ulink type="http"
+   url="http://www.fsf.org">il loro sito Web</ulink> o scrivendo a
+   <address>
+    Free Software Foundation, Inc.
+    <street>59 Temple Place</street> - Suite 330
+    <city>Boston</city>, <state>MA</state> <postcode>02111-1307</postcode>
+    <country>USA</country>
+   </address>
+  </para>
+ </sect1>
+</article>
+
