@@ -1,5 +1,6 @@
 [__section_info__]
 description=Iagno
+description[da]=Iagno
 description[ko]=ΐΜΎΖ±Χ³λ
 description[no]=Iagno
 description[pl]=Iagno
@@ -8,6 +9,7 @@ description[pl]=Iagno
 file=iagno/gameover.wav
 description=Game over
 description[ca]=Fi del joc
+description[da]=Spillet slut
 description[el]=Τέλος παιχνιδιού
 description[es]=Fin del juego
 description[fr]=Fin du jeu
@@ -19,6 +21,7 @@ description[pl]=Zakoρczenie gry
 file=iagno/flip-piece.wav
 description=Piece flipping
 description[ca]=Peces giravoltant
+description[da]=Vending af brik
 description[el]=Αλλαγή όψης κομματιού
 description[es]=Cambio de las piezas
 description[fr]=Changement des piθces
