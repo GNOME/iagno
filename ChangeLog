@@ -1,3 +1,7 @@
+2000-04-23  Ian Peters  <itp@gnu.org>
+
+	* added help subdir
+
 Sun Apr 16 22:50:13 2000  George Lebl <jirka@5z.com>
 
 	* gnothello.c: in init_new_game, remove the black_computer_id

@@ -1,0 +1,425 @@
+<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.0//EN"[
+<!ENTITY version "1.0.51">
+]>
+
+<article id="index">
+
+<artheader>
+ <title>Iagno Users Guide</title>
+
+ <copyright>
+  <year>2000</year>
+  <holder>Eric Baudais</holder>
+ </copyright>
+
+ <legalnotice>
+      <para>
+	Permission is granted to copy, distribute and/or modify this
+	document under the terms of the GNU Free Documentation License,
+	Version 1.1 or any later version published by the Free Software
+	Foundation with no Invariant Sections, no Front-Cover
+	Texts, and no Back-Cover Texts. You may obtain a copy 
+	of the GNU General Free Documentation License from the Free 
+	Software Foundation by visiting <ulink type="http"
+	url="http://www.fsf.org">their Web site</ulink> or by writing
+	to the Free Software Foundation, Inc., <address><street>59 Temple Place
+	</street> - Suite 330, <city>Boston</city>, <state>MA</state> 
+	<postcode>02111-1307</postcode>, <country>USA</country></address>.
+      </para>
+ </legalnotice>
+
+ <revhistory>
+  <revision>
+   <revnumber>0.1</revnumber>
+   <date>4 February 2000</date>
+   <authorinitials>EB</authorinitials>
+   <revremark>
+   First draft completed.
+   </revremark>
+  </revision>
+
+  <revision>
+   <revnumber>0.2</revnumber>
+   <date>5 February 2000</date>
+   <authorinitials>EB</authorinitials>
+   <revremark>
+   Added a footnote to why section.  Fixed some typos.
+   </revremark>
+  </revision>
+
+  <revision>
+   <revnumber>0.3</revnumber>
+   <date>7 February 2000</date>
+   <authorinitials>EB</authorinitials>
+   <revremark>
+   Made the doc compliant with the GDP template.  Clarified 
+   the playing section.
+   </revremark>
+  </revision>
+
+  <revision>
+   <revnumber>1.0</revnumber>
+   <date>7 April 2000</date>
+   <authorinitials>EB</authorinitials>
+   <revremark>
+   Licensed the Iagno Manual under the FDL.  Updated the 
+   screenshots to the GDP standard theme, MicroGUI.
+   </revremark>
+  </revision>
+ </revhistory>
+
+ <releaseinfo>
+ This is version 1.0 of Iagno Manual.
+ </releaseinfo>
+
+</artheader>
+
+<sect1 id="intro">
+ <title>Introduction</title>
+ <sect2 id="what">
+  <title>What is Iagno?</title>
+  
+  <para>
+  <application>Iagno</application> is a computer version of 
+  the game Reversi, more popularly called Othello.  
+  <application>Iagno</application> is a two player strategy 
+  game similar to Go.  The board is 8 by 8 with chips that 
+  are black on one side and white on the other side.  The 
+  object of <application>Iagno</application> is to flip as 
+  many of your opponent's chips to your color as possible 
+  without your opponent flipping your chips.  This is done 
+  by trapping your opponent's chips between two chips of 
+  your own color.
+  </para>
+ </sect2>
+
+ <sect2 id="why">
+  <title>Why is Othello called Iagno? 
+  <para>
+  You're probably wondering why is this computer game called 
+  <application>Iagno</application> instead of Othello or 
+  even gnothello.  The answer is simple; the author named 
+  it that way and it's his application.  Instead of leaving 
+  it at that, I'll tell you a long and complicated lie about 
+  the origin of the name <application>Iagno</application>.
+  </para>
+  <para>
+  On a stormy night, like those depicted so much in England, 
+  a lonely programmer was sitting in front of his computer 
+  screen.  Ian had finished his masterpiece in gaming.  It 
+  was a fully interactive game of Othello and he decided
+  to play a pun with the name and called it gnothello for 
+  the game was written using Gnome.  
+  </para>
+  <para>
+  Later his buddies came over and like all programmers he 
+  showed off his masterpiece.  They all laugh in his face 
+  and tell Ian that his game is worthless and a pitiful 
+  attempt to be a true hacker.  After Ian kicks them out 
+  he decides to rename his program Iago 
+  <footnote>
+   <para>
+   Iago is Othello's nemesis in the play <citetitle>Othello
+   </citetitle> by William Shakespeare.
+   </para>
+  </footnote>
+  for the evil which 
+  has manifested itself due to his game.  Yet it still 
+  doesn't sound right.  All Gnome programs have some part 
+  of Gnome in it Ian thought.  After much thought he decides 
+  on the name we have come to cherish, <application>Iagno
+  </application>.
+  </para>
+ </sect2>
+</sect1>
+
+<sect1 id="playing">
+ <title>Playing Othello</title>
+ <para>
+ The board starts with four chips arranged in a box on the 
+ middle of the board. The chips have the same color at each 
+ corner, as shown in <xref linkend="start-shot">. 
+ </para>
+ 
+ <figure id="start-shot">
+  <title>Starting Position</title>
+  <screenshot>
+   <screeninfo>Screenshot of the starting position.</screeninfo>
+   <Graphic Format="png" Fileref="START.png" srccredit="Author">
+   </graphic>
+  </screenshot>
+ </figure>
+
+ <para>
+ Black goes first and places a chip on the board such that it 
+ traps white's chips between two of black's chips. When black places 
+ a chip on the board all of white's chips, between black's newly placed 
+ chip and another black chip, in a horizontal, vertical, or diagonal row, are flipped over 
+ and become black, as shown in <xref linkend="first-shot">.
+ </para>
+
+ <figure id="first-shot">
+  <title>First Move</title>
+  <screenshot>
+   <screeninfo>Screenshot of the first move.</screeninfo>
+   <Graphic Format="png" Fileref="FIRST.png" srccredit="Author">
+   </graphic>
+  </screenshot>
+ </figure>
+
+ <para>
+ When there is chip trapped between two chips, of an identical color 
+ in the same row, the player captures chips until another chip of the 
+ player's color is encountered, as shown in <xref linkend="block-shot">.  
+ The player can only take chips that are 
+ a direct result of the placing a chip on the board. Once a chip is 
+ placed on the board the player cannot remove it and place the chip 
+ somewhere else. If a player cannot move they forfeit their turn.  
+ The game ends when it is no longer possible for either player to move.
+
+ <figure id="block-shot">
+  <title>Black cannot take the white chip because there is a black chip 
+  "blocking" the row.</title>
+  <screenshot>
+   <screeninfo>Screenshot of black blocking.</screeninfo>
+   <Graphic Format="png" Fileref="BLOCK.png" srccredit="Author">
+   </graphic>
+  </screenshot>
+ </figure>
+
+</sect1>
+
+<sect1 id="settings">
+ <title>Game Settings</title>
+
+ <sect2 id="player">
+  <title>Choosing A Color</title>
+ 
+  <para>
+  When you start Iagno the human player plays black and the computer player 
+  plays white with the first level of difficulty. You can change either the 
+  color the you play or the level of difficulty in the <guimenu>Settings 
+  </guimenu> menu. Go to <guisubmenu>Preferences</guisubmenu> and in the 
+  <guimenuitem>Players</guimenuitem> tab pick the color you want and 
+  the difficulty level of the computer player.
+  </para>
+ </sect2>
+
+ <sect2 id="quick-moves">
+  <title>Quick Moves Option</title>
+
+  <para>
+  This option is in the <guimenu>Settings</guimenu> menu. Then go to the 
+  <guisubmenu>Preferences</guisubmenu> submenu in the <guimenuitem>Players
+  </guimenuitem> tab and it is initially off. When enabled this option 
+  makes the computer player place its chips faster. 
+  </para>
+
+  <note>
+   <title>Note:</title>
+   <para>
+   Enabling this option does not force the computer player to move and does 
+   not reduce the level of difficulty.
+   </para>
+  </note>
+
+  <figure id="player-shot">
+   <title>The Preferences menu with the Player tab highlighted.</title>
+   <screenshot>
+    <screeninfo>Screenshot of the player settings.</screeninfo>
+    <Graphic Format="png" Fileref="PLAYER.png" srccredit="Author">
+    </graphic>
+   </screenshot>
+  </figure>
+
+ </sect2>
+
+</sect1>
+
+<sect1 id="animations">
+ <title>Animations</title>
+
+ <para>
+ All the animation option are in the 
+ <menuchoice>
+  <guimenu>Settings</guimenu>
+  <guisubmenu>Preferences </guisubmenu>
+ </menuchoice>
+ menus with the <guimenuitem>Animations</guimenuitem> tab highlighted.
+ </para>
+
+ <sect2 id="animation-amount">
+  <title>Amount of Animation</title>
+
+  <para>
+  This option controls the amount of animation present when each chip is 
+  flipped using radio buttons.  Selecting the option <guibutton>none
+  </guibutton> will cause the chips to change color instantaneously.  
+  Selecting the <guibutton>option</guibutton> partial will cause the 
+  animation to flip the chips slowly.  Selecting the <guibutton>complete
+  </guibutton> option will cause the chips to flip slowly and smoothly.
+  </para>
+
+ </sect2>
+
+ <sect2 id="stagger-flips">
+  <title>Stagger Flips</title>
+  
+  <para>
+  This option will make the chip flip halfway and then back to its 
+  original color if the chip is captured in two consecutive moves.
+  </para>
+
+  <tip>
+   <title>Tip:</title>
+   <para>
+   This option works best when the <guibutton>quick moves</guibutton> 
+   option is also selected.  If the <guibutton>quick</guibutton> moves 
+   option is not selected this option will have no visible effect on 
+   flipping the chips.
+   </para>
+  </tip>
+
+ </sect2>
+
+ <sect2 id="grid">
+  <title>Show Grid</title>
+
+  <para>
+  This option will display a grid on top of the playing surface.  The 
+  grid is useful to display because it shows the player exactly where 
+  they are placing each chip.
+  </para>
+
+  <tip>
+   <title>Tip:</title>
+   <para>
+   This option should be enabled for beginning players to see the gameplay 
+   more clearly.
+   </para>
+  </tip>
+
+ </sect2>
+
+ <sect2 id="flip-final">
+  <title>Flip Final Results</title>
+
+  <para>
+  This option moves all the black chips to the top of the board and all the 
+  white chips to the bottom of the board at the end of the game.  This allows 
+  you to visually see the outcome of the game.
+  </para>
+
+  <note>
+   <title>Note:</title>
+   <para>
+   This option does not affect the outcome of the game in any way.
+   </para>
+  </note>
+
+ </sect2>
+
+ <sect2 id="tile-set">
+  <title>Tile Set</title>
+  <para>
+  This option lets you choose the type of board and chips which are displayed.  
+  If you want to make your own tile sets use the classic tile set as a template 
+  and change the texture and colors for different effects.  When you make a new 
+  tile set that works with Iagno send to it Ian Peters <email>itp@gnu.org</email> 
+  and he will include into the next distribution.
+  </para>
+
+  <important>
+   <title>Important:</title>
+   <para>
+   There are three tile sets which look the same.  Please do not report this as 
+   a bug or you will be promptly ignored.
+   </para>
+  </important>
+
+  <figure id="animation-shot">
+   <title>The Preferences menu with the Animation tab highlighted.</title>
+   <screenshot>
+    <screeninfo>Screenshot of the animation settings.</screeninfo>
+    <graphic format="png" fileref="ANIMATION.png" srccredit="Author">
+    </graphic>
+   </screenshot>
+  </figure>
+
+ </sect2>
+
+</sect1>
+
+<sect1 id="bugs">
+ <title>Known Bugs and Limitations</title>
+
+ <itemizedlist mark="opencircle">
+  <listitem>
+   <para>
+   The computer player for Iagno is easy to beat.  Ian, the author, is working on a 
+   better computer player for version 2.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Three of the seven tile sets look the same.  If anyone has made some more tile sets 
+   send them on to Ian <email>ipeters@acm.org</email> and they will be included in version 
+   2.
+   </para>
+  </listitem>
+ </itemizedlist>
+
+</sect1>
+
+<sect1 id="credits">
+ <title>Special Credits</title>
+
+ <itemizedlist mark="opencircle">
+  <listitem>
+   <para>
+   &copy;1998 Iagno is written by Ian Peter <email>ipeters@acm.org</email> and licensed under the 
+   <ulink type="http" url="http://www.gnu.org/copyleft/gpl.html">GNU Public License</ulink> 
+   (GPL).  If you wish to view the license look at <filename>COPYING</filename>.
+   </para>
+  </listitem>
+  <listitem>
+   <para>  
+   Please send all comments, suggestions, and bug reports to the 
+   <ulink url="http://bugs.gnome.org" type="http">GNOME bug tracking database</ulink>.  
+   Instructions for submitting bug reports can be found on-line at <ulink
+   url="http://bugs.gnome.org/Reporting.html" type="http">
+   http://bugs.gnome.org/Reporting.html</ulink>. If you are using GNOME 
+   1.1 or later, you can also use command the <command>bug-buddy</command> for submitting bug reports.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   This manual was written by Eric Baudais <email>baudais@okstate.edu</email>. Please send all comments 
+   and suggestions regarding this manual to the GNOME Documentation Project at 
+   <email>docs@gnome.org</email>. 
+   </para>
+  <listitem>
+   <para>
+    Othello&reg; is a registered trademark of Anjar Company.
+    </para>
+  </listitem>
+ </itemizedlist>
+
+</sect1>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
