@@ -159,7 +159,7 @@
   <title>Starting Position</title>
   <screenshot>
    <screeninfo>Screenshot of the starting position.</screeninfo>
-   <Graphic Format="png" Fileref="START.png" srccredit="Eric Baudais">
+   <graphic format="png" fileref="figures/START" srccredit="Eric Baudais">
    </graphic>
   </screenshot>
  </figure>
@@ -176,7 +176,7 @@
   <title>First Move</title>
   <screenshot>
    <screeninfo>Screenshot of the first move.</screeninfo>
-   <Graphic Format="png" Fileref="FIRST.png" srccredit="Eric Baudais">
+   <graphic format="png" fileref="figures/FIRST" srccredit="Eric Baudais">
    </graphic>
   </screenshot>
  </figure>
@@ -196,7 +196,7 @@
   "blocking" the row.</title>
   <screenshot>
    <screeninfo>Screenshot of black blocking.</screeninfo>
-   <Graphic Format="png" Fileref="BLOCK.png" srccredit="Eric Baudais">
+   <graphic format="png" fileref="figures/BLOCK" srccredit="Eric Baudais">
    </graphic>
   </screenshot>
  </figure>
@@ -242,7 +242,7 @@
    <title>The Preferences menu with the Player tab highlighted.</title>
    <screenshot>
     <screeninfo>Screenshot of the player settings.</screeninfo>
-    <Graphic Format="png" Fileref="PLAYER.png" srccredit="Eric Baudais">
+    <graphic format="png" fileref="figures/PLAYER" srccredit="Eric Baudais">
     </graphic>
    </screenshot>
   </figure>
@@ -347,7 +347,7 @@
    <title>The Preferences menu with the Animation tab highlighted.</title>
    <screenshot>
     <screeninfo>Screenshot of the animation settings.</screeninfo>
-    <graphic format="png" fileref="ANIMATION.png" srccredit="Eric Baudais">
+    <graphic format="png" fileref="figures/ANIMATION" srccredit="Eric Baudais">
     </graphic>
    </screenshot>
   </figure>
