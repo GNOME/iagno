@@ -11,3 +11,4 @@ gnothello-game-common.c
 gnothello-game-skels.c
 gnothello-game-stubs.c
 gnothello-game.h
+built_corba_srcs
