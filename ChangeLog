@@ -1,3 +1,9 @@
+1998-10-05  Arturo Espinosa <arturo@nuclecu.unam.mx>
+
+	* gnothello.c, network.h, network.c: Erased a few warnings and
+	a missing argument for gnome_CORBA_init (shouldn't gnome_CORBA_init
+	require the same arguments as gnome_init?).
+
 1998-09-30  Ian Peters  <ipeters@acm.org>
 
 	* gnothello.c: fixed an bug with animstagger where, when playing for

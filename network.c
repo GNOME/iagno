@@ -96,7 +96,7 @@ init_server (void)
 	return gnothello_server;
 }
 
-void
+extern void
 network_init (void)
 {
 	static int inited;
@@ -124,7 +124,7 @@ network_init (void)
 	}
 }
        
-gint
+extern gint
 game_move (guint x, guint y, guint me)
 {
 	if (ior){
@@ -145,7 +145,7 @@ game_move (guint x, guint y, guint me)
 	}
 }
 
-int
+extern int
 network_allow (void)
 {
 	if (ior){
@@ -158,7 +158,7 @@ network_allow (void)
 	}
 }
 
-void
+extern void
 network_new (void)
 {
 	if (gnothello_peer)

@@ -660,7 +660,7 @@ int main(int argc, char **argv)
 
 #ifdef HAVE_ORBIT
 	CORBA_exception_init (&ev);
-	orb = gnome_CORBA_init ("gnothello", &parser, &argc, argv, 0, NULL);
+	orb = gnome_CORBA_init ("gnothello", &parser, &argc, argv, 0, NULL, &ev);
 #else
 	gnome_init("gnothello", &parser, argc, argv, 0, NULL);
 #endif
