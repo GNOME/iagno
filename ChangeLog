@@ -1,3 +1,7 @@
+2003-07-09  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* iagno.desktop.in: Update name to fit HIG (bug 116916).
+
 2003-06-20  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnothello.c: Make undo appropriately sensitive.
