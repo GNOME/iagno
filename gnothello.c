@@ -76,26 +76,20 @@ extern guint black_computer_busy;
 extern guint white_computer_busy;
 
 int session_flag = 0;
-int session_xpos = 0;
-int session_ypos = 0;
+int session_xpos = -1;
+int session_ypos = -1;
 int session_position = 0;
 
 gchar tile_set[255];
 
-static struct argp_option options[] =
-{
-	{NULL, 'x', N_("X"),   OPTION_HIDDEN, NULL, 1},
-	{NULL, 'y', N_("Y"),   OPTION_HIDDEN, NULL, 1},
+static const struct poptOption options[] = {
+  {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
+  {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
 #ifdef HAVE_ORBIT
-	{"ior",'i', N_("IOR"), 0,             N_("IOR of remote Gnothello server"), 1 },
+  {"ior", '\0', POPT_ARG_STRING, &ior, 0, N_("IOR of remote Gnothello server"),
+   N_("IOR")},
 #endif
-	{NULL, 0, NULL, 0, NULL, 0}
-};
-
-static error_t parse_args(int key, char *arg, struct argp_state *state);
-static struct argp parser =
-{
-	options, parse_args, NULL, NULL, NULL, NULL, NULL
+  {NULL, '\0', 0, NULL, 0}
 };
 
 GnomeUIInfo file_menu[] = {
@@ -184,32 +178,6 @@ GnomeUIInfo mainmenu[] = {
 	GNOMEUIINFO_SUBTREE(N_("_Help"), help_menu),
 	GNOMEUIINFO_END
 };
-
-static error_t parse_args(int key, char *arg, struct argp_state *state)
-{
-	switch(key) {
-		case 'x':
-			session_flag |= 1;
-			session_xpos = atoi(arg);
-			break;
-		case 'y':
-			session_flag |= 2;
-			session_ypos = atoi(arg);
-			break;
-#ifdef HAVE_ORBIT
-	        case 'i':
-			ior = arg;
-			break;
-#endif
-		case ARGP_KEY_SUCCESS:
-			if(session_flag == 3) session_position = 1;
-			break;
-		default:
-			return ARGP_ERR_UNKNOWN;
-	}
-
-	return 0;
-}
 
 void quit_game_cb(GtkWidget *widget, gpointer data)
 {
@@ -768,8 +736,6 @@ int main(int argc, char **argv)
 	CORBA_def(CORBA_Environment ev;)
 	struct timeval tv;
 
-	argp_program_version = GNOTHELLO_VERSION;
-
 	bindtextdomain(PACKAGE, GNOMELOCALEDIR);
 	textdomain(PACKAGE);
 
@@ -778,12 +744,12 @@ int main(int argc, char **argv)
 
 #ifdef HAVE_ORBIT
 	CORBA_exception_init (&ev);
-	orb = gnome_CORBA_init ("gnothello", &parser, &argc, argv, 0, NULL, &ev);
+	orb = gnome_CORBA_init_with_popt_table ("gnothello", VERSION, &argc, argv, options, 0, NULL, &ev);
 #else
-	gnome_init("gnothello", &parser, argc, argv, 0, NULL);
+	gnome_init_with_popt_table("gnothello", VERSION, argc, argv, options, 0, NULL);
 #endif
 
-	client = gnome_master_client();
+	client = gnome_client_new_default();
 
 	gtk_object_ref(GTK_OBJECT(client));
 	gtk_object_sink(GTK_OBJECT(client));
@@ -804,7 +770,7 @@ int main(int argc, char **argv)
 	check_valid_moves_id = gtk_timeout_add(1000, check_valid_moves, NULL);
 	check_computer_players_id = gtk_timeout_add(100, (GtkFunction)check_computer_players, NULL);
 
-	if(session_position) {
+	if(session_xpos >= 0 && session_ypos >= 0) {
 		gtk_widget_set_uposition(window, session_xpos, session_ypos);
 	}
 
