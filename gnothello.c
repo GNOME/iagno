@@ -394,7 +394,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 		return;
 	}
 
-	about = gnome_about_new(_("Iagno"), VERSION, "(C) 1998 Ian Peters",
+	about = gnome_about_new(_("Iagno"), VERSION, _("(C) 1998 Ian Peters"),
 			(const char **)authors, _("Send comments and bug reports to: itp@acm.org\nTiles under the General Public License."), NULL);
 	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
 			(gtk_widget_destroyed), &about);
