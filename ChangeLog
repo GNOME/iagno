@@ -1,3 +1,7 @@
+1998-11-29  Justin Maurer  <justin@openprojects.net>
+
+	* gnothello.c: remove right-justification of help menu
+
 1998-11-27  Arturo Espinosa <arturo@nuclecu.unam.mx>
 
 	* gnothello.c: comply with new gnorba API. Warnings.
