@@ -388,7 +388,7 @@ about_cb (GtkWidget *widget, gpointer data)
 	}
 
 	about = gnome_about_new (_("Iagno"), VERSION, 
-				 "Copyright \xc2\xa9 1998-2003 Ian Peters",
+				 "Copyright \xc2\xa9 1998-2004 Ian Peters",
 				 _("GNOME version of the popular Othello disk "
 				   "flipping game."), 
 				 (const char **)authors, 
