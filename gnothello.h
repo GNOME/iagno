@@ -19,7 +19,7 @@
  * For more details see the file COPYING.
  */
 
-#define GNOTHELLO_VERSION "0.2.0"
+#define GNOTHELLO_VERSION "0.3.0"
 #define BLACK_TURN 1
 #define WHITE_TURN 31
 #define PIXMAP_FLIP_DELAY 20
