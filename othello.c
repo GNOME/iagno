@@ -50,6 +50,9 @@ extern MoveHistory game[61];
 extern gint8 move_count;
 extern gint8 max_move_count;
 
+extern gint bcount;
+extern gint wcount;
+
 gint is_valid_move(guint x, guint y, guint me)
 {
 	gint tmp;
@@ -161,6 +164,7 @@ gint move(guint x, guint y, guint me)
 	gint adder = 0, adder_diff = 0;
 	int animate;
 	int animate_stagger;
+	gint count = 1;
 
 	new_game = 0;
 
@@ -214,6 +218,7 @@ gint move(guint x, guint y, guint me)
 				pixmaps[tmp_x][y] += adder;
 			adder += adder_diff;
 			tmp_x--;
+			count++;
 		}
 	}
 
@@ -232,6 +237,7 @@ gint move(guint x, guint y, guint me)
 				pixmaps[tmp_x][y] += adder;
 			adder += adder_diff;
 			tmp_x++;
+			count++;
 		}
 	}
 
@@ -250,6 +256,7 @@ gint move(guint x, guint y, guint me)
 				pixmaps[x][tmp_y] += adder;
 			adder += adder_diff;
 			tmp_y--;
+			count++;
 		}
 	}
 
@@ -268,6 +275,7 @@ gint move(guint x, guint y, guint me)
 				pixmaps[x][tmp_y] += adder;
 			adder += adder_diff;
 			tmp_y++;
+			count++;
 		}
 	}
 
@@ -291,6 +299,7 @@ gint move(guint x, guint y, guint me)
 			adder += adder_diff;
 			tmp_x--;
 			tmp_y--;
+			count++;
 		}
 	}
 
@@ -314,6 +323,7 @@ gint move(guint x, guint y, guint me)
 			adder += adder_diff;
 			tmp_x++;
 			tmp_y--;
+			count++;
 		}
 	}
 
@@ -337,6 +347,7 @@ gint move(guint x, guint y, guint me)
 			adder += adder_diff;
 			tmp_x--;
 			tmp_y++;
+			count++;
 		}
 	}
 
@@ -360,8 +371,19 @@ gint move(guint x, guint y, guint me)
 			adder += adder_diff;
 			tmp_x++;
 			tmp_y++;
+			count++;
 		}
 	}
+
+	if(me == BLACK_TURN) {
+		bcount += count;
+		wcount -= count - 1;
+	} else {
+		wcount += count;
+		bcount -= count - 1;
+	}
+
+	gui_status();
 
 	if(valid)
 		return(TRUE);

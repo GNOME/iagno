@@ -35,6 +35,8 @@ GtkWidget *window;
 GtkWidget *drawing_area;
 GtkWidget *statusbar;
 GtkWidget *tile_dialog;
+GtkWidget *black_score;
+GtkWidget *white_score;
 
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixmap *tiles_pixmap = NULL;
@@ -52,6 +54,9 @@ guint black_computer_id;
 guint white_computer_id;
 guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
+
+gint bcount;
+gint wcount;
 
 gint8 pixmaps[8][8] = {{0,0,0,0,0,0,0,0},
 		      {0,0,0,0,0,0,0,0},
@@ -229,6 +234,7 @@ void new_game_cb(GtkWidget *widget, gpointer data)
 void undo_move_cb(GtkWidget *widget, gpointer data)
 {
 	gint8 which_computer;
+	gint i, j;
 
 	if(black_computer_level && white_computer_level || !move_count)
 		return;
@@ -255,6 +261,19 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	}
 
 	whose_turn = game[move_count].me;
+
+	wcount = 0;
+	bcount = 0;
+
+	for(i = 0; i < 8; i++)
+		for(j = 0; j < 8; j++) {
+			if(board[i][j] == WHITE_TURN)
+				wcount++;
+			if(board[i][j] == BLACK_TURN)
+				bcount++;
+		}
+
+	gui_status();
 }
 
 void black_level_cb(GtkWidget *widget, gpointer data)
@@ -535,7 +554,7 @@ void load_pixmaps()
 	g_free(tmp);
 
 	if(!g_file_exists(fname)) {
-		g_print(N_("Could not find \'%s\' pixmap file for Gnothello\n"), fname);
+		g_print(_("Could not find \'%s\' pixmap file for Gnothello\n"), fname);
 		exit(1);
 	}
 
@@ -629,6 +648,11 @@ void init_new_game()
 	board[4][3] = BLACK_TURN;
 	board[4][4] = WHITE_TURN;
 
+	bcount = 2;
+	wcount = 2;
+
+	gui_status();
+
 	memcpy(pixmaps, board, sizeof(gint8) * 8 * 8);
 	memcpy(game[0].board, board, sizeof(gint8) * 8 * 8);
 
@@ -640,20 +664,21 @@ void init_new_game()
 	whose_turn = BLACK_TURN;
 	black_computer_busy = 0;
 	white_computer_busy = 0;
-	gui_message(N_("  Black's turn..."));
+	gui_message(_("  Black's turn..."));
 }
 
 void create_window()
 {
-	window = gnome_app_new("gnothello", N_("Gnome Othello"));
+	GtkWidget *vbox;
+	GtkWidget *frame;
+	GtkWidget *box;
+
+	window = gnome_app_new("gnothello", _("Gnome Othello"));
 
 	gtk_widget_realize(window);
 	gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE);
 	gtk_signal_connect(GTK_OBJECT(window), "delete_event", GTK_SIGNAL_FUNC(quit_game_cb), NULL);
-}
 
-void create_menus()
-{
 	gnome_app_create_menus(GNOME_APP(window), mainmenu);
 
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(comp_menu[3].widget), gnome_config_get_bool("/gnothello/Preferences/quickmoves=FALSE"));
@@ -661,32 +686,84 @@ void create_menus()
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(anim_radio_list[gnome_config_get_int("/gnothello/Preferences/animate=2")].widget), TRUE);
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(black_level_radio_list[gnome_config_get_int("/gnothello/Preferences/blacklevel=0")].widget), TRUE);
 	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(white_level_radio_list[gnome_config_get_int("/gnothello/Preferences/whitelevel=0")].widget), TRUE);
-}
 
-void create_drawing_area()
-{
 	gtk_widget_push_visual (gdk_imlib_get_visual ());
 	gtk_widget_push_colormap (gdk_imlib_get_colormap ());
 	drawing_area = gtk_drawing_area_new();
 	gtk_widget_pop_colormap ();
 	gtk_widget_pop_visual ();
+
+	vbox = gtk_vbox_new(FALSE, 5);
+	gtk_container_border_width(GTK_CONTAINER(vbox), 5);
+	gtk_widget_show(vbox);
+	gnome_app_set_contents(GNOME_APP(window), vbox);
+
+	frame = gtk_frame_new(NULL);
+	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
+	gtk_container_border_width(GTK_CONTAINER(frame), 0);
+	gtk_widget_show(frame);
+	gtk_box_pack_start(GTK_BOX(vbox), frame, TRUE, TRUE, 0);
 	
-	gnome_app_set_contents(GNOME_APP(window), drawing_area);
+	gtk_container_add(GTK_CONTAINER(frame), drawing_area);
 	gtk_drawing_area_size(GTK_DRAWING_AREA(drawing_area), BOARDWIDTH, BOARDHEIGHT);
 	gtk_signal_connect(GTK_OBJECT(drawing_area), "expose_event", GTK_SIGNAL_FUNC(expose_event), NULL);
 	gtk_signal_connect(GTK_OBJECT(drawing_area), "configure_event", GTK_SIGNAL_FUNC(configure_event), NULL);
 	gtk_signal_connect(GTK_OBJECT(drawing_area), "button_press_event", GTK_SIGNAL_FUNC(button_press_event), NULL);
 	gtk_widget_set_events(drawing_area, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
 	gtk_widget_show(drawing_area);
-}
 
-void create_statusbar()
-{
+	box = gtk_hbox_new(FALSE, 5);
+	gtk_widget_show(box);
+
+	frame = gtk_frame_new(NULL);
+	gtk_container_border_width(GTK_CONTAINER(frame), 0);
+	gtk_widget_show(frame);
+
 	statusbar = gtk_statusbar_new();
 	gtk_widget_show(statusbar);
 	statusbar_id = gtk_statusbar_get_context_id(GTK_STATUSBAR(statusbar), "gnothello");
-	gnome_app_set_statusbar(GNOME_APP(window), statusbar);
+
+//	gtk_container_add(GTK_CONTAINER(frame), statusbar);
+
+	gtk_box_pack_start(GTK_BOX(box), statusbar, TRUE, TRUE, 0);
+
+	frame = gtk_frame_new(NULL);
+	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
+	gtk_container_border_width(GTK_CONTAINER(frame), 0);
+	gtk_widget_show(frame);
+
+	black_score = gtk_label_new(_("  Black: 00  "));
+	gtk_widget_show(black_score);
+
+	gtk_container_add(GTK_CONTAINER(frame), black_score);
+
+	gtk_box_pack_start(GTK_BOX(box), frame, FALSE, TRUE, 0);
+
+	frame = gtk_frame_new(NULL);
+	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_IN);
+	gtk_container_border_width(GTK_CONTAINER(frame), 0);
+	gtk_widget_show(frame);
+
+	white_score = gtk_label_new(_("  White: 00  "));
+	gtk_widget_show(white_score);
+
+	gtk_container_add(GTK_CONTAINER(frame), white_score);
+
+	gtk_box_pack_start(GTK_BOX(box), frame, FALSE, TRUE, 0);
+
+	gtk_box_pack_start(GTK_BOX(vbox), box, TRUE, TRUE, 0);
+
 	gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, _("  Welcome to Gnome Othello!"));
+}
+
+void gui_status()
+{
+	gchar message[100];
+
+	sprintf(message, _("  Black: %.2d  "), bcount);
+	gtk_label_set(GTK_LABEL(black_score), message);
+	sprintf(message, _("  White: %.2d  "), wcount);
+	gtk_label_set(GTK_LABEL(white_score), message);
 }
 
 void gui_message(gchar *message)
@@ -812,9 +889,6 @@ int main(int argc, char **argv)
 	gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
 	
 	create_window();
-	create_menus();
-	create_drawing_area();
-	create_statusbar();
 
 	strncpy(tile_set, gnome_config_get_string("/gnothello/preferences/tileset=flip.png"), 255);
 	load_pixmaps();
