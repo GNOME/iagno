@@ -7,7 +7,7 @@ figs = \
 docname = iagno
 lang = C
 omffile = iagno-C.omf
-entities = 
+entities = legal.xml
 include $(top_srcdir)/xmldocs.make
 dist-hook: app-dist-hook
 
