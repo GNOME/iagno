@@ -345,13 +345,11 @@ void anim_stagger_cb(GtkWidget *widget, gpointer data)
 void load_tiles_cb(GtkWidget *widget, gpointer data)
 {
 	GtkWidget *menu, *options_menu, *frame, *hbox, *label, *button;
-	GtkDialog *dialog;
 
 	if (tile_dialog)
 		return;
 
-	tile_dialog = gtk_dialog_new();
-	dialog = GTK_DIALOG(tile_dialog);
+	tile_dialog = gnome_dialog_new(_("Load Tile Set"), GNOME_STOCK_BUTTON_OK, GNOME_STOCK_BUTTON_CANCEL, NULL);
 	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event", (GtkSignalFunc)cancel, NULL);
 
 	options_menu = gtk_option_menu_new();
@@ -361,7 +359,7 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(options_menu), menu);
 
 	frame = gtk_frame_new(_("Tile Set"));
-	gtk_container_border_width(GTK_CONTAINER(frame), 5);
+//	gtk_container_border_width(GTK_CONTAINER(frame), 5);
 
 	hbox = gtk_hbox_new(FALSE, FALSE);
 	gtk_container_border_width(GTK_CONTAINER(hbox), 5);
@@ -376,19 +374,10 @@ void load_tiles_cb(GtkWidget *widget, gpointer data)
 	gtk_container_add(GTK_CONTAINER(frame), hbox);
 	gtk_widget_show(frame);
 
-	gtk_box_pack_start_defaults(GTK_BOX(dialog->vbox), frame);
+	gtk_box_pack_start_defaults(GTK_BOX(GNOME_DIALOG(tile_dialog)->vbox), frame);
 
-	button = gnome_stock_button(GNOME_STOCK_BUTTON_OK);
-	gtk_signal_connect(GTK_OBJECT(button), "clicked",
-	                   GTK_SIGNAL_FUNC(load_tiles_callback), NULL);
-	gtk_box_pack_start(GTK_BOX(dialog->action_area), button, TRUE, TRUE, 5);
-	gtk_widget_show(button);
-	button = gnome_stock_button(GNOME_STOCK_BUTTON_CANCEL);
-	gtk_signal_connect(GTK_OBJECT(button), "clicked",
-	                   (GtkSignalFunc)cancel,
-	                   (gpointer)1);
-	gtk_box_pack_start(GTK_BOX(dialog->action_area), button, TRUE, TRUE, 5);
-	gtk_widget_show(button);
+	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 0, GTK_SIGNAL_FUNC(cancel), (gpointer)1);
+	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 1, GTK_SIGNAL_FUNC(load_tiles_callback), NULL);
 
 	gtk_widget_show (tile_dialog);
 }
