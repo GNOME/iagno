@@ -1,3 +1,8 @@
+2003-06-17  William Jon McCann  <mccann@jhu.edu>
+
+	* gnothello.c (load_pixmaps): Use g_build_filename to
+	construct paths.
+
 2003-06-13  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnothello.c: Removing "Are you sure" questions.

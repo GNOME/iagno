@@ -479,19 +479,19 @@ void load_pixmaps()
 {
 	GdkPixbuf *image;
 	GError    *error = NULL;
-	char      *tmp;
-	char      *fname;
+	gchar      *tmp;
+	gchar      *fname;
 
 	g_return_if_fail (tile_set != NULL && tile_set [0] != '0');
 
-	tmp = g_strconcat("iagno/", tile_set, NULL);
+	tmp = g_build_filename ("iagno", tile_set, NULL);
 	fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_PIXMAP,
-			tmp, FALSE, NULL);
+                                           tmp, FALSE, NULL);
 	g_free(tmp);
 
-	if(!g_file_test(fname, G_FILE_TEST_EXISTS|G_FILE_TEST_IS_REGULAR)) {
-		g_print(_("Could not find \'%s\' pixmap file for Iagno\n"), fname);
-		exit(1);
+	if(! g_file_test (fname, G_FILE_TEST_EXISTS|G_FILE_TEST_IS_REGULAR)) {
+		g_print (_("Could not find \'%s\' pixmap file for Iagno\n"), fname);
+		exit (1);
 	}
 
 	image = gdk_pixbuf_new_from_file(fname, &error);
