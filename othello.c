@@ -66,6 +66,11 @@ extern gint8 move_count;
 extern gint bcount;
 extern gint wcount;
 
+extern gint milliseconds_total;
+extern gint milliseconds_current_start;
+
+extern gint timer_update_id;
+
 // Wrapper for is_valid_move_board, to maintain API for CORBA stuff
 
 gint is_valid_move(guint x, guint y, guint me)
@@ -202,10 +207,18 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 		if(whose_turn == WHITE_TURN) {
 			whose_turn = BLACK_TURN;
-			gui_message(_("Black's move"));
+			gui_message(_("Dark's move"));
+			if(!white_computer_level) {
+				timer_end();
+//				gtk_timeout_remove(timer_update_id);
+			}
 		} else {
 			whose_turn = WHITE_TURN;
-			gui_message(_("White's move"));
+			gui_message(_("Light's move"));
+			if(!black_computer_level) {
+				timer_end();
+//				gtk_timeout_remove(timer_update_id);
+			}
 		}
 
 		pixmaps[x][y] = me;
@@ -412,6 +425,15 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 		gui_status();
 
+		if(not_me == BLACK_TURN && !black_computer_level) {
+			timer_start();
+//			timer_update_id = gtk_timeout_add(1000, timer_update, NULL);
+		}
+		if(not_me == WHITE_TURN && !white_computer_level) {
+			timer_start();
+//			timer_update_id = gtk_timeout_add(1000, timer_update, NULL);
+		}
+
 		// Check for end of game or pass situations
 
 		check_valid_moves();
@@ -588,12 +610,14 @@ gint check_valid_moves()
 	}
 
 	if(!white_moves && !black_moves) {
+		timer_end();
+		gtk_timeout_remove(timer_update_id);
 		white_moves = count_pieces(WHITE_TURN);
 		black_moves = count_pieces(BLACK_TURN);
 		if(white_moves > black_moves)
-			gui_message(_("White player wins!"));
+			gui_message(_("Light player wins!"));
 		if(black_moves > white_moves)
-			gui_message(_("Black player wins!"));
+			gui_message(_("Dark player wins!"));
 		if(white_moves == black_moves)
 			gui_message(_("The game was a draw."));
 		whose_turn = 0;
@@ -603,14 +627,24 @@ gint check_valid_moves()
 	}
 
 	if(whose_turn == WHITE_TURN) {
-		gui_message(_("White must pass, Black's move"));
+		gui_message(_("Light must pass, Dark's move"));
 		whose_turn = BLACK_TURN;
+		if(white_computer_level ^ black_computer_level)
+			if(!black_computer_level)
+				timer_start();
+			else
+				timer_end();
 		return(TRUE);
 	}
 
 	if(whose_turn == BLACK_TURN) {
-		gui_message(_("Black must pass, White's move"));
+		gui_message(_("Dark must pass, Light's move"));
 		whose_turn = WHITE_TURN;
+		if(white_computer_level ^ black_computer_level)
+			if(!white_computer_level)
+				timer_start();
+			else
+				timer_end();
 		return(TRUE);
 	}
 

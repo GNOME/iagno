@@ -34,7 +34,8 @@ gnothello_LDADD = \
 
 pixmap_DATA = \
 	classic.png \
-	metal.png
+	metal.png \
+	woodtrim.png
 
 appicon_DATA = gnothello.png
 

@@ -55,6 +55,11 @@ guint white_computer_id;
 guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
 
+gint milliseconds_total = 0;
+gint milliseconds_current_start = 0;
+
+gint timer_update_id;
+
 gint bcount;
 gint wcount;
 
@@ -136,8 +141,8 @@ GnomeUIInfo white_level_menu[] = {
 };
 
 GnomeUIInfo comp_menu[] = {
-	{ GNOME_APP_UI_SUBTREE, N_("_Black"), NULL, black_level_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
-	{ GNOME_APP_UI_SUBTREE, N_("_White"), NULL, white_level_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
+	{ GNOME_APP_UI_SUBTREE, N_("_Dark"), NULL, black_level_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
+	{ GNOME_APP_UI_SUBTREE, N_("_Light"), NULL, white_level_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, (GdkModifierType) 0, GDK_CONTROL_MASK },
 	GNOMEUIINFO_SEPARATOR,
 	{ GNOME_APP_UI_TOGGLEITEM, N_("_Quick Moves"), "Computer makes quick moves", quick_moves_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
@@ -237,8 +242,7 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	if(black_computer_level && white_computer_level || !move_count)
 		return;
 
-	if(flip_final_id)
-		gtk_timeout_remove(flip_final_id);
+	gtk_timeout_remove(flip_final_id);
 
 	if(black_computer_level || white_computer_level) {
 		if(black_computer_level)
@@ -261,9 +265,9 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	whose_turn = game[move_count].me;
 
 	if(whose_turn == WHITE_TURN)
-		gui_message(_("White's move"));
+		gui_message(_("Light's move"));
 	else
-		gui_message(_("Black's move"));
+		gui_message(_("Dark's move"));
 
 	wcount = 0;
 	bcount = 0;
@@ -277,6 +281,12 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 		}
 
 	gui_status();
+
+	gtk_timeout_remove(timer_update_id);
+	gtk_widget_set_sensitive(time_display, FALSE);
+	milliseconds_total = 0;
+	milliseconds_current_start = 0;
+	timer_update(NULL);
 }
 
 void black_level_cb(GtkWidget *widget, gpointer data)
@@ -289,6 +299,14 @@ void black_level_cb(GtkWidget *widget, gpointer data)
 	gnome_config_sync();
 
 	black_computer_level = tmp;
+
+	if(!new_game) {
+		gtk_timeout_remove(timer_update_id);
+		gtk_widget_set_sensitive(time_display, FALSE);
+		milliseconds_total = 0;
+		milliseconds_current_start = 0;
+		timer_update(NULL);
+	}
 }
 
 void white_level_cb(GtkWidget *widget, gpointer data)
@@ -301,6 +319,14 @@ void white_level_cb(GtkWidget *widget, gpointer data)
 	gnome_config_sync();
 
 	white_computer_level = tmp;
+
+	if(!new_game) {
+		gtk_timeout_remove(timer_update_id);
+		gtk_widget_set_sensitive(time_display, FALSE);
+		milliseconds_total = 0;
+		milliseconds_current_start = 0;
+		timer_update(NULL);
+	}
 }
 
 void anim_cb(GtkWidget *widget, gpointer data)
@@ -667,7 +693,22 @@ void init_new_game()
 	whose_turn = BLACK_TURN;
 	black_computer_busy = 0;
 	white_computer_busy = 0;
-	gui_message(_("Black's move"));
+	gui_message(_("Dark's move"));
+
+	milliseconds_total = 0;
+	milliseconds_current_start = 0;
+
+	if(black_computer_level ^ white_computer_level) {
+		if(!black_computer_level)
+			timer_start();
+		gtk_widget_set_sensitive(time_display, TRUE);
+		timer_update_id = gtk_timeout_add(100, timer_update, NULL);
+		timer_update(NULL);
+	} else {
+		gtk_widget_set_sensitive(time_display, FALSE);
+		gtk_timeout_remove(timer_update_id);
+		timer_update(NULL);
+	}
 }
 
 void create_window()
@@ -735,7 +776,7 @@ void create_window()
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
 
-	sprintf(tmp, _("  Black: %.2d  "), 0);
+	sprintf(tmp, _("  Dark: %.2d  "), 0);
 	black_score = gtk_label_new(tmp);
 	gtk_widget_show(black_score);
 
@@ -748,7 +789,7 @@ void create_window()
 	gtk_container_border_width(GTK_CONTAINER(frame), 0);
 	gtk_widget_show(frame);
 
-	sprintf(tmp, _("  White: %.2d  "), 0);
+	sprintf(tmp, _("  Light: %.2d  "), 0);
 	white_score = gtk_label_new(tmp);
 	gtk_widget_show(white_score);
 
@@ -779,9 +820,9 @@ void gui_status()
 {
 	gchar message[100];
 
-	sprintf(message, _("  Black: %.2d  "), bcount);
+	sprintf(message, _("  Dark: %.2d  "), bcount);
 	gtk_label_set(GTK_LABEL(black_score), message);
-	sprintf(message, _("  White: %.2d  "), wcount);
+	sprintf(message, _("  Light: %.2d  "), wcount);
 	gtk_label_set(GTK_LABEL(white_score), message);
 }
 
@@ -878,6 +919,56 @@ static int save_state(GnomeClient *client, gint phase, GnomeRestartStyle save_st
 	free(argv[4]);
 
 	return TRUE;
+}
+
+void timer_start()
+{
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+	milliseconds_current_start = 1000000 * tv.tv_sec + tv.tv_usec;
+
+//	gtk_widget_set_sensitive(time_display, TRUE);
+}
+
+void timer_end()
+{
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+	milliseconds_total += (1000000 * tv.tv_sec + tv.tv_usec) - milliseconds_current_start;
+	milliseconds_current_start = 0;
+
+//	gtk_widget_set_sensitive(time_display, FALSE);
+}
+
+gint timer_update(gpointer data)
+{
+	gint seconds;
+	struct timeval tv;
+	gint sec, min, hour;
+	char tmp[100];
+	gchar *tmp2;
+
+	if(milliseconds_current_start) {
+		gettimeofday(&tv, NULL);
+
+		seconds = milliseconds_total + (1000000 * tv.tv_sec + tv.tv_usec) - milliseconds_current_start;
+		seconds /= 1000000;
+	} else {
+		seconds = milliseconds_total / 1000000;
+	}
+
+	sec = seconds % 60;
+	min = (seconds / 60) % 60;
+	hour = seconds / 3600;
+
+	sprintf(tmp, " %.2d:%.2d:%.2d ", hour, min, sec);
+	gtk_label_get(GTK_LABEL(time_display), &tmp2);
+	if(strncmp(tmp, tmp2, 12))
+		gtk_label_set(GTK_LABEL(time_display), tmp);
+
+	return(TRUE);
 }
 
 int main(int argc, char **argv)

@@ -72,5 +72,8 @@ void gui_status();
 void gui_message(gchar *message);
 guint check_computer_players();
 void load_pixmaps();
+void timer_start();
+void timer_end();
+gint timer_update(gpointer data);
 
 extern guint whose_turn;
