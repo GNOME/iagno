@@ -1,16 +1,17 @@
 [Desktop Entry]
 Icon=gnothello.png
 Name=Gnothello
-Name[es]=Gnothello
 Name[de]=Gnothello
-Name[ko]=Gnothello
+Name[es]=Gnothello
 Name[fr]=Gnothello
+Name[ko]=Gnothello
 Name[no]=Gnothello
 Name[pt]=Gnothello
 Comment=Gnome Othello game
+Comment[de]=Gnome Othello Spiele
 Comment[es]=Juego Gnome Othello
-Comment[de]=Gnome Othello game
 Comment[fr]=Jeu Gnome Othello
+Comment[ko]=Gnome ¿Àµ¨·Î
 Comment[no]=Gnome Othello game
 Comment[pt]=Versão Gnome do jogo Othello
 Exec=gnothello
