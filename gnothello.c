@@ -99,7 +99,7 @@ static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
   {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
 #ifdef HAVE_ORBIT
-  {"ior", '\0', POPT_ARG_STRING, &ior, 0, N_("IOR of remote Gnothello server"),
+  {"ior", '\0', POPT_ARG_STRING, &ior, 0, N_("IOR of remote Reversi server"),
    N_("IOR")},
 #endif
   {NULL, '\0', 0, NULL, 0}
@@ -444,7 +444,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 
 	const gchar *authors[] = {"Ian Peters", NULL};
 
-	about = gnome_about_new(_("Gnothello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
+	about = gnome_about_new(_("Reversi"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
 	gnome_dialog_set_parent(GNOME_DIALOG(about), GTK_WINDOW(window));
 	gtk_window_set_modal(GTK_WINDOW(about), TRUE);
 
@@ -674,7 +674,7 @@ void load_pixmaps()
 	g_free(tmp);
 
 	if(!g_file_exists(fname)) {
-		g_print(_("Could not find \'%s\' pixmap file for Gnothello\n"), fname);
+		g_print(_("Could not find \'%s\' pixmap file for Reversi\n"), fname);
 		exit(1);
 	}
 
@@ -819,7 +819,7 @@ void create_window()
 	GtkWidget *table;
 	GtkWidget *sep;
 
-	window = gnome_app_new("gnothello", _("Gnothello"));
+	window = gnome_app_new("gnothello", _("Reversi"));
 
 	gtk_widget_realize(window);
 	gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE);
@@ -899,7 +899,7 @@ void create_window()
 	gtk_box_pack_start(GTK_BOX(appbar), table, FALSE, TRUE, 0);
 
 	gnome_appbar_set_status(GNOME_APPBAR (appbar),
-				_("Welcome to Gnothello!"));
+				_("Welcome to Reversi!"));
 }
 
 void gui_status()

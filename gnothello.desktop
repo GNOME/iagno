@@ -1,19 +1,19 @@
 [Desktop Entry]
 Icon=gnothello.png
-Name=Gnothello
+Name=GNOME Reversi game
 Name[de]=Gnothello
 Name[es]=Gnothello
 Name[fr]=Gnothello
 Name[ko]=Gnothello
 Name[no]=Gnothello
 Name[pt]=Gnothello
-Comment=Gnome Othello game
-Comment[de]=Gnome Othello Spiele
-Comment[es]=Juego Gnome Othello
-Comment[fr]=Jeu GNOME Othello
+Comment=Gnome Reversi game
+Comment[de]=Gnome Reversi Spiele
+Comment[es]=Juego Gnome Reversi
+Comment[fr]=Jeu GNOME Reversi
 Comment[ko]=Gnome ¿Àµ¨·Î
-Comment[no]=Gnome Othello game
-Comment[pt]=Versão Gnome do jogo Othello
-Exec=gnothello
+Comment[no]=Gnome Reversi game
+Comment[pt]=Versão Gnome do jogo Reversi
+Exec=reversi
 Terminal=0
 Type=Application
