@@ -53,7 +53,7 @@ extern guint black_computer_level;
 extern guint white_computer_level;
 
 extern guint whose_turn;
-extern guint new_game;
+extern guint game_in_progress;
 
 extern gint8 pixmaps[8][8];
 extern gint8 board[8][8];
@@ -186,10 +186,6 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 	int animate = 0;
 	int animate_stagger = 0;
 	gint count = 1;
-
-	/* Just in case we didn't know this, a game is in progress */
-
-	new_game = 0;
 
 	/* Stuff to do if this is a ``real'' move */
 
@@ -575,7 +571,7 @@ gint check_valid_moves()
 	guint white_moves = 0;
 	guint black_moves = 0;
 
-	if(new_game)
+	if(!game_in_progress)
 		return(TRUE);
 
 	switch(whose_turn) {
@@ -623,7 +619,7 @@ gint check_valid_moves()
 		if(white_moves == black_moves)
 			gui_message(_("The game was a draw."));
 		whose_turn = 0;
-		new_game = 1;
+		game_in_progress = 0;
 		flip_final_id = gtk_timeout_add(3000, flip_final_results, NULL);
 		return(TRUE);
 	}
