@@ -316,7 +316,9 @@ void show_properties_dialog ()
 	gtk_widget_show (label);
 	
 	table = gtk_table_new (2, 2, FALSE);
-	gtk_container_border_width (GTK_CONTAINER (table), GNOME_PAD_SMALL);
+	gtk_container_border_width (GTK_CONTAINER (table), GNOME_PAD);
+	gtk_table_set_row_spacings (GTK_TABLE (table), GNOME_PAD);
+	gtk_table_set_col_spacings (GTK_TABLE (table), GNOME_PAD);
 	gtk_widget_show (table);
 	
 	button = gtk_check_button_new_with_label (_("Quick Moves"));
@@ -327,14 +329,13 @@ void show_properties_dialog ()
 	gtk_widget_show (button);
 	
 	gtk_table_attach (GTK_TABLE (table), button, 0, 2, 1, 2,
-			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
-			GNOME_PAD_SMALL, GNOME_PAD_SMALL);
+			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
 	
 	frame = gtk_frame_new (_("Dark"));
 	gtk_widget_show (frame);
 	
 	vbox = gtk_vbox_new (TRUE, 0);
-	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD_SMALL);
+	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
 	gtk_widget_show (vbox);
 	
 	button = gtk_radio_button_new_with_label (NULL, _("Human"));
@@ -380,14 +381,13 @@ void show_properties_dialog ()
 	gtk_container_add (GTK_CONTAINER (frame), vbox);
 
 	gtk_table_attach (GTK_TABLE (table), frame, 0, 1, 0, 1,
-			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
-			GNOME_PAD_SMALL, GNOME_PAD_SMALL);
+			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
 	
 	frame = gtk_frame_new (_("Light"));
 	gtk_widget_show (frame);
 	
 	vbox = gtk_vbox_new (TRUE, 0);
-	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD_SMALL);
+	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
 	gtk_widget_show (vbox);
 	
 	button = gtk_radio_button_new_with_label (NULL, _("Human"));
@@ -433,8 +433,7 @@ void show_properties_dialog ()
 	gtk_container_add (GTK_CONTAINER (frame), vbox);
 
 	gtk_table_attach (GTK_TABLE (table), frame, 1, 2, 0, 1,
-			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
-			GNOME_PAD_SMALL, GNOME_PAD_SMALL);
+			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
 	
 	gnome_property_box_append_page (GNOME_PROPERTY_BOX (propbox), table,
 			label);
@@ -443,14 +442,16 @@ void show_properties_dialog ()
 	gtk_widget_show (label);
 	
 	table = gtk_table_new (1, 2, FALSE);
-	gtk_container_border_width (GTK_CONTAINER (table), GNOME_PAD_SMALL);
+	gtk_container_border_width (GTK_CONTAINER (table), GNOME_PAD);
+	gtk_table_set_row_spacings (GTK_TABLE (table), GNOME_PAD);
+	gtk_table_set_col_spacings (GTK_TABLE (table), GNOME_PAD);
 	gtk_widget_show (table);
 	
 	frame = gtk_frame_new (NULL);
 	gtk_widget_show (frame);
 	
 	vbox = gtk_vbox_new (TRUE, 0);
-	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD_SMALL);
+	gtk_container_border_width (GTK_CONTAINER (vbox), GNOME_PAD);
 	gtk_widget_show (vbox);
 	
 	button = gtk_radio_button_new_with_label (NULL, _("None"));
@@ -483,10 +484,9 @@ void show_properties_dialog ()
 	gtk_container_add (GTK_CONTAINER (frame), vbox);
 
 	gtk_table_attach (GTK_TABLE (table), frame, 0, 1, 0, 1,
-			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
-			GNOME_PAD_SMALL, GNOME_PAD_SMALL);
+			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
 	
-	vbox = gtk_vbox_new (TRUE, 0);
+	vbox = gtk_vbox_new (TRUE, GNOME_PAD);
 	gtk_widget_show (vbox);
 	
 	button = gtk_check_button_new_with_label (_("Stagger flips"));
@@ -507,7 +507,7 @@ void show_properties_dialog ()
 
 	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 	
-	hbox = gtk_hbox_new (FALSE, GNOME_PAD_SMALL);
+	hbox = gtk_hbox_new (FALSE, GNOME_PAD);
 	gtk_widget_show (hbox);
 	
 	label2 = gtk_label_new (_("Tile set:"));
@@ -526,8 +526,7 @@ void show_properties_dialog ()
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 	
 	gtk_table_attach (GTK_TABLE (table), vbox, 1, 2, 0, 1,
-			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL,
-			GNOME_PAD_SMALL, GNOME_PAD_SMALL);
+			GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 0, 0);
 	
 	gnome_property_box_append_page (GNOME_PROPERTY_BOX (propbox), table,
 			label);
