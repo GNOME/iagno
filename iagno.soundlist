@@ -2,9 +2,9 @@
 description=Iagno
 
 [gameover]
-file=gnothello/gameover.wav
+file=iagno/gameover.wav
 description=Game over
 
 [flip-piece]
-file=gnothello/flip-piece.wav
+file=iagno/flip-piece.wav
 description=Piece flipping

@@ -80,3 +80,5 @@ install-data-local:
 
 soundlistdir = $(sysconfdir)/sound/events
 soundlist_DATA = iagno.soundlist
+
+SUBDIRS=sounds
