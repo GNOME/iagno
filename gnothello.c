@@ -535,7 +535,7 @@ load_pixmaps (void)
 
 	if (! g_file_test (fname,
 			   G_FILE_TEST_EXISTS | G_FILE_TEST_IS_REGULAR)) {
-		g_print (_("Could not find \'%s\' pixmap file for Iagno\n"), fname);
+		g_print (_("Could not find \'%s\' pixmap file\n"), fname);
 		exit (1);
 	}
 

@@ -1,3 +1,8 @@
+2004-07-20  Christian Neumair  <chris@gnome-de.org>
+
+	* gnothello.c (load_pixmaps): Assimilate gettextized warning to other
+	ones.
+
 2004-07-20  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* network.c:
