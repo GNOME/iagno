@@ -12,7 +12,7 @@
 
 	* gnothello.c (about_cb): 
 	* properties.c: Use gtk_window_present to show the dialogs.
-	Fixes bug #113895, thanks Steve.
+	Fixes bug #113895, thanks to Steve Chaplin.
 
 2003-04-30  Abel Cheung  <maddog@linux.org.hk>
 
