@@ -458,8 +458,12 @@ void load_tiles_callback(GtkWidget *widget, void *data)
 	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
 	load_pixmaps();
 	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++)
-			gui_draw_pixmap(pixmaps[i][j], i, j);
+		for(j = 0; j < 8; j++) {
+			if(pixmaps[i][j] >= BLACK_TURN && pixmaps[i][j] <= WHITE_TURN)
+				gui_draw_pixmap(pixmaps[i][j], i, j);
+			else
+				gui_draw_pixmap(0, i, j);
+		}
 }
 
 void fill_menu(GtkWidget *menu)

@@ -35,6 +35,7 @@ gnothello_LDADD = \
 pixmap_DATA = \
 	blend.png \
 	classic.png \
+	flipblend.png \
 	metal.png \
 	metal2.png \
 	shrink.png \
