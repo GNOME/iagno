@@ -1,10 +1,17 @@
 iagno_helpdir = $(datadir)/gnome/help/iagno/C
 
+figs = \
+	ANIMATION.png \
+	BLOCK.png \
+	FIRST.png \
+	PLAYER.png \
+	START.png
+
 iagno_help_DATA = 	\
 	index.html		\
 	topic.dat
 
-EXTRA_DIST = iagno.sgml $(iagno_help_DATA)
+EXTRA_DIST = iagno.sgml $(iagno_help_DATA) $(figs)
 
 all: index.html
 
@@ -18,7 +25,7 @@ iagno/index.html: iagno.sgml
 dist-hook:
 	-mkdir $(distdir)/iagno
 	-mkdir $(distdir)/iagno/stylesheet-images
-	cp $(srcdir)/iagno/*.html $(srcdir)/*.png $(distdir)/iagno
+	cp $(srcdir)/iagno/*.html $(distdir)/iagno
 	cp -R $(srcdir)/iagno/stylesheet-images/*.png $(distdir)/iagno/stylesheet-images
 	cp $(srcdir)/iagno/*.css $(distdir)/iagno
 
