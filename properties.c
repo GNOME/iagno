@@ -373,7 +373,7 @@ void fill_menu(GtkWidget *menu)
         int itemno = 0;
 
 	dname = gnome_program_locate_file (NULL,
-			GNOME_FILE_DOMAIN_PIXMAP,  "iagno", FALSE, NULL);
+			GNOME_FILE_DOMAIN_APP_PIXMAP,  "iagno", FALSE, NULL);
         dir = opendir(dname);
 
         if(!dir)

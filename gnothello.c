@@ -414,7 +414,7 @@ void about_cb(GtkWidget *widget, gpointer data)
 		char *filename = NULL;
 
 		filename = gnome_program_locate_file (NULL,
-				GNOME_FILE_DOMAIN_PIXMAP,  ("iagno.png"),
+				GNOME_FILE_DOMAIN_APP_PIXMAP,  ("iagno.png"),
 				TRUE, NULL);
 		if (filename != NULL)
 		{
@@ -524,7 +524,7 @@ void load_pixmaps()
 	g_return_if_fail (tile_set != NULL && tile_set [0] != '0');
 
 	tmp = g_strconcat("iagno/", tile_set, NULL);
-	fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP,
+	fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_PIXMAP,
 			tmp, FALSE, NULL);
 	g_free(tmp);
 
