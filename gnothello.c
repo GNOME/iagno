@@ -353,8 +353,6 @@ void load_tiles_callback(GtkWidget *widget, void *data)
 {
 	gint i, j;
 
-	printf("Me called first!\n");
-
 	cancel(0,0);
 	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
 	load_pixmaps();
@@ -478,8 +476,6 @@ void load_pixmaps()
 	char *fname;
 	GdkImlibImage *image;
 	GdkVisual *visual;
-
-	printf("I was called\n");
 
 	tmp = g_copy_strings("gnothello/", tile_set, NULL);
 	fname = gnome_unconditional_pixmap_file(tmp);
