@@ -1,6 +1,7 @@
 [__section_info__]
 description=Iagno
 description[ko]=ÀÌ¾Æ±×³ë
+description[no]=Iagno
 
 [gameover]
 file=iagno/gameover.wav
@@ -9,6 +10,7 @@ description[ca]=Fi del joc
 description[es]=Fin del juego
 description[fr]=Fin du jeu
 description[ko]=°ÔÀÓ ³¡
+description[no]=Spillet over
 
 [flip-piece]
 file=iagno/flip-piece.wav
@@ -17,3 +19,4 @@ description[ca]=Peces giravoltant
 description[es]=Cambio de las piezas
 description[fr]=Changement des pièces
 description[ko]=µ¹ µÚÁý±â
+description[no]=Vending av brikke
