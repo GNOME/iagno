@@ -1,5 +1,6 @@
 pixmapdir=$(datadir)/pixmaps/gnothello
 Gamesdir = $(datadir)/apps/Games
+appicondir=$(datadir)/share/pixmaps
 
 INCLUDES = 			\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
@@ -31,11 +32,14 @@ gnothello_LDADD = \
 
 pixmap_DATA = tiles.png
 
+appicon_DATA = gnothello.png
+
 Games_DATA = gnothello.desktop
 
 EXTRA_DIST = AUTHORS \
              gnothello.desktop \
              $(pixmap_DATA)
+	     $(appicon_DATA)
 
 install-data-local:
 	-chgrp games $(bindir)/gnothello && chmod 2111 $(bindir)/gnothello
