@@ -20,7 +20,6 @@
 #include <netinet/in.h>
 #include <errno.h>
 #include <netdb.h>
-#include "gnothello-game.h"
 #include "othello.h"
 #include "gnothello.h"
 #include "network.h"
