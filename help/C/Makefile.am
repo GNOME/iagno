@@ -8,10 +8,11 @@ figs = \
 	START.png
 
 iagno_help_DATA = 	\
+	iagno.sgml		\
 	index.html		\
 	topic.dat
 
-EXTRA_DIST = iagno.sgml $(iagno_help_DATA) $(figs)
+EXTRA_DIST = $(iagno_help_DATA) $(figs)
 
 all: index.html
 
