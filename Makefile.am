@@ -29,8 +29,11 @@ CLEANFILES = $(CORBA_SRCS)
 
 BUILT_SOURCES = $(CORBA_SRCS)
 
-$(CORBA_SRCS): $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
+$(CORBA_SRCS): my_gnothello_idl
+
+my_gnothello_idl: $(top_srcdir)/idl/gnothello-game.idl $(ORBIT_IDL)
 	$(ORBIT_IDL) $<
+	touch my_gnothello_idl
 
 iagno_LDADD = \
 	$(GNOME_LIBDIR) \
