@@ -51,11 +51,11 @@ schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 @INTLTOOL_SCHEMAS_RULE@
 
 EXTRA_DIST = AUTHORS \
-             iagno.desktop.in 	\
-	     iagno.soundlist.in \
-             $(pixmap_DATA)	\
-	     $(appicon_DATA)	\
-	     $(schema_DATA)
+	iagno.desktop.in 	\
+	iagno.soundlist.in \
+	$(pixmap_DATA)	\
+	$(appicon_DATA)	\
+	$(schema_in_files)
 
 install-data-local:
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
