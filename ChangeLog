@@ -1,3 +1,9 @@
+2003-06-19  William Jon McCann  <mccann@jhu.edu>
+
+	* properties.c: #define gconf key names.
+	(load_properties): 
+	(reset_properties): Don't leak gconf client.
+
 2003-06-18  William Jon McCann  <mccann@jhu.edu>
 
 	* properties.h: 

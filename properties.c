@@ -33,6 +33,15 @@
 #include "gnothello.h"
 #include "othello.h"
 
+#define KEY_TILESET "/apps/iagno/tileset"
+#define KEY_BLACK_LEVEL "/apps/iagno/black-level"
+#define KEY_WHITE_LEVEL "/apps/iagno/white-level"
+#define KEY_QUICK_MOVES "/apps/iagno/quick-moves"
+#define KEY_ANIMATE "/apps/iagno/animate"
+#define KEY_ANIMATE_STAGGER "/apps/iagno/animate-stagger"
+#define KEY_SHOW_GRID "/apps/iagno/show-grid"
+#define KEY_FLIP_FINAL_RESULTS "/apps/iagno/flip-final-results"
+
 static GtkWidget *propbox = NULL;
 
 extern GtkWidget *window;
@@ -73,24 +82,24 @@ load_properties (void)
 	GError      *error = NULL;
 
 	client = gconf_client_get_default ();
-	if (!games_gconf_sanity_check_string (client, "/apps/iagno/tileset")) {
+	if (!games_gconf_sanity_check_string (client, KEY_TILESET)) {
 		exit(1);
 	}
-	black_computer_level = gconf_client_get_int (client, "/apps/iagno/black-level", &error);
+	black_computer_level = gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
 
-	white_computer_level = gconf_client_get_int (client, "/apps/iagno/white-level", &error);
+	white_computer_level = gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
 
-	if (gconf_client_get_bool (client, "/apps/iagno/quick-moves", &error))
+	if (gconf_client_get_bool (client, KEY_QUICK_MOVES, &error))
 		computer_speed = COMPUTER_MOVE_DELAY / 2;
 	else
 		computer_speed = COMPUTER_MOVE_DELAY;
@@ -104,35 +113,35 @@ load_properties (void)
 	if (tile_set)
 		g_free (tile_set);
 
-	tile_set = gconf_client_get_string (client, "/apps/iagno/tileset", &error);
+	tile_set = gconf_client_get_string (client, KEY_TILESET, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
 
-	animate = gconf_client_get_int (client, "/apps/iagno/animate", &error);
+	animate = gconf_client_get_int (client, KEY_ANIMATE, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
 
-	animate_stagger = gconf_client_get_bool (client, "/apps/iagno/animate-stagger", &error);
+	animate_stagger = gconf_client_get_bool (client, KEY_ANIMATE_STAGGER, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
 
-	grid = gconf_client_get_bool (client, "/apps/iagno/show-grid", &error);
+	grid = gconf_client_get_bool (client, KEY_SHOW_GRID, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
 
-	flip_final = gconf_client_get_bool (client, "/apps/iagno/flip-final-results", &error);
+	flip_final = gconf_client_get_bool (client, KEY_FLIP_FINAL_RESULTS, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
@@ -151,6 +160,8 @@ load_properties (void)
 		flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
 		break;
 	}
+
+	g_object_unref (client);
 }
 
 static void
@@ -162,7 +173,7 @@ reset_properties (void)
 	client = gconf_client_get_default ();
 
 	t_black_computer_level = black_computer_level =
-		gconf_client_get_int (client, "/apps/iagno/black-level", &error);
+		gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
@@ -170,14 +181,14 @@ reset_properties (void)
 	}
 
 	t_white_computer_level = white_computer_level =
-		gconf_client_get_int (client, "/apps/iagno/white-level", &error);
+		gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
 		error = NULL;
 	}
 
-	t_quick_moves = gconf_client_get_bool (client, "/apps/iagno/quick-moves", &error);
+	t_quick_moves = gconf_client_get_bool (client, KEY_QUICK_MOVES, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
@@ -187,7 +198,7 @@ reset_properties (void)
 	if (tile_set_tmp)
 		g_free (tile_set_tmp);
 
-	tile_set_tmp = gconf_client_get_string (client, "/apps/iagno/tileset", &error);
+	tile_set_tmp = gconf_client_get_string (client, KEY_TILESET, &error);
 	if (error) {
 		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
 		g_error_free (error);
@@ -198,6 +209,8 @@ reset_properties (void)
 	t_animate_stagger = animate_stagger;
 	t_grid            = grid;
 	t_flip_final      = flip_final;
+
+	g_object_unref (client);
 }
 
 static void 
@@ -348,25 +361,25 @@ save_properties (void)
 
 	client = gconf_client_get_default ();
 
-	gconf_client_set_int (client, "/apps/iagno/black-level",
+	gconf_client_set_int (client, KEY_BLACK_LEVEL,
 			      black_computer_level, NULL);
-	gconf_client_set_int (client, "/apps/iagno/white-level",
+	gconf_client_set_int (client, KEY_WHITE_LEVEL,
 			      white_computer_level, NULL);
 
-	gconf_client_set_bool (client, "/apps/iagno/quick-moves",
+	gconf_client_set_bool (client, KEY_QUICK_MOVES,
 			       t_quick_moves, NULL);
 
-	gconf_client_set_string (client, "/apps/iagno/tileset",
+	gconf_client_set_string (client, KEY_TILESET,
 				 tile_set_tmp, NULL);
 
-	gconf_client_set_int (client, "/apps/iagno/animate",
+	gconf_client_set_int (client, KEY_ANIMATE,
 			      animate, NULL);
 
-	gconf_client_set_bool (client, "/apps/iagno/animate-stagger",
+	gconf_client_set_bool (client, KEY_ANIMATE_STAGGER,
 			       animate_stagger, NULL);
-	gconf_client_set_bool (client, "/apps/iagno/show-grid",
+	gconf_client_set_bool (client, KEY_SHOW_GRID,
 			       grid, NULL);
-	gconf_client_set_bool (client, "/apps/iagno/flip-final-results",
+	gconf_client_set_bool (client, KEY_FLIP_FINAL_RESULTS,
 			       flip_final, NULL);
 }
 
