@@ -19,6 +19,9 @@
  * For more details see the file COPYING.
  */
 
+#ifndef _OTHELLO_H_
+#define _OTHELLO_H_
+
 #define MAX_DEPTH 4;
 
 gint is_valid_move(guint, guint, guint);
@@ -31,3 +34,5 @@ gint check_valid_moves();
 gint computer_move_1(guint);
 gint computer_move_3(guint);
 gint eval_board(gint8[8][8], guint);
+
+#endif

@@ -19,6 +19,9 @@
  * For more details see the file COPYING.
  */
 
+#ifndef _GNOTHELLO_H_
+#define _GNOTHELLO_H_
+
 #define GNOTHELLO_VERSION "0.8.0"
 #define BLACK_TURN 1
 #define WHITE_TURN 31
@@ -72,5 +75,8 @@ void gui_status();
 void gui_message(gchar *message);
 guint check_computer_players();
 void load_pixmaps();
+void properties_cb (GtkWidget *widget, gpointer data);
 
 extern guint whose_turn;
+
+#endif

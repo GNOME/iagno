@@ -52,6 +52,9 @@ guint flip_final_id = 0;
 extern guint black_computer_level;
 extern guint white_computer_level;
 
+extern gint animate;
+extern gint animate_stagger;
+
 extern guint whose_turn;
 extern guint game_in_progress;
 
@@ -187,8 +190,6 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 	gint tmp_x, tmp_y;
 	guint not_me;
 	gint adder = 0, adder_diff = 0;
-	int animate = 0;
-	int animate_stagger = 0;
 	gint count = 1;
 
 	/* Stuff to do if this is a ``real'' move */
@@ -203,9 +204,6 @@ gint move_board(gint8 board[8][8], guint x, guint y, guint me, gint real)
 		game[move_count].me = me;
 
 		move_count++;
-
-		animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
-		animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
 
 		if(whose_turn == WHITE_TURN) {
 			whose_turn = BLACK_TURN;
@@ -511,9 +509,6 @@ gint flip_final_results()
 	guint white_pieces;
 	guint black_pieces;
 	guint adder = 0;
-	guint animate_stagger;
-
-	animate_stagger = gnome_config_get_int("/gnothello/Preferences/animstagger=0");
 
 	white_pieces = count_pieces(WHITE_TURN);
 	black_pieces = count_pieces(BLACK_TURN);

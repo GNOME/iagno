@@ -25,10 +25,10 @@
 
 #include <sys/time.h>
 #include <string.h>
-#include <dirent.h>
 
 #include "gnothello.h"
 #include "othello.h"
+#include "properties.h"
 #include "network.h"
 
 GnomeAppBar *appbar;
@@ -53,6 +53,7 @@ guint black_computer_id = 0;
 guint white_computer_id = 0;
 guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
+gint animate_stagger;
 guint tiles_to_flip = 0;
 
 gint64 milliseconds_total = 0;
@@ -99,10 +100,15 @@ static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
   {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
 #ifdef HAVE_ORBIT
-  {"ior", '\0', POPT_ARG_STRING, &ior, 0, N_("IOR of remote Reversi server"),
+  {"ior", '\0', POPT_ARG_STRING, &ior, 0, N_("IOR of remote Gnothello server"),
    N_("IOR")},
 #endif
   {NULL, '\0', 0, NULL, 0}
+};
+
+GnomeUIInfo file_menu[] = {
+        GNOMEUIINFO_MENU_EXIT_ITEM(quit_game_cb, NULL),
+	GNOMEUIINFO_END
 };
 
 GnomeUIInfo game_menu[] = {
@@ -112,29 +118,29 @@ GnomeUIInfo game_menu[] = {
 
 	GNOMEUIINFO_MENU_UNDO_MOVE_ITEM(undo_move_cb, NULL),
 	
-	GNOMEUIINFO_SEPARATOR,
-
-        GNOMEUIINFO_MENU_EXIT_ITEM(quit_game_cb, NULL),
-
 	GNOMEUIINFO_END
 };
 
+/*
 GnomeUIInfo black_level_radio_list[] = {
 	{ GNOME_APP_UI_ITEM, N_("_Disabled"),
 	  N_("Disable the computer player"),
-	  black_level_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	  black_level_cb, 0, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
 	{ GNOME_APP_UI_ITEM, N_("Level _One"),
 	  N_("Enable the level 1 computer player"),
-	  black_level_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	  black_level_cb, (gpointer) 1, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0,
+	  0, NULL },
 
 	{ GNOME_APP_UI_ITEM, N_("Level _Two"),
 	  N_("Enable the level 2 computer player"),
-	  black_level_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	  black_level_cb, (gpointer) 2, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0,
+	  0, NULL },
 
 	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"),
 	  N_("Enable the level 3 computer player"),
-	  black_level_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	  black_level_cb, (gpointer) 3, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0,
+	  0, NULL },
 
 	GNOMEUIINFO_END
 };
@@ -142,19 +148,19 @@ GnomeUIInfo black_level_radio_list[] = {
 GnomeUIInfo white_level_radio_list[] = {
 	{ GNOME_APP_UI_ITEM, N_("_Disabled"),
 	  N_("Disable the computer player"),
-	  white_level_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	  white_level_cb, (gpointer) 0, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
 	{ GNOME_APP_UI_ITEM, N_("Level _One"),
 	  N_("Enable the level 1 computer player"),
-	  white_level_cb, "1", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	  white_level_cb, (gpointer) 1, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
 	{ GNOME_APP_UI_ITEM, N_("Level _Two"),
 	  N_("Enable the level 2 computer player"),
-	  white_level_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	  white_level_cb, (gpointer) 2, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
 	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"),
 	  N_("Enable the level 3 computer player"),
-	  white_level_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+	  white_level_cb, (gpointer) 3, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 	GNOMEUIINFO_END
 };
 
@@ -170,19 +176,9 @@ GnomeUIInfo white_level_menu[] = {
 
 GnomeUIInfo comp_menu[] = {
 };
+*/
 
-GnomeUIInfo anim_radio_list[] = {
-	{ GNOME_APP_UI_ITEM, N_("_No Animation"), N_("Turn animation off"),
-	  anim_cb, "0", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("_Some Animation"),
-	  N_("Turn partial animation on"), anim_cb, "1", NULL,
-	  GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	{ GNOME_APP_UI_ITEM, N_("_Full Animation"),
-	  N_("Turn full animation on"), anim_cb, "2", NULL,
-	  GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	GNOMEUIINFO_END
-};
-
+/*
 GnomeUIInfo settings_computer_submenu[] = {
         GNOMEUIINFO_SUBTREE_HINT(N_("_Dark"),
 				 N_("Configure the dark computer player"),
@@ -198,30 +194,10 @@ GnomeUIInfo settings_computer_submenu[] = {
 			       quick_moves_cb, NULL),
 	GNOMEUIINFO_END
 };
-
-GnomeUIInfo settings_animation_submenu[] = {
-	GNOMEUIINFO_RADIOLIST(anim_radio_list),
-
-	GNOMEUIINFO_SEPARATOR,
-
-	GNOMEUIINFO_TOGGLEITEM(N_("Sta_gger Flips"), N_("Stagger flips"),
-			       anim_stagger_cb, NULL),
-
-	GNOMEUIINFO_SEPARATOR,
-
-	{ GNOME_APP_UI_ITEM, N_("_Load Tiles..."), N_("Change the tile set"),
-	  load_tiles_cb, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-	GNOMEUIINFO_END
-};
+*/
 
 GnomeUIInfo settings_menu[] = {
-        GNOMEUIINFO_SUBTREE_HINT(N_("_Animation"),
-				 N_("Configure the animation"),
-				 settings_animation_submenu),
-        GNOMEUIINFO_SUBTREE_HINT(N_("_Computer"),
-				 N_("Configure the computer player"),
-				 settings_computer_submenu),
+	GNOMEUIINFO_MENU_PREFERENCES_ITEM (properties_cb, NULL),
         GNOMEUIINFO_END
 };
 
@@ -232,6 +208,7 @@ GnomeUIInfo help_menu[] = {
 };
 
 GnomeUIInfo mainmenu[] = {
+        GNOMEUIINFO_MENU_FILE_TREE(file_menu),
         GNOMEUIINFO_MENU_GAME_TREE(game_menu),
         GNOMEUIINFO_MENU_SETTINGS_TREE(settings_menu),
         GNOMEUIINFO_MENU_HELP_TREE(help_menu),
@@ -241,8 +218,6 @@ GnomeUIInfo mainmenu[] = {
 void quit_game_maybe(GtkWidget *widget, gint button)
 {
 	if(button == 0) {
-		gnome_config_sync();
-
 		if (flip_pixmaps_id)
 			gtk_timeout_remove(flip_pixmaps_id);
 		if (black_computer_id)
@@ -367,239 +342,69 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 
 void black_level_cb(GtkWidget *widget, gpointer data)
 {
-	int tmp;
+        int tmp;
 
-	tmp = atoi((gchar *)data);
+        tmp = atoi((gchar *)data);
 
-	gnome_config_set_int("/gnothello/Preferences/blacklevel", tmp);
-	gnome_config_sync();
+        gnome_config_set_int("/gnothello/Preferences/blacklevel", tmp);
+        gnome_config_sync();
 
-	black_computer_level = tmp;
+        black_computer_level = tmp;
 
-	if(game_in_progress) {
-		gtk_clock_stop(GTK_CLOCK(time_display));
-		gtk_widget_set_sensitive(time_display, FALSE);
-		gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
-		timer_valid = 0;
-	}
+        if(game_in_progress) {
+                gtk_clock_stop(GTK_CLOCK(time_display));
+                gtk_widget_set_sensitive(time_display, FALSE);
+                gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+                timer_valid = 0;
+        }
 
-	check_computer_players();
+        check_computer_players();
 }
 
 void white_level_cb(GtkWidget *widget, gpointer data)
 {
-	int tmp;
+        int tmp;
 
-	tmp = atoi((gchar *)data);
+        tmp = atoi((gchar *)data);
 
-	gnome_config_set_int("/gnothello/Preferences/whitelevel", tmp);
-	gnome_config_sync();
+        gnome_config_set_int("/gnothello/Preferences/whitelevel", tmp);
+        gnome_config_sync();
 
-	white_computer_level = tmp;
+        white_computer_level = tmp;
 
-	if(game_in_progress) {
-		gtk_clock_stop(GTK_CLOCK(time_display));
-		gtk_widget_set_sensitive(time_display, FALSE);
-		gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
-		timer_valid = 0;
-	}
+        if(game_in_progress) {
+                gtk_clock_stop(GTK_CLOCK(time_display));
+                gtk_widget_set_sensitive(time_display, FALSE);
+                gtk_clock_set_seconds(GTK_CLOCK(time_display), 0);
+                timer_valid = 0;
+        }
 
-	check_computer_players();
-}
-
-void anim_cb(GtkWidget *widget, gpointer data)
-{
-	gint tmp;
-
-	tmp = atoi((gchar *)data);
-	gnome_config_set_int("/gnothello/Preferences/animate", tmp);
-	gnome_config_sync();
-
-	if(flip_pixmaps_id) {
-		gtk_timeout_remove(flip_pixmaps_id);
-		flip_pixmaps_id = 0;
-	}
-
-	switch(tmp) {
-		case 0:
-			flip_pixmaps_id = gtk_timeout_add(100, flip_pixmaps, NULL);
-			animate = 0;
-			break;
-		case 1:
-			flip_pixmaps_id = gtk_timeout_add(PIXMAP_FLIP_DELAY * 8, flip_pixmaps, NULL);
-			animate = 1;
-			break;
-		case 2:
-			flip_pixmaps_id = gtk_timeout_add(PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
-			animate = 2;
-			break;
-	}
+        check_computer_players();
 }
 
 void about_cb(GtkWidget *widget, gpointer data)
 {
-	GtkWidget *about;
+	static GtkWidget *about;
 
 	const gchar *authors[] = {"Ian Peters", NULL};
+	
+	if (about != NULL) {
+		gdk_window_raise (about->window);
+		gdk_window_show (about->window);
+		return;
+	}
 
-	about = gnome_about_new(_("Reversi"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
+	about = gnome_about_new(_("Gnothello"), GNOTHELLO_VERSION, "(C) 1998 Ian Peters", (const char **)authors, _("Send comments and bug reports to: ipeters@acm.org\nTiles under the General Public License."), NULL);
+	gtk_signal_connect (GTK_OBJECT (about), "destroy", GTK_SIGNAL_FUNC
+			(gtk_widget_destroyed), &about);
 	gnome_dialog_set_parent(GNOME_DIALOG(about), GTK_WINDOW(window));
-	gtk_window_set_modal(GTK_WINDOW(about), TRUE);
 
 	gtk_widget_show(about);
 }
 
-void comp_black_cb(GtkWidget *widget, gpointer data)
+void properties_cb (GtkWidget *widget, gpointer data)
 {
-	if(GTK_CHECK_MENU_ITEM(widget)->active) {
-		gnome_config_set_bool("/gnothello/Preferences/compblack", TRUE);
-	} else {
-		gnome_config_set_bool("/gnothello/Preferences/compblack", FALSE);
-	}
-	gnome_config_sync();
-}
-
-void comp_white_cb(GtkWidget *widget, gpointer data)
-{
-	if(GTK_CHECK_MENU_ITEM(widget)->active) {
-		gnome_config_set_bool("/gnothello/Preferences/compwhite", TRUE);
-	} else {
-		gnome_config_set_bool("/gnothello/Preferences/compwhite", FALSE);
-	}
-	gnome_config_sync();
-}
-
-void quick_moves_cb(GtkWidget *widget, gpointer data)
-{
-	if(GTK_CHECK_MENU_ITEM(widget)->active) {
-		gnome_config_set_bool("/gnothello/Preferences/quickmoves", TRUE);
-		computer_speed = COMPUTER_MOVE_DELAY / 2;
-	} else {
-		gnome_config_set_bool("/gnothello/Preferences/quickmoves", FALSE);
-		computer_speed = COMPUTER_MOVE_DELAY;
-	}
-	gnome_config_sync();
-}
-
-void anim_stagger_cb(GtkWidget *widget, gpointer data)
-{
-	if(GTK_CHECK_MENU_ITEM(widget)->active) {
-		gnome_config_set_int("/gnothello/Preferences/animstagger", 1);
-	} else {
-		gnome_config_set_int("/gnothello/Preferences/animstagger", 0);
-	}
-	gnome_config_sync();
-}
-
-void load_tiles_cb(GtkWidget *widget, gpointer data)
-{
-	GtkWidget *menu, *options_menu, *frame, *hbox, *label;
-
-	if (tile_dialog)
-		return;
-
-	strncpy(tile_set_tmp, tile_set, 255);
-
-	tile_dialog = gnome_dialog_new(_("Load Tile Set"), GNOME_STOCK_BUTTON_OK, GNOME_STOCK_BUTTON_CANCEL, NULL);
-	gnome_dialog_set_parent(GNOME_DIALOG(tile_dialog), GTK_WINDOW(window));
-	gtk_signal_connect(GTK_OBJECT(tile_dialog), "delete_event", (GtkSignalFunc)cancel, NULL);
-
-	options_menu = gtk_option_menu_new();
-	menu = gtk_menu_new();
-	fill_menu(menu);
-	gtk_widget_show(options_menu);
-	gtk_option_menu_set_menu(GTK_OPTION_MENU(options_menu), menu);
-
-	frame = gtk_frame_new(_("Tile Set"));
-/*	gtk_container_border_width(GTK_CONTAINER(frame), 5); */
-
-	hbox = gtk_hbox_new(FALSE, FALSE);
-	gtk_container_border_width(GTK_CONTAINER(hbox), GNOME_PAD_SMALL);
-	gtk_widget_show(hbox);
-
-	label = gtk_label_new(_("Select Tile Set: "));
-	gtk_widget_show(label);
-
-	gtk_box_pack_start_defaults(GTK_BOX(hbox), label);
-	gtk_box_pack_start_defaults(GTK_BOX(hbox), options_menu);
-
-	gtk_container_add(GTK_CONTAINER(frame), hbox);
-	gtk_widget_show(frame);
-
-	gtk_box_pack_start_defaults(GTK_BOX(GNOME_DIALOG(tile_dialog)->vbox), frame);
-
-	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 0, GTK_SIGNAL_FUNC(load_tiles_callback), NULL);
-	gnome_dialog_button_connect(GNOME_DIALOG(tile_dialog), 1, GTK_SIGNAL_FUNC(cancel), (gpointer)1);
-
-	gtk_widget_show (tile_dialog);
-}
-
-void load_tiles_callback(GtkWidget *widget, void *data)
-{
-	gint i, j;
-
-	cancel(0,0);
-	strncpy(tile_set, tile_set_tmp, 255);
-	gnome_config_set_string("/gnothello/Preferences/tileset", tile_set);
-	load_pixmaps();
-	for(i = 0; i < 8; i++)
-		for(j = 0; j < 8; j++) {
-			if(pixmaps[i][j] >= BLACK_TURN && pixmaps[i][j] <= WHITE_TURN)
-				gui_draw_pixmap(pixmaps[i][j], i, j);
-			else
-				gui_draw_pixmap(0, i, j);
-		}
-}
-
-void fill_menu(GtkWidget *menu)
-{
-	struct dirent *e;
-	char *dname = gnome_unconditional_pixmap_file("gnothello");
-	DIR *dir;
-	int itemno = 0;
-
-	dir = opendir(dname);
-
-	if(!dir)
-		return;
-
-	while((e = readdir(dir)) != NULL) {
-		GtkWidget *item;
-		char *s = strdup(e->d_name);
-		if(!strstr(e->d_name, ".png")) {
-			free(s);
-			continue;
-		}
-
-		item = gtk_menu_item_new_with_label(s);
-		gtk_widget_show(item);
-		gtk_menu_append(GTK_MENU(menu), item);
-		gtk_signal_connect(GTK_OBJECT(item), "activate", (GtkSignalFunc)set_selection, s);
-		gtk_signal_connect(GTK_OBJECT(item), "destroy", (GtkSignalFunc)free_str, s);
-
-		if (!strcmp(tile_set, s)) {
-			gtk_menu_set_active(GTK_MENU(menu), itemno);
-		}
-
-		itemno++;
-	}
-	closedir(dir);
-}
-
-void free_str(GtkWidget *widget, void *data)
-{
-	free(data);
-}
-
-void set_selection(GtkWidget *widget, void *data)
-{
-	strncpy(tile_set_tmp, data, 255);
-}
-
-void cancel(GtkWidget *widget, void *data)
-{
-	gtk_widget_destroy(tile_dialog);
-	tile_dialog = NULL;
+	show_properties_dialog ();
 }
 
 gint expose_event(GtkWidget *widget, GdkEventExpose *event)
@@ -631,13 +436,11 @@ gint button_press_event(GtkWidget *widget, GdkEventButton *event)
 	if (!network_allow ())
 		return (TRUE);
 	
-	if(whose_turn == WHITE_TURN)
-		if(gnome_config_get_int("/gnothello/Preferences/whitelevel=0"))
-			return(TRUE);
+	if((whose_turn == WHITE_TURN) && white_computer_level)
+		return (TRUE);
 
-	if(whose_turn == BLACK_TURN)
-		if(gnome_config_get_int("/gnothello/Preferences/blacklevel=0"))
-			return(TRUE);
+	if((whose_turn == BLACK_TURN) && black_computer_level)
+		return(TRUE);
 
 	if(event->button == 1) {
 		x = event->x / TILEWIDTH;
@@ -672,7 +475,7 @@ void load_pixmaps()
 	g_free(tmp);
 
 	if(!g_file_exists(fname)) {
-		g_print(_("Could not find \'%s\' pixmap file for Reversi\n"), fname);
+		g_print(_("Could not find \'%s\' pixmap file for Gnothello\n"), fname);
 		exit(1);
 	}
 
@@ -696,7 +499,7 @@ gint flip_pixmaps(gpointer data)
 
 	if(!tiles_to_flip)
 		return(TRUE);
-
+	
 	for(i = 0; i < 8; i++)
 		for(j = 0; j < 8; j++) {
 			if(pixmaps[i][j] == 100) {
@@ -817,19 +620,13 @@ void create_window()
 	GtkWidget *table;
 	GtkWidget *sep;
 
-	window = gnome_app_new("gnothello", _("Reversi"));
+	window = gnome_app_new("gnothello", _("Gnothello"));
 
 	gtk_widget_realize(window);
 	gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE);
 	gtk_signal_connect(GTK_OBJECT(window), "delete_event", GTK_SIGNAL_FUNC(quit_game_cb), NULL);
 
 	gnome_app_create_menus(GNOME_APP(window), mainmenu);
-
-	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(settings_computer_submenu[3].widget), gnome_config_get_bool("/gnothello/Preferences/quickmoves=FALSE"));
-	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(settings_animation_submenu[2].widget), gnome_config_get_int("/gnothello/Preferences/animstagger=0"));
-	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(anim_radio_list[gnome_config_get_int("/gnothello/Preferences/animate=2")].widget), TRUE);
-	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(black_level_radio_list[gnome_config_get_int("/gnothello/Preferences/blacklevel=0")].widget), TRUE);
-	gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(white_level_radio_list[gnome_config_get_int("/gnothello/Preferences/whitelevel=0")].widget), TRUE);
 
 	gtk_widget_push_visual (gdk_imlib_get_visual ());
 	gtk_widget_push_colormap (gdk_imlib_get_colormap ());
@@ -897,7 +694,7 @@ void create_window()
 	gtk_box_pack_start(GTK_BOX(appbar), table, FALSE, TRUE, 0);
 
 	gnome_appbar_set_status(GNOME_APPBAR (appbar),
-				_("Welcome to Reversi!"));
+				_("Welcome to Gnothello!"));
 }
 
 void gui_status()
@@ -1019,13 +816,10 @@ int main(int argc, char **argv)
 	gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
 	
 	create_window();
+	
+	load_properties ();
 
-	strncpy(tile_set, gnome_config_get_string("/gnothello/preferences/tileset=classic.png"), 255);
 	load_pixmaps();
-
-	animate = gnome_config_get_int("/gnothello/Preferences/animate=2");
-
-//	check_computer_players_id = gtk_timeout_add(100, (GtkFunction)check_computer_players, NULL);
 
 	if(session_xpos >= 0 && session_ypos >= 0) {
 		gtk_widget_set_uposition(window, session_xpos, session_ypos);
