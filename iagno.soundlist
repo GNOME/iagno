@@ -3,6 +3,7 @@ description=Iagno
 description[da]=Iagno
 description[gl]=Iagno
 description[ko]=ÀÌ¾Æ±×³ë
+description[lt]=Iagno
 description[no]=Iagno
 description[pl]=Iagno
 
@@ -16,6 +17,7 @@ description[es]=Fin del juego
 description[fr]=Fin du jeu
 description[gl]=Xogo rematado
 description[ko]=°ÔÀÓ ³¡
+description[lt]=Þaidimo pabaiga
 description[no]=Spillet over
 description[pl]=Zakoñczenie gry
 
@@ -29,5 +31,6 @@ description[es]=Cambio de las piezas
 description[fr]=Changement des pièces
 description[gl]=Cambio das pezas
 description[ko]=µ¹ µÚÁý±â
+description[lt]=Ðaðkës apsiverèia
 description[no]=Vending av brikke
 description[pl]=Obrót kr±¿ka
