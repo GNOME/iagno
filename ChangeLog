@@ -1,4 +1,9 @@
-2004-09-20 Andreas Røsdal <andrearo@stud.ntnu.no>
+2004-09-21 Andreas Røsdal <andrearo stud ntnu no>
+ 
+ 	* gnothello.c: Disable undo in network games.
+ 	* network.c: Implement is_network_running (). 
+ 
+2004-09-20 Andreas Røsdal <andrearo stud ntnu no>
 	
 	* network.c: Use the new games_send_gamedata (),
 	and callback functions.

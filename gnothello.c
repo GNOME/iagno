@@ -799,7 +799,7 @@ gui_status (void)
 	gtk_label_set_text (GTK_LABEL (black_score), message);
 	sprintf (message, _("%.2d"), wcount);
 	gtk_label_set_text (GTK_LABEL (white_score), message);
-	undo_set_sensitive (move_count > 0);
+	undo_set_sensitive (move_count > 0 && !is_network_running ());
 }
 
 void

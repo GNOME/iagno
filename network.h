@@ -10,6 +10,7 @@ extern int network_allow (void);
 extern void network_new (GtkWidget *parent_window);
 extern void network_start (void);
 extern void network_stop (void);
+extern gboolean is_network_running (void);
 
 #endif
 

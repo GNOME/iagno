@@ -52,6 +52,12 @@ network_stop (void)
   games_network_stop ();
 }
 
+gboolean
+is_network_running (void)
+{
+  return (get_network_status () == CONNECTED);
+}
+
 int
 game_move (guint x, guint y, guint me)
 {
