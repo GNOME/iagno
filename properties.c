@@ -510,7 +510,7 @@ void show_properties_dialog ()
 	hbox = gtk_hbox_new (FALSE, GNOME_PAD_SMALL);
 	gtk_widget_show (hbox);
 	
-	label2 = gtk_label_new ("Tile set:");
+	label2 = gtk_label_new (_("Tile set:"));
 	gtk_widget_show (label2);
 	
 	gtk_box_pack_start (GTK_BOX (hbox), label2, FALSE, FALSE, 0);

@@ -1,3 +1,8 @@
+1999-02-06  Changwoo Ryu  <cwryu@adam.kaist.ac.kr>
+
+	* properties.c (show_properties_dialog): Mark "Tile set:" as a
+	translatable string.
+
 1999-01-29  Ian Peters  <ipeters@acm.org>
 
 	* Changed all user-visible occurences of gnothello to iagno.
