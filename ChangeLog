@@ -1,3 +1,8 @@
+1998-11-27  Arturo Espinosa <arturo@nuclecu.unam.mx>
+
+	* gnothello.c: comply with new gnorba API. Warnings.
+	* network.c: a couple of warnings (server_move, game_move).
+
 1998-11-22  Carsten Schaar  <nhadcasc@fs-maphy.uni-hannover.de>
 
 	* gnothello.c (main): Replaced 'gnome_new_default_client' by

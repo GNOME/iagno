@@ -43,7 +43,7 @@ server_set_peer (PortableServer_Servant servant, CORBA_Object peer, CORBA_Enviro
 static CORBA_long
 server_move(PortableServer_Servant servant, CORBA_long x, CORBA_long y, CORBA_long me, CORBA_Environment *ev)
 {
-	move (x, y, me);
+	return move (x, y, me);
 }
 
 static void
@@ -143,6 +143,8 @@ game_move (guint x, guint y, guint me)
 			return move (x, y, me);
 		}
 	}
+	
+	return 0;
 }
 
 extern int

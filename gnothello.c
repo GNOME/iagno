@@ -239,7 +239,7 @@ void undo_move_cb(GtkWidget *widget, gpointer data)
 	gint8 which_computer;
 	gint i, j;
 
-	if(black_computer_level && white_computer_level || !move_count)
+	if((black_computer_level && white_computer_level) || !move_count)
 		return;
 
 	gtk_timeout_remove(flip_final_id);
@@ -411,7 +411,7 @@ void anim_stagger_cb(GtkWidget *widget, gpointer data)
 
 void load_tiles_cb(GtkWidget *widget, gpointer data)
 {
-	GtkWidget *menu, *options_menu, *frame, *hbox, *label, *button;
+	GtkWidget *menu, *options_menu, *frame, *hbox, *label;
 
 	if (tile_dialog)
 		return;
@@ -989,7 +989,8 @@ int main(int argc, char **argv)
 
 #ifdef HAVE_ORBIT
 	CORBA_exception_init (&ev);
-	orb = gnome_CORBA_init_with_popt_table ("gnothello", VERSION, &argc, argv, options, 0, NULL, &ev);
+	orb = gnome_CORBA_init_with_popt_table ("gnothello", VERSION, &argc, 
+						argv, options, 0, NULL, 0, &ev);
 #else
 	gnome_init_with_popt_table("gnothello", VERSION, argc, argv, options, 0, NULL);
 #endif
