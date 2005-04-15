@@ -1,3 +1,10 @@
+2005-04-11  Richard Hoelscher  <rah@rahga.com>
+
+	* gnothello.c: Remove commented-out menus for AI strength selection.
+	(about_cb): Claim that Iagno was derived from the 1800's
+	game of Reversi, since it's the truth. Also, port to GtkAboutDialog.
+	(main): Start a new game when the app opens.
+
 2005-03-23  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnothello.c:	

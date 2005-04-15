@@ -128,83 +128,8 @@ GnomeUIInfo game_menu[] = {
 	GNOMEUIINFO_END
 };
 
-/*
-GnomeUIInfo black_level_radio_list[] = {
-	{ GNOME_APP_UI_ITEM, N_("_Disabled"),
-	  N_("Disable the computer player"),
-	  black_level_cb, 0, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-	{ GNOME_APP_UI_ITEM, N_("Level _One"),
-	  N_("Enable the level 1 computer player"),
-	  black_level_cb, (gpointer) 1, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0,
-	  0, NULL },
-
-	{ GNOME_APP_UI_ITEM, N_("Level _Two"),
-	  N_("Enable the level 2 computer player"),
-	  black_level_cb, (gpointer) 2, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0,
-	  0, NULL },
-
-	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"),
-	  N_("Enable the level 3 computer player"),
-	  black_level_cb, (gpointer) 3, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0,
-	  0, NULL },
-
-	GNOMEUIINFO_END
-};
-
-GnomeUIInfo white_level_radio_list[] = {
-	{ GNOME_APP_UI_ITEM, N_("_Disabled"),
-	  N_("Disable the computer player"),
-	  white_level_cb, (gpointer) 0, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-	{ GNOME_APP_UI_ITEM, N_("Level _One"),
-	  N_("Enable the level 1 computer player"),
-	  white_level_cb, (gpointer) 1, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-	{ GNOME_APP_UI_ITEM, N_("Level _Two"),
-	  N_("Enable the level 2 computer player"),
-	  white_level_cb, (gpointer) 2, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-	{ GNOME_APP_UI_ITEM, N_("Level Th_ree"),
-	  N_("Enable the level 3 computer player"),
-	  white_level_cb, (gpointer) 3, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-	GNOMEUIINFO_END
-};
-
-GnomeUIInfo black_level_menu[] = {
-	GNOMEUIINFO_RADIOLIST(black_level_radio_list),
-	GNOMEUIINFO_END
-};
-
-GnomeUIInfo white_level_menu[] = {
-	GNOMEUIINFO_RADIOLIST(white_level_radio_list),
-	GNOMEUIINFO_END
-};
-
-GnomeUIInfo comp_menu[] = {
-};
-*/
-
-/*
-GnomeUIInfo settings_computer_submenu[] = {
-        GNOMEUIINFO_SUBTREE_HINT(N_("_Dark"),
-				 N_("Configure the dark computer player"),
-				 black_level_menu),
-        GNOMEUIINFO_SUBTREE_HINT(N_("_Light"), 
-				 N_("Configure the light computer player"),
-				 white_level_menu),
-
-	GNOMEUIINFO_SEPARATOR,
-
-	GNOMEUIINFO_TOGGLEITEM(N_("_Quick moves"),
-			       N_("Turn on quick computer moves"),
-			       quick_moves_cb, NULL),
-	GNOMEUIINFO_END
-};
-*/
-
 GnomeUIInfo settings_menu[] = {
-	GNOMEUIINFO_MENU_PREFERENCES_ITEM (properties_cb, NULL),
+        GNOMEUIINFO_MENU_PREFERENCES_ITEM (properties_cb, NULL),
         GNOMEUIINFO_END
 };
 
@@ -360,50 +285,16 @@ white_level_cb (GtkWidget *widget, gpointer data)
 void
 about_cb (GtkWidget *widget, gpointer data)
 {
-	static GtkWidget *about;
-	GdkPixbuf *pixbuf = NULL;
 	const gchar *authors[] = {"Ian Peters", NULL};
-	const gchar *documenters[] = {
-	    			      NULL
-    	};
-    	const gchar *translator_credits = _("translator-credits");
-	
-	if (about != NULL) {
-                gtk_window_present (GTK_WINDOW (about));
-		return;
-	}
 
-	{
-		char *filename = NULL;
-
-		filename = gnome_program_locate_file 
-			(NULL,
-			 GNOME_FILE_DOMAIN_APP_PIXMAP,  ("iagno.png"),
-			 TRUE, NULL);
-		if (filename != NULL)
-		{
-			pixbuf = gdk_pixbuf_new_from_file (filename, NULL);
-			g_free (filename);
-		}
-	}
-
-	about = gnome_about_new (_("Iagno"), VERSION, 
-				 "Copyright \xc2\xa9 1998-2004 Ian Peters",
-				 _("GNOME version of the popular Othello disk "
-				   "flipping game."), 
-				 (const char **)authors, 
-				 (const char **)documenters,
-				 strcmp (translator_credits, "translator-credits") != 0 ? translator_credits : NULL,
-				 pixbuf);
-	
-	if (pixbuf != NULL)
-		gdk_pixbuf_unref (pixbuf);
-				
-	g_signal_connect (G_OBJECT (about), "destroy",
-			  G_CALLBACK (gtk_widget_destroyed), &about);
-	gtk_window_set_transient_for (GTK_WINDOW(about), GTK_WINDOW(window));
-
-	gtk_widget_show (about);
+	gtk_show_about_dialog (GTK_WINDOW (window),
+			       "name", _("Iagno"),
+			       "version", VERSION,
+			       "copyright", "Copyright \xc2\xa9 1998-2004 Ian Peters",
+			       "comments",_("A disk flipping game derived from Reversi."),
+			       "authors", authors, 
+			       "translator_credits", _("translator-credits"),
+			       NULL);
 }
 
 void
@@ -739,8 +630,6 @@ create_window (void)
 
 	gnome_app_create_menus (GNOME_APP (window), mainmenu);
 
-	/* gtk_widget_push_colormap (gdk_rgb_get_cmap ()); */
-
 	drawing_area = gtk_drawing_area_new ();
 
 	gtk_widget_pop_colormap ();
@@ -960,6 +849,8 @@ main (int argc, char **argv)
 					BOARDWIDTH, BOARDHEIGHT, -1);
 
 	set_bg_color ();
+
+	init_new_game ();
 
 	gtk_main ();
 
