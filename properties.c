@@ -25,7 +25,6 @@
 #include <string.h>
 #include <gconf/gconf-client.h>
 #include <games-gconf.h>
-#include <games-clock.h>
 #include <games-frame.h>
 #include <games-files.h>
 
@@ -44,11 +43,9 @@
 
 
 extern GtkWidget *window;
-extern GtkWidget *time_display;
 extern guint black_computer_level;
 extern guint white_computer_level;
 extern guint computer_speed;
-extern gint timer_valid;
 extern guint black_computer_id;
 extern guint white_computer_id;
 extern gchar *tile_set;
@@ -340,14 +337,6 @@ apply_changes (void)
 {
 	guint i, j;
 	
-	if ((black_computer_level != t_black_computer_level) ||
-			(white_computer_level != t_white_computer_level)) {
-		games_clock_stop (GAMES_CLOCK (time_display));
-		gtk_widget_set_sensitive (time_display, FALSE);
-		games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
-		timer_valid = 0;
-	}
-
 	black_computer_level = t_black_computer_level;
 	white_computer_level = t_white_computer_level;
 	

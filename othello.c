@@ -67,10 +67,6 @@ extern gint8 move_count;
 extern gint bcount;
 extern gint wcount;
 
-extern gint timer_valid;
-
-extern GtkWidget *time_display;
-
 extern guint tiles_to_flip;
 
 /* Wrapper for is_valid_move_board, to maintain API for CORBA stuff */
@@ -212,19 +208,9 @@ move_board (gint8 board[8][8], guint x, guint y, guint me, gint real)
 		if (whose_turn == WHITE_TURN) {
 			whose_turn = BLACK_TURN;
 			gui_message (_("Dark's move"));
-		
-			if (! white_computer_level) {
-				games_clock_stop (GAMES_CLOCK (time_display));
-			}
-		
 		} else {
 			whose_turn = WHITE_TURN;
 			gui_message (_("Light's move"));
-		
-			if (! black_computer_level) {
-				games_clock_stop (GAMES_CLOCK (time_display));
-			}
-		
 		}
 
 		pixmaps[x][y] = me;
@@ -431,13 +417,6 @@ move_board (gint8 board[8][8], guint x, guint y, guint me, gint real)
 
 		gui_status();
 
-		if (not_me == BLACK_TURN && !black_computer_level && timer_valid) {
-			games_clock_start (GAMES_CLOCK (time_display));
-		}
-		if (not_me == WHITE_TURN && !white_computer_level && timer_valid) {
-			games_clock_start (GAMES_CLOCK (time_display));
-		}
-
 		tiles_to_flip = 1;
 	}
 
@@ -631,20 +610,6 @@ flip_final_results (gpointer data)
 
 	tiles_to_flip = 1;
 
-/*
-	if (white_computer_level && !black_computer_level && (black_pieces > white_pieces) && timer_valid) {
-		sprintf(foo, "w%d", white_computer_level);
-		i = gnome_score_log(milliseconds_total/100000-black_pieces, foo, FALSE);
-		gnome_scores_display(_("Gnothello"), "gnothello", foo, i);
-	}
-
-	if (black_computer_level && !white_computer_level && (white_pieces > black_pieces) && timer_valid) {
-		sprintf(foo, "b%d", black_computer_level);
-		i = gnome_score_log(milliseconds_total/100000-white_pieces, foo, FALSE);
-		gnome_scores_display(_("Gnothello"), "gnothello", foo, i);
-	}
-*/
-
 	return (FALSE);
 }
 
@@ -694,8 +659,6 @@ check_valid_moves (void)
 
 	if (!white_moves && !black_moves) {
 
-		games_clock_stop (GAMES_CLOCK (time_display));
-
 		white_moves = count_pieces (WHITE_TURN);
 		black_moves = count_pieces (BLACK_TURN);
 		if (white_moves > black_moves)
@@ -716,24 +679,12 @@ check_valid_moves (void)
 	if (whose_turn == WHITE_TURN) {
 		gui_message (_("Light must pass, Dark's move"));
 		whose_turn = BLACK_TURN;
-		if (white_computer_level ^ black_computer_level) {
-			if (!black_computer_level && timer_valid)
-				games_clock_start (GAMES_CLOCK (time_display));
-			else
-				games_clock_stop (GAMES_CLOCK (time_display));		
-		}
 		return (TRUE);
 	}
 
 	if (whose_turn == BLACK_TURN) {
 		gui_message (_("Dark must pass, Light's move"));
 		whose_turn = WHITE_TURN;
-		if (white_computer_level ^ black_computer_level) {
-			if (! white_computer_level && timer_valid)
-				games_clock_start (GAMES_CLOCK (time_display));
-			else
-				games_clock_stop (GAMES_CLOCK (time_display));
-		}
 		return (TRUE);
 	}
 

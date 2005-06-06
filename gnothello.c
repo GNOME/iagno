@@ -26,7 +26,6 @@
 #include <libgnomeui/gnome-window-icon.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <games-clock.h>
 
 #include <sys/time.h>
 #include <string.h>
@@ -43,7 +42,6 @@ GtkWidget *drawing_area;
 GtkWidget *tile_dialog;
 GtkWidget *black_score;
 GtkWidget *white_score;
-GtkWidget *time_display;
 
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixmap *tiles_pixmap = NULL;
@@ -63,8 +61,6 @@ guint tiles_to_flip = 0;
 
 gint64 milliseconds_total = 0;
 gint64 milliseconds_current_start = 0;
-
-gint timer_valid = 0;
 
 gint bcount;
 gint wcount;
@@ -225,13 +221,6 @@ undo_move_cb (GtkWidget *widget, gpointer data)
 
 	gui_status ();
 
-	if (timer_valid) {
-		games_clock_stop (GAMES_CLOCK (time_display));
-		gtk_widget_set_sensitive (time_display, FALSE);
-		games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
-		timer_valid = 0;
-	}
-
 	tiles_to_flip = 1;
 
 	check_computer_players ();
@@ -249,14 +238,6 @@ black_level_cb (GtkWidget *widget, gpointer data)
 
         black_computer_level = tmp;
 
-        if (game_in_progress) {
-
-                games_clock_stop (GAMES_CLOCK (time_display));
-                gtk_widget_set_sensitive (time_display, FALSE);
-                games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
-                timer_valid = 0;
-        }
-
         check_computer_players ();
 }
 
@@ -271,13 +252,6 @@ white_level_cb (GtkWidget *widget, gpointer data)
         gnome_config_sync ();
 
         white_computer_level = tmp;
-
-        if (game_in_progress) {
-                games_clock_stop (GAMES_CLOCK (time_display));
-                gtk_widget_set_sensitive (time_display, FALSE);
-                games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
-                timer_valid = 0;
-        }
 
         check_computer_players ();
 }
@@ -345,6 +319,9 @@ gint
 button_press_event (GtkWidget *widget, GdkEventButton *event)
 {
 	guint x, y;
+
+	if (game_in_progress == 0)
+		return TRUE;
 
 	if (!network_allow ())
 		return TRUE;
@@ -600,19 +577,6 @@ init_new_game (void)
 	whose_turn = BLACK_TURN;
 	gui_message (_("Dark's move"));
 
-	games_clock_stop (GAMES_CLOCK (time_display));
-	games_clock_set_seconds (GAMES_CLOCK (time_display), 0);
-
-	if (black_computer_level ^ white_computer_level) {
-		if (! black_computer_level)
-			games_clock_start (GAMES_CLOCK (time_display));
-		gtk_widget_set_sensitive (time_display, TRUE);
-		timer_valid = 1;
-	} else {
-		gtk_widget_set_sensitive (time_display, FALSE);
-		timer_valid = 0;
-	}
-
 	check_computer_players ();
 }
 
@@ -673,13 +637,6 @@ create_window (void)
 	gtk_widget_show (white_score);
 
 	gtk_table_attach (GTK_TABLE (table), white_score, 5, 6, 0, 1, 0, 0, 3, 1);
-
-	time_display = games_clock_new ();
-	gtk_widget_set_sensitive (time_display, FALSE);
-	gtk_widget_show (time_display);
-
-	gtk_table_attach (GTK_TABLE (table), time_display, 7, 8, 0, 1, 0, 0, 3, 1);
-
 	undo_set_sensitive (FALSE);
 
 	gtk_widget_show (table);

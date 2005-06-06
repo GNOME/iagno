@@ -1,3 +1,13 @@
+2005-06-05  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* othello.c: 
+	* properties.c: 
+	* gnothello.c: Remove the clock. It was once, a long, long, time
+	ago used to keep some sort of score for the game. By removing it
+	we remove a lot of "special-case" code.
+	(button_press_event): Check whether we are actually playing a game
+	before accepting a click. This should fix bug #305999.
+
 2005-04-11  Richard Hoelscher  <rah@rahga.com>
 
 	* gnothello.c: Remove commented-out menus for AI strength selection.
