@@ -1,3 +1,9 @@
+2005-07-30  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* help/C/figures/*:
+	* help/C/iagno.xml: Bump the appversion number and update the
+	screenshots.
+
 2005-06-05  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* othello.c: 
