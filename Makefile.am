@@ -22,8 +22,8 @@ iagno_SOURCES = \
 	properties.h
 
 iagno_LDADD = \
-	$(GNOME_GAMES_LIBS) \
 	../libgames-support/libgames-support.la \
+	$(GNOME_GAMES_LIBS) \
 	$(INTLLIBS)
 
 pixmap_DATA = \
