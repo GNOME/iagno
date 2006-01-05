@@ -27,7 +27,6 @@
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
-#include <sys/time.h>
 #include <string.h>
 
 #include "gnothello.h"
@@ -62,8 +61,7 @@ guint tiles_to_flip = 0;
 gint64 milliseconds_total = 0;
 gint64 milliseconds_current_start = 0;
 
-gint bcount;
-gint wcount;
+guint game_in_progress;
 
 gint8 pixmaps[8][8] = {{0,0,0,0,0,0,0,0},
 		      {0,0,0,0,0,0,0,0},
@@ -83,11 +81,13 @@ gint8 board[8][8] = {{0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0}};
 
-MoveHistory game[61];
-
-gint8 move_count = 0;
+guint whose_turn;
+gint8 move_count;
+gint bcount;
+gint wcount;
 
 extern guint flip_final_id;
+extern gint8 squares[64];
 
 int session_flag = 0;
 int session_xpos = -1;
@@ -170,10 +170,9 @@ new_game_cb (GtkWidget *widget, gpointer data)
 void
 undo_move_cb (GtkWidget *widget, gpointer data)
 {
-	gint8 which_computer;
-	gint i, j;
+	gint8 which_computer, xy;
 
-	if ((black_computer_level && white_computer_level) || !move_count)
+	if ((black_computer_level && white_computer_level) || move_count == 4)
 		return;
 
 	if (flip_final_id) {
@@ -183,46 +182,25 @@ undo_move_cb (GtkWidget *widget, gpointer data)
 
 	game_in_progress = 1;
 
-	if (black_computer_level || white_computer_level) {
-		if (black_computer_level)
-			which_computer = BLACK_TURN;
-		else
-			which_computer = WHITE_TURN;
-		move_count--;
-		while (game[move_count].me == which_computer && move_count > 0) {
-			pixmaps[game[move_count].x][game[move_count].y] = 100;
-			move_count--;
-		}
-		pixmaps[game[move_count].x][game[move_count].y] = 100;
-		memcpy (board, game[move_count].board, sizeof (gint8) * 8 * 8);
-	} else {
-		move_count--;
-		memcpy (board, game[move_count].board, sizeof (gint8) * 8 * 8);
-		pixmaps[game[move_count].x][game[move_count].y] = 100;
+ 	which_computer = (whose_turn==WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
+ 	undo();
+ 	board_copy();
+ 	xy=squares[move_count];
+ 	pixmaps[xy%10-1][xy/10-1] = 100;
+ 	while (whose_turn == which_computer && move_count > 4) {
+ 		undo();
+ 		board_copy();
+ 		xy=squares[move_count];
+ 		pixmaps[xy%10-1][xy/10-1] = 100;
 	}
-
-	whose_turn = game[move_count].me;
 
 	if (whose_turn == WHITE_TURN)
 		gui_message (_("Light's move"));
 	else
 		gui_message (_("Dark's move"));
 
-	wcount = 0;
-	bcount = 0;
-
-	for (i = 0; i < 8; i++)
-		for (j = 0; j < 8; j++) {
-			if (board[i][j] == WHITE_TURN)
-				wcount++;
-			if (board[i][j] == BLACK_TURN)
-				bcount++;
-		}
-
 	gui_status ();
-
 	tiles_to_flip = 1;
-
 	check_computer_players ();
 }
 
@@ -543,7 +521,6 @@ clear_board (void)
 			board[i][j] = 0;
 
 	memcpy (pixmaps, board, sizeof (gint8) * 8 * 8);
-	memcpy (game[0].board, board, sizeof (gint8) * 8 * 8);
 
 	bcount = 0;
 	wcount = 0;
@@ -556,8 +533,7 @@ init_new_game (void)
 {
 	clear_board ();
 	game_in_progress = 1;
-	move_count = 0;
-	whose_turn = BLACK_TURN;
+	move_count = 4;
 
 	undo_set_sensitive (FALSE);
 	
@@ -568,9 +544,9 @@ init_new_game (void)
 
 	bcount = 2;
 	wcount = 2;
+	init();
 
 	memcpy (pixmaps, board, sizeof (gint8) * 8 * 8);
-	memcpy (game[0].board, board, sizeof (gint8) * 8 * 8);
 
 	redraw_board ();
 
@@ -764,16 +740,12 @@ int
 main (int argc, char **argv)
 {
 	GnomeClient *client;
-	struct timeval tv;
 
 	gnome_score_init ("iagno");
 
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
-
-	gettimeofday (&tv, NULL);
-	srand (tv.tv_usec);
 
 	gnome_program_init ("iagno", VERSION,
 			    LIBGNOMEUI_MODULE,

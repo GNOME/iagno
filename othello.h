@@ -23,17 +23,16 @@
 #define _OTHELLO_H_
 
 gint is_valid_move (guint, guint, guint);
-gint is_valid_move_board (gint8[8][8], guint, guint, guint);
 gint move (guint, guint, guint);
-gint move_board (gint8[8][8], guint, guint, guint, gint);
-gint count_pieces (gint);
+void move_board (gint);
 gboolean flip_final_results (gpointer data);
 gint check_valid_moves (void);
 gint computer_move_1 (guint);
 gint computer_move_2 (guint);
 gint computer_move_3 (guint);
-gint find_best_move(gint8[8][8], guint, gint, gint, gint,
-	guint*, guint*);
-gint eval_board (gint8[8][8], guint);
+gint computer_move_4 (guint);
+void init (void);
+void board_copy (void);
+void undo (void);
 
 #endif

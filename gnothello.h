@@ -34,16 +34,6 @@
 #define BOARDWIDTH  ((TILEWIDTH+GRIDWIDTH)  * 8)
 #define BOARDHEIGHT ((TILEHEIGHT+GRIDWIDTH) * 8)
 
-typedef struct _MoveHistory MoveHistory;
-
-struct _MoveHistory
-{
-        gint8 board[8][8];
-        gint8 x;
-        gint8 y;
-	gint8 me;
-};
-
 void new_game_cb (GtkWidget *widget, gpointer data);
 void new_net_game_cb (GtkWidget *widget, gpointer data);
 void quit_game_cb (GtkWidget *widget, gpointer data);

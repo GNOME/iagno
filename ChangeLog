@@ -1,3 +1,14 @@
+2006-01-05  Callum McKenzie  <callum@spooky-possum.org>
+
+	* othello.c: 
+	* othello.h:
+	* gnothello.c:	
+	* gnothello.h: New AI from math1@nifty.com. The original patch in
+	bug #312048 has been cleaned up a little to suit the style of the
+	rest of the source. A few other minor alterations where also
+	made. The calls to rand/srand have been replaced with their g_rand
+	cousins.
+
 2005-08-06  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/iagno.xml:  Remove the mention of the

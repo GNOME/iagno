@@ -1,4 +1,4 @@
-/* -*- mode:C; indent-tabs-mode:t; tab-width:8; c-basic-offset:8; -*- */
+/* -*- mode:C; indent-tabs-mode:t; tab-width:4; c-basic-offset:8; -*- */
 
 /*
  * othello.c - Othello support routines for iagno
@@ -29,724 +29,693 @@
 #include "othello.h"
 #include "gnothello.h"
 
-#define WHITE_TURN 31
-#define BLACK_TURN 1
+#define PERFECT   17
+#define VICTORY   19
+#define BEST      56
+#define MAX_DEPTH  7
 
-#define MAX_DEPTH 7
+#define BLANK 0
+#define OUTSIDE 128
+#define UL -11
+#define UU -10
+#define UR -9
+#define LL -1
+#define RR +1
+#define DL +9
+#define DD +10
+#define DR +11
+#define NDIRS 8
 
-#define S_LOSING_GAME -10000
-#define S_WINNING_GAME 10000
+#define OTHER_PLAYER(w) (((w) == WHITE_TURN) ? BLACK_TURN : WHITE_TURN)
 
-guint heuristic[8][8] = {{512,4,128,256,256,128,4,512},
-			 {4,2,8,16,16,8,2,4},
-			 {128,8,64,32,32,64,8,128},
-			 {256,16,32,2,2,32,16,256},
-			 {256,16,32,2,2,32,16,256},
-			 {128,8,64,32,32,64,8,128},
-			 {4,2,8,16,16,8,2,4},
-			 {512,4,128,256,256,128,4,512}};
+gint8 squares[64] = {44,45,54,55,23,26,73,76,
+					 32,62,37,67,13,16,31,61,
+					 38,68,83,86,14,15,41,51,
+					 48,58,84,85,24,25,42,52,
+					 74,75,47,57,36,63,33,35,
+					 53,66,46,64,34,43,56,65,
+					 12,17,21,71,28,78,82,87,
+					 22,27,72,77,11,18,81,88};
+
+static const gint heuristic[100] = { 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+									 0, 65, -3,  6,  4,  4,  6, -3, 65,  0,
+									 0, -3,-29,  3,  1,  1,  3,-29, -3,  0,
+									 0,  6,  3,  5,  3,  3,  5,  3,  6,  0,
+									 0,  4,  1,  3,  1,  1,  3,  1,  4,  0,
+									 0,  4,  1,  3,  1,  1,  3,  1,  4,  0,
+									 0,  6,  3,  5,  3,  3,  5,  3,  6,  0,
+									 0, -3,-29,  3,  1,  1,  3,-29, -3,  0,
+									 0, 65, -3,  6,  4,  4,  6, -3, 65,  0,
+									 0,  0,  0,  0,  0,  0,  0,  0,  0,  0  };
+
+static const gint dirs[] = { UL, UU, UR, LL, RR, DL, DD, DR };
 
 guint flip_final_id = 0;
 gint flip_final;
+
+gint8 board0[100];
+/* This array can probably be a lot smaller (< 600). However, I am absolutely
+ * certain that it cannot be more than 1200. So 1200 is what we use. */
+gint8 history[1200];
+gint hpointer;
+gint vsquares[280][2];
+gint vpointer;
+gint s_kind;
+GRand *rgen;
 
 extern guint black_computer_level;
 extern guint white_computer_level;
 
 extern gint animate;
 extern gint animate_stagger;
-
-extern guint whose_turn;
 extern guint game_in_progress;
-
 extern gint8 pixmaps[8][8];
 extern gint8 board[8][8];
-extern MoveHistory game[61];
-
 extern gint8 move_count;
-
+extern guint whose_turn;
 extern gint bcount;
 extern gint wcount;
 
 extern guint tiles_to_flip;
 
-/* Wrapper for is_valid_move_board, to maintain API for CORBA stuff */
-
-gint 
-is_valid_move (guint x, guint y, guint me)
+/* Initialization of data */
+void
+init ( void )
 {
-	return is_valid_move_board(board, x, y, me);
+    gint i,j;
+	gint x;
+
+	rgen = g_rand_new ();
+
+	x = 0;
+    for( j = 0; j < 10; j++ )
+        for( i = 0; i < 10; i++ )
+            {
+                if      ( j == 0 || j ==9  ) board0[x] = OUTSIDE;
+                else if ( i == 0 || i == 9 ) board0[x] = OUTSIDE;
+                else                         board0[x] = BLANK;
+				x++;
+            }
+    board0[ 44 ] = WHITE_TURN;
+    board0[ 45 ] = BLACK_TURN;
+    board0[ 54 ] = BLACK_TURN;
+    board0[ 55 ] = WHITE_TURN;
+  
+    hpointer = 0;
+    vpointer = 0;
+}
+  
+/* Copy data from board0 to board */
+void
+board_copy ( void )
+{
+    gint i,j;
+  
+    for ( j = 0; j < 8; j++ )
+        for ( i = 0; i < 8; i++ )
+            board[ i ][ j ] = board0[ ( j + 1 ) * 10 + i + 1 ];
 }
 
-/* Check if a given square is a valid move for one of the players */
-
+/* Check the validity of the move in a given direction. */
+static
 gint
-is_valid_move_board (gint8 board[8][8], guint x, guint y, guint me)
+is_valid0 (gint xy, gint dir, gint who)
 {
-	gint tmp_x, tmp_y;
-	guint not_me;
+    gint tmp;
+    gint8 not_me;
+  
+    not_me = OTHER_PLAYER (who);
 
-	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
+	/* To be valid, the next counter should not be the current player ... */
+    tmp = xy + dir;
+    if ( board0[tmp] != not_me )                     
+			return FALSE;
 
-	if (board[x][y] != 0)
-		return (FALSE);
+	/* ... but eventually we must find a counter that is. */
+    do { tmp += dir; } while ( board0[tmp] == not_me );
 
-	/* Check for flips going left */
-
-	tmp_x = x - 1;
-	while (tmp_x >= 0 && board[tmp_x][y] == not_me)
-		tmp_x--;
-	if (tmp_x >= 0 && board[tmp_x][y] == me && tmp_x != x - 1)
-		return (TRUE);
-
-	/* Check for flips going right */
-
-	tmp_x = x + 1;
-	while (tmp_x < 8 && board[tmp_x][y] == not_me)
-		tmp_x++;
-	if (tmp_x < 8 && board[tmp_x][y] == me && tmp_x != x + 1)
-		return (TRUE);
-
-	/* Check for flips going up */
-
-	tmp_y = y - 1;
-	while (tmp_y >= 0 && board[x][tmp_y] == not_me)
-		tmp_y--;
-	if (tmp_y >= 0 && board[x][tmp_y] == me && tmp_y != y - 1)
-		return (TRUE);
-
-	/* Check for flips going down */
-
-	tmp_y = y + 1;
-	while (tmp_y < 8 && board[x][tmp_y] == not_me)
-		tmp_y++;
-	if (tmp_y < 8 && board[x][tmp_y] == me && tmp_y != y + 1)
-		return (TRUE);
-
-	/* Check for flips going up/left */
-
-	tmp_x = x - 1;
-	tmp_y = y - 1;
-	while (tmp_y >= 0 && tmp_x >= 0 && board[tmp_x][tmp_y] == not_me) {
-		tmp_x--;
-		tmp_y--;
-	}
-	if (tmp_x >= 0 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x - 1)
-		return (TRUE);
-
-	/* Check for flips going up/right */
-
-	tmp_x = x + 1;
-	tmp_y = y - 1;
-	while (tmp_y >= 0 && tmp_x < 8 && board[tmp_x][tmp_y] == not_me) {
-		tmp_x++;
-		tmp_y--;
-	}
-	if (tmp_x < 8 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x + 1)
-		return (TRUE);
-
-	/* Check for flips going down/left */
-
-	tmp_x = x - 1;
-	tmp_y = y + 1;
-	while (tmp_y < 8 && tmp_x >= 0 && board[tmp_x][tmp_y] == not_me) {
-		tmp_x--;
-		tmp_y++;
-	}
-	if (tmp_x >= 0 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x - 1)
-		return (TRUE);
-
-	/* Check for flips going down/right */
-
-	tmp_x = x + 1;
-	tmp_y = y + 1;
-	while (tmp_y < 8 && tmp_x < 8 && board[tmp_x][tmp_y] == not_me) {
-		tmp_x++;
-		tmp_y++;
-	}
-	if (tmp_x < 8 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x + 1)
-		return (TRUE);
-
-	return (FALSE);
+	return board0[tmp] == who;
 }
 
-/* Wrapper for move_board, to maintain API for CORBA stuff */
+/* Check if a given (empty) square can provide a valid move */
+static
+gint
+is_valid (gint xy, gint who)
+{
+	int i;
 
+	for (i=0; i<NDIRS; i++)
+			if ( is_valid0( xy, dirs[i], who ) ) return( TRUE );
+
+    return FALSE;
+}
+  
+/* Check whether the supplied move is a valid one. */
+gint
+is_valid_move (guint x, guint y, guint who) {
+    gint xy;
+
+    xy = ( y + 1 ) * 10 + x + 1;
+    if ( board0[ xy ] != BLANK )                    
+			return FALSE;
+
+	return is_valid (xy, who);
+}
+
+static
+void
+move_board0 (gint xy, gint dir)
+{
+    gint8 tmp;
+    guint not_me;
+
+    not_me = OTHER_PLAYER (whose_turn);
+    tmp = xy + dir;
+    if ( board0[ tmp ] != not_me )                    
+			return;
+	/* Find the extent of the move in direction dir. */
+    do { tmp += dir; } while ( board0[ tmp ] == not_me ); 
+    if ( board0[tmp] != whose_turn )
+			return;
+
+	/* Now walk back to where we started flipping pieces over. */
+    tmp -= dir;
+    while ( tmp != xy )
+        {
+            board0[tmp] = whose_turn;     /* Flip pieces */
+            history[ hpointer++ ] = tmp;  /* Record history */
+            tmp -= dir;
+        }
+}
+
+/* reverse some pieces */
+void
+move_board (gint xy)
+{
+    gint tmp, count;
+	int i;
+
+    count = hpointer;
+
+	for (i=0; i<NDIRS; i++)
+			move_board0( xy, dirs[i] );
+
+    board0[xy] = whose_turn;
+    count = hpointer-count;
+    history[ hpointer++ ] = count;     /* make history */
+    history[ hpointer++ ] = whose_turn;
+
+    if ( whose_turn == WHITE_TURN )
+        {
+            wcount += count+1;
+            bcount -= count;
+        }
+    else
+        {
+            bcount += count+1;
+            wcount -= count;
+        }
+    tmp = squares[move_count];
+    squares[move_count++] = xy;
+    if ( tmp != xy) 
+        {
+            count = move_count;
+            while ( squares[count] != xy ) count++;
+            squares[count] = tmp;
+        }
+    whose_turn = OTHER_PLAYER (whose_turn);
+}
+  
+  
 gint
 move (guint x, guint y, guint me)
 {
-        int retval;
+    gint tmp;
+  
+    tmp = (gint)( ( y + 1 ) * 10 + x + 1 );
+    if ( board0[ tmp ] != BLANK )                      
+			return FALSE;
+    if ( !is_valid( tmp, whose_turn ) )                
+			return FALSE;
+    move_board( tmp );
+    board_copy();
 
-	retval = move_board (board, x, y, me, 1);
+    pixmaps[ x ][ y ] = (gint8)me;
+    gui_draw_pixmap( me, x, y );
 
-	check_valid_moves ();
-	check_computer_players ();
+    if ( whose_turn == BLACK_TURN )
+        {
+            gui_message(_("Dark's move"));
+        }
+    else if ( whose_turn == WHITE_TURN )
+        {
+            gui_message(_("Light's move"));
+        }
 
-	return retval;
+    gui_status();
+
+    tiles_to_flip = 1;
+    check_valid_moves();
+    check_computer_players();
+
+    return FALSE;
 }
 
-gint
-move_board (gint8 board[8][8], guint x, guint y, guint me, gint real)
+/* Back to before board0 */
+void
+undo ( void )
 {
-	gint tmp_x, tmp_y;
-	guint not_me;
-	gint adder = 0, adder_diff = 0;
-	gint count = 1;
+    gint8 not_me, count;
 
-	/* Stuff to do if this is a ``real'' move */
+    whose_turn = history[ --hpointer ];     /* history[t1,t2,,,tn, n,who] */
+    count = history[ --hpointer ];
 
-	if (real) {
+    if ( whose_turn == WHITE_TURN )
+        {
+            wcount -= count+1;
+            bcount += count;
+        }
+    else
+        {
+            bcount -= count+1;
+            wcount += count;
+        }
 
-		/* Copy the old board and move info to the undo buffer */
+    board0[ squares[ --move_count ]] = BLANK;  /* decrease move_count    */
 
-		memcpy (game[move_count].board, board, sizeof (gint8) * 8 * 8);
-		game[move_count].x = x;
-		game[move_count].y = y;
-		game[move_count].me = me;
+    not_me = OTHER_PLAYER (whose_turn);
+    while ( count > 0 )
+        {
+            board0[ history[ --hpointer ] ] = not_me;
+            count--;
+        }
+}
 
-		move_count++;
+/* Sort vsquares by small order */
+static
+void
+sort (gint l, gint r)
+{
+    gint i, j, v, w, x;
 
-		if (whose_turn == WHITE_TURN) {
-			whose_turn = BLACK_TURN;
-			gui_message (_("Dark's move"));
-		} else {
-			whose_turn = WHITE_TURN;
-			gui_message (_("Light's move"));
-		}
+    i = l; j = r;
+    x = vsquares[ ( l + r ) / 2 ][ 1 ];
+    do
+        {
+            while ( vsquares[ i ][ 1 ] < x ) i++;
+            while ( x < vsquares[ j ][ 1 ] ) j--;
+            if ( i < j )
+                {
+					v = vsquares[ i ][ 0 ];
+					w = vsquares[ i ][ 1 ];
+                    vsquares[ i ][ 0 ] = vsquares[ j ][ 0 ];
+                    vsquares[ i ][ 1 ] = vsquares[ j ][ 1 ];
+                    vsquares[ j ][ 0 ] = v;
+                    vsquares[ j ][ 1 ] = w;
+                }
+            if ( i <= j )
+                {
+                    i++;
+                    j--;
+                }
+        } while ( i <= j );
+  
+    if ( l < j ) sort( l, j );
+    if ( i < r ) sort( i, r );
+}
+  
+static
+gint
+eval_heuristic( void )
+{
+    gint8 i, xy;
+    gint count = 0;
+  
+    for ( i = 0; i < move_count; i++ )
+        {
+            xy = squares[ i ];
+            count = ( board0[ xy ] == whose_turn ) ?
+					count + heuristic[ xy ] : count - heuristic[ xy ];
+        }
 
-		pixmaps[x][y] = me;
-		gui_draw_pixmap (me, x, y);
-	}
+    return count;
+}
+  
+static
+gint
+mobility( void )
+{
+    gint8 i, xy;
+    gint count = 0;
+  
+    for ( i = move_count; i < 64; i++ )
+        {
+            xy = squares[ i ];
+            if ( is_valid( xy, whose_turn ) ) count++;
+        }
 
-	if (me == WHITE_TURN) {
-		not_me = BLACK_TURN;
-		if (animate && animate_stagger)
-			adder_diff = -PIXMAP_STAGGER_DELAY;
-	} else {
-		not_me = WHITE_TURN;
-		if (animate && animate_stagger)
-			adder_diff = PIXMAP_STAGGER_DELAY;
-	}
+    return count;
+}
+  
+static
+gint
+around0(gint xy)
+{
+    gint count = 0;
+	int i;
+  
+	for (i=0; i<NDIRS; i++)
+			if ( board0[ xy + dirs[i] ] == BLANK ) count--;
 
-	board[x][y] = me;
+    if ( !count ) count = 2;
+ 
+    return count;
+}
+  
+static
+gint
+around( void )
+{
+    gint8 i, xy;
+    gint count = 0;
+  
+    for ( i = 0 ; i < move_count; i++ )
+        {
+            xy = squares[ i ];
+            count = ( board0[ xy ] == whose_turn ) ? 
+                count + around0( (gint) xy ) : count - around0( (gint) xy );
+        }
 
-	/* Flip going left */
+    return count;
+}
+  
+/* Evaluate the board   */
+static
+gint
+b_evaluation( void )
+{
+    gint score1, score2, score3;
+  
+    score1 = mobility();
+    whose_turn = OTHER_PLAYER (whose_turn);
+    score1 -= mobility();
+    whose_turn = OTHER_PLAYER (whose_turn);
+  
+    score2 = around();
+    score3 = eval_heuristic();
+  
+    return score1 + score2 + score3;
+}
+  
+/* Victory evaluation */
+static
+gint
+v_evaluation( void )
+{
+    gint aa;
+  
+    aa = wcount - bcount;
+    if ( whose_turn == BLACK_TURN ) aa = -aa;
 
-	adder = 0;
+    if ( aa > 0 ) return  1;    /* win  */
+    if ( aa < 0 ) return -1;    /* lose */
+    return 0;                   /* draw */
+}
+  
+static
+gint
+p_evaluation( void )
+{
+  
+    if ( whose_turn == WHITE_TURN )           
+			return wcount - bcount;
 
-	tmp_x = x - 1;
-	while (tmp_x >= 0 && board[tmp_x][y] == not_me)
-		tmp_x--;
-	if (tmp_x >= 0 && board[tmp_x][y] == me && tmp_x != x - 1) {
-		tmp_x = x - 1;
-		while (tmp_x >= 0 && board[tmp_x][y] == not_me) {
-			board[tmp_x][y] = me;
-			if ((pixmaps[tmp_x][y] == not_me) && real)
-				pixmaps[tmp_x][y] += adder;
-			adder += adder_diff;
-			tmp_x--;
-			count++;
-		}
-	}
+    return bcount - wcount;
+}
+  
+static
+gint
+w_evaluation( void )
+{
+    gint aa;
+  
+    if ( !bcount || !wcount )
+        {
+            if ( whose_turn == WHITE_TURN && !bcount )   return 10000;
+            if ( whose_turn == BLACK_TURN && !wcount )   return 10000;
+            return -10000;
+        }
 
-	/* Flip going right */
+    aa = wcount - bcount;
+    if ( whose_turn == BLACK_TURN ) aa = -aa;
 
-	adder = 0;
+    if ( aa > 0 ) return aa + 100;
+    if ( aa < 0 ) return aa - 100;
+    return( 0 );
+}
+  
+/* alpha-beta search */
+static
+gint
+search(gint n, gint a, gint b)
+{
+    gint aa, bb, xy, i, j;
+  
+    if ( !n )
+	{
+	    switch (s_kind)
+                {
+                    case PERFECT:                
+							return( p_evaluation() );
+                    case VICTORY:                
+							return( v_evaluation() );
+                    default:                     
+							return( b_evaluation() );
+                }
+        }
 
-	tmp_x = x + 1;
-	while (tmp_x < 8 && board[tmp_x][y] == not_me)
-		tmp_x++;
-	if (tmp_x < 8 && board[tmp_x][y] == me && tmp_x != x + 1) {
-		tmp_x = x + 1;
-		while (tmp_x < 8 && board[tmp_x][y] == not_me) {
-			board[tmp_x][y] = me;
-			if ((pixmaps[tmp_x][y] == not_me) && real)
-				pixmaps[tmp_x][y] += adder;
-			adder += adder_diff;
-			tmp_x++;
-			count++;
-		}
-	}
+    aa = a;
 
-	/* Flip going up */
+    j = vpointer;
+    for ( i = (gint)move_count ; i < 64 ; i++ )
+        {                                           /* entry valid squares */
+            xy = (gint)squares[ i ];
+            if ( is_valid( xy, whose_turn ) )
+                {
+                    vsquares[ ++j ][ 0 ] = xy;
+                    move_board( xy );
+                    vsquares[ j ][ 1 ] = mobility();
+                    undo();
+                }
+        }
 
-	adder = 0;
+    if ( j == vpointer )                           /* pass ?  */
+        {
+            whose_turn = ( whose_turn == WHITE_TURN ) ? BLACK_TURN : WHITE_TURN;
+            if ( !mobility() )
+                {
+                    whose_turn = OTHER_PLAYER (whose_turn);
 
-	tmp_y = y - 1;
-	while (tmp_y >= 0 && board[x][tmp_y] == not_me)
-		tmp_y--;
-	if (tmp_y >= 0 && board[x][tmp_y] == me && tmp_y != y - 1) {
-		tmp_y = y - 1;
-		while (tmp_y >= 0 && board[x][tmp_y] == not_me) {
-			board[x][tmp_y] = me;
-			if ((pixmaps[x][tmp_y] == not_me) && real)
-				pixmaps[x][tmp_y] += adder;
-			adder += adder_diff;
-			tmp_y--;
-			count++;
-		}
-	}
+                    switch ( s_kind )
+                        {
+                            case PERFECT:       return( p_evaluation() );
+                            case VICTORY:       return( v_evaluation() );
+                            default:            return( w_evaluation() );
+                        }
+                }
+            aa = -search( n, -b, -aa );
+            whose_turn = OTHER_PLAYER (whose_turn);
+            vsquares[ j ][ 0 ] = 0;        /* mark pass              */
+            return aa;
+        }
 
-	/* Flip going down */
+    sort( vpointer + 1, j );
 
-	adder = 0;
+    i = vpointer;                          /* save old vpointer      */
+    vpointer = j + 1;                      /* new vpointer           */
 
-	tmp_y = y + 1;
-	while (tmp_y < 8 && board[x][tmp_y] == not_me)
-		tmp_y++;
-	if (tmp_y < 8 && board[x][tmp_y] == me && tmp_y != y + 1) {
-		tmp_y = y + 1;
-		while (tmp_y < 8 && board[x][tmp_y] == not_me) {
-			board[x][tmp_y] = me;
-			if ((pixmaps[x][tmp_y] == not_me) && real)
-				pixmaps[x][tmp_y] += adder;
-			adder += adder_diff;
-			tmp_y++;
-			count++;
-		}
-	}
+    j = i + 1;
+    while ( aa < b && j < vpointer )
+        {
+            xy = vsquares[ j ][ 0 ];
+            move_board( xy );
+            bb = -search( n - 1, -b, -aa ); /* evaluate this square  */
+            undo();
+            if ( aa < bb )
+                {
+                    aa = bb;
+                    vsquares[ i ][ 0 ] = xy;   /* save this square       */
+                }
+            j++;
+        }
+    vpointer = i;                          /* pop vpointer           */
+    return aa;
+}
 
-	/* Flip going up/left */
+static
+void
+random_select( void )
+{
+    gint xy, i, j;
 
-	adder = 0;
+    vsquares[ 0 ][ 0 ] = 0;
+    j = 0;
+    for ( i = move_count ; i < 64 ; i++ )
+        {
+            xy = squares[ i ];
+            if ( is_valid( xy, whose_turn ) ) 
+					vsquares[ j++ ][ 0 ] = xy;
+        }
+    if ( j )
+        {
+            i = g_rand_int_range (rgen, 0, j);
+            vsquares[ 0 ][ 0 ] = vsquares[ i ][ 0 ];
+        }
+}
+  
+static
+gint
+computer_move (gint level)
+{
+    gint nn, aa, kind, best_xy;
+  
+    vsquares[ 0 ][ 0 ] = -1;
+    nn = 64 - move_count;
+    if  ( nn > BEST )  random_select();
+    else
+        {
+            if ( nn <= PERFECT - level )
+                { kind = PERFECT;  aa = 127; }
+            if ( PERFECT - level < nn && nn <= VICTORY - level )
+                { kind = VICTORY;  aa = 2;   }
+            if ( VICTORY - level < nn && nn <= BEST )
+                { kind = BEST;     aa = 32767;   nn = MAX_DEPTH - level; }
+            s_kind = kind;
+            vsquares[ 0 ][ 1 ] = search( nn, -aa, aa );
+        }
 
-	tmp_x = x - 1;
-	tmp_y = y - 1;
-	while (tmp_y >= 0 && tmp_x >= 0 && board[tmp_x][tmp_y] == not_me) {
-		tmp_x--;
-		tmp_y--;
-	}
-	if (tmp_x >= 0 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x - 1) {
-		tmp_x = x - 1;
-		tmp_y = y - 1;
-		while (tmp_y >= 0 && tmp_x >= 0 && board[tmp_x][tmp_y] == not_me) {
-			board[tmp_x][tmp_y] = me;
-			if ((pixmaps[tmp_x][tmp_y] == not_me) && real)
-				pixmaps[tmp_x][tmp_y] += adder;
-			adder += adder_diff;
-			tmp_x--;
-			tmp_y--;
-			count++;
-		}
-	}
+    best_xy = vsquares[ 0 ][ 0 ];
 
-	/* Flip going up/right */
+    if ( best_xy == -1 )    /* If I can't win, then search the best again. */
+        {
+            s_kind = BEST;
+            vsquares[ 0 ][ 1 ] = search( MAX_DEPTH - level, -32767, 32767 );
+            best_xy = vsquares[ 0 ][ 0 ];
+        }
 
-	adder = 0;
+    if ( best_xy )
+        move ( best_xy % 10 - 1, best_xy / 10 - 1, whose_turn );
 
-	tmp_x = x + 1;
-	tmp_y = y - 1;
-	while (tmp_y >= 0 && tmp_x < 8 && board[tmp_x][tmp_y] == not_me) {
-		tmp_x++;
-		tmp_y--;
-	}
-	if (tmp_x < 8 && tmp_y >= 0 && board[tmp_x][tmp_y] == me && tmp_x != x + 1) {
-		tmp_x = x + 1;
-		tmp_y = y - 1;
-		while (tmp_x < 8 && tmp_y >= 0 && board[tmp_x][tmp_y] == not_me) {
-			board[tmp_x][tmp_y] = me;
-			if ((pixmaps[tmp_x][tmp_y] == not_me) && real)
-				pixmaps[tmp_x][tmp_y] += adder;
-			adder += adder_diff;
-			tmp_x++;
-			tmp_y--;
-			count++;
-		}
-	}
-
-	/* Flip going down/left */
-
-	adder = 0;
-
-	tmp_x = x - 1;
-	tmp_y = y + 1;
-	while (tmp_y < 8 && tmp_x >= 0 && board[tmp_x][tmp_y] == not_me) {
-		tmp_x--;
-		tmp_y++;
-	}
-	if (tmp_x >= 0 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x - 1) {
-		tmp_x = x - 1;
-		tmp_y = y + 1;
-		while (tmp_x >= 0 && tmp_y < 8 && board[tmp_x][tmp_y] == not_me) {
-			board[tmp_x][tmp_y] = me;
-			if ((pixmaps[tmp_x][tmp_y] == not_me) && real)
-				pixmaps[tmp_x][tmp_y] += adder;
-			adder += adder_diff;
-			tmp_x--;
-			tmp_y++;
-			count++;
-		}
-	}
-
-	/* Flip going down/right */
-
-	adder = 0;
-
-	tmp_x = x + 1;
-	tmp_y = y + 1;
-	while (tmp_y < 8 && tmp_x < 8 && board[tmp_x][tmp_y] == not_me) {
-		tmp_x++;
-		tmp_y++;
-	}
-	if (tmp_x < 8 && tmp_y < 8 && board[tmp_x][tmp_y] == me && tmp_x != x + 1) {
-		tmp_x = x + 1;
-		tmp_y = y + 1;
-		while (tmp_x < 8 && tmp_y < 8 && board[tmp_x][tmp_y] == not_me) {
-			board[tmp_x][tmp_y] = me;
-			if ((pixmaps[tmp_x][tmp_y] == not_me) && real)
-				pixmaps[tmp_x][tmp_y] += adder;
-			adder += adder_diff;
-			tmp_x++;
-			tmp_y++;
-			count++;
-		}
-	}
-
-	/* More stuff for a ``real'' move */
-
-	if (real) {
-
-		/* Update the statusbar counters */
-
-		if (me == BLACK_TURN) {
-			bcount += count;
-			wcount -= count - 1;
-		} else {
-			wcount += count;
-			bcount -= count - 1;
-		}
-
-		gui_status();
-
-		tiles_to_flip = 1;
-	}
-
-	return (FALSE);
+    return FALSE;
 }
 
 gint
 computer_move_1 (guint me)
 {
-	guint xs[32], ys[32];
-	guint num_moves = 0;
-	guint i, j;
-
-	for (i = 0; i < 8; i++)
-		for (j = 0; j < 8; j++)
-			if (is_valid_move (i, j, me)) {
-				xs[num_moves] = i;
-				ys[num_moves] = j;
-				num_moves++;
-			}
-
-	i = (rand ()>>3) % num_moves;
-	move (xs[i], ys[i], me);
-
-	return (FALSE);
+    return computer_move( 6 );
 }
 
 gint
 computer_move_2 (guint me)
 {
-	guint i, j;
-	guint best_x = 8, best_y = 8;
-	gint best_move = S_LOSING_GAME;
-	gint tmp_move;
-	gint8 tboard[8][8];
-
-	for (i = 0; i < 8; i++)
-		for (j = 0; j < 8; j++)
-			if (is_valid_move (i, j, me)) {
-				memcpy (tboard, board, sizeof (gint8) * 8 * 8);
-				move_board (tboard, i, j, me, 0);
-				tmp_move = eval_board (tboard, me);
-				if (tmp_move == best_move
-				    && (rand () >> 4) % 2) {
-					best_x = i;
-					best_y = j;
-				}
-				if (tmp_move > best_move
-				    && (best_move == S_LOSING_GAME
-					|| rand() * 100 > 85)) {
-					best_move = tmp_move;
-					best_x = i;
-					best_y = j;
-				}
-			}
-
-	move (best_x, best_y, me);
-
-	return (FALSE);
+    return computer_move( 4 );
 }
 
 gint
-computer_move_3(guint me)
+computer_move_3 (guint me)
 {
-	guint best_x, best_y;
-
-
-	find_best_move (board, me, MAX_DEPTH, S_WINNING_GAME, S_LOSING_GAME, &best_x, &best_y);
-	
-	if (best_x == 8 && best_y == 8)
-		computer_move_1 (me);
-	else
-		move(best_x, best_y, me); 
-
-	return (FALSE);
+    return computer_move( 2 );
 }
-
+  
 gint
-find_best_move(gint8 board[8][8], guint me, gint ply_depth,
-	gint use_thresh, gint pass_thresh,
-	guint* ret_best_x, guint* ret_best_y)
+computer_move_4 (guint me)
 {
-	guint not_me;
-	guint i, j;
-	guint best_x = 8;
-	guint best_y = 8;
-	gint tmp_move;
-	gint8 tboard[8][8];
-	gboolean exit_loops = FALSE;
-	gboolean pass = TRUE;
-
-	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
-	
-	if (!ply_depth)
-		pass_thresh = eval_board(board, me);
-	else {
-		/* Scan the board for possible moves and calculate
-		 * their cost/benefit. */
-		for (i = 0; i < 8 && !exit_loops; i++)
-			for (j = 0; j < 8 && !exit_loops; j++)
-				if (is_valid_move_board(board, i, j, me)) {
-
-					pass = FALSE;
-					memcpy (tboard, board, sizeof (gint8) * 8 * 8);
-					move_board(tboard, i, j, me, 0);
-	
-					/* Assume that the opponent takes best move. */
-					tmp_move = find_best_move(tboard, not_me, ply_depth-1,
-						-pass_thresh, -use_thresh, 0, 0);
-
-					tmp_move = -tmp_move;
-					
-					if (tmp_move > pass_thresh) {
-						pass_thresh = tmp_move;
-						best_x = i;
-						best_y = j;
-						exit_loops = (pass_thresh >= use_thresh);
-					}
-
-				}
-		
-		/* Deal with the case where there aren't any valid moves. */
-		if (pass) {
-			tmp_move = find_best_move(board, not_me, ply_depth-1,
-						  -pass_thresh, -use_thresh, 0, 0);
-			tmp_move = -tmp_move;
-
-			if (tmp_move > pass_thresh)
-				pass_thresh = tmp_move;
-		}
-
-	}
-
-	if (ret_best_x && ret_best_y) {
-		*ret_best_x = best_x;
-		*ret_best_y = best_y;
-	}
-	
-	return (pass_thresh);
-}
-
-gint
-count_pieces (gint me)
-{
-	guint tmp = 0;
-	guint i, j;
-
-	for (i = 0; i < 8; i++)
-		for (j = 0; j < 8; j++)
-			if (board[i][j] == me)
-				tmp++;
-
-	return (tmp);
+    return computer_move( 0 );
 }
 
 gboolean
 flip_final_results (gpointer data)
 {
-	guint i;
-	guint white_pieces;
-	guint black_pieces;
-	guint adder = 0;
+    guint i;
+    guint white_pieces;
+    guint black_pieces;
+    guint adder  =  0;
 
-	white_pieces = count_pieces (WHITE_TURN);
-	black_pieces = count_pieces (BLACK_TURN);
+    white_pieces = wcount;
+    black_pieces = bcount;
 
-	for (i = 0; i < black_pieces; i++) {
-		board[i % 8][i / 8] = BLACK_TURN;
-		if (pixmaps[i % 8][i / 8] < 1)
-			pixmaps[i % 8][i / 8] = WHITE_TURN;
-		if (pixmaps[i % 8][i / 8] == WHITE_TURN) {
-			pixmaps[i % 8][i / 8] += adder;
-			if (animate_stagger)
-				adder++;
-		}
-	}
-	for (i = black_pieces; i < 64 - white_pieces; i++) {
-		board[i % 8][i / 8] = 0;
-		pixmaps[i % 8][i / 8] = 100;
-	}
-	for (i = 64 - white_pieces; i < 64; i++) {
-		board[i % 8][i / 8] = WHITE_TURN;
-		if (pixmaps[i % 8][i / 8] == 0)
-			pixmaps[i % 8][i / 8] = BLACK_TURN;
-		if (pixmaps[i % 8][i / 8] == BLACK_TURN) {
-			pixmaps[i % 8][i / 8] -= adder;
-			if (animate_stagger)
-				adder++;
-		}
-	}
-
-	tiles_to_flip = 1;
-
-	return (FALSE);
+    for ( i = 0; i < black_pieces; i++ )
+        {
+            board[i % 8][i / 8] = BLACK_TURN;
+            if ( pixmaps[i % 8][i / 8] < 1 )
+					pixmaps[i % 8][i / 8] = WHITE_TURN;
+            if ( pixmaps[i % 8][i / 8] == WHITE_TURN )
+					{
+							pixmaps[i % 8][i / 8] += adder;
+							if (animate_stagger) adder++;
+					}
+        }
+    for ( i = black_pieces; i < 64 - white_pieces; i++ )
+        {
+            board[i % 8][i / 8] = 0;
+            pixmaps[i % 8][i / 8] = 100;
+        }
+    for ( i = 64 - white_pieces; i < 64; i++ )
+        {
+            board[i % 8][i / 8] = WHITE_TURN;
+            if ( pixmaps[i % 8][i / 8] == 0 )
+					pixmaps[i % 8][i / 8] = BLACK_TURN;
+            if ( pixmaps[i % 8][i / 8] == BLACK_TURN )
+                {
+                    pixmaps[i % 8][i / 8] -= adder;
+                    if ( animate_stagger ) adder++;
+                }
+        }
+  
+    tiles_to_flip = 1;
+  
+    return FALSE;
 }
 
 gint
 check_valid_moves (void)
 {
-	guint i, j;
-	guint white_moves = 0;
-	guint black_moves = 0;
+    guint white_moves = 0;
+    guint black_moves = 0;
+  
+    if ( !game_in_progress )                                return( TRUE );
+    if ( mobility() )                                       return( TRUE );
+  
+    whose_turn = OTHER_PLAYER (whose_turn);
+  
+    if ( !mobility() )
+        {            
+            white_moves = wcount;
+            black_moves = bcount;
+            if ( white_moves > black_moves )
+                gui_message (_("Light player wins!"));
+            if ( black_moves > white_moves )
+                gui_message (_("Dark player wins!"));
+            if ( white_moves == black_moves )
+                gui_message (_("The game was a draw."));
+            whose_turn = 0;
+            game_in_progress = 0;
+            if ( flip_final )
+                flip_final_id = g_timeout_add (3000, flip_final_results, NULL);
+            return TRUE;
+        }
 
-	if (!game_in_progress)
-		return (TRUE);
+    if ( whose_turn == BLACK_TURN )
+        {
+            gui_message(_("Light must pass, Dark's move"));
+            return TRUE;
+        }
 
-	switch (whose_turn) {
-	case WHITE_TURN:
-		for (i = 0; i < 8; i++)
-			for (j = 0; j < 8; j++)
-				if (is_valid_move (i, j, WHITE_TURN))
-					white_moves++;
-		if (white_moves)
-			return (TRUE);
-		break;
-	case BLACK_TURN:
-		for (i = 0; i < 8; i++)
-			for (j = 0; j < 8; j++)
-				if (is_valid_move (i, j, BLACK_TURN))
-					black_moves++;
-		if (black_moves)
-			return (TRUE);
-		break;
-	}
-	
-	switch (whose_turn) {
-	case WHITE_TURN:
-		for (i = 0; i < 8; i++)
-			for (j = 0; j < 8; j++)
-				if (is_valid_move (i, j, BLACK_TURN))
-					black_moves++;
-		break;
-	case BLACK_TURN:
-		for (i = 0; i < 8; i++)
-			for (j = 0; j < 8; j++)
-				if (is_valid_move (i, j, WHITE_TURN))
-					white_moves++;
-		break;
-	}
-
-	if (!white_moves && !black_moves) {
-
-		white_moves = count_pieces (WHITE_TURN);
-		black_moves = count_pieces (BLACK_TURN);
-		if (white_moves > black_moves)
-			gui_message (_("Light player wins!"));
-		if (black_moves > white_moves)
-			gui_message (_("Dark player wins!"));
-		if (white_moves == black_moves)
-			gui_message (_("The game was a draw."));
-		whose_turn = 0;
-		game_in_progress = 0;
-		if (flip_final)
-			flip_final_id = g_timeout_add (3000,
-						       flip_final_results,
-						       NULL);
-		return (TRUE);
-	}
-
-	if (whose_turn == WHITE_TURN) {
-		gui_message (_("Light must pass, Dark's move"));
-		whose_turn = BLACK_TURN;
-		return (TRUE);
-	}
-
-	if (whose_turn == BLACK_TURN) {
-		gui_message (_("Dark must pass, Light's move"));
-		whose_turn = WHITE_TURN;
-		return (TRUE);
-	}
-
-	return (TRUE);
-}
-
-static gint
-eval_heuristic (gint8 board[8][8], guint me)
-{
-	guint i, j;
-	guint not_me;
-	gint score = 0;
-
-	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
-
-	for (i = 0; i < 8; i++)
-		for (j = 0; j < 8; j++) {
-			if (board[i][j] == me)
-				score += heuristic[i][j];
-		}
-
-	return (score);
-}
-
-gint 
-eval_board (gint8 board[8][8], guint me)
-{
-	guint i, j;
-	guint not_me;
-	gint heuristic_score;
-	gint actual_score = 0;
-	gboolean found_me = FALSE;
-	gboolean found_not_me = FALSE;
-	gboolean found_free = FALSE;
-
-	not_me = (me == WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
-
-	for (i = 0; i < 8; i++)
-		for (j = 0; j < 8; j++) {
-			if (board[i][j] == me)
-			{
-				found_me = TRUE;
-				actual_score++;
-			}
-			else if (board[i][j] == not_me)
-				found_not_me = TRUE;
-			else
-				found_free = TRUE;
-		}
-		
-	// check if a player is dead
-	if (!found_me && found_not_me)
-		return (S_LOSING_GAME);
-	else if (found_me && !found_not_me)
-		return (S_WINNING_GAME);
-	
-	// if the game is finished, return the actual score rather than
-	// a huristic
-	if (!found_free)
-		return (actual_score);
-	
-	heuristic_score = eval_heuristic (board, me);
-
-	return (heuristic_score);
+    if ( whose_turn == WHITE_TURN )
+        {
+            gui_message(_("Dark must pass, Light's move"));
+            return TRUE;
+        }
+  
+    return TRUE;
 }
