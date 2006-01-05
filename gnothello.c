@@ -182,12 +182,14 @@ undo_move_cb (GtkWidget *widget, gpointer data)
 
 	game_in_progress = 1;
 
- 	which_computer = (whose_turn==WHITE_TURN) ? BLACK_TURN : WHITE_TURN;
+ 	which_computer = OTHER_PLAYER (whose_turn);
  	undo();
  	board_copy();
  	xy=squares[move_count];
  	pixmaps[xy%10-1][xy/10-1] = 100;
- 	while (whose_turn == which_computer && move_count > 4) {
+	if ((((whose_turn == WHITE_TURN) && white_computer_level) ||
+	     ((whose_turn == BLACK_TURN) && black_computer_level))
+	    && (move_count > 4)) {
  		undo();
  		board_copy();
  		xy=squares[move_count];

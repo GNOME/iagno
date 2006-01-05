@@ -46,8 +46,6 @@
 #define DR +11
 #define NDIRS 8
 
-#define OTHER_PLAYER(w) (((w) == WHITE_TURN) ? BLACK_TURN : WHITE_TURN)
-
 gint8 squares[64] = {44,45,54,55,23,26,73,76,
 					 32,62,37,67,13,16,31,61,
 					 38,68,83,86,14,15,41,51,
@@ -120,17 +118,17 @@ init ( void )
     board0[ 45 ] = BLACK_TURN;
     board0[ 54 ] = BLACK_TURN;
     board0[ 55 ] = WHITE_TURN;
-  
+
     hpointer = 0;
     vpointer = 0;
 }
-  
+
 /* Copy data from board0 to board */
 void
 board_copy ( void )
 {
     gint i,j;
-  
+
     for ( j = 0; j < 8; j++ )
         for ( i = 0; i < 8; i++ )
             board[ i ][ j ] = board0[ ( j + 1 ) * 10 + i + 1 ];
@@ -143,12 +141,12 @@ is_valid0 (gint xy, gint dir, gint who)
 {
     gint tmp;
     gint8 not_me;
-  
+
     not_me = OTHER_PLAYER (who);
 
 	/* To be valid, the next counter should not be the current player ... */
     tmp = xy + dir;
-    if ( board0[tmp] != not_me )                     
+    if ( board0[tmp] != not_me )
 			return FALSE;
 
 	/* ... but eventually we must find a counter that is. */
@@ -169,14 +167,14 @@ is_valid (gint xy, gint who)
 
     return FALSE;
 }
-  
+
 /* Check whether the supplied move is a valid one. */
 gint
 is_valid_move (guint x, guint y, guint who) {
     gint xy;
 
     xy = ( y + 1 ) * 10 + x + 1;
-    if ( board0[ xy ] != BLANK )                    
+    if ( board0[ xy ] != BLANK )
 			return FALSE;
 
 	return is_valid (xy, who);
@@ -191,10 +189,10 @@ move_board0 (gint xy, gint dir)
 
     not_me = OTHER_PLAYER (whose_turn);
     tmp = xy + dir;
-    if ( board0[ tmp ] != not_me )                    
+    if ( board0[ tmp ] != not_me )
 			return;
 	/* Find the extent of the move in direction dir. */
-    do { tmp += dir; } while ( board0[ tmp ] == not_me ); 
+    do { tmp += dir; } while ( board0[ tmp ] == not_me );
     if ( board0[tmp] != whose_turn )
 			return;
 
@@ -237,7 +235,7 @@ move_board (gint xy)
         }
     tmp = squares[move_count];
     squares[move_count++] = xy;
-    if ( tmp != xy) 
+    if ( tmp != xy)
         {
             count = move_count;
             while ( squares[count] != xy ) count++;
@@ -245,17 +243,17 @@ move_board (gint xy)
         }
     whose_turn = OTHER_PLAYER (whose_turn);
 }
-  
-  
+
+
 gint
 move (guint x, guint y, guint me)
 {
     gint tmp;
-  
+
     tmp = (gint)( ( y + 1 ) * 10 + x + 1 );
-    if ( board0[ tmp ] != BLANK )                      
+    if ( board0[ tmp ] != BLANK )
 			return FALSE;
-    if ( !is_valid( tmp, whose_turn ) )                
+    if ( !is_valid( tmp, whose_turn ) )
 			return FALSE;
     move_board( tmp );
     board_copy();
@@ -339,18 +337,18 @@ sort (gint l, gint r)
                     j--;
                 }
         } while ( i <= j );
-  
+
     if ( l < j ) sort( l, j );
     if ( i < r ) sort( i, r );
 }
-  
+
 static
 gint
 eval_heuristic( void )
 {
     gint8 i, xy;
     gint count = 0;
-  
+
     for ( i = 0; i < move_count; i++ )
         {
             xy = squares[ i ];
@@ -360,14 +358,14 @@ eval_heuristic( void )
 
     return count;
 }
-  
+
 static
 gint
 mobility( void )
 {
     gint8 i, xy;
     gint count = 0;
-  
+
     for ( i = move_count; i < 64; i++ )
         {
             xy = squares[ i ];
@@ -376,64 +374,64 @@ mobility( void )
 
     return count;
 }
-  
+
 static
 gint
 around0(gint xy)
 {
     gint count = 0;
 	int i;
-  
+
 	for (i=0; i<NDIRS; i++)
 			if ( board0[ xy + dirs[i] ] == BLANK ) count--;
 
     if ( !count ) count = 2;
- 
+
     return count;
 }
-  
+
 static
 gint
 around( void )
 {
     gint8 i, xy;
     gint count = 0;
-  
+
     for ( i = 0 ; i < move_count; i++ )
         {
             xy = squares[ i ];
-            count = ( board0[ xy ] == whose_turn ) ? 
+            count = ( board0[ xy ] == whose_turn ) ?
                 count + around0( (gint) xy ) : count - around0( (gint) xy );
         }
 
     return count;
 }
-  
+
 /* Evaluate the board   */
 static
 gint
 b_evaluation( void )
 {
     gint score1, score2, score3;
-  
+
     score1 = mobility();
     whose_turn = OTHER_PLAYER (whose_turn);
     score1 -= mobility();
     whose_turn = OTHER_PLAYER (whose_turn);
-  
+
     score2 = around();
     score3 = eval_heuristic();
-  
+
     return score1 + score2 + score3;
 }
-  
+
 /* Victory evaluation */
 static
 gint
 v_evaluation( void )
 {
     gint aa;
-  
+
     aa = wcount - bcount;
     if ( whose_turn == BLACK_TURN ) aa = -aa;
 
@@ -441,24 +439,24 @@ v_evaluation( void )
     if ( aa < 0 ) return -1;    /* lose */
     return 0;                   /* draw */
 }
-  
+
 static
 gint
 p_evaluation( void )
 {
-  
-    if ( whose_turn == WHITE_TURN )           
+
+    if ( whose_turn == WHITE_TURN )
 			return wcount - bcount;
 
     return bcount - wcount;
 }
-  
+
 static
 gint
 w_evaluation( void )
 {
     gint aa;
-  
+
     if ( !bcount || !wcount )
         {
             if ( whose_turn == WHITE_TURN && !bcount )   return 10000;
@@ -473,23 +471,23 @@ w_evaluation( void )
     if ( aa < 0 ) return aa - 100;
     return( 0 );
 }
-  
+
 /* alpha-beta search */
 static
 gint
 search(gint n, gint a, gint b)
 {
     gint aa, bb, xy, i, j;
-  
+
     if ( !n )
 	{
 	    switch (s_kind)
                 {
-                    case PERFECT:                
+                    case PERFECT:
 							return( p_evaluation() );
-                    case VICTORY:                
+                    case VICTORY:
 							return( v_evaluation() );
-                    default:                     
+                    default:
 							return( b_evaluation() );
                 }
         }
@@ -563,7 +561,7 @@ random_select( void )
     for ( i = move_count ; i < 64 ; i++ )
         {
             xy = squares[ i ];
-            if ( is_valid( xy, whose_turn ) ) 
+            if ( is_valid( xy, whose_turn ) )
 					vsquares[ j++ ][ 0 ] = xy;
         }
     if ( j )
@@ -572,13 +570,13 @@ random_select( void )
             vsquares[ 0 ][ 0 ] = vsquares[ i ][ 0 ];
         }
 }
-  
+
 static
 gint
 computer_move (gint level)
 {
     gint nn, aa, kind, best_xy;
-  
+
     vsquares[ 0 ][ 0 ] = -1;
     nn = 64 - move_count;
     if  ( nn > BEST )  random_select();
@@ -626,7 +624,7 @@ computer_move_3 (guint me)
 {
     return computer_move( 2 );
 }
-  
+
 gint
 computer_move_4 (guint me)
 {
@@ -671,9 +669,9 @@ flip_final_results (gpointer data)
                     if ( animate_stagger ) adder++;
                 }
         }
-  
+
     tiles_to_flip = 1;
-  
+
     return FALSE;
 }
 
@@ -682,14 +680,14 @@ check_valid_moves (void)
 {
     guint white_moves = 0;
     guint black_moves = 0;
-  
+
     if ( !game_in_progress )                                return( TRUE );
     if ( mobility() )                                       return( TRUE );
-  
+
     whose_turn = OTHER_PLAYER (whose_turn);
-  
+
     if ( !mobility() )
-        {            
+        {
             white_moves = wcount;
             black_moves = bcount;
             if ( white_moves > black_moves )
@@ -716,6 +714,6 @@ check_valid_moves (void)
             gui_message(_("Dark must pass, Light's move"));
             return TRUE;
         }
-  
+
     return TRUE;
 }
