@@ -1,3 +1,12 @@
+2006-01-06  Callum McKenzie  <callum@spooky-possum.org>
+
+	* othello.c (flip_final_results): Slight code cleanup: cascade the
+	for-loop condition to make it clearer we are visiting each square.
+
+	* gnothello.c (flip_pixmaps): Fix up the drawing code so that it
+	draws properly after an undo after a win when not all the squares
+	were filled. (See bug #323636.)
+
 2006-01-05  Callum McKenzie  <callum@spooky-possum.org>
 
 	* othello.c: 

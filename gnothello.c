@@ -421,7 +421,13 @@ flip_pixmaps (gpointer data)
 	
 	for (i = 0; i < 8; i++)
 		for (j = 0; j < 8; j++) {
-			if (pixmaps[i][j] == 100) {
+			/* This first case only happens when undoing the "final flip". */
+			if ((pixmaps[i][j] == 101) && (board[i][j] != 0)) {
+				pixmaps[i][j] = board[i][j];
+				gui_draw_pixmap (pixmaps[i][j], i, j);
+				flipped_tiles = 1;				
+			} else if ((pixmaps[i][j] == 100) 
+				   || ((pixmaps[i][j] != 101) && (board[i][j] == 0))) {
 				pixmaps[i][j] = 101;
 				gui_draw_pixmap (0, i, j);
 				flipped_tiles = 1;

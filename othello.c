@@ -47,24 +47,24 @@
 #define NDIRS 8
 
 gint8 squares[64] = {44,45,54,55,23,26,73,76,
-					 32,62,37,67,13,16,31,61,
-					 38,68,83,86,14,15,41,51,
-					 48,58,84,85,24,25,42,52,
-					 74,75,47,57,36,63,33,35,
-					 53,66,46,64,34,43,56,65,
-					 12,17,21,71,28,78,82,87,
-					 22,27,72,77,11,18,81,88};
+                     32,62,37,67,13,16,31,61,
+                     38,68,83,86,14,15,41,51,
+                     48,58,84,85,24,25,42,52,
+                     74,75,47,57,36,63,33,35,
+                     53,66,46,64,34,43,56,65,
+                     12,17,21,71,28,78,82,87,
+                     22,27,72,77,11,18,81,88};
 
 static const gint heuristic[100] = { 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-									 0, 65, -3,  6,  4,  4,  6, -3, 65,  0,
-									 0, -3,-29,  3,  1,  1,  3,-29, -3,  0,
-									 0,  6,  3,  5,  3,  3,  5,  3,  6,  0,
-									 0,  4,  1,  3,  1,  1,  3,  1,  4,  0,
-									 0,  4,  1,  3,  1,  1,  3,  1,  4,  0,
-									 0,  6,  3,  5,  3,  3,  5,  3,  6,  0,
-									 0, -3,-29,  3,  1,  1,  3,-29, -3,  0,
-									 0, 65, -3,  6,  4,  4,  6, -3, 65,  0,
-									 0,  0,  0,  0,  0,  0,  0,  0,  0,  0  };
+                                     0, 65, -3,  6,  4,  4,  6, -3, 65,  0,
+                                     0, -3,-29,  3,  1,  1,  3,-29, -3,  0,
+                                     0,  6,  3,  5,  3,  3,  5,  3,  6,  0,
+                                     0,  4,  1,  3,  1,  1,  3,  1,  4,  0,
+                                     0,  4,  1,  3,  1,  1,  3,  1,  4,  0,
+                                     0,  6,  3,  5,  3,  3,  5,  3,  6,  0,
+                                     0, -3,-29,  3,  1,  1,  3,-29, -3,  0,
+                                     0, 65, -3,  6,  4,  4,  6, -3, 65,  0,
+                                     0,  0,  0,  0,  0,  0,  0,  0,  0,  0  };
 
 static const gint dirs[] = { UL, UU, UR, LL, RR, DL, DD, DR };
 
@@ -101,19 +101,20 @@ void
 init ( void )
 {
     gint i,j;
-	gint x;
+    gint x;
 
-	rgen = g_rand_new ();
+    rgen = g_rand_new ();
 
-	x = 0;
+    x = 0;
     for( j = 0; j < 10; j++ )
         for( i = 0; i < 10; i++ )
             {
                 if      ( j == 0 || j ==9  ) board0[x] = OUTSIDE;
                 else if ( i == 0 || i == 9 ) board0[x] = OUTSIDE;
                 else                         board0[x] = BLANK;
-				x++;
+                x++;
             }
+
     board0[ 44 ] = WHITE_TURN;
     board0[ 45 ] = BLACK_TURN;
     board0[ 54 ] = BLACK_TURN;
@@ -144,15 +145,15 @@ is_valid0 (gint xy, gint dir, gint who)
 
     not_me = OTHER_PLAYER (who);
 
-	/* To be valid, the next counter should not be the current player ... */
+    /* To be valid, the next counter should not be the current player ... */
     tmp = xy + dir;
     if ( board0[tmp] != not_me )
-			return FALSE;
+            return FALSE;
 
-	/* ... but eventually we must find a counter that is. */
+    /* ... but eventually we must find a counter that is. */
     do { tmp += dir; } while ( board0[tmp] == not_me );
 
-	return board0[tmp] == who;
+    return board0[tmp] == who;
 }
 
 /* Check if a given (empty) square can provide a valid move */
@@ -160,10 +161,10 @@ static
 gint
 is_valid (gint xy, gint who)
 {
-	int i;
+    int i;
 
-	for (i=0; i<NDIRS; i++)
-			if ( is_valid0( xy, dirs[i], who ) ) return( TRUE );
+    for (i=0; i<NDIRS; i++)
+            if ( is_valid0( xy, dirs[i], who ) ) return( TRUE );
 
     return FALSE;
 }
@@ -175,9 +176,9 @@ is_valid_move (guint x, guint y, guint who) {
 
     xy = ( y + 1 ) * 10 + x + 1;
     if ( board0[ xy ] != BLANK )
-			return FALSE;
+            return FALSE;
 
-	return is_valid (xy, who);
+    return is_valid (xy, who);
 }
 
 static
@@ -190,13 +191,13 @@ move_board0 (gint xy, gint dir)
     not_me = OTHER_PLAYER (whose_turn);
     tmp = xy + dir;
     if ( board0[ tmp ] != not_me )
-			return;
-	/* Find the extent of the move in direction dir. */
+            return;
+    /* Find the extent of the move in direction dir. */
     do { tmp += dir; } while ( board0[ tmp ] == not_me );
     if ( board0[tmp] != whose_turn )
-			return;
+            return;
 
-	/* Now walk back to where we started flipping pieces over. */
+    /* Now walk back to where we started flipping pieces over. */
     tmp -= dir;
     while ( tmp != xy )
         {
@@ -211,12 +212,12 @@ void
 move_board (gint xy)
 {
     gint tmp, count;
-	int i;
+    int i;
 
     count = hpointer;
 
-	for (i=0; i<NDIRS; i++)
-			move_board0( xy, dirs[i] );
+    for (i=0; i<NDIRS; i++)
+            move_board0( xy, dirs[i] );
 
     board0[xy] = whose_turn;
     count = hpointer-count;
@@ -252,9 +253,9 @@ move (guint x, guint y, guint me)
 
     tmp = (gint)( ( y + 1 ) * 10 + x + 1 );
     if ( board0[ tmp ] != BLANK )
-			return FALSE;
+            return FALSE;
     if ( !is_valid( tmp, whose_turn ) )
-			return FALSE;
+            return FALSE;
     move_board( tmp );
     board_copy();
 
@@ -324,8 +325,8 @@ sort (gint l, gint r)
             while ( x < vsquares[ j ][ 1 ] ) j--;
             if ( i < j )
                 {
-					v = vsquares[ i ][ 0 ];
-					w = vsquares[ i ][ 1 ];
+                    v = vsquares[ i ][ 0 ];
+                    w = vsquares[ i ][ 1 ];
                     vsquares[ i ][ 0 ] = vsquares[ j ][ 0 ];
                     vsquares[ i ][ 1 ] = vsquares[ j ][ 1 ];
                     vsquares[ j ][ 0 ] = v;
@@ -353,7 +354,7 @@ eval_heuristic( void )
         {
             xy = squares[ i ];
             count = ( board0[ xy ] == whose_turn ) ?
-					count + heuristic[ xy ] : count - heuristic[ xy ];
+                    count + heuristic[ xy ] : count - heuristic[ xy ];
         }
 
     return count;
@@ -380,10 +381,10 @@ gint
 around0(gint xy)
 {
     gint count = 0;
-	int i;
+    int i;
 
-	for (i=0; i<NDIRS; i++)
-			if ( board0[ xy + dirs[i] ] == BLANK ) count--;
+    for (i=0; i<NDIRS; i++)
+            if ( board0[ xy + dirs[i] ] == BLANK ) count--;
 
     if ( !count ) count = 2;
 
@@ -446,7 +447,7 @@ p_evaluation( void )
 {
 
     if ( whose_turn == WHITE_TURN )
-			return wcount - bcount;
+            return wcount - bcount;
 
     return bcount - wcount;
 }
@@ -480,15 +481,15 @@ search(gint n, gint a, gint b)
     gint aa, bb, xy, i, j;
 
     if ( !n )
-	{
-	    switch (s_kind)
+    {
+        switch (s_kind)
                 {
                     case PERFECT:
-							return( p_evaluation() );
+                            return( p_evaluation() );
                     case VICTORY:
-							return( v_evaluation() );
+                            return( v_evaluation() );
                     default:
-							return( b_evaluation() );
+                            return( b_evaluation() );
                 }
         }
 
@@ -562,7 +563,7 @@ random_select( void )
         {
             xy = squares[ i ];
             if ( is_valid( xy, whose_turn ) )
-					vsquares[ j++ ][ 0 ] = xy;
+                    vsquares[ j++ ][ 0 ] = xy;
         }
     if ( j )
         {
@@ -642,27 +643,28 @@ flip_final_results (gpointer data)
     white_pieces = wcount;
     black_pieces = bcount;
 
-    for ( i = 0; i < black_pieces; i++ )
+	i = 0;
+    for ( ; i < black_pieces; i++ )
         {
             board[i % 8][i / 8] = BLACK_TURN;
             if ( pixmaps[i % 8][i / 8] < 1 )
-					pixmaps[i % 8][i / 8] = WHITE_TURN;
+                    pixmaps[i % 8][i / 8] = WHITE_TURN;
             if ( pixmaps[i % 8][i / 8] == WHITE_TURN )
-					{
-							pixmaps[i % 8][i / 8] += adder;
-							if (animate_stagger) adder++;
-					}
+                    {
+                            pixmaps[i % 8][i / 8] += adder;
+                            if (animate_stagger) adder++;
+                    }
         }
-    for ( i = black_pieces; i < 64 - white_pieces; i++ )
+    for ( ; i < 64 - white_pieces; i++ )
         {
             board[i % 8][i / 8] = 0;
             pixmaps[i % 8][i / 8] = 100;
         }
-    for ( i = 64 - white_pieces; i < 64; i++ )
+    for ( ; i < 64; i++ )
         {
             board[i % 8][i / 8] = WHITE_TURN;
             if ( pixmaps[i % 8][i / 8] == 0 )
-					pixmaps[i % 8][i / 8] = BLACK_TURN;
+                    pixmaps[i % 8][i / 8] = BLACK_TURN;
             if ( pixmaps[i % 8][i / 8] == BLACK_TURN )
                 {
                     pixmaps[i % 8][i / 8] -= adder;
@@ -681,12 +683,14 @@ check_valid_moves (void)
     guint white_moves = 0;
     guint black_moves = 0;
 
-    if ( !game_in_progress )                                return( TRUE );
-    if ( mobility() )                                       return( TRUE );
+    if ( !game_in_progress )                                
+            return TRUE;
+    if ( mobility() )                                       
+            return TRUE;
 
     whose_turn = OTHER_PLAYER (whose_turn);
 
-    if ( !mobility() )
+	if ( !mobility() )
         {
             white_moves = wcount;
             black_moves = bcount;
@@ -699,7 +703,7 @@ check_valid_moves (void)
             whose_turn = 0;
             game_in_progress = 0;
             if ( flip_final )
-                flip_final_id = g_timeout_add (3000, flip_final_results, NULL);
+                flip_final_id = g_timeout_add (100, flip_final_results, NULL);
             return TRUE;
         }
 
