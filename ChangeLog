@@ -1,3 +1,7 @@
+2006-02-23  Callum McKenzie  <callum@spooky-possum.org>
+
+	* network.c: Remove a reference to gnothello.gnome.org.
+
 2006-01-06  Callum McKenzie  <callum@spooky-possum.org>
 
 	* othello.c (flip_final_results): Slight code cleanup: cascade the
