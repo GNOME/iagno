@@ -1,3 +1,9 @@
+2006-03-29  Callum McKenzie  <callum@spooky-possum.org>
+
+	* gnothello.c: Migrate popt to GOption. Replace deprecated icon
+	setting functions with their gtk equivalent. Make the window
+	placement command-line options work.
+
 2006-03-22  Callum McKenzie  <callum@spooky-possum.org>
 
 	* help/C/iagno.xml: Remove the doctable link, it was broken

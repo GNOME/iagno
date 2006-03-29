@@ -101,11 +101,14 @@ GdkGC *gridGC[2] = { 0 };
 
 static void new_network_game_cb(GtkWidget *widget, gpointer data);
 
-static const struct poptOption options[] = {
-  {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
-  {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
-  {"server", 's', POPT_ARG_STRING, &game_server, 0, N_("Iagno server to use")},
-  {NULL, '\0', 0, NULL, 0}
+static const GOptionEntry options[] = {
+  {"x", 'x', 0, G_OPTION_ARG_INT, &session_xpos, N_("X location of window"), 
+   N_("X")},
+  {"y", 'y', 0, G_OPTION_ARG_INT, &session_ypos, N_("Y location of window"), 
+   N_("Y")},
+  {"server", 's', 0, G_OPTION_ARG_STRING, &game_server, 
+   N_("Iagno server to use"), N_("NAME")},
+  {NULL}
 };
 
 GnomeUIInfo game_menu[] = {
@@ -748,6 +751,7 @@ int
 main (int argc, char **argv)
 {
 	GnomeClient *client;
+	GOptionContext *context;
 
 	gnome_score_init ("iagno");
 
@@ -755,12 +759,17 @@ main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
+        context = g_option_context_new ("");
+        g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
+
 	gnome_program_init ("iagno", VERSION,
 			    LIBGNOMEUI_MODULE,
 			    argc, argv,
-			    GNOME_PARAM_POPT_TABLE, options,
+			    GNOME_PARAM_GOPTION_CONTEXT, context,
 			    GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
-	gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/iagno.png");
+
+	gtk_window_set_default_icon_from_file (GNOME_ICONDIR"/iagno.png",
+					       NULL);
 	client= gnome_master_client ();
 
 	g_object_ref (G_OBJECT (client));
@@ -776,11 +785,11 @@ main (int argc, char **argv)
 
 	load_pixmaps ();
 
+	gtk_widget_show (window);
+
 	if (session_xpos >= 0 && session_ypos >= 0) {
 		gdk_window_move (window->window, session_xpos, session_ypos);
 	}
-
-	gtk_widget_show (window);
 
 	buffer_pixmap = gdk_pixmap_new (drawing_area->window,
 					BOARDWIDTH, BOARDHEIGHT, -1);
