@@ -1,6 +1,6 @@
 pixmapdir=$(datadir)/pixmaps/iagno
 Gamesdir = $(datadir)/applications
-appicondir=$(datadir)/pixmaps
+icondir=$(datadir)/icons/hicolor/48x48/apps/
 
 INCLUDES =						\
 	-I$(top_srcdir)/libgames-support		\
@@ -30,7 +30,7 @@ pixmap_DATA = \
 	classic.png \
 	woodtrim.png
 
-appicon_DATA = iagno.png
+icon_DATA = gnome-iagno.png
 
 Games_in_files = iagno.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
@@ -45,7 +45,7 @@ EXTRA_DIST = AUTHORS \
 	iagno.desktop.in 	\
 	iagno.soundlist.in \
 	$(pixmap_DATA)	\
-	$(appicon_DATA)	\
+	$(icon_DATA)	\
 	$(schema_in_files)
 
 install-data-local:

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=iagno.png
+Icon=gnome-iagno
 _Name=Iagno
 _Comment=Play a game of Reversi
 Exec=iagno

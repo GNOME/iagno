@@ -23,7 +23,6 @@
 
 #include <config.h>
 #include <gnome.h>
-#include <libgnomeui/gnome-window-icon.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
@@ -251,6 +250,7 @@ about_cb (GtkWidget *widget, gpointer data)
 			       "comments",_("A disk flipping game derived from Reversi."),
 			       "authors", authors, 
 			       "translator_credits", _("translator-credits"),
+			       "logo-icon-name", "gnome-iagno",
 			       NULL);
 }
 
@@ -768,8 +768,8 @@ main (int argc, char **argv)
 			    GNOME_PARAM_GOPTION_CONTEXT, context,
 			    GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
 
-	gtk_window_set_default_icon_from_file (GNOME_ICONDIR"/iagno.png",
-					       NULL);
+	gtk_window_set_default_icon_name ("gnome-iagno.png");
+
 	client= gnome_master_client ();
 
 	g_object_ref (G_OBJECT (client));
