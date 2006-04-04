@@ -751,6 +751,7 @@ int
 main (int argc, char **argv)
 {
 	GnomeClient *client;
+	GnomeProgram *program;
 	GOptionContext *context;
 
 	gnome_score_init ("iagno");
@@ -762,11 +763,11 @@ main (int argc, char **argv)
         context = g_option_context_new ("");
         g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
 
-	gnome_program_init ("iagno", VERSION,
-			    LIBGNOMEUI_MODULE,
-			    argc, argv,
-			    GNOME_PARAM_GOPTION_CONTEXT, context,
-			    GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
+	program = gnome_program_init ("iagno", VERSION,
+				      LIBGNOMEUI_MODULE,
+				      argc, argv,
+				      GNOME_PARAM_GOPTION_CONTEXT, context,
+				      GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
 
 	gtk_window_set_default_icon_name ("gnome-iagno.png");
 
@@ -799,6 +800,8 @@ main (int argc, char **argv)
 	init_new_game ();
 
 	gtk_main ();
+
+	g_object_unref (program);
 
 	return 0;
 }
