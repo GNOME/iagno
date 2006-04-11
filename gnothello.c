@@ -243,14 +243,20 @@ about_cb (GtkWidget *widget, gpointer data)
 {
 	const gchar *authors[] = {"Ian Peters", NULL};
 
+	const gchar *documenters[] = {"Eric Baudais", NULL};
+
 	gtk_show_about_dialog (GTK_WINDOW (window),
 			       "name", _("Iagno"),
 			       "version", VERSION,
-			       "copyright", "Copyright \xc2\xa9 1998-2004 Ian Peters",
+			       "copyright", "Copyright \xc2\xa9 1998-2006 Ian Peters",
+			       "license", "GPL 2+",
 			       "comments",_("A disk flipping game derived from Reversi."),
-			       "authors", authors, 
+			       "authors", authors,
+			       "documenters", documenters, 
 			       "translator_credits", _("translator-credits"),
 			       "logo-icon-name", "gnome-iagno",
+			       "website", "http://www.gnome.org/projects/gnome-games/",
+			       "wrap-license", TRUE,
 			       NULL);
 }
 
