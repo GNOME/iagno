@@ -603,6 +603,9 @@ create_window (void)
 			  G_CALLBACK (button_press_event), NULL);
 	gtk_widget_set_events (drawing_area,
 			       GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
+        /* We do our own double-buffering. */
+        gtk_widget_set_double_buffered (drawing_area, FALSE);
+
 	gtk_widget_show (drawing_area);
 
 	appbar = GNOME_APPBAR (gnome_appbar_new (FALSE, TRUE, FALSE));
