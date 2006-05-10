@@ -24,6 +24,9 @@ iagno_SOURCES = \
 iagno_LDADD = \
 	../libgames-support/libgames-support.la \
 	$(GNOME_GAMES_LIBS) \
+	$(AVAHI_LIBS) \
+	$(BONJOUR_LIBS) \
+	$(HOWL_LIBS) \
 	$(INTLLIBS)
 
 pixmap_DATA = \
