@@ -1,3 +1,8 @@
+2006-06-23  Andreas Røsdal <andrearo@stud.ntnu.no> 
+
+	* iagno-server.py: Removed iagno-server.py because it has
+	been deprecated by games-server.py in /libgames-support. 
+
 2006-05-10  Callum McKenzie  <callum@spooky-possum.org>
 
 	* Makefile.am (iagno_LDADD): Explicitly link zeroconf libraries
