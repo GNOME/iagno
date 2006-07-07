@@ -778,7 +778,7 @@ main (int argc, char **argv)
 				      GNOME_PARAM_GOPTION_CONTEXT, context,
 				      GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
 
-	gtk_window_set_default_icon_name ("gnome-iagno.png");
+	gtk_window_set_default_icon_name ("gnome-iagno");
 
 	client= gnome_master_client ();
 
