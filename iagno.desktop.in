@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Icon=gnome-iagno
 _Name=Iagno
-_Comment=Play a game of Reversi
+_Comment=Dominate the board in a classic version of Reversi
 Exec=iagno
 Terminal=false
 Type=Application
