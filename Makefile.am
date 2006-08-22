@@ -51,6 +51,7 @@ EXTRA_DIST = AUTHORS \
 	iagno.soundlist.in \
 	$(pixmap_DATA)	\
 	$(icon_DATA)	\
+	$(svgicon_DATA) \
 	$(schema_in_files)
 
 install-data-local:
