@@ -1,6 +1,7 @@
 pixmapdir=$(datadir)/pixmaps/iagno
 Gamesdir = $(datadir)/applications
 icondir=$(datadir)/icons/hicolor/48x48/apps/
+svgicondir = $(datadir)/icons/hicolor/scalable/apps/
 
 INCLUDES =						\
 	-I$(top_srcdir)/libgames-support		\
@@ -34,6 +35,7 @@ pixmap_DATA = \
 	woodtrim.png
 
 icon_DATA = gnome-iagno.png
+svgicon_DATA = gnome-iagno.svg
 
 Games_in_files = iagno.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)

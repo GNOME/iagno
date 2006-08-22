@@ -1,3 +1,9 @@
+2006-08-21  Jason Clinton <me@jasonclinton.com>
+
+	* gnome-iagno.svg:
+	* gnome-iagno.png:
+	* Makefile.am: updated pixmap menu icon and added SVG version from Daniel Derozier <dcubed20@gmail.com>
+
 2006-07-07  Andreas Røsdal <andrearo@stud.ntnu.no> 
 
 	* gnothello.c: Fix window icon.
