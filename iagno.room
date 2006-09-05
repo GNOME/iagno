@@ -1,0 +1,12 @@
+[RoomInfo]
+# This is the short name for the room
+Name = Iagno 
+# This is the long descriptive name for the room
+Description = The GNOME version of Reversi. The goal is to control the most disks on the board.
+# The gametype should match up to the Name of an added game
+GameType = Iagno 
+# Any additional game arguments specific to this room
+#ExecutableArgs = 
+# These set maximum values for this room
+MaxPlayers = 150
+MaxTables = 45

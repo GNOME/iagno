@@ -1,0 +1,10 @@
+# Iagno description file
+[ModuleInfo]
+Name = Iagno
+Author = The GNOME Project 
+CommandLine = @prefix@/bin/iagno
+Frontend = gtk
+Homepage = http://www.gnome.org/projects/gnome-games/
+ProtocolEngine = Iagno 
+ProtocolVersion = 1 
+Version = @VERSION@

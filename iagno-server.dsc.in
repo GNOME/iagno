@@ -1,0 +1,19 @@
+[GameInfo]
+Author = The GNOME Project 
+Description = The GNOME version of Reversi.
+Homepage = http://www.gnome.org/projects/gnome-games/ 
+Name = Iagno
+Version = @VERSION@ 
+
+[LaunchInfo]
+ExecutablePath = @prefix@/bin/iagnod 
+# Set ExecutableArgs in the room file
+
+[Protocol]
+Engine = Iagno
+Version = 1
+
+[TableOptions]
+AllowLeave = 1
+BotsAllowed = 1
+PlayersAllowed = 2

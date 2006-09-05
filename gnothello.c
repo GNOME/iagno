@@ -28,14 +28,21 @@
 
 #include <string.h>
 
+#ifdef GGZ_CLIENT
+#include <games-dlg-chat.h>
+#include <games-dlg-players.h>
+#include "ggz-network.h"
+#include <ggz-embed.h>
+#endif
+
+
 #include "gnothello.h"
 #include "othello.h"
 #include "properties.h"
-#include "games-network.h"
-#include "network.h"
 
 GnomeAppBar *appbar;
 GtkWidget *window;
+GtkWidget *notebook;
 GtkWidget *drawing_area;
 GtkWidget *tile_dialog;
 GtkWidget *black_score;
@@ -79,7 +86,6 @@ gint8 board[8][8] = {{0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0},
 		    {0,0,0,0,0,0,0,0}};
-
 guint whose_turn;
 gint8 move_count;
 gint bcount;
@@ -98,28 +104,30 @@ gchar *tile_set_tmp = NULL;
 
 GdkGC *gridGC[2] = { 0 };
 
-static void new_network_game_cb(GtkWidget *widget, gpointer data);
-
 static const GOptionEntry options[] = {
   {"x", 'x', 0, G_OPTION_ARG_INT, &session_xpos, N_("X location of window"), 
    N_("X")},
   {"y", 'y', 0, G_OPTION_ARG_INT, &session_ypos, N_("Y location of window"), 
    N_("Y")},
-  {"server", 's', 0, G_OPTION_ARG_STRING, &game_server, 
-   N_("Iagno server to use"), N_("NAME")},
   {NULL}
 };
 
 GnomeUIInfo game_menu[] = {
         GNOMEUIINFO_MENU_NEW_GAME_ITEM(new_game_cb, NULL),
 
-	GNOMEUIINFO_ITEM(N_("New Net_work Game"), NULL, new_network_game_cb, NULL),
+	GNOMEUIINFO_ITEM(N_("Net_work Game"), NULL, new_network_game_cb, NULL),
 
 	GNOMEUIINFO_SEPARATOR,
 
 	GNOMEUIINFO_MENU_UNDO_MOVE_ITEM(undo_move_cb, NULL),
+
+	GNOMEUIINFO_ITEM(N_("_Player list"), NULL, on_player_list, NULL),
+
+	GNOMEUIINFO_ITEM(N_("_Chat Window"), NULL, on_chat_window, NULL),
 	
 	GNOMEUIINFO_SEPARATOR,
+
+	GNOMEUIINFO_ITEM(N_("_Leave Game"), NULL, on_network_leave, NULL),
 
         GNOMEUIINFO_MENU_QUIT_ITEM(quit_game_cb, NULL),
 
@@ -152,21 +160,49 @@ static void undo_set_sensitive (gboolean state)
 void
 quit_game_cb (GtkWidget *widget, gpointer data)
 {
-  games_kill_server ();
   gtk_main_quit ();
-}
-
-static void
-new_network_game_cb (GtkWidget *widget, gpointer data)
-{
-  network_new (window);
 }
 
 void
 new_game_cb (GtkWidget *widget, gpointer data)
 {
-  network_stop ();
   init_new_game ();
+}
+
+void
+on_player_list (void)
+{
+	#ifdef GGZ_CLIENT
+	create_or_raise_dlg_players (GTK_WINDOW (window));
+	#endif
+}
+
+void
+on_chat_window (void)
+{
+	#ifdef GGZ_CLIENT
+	create_or_raise_dlg_chat (GTK_WINDOW (window));
+	#endif
+}
+
+void
+new_network_game_cb (GtkWidget *widget, gpointer data)
+{
+	#ifdef GGZ_CLIENT
+	on_network_game ();
+	gtk_widget_hide (mainmenu[0].widget);
+	gtk_widget_hide (mainmenu[1].widget);
+	#endif
+}
+
+void
+on_network_leave (GObject *object, gpointer data)
+{
+	#ifdef GGZ_CLIENT
+	ggz_embed_leave_table();
+	gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), 
+					NETWORK_PAGE);
+	#endif
 }
 
 void
@@ -197,11 +233,6 @@ undo_move_cb (GtkWidget *widget, gpointer data)
  		xy=squares[move_count];
  		pixmaps[xy%10-1][xy/10-1] = 100;
 	}
-
-	if (whose_turn == WHITE_TURN)
-		gui_message (_("Light's move"));
-	else
-		gui_message (_("Dark's move"));
 
 	gui_status ();
 	tiles_to_flip = 1;
@@ -312,20 +343,27 @@ button_press_event (GtkWidget *widget, GdkEventButton *event)
 	if (game_in_progress == 0)
 		return TRUE;
 
-	if (!network_allow ())
-		return TRUE;
-	
-	if ((whose_turn == WHITE_TURN) && white_computer_level)
+	if (!ggz_network_mode && (whose_turn == WHITE_TURN) && white_computer_level)
 		return TRUE;
 
-	if ((whose_turn == BLACK_TURN) && black_computer_level)
+	if (!ggz_network_mode && (whose_turn == BLACK_TURN) && black_computer_level)
 		return TRUE;
 
 	if (event->button == 1) {
 		x = event->x / (TILEWIDTH + GRIDWIDTH);
 		y = event->y / (TILEHEIGHT + GRIDWIDTH);
-		if (is_valid_move (x, y, whose_turn))
-			game_move (x, y, whose_turn);
+		if (ggz_network_mode && player_id == whose_turn 
+		    && is_valid_move (x, y, whose_turn)) {
+			#ifdef GGZ_CLIENT
+			send_my_move(CART(x + 1, y + 1), whose_turn);
+			#endif
+		} else if (!ggz_network_mode 
+			   && is_valid_move (x, y, whose_turn)) {
+			move (x, y, whose_turn);
+		} else {
+			gui_message (_("Invalid move."));
+		} 
+			
 	}
 
 	return TRUE;
@@ -568,7 +606,9 @@ init_new_game (void)
 	redraw_board ();
 
 	whose_turn = BLACK_TURN;
-	gui_message (_("Dark's move"));
+	gui_status ();
+	gtk_widget_show (mainmenu[0].widget);
+	gtk_widget_show (mainmenu[1].widget);
 
 	check_computer_players ();
 }
@@ -579,6 +619,9 @@ create_window (void)
 	GtkWidget *table;
 
 	window = gnome_app_new ("iagno", _("Iagno"));
+
+	notebook = gtk_notebook_new ();
+	gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
 
 	gtk_widget_realize (window);
 	gtk_window_set_resizable (GTK_WINDOW (window), FALSE);
@@ -591,7 +634,9 @@ create_window (void)
 
 	gtk_widget_pop_colormap ();
 
-	gnome_app_set_contents (GNOME_APP (window), drawing_area);
+	gnome_app_set_contents (GNOME_APP (window), notebook);
+	gtk_notebook_append_page (GTK_NOTEBOOK (notebook), drawing_area, NULL);
+	gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
 
 	gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
 				     BOARDWIDTH, BOARDHEIGHT);
@@ -652,7 +697,54 @@ gui_status (void)
 	gtk_label_set_text (GTK_LABEL (black_score), message);
 	sprintf (message, _("%.2d"), wcount);
 	gtk_label_set_text (GTK_LABEL (white_score), message);
-	undo_set_sensitive (move_count > 0 && !is_network_running ());
+	undo_set_sensitive (move_count > 0);
+
+	if (ggz_network_mode) {
+		gtk_widget_hide (game_menu[0].widget);
+		gtk_widget_hide (game_menu[1].widget);
+		gtk_widget_hide (game_menu[2].widget);
+		gtk_widget_hide (game_menu[3].widget);
+		gtk_widget_show (game_menu[4].widget);
+		gtk_widget_show (game_menu[5].widget);
+		gtk_widget_show (game_menu[7].widget);
+	} else {
+		gtk_widget_show (game_menu[0].widget);
+		gtk_widget_show (game_menu[1].widget);
+		gtk_widget_show (game_menu[2].widget);
+		gtk_widget_show (game_menu[3].widget);
+		gtk_widget_hide (game_menu[4].widget);
+		gtk_widget_hide (game_menu[5].widget);
+		gtk_widget_hide (game_menu[7].widget);
+	}
+
+	gtk_widget_set_sensitive (settings_menu[0].widget, !ggz_network_mode);
+
+	#ifndef GGZ_CLIENT
+	gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
+	#endif
+
+	if (ggz_network_mode) {
+		if (whose_turn == player_id && whose_turn == BLACK_TURN) {
+        	    gui_message(_("It is your turn to place a dark piece"));
+		} else if (whose_turn == player_id && whose_turn == WHITE_TURN) {
+        	    gui_message(_("It is your turn to place a light piece"));
+	        } else {
+			gchar *str;
+			str = g_strdup_printf (_("Waiting for %s to move"), 
+					names[(seat + 1) % 2 ]);
+			gui_message (str);
+			g_free (str);
+	        }
+	} else {
+		if (whose_turn == BLACK_TURN) {
+        	    gui_message(_("Dark's move"));
+	        } else if ( whose_turn == WHITE_TURN ) {
+        	    gui_message(_("Light's move"));
+	        }
+
+	}
+
+
 }
 
 void
@@ -665,6 +757,12 @@ gui_message (gchar *message)
 guint
 check_computer_players (void)
 {
+
+	if (ggz_network_mode) {
+		black_computer_id = 0;
+		white_computer_id = 0;
+		return TRUE;
+	}
 	if (black_computer_level && whose_turn == BLACK_TURN)
 		switch (black_computer_level) {
 		case 1:
@@ -796,6 +894,10 @@ main (int argc, char **argv)
 	load_pixmaps ();
 
 	gtk_widget_show (window);
+
+	#ifdef GGZ_CLIENT
+	network_init ();
+	#endif
 
 	if (session_xpos >= 0 && session_ypos >= 0) {
 		gdk_window_move (window->window, session_xpos, session_ypos);

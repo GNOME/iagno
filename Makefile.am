@@ -7,28 +7,49 @@ INCLUDES =						\
 	-I$(top_srcdir)/libgames-support		\
 	$(WARN_CFLAGS)					\
 	$(GNOME_GAMES_CFLAGS)				\
-	-DDATADIR=\""$(datadir)"\"		   \
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"
+	-DDATADIR=\""$(datadir)"\"		   	\
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"	\
+	@LIBGGZ_INCLUDES@ @GGZDMOD_INCLUDES@ @GGZ_GTK_INCLUDES@
 
-bin_PROGRAMS = iagno
+if GGZ_SERVER
+bin_PROGRAMS = iagno iagnod
+iagnod_SOURCES = server.h   \
+		 server.c   
+
+iagnod_LDFLAGS = @GGZDMOD_LDFLAGS@
+
+iagnod_LDADD = \
+	$(GNOME_GAMES_LIBS)     \
+	$(INTLLIBS) 		\
+	@LIB_GGZDMOD@
+
+else
+bin_PROGRAMS = iagno 
+endif
+
+if GGZ_CLIENT
+GGZ_FILES =	ggz-network.h \
+		ggz-network.c \
+		$(NULL)
+endif
 
 iagno_SOURCES = \
 	gnothello.c \
 	gnothello.h \
-	network.c   \
-	network.h	\
 	othello.c \
 	othello.h \
 	properties.c \
-	properties.h
+	properties.h \
+	$(GGZ_FILES)
+
+iagno_LDFLAGS = $(GGZMOD_LDFLAGS)
 
 iagno_LDADD = \
 	../libgames-support/libgames-support.la \
 	$(GNOME_GAMES_LIBS) \
-	$(AVAHI_LIBS) \
-	$(BONJOUR_LIBS) \
-	$(HOWL_LIBS) \
-	$(INTLLIBS)
+	$(INTLLIBS) \
+	$(LIB_GGZMOD) \
+	$(LIB_GGZ_GTK)
 
 pixmap_DATA = \
 	classic.png \
@@ -46,7 +67,11 @@ schema_in_files = iagno.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 @INTLTOOL_SCHEMAS_RULE@
 
-EXTRA_DIST = AUTHORS \
+EXTRA_DIST = \
+	AUTHORS \
+	iagno-client.dsc.in \
+	iagno-server.dsc.in \
+        iagno.room          \
 	iagno.desktop.in 	\
 	iagno.soundlist.in \
 	$(pixmap_DATA)	\
@@ -58,6 +83,13 @@ install-data-local:
 if GCONF_SCHEMAS_INSTALL
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/iagno/$(schema_DATA)
 endif
+if GGZ_CLIENT
+	$(GGZ_CONFIG) -D --install --modfile=iagno-client.dsc --force
+endif
+uninstall-local:
+if GGZ_CLIENT
+	-$(GGZ_CONFIG) -D --remove --modfile=iagno-client.dsc
+endif
 
 soundlistdir = $(sysconfdir)/sound/events
 soundlist_in_files = iagno.soundlist.in
@@ -67,3 +99,12 @@ soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
 SUBDIRS=sounds help
 
 DISTCLEANFILES = $(Games_DATA) $(schema_DATA) $(soundlist_DATA)
+
+if GGZ_SERVER
+ggzroom_DATA = iagno.room
+ggzroomdir = ${prefix}/etc/ggzd/rooms/
+
+ggzgame_DATA = iagno-server.dsc
+ggzgamedir = ${prefix}/etc/ggzd/games/
+endif
+

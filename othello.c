@@ -262,15 +262,6 @@ move (guint x, guint y, guint me)
     pixmaps[ x ][ y ] = (gint8)me;
     gui_draw_pixmap( me, x, y );
 
-    if ( whose_turn == BLACK_TURN )
-        {
-            gui_message(_("Dark's move"));
-        }
-    else if ( whose_turn == WHITE_TURN )
-        {
-            gui_message(_("Light's move"));
-        }
-
     gui_status();
 
     tiles_to_flip = 1;

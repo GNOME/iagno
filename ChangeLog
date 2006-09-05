@@ -1,3 +1,20 @@
+2006-09-05  Andreas Røsdal <andrearo@stud.ntnu.no> 
+
+	* .cvsignore:
+	* ggz-network.c:
+	* ggz-network.h:
+	* iagno-client.dsc.in:
+	* iagno-server.dsc.in:
+	* iagno.room:
+	* server.c:
+	* server.h:
+	* Makefile.am:
+	* classic.png:
+	* woodtrim.png:
+	* gnothello.c:
+	* gnothello.h:
+	* othello.c: GGZ Network Support
+
 2006-08-21  Jason Clinton <me@jasonclinton.com>
 
 	* gnome-iagno.svg:

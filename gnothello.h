@@ -30,14 +30,29 @@
 
 #define OTHER_PLAYER(w) (((w) == WHITE_TURN) ? BLACK_TURN : WHITE_TURN)
 
-#define TILEWIDTH   60
-#define TILEHEIGHT  60
+#define TILEWIDTH   80
+#define TILEHEIGHT  80
 #define GRIDWIDTH   1
 #define BOARDWIDTH  ((TILEWIDTH+GRIDWIDTH)  * 8)
 #define BOARDHEIGHT ((TILEHEIGHT+GRIDWIDTH) * 8)
 
+#define MAIN_PAGE           	0
+#define NETWORK_PAGE           	1
+
+gboolean ggz_network_mode;
+int player_id;
+int seat;
+int seats[2];
+char names[2][17];
+
+extern GtkWidget *notebook;
+extern GtkWidget *window;
+
 void new_game_cb (GtkWidget *widget, gpointer data);
-void new_net_game_cb (GtkWidget *widget, gpointer data);
+void new_network_game_cb (GtkWidget *widget, gpointer data);
+void on_network_leave (GObject *object, gpointer data);
+void on_player_list (void);
+void on_chat_window (void);
 void quit_game_cb (GtkWidget *widget, gpointer data);
 void undo_move_cb (GtkWidget *widget, gpointer data);
 void redo_move_cb (GtkWidget *widget, gpointer data);
