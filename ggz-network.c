@@ -291,13 +291,12 @@ void on_network_game(void)
   init_new_game();
   ggz_network_mode = TRUE;
 
-  /* FIXME: Does not work yet...
-  ggz_embed_ensure_server("GNOME-GGZ", "gnome.ggzgamingzone.org",
-     5688, "Player"); */
-
   ggz_gtk_initialize(FALSE,
 		     ggz_connected, ggz_game_launched, ggz_closed,
-		     NETWORK_ENGINE, NETWORK_VERSION, "Pubserver");
+		     NETWORK_ENGINE, NETWORK_VERSION, "GNOME GGZ");
+
+  ggz_embed_ensure_server("GNOME GGZ", "gnome.ggzgamingzone.org",
+     			  5688, _("Player")); 
 
   ggzbox = ggz_gtk_create_main_area(window);
   gtk_notebook_append_page(GTK_NOTEBOOK(notebook), ggzbox, NULL);
