@@ -27,6 +27,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
 #include <string.h>
+#include <games-stock.h>
 
 #ifdef GGZ_CLIENT
 #include <games-dlg-chat.h>
@@ -34,7 +35,6 @@
 #include "ggz-network.h"
 #include <ggz-embed.h>
 #endif
-
 
 #include "gnothello.h"
 #include "othello.h"
@@ -276,11 +276,14 @@ about_cb (GtkWidget *widget, gpointer data)
 
 	const gchar *documenters[] = {"Eric Baudais", NULL};
 
+	gchar *license = games_get_license (_("Iagno"));
+
+
 	gtk_show_about_dialog (GTK_WINDOW (window),
 			       "name", _("Iagno"),
 			       "version", VERSION,
 			       "copyright", "Copyright \xc2\xa9 1998-2006 Ian Peters",
-			       "license", "GPL 2+",
+			       "license", license,
 			       "comments",_("A disk flipping game derived from Reversi."),
 			       "authors", authors,
 			       "documenters", documenters, 
@@ -289,6 +292,7 @@ about_cb (GtkWidget *widget, gpointer data)
 			       "website", "http://www.gnome.org/projects/gnome-games/",
 			       "wrap-license", TRUE,
 			       NULL);
+	g_free (license);
 }
 
 void
