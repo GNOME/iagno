@@ -1,3 +1,12 @@
+2006-10-01  Jason Clinton <me@jasonclinton.com>
+
+	* 16x16/gnome-iagno.png:
+	* 22x22/gnome-iagno.png:
+	* 32x32/gnome-iagno.png:
+	* 48x48/gnome-iagno.png:
+	* scalable/gnome-iagno.svg:
+	* Makefile.am: Added 16, 22 and 32 icon sizes per Novell request.
+
 2006-09-30  Andreas Røsdal <andrearo@stud.ntnu.no> 
 
 	* ggz-network.c: Enable a default ggz server.
