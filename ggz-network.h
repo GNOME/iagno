@@ -172,29 +172,29 @@
 #define NETWORK_ENGINE "Iagno"
 #define NETWORK_VERSION "1"
 
-void network_init(void);
-void on_network_game(void);
+void network_init (void);
+void on_network_game (void);
 
 int fd;
 
 // Setup functions
-void game_init(void);
+void game_init (void);
 
 // Get stuff from server
-int get_seat(void);
-int get_players(void);
-int get_gameover(void);
-int get_sync(void);
-int get_move(void);
-int get_gameover(void);
+int get_seat (void);
+int get_players (void);
+int get_gameover (void);
+int get_sync (void);
+int get_move (void);
+int get_gameover (void);
 
 // Send stuff to server
-void send_my_move(int move, guint turn);
-int request_sync(void);
+void send_my_move (int move, guint turn);
+int request_sync (void);
 
 // Game functions
-void game_make_move(int);
-void game_mark_board(int, int, int, int, int);
-int game_check_direction(int, int, int, int, int);
-int game_check_move(int, int);
-void game_update_scores(void);
+void game_make_move (int);
+void game_mark_board (int, int, int, int, int);
+int game_check_direction (int, int, int, int, int);
+int game_check_move (int, int);
+void game_update_scores (void);

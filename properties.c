@@ -65,7 +65,7 @@ gint t_animate_stagger;
 gint t_flip_final;
 gint t_grid;
 
-static GamesFileList * theme_file_list = NULL;
+static GamesFileList *theme_file_list = NULL;
 
 static void apply_changes (void);
 
@@ -75,634 +75,614 @@ static void apply_changes (void);
  *	It doesn't abide by the HIG.
  */
 
-static gint clamp_int (gint input, gint low, gint high)
+static gint
+clamp_int (gint input, gint low, gint high)
 {
-        if (input < low)
-                input = low;
-        if (input > high)
-                input = high;
+  if (input < low)
+    input = low;
+  if (input > high)
+    input = high;
 
-        return input;
+  return input;
 }
 
-void 
+void
 load_properties (void)
 {
-	GConfClient *client;
-	GError      *error = NULL;
+  GConfClient *client;
+  GError *error = NULL;
 
-	client = gconf_client_get_default ();
-	if (!games_gconf_sanity_check_string (client, KEY_TILESET)) {
-		exit(1);
-	}
-	black_computer_level = gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
-        black_computer_level = clamp_int (black_computer_level, 0, 3);
-	
-	white_computer_level = gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
-        white_computer_level = clamp_int (white_computer_level, 0, 3);
-	
-	if (gconf_client_get_bool (client, KEY_QUICK_MOVES, &error))
-		computer_speed = COMPUTER_MOVE_DELAY / 2;
-	else
-		computer_speed = COMPUTER_MOVE_DELAY;
+  client = gconf_client_get_default ();
+  if (!games_gconf_sanity_check_string (client, KEY_TILESET)) {
+    exit (1);
+  }
+  black_computer_level =
+    gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+  black_computer_level = clamp_int (black_computer_level, 0, 3);
 
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
+  white_computer_level =
+    gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+  white_computer_level = clamp_int (white_computer_level, 0, 3);
 
-	if (tile_set)
-		g_free (tile_set);
+  if (gconf_client_get_bool (client, KEY_QUICK_MOVES, &error))
+    computer_speed = COMPUTER_MOVE_DELAY / 2;
+  else
+    computer_speed = COMPUTER_MOVE_DELAY;
 
-	tile_set = gconf_client_get_string (client, KEY_TILESET, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
-	if (tile_set == NULL)
-		tile_set = g_strdup ("classic.png");
-	
-	animate = gconf_client_get_int (client, KEY_ANIMATE, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
-        animate = clamp_int (animate, 0, 2);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
 
-	animate_stagger = gconf_client_get_bool (client, KEY_ANIMATE_STAGGER, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
+  if (tile_set)
+    g_free (tile_set);
 
-	grid = gconf_client_get_bool (client, KEY_SHOW_GRID, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
+  tile_set = gconf_client_get_string (client, KEY_TILESET, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+  if (tile_set == NULL)
+    tile_set = g_strdup ("classic.png");
 
-	flip_final = gconf_client_get_bool (client, KEY_FLIP_FINAL_RESULTS, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
+  animate = gconf_client_get_int (client, KEY_ANIMATE, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+  animate = clamp_int (animate, 0, 2);
 
-	switch (animate) {
-	case 0:
-		flip_pixmaps_id = g_timeout_add (100, flip_pixmaps, &error);
-		break;
-	case 1:
-		flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY * 8, flip_pixmaps, NULL);
-		break;
-	default:
-	case 2:
-		flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
-		break;
-	}
+  animate_stagger =
+    gconf_client_get_bool (client, KEY_ANIMATE_STAGGER, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
 
-	g_object_unref (client);
+  grid = gconf_client_get_bool (client, KEY_SHOW_GRID, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+
+  flip_final = gconf_client_get_bool (client, KEY_FLIP_FINAL_RESULTS, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+
+  switch (animate) {
+  case 0:
+    flip_pixmaps_id = g_timeout_add (100, flip_pixmaps, &error);
+    break;
+  case 1:
+    flip_pixmaps_id =
+      g_timeout_add (PIXMAP_FLIP_DELAY * 8, flip_pixmaps, NULL);
+    break;
+  default:
+  case 2:
+    flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
+    break;
+  }
+
+  g_object_unref (client);
 }
 
 static void
 reset_properties (void)
 {
-	GConfClient *client;
-	GError      *error = NULL;
+  GConfClient *client;
+  GError *error = NULL;
 
-	client = gconf_client_get_default ();
+  client = gconf_client_get_default ();
 
-	black_computer_level =
-		gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
-        t_black_computer_level = black_computer_level
-		= clamp_int (black_computer_level, 0, 3);
+  black_computer_level =
+    gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+  t_black_computer_level = black_computer_level
+    = clamp_int (black_computer_level, 0, 3);
 
-	white_computer_level =
-		gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
-        t_white_computer_level = white_computer_level
-		= clamp_int (white_computer_level, 0, 3);
-	
-	t_quick_moves = gconf_client_get_bool (client, KEY_QUICK_MOVES, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
+  white_computer_level =
+    gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+  t_white_computer_level = white_computer_level
+    = clamp_int (white_computer_level, 0, 3);
 
-	if (tile_set_tmp)
-		g_free (tile_set_tmp);
+  t_quick_moves = gconf_client_get_bool (client, KEY_QUICK_MOVES, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
 
-	tile_set_tmp = gconf_client_get_string (client, KEY_TILESET, &error);
-	if (error) {
-		g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-		g_error_free (error);
-		error = NULL;
-	}
-	if (tile_set_tmp == NULL)
-		tile_set_tmp = g_strdup("classic.png");
-	
-	t_animate         = animate;
-	t_animate_stagger = animate_stagger;
-	t_grid            = grid;
-	t_flip_final      = flip_final;
+  if (tile_set_tmp)
+    g_free (tile_set_tmp);
 
-	g_object_unref (client);
-}
+  tile_set_tmp = gconf_client_get_string (client, KEY_TILESET, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+  if (tile_set_tmp == NULL)
+    tile_set_tmp = g_strdup ("classic.png");
 
-static void 
-black_computer_level_select (GtkWidget *widget, gpointer data)
-{
-	if ((GPOINTER_TO_INT(data) != t_black_computer_level) 
-	    && (GTK_TOGGLE_BUTTON (widget)->active)) {
-		t_black_computer_level = GPOINTER_TO_INT(data);
-		apply_changes ();
-	}
-}
+  t_animate = animate;
+  t_animate_stagger = animate_stagger;
+  t_grid = grid;
+  t_flip_final = flip_final;
 
-static void 
-white_computer_level_select (GtkWidget *widget, gpointer data)
-{
-	if ((GPOINTER_TO_INT(data) != t_white_computer_level)
-	    && (GTK_TOGGLE_BUTTON (widget)->active)) {
-		t_white_computer_level = GPOINTER_TO_INT(data);
-		apply_changes ();
-	}
-}
-
-static void 
-quick_moves_select (GtkWidget *widget, gpointer data)
-{
-	if (GTK_TOGGLE_BUTTON (widget)->active)
-		t_quick_moves = 1;
-	else
-		t_quick_moves = 0;
-	apply_changes ();
-}
-
-static void 
-flip_final_select (GtkWidget *widget, gpointer data)
-{
-	if (GTK_TOGGLE_BUTTON (widget)->active)
-		t_flip_final = 1;
-	else
-		t_flip_final = 0;
-	apply_changes ();	
+  g_object_unref (client);
 }
 
 static void
-animate_stagger_select (GtkWidget *widget, gpointer data)
+black_computer_level_select (GtkWidget * widget, gpointer data)
 {
-	if (GTK_TOGGLE_BUTTON (widget)->active)
-		t_animate_stagger = 1;
-	else
-		t_animate_stagger = 0;
-	apply_changes ();	
+  if ((GPOINTER_TO_INT (data) != t_black_computer_level)
+      && (GTK_TOGGLE_BUTTON (widget)->active)) {
+    t_black_computer_level = GPOINTER_TO_INT (data);
+    apply_changes ();
+  }
 }
 
 static void
-grid_select (GtkWidget *widget, gpointer data)
+white_computer_level_select (GtkWidget * widget, gpointer data)
 {
-	if (GTK_TOGGLE_BUTTON (widget)->active)
-		t_grid = 1;
-	else
-		t_grid = 0;
-	apply_changes ();
+  if ((GPOINTER_TO_INT (data) != t_white_computer_level)
+      && (GTK_TOGGLE_BUTTON (widget)->active)) {
+    t_white_computer_level = GPOINTER_TO_INT (data);
+    apply_changes ();
+  }
 }
 
 static void
-animate_select (GtkWidget *widget, gpointer data)
+quick_moves_select (GtkWidget * widget, gpointer data)
 {
-	if (GTK_TOGGLE_BUTTON (widget)->active) {
-		t_animate = GPOINTER_TO_INT(data);
-	}
-	apply_changes ();	
+  if (GTK_TOGGLE_BUTTON (widget)->active)
+    t_quick_moves = 1;
+  else
+    t_quick_moves = 0;
+  apply_changes ();
+}
+
+static void
+flip_final_select (GtkWidget * widget, gpointer data)
+{
+  if (GTK_TOGGLE_BUTTON (widget)->active)
+    t_flip_final = 1;
+  else
+    t_flip_final = 0;
+  apply_changes ();
+}
+
+static void
+animate_stagger_select (GtkWidget * widget, gpointer data)
+{
+  if (GTK_TOGGLE_BUTTON (widget)->active)
+    t_animate_stagger = 1;
+  else
+    t_animate_stagger = 0;
+  apply_changes ();
+}
+
+static void
+grid_select (GtkWidget * widget, gpointer data)
+{
+  if (GTK_TOGGLE_BUTTON (widget)->active)
+    t_grid = 1;
+  else
+    t_grid = 0;
+  apply_changes ();
+}
+
+static void
+animate_select (GtkWidget * widget, gpointer data)
+{
+  if (GTK_TOGGLE_BUTTON (widget)->active) {
+    t_animate = GPOINTER_TO_INT (data);
+  }
+  apply_changes ();
 }
 
 static void
 save_properties (void)
 {
-	GConfClient *client;
+  GConfClient *client;
 
-	client = gconf_client_get_default ();
+  client = gconf_client_get_default ();
 
-	gconf_client_set_int (client, KEY_BLACK_LEVEL,
-			      black_computer_level, NULL);
-	gconf_client_set_int (client, KEY_WHITE_LEVEL,
-			      white_computer_level, NULL);
+  gconf_client_set_int (client, KEY_BLACK_LEVEL, black_computer_level, NULL);
+  gconf_client_set_int (client, KEY_WHITE_LEVEL, white_computer_level, NULL);
 
-	gconf_client_set_bool (client, KEY_QUICK_MOVES,
-			       t_quick_moves, NULL);
+  gconf_client_set_bool (client, KEY_QUICK_MOVES, t_quick_moves, NULL);
 
-	gconf_client_set_string (client, KEY_TILESET,
-				 tile_set_tmp, NULL);
+  gconf_client_set_string (client, KEY_TILESET, tile_set_tmp, NULL);
 
-	gconf_client_set_int (client, KEY_ANIMATE,
-			      animate, NULL);
+  gconf_client_set_int (client, KEY_ANIMATE, animate, NULL);
 
-	gconf_client_set_bool (client, KEY_ANIMATE_STAGGER,
-			       animate_stagger, NULL);
-	gconf_client_set_bool (client, KEY_SHOW_GRID,
-			       grid, NULL);
-	gconf_client_set_bool (client, KEY_FLIP_FINAL_RESULTS,
-			       flip_final, NULL);
+  gconf_client_set_bool (client, KEY_ANIMATE_STAGGER, animate_stagger, NULL);
+  gconf_client_set_bool (client, KEY_SHOW_GRID, grid, NULL);
+  gconf_client_set_bool (client, KEY_FLIP_FINAL_RESULTS, flip_final, NULL);
 }
 
 static void
 apply_changes (void)
 {
-	guint i, j;
-	
-	black_computer_level = t_black_computer_level;
-	white_computer_level = t_white_computer_level;
-	
-	if (black_computer_id) {
-		g_source_remove (black_computer_id);
-		black_computer_id = 0;
-	}
-	
-	if (white_computer_id) {
-		g_source_remove (white_computer_id);
-		white_computer_id = 0;
-	}
-	
-	if (t_quick_moves)
-		computer_speed = COMPUTER_MOVE_DELAY / 2;
+  guint i, j;
+
+  black_computer_level = t_black_computer_level;
+  white_computer_level = t_white_computer_level;
+
+  if (black_computer_id) {
+    g_source_remove (black_computer_id);
+    black_computer_id = 0;
+  }
+
+  if (white_computer_id) {
+    g_source_remove (white_computer_id);
+    white_computer_id = 0;
+  }
+
+  if (t_quick_moves)
+    computer_speed = COMPUTER_MOVE_DELAY / 2;
+  else
+    computer_speed = COMPUTER_MOVE_DELAY;
+
+  if (strcmp (tile_set, tile_set_tmp)) {
+    g_free (tile_set);
+    tile_set = g_strdup (tile_set_tmp);
+    load_pixmaps ();
+    set_bg_color ();
+    for (i = 0; i < 8; i++)
+      for (j = 0; j < 8; j++)
+	if (pixmaps[i][j] >= BLACK_TURN && pixmaps[i][j] <= WHITE_TURN)
+	  gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
 	else
-		computer_speed = COMPUTER_MOVE_DELAY;
-	
-	if (strcmp (tile_set, tile_set_tmp)) {
-		g_free (tile_set);
-		tile_set = g_strdup (tile_set_tmp);
-		load_pixmaps ();
-		set_bg_color ();
-		for (i = 0; i < 8; i++)
-			for (j = 0; j < 8; j++)
-				if (pixmaps [i][j] >= BLACK_TURN &&
-						pixmaps[i][j] <= WHITE_TURN)
-					gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
-				else
-					gui_draw_pixmap_buffer (0, i, j);
-		gui_draw_grid();
-	}
-	
-	animate = t_animate;
-	
-	if (flip_pixmaps_id) {
-		g_source_remove (flip_pixmaps_id);
-		flip_pixmaps_id = 0;
-	}
-	
-	switch (animate) {
-		case 0:
-			flip_pixmaps_id = g_timeout_add (100, flip_pixmaps,
-							   NULL);
-			break;
-		case 1:
-			flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY * 8,
-							 flip_pixmaps, NULL);
-			break;
-		case 2: flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY,
-							 flip_pixmaps, NULL);
-			break;
-	}
-	
-	animate_stagger = t_animate_stagger;
+	  gui_draw_pixmap_buffer (0, i, j);
+    gui_draw_grid ();
+  }
 
-	flip_final = t_flip_final;
+  animate = t_animate;
 
-	if (grid != t_grid) {
-			grid = t_grid;
-			gui_draw_grid ();
-	}
+  if (flip_pixmaps_id) {
+    g_source_remove (flip_pixmaps_id);
+    flip_pixmaps_id = 0;
+  }
 
-	check_computer_players ();
+  switch (animate) {
+  case 0:
+    flip_pixmaps_id = g_timeout_add (100, flip_pixmaps, NULL);
+    break;
+  case 1:
+    flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY * 8,
+				     flip_pixmaps, NULL);
+    break;
+  case 2:
+    flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
+    break;
+  }
 
-	save_properties ();
+  animate_stagger = t_animate_stagger;
+
+  flip_final = t_flip_final;
+
+  if (grid != t_grid) {
+    grid = t_grid;
+    gui_draw_grid ();
+  }
+
+  check_computer_players ();
+
+  save_properties ();
 }
 
 static gboolean
-close_cb (GtkWidget *widget)
+close_cb (GtkWidget * widget)
 {
-	gtk_widget_hide (widget);
+  gtk_widget_hide (widget);
 
-	return TRUE;
+  return TRUE;
 }
 
 void
-set_selection (GtkWidget *widget, gpointer data)
+set_selection (GtkWidget * widget, gpointer data)
 {
-	gchar * filename;
+  gchar *filename;
 
-	if (tile_set_tmp)
-		g_free (tile_set_tmp);
+  if (tile_set_tmp)
+    g_free (tile_set_tmp);
 
-	filename = games_file_list_get_nth (theme_file_list,
-					    gtk_combo_box_get_active (GTK_COMBO_BOX (widget)));
-		
-	tile_set_tmp = g_strdup (filename);
+  filename = games_file_list_get_nth (theme_file_list,
+				      gtk_combo_box_get_active (GTK_COMBO_BOX
+								(widget)));
 
-	apply_changes ();
+  tile_set_tmp = g_strdup (filename);
+
+  apply_changes ();
 }
 
 void
-free_str (GtkWidget *widget, void *data)
+free_str (GtkWidget * widget, void *data)
 {
-        g_free(data);
+  g_free (data);
 }
 
 static GtkWidget *
 fill_menu (void)
 {
-        gchar *dname = NULL;
+  gchar *dname = NULL;
 
-	/* FIXME: we need to check that both dname is valid and that
-	 * games_file_list_new_images returns something. */
+  /* FIXME: we need to check that both dname is valid and that
+   * games_file_list_new_images returns something. */
 
-	dname = gnome_program_locate_file (NULL,
-					   GNOME_FILE_DOMAIN_APP_PIXMAP, 
-					   "iagno", FALSE, NULL);
+  dname = gnome_program_locate_file (NULL,
+				     GNOME_FILE_DOMAIN_APP_PIXMAP,
+				     "iagno", FALSE, NULL);
 
-	if (theme_file_list)
-		g_object_unref (theme_file_list);
+  if (theme_file_list)
+    g_object_unref (theme_file_list);
 
-	theme_file_list = games_file_list_new_images (dname, NULL);
-	g_free (dname);
+  theme_file_list = games_file_list_new_images (dname, NULL);
+  g_free (dname);
 
-	games_file_list_transform_basename (theme_file_list);
+  games_file_list_transform_basename (theme_file_list);
 
-	return games_file_list_create_widget (theme_file_list, tile_set,
-					      GAMES_FILE_LIST_REMOVE_EXTENSION |
-					      GAMES_FILE_LIST_REPLACE_UNDERSCORES);
+  return games_file_list_create_widget (theme_file_list, tile_set,
+					GAMES_FILE_LIST_REMOVE_EXTENSION |
+					GAMES_FILE_LIST_REPLACE_UNDERSCORES);
 }
 
 void
 show_properties_dialog (void)
 {
-	GtkWidget *notebook;
-	GtkWidget *hbox;
-	GtkWidget *label;
-	GtkWidget *label2;
-	GtkWidget *table;
-	GtkWidget *button;
-	GtkWidget *frame;
-	GtkWidget *vbox, *vbox2;
-	GtkWidget *propbox = NULL;
-	GtkWidget *option_menu;
+  GtkWidget *notebook;
+  GtkWidget *hbox;
+  GtkWidget *label;
+  GtkWidget *label2;
+  GtkWidget *table;
+  GtkWidget *button;
+  GtkWidget *frame;
+  GtkWidget *vbox, *vbox2;
+  GtkWidget *propbox = NULL;
+  GtkWidget *option_menu;
 
-	if (propbox) {
-                gtk_window_present (GTK_WINDOW (propbox));
-                return;
-	}
+  if (propbox) {
+    gtk_window_present (GTK_WINDOW (propbox));
+    return;
+  }
 
-	reset_properties ();
+  reset_properties ();
 
-	propbox = gtk_dialog_new_with_buttons (_("Iagno Preferences"),
-			GTK_WINDOW (window),
-			0,
-			GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, NULL);
-        
-        gtk_dialog_set_has_separator (GTK_DIALOG (propbox), FALSE);
-	gtk_container_set_border_width (GTK_CONTAINER (propbox), 5);
-	gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (propbox)->vbox), 2);
-	gtk_window_set_resizable (GTK_WINDOW (propbox), FALSE);
-	notebook = gtk_notebook_new ();
-	gtk_container_set_border_width (GTK_CONTAINER (notebook), 5);
-	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (propbox)->vbox),
-                           notebook);
+  propbox = gtk_dialog_new_with_buttons (_("Iagno Preferences"),
+					 GTK_WINDOW (window),
+					 0,
+					 GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
+					 NULL);
 
-	label = gtk_label_new (_("Players"));
+  gtk_dialog_set_has_separator (GTK_DIALOG (propbox), FALSE);
+  gtk_container_set_border_width (GTK_CONTAINER (propbox), 5);
+  gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (propbox)->vbox), 2);
+  gtk_window_set_resizable (GTK_WINDOW (propbox), FALSE);
+  notebook = gtk_notebook_new ();
+  gtk_container_set_border_width (GTK_CONTAINER (notebook), 5);
+  gtk_container_add (GTK_CONTAINER (GTK_DIALOG (propbox)->vbox), notebook);
 
-	vbox = gtk_vbox_new (FALSE, 18);
-	gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
-	gtk_notebook_append_page (GTK_NOTEBOOK (notebook),
-                                  vbox, label);
-        
-        table = gtk_table_new (1, 2, FALSE);
-	gtk_table_set_col_spacings (GTK_TABLE (table), 18);
-        gtk_box_pack_start (GTK_BOX (vbox), table, FALSE, FALSE, 0);
+  label = gtk_label_new (_("Players"));
 
-	vbox2 = gtk_vbox_new (FALSE, 0);
-        gtk_box_pack_start (GTK_BOX (vbox), vbox2, FALSE, FALSE, 0);
+  vbox = gtk_vbox_new (FALSE, 18);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
+  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox, label);
 
-	button = gtk_check_button_new_with_mnemonic (_("_Use quick moves"));
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-                                      (computer_speed == COMPUTER_MOVE_DELAY / 2));
-	g_signal_connect (G_OBJECT (button), "toggled", G_CALLBACK
-                          (quick_moves_select), NULL);
-	
-	gtk_box_pack_start (GTK_BOX (vbox2), button, FALSE, FALSE, 0);
-        
+  table = gtk_table_new (1, 2, FALSE);
+  gtk_table_set_col_spacings (GTK_TABLE (table), 18);
+  gtk_box_pack_start (GTK_BOX (vbox), table, FALSE, FALSE, 0);
 
-	frame = games_frame_new (_("Dark"));
-        gtk_table_attach_defaults (GTK_TABLE (table), frame, 0, 1, 0, 1);
+  vbox2 = gtk_vbox_new (FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), vbox2, FALSE, FALSE, 0);
 
-	vbox = gtk_vbox_new (FALSE, 6);
+  button = gtk_check_button_new_with_mnemonic (_("_Use quick moves"));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				(computer_speed == COMPUTER_MOVE_DELAY / 2));
+  g_signal_connect (G_OBJECT (button), "toggled", G_CALLBACK
+		    (quick_moves_select), NULL);
 
-	button = gtk_radio_button_new_with_label (NULL, _("Human"));
-	if (black_computer_level == 0)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (black_computer_level_select),
-			(gpointer) 0);
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
-			(GTK_RADIO_BUTTON (button)), _("Level one"));
-	if (black_computer_level == 1)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (black_computer_level_select),
-			(gpointer) 1);
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
-			(GTK_RADIO_BUTTON (button)), _("Level two"));
-	if (black_computer_level == 2)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (black_computer_level_select),
-			(gpointer) 2);
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
-			(GTK_RADIO_BUTTON (button)), _("Level three"));
-	if (black_computer_level == 3)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (black_computer_level_select),
-			(gpointer) 3);
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	gtk_container_add (GTK_CONTAINER (frame), vbox);
-
-	frame = games_frame_new (_("Light"));
-        gtk_table_attach_defaults (GTK_TABLE (table), frame, 1, 2, 0, 1);
-	
-	vbox = gtk_vbox_new (FALSE, 6);
-	
-	button = gtk_radio_button_new_with_label (NULL, _("Human"));
-	if (white_computer_level == 0)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (white_computer_level_select),
-			(gpointer) 0);
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
-			(GTK_RADIO_BUTTON (button)), _("Level one"));
-	if (white_computer_level == 1)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-                          G_CALLBACK (white_computer_level_select),
-                          (gpointer) 1);
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
-			(GTK_RADIO_BUTTON (button)), _("Level two"));
-	if (white_computer_level == 2)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-                          G_CALLBACK (white_computer_level_select),
-                          (gpointer) 2);
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
-                                                  (GTK_RADIO_BUTTON (button)),
-                                                  _("Level three"));
-	if (white_computer_level == 3)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (white_computer_level_select),
-			(gpointer) 3);
-
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	
-	gtk_container_add (GTK_CONTAINER (frame), vbox);
+  gtk_box_pack_start (GTK_BOX (vbox2), button, FALSE, FALSE, 0);
 
 
-        label = gtk_label_new (_("Appearance"));
+  frame = games_frame_new (_("Dark"));
+  gtk_table_attach_defaults (GTK_TABLE (table), frame, 0, 1, 0, 1);
 
-	table = gtk_table_new (1, 2, FALSE);
-	gtk_table_set_col_spacings (GTK_TABLE (table), 18);
-	gtk_container_set_border_width (GTK_CONTAINER (table), 12);
-	
-	frame = games_frame_new (_("Animation"));
-	
-	vbox = gtk_vbox_new (FALSE, 6);
-	
-	button = gtk_radio_button_new_with_label (NULL, _("None"));
-	if (animate == 0)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (animate_select), (gpointer) 0);
+  vbox = gtk_vbox_new (FALSE, 6);
 
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
-			(GTK_RADIO_BUTTON (button)), _("Partial"));
-	if (animate == 1)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (animate_select), (gpointer) 1);
+  button = gtk_radio_button_new_with_label (NULL, _("Human"));
+  if (black_computer_level == 0)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (black_computer_level_select), (gpointer) 0);
 
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
-			(GTK_RADIO_BUTTON (button)), _("Complete"));
-	if (animate == 2)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-				TRUE);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (animate_select), (gpointer) 2);
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
+					    (GTK_RADIO_BUTTON (button)),
+					    _("Level one"));
+  if (black_computer_level == 1)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (black_computer_level_select), (gpointer) 1);
 
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	
-	gtk_container_add (GTK_CONTAINER (frame), vbox);
-	gtk_table_attach_defaults (GTK_TABLE (table), frame, 0, 1, 0, 1);
-	
-        frame = games_frame_new (_("Options"));
-	vbox = gtk_vbox_new (FALSE, 6);
-	gtk_container_add (GTK_CONTAINER (frame), vbox);
-	button = gtk_check_button_new_with_mnemonic (_("_Stagger flips"));
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-			t_animate_stagger);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (animate_stagger_select), NULL);
-	
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
+					    (GTK_RADIO_BUTTON (button)),
+					    _("Level two"));
+  if (black_computer_level == 2)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (black_computer_level_select), (gpointer) 2);
 
-	button = gtk_check_button_new_with_mnemonic (_("S_how grid"));
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-			t_grid);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (grid_select), NULL);
-	
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
+					    (GTK_RADIO_BUTTON (button)),
+					    _("Level three"));
+  if (black_computer_level == 3)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (black_computer_level_select), (gpointer) 3);
 
-	button = gtk_check_button_new_with_mnemonic (_("_Flip final results"));
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
-			t_flip_final);
-	g_signal_connect (G_OBJECT (button), "toggled",
-			G_CALLBACK (flip_final_select), NULL);
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (frame), vbox);
 
-	gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
-	
-	hbox = gtk_hbox_new (FALSE, 12);
-	
-	label2 = gtk_label_new_with_mnemonic (_("_Tile set:"));
-	
-	gtk_box_pack_start (GTK_BOX (hbox), label2, FALSE, FALSE, 0);
-	
-	option_menu = fill_menu ();
-	gtk_label_set_mnemonic_widget (GTK_LABEL (label2), option_menu);
-	g_signal_connect(G_OBJECT(option_menu), "changed",
-			 G_CALLBACK (set_selection), NULL);
-	gtk_box_pack_start (GTK_BOX (hbox), option_menu, TRUE, TRUE, 0);
-	
-	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
-	
-	gtk_table_attach_defaults (GTK_TABLE (table), frame, 1, 2, 0, 1);
+  frame = games_frame_new (_("Light"));
+  gtk_table_attach_defaults (GTK_TABLE (table), frame, 1, 2, 0, 1);
 
-	gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table,
-                                  label);
-        
-	g_signal_connect (G_OBJECT (propbox), "response", G_CALLBACK
-			(close_cb), NULL);
-	g_signal_connect (G_OBJECT (propbox), "delete_event", G_CALLBACK
-			(close_cb), NULL);
+  vbox = gtk_vbox_new (FALSE, 6);
 
-	gtk_widget_show_all (propbox);
+  button = gtk_radio_button_new_with_label (NULL, _("Human"));
+  if (white_computer_level == 0)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (white_computer_level_select), (gpointer) 0);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
+					    (GTK_RADIO_BUTTON (button)),
+					    _("Level one"));
+  if (white_computer_level == 1)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (white_computer_level_select), (gpointer) 1);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
+					    (GTK_RADIO_BUTTON (button)),
+					    _("Level two"));
+  if (white_computer_level == 2)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (white_computer_level_select), (gpointer) 2);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
+					    (GTK_RADIO_BUTTON (button)),
+					    _("Level three"));
+  if (white_computer_level == 3)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (white_computer_level_select), (gpointer) 3);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+
+  gtk_container_add (GTK_CONTAINER (frame), vbox);
+
+
+  label = gtk_label_new (_("Appearance"));
+
+  table = gtk_table_new (1, 2, FALSE);
+  gtk_table_set_col_spacings (GTK_TABLE (table), 18);
+  gtk_container_set_border_width (GTK_CONTAINER (table), 12);
+
+  frame = games_frame_new (_("Animation"));
+
+  vbox = gtk_vbox_new (FALSE, 6);
+
+  button = gtk_radio_button_new_with_label (NULL, _("None"));
+  if (animate == 0)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (animate_select), (gpointer) 0);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
+					    (GTK_RADIO_BUTTON (button)),
+					    _("Partial"));
+  if (animate == 1)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (animate_select), (gpointer) 1);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+  button = gtk_radio_button_new_with_label (gtk_radio_button_get_group
+					    (GTK_RADIO_BUTTON (button)),
+					    _("Complete"));
+  if (animate == 2)
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (animate_select), (gpointer) 2);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+
+  gtk_container_add (GTK_CONTAINER (frame), vbox);
+  gtk_table_attach_defaults (GTK_TABLE (table), frame, 0, 1, 0, 1);
+
+  frame = games_frame_new (_("Options"));
+  vbox = gtk_vbox_new (FALSE, 6);
+  gtk_container_add (GTK_CONTAINER (frame), vbox);
+  button = gtk_check_button_new_with_mnemonic (_("_Stagger flips"));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
+				t_animate_stagger);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (animate_stagger_select), NULL);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+
+  button = gtk_check_button_new_with_mnemonic (_("S_how grid"));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), t_grid);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (grid_select), NULL);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+
+  button = gtk_check_button_new_with_mnemonic (_("_Flip final results"));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), t_flip_final);
+  g_signal_connect (G_OBJECT (button), "toggled",
+		    G_CALLBACK (flip_final_select), NULL);
+
+  gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
+
+  hbox = gtk_hbox_new (FALSE, 12);
+
+  label2 = gtk_label_new_with_mnemonic (_("_Tile set:"));
+
+  gtk_box_pack_start (GTK_BOX (hbox), label2, FALSE, FALSE, 0);
+
+  option_menu = fill_menu ();
+  gtk_label_set_mnemonic_widget (GTK_LABEL (label2), option_menu);
+  g_signal_connect (G_OBJECT (option_menu), "changed",
+		    G_CALLBACK (set_selection), NULL);
+  gtk_box_pack_start (GTK_BOX (hbox), option_menu, TRUE, TRUE, 0);
+
+  gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
+
+  gtk_table_attach_defaults (GTK_TABLE (table), frame, 1, 2, 0, 1);
+
+  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), table, label);
+
+  g_signal_connect (G_OBJECT (propbox), "response", G_CALLBACK
+		    (close_cb), NULL);
+  g_signal_connect (G_OBJECT (propbox), "delete_event", G_CALLBACK
+		    (close_cb), NULL);
+
+  gtk_widget_show_all (propbox);
 }
