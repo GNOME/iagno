@@ -309,7 +309,7 @@ on_network_game (void)
 		      ggz_connected, ggz_game_launched, ggz_closed,
 		      NETWORK_ENGINE, NETWORK_VERSION, "GNOME GGZ");
 
-  ggz_embed_ensure_server ("GNOME GGZ", "gnome.ggzgamingzone.org",
+  ggz_embed_ensure_server ("GNOME GGZ", "games.gnome.org",
 			   5688, _("Player"));
 
   ggzbox = ggz_gtk_create_main_area (window);
