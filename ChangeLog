@@ -1,3 +1,8 @@
+2006-12-03  Andreas Røsdal  <andrearo@pvv.ntnu.no>
+
+	* gnothello.c: Remove deprecated call to gnome_score_init,
+	patch from Thomas Andersen in Bug #381751.   
+
 2006-10-28  Andreas Røsdal  <andrearo@pvv.ntnu.no>
 
 	* classic.png: New default tile graphics.
