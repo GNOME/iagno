@@ -21,6 +21,7 @@
 #include "config.h"
 #include <gnome.h>
 #include <gconf/gconf-client.h>
+#include <pwd.h>
 
 #include <ggzmod.h>
 #include <ggz-embed.h>
@@ -295,6 +296,7 @@ void
 on_network_game (void)
 {
   GtkWidget *ggzbox;
+  struct passwd *pwent;  
 
 
   if (ggz_network_mode) {
@@ -309,8 +311,12 @@ on_network_game (void)
 		      ggz_connected, ggz_game_launched, ggz_closed,
 		      NETWORK_ENGINE, NETWORK_VERSION, "GNOME GGZ");
 
+  pwent = getpwuid(getuid());
+
+  ggz_embed_ensure_server ("GGZ Gaming Zone", "gnome.ggzgamingzone.org",
+			   5688, pwent->pw_name);
   ggz_embed_ensure_server ("GNOME GGZ", "games.gnome.org",
-			   5688, _("Player"));
+			   5688, pwent->pw_name);
 
   ggzbox = ggz_gtk_create_main_area (window);
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), ggzbox, NULL);
