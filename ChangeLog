@@ -1,3 +1,8 @@
+2007-01-09  Robert Ancell  <robert.ancell@gmail.com>
+
+	* gnothello.c: Cancel AI operations when moves after an undo to stop the computer
+	  playing for the other player when their timer expires (Bug #386165).
+
 2006-12-03  Andreas Røsdal  <andrearo@pvv.ntnu.no>
 
 	* gnothello.c: Remove deprecated call to gnome_score_init,

@@ -228,6 +228,16 @@ undo_move_cb (GtkWidget * widget, gpointer data)
 
   if ((black_computer_level && white_computer_level) || move_count == 4)
     return;
+   
+  /* Cancel any pending AI operations */
+  if (black_computer_id) {
+    g_source_remove (black_computer_id);
+    black_computer_id = 0;
+  }
+  if (white_computer_id) {
+    g_source_remove (white_computer_id);
+    white_computer_id = 0;
+  }
 
   if (flip_final_id) {
     g_source_remove (flip_final_id);
