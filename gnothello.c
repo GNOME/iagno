@@ -309,7 +309,7 @@ about_cb (GtkWidget * widget, gpointer data)
 			 "name", _("Iagno"),
 			 "version", VERSION,
 			 "copyright",
-			 "Copyright \xc2\xa9 1998-2006 Ian Peters", "license",
+			 "Copyright \xc2\xa9 1998-2007 Ian Peters", "license",
 			 license, "comments",
 			 _("A disk flipping game derived from Reversi."),
 			 "authors", authors, "documenters", documenters,
