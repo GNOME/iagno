@@ -339,7 +339,7 @@ expose_event (GtkWidget * widget, GdkEventExpose * event)
   return (FALSE);
 }
 
-gint
+gboolean
 configure_event (GtkWidget * widget, GdkEventConfigure * event)
 {
   static int old_width = 0, old_height = 0;
