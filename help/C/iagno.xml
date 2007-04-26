@@ -24,6 +24,12 @@
 <articleinfo>
  <title>&app; Manual V&manrevision;</title>
 
+    <abstract role="description">
+      <para>
+      Iagno is a computer version of the game Reversi, more popularly called Othello.
+      </para>
+    </abstract>
+
  <copyright>
   <year>2000</year>
   <holder>Eric Baudais</holder>
@@ -49,7 +55,7 @@
 	any of this. -->
 
     <authorgroup> 
-      <author> 
+      <author role="maintainer"> 
 	<firstname>Eric</firstname> 
 	<surname>Baudais</surname> 
 	<affiliation> 
