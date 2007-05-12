@@ -5,6 +5,7 @@ DOC_LINGUAS = sv
 DOC_MODULE = iagno
 
 DOC_ENTITIES = \
+	network-games.xml \
 	legal.xml
 
 DOC_FIGURES = \
@@ -12,6 +13,8 @@ DOC_FIGURES = \
 	figures/BLOCK.png \
 	figures/FIRST.png \
 	figures/PLAYER.png \
-	figures/START.png
+	figures/START.png \
+	figures/connect.png \
+	figures/tables.png 
 
 dist-hook: doc-dist-hook

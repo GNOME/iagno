@@ -2,6 +2,7 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
+  <!ENTITY NETWORKGAMES SYSTEM "network-games.xml"> 
   <!ENTITY appversion "2.12">
   <!ENTITY manrevision "2.8">
   <!ENTITY date "September 2004">
@@ -166,6 +167,11 @@
   without your opponent flipping your tiles.  This is done 
   by trapping your opponent's tiles between two tiles of 
   your own color.
+  </para>
+
+  <para>
+    &appname; also features <link linkend="network-games">multiplayer</link> support with two 
+    human players in hotseat or network mode.
   </para>
 
   <para>
@@ -456,6 +462,16 @@
  </sect2>
 
 </sect1>
+
+<!-- ============= Network games  ===============================================
+ This doc is common to gnome-games. The file is pulled in from gnibbles directory
+ as a SVN symlink, and included here. Therefore translators only have to translate 
+ the network stuff once, instead of one time for each game. 
+ ================================ -->
+
+ &NETWORKGAMES;
+
+
 
 <sect1 id="bugs">
  <title>Known Bugs and Limitations</title>
