@@ -54,17 +54,6 @@ pixmap_DATA = \
 	classic.png \
 	woodtrim.png
 
-icon16dir = $(datadir)/icons/hicolor/16x16/apps/
-icon16_DATA = 16x16/gnome-iagno.png
-icon22dir = $(datadir)/icons/hicolor/22x22/apps/
-icon22_DATA = 22x22/gnome-iagno.png
-icon32dir = $(datadir)/icons/hicolor/32x32/apps/
-icon32_DATA = 32x32/gnome-iagno.png
-icon48dir = $(datadir)/icons/hicolor/48x48/apps/
-icon48_DATA = 48x48/gnome-iagno.png
-svgicondir = $(datadir)/icons/hicolor/scalable/apps/
-svgicon_DATA = scalable/gnome-iagno.svg
-
 Games_in_files = iagno.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
@@ -82,11 +71,6 @@ EXTRA_DIST = \
 	iagno.desktop.in 	\
 	iagno.soundlist.in \
 	$(pixmap_DATA)	\
-	$(icon16_DATA)	\
-	$(icon22_DATA)	\
-	$(icon32_DATA)	\
-	$(icon48_DATA)	\
-	$(svgicon_DATA) \
 	$(schema_in_files)
 
 install-data-local:
