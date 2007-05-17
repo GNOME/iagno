@@ -1,3 +1,7 @@
+2007-05-17  Andreas Røsdal  <andrearo@pvv.ntnu.no>
+
+	* iagno.schemas.in: Default to one AI player.
+
 2007-01-09  Robert Ancell  <robert.ancell@gmail.com>
 
 	* gnothello.c: Cancel AI operations when moves after an undo to stop the computer
