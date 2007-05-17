@@ -25,6 +25,7 @@
 #include <gnome.h>
 #include <string.h>
 #include <games-clock.h>
+#include <games-sound.h>
 
 #include "othello.h"
 #include "gnothello.h"
@@ -273,6 +274,8 @@ move (guint x, guint y, guint me)
   tiles_to_flip = 1;
   check_valid_moves ();
   check_computer_players ();
+
+  games_sound_play ("flip-piece");
 
   return FALSE;
 }
@@ -700,6 +703,9 @@ check_valid_moves (void)
     game_in_progress = 0;
     if (flip_final)
       flip_final_id = g_timeout_add (100, flip_final_results, NULL);
+
+    games_sound_play ("gameover");
+
     return TRUE;
   }
 

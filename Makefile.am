@@ -69,7 +69,6 @@ EXTRA_DIST = \
 	iagno-server.dsc.in \
         iagno.room          \
 	iagno.desktop.in 	\
-	iagno.soundlist.in \
 	$(pixmap_DATA)	\
 	$(schema_in_files)
 
@@ -85,14 +84,11 @@ if GGZ_CLIENT
 	-$(GGZ_CONFIG) -D --remove --modfile=iagno-client.dsc
 endif
 
-soundlistdir = $(sysconfdir)/sound/events
-soundlist_in_files = iagno.soundlist.in
-soundlist_DATA = $(soundlist_in_files:.soundlist.in=.soundlist)
 @INTLTOOL_SOUNDLIST_RULE@
 
-SUBDIRS=sounds help
+SUBDIRS= help
 
-DISTCLEANFILES = $(Games_DATA) $(schema_DATA) $(soundlist_DATA)
+DISTCLEANFILES = $(Games_DATA) $(schema_DATA) 
 
 if GGZ_SERVER
 ggzroom_DATA = iagno.room
