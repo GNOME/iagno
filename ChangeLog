@@ -1,3 +1,8 @@
+2007-05-18  Andreas Røsdal  <andrearo@pvv.ntnu.no>
+
+	* iagno.schemas.in:
+	* properties.c: Add a checkbox to enable / disable sounds. 
+
 2007-05-17  Andreas Røsdal  <andrearo@pvv.ntnu.no>
 
 	* iagno.schemas.in: Default to one AI player.

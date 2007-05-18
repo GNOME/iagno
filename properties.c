@@ -27,6 +27,7 @@
 #include <games-gconf.h>
 #include <games-frame.h>
 #include <games-files.h>
+#include <games-sound.h>
 
 #include "properties.h"
 #include "gnothello.h"
@@ -40,6 +41,7 @@
 #define KEY_ANIMATE_STAGGER "/apps/iagno/animate_stagger"
 #define KEY_SHOW_GRID "/apps/iagno/show_grid"
 #define KEY_FLIP_FINAL_RESULTS "/apps/iagno/flip_final_results"
+#define KEY_SOUND "/apps/iagno/sound"
 
 
 extern GtkWidget *window;
@@ -56,6 +58,7 @@ extern gint animate_stagger;
 extern gint flip_pixmaps_id;
 extern gint flip_final;
 extern gint grid;
+gint sound;
 
 guint t_black_computer_level;
 guint t_white_computer_level;
@@ -147,6 +150,13 @@ load_properties (void)
 
   animate_stagger =
     gconf_client_get_bool (client, KEY_ANIMATE_STAGGER, &error);
+  if (error) {
+    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
+    g_error_free (error);
+    error = NULL;
+  }
+
+  sound = gconf_client_get_bool (client, KEY_SOUND, &error);
   if (error) {
     g_warning (G_STRLOC ": gconf error: %s\n", error->message);
     g_error_free (error);
@@ -260,6 +270,13 @@ white_computer_level_select (GtkWidget * widget, gpointer data)
 }
 
 static void
+sound_select (GtkWidget * widget, gpointer data)
+{
+  sound = GTK_TOGGLE_BUTTON (widget)->active;
+  apply_changes ();
+}
+
+static void
 quick_moves_select (GtkWidget * widget, gpointer data)
 {
   if (GTK_TOGGLE_BUTTON (widget)->active)
@@ -327,6 +344,7 @@ save_properties (void)
   gconf_client_set_bool (client, KEY_ANIMATE_STAGGER, animate_stagger, NULL);
   gconf_client_set_bool (client, KEY_SHOW_GRID, grid, NULL);
   gconf_client_set_bool (client, KEY_FLIP_FINAL_RESULTS, flip_final, NULL);
+  gconf_client_set_bool (client, KEY_SOUND, sound, NULL);
 }
 
 static void
@@ -394,6 +412,8 @@ apply_changes (void)
     grid = t_grid;
     gui_draw_grid ();
   }
+
+  games_sound_enable (sound);
 
   check_computer_players ();
 
@@ -491,7 +511,7 @@ show_properties_dialog (void)
   gtk_container_set_border_width (GTK_CONTAINER (notebook), 5);
   gtk_container_add (GTK_CONTAINER (GTK_DIALOG (propbox)->vbox), notebook);
 
-  label = gtk_label_new (_("Players"));
+  label = gtk_label_new (_("Game"));
 
   vbox = gtk_vbox_new (FALSE, 18);
   gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
@@ -512,6 +532,12 @@ show_properties_dialog (void)
 
   gtk_box_pack_start (GTK_BOX (vbox2), button, FALSE, FALSE, 0);
 
+  button = gtk_check_button_new_with_mnemonic (_("E_nable sounds"));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), sound);
+  g_signal_connect (G_OBJECT (button), "toggled", G_CALLBACK
+		    (sound_select), NULL);
+
+  gtk_box_pack_start (GTK_BOX (vbox2), button, FALSE, FALSE, 0);
 
   frame = games_frame_new (_("Dark"));
   gtk_table_attach_defaults (GTK_TABLE (table), frame, 0, 1, 0, 1);

@@ -97,6 +97,18 @@
         </locale>
       </schema>
 
+      <schema>
+      <key>/schemas/apps/iagno/sound</key>
+      <applyto>/apps/iagno/sound</applyto>
+      <owner>iagno</owner>
+      <type>bool</type>
+      <default>TRUE</default>
+      <locale name="C">
+        <short>Sound</short>
+        <long>Whether or not to play event sounds.</long>
+      </locale>
+      </schema>
+
   </schemalist>
   
 </gconfschemafile>
