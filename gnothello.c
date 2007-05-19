@@ -28,6 +28,7 @@
 
 #include <string.h>
 #include <games-stock.h>
+#include <games-sound.h>
 
 #ifdef GGZ_CLIENT
 #include <games-dlg-chat.h>
@@ -899,8 +900,11 @@ main (int argc, char **argv)
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
+  g_thread_init (NULL);
+
   context = g_option_context_new ("");
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
+  g_option_context_add_group (context, games_sound_get_option_group ());
 
   program = gnome_program_init ("iagno", VERSION,
 				LIBGNOMEUI_MODULE,
