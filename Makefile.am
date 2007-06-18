@@ -54,8 +54,8 @@ pixmap_DATA = \
 	classic.png \
 	woodtrim.png
 
-Games_in_files = iagno.desktop.in
-Games_DATA = $(Games_in_files:.desktop.in=.desktop)
+Games_in_files = iagno.desktop.in.in
+Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
@@ -68,7 +68,6 @@ EXTRA_DIST = \
 	iagno-client.dsc.in \
 	iagno-server.dsc.in \
         iagno.room          \
-	iagno.desktop.in 	\
 	$(pixmap_DATA)	\
 	$(schema_in_files)
 
