@@ -1,3 +1,7 @@
+2007-06-19  Kim Christensen  <kingudk@gmail.com>
+
+	* iagno.desktop.in.in: Added BoardGame to Categories (bug #417014)
+
 2007-05-18  Andreas Røsdal  <andrearo@pvv.ntnu.no>
 
 	* iagno.schemas.in:
