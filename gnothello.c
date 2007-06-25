@@ -616,7 +616,7 @@ create_window (void)
 
   window = gnome_app_new ("iagno", _("Iagno"));
 
-  games_conf_add_window (GTK_WINDOW (window));
+  games_conf_add_window (GTK_WINDOW (window), NULL);
 
   notebook = gtk_notebook_new ();
   gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
