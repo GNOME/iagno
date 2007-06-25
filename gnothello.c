@@ -42,6 +42,9 @@
 #include "othello.h"
 #include "properties.h"
 
+#define APP_NAME "iagno"
+#define APP_NAME_LONG N_("Iagno")
+
 GnomeAppBar *appbar;
 GtkWidget *window;
 GtkWidget *notebook;
@@ -274,10 +277,10 @@ about_cb (GtkWidget * widget, gpointer data)
 
   const gchar *documenters[] = { "Eric Baudais", NULL };
 
-  gchar *license = games_get_license (_("Iagno"));
+  gchar *license = games_get_license (_(APP_NAME_LONG));
 
   gtk_show_about_dialog (GTK_WINDOW (window),
-			 "name", _("Iagno"),
+			 "name", _(APP_NAME_LONG),
 			 "version", VERSION,
 			 "copyright",
 			 "Copyright \xc2\xa9 1998-2007 Ian Peters",
@@ -614,7 +617,7 @@ create_window (void)
 {
   GtkWidget *table;
 
-  window = gnome_app_new ("iagno", _("Iagno"));
+  window = gnome_app_new ("iagno", _(APP_NAME_LONG));
 
   games_conf_add_window (GTK_WINDOW (window), NULL);
 
@@ -876,7 +879,7 @@ main (int argc, char **argv)
 
   g_thread_init (NULL);
 
-  context = g_option_context_new ("");
+  context = g_option_context_new (NULL);
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   g_option_context_add_group (context, games_sound_get_option_group ());
 
@@ -888,7 +891,7 @@ main (int argc, char **argv)
 
   gtk_window_set_default_icon_name ("gnome-iagno");
 
-  games_conf_initialise ("Iagno");
+  games_conf_initialise (APP_NAME);
 
   client = gnome_master_client ();
 
