@@ -23,8 +23,7 @@
 #include <config.h>
 #include <gnome.h>
 #include <string.h>
-#include <gconf/gconf-client.h>
-#include <games-gconf.h>
+#include <games-conf.h>
 #include <games-frame.h>
 #include <games-files.h>
 #include <games-sound.h>
@@ -33,15 +32,17 @@
 #include "gnothello.h"
 #include "othello.h"
 
-#define KEY_TILESET "/apps/iagno/tileset"
-#define KEY_BLACK_LEVEL "/apps/iagno/black_level"
-#define KEY_WHITE_LEVEL "/apps/iagno/white_level"
-#define KEY_QUICK_MOVES "/apps/iagno/quick_moves"
-#define KEY_ANIMATE "/apps/iagno/animate"
-#define KEY_ANIMATE_STAGGER "/apps/iagno/animate_stagger"
-#define KEY_SHOW_GRID "/apps/iagno/show_grid"
-#define KEY_FLIP_FINAL_RESULTS "/apps/iagno/flip_final_results"
-#define KEY_SOUND "/apps/iagno/sound"
+#define KEY_TILESET             "tileset"
+#define KEY_BLACK_LEVEL         "black_level"
+#define KEY_WHITE_LEVEL         "white_level"
+#define KEY_QUICK_MOVES         "quick_moves"
+#define KEY_ANIMATE             "animate"
+#define KEY_ANIMATE_STAGGER     "animate_stagger"
+#define KEY_SHOW_GRID           "show_grid"
+#define KEY_FLIP_FINAL_RESULTS "flip_final_results"
+#define KEY_SOUND               "sound"
+
+#define DEFAULT_TILESET "classic.png"
 
 
 extern GtkWidget *window;
@@ -74,7 +75,6 @@ static void apply_changes (void);
 
 /*
  * FIXME:
- * 	This was only a quick port to gconf.
  *	It doesn't abide by the HIG.
  */
 
@@ -92,94 +92,36 @@ clamp_int (gint input, gint low, gint high)
 void
 load_properties (void)
 {
-  GConfClient *client;
-  GError *error = NULL;
-
-  client = gconf_client_get_default ();
-  if (!games_gconf_sanity_check_string (client, KEY_TILESET)) {
-    exit (1);
-  }
-  black_computer_level =
-    gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
+  black_computer_level = games_conf_get_integer (NULL, KEY_BLACK_LEVEL, NULL);
   black_computer_level = clamp_int (black_computer_level, 0, 3);
 
-  white_computer_level =
-    gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
+  white_computer_level = games_conf_get_integer (NULL, KEY_WHITE_LEVEL, NULL);
   white_computer_level = clamp_int (white_computer_level, 0, 3);
 
-  if (gconf_client_get_bool (client, KEY_QUICK_MOVES, &error))
+  if (games_conf_get_boolean (NULL, KEY_QUICK_MOVES, NULL))
     computer_speed = COMPUTER_MOVE_DELAY / 2;
   else
     computer_speed = COMPUTER_MOVE_DELAY;
 
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
-
   if (tile_set)
     g_free (tile_set);
 
-  tile_set = gconf_client_get_string (client, KEY_TILESET, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
-  if (tile_set == NULL)
-    tile_set = g_strdup ("classic.png");
+  tile_set = games_conf_get_string_with_default (NULL, KEY_TILESET, DEFAULT_TILESET);
 
-  animate = gconf_client_get_int (client, KEY_ANIMATE, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
+  animate = games_conf_get_integer (NULL, KEY_ANIMATE, NULL);
   animate = clamp_int (animate, 0, 2);
 
-  animate_stagger =
-    gconf_client_get_bool (client, KEY_ANIMATE_STAGGER, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
+  animate_stagger = games_conf_get_boolean (NULL, KEY_ANIMATE_STAGGER, NULL);
 
-  sound = gconf_client_get_bool (client, KEY_SOUND, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
+  sound = games_conf_get_boolean (NULL, KEY_SOUND, NULL);
 
-  grid = gconf_client_get_bool (client, KEY_SHOW_GRID, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
+  grid = games_conf_get_boolean (NULL, KEY_SHOW_GRID, NULL);
 
-  flip_final = gconf_client_get_bool (client, KEY_FLIP_FINAL_RESULTS, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
+  flip_final = games_conf_get_boolean (NULL, KEY_FLIP_FINAL_RESULTS, NULL);
 
   switch (animate) {
   case 0:
-    flip_pixmaps_id = g_timeout_add (100, flip_pixmaps, &error);
+    flip_pixmaps_id = g_timeout_add (100, flip_pixmaps, NULL);
     break;
   case 1:
     flip_pixmaps_id =
@@ -190,63 +132,31 @@ load_properties (void)
     flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
     break;
   }
-
-  g_object_unref (client);
 }
 
 static void
 reset_properties (void)
 {
-  GConfClient *client;
-  GError *error = NULL;
+  black_computer_level = games_conf_get_integer (NULL, KEY_BLACK_LEVEL, NULL);
+  black_computer_level = clamp_int (black_computer_level, 0, 3);
 
-  client = gconf_client_get_default ();
+  white_computer_level = games_conf_get_integer (NULL, KEY_WHITE_LEVEL, NULL);
+  white_computer_level = clamp_int (white_computer_level, 0, 3);
+      
+  t_black_computer_level = black_computer_level;
+  t_white_computer_level = white_computer_level;
 
-  black_computer_level =
-    gconf_client_get_int (client, KEY_BLACK_LEVEL, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
-  t_black_computer_level = black_computer_level
-    = clamp_int (black_computer_level, 0, 3);
-
-  white_computer_level =
-    gconf_client_get_int (client, KEY_WHITE_LEVEL, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
-  t_white_computer_level = white_computer_level
-    = clamp_int (white_computer_level, 0, 3);
-
-  t_quick_moves = gconf_client_get_bool (client, KEY_QUICK_MOVES, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
+  t_quick_moves = games_conf_get_boolean (NULL, KEY_QUICK_MOVES, NULL);
 
   if (tile_set_tmp)
     g_free (tile_set_tmp);
 
-  tile_set_tmp = gconf_client_get_string (client, KEY_TILESET, &error);
-  if (error) {
-    g_warning (G_STRLOC ": gconf error: %s\n", error->message);
-    g_error_free (error);
-    error = NULL;
-  }
-  if (tile_set_tmp == NULL)
-    tile_set_tmp = g_strdup ("classic.png");
+  tile_set_tmp = games_conf_get_string_with_default (NULL, KEY_TILESET, DEFAULT_TILESET);
 
   t_animate = animate;
   t_animate_stagger = animate_stagger;
   t_grid = grid;
   t_flip_final = flip_final;
-
-  g_object_unref (client);
 }
 
 static void
@@ -328,23 +238,19 @@ animate_select (GtkWidget * widget, gpointer data)
 static void
 save_properties (void)
 {
-  GConfClient *client;
+  games_conf_set_integer (NULL, KEY_BLACK_LEVEL, black_computer_level);
+  games_conf_set_integer (NULL, KEY_WHITE_LEVEL, white_computer_level);
 
-  client = gconf_client_get_default ();
+  games_conf_set_boolean (NULL, KEY_QUICK_MOVES, t_quick_moves);
 
-  gconf_client_set_int (client, KEY_BLACK_LEVEL, black_computer_level, NULL);
-  gconf_client_set_int (client, KEY_WHITE_LEVEL, white_computer_level, NULL);
+  games_conf_set_string (NULL, KEY_TILESET, tile_set_tmp);
 
-  gconf_client_set_bool (client, KEY_QUICK_MOVES, t_quick_moves, NULL);
+  games_conf_set_integer (NULL, KEY_ANIMATE, animate);
 
-  gconf_client_set_string (client, KEY_TILESET, tile_set_tmp, NULL);
-
-  gconf_client_set_int (client, KEY_ANIMATE, animate, NULL);
-
-  gconf_client_set_bool (client, KEY_ANIMATE_STAGGER, animate_stagger, NULL);
-  gconf_client_set_bool (client, KEY_SHOW_GRID, grid, NULL);
-  gconf_client_set_bool (client, KEY_FLIP_FINAL_RESULTS, flip_final, NULL);
-  gconf_client_set_bool (client, KEY_SOUND, sound, NULL);
+  games_conf_set_boolean (NULL, KEY_ANIMATE_STAGGER, animate_stagger);
+  games_conf_set_boolean (NULL, KEY_SHOW_GRID, grid);
+  games_conf_set_boolean (NULL, KEY_FLIP_FINAL_RESULTS, flip_final);
+  games_conf_set_boolean (NULL, KEY_SOUND, sound);
 }
 
 static void

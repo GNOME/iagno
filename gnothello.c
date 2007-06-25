@@ -29,6 +29,7 @@
 #include <string.h>
 #include <games-stock.h>
 #include <games-sound.h>
+#include <games-conf.h>
 
 #ifdef GGZ_CLIENT
 #include <games-dlg-chat.h>
@@ -267,36 +268,6 @@ undo_move_cb (GtkWidget * widget, gpointer data)
 }
 
 void
-black_level_cb (GtkWidget * widget, gpointer data)
-{
-  int tmp;
-
-  tmp = atoi ((gchar *) data);
-
-  gnome_config_set_int ("/iagno/Preferences/blacklevel", tmp);
-  gnome_config_sync ();
-
-  black_computer_level = tmp;
-
-  check_computer_players ();
-}
-
-void
-white_level_cb (GtkWidget * widget, gpointer data)
-{
-  int tmp;
-
-  tmp = atoi ((gchar *) data);
-
-  gnome_config_set_int ("/iagno/Preferences/whitelevel", tmp);
-  gnome_config_sync ();
-
-  white_computer_level = tmp;
-
-  check_computer_players ();
-}
-
-void
 about_cb (GtkWidget * widget, gpointer data)
 {
   const gchar *authors[] = { "Ian Peters", NULL };
@@ -305,19 +276,20 @@ about_cb (GtkWidget * widget, gpointer data)
 
   gchar *license = games_get_license (_("Iagno"));
 
-
   gtk_show_about_dialog (GTK_WINDOW (window),
 			 "name", _("Iagno"),
 			 "version", VERSION,
 			 "copyright",
-			 "Copyright \xc2\xa9 1998-2007 Ian Peters", "license",
-			 license, "comments",
-			 _("A disk flipping game derived from Reversi."),
-			 "authors", authors, "documenters", documenters,
-			 "translator_credits", _("translator-credits"),
-			 "logo-icon-name", "gnome-iagno", "website",
-			 "http://www.gnome.org/projects/gnome-games/",
-			 "wrap-license", TRUE, NULL);
+			 "Copyright \xc2\xa9 1998-2007 Ian Peters",
+                         "license", license,
+                         "comments", _("A disk flipping game derived from Reversi."),
+			 "authors", authors,
+                         "documenters", documenters,
+			 "translator-credits", _("translator-credits"),
+			 "logo-icon-name", "gnome-iagno",
+                         "website", "http://www.gnome.org/projects/gnome-games/",
+			 "wrap-license", TRUE,
+                         NULL);
   g_free (license);
 }
 
@@ -644,6 +616,8 @@ create_window (void)
 
   window = gnome_app_new ("iagno", _("Iagno"));
 
+  games_conf_add_window (GTK_WINDOW (window));
+
   notebook = gtk_notebook_new ();
   gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
 
@@ -914,9 +888,9 @@ main (int argc, char **argv)
 
   gtk_window_set_default_icon_name ("gnome-iagno");
 
-  client = gnome_master_client ();
+  games_conf_initialise ("Iagno");
 
-  g_object_ref (G_OBJECT (client));
+  client = gnome_master_client ();
 
   g_signal_connect (G_OBJECT (client), "save_yourself",
 		    G_CALLBACK (save_state), argv[0]);
@@ -947,6 +921,8 @@ main (int argc, char **argv)
   init_new_game ();
 
   gtk_main ();
+
+  games_conf_shutdown ();
 
   g_object_unref (program);
 
