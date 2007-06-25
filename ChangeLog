@@ -2,12 +2,12 @@
 
 	* iagno.desktop.in.in: Added BoardGame to Categories (bug #417014)
 
-2007-05-18  Andreas Røsdal  <andrearo@pvv.ntnu.no>
+2007-05-18  Andreas RÃ¸sdal  <andrearo@pvv.ntnu.no>
 
 	* iagno.schemas.in:
 	* properties.c: Add a checkbox to enable / disable sounds. 
 
-2007-05-17  Andreas Røsdal  <andrearo@pvv.ntnu.no>
+2007-05-17  Andreas RÃ¸sdal  <andrearo@pvv.ntnu.no>
 
 	* iagno.schemas.in: Default to one AI player.
 
@@ -16,12 +16,12 @@
 	* gnothello.c: Cancel AI operations when moves after an undo to stop the computer
 	  playing for the other player when their timer expires (Bug #386165).
 
-2006-12-03  Andreas Røsdal  <andrearo@pvv.ntnu.no>
+2006-12-03  Andreas RÃ¸sdal  <andrearo@pvv.ntnu.no>
 
 	* gnothello.c: Remove deprecated call to gnome_score_init,
 	patch from Thomas Andersen in Bug #381751.   
 
-2006-10-28  Andreas Røsdal  <andrearo@pvv.ntnu.no>
+2006-10-28  Andreas RÃ¸sdal  <andrearo@pvv.ntnu.no>
 
 	* classic.png: New default tile graphics.
 
@@ -34,11 +34,11 @@
 	* scalable/gnome-iagno.svg:
 	* Makefile.am: Added 16, 22 and 32 icon sizes per Novell request.
 
-2006-09-30  Andreas Røsdal <andrearo@stud.ntnu.no> 
+2006-09-30  Andreas RÃ¸sdal <andrearo@stud.ntnu.no> 
 
 	* ggz-network.c: Enable a default ggz server.
 
-2006-09-05  Andreas Røsdal <andrearo@stud.ntnu.no> 
+2006-09-05  Andreas RÃ¸sdal <andrearo@stud.ntnu.no> 
 
 	* .cvsignore:
 	* ggz-network.c:
@@ -61,12 +61,12 @@
 	* gnome-iagno.png:
 	* Makefile.am: updated pixmap menu icon and added SVG version from Daniel Derozier <dcubed20@gmail.com>
 
-2006-07-07  Andreas Røsdal <andrearo@stud.ntnu.no> 
+2006-07-07  Andreas RÃ¸sdal <andrearo@stud.ntnu.no> 
 
 	* gnothello.c: Fix window icon.
 	Patch by me, bug reported by mclasen@redhat.com in bug #346911. 
 
-2006-06-23  Andreas Røsdal <andrearo@stud.ntnu.no> 
+2006-06-23  Andreas RÃ¸sdal <andrearo@stud.ntnu.no> 
 
 	* iagno-server.py: Removed iagno-server.py because it has
 	been deprecated by games-server.py in /libgames-support. 
@@ -87,7 +87,7 @@
 
 2006-04-04  Callum McKenzie  <callum@spooky-possum.org>
 
-	* gnothello.c: Patch from Przemys©aw Grzegorczyk to unref
+	* gnothello.c: Patch from PrzemysÂ©aw Grzegorczyk to unref
 	the GnomeProgram in all main loops.
 
 2006-04-03  Callum McKenzie  <callum@spooky-possum.org>
@@ -201,16 +201,16 @@
 	* gnothello.c: gdk_pixbuf_render_pixmap_and_mask -> 
 	gdk_pixbuf_render_pixmap_and_mask_for_colormap.
 
-2004-10-04 Andreas Røsdal <andrearo@stud.ntnu.no>
+2004-10-04 Andreas RÃ¸sdal <andrearo@stud.ntnu.no>
 	
 	* main.c: Kill server when game is over. 
 
-2004-09-21 Andreas Røsdal <andrearo stud ntnu no>
+2004-09-21 Andreas RÃ¸sdal <andrearo stud ntnu no>
  
  	* gnothello.c: Disable undo in network games.
  	* network.c: Implement is_network_running (). 
  
-2004-09-20 Andreas Røsdal <andrearo stud ntnu no>
+2004-09-20 Andreas RÃ¸sdal <andrearo stud ntnu no>
 	
 	* network.c: Use the new games_send_gamedata (),
 	and callback functions.
@@ -240,7 +240,7 @@
 	* network.h:
 	* gnothello.c:	
 	* gnothello.h: Move the networking code into
-	libgames-support. (Patch from Andreas Røsdal.)
+	libgames-support. (Patch from Andreas RÃ¸sdal.)
 
 2004-05-26  Callum McKenzie  <callum@physics.otago.ac.nz>
 
@@ -764,7 +764,7 @@ Sun Apr 16 22:50:13 2000  George Lebl <jirka@5z.com>
 	not reflect actual case.
 	* othello.c: updates to match changes in gnothello.c
 
-1998-09-30  Ville PÃ¤tsi <drc@zoo-gate.fi>
+1998-09-30  Ville PÃƒÂ¤tsi <drc@zoo-gate.fi>
 
 	* Makefile.am: Added gnothello.png installation
 	* gnothello.png: Created
