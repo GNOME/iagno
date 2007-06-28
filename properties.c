@@ -114,6 +114,7 @@ load_properties (void)
   animate_stagger = games_conf_get_boolean (NULL, KEY_ANIMATE_STAGGER, NULL);
 
   sound = games_conf_get_boolean (NULL, KEY_SOUND, NULL);
+  games_sound_enable (sound);
 
   grid = games_conf_get_boolean (NULL, KEY_SHOW_GRID, NULL);
 
