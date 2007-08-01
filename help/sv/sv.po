@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno doc\n"
 "POT-Creation-Date: 2007-04-30 03:22+0100\n"
-"PO-Revision-Date: 2007-04-30 13:37+0100\n"
+"PO-Revision-Date: 2007-08-01 22:36+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Handbok för <application>Iagno</application> v2.8"
 
 #: C/iagno.xml:28(para)
 msgid "Iagno is a computer version of the game Reversi, more popularly called Othello."
-msgstr ""
+msgstr "Iagno är en datorversion av spelet Reversi, även mer känt som Othello."
 
 #: C/iagno.xml:34(year)
 msgid "2000"
@@ -125,7 +125,7 @@ msgstr "EB"
 
 #: C/iagno.xml:94(revremark)
 msgid "First draft completed."
-msgstr ""
+msgstr "Första utkastet färdigt."
 
 #: C/iagno.xml:100(revnumber)
 msgid "0.2"
@@ -165,7 +165,7 @@ msgstr ""
 
 #: C/iagno.xml:129(releaseinfo)
 msgid "This manual describes version 2.12 of Iagno."
-msgstr ""
+msgstr "Den här handboken beskriver version 2.12 av Iagno."
 
 #: C/iagno.xml:136(title)
 msgid "Feedback"
@@ -217,7 +217,7 @@ msgstr ""
 
 #: C/iagno.xml:222(title)
 msgid "Playing Iagno"
-msgstr ""
+msgstr "Spela Iagno"
 
 #: C/iagno.xml:223(para)
 msgid "The board starts with four tiles arranged in a box on the middle of the board. The tiles have the same color at each corner, as shown in <xref linkend=\"start-shot\"/>."
@@ -278,7 +278,7 @@ msgstr ""
 #: C/iagno.xml:325(title)
 #: C/iagno.xml:416(title)
 msgid "Note:"
-msgstr ""
+msgstr "Observera:"
 
 #: C/iagno.xml:326(para)
 msgid "Enabling this option does not force the computer player to move and does not reduce the level of difficulty."
@@ -294,7 +294,7 @@ msgstr ""
 
 #: C/iagno.xml:351(title)
 msgid "Appearance"
-msgstr ""
+msgstr "Utseende"
 
 #: C/iagno.xml:353(para)
 msgid "All the animation option are in the <menuchoice><guimenu>Settings</guimenu><guisubmenu>Preferences </guisubmenu></menuchoice> menus with the <guimenuitem>Appearance</guimenuitem> tab highlighted."
@@ -302,7 +302,7 @@ msgstr ""
 
 #: C/iagno.xml:363(title)
 msgid "Animation"
-msgstr ""
+msgstr "Animering"
 
 #: C/iagno.xml:365(para)
 msgid "This option controls the amount of animation present when each tile is flipped, using radio buttons. Selecting the option <guibutton>none </guibutton> will cause the tiles to change color instantaneously. Selecting the <guibutton>option</guibutton> partial will cause the animation to flip the tiles slowly. Selecting the <guibutton>complete </guibutton> option will cause the tiles to flip slowly and smoothly."
@@ -326,7 +326,7 @@ msgstr ""
 
 #: C/iagno.xml:397(title)
 msgid "Tip:"
-msgstr ""
+msgstr "Tips:"
 
 #: C/iagno.xml:398(para)
 msgid "This option should be enabled for beginning players to see the gameplay more clearly."
@@ -354,7 +354,7 @@ msgstr ""
 
 #: C/iagno.xml:435(title)
 msgid "Important:"
-msgstr ""
+msgstr "Viktigt:"
 
 #: C/iagno.xml:436(para)
 msgid "There are three tile sets which look the same, but have different animations -- woodtrim, shrink, and blend."
@@ -382,7 +382,7 @@ msgstr "Upphovsmän"
 
 #: C/iagno.xml:475(para)
 msgid "<application>Iagno</application> was written by Ian Peters (<email>itp@gnu.org</email>). This manual was written by Eric Baudais (<email>baudais@okstate.edu</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
-msgstr ""
+msgstr "<application>Iagno</application> skrevs av Ian Peters (<email>itp@gnu.org</email>). Den här handboken skrevs av Eric Baudais (<email>baudais@okstate.edu</email>). För att rapportera ett fel eller föreslå någonting angående det här programmet eller den här handboken, följ anvisningarna i det här <ulink url=\"ghelp:gnome-feedback\" type=\"help\">dokumentet</ulink>."
 
 #: C/iagno.xml:500(title)
 msgid "License"
