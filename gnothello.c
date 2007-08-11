@@ -285,7 +285,7 @@ about_cb (GtkWidget * widget, gpointer data)
 			 "copyright",
 			 "Copyright \xc2\xa9 1998-2007 Ian Peters",
                          "license", license,
-                         "comments", _("A disk flipping game derived from Reversi."),
+                         "comments", _("A disk flipping game derived from Reversi.\n\nIagno is a part of GNOME Games."),
 			 "authors", authors,
                          "documenters", documenters,
 			 "translator-credits", _("translator-credits"),
