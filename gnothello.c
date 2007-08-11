@@ -290,6 +290,7 @@ about_cb (GtkWidget * widget, gpointer data)
                          "documenters", documenters,
 			 "translator-credits", _("translator-credits"),
 			 "logo-icon-name", "gnome-iagno",
+			 "website-label", _("GNOME Games web site"),
                          "website", "http://www.gnome.org/projects/gnome-games/",
 			 "wrap-license", TRUE,
                          NULL);
