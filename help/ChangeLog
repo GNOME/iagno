@@ -1,5 +1,11 @@
 2007-12-29  Leonardo Ferreira Fontenelle  <leonardof@svn.gnome.org>
 
+	* pt_BR/pt_BR.po: Improved translation of "Stagger Flips"; will do
+	that in the GUI too. Messages related to unlocalized images are kept
+	untranslated now.
+
+2007-12-29  Leonardo Ferreira Fontenelle  <leonardof@svn.gnome.org>
+
 	* Makefile.am: Added pt_BR to DOC_LINGUAS
 	* pt_BR/pt_BR.po: Added Brazilian Portuguese translation by Vladimir
 	Melo.

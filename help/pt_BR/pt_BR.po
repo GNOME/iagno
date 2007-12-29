@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno manual v2.8\n"
 "POT-Creation-Date: 2007-12-29 12:42-0200\n"
-"PO-Revision-Date: 2007-12-29 13:50-0200\n"
+"PO-Revision-Date: 2007-12-29 14:07-0200\n"
 "Last-Translator: Vladimir Melo <vladimirmelo@foresightlinux.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -20,31 +20,31 @@ msgstr ""
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../C/iagno.xml:240(None)
 msgid "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
-msgstr "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
+msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../C/iagno.xml:262(None)
 msgid "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
-msgstr "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
+msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../C/iagno.xml:290(None)
 msgid "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
-msgstr "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
+msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../C/iagno.xml:343(None)
 msgid "@@image: 'figures/PLAYER.png'; md5=b8a5c7d12de6afc9728b1b60e1b1fd84"
-msgstr "@@image: 'figures/PLAYER.png'; md5=b8a5c7d12de6afc9728b1b60e1b1fd84"
+msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../C/iagno.xml:453(None)
 msgid "@@image: 'figures/ANIMATION.png'; md5=e85c0fe5567432c4fcf82daa32fee69f"
-msgstr "@@image: 'figures/ANIMATION.png'; md5=e85c0fe5567432c4fcf82daa32fee69f"
+msgstr ""
 
 #: ../C/iagno.xml:26(title)
 msgid "<application>Iagno</application> Manual V2.8"
@@ -462,7 +462,7 @@ msgstr ""
 
 #: ../C/iagno.xml:383(title)
 msgid "Stagger Flips"
-msgstr "Balançar Flips"
+msgstr "Efeito Dominó"
 
 #: ../C/iagno.xml:385(para)
 msgid ""
