@@ -1,4 +1,7 @@
-2007-12-29  Leonardo Ferreira Fontenelle  <leonardof@svn.gnome.org>
+2007-12-31  Yannig Marchegay <yannig@marchegay.org>
+
+	* oc.po: Updated Occitan translation.
+2007-12-29  Leonardo Ferreira Fontenelle  <leonardof@svn.gnome.org>
 
 	* pt_BR/pt_BR.po: Improved translation of "Stagger Flips"; will do
 	that in the GUI too. Messages related to unlocalized images are kept
