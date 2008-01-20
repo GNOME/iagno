@@ -1,3 +1,5 @@
+SUBDIRS= help
+
 pixmapdir=$(datadir)/pixmaps/iagno
 Gamesdir = $(datadir)/applications
 
@@ -63,14 +65,6 @@ schema_in_files = iagno.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 @INTLTOOL_SCHEMAS_RULE@
 
-EXTRA_DIST = \
-	AUTHORS \
-	iagno-client.dsc.in \
-	iagno-server.dsc.in \
-        iagno.room          \
-	$(pixmap_DATA)	\
-	$(schema_in_files)
-
 install-data-local:
 if GCONF_SCHEMAS_INSTALL
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/iagno/$(schema_DATA)
@@ -85,19 +79,23 @@ endif
 
 @INTLTOOL_SOUNDLIST_RULE@
 
-SUBDIRS= help
-
-CLEANFILES = $(ggzroom_DATA)
-DISTCLEANFILES = $(Games_DATA) $(schema_DATA) 
-
 if GGZ_SERVER
 ggzroom_in_files = iagno.room.in
 ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
 ggzroomdir = ${prefix}/etc/ggzd/rooms/
 @GNOME_GAMES_GGZ_INTLTOOL_ROOM_RULE@
 
-
 ggzgame_DATA = iagno-server.dsc
 ggzgamedir = ${prefix}/etc/ggzd/games/
 endif
 
+EXTRA_DIST = \
+	AUTHORS \
+	iagno-client.dsc.in \
+	iagno-server.dsc.in \
+        iagno.room.in \
+	$(pixmap_DATA)	\
+	$(schema_in_files)
+
+CLEANFILES = $(ggzroom_DATA)
+DISTCLEANFILES = $(Games_DATA) $(schema_DATA) 
