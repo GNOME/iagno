@@ -87,11 +87,15 @@ endif
 
 SUBDIRS= help
 
+CLEANFILES = $(ggzroom_DATA)
 DISTCLEANFILES = $(Games_DATA) $(schema_DATA) 
 
 if GGZ_SERVER
-ggzroom_DATA = iagno.room
+ggzroom_in_files = iagno.room.in
+ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
 ggzroomdir = ${prefix}/etc/ggzd/rooms/
+@GNOME_GAMES_GGZ_INTLTOOL_ROOM_RULE@
+
 
 ggzgame_DATA = iagno-server.dsc
 ggzgamedir = ${prefix}/etc/ggzd/games/
