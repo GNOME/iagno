@@ -2,7 +2,7 @@
 [ModuleInfo]
 Name = Iagno
 Author = The GNOME Project 
-CommandLine = @prefix@/bin/iagno
+CommandLine = @bindir@/iagno
 Frontend = gtk
 Homepage = http://www.gnome.org/projects/gnome-games/
 ProtocolEngine = Iagno 

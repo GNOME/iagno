@@ -12,20 +12,18 @@ INCLUDES =						\
 	$(GGZMOD_INCLUDES) $(GGZ_GTK_INCLUDES) $(GGZCORE_INCLUDES)\
 	$(LIBGGZ_INCLUDES) $(GGZCORE_INCLUDES) $(GGZDMOD_INCLUDES)
 
+bin_PROGRAMS = iagno
+ggzexecmod_PROGRAMS =
+
 if GGZ_SERVER
-bin_PROGRAMS = iagno iagnod
+ggzexecmod_PROGRAMS += iagnod
 iagnod_SOURCES = server.h   \
 		 server.c   
-
-iagnod_LDFLAGS = @GGZDMOD_LDFLAGS@
 
 iagnod_LDADD = \
 	$(GNOME_GAMES_LIBS)     \
 	$(INTLLIBS) 		\
-	@LIB_GGZDMOD@
-
-else
-bin_PROGRAMS = iagno 
+	$(LIB_GGZDMOD)
 endif
 
 if GGZ_CLIENT
@@ -43,10 +41,8 @@ iagno_SOURCES = \
 	properties.h \
 	$(GGZ_FILES)
 
-iagno_LDFLAGS = $(GGZMOD_LDFLAGS)
-
 iagno_LDADD = \
-	../libgames-support/libgames-support.la \
+	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GNOME_GAMES_LIBS) \
 	$(INTLLIBS) \
 	$(LIB_GGZMOD) \
@@ -58,14 +54,38 @@ pixmap_DATA = \
 
 Games_in_files = iagno.desktop.in.in
 Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = iagno.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
-@INTLTOOL_SCHEMAS_RULE@
 
-install-data-local:
+
+if GGZ_SERVER
+ggzroom_in_files = iagno.room.in
+ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
+ggzroomdir = ${prefix}/etc/ggzd/rooms/
+
+ggzserver_dscdir = ${prefix}/etc/ggzd/games/
+ggzserver_dsc_in_files = iagno-server.dsc.in
+ggzserver_dsc_DATA = $(ggzserver_dsc_in_files:.dsc.in=.dsc)
+endif # GGZ_SERVER
+
+if GGZ_CLIENT
+ggzclient_dsc_in_files = iagno-client.dsc.in
+endif # GGZ_CLIENT
+
+EXTRA_DIST = \
+	AUTHORS \
+	iagno-client.dsc.in \
+	iagno-server.dsc.in \
+        iagno.room.in \
+	$(pixmap_DATA)	\
+	$(schema_in_files)
+
+CLEANFILES = $(ggzroom_DATA) $(ggzclient_dsc_in_files:.dsc.in=.dsc)
+DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
+
+install-data-local: $(ggzclient_dsc_in_files:.dsc.in=.dsc)
 if GCONF_SCHEMAS_INSTALL
 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/iagno/$(schema_DATA)
 endif
@@ -77,25 +97,8 @@ if GGZ_CLIENT
 	-$(GGZ_CONFIG) -D --remove --modfile=iagno-client.dsc
 endif
 
+@INTLTOOL_DESKTOP_RULE@
+@INTLTOOL_SCHEMAS_RULE@
 @INTLTOOL_SOUNDLIST_RULE@
-
-if GGZ_SERVER
-ggzroom_in_files = iagno.room.in
-ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
-ggzroomdir = ${prefix}/etc/ggzd/rooms/
 @GNOME_GAMES_GGZ_INTLTOOL_ROOM_RULE@
-
-ggzgame_DATA = iagno-server.dsc
-ggzgamedir = ${prefix}/etc/ggzd/games/
-endif
-
-EXTRA_DIST = \
-	AUTHORS \
-	iagno-client.dsc.in \
-	iagno-server.dsc.in \
-        iagno.room.in \
-	$(pixmap_DATA)	\
-	$(schema_in_files)
-
-CLEANFILES = $(ggzroom_DATA)
-DISTCLEANFILES = $(Games_DATA) $(schema_DATA) 
+@GNOME_GAMES_GGZ_DSC_RULE@

@@ -3,10 +3,10 @@ Author = The GNOME Project
 Description = The GNOME version of Reversi.
 Homepage = http://www.gnome.org/projects/gnome-games/ 
 Name = Iagno
-Version = @VERSION@ 
+Version = @VERSION@
 
 [LaunchInfo]
-ExecutablePath = @prefix@/bin/iagnod 
+ExecutablePath = @ggzexecmoddir@/iagnod
 # Set ExecutableArgs in the room file
 
 [Protocol]
