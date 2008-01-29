@@ -1,5 +1,7 @@
 SUBDIRS= help
 
+NULL =
+
 pixmapdir=$(datadir)/pixmaps/iagno
 Gamesdir = $(datadir)/applications
 
@@ -82,7 +84,12 @@ EXTRA_DIST = \
 	$(pixmap_DATA)	\
 	$(schema_in_files)
 
-CLEANFILES = $(ggzroom_DATA) $(ggzclient_dsc_in_files:.dsc.in=.dsc)
+CLEANFILES = \
+	$(ggzroom_DATA) \
+	$(ggzserver_dsc_in_files:.dsc.in=.dsc) \
+	$(ggzclient_dsc_in_files:.dsc.in=.dsc) \
+	$(NULL)
+
 DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
 
 install-data-local: $(ggzclient_dsc_in_files:.dsc.in=.dsc)
