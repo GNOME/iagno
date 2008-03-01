@@ -3,12 +3,12 @@
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
   <!ENTITY NETWORKGAMES SYSTEM "network-games.xml"> 
-  <!ENTITY appversion "2.12">
-  <!ENTITY manrevision "2.8">
-  <!ENTITY date "September 2004">
+  <!ENTITY appversion "2.20">
+  <!ENTITY manrevision "2.9">
+  <!ENTITY date "February 2008">
   <!ENTITY app "<application>Iagno</application>">
   <!ENTITY appname "Iagno">
-  <!ENTITY version "2.8">
+  <!ENTITY version "2.9">
 ]>
 
 <!-- 
@@ -83,16 +83,26 @@
     </authorgroup>
     
 <revhistory>
-      <revision> 
-	<revnumber>&appname; Manual V&manrevision;</revnumber> 
-	<date>&date;</date> 
-	<revdescription> 
-	  <para role="author">Eric Baudais
-	    <email>baudais@okstate.edu</email>
-	  </para>
-	  <para role="publisher">GNOME Documentation Project</para>
+  <revision> 
+    <revnumber>&appname; Manual V&manrevision;</revnumber> 
+    <date>&date;</date> 
+    <revdescription> 
+      <para role="author">Claude Paroz
+        <email>claude@2xlibre.net</email>
+      </para>
+      <para role="publisher">GNOME Documentation Project</para>
+    </revdescription> 
+  </revision>
+  <revision> 
+    <revnumber>&appname; Manual V2.8</revnumber> 
+    <date>September 2004</date> 
+    <revdescription> 
+      <para role="author">Eric Baudais
+        <email>baudais@okstate.edu</email>
+      </para>
+      <para role="publisher">GNOME Documentation Project</para>
 	</revdescription> 
-      </revision>
+  </revision>
   <revision>
    <revnumber>0.1</revnumber>
    <date>4 February 2000</date>
@@ -313,7 +323,7 @@
   <para>
   When you start Iagno the human player plays black and the computer player 
   plays white with the first level of difficulty. Using the
-  <guimenuitem>Players</guimenuitem> tab in the
+  <guimenuitem>Game</guimenuitem> tab in the
   <guisubmenu>Preferences</guisubmenu> dialog you can set the type of
   player for each color. Human is of course you, level one is the
   easiest computer player and level three is the hardest. You can set
@@ -327,7 +337,7 @@
 
   <para>
   This option is in the <guimenu>Settings</guimenu> menu. Then go to the 
-  <guisubmenu>Preferences</guisubmenu> submenu in the <guimenuitem>Players
+  <guisubmenu>Preferences</guisubmenu> submenu in the <guimenuitem>Game
   </guimenuitem> tab and it is initially off. When enabled this option 
   makes the computer player place its tiles faster. 
   </para>
@@ -339,16 +349,26 @@
    not reduce the level of difficulty.
    </para>
   </note>
+ </sect2>
+ 
+ <sect2 id="enable-sound">
+  <title>Enable/Disable Sound</title>
+
+  <para>
+  The last option of the <guimenuitem>Game</guimenuitem> tab in the
+  <guilabel>Preferences</guilabel> dialog allows you to enable or disable all
+  sounds when playing in &app;. 
+  </para>
 
   <figure id="player-shot">
-   <title>The Preferences menu with the Player tab highlighted.</title>
+   <title>The Preferences menu with the Game tab highlighted.</title>
    <screenshot>
     <mediaobject> 
     <imageobject>
   <imagedata format="PNG" fileref="figures/PLAYER.png" srccredit="Eric Baudais"/>
    </imageobject>
     <textobject> 
-      <phrase>Screenshot of the player settings.</phrase> 
+      <phrase>Screenshot of the game settings.</phrase> 
     </textobject> 
   </mediaobject>
    </screenshot>
@@ -445,8 +465,8 @@
   <important>
    <title>Important:</title>
    <para>
-   There are three tile sets which look the same, but have different
-   animations -- woodtrim, shrink, and blend.
+   There are two tile sets which look the same, but have different
+   animations -- woodtrim and classic.
    </para>
   </important>
 

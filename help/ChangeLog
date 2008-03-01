@@ -1,3 +1,8 @@
+2008-03-01  Andreas Røsdal  <andreasr@gnome.org>
+
+	* iagno.xml: Update Iagno documentation. 
+	Patch by Claude Paroz in bug #506282.
+
 2008-02-12  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
 	* es/es.po: Updated Spanish translation.
