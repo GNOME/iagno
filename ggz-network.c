@@ -296,6 +296,7 @@ on_network_game (void)
 {
   GtkWidget *ggzbox;
   struct passwd *pwent;  
+  static gboolean ggz_initialized = FALSE;
 
 
   if (ggz_network_mode) {
@@ -306,17 +307,19 @@ on_network_game (void)
   init_new_game ();
   ggz_network_mode = TRUE;
 
-  ggz_gtk_initialize (FALSE,
+  if (ggz_initialized == FALSE) {
+    ggz_initialized = TRUE;
+    ggz_gtk_initialize (FALSE,
 		      ggz_connected, ggz_game_launched, ggz_closed,
 		      NETWORK_ENGINE, NETWORK_VERSION, "iagno.xml",
 		      "GGZ Gaming Zone");
 
+    ggzbox = ggz_gtk_create_main_area (window);
+    gtk_notebook_append_page (GTK_NOTEBOOK (notebook), ggzbox, NULL);
+  }
   pwent = getpwuid(getuid());
-
   ggz_embed_ensure_server ("GGZ Gaming Zone", "gnome.ggzgamingzone.org",
 			   5688, pwent->pw_name);
 
-  ggzbox = ggz_gtk_create_main_area (window);
-  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), ggzbox, NULL);
   gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), NETWORK_PAGE);
 }
