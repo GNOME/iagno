@@ -1,3 +1,10 @@
+2008-03-02  Leonardo Ferreira Fontenelle  <leonardof@svn.gnome.org>
+
+	* pt_BR/pt_BR.po: Completed Brazilian Portuguese translation by
+	Vladimir Melo.
+	* pt_BR/figures/*: Added Brazilian Portuguese screen shots by Vladimir
+	Melo.
+
 2008-03-01  Jorge Gonzalez <jorgegonz@svn.gnome.org>
 
 	* es/es.po: Updated Spanish translation
