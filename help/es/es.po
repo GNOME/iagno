@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2008-03-02 03:47+0000\n"
-"PO-Revision-Date: 2008-03-02 15:37+0100\n"
+"POT-Creation-Date: 2008-03-04 20:24+0000\n"
+"PO-Revision-Date: 2008-03-05 11:16+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,14 +34,14 @@ msgstr "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:368(None)
-msgid "@@image: 'figures/PLAYER.png'; md5=b8a5c7d12de6afc9728b1b60e1b1fd84"
-msgstr "@@image: 'figures/PLAYER.png'; md5=b8a5c7d12de6afc9728b1b60e1b1fd84"
+msgid "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
+msgstr "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:478(None)
-msgid "@@image: 'figures/ANIMATION.png'; md5=e85c0fe5567432c4fcf82daa32fee69f"
-msgstr "@@image: 'figures/ANIMATION.png'; md5=e85c0fe5567432c4fcf82daa32fee69f"
+msgid "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
+msgstr "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -540,9 +540,9 @@ msgid ""
 "computer player place its tiles faster."
 msgstr ""
 "Esta opción está en el menú <guimenu>Configuración</guimenu>. Después vaya "
-"al submenú <guisubmenu>Preferencias</guisubmenu> en la solapa <guimenuitem>Juego</"
-"guimenuitem> y ahí está inicialmente desactivado. Al activar esta opción el "
-"jugador electrónico moverá sus fichas más rápidamente."
+"al submenú <guisubmenu>Preferencias</guisubmenu> en la solapa "
+"<guimenuitem>Juego</guimenuitem> y ahí está inicialmente desactivado. Al "
+"activar esta opción el jugador electrónico moverá sus fichas más rápidamente."
 
 #: C/iagno.xml:346(title) C/iagno.xml:447(title)
 msgid "Note:"
@@ -566,8 +566,8 @@ msgid ""
 "<guilabel>Preferences</guilabel> dialog allows you to enable or disable all "
 "sounds when playing in <application>Iagno</application>."
 msgstr ""
-"La última opción de la solapa <guimenuitem>Juego</guimenuitem> en el "
-"diálogo de <guilabel>Preferencias</guilabel> le permite activar o desactivar todos "
+"La última opción de la solapa <guimenuitem>Juego</guimenuitem> en el diálogo "
+"de <guilabel>Preferencias</guilabel> le permite activar o desactivar todos "
 "los sonidos del juego en <application>Iagno</application>."
 
 #: C/iagno.xml:364(title)
