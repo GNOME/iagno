@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno manual v2.8\n"
-"POT-Creation-Date: 2008-03-02 21:38-0300\n"
-"PO-Revision-Date: 2008-03-02 16:04-0300\n"
+"POT-Creation-Date: 2008-03-05 00:28-0300\n"
+"PO-Revision-Date: 2008-03-05 00:28-0300\n"
 "Last-Translator: Vladimir Melo <vladimirmelo@foresightlinux.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -38,13 +38,13 @@ msgstr "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../C/iagno.xml:368(None)
-msgid "@@image: 'figures/PLAYER.png'; md5=b8a5c7d12de6afc9728b1b60e1b1fd84"
+msgid "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
 msgstr "@@image: 'figures/PLAYER.png'; md5=b8a5c7d12de6afc9728b1b60e1b1fd84"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: ../C/iagno.xml:478(None)
-msgid "@@image: 'figures/ANIMATION.png'; md5=e85c0fe5567432c4fcf82daa32fee69f"
+msgid "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
 msgstr "@@image: 'figures/ANIMATION.png'; md5=e85c0fe5567432c4fcf82daa32fee69f"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
