@@ -8,11 +8,11 @@ Gamesdir = $(datadir)/applications
 INCLUDES =						\
 	-I$(top_srcdir)/libgames-support		\
 	$(WARN_CFLAGS)					\
-	$(GNOME_GAMES_CFLAGS)				\
 	-DDATADIR=\""$(datadir)"\"		   	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"	\
-	$(GGZMOD_INCLUDES) $(GGZ_GTK_INCLUDES) $(GGZCORE_INCLUDES)\
-	$(LIBGGZ_INCLUDES) $(GGZCORE_INCLUDES) $(GGZDMOD_INCLUDES)
+	$(GGZ_GTK_INCLUDES) $(GGZMOD_INCLUDES) $(GGZCORE_INCLUDES) \
+	$(LIBGGZ_INCLUDES) $(GGZCORE_INCLUDES) $(GGZDMOD_INCLUDES) \
+	$(GNOME_GAMES_CFLAGS)
 
 bin_PROGRAMS = iagno
 ggzexecmod_PROGRAMS =
