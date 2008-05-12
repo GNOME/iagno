@@ -65,9 +65,9 @@ schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 if GGZ_SERVER
 ggzroom_in_files = iagno.room.in
 ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
-ggzroomdir = ${prefix}/etc/ggzd/rooms/
+ggzroomdir = ${ggzdconfdir}/rooms/
 
-ggzserver_dscdir = ${prefix}/etc/ggzd/games/
+ggzserver_dscdir = ${ggzdconfdir}/games/
 ggzserver_dsc_in_files = iagno-server.dsc.in
 ggzserver_dsc_DATA = $(ggzserver_dsc_in_files:.dsc.in=.dsc)
 endif # GGZ_SERVER
