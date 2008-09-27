@@ -30,6 +30,7 @@
 #include <games-stock.h>
 #include <games-sound.h>
 #include <games-conf.h>
+#include <games-runtime.h>
 
 #ifdef GGZ_CLIENT
 #include <games-dlg-chat.h>
@@ -880,6 +881,9 @@ main (int argc, char **argv)
 
   g_thread_init (NULL);
 
+  if (!games_runtime_init ("gnothello"))
+    return 1;
+
   context = g_option_context_new (NULL);
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   games_sound_add_option_group (context);
@@ -929,6 +933,8 @@ main (int argc, char **argv)
   games_conf_shutdown ();
 
   g_object_unref (program);
+
+  games_runtime_shutdown ();
 
   return 0;
 }
