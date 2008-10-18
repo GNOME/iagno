@@ -1,12 +1,12 @@
 # Traducció de la documentació del blackjack de l'equip de Softcatalà.
-# Copyright © 2007 Free Software Foundation, Inc.
-# Joan Duran <jodufi@gmail.com>, 2007.
+# Copyright © 2007, 2008 Free Software Foundation, Inc.
+# Joan Duran <jodufi@gmail.com>, 2007, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
-"POT-Creation-Date: 2007-10-29 03:34+0000\n"
-"PO-Revision-Date: 2007-12-04 18:47+0100\n"
+"POT-Creation-Date: 2008-03-04 20:24+0000\n"
+"PO-Revision-Date: 2008-08-03 19:01+0100\n"
 "Last-Translator: Joan Duran <jodufi@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,33 +16,33 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:240(None)
+#: C/iagno.xml:255(None)
 msgid "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
 msgstr "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:262(None)
+#: C/iagno.xml:277(None)
 msgid "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
 msgstr "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:290(None)
+#: C/iagno.xml:305(None)
 msgid "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
 msgstr "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:343(None)
-msgid "@@image: 'figures/PLAYER.png'; md5=b8a5c7d12de6afc9728b1b60e1b1fd84"
-msgstr "@@image: 'figures/PLAYER.png'; md5=b8a5c7d12de6afc9728b1b60e1b1fd84"
+#: C/iagno.xml:368(None)
+msgid "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
+msgstr "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:453(None)
-msgid "@@image: 'figures/ANIMATION.png'; md5=e85c0fe5567432c4fcf82daa32fee69f"
-msgstr "@@image: 'figures/ANIMATION.png'; md5=e85c0fe5567432c4fcf82daa32fee69f"
+#: C/iagno.xml:478(None)
+msgid "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
+msgstr "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -57,26 +57,34 @@ msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
 msgstr "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
 
 #: C/iagno.xml:26(title)
-msgid "<application>Iagno</application> Manual V2.8"
-msgstr "Manual del <application>Iagno</application> (versió 2.8)"
+msgid "<application>Iagno</application> Manual"
+msgstr "Manual del <application>Iagno</application>"
 
 #: C/iagno.xml:29(para)
 msgid ""
-"Iagno is a computer version of the game Reversi, more popularly called "
-"Othello."
+"Iagno is the two player strategy game of Othello, which is also known as "
+"Reversi and is similar to Go. The pieces are tiles that are black on one "
+"side and white on the other and the objective is for the player to flip his/"
+"her opponent's tiles to his/her color, while keeping the opponent from doing "
+"the same. Once the board is filled with tiles, the winner is the player with "
+"the most of his/her color tiles on the board."
 msgstr ""
-"El Iagno és una versió d'ordinador del joc Reversi, més popularment anomenat "
-"Othello."
+"El Iagno és el joc d'estratègia de dos jugadors Othello, que també es conegut "
+"com a Reversi i que s'assembla al Go. Les peces són fitxes que són negres per "
+"una banda i blanques per l'altre i l'objectiu és que el jugador giri les fitxes "
+"de l'adversari al seu color, mentre evita que l'adversari faci el mateix. Quan "
+"el tauler està ple de fitxes, el guanyador serà el jugador amb més fitxes del "
+"seu color en el tauler."
 
-#: C/iagno.xml:35(year)
+#: C/iagno.xml:40(year)
 msgid "2000"
 msgstr "2000"
 
-#: C/iagno.xml:36(holder)
+#: C/iagno.xml:41(holder)
 msgid "Eric Baudais"
 msgstr "Eric Baudais"
 
-#: C/iagno.xml:50(publishername) C/iagno.xml:88(para)
+#: C/iagno.xml:55(publishername) C/iagno.xml:93(para) C/iagno.xml:103(para)
 msgid "GNOME Documentation Project"
 msgstr "Projecte de documentació del GNOME"
 
@@ -184,83 +192,95 @@ msgstr ""
 "TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE: "
 "<placeholder-1/>"
 
-#: C/iagno.xml:60(firstname)
+#: C/iagno.xml:65(firstname)
 msgid "Eric"
 msgstr "Eric"
 
-#: C/iagno.xml:61(surname)
+#: C/iagno.xml:66(surname)
 msgid "Baudais"
 msgstr "Baudais"
 
-#: C/iagno.xml:63(email)
+#: C/iagno.xml:68(email)
 msgid "baudais@okstate.edu"
 msgstr "baudais@okstate.edu"
 
-#: C/iagno.xml:82(revnumber)
+#: C/iagno.xml:87(revnumber)
+msgid "Iagno Manual V2.9"
+msgstr "Manual del Iagno (versió 2.9)"
+
+#: C/iagno.xml:88(date)
+msgid "February 2008"
+msgstr "Febrer de 2008"
+
+#: C/iagno.xml:90(para)
+msgid "Claude Paroz <email>claude@2xlibre.net</email>"
+msgstr "Claude Paroz <email>claude@2xlibre.net</email>"
+
+#: C/iagno.xml:97(revnumber)
 msgid "Iagno Manual V2.8"
 msgstr "Manual del Iagno (versió 2.8)"
 
-#: C/iagno.xml:83(date)
+#: C/iagno.xml:98(date)
 msgid "September 2004"
 msgstr "Setembre de 2004"
 
-#: C/iagno.xml:85(para)
+#: C/iagno.xml:100(para)
 msgid "Eric Baudais <email>baudais@okstate.edu</email>"
 msgstr "Eric Baudais <email>baudais@okstate.edu</email>"
 
-#: C/iagno.xml:92(revnumber)
+#: C/iagno.xml:107(revnumber)
 msgid "0.1"
 msgstr "0.1"
 
-#: C/iagno.xml:93(date)
+#: C/iagno.xml:108(date)
 msgid "4 February 2000"
 msgstr "4 de febrer de 2000"
 
-#: C/iagno.xml:94(authorinitials) C/iagno.xml:103(authorinitials)
-#: C/iagno.xml:112(authorinitials) C/iagno.xml:122(authorinitials)
+#: C/iagno.xml:109(authorinitials) C/iagno.xml:118(authorinitials)
+#: C/iagno.xml:127(authorinitials) C/iagno.xml:137(authorinitials)
 msgid "EB"
 msgstr "EB"
 
-#: C/iagno.xml:95(revremark)
+#: C/iagno.xml:110(revremark)
 msgid "First draft completed."
 msgstr "Primer esborrany completat."
 
-#: C/iagno.xml:101(revnumber)
+#: C/iagno.xml:116(revnumber)
 msgid "0.2"
 msgstr "0.2"
 
-#: C/iagno.xml:102(date)
+#: C/iagno.xml:117(date)
 msgid "5 February 2000"
 msgstr "5 de febrer de 2000"
 
-#: C/iagno.xml:104(revremark)
+#: C/iagno.xml:119(revremark)
 msgid "Added a footnote to why section. Fixed some typos."
 msgstr "Afegit un peu de pàgina a la secció perquè. Arreglades algunes faltes."
 
-#: C/iagno.xml:110(revnumber)
+#: C/iagno.xml:125(revnumber)
 msgid "0.3"
 msgstr "0.3"
 
-#: C/iagno.xml:111(date)
+#: C/iagno.xml:126(date)
 msgid "7 February 2000"
 msgstr "7 de febrer de 2000"
 
-#: C/iagno.xml:113(revremark)
+#: C/iagno.xml:128(revremark)
 msgid ""
 "Made the doc compliant with the GDP template. Clarified the playing section."
 msgstr ""
 "El document compleix l'estàndard de plantilles GDP. S'ha clarificat la "
 "secció de joc."
 
-#: C/iagno.xml:120(revnumber)
+#: C/iagno.xml:135(revnumber)
 msgid "1.0"
 msgstr "1.0"
 
-#: C/iagno.xml:121(date)
+#: C/iagno.xml:136(date)
 msgid "7 April 2000"
 msgstr "7 d'abril de 2000"
 
-#: C/iagno.xml:123(revremark)
+#: C/iagno.xml:138(revremark)
 msgid ""
 "Licensed the Iagno Manual under the FDL. Updated the screenshots to the GDP "
 "standard theme, MicroGUI."
@@ -268,15 +288,15 @@ msgstr ""
 "S'ha llicenciat el manual del Iagno sota la FDL. S'han actualitzat les "
 "captures de pantalla al tema estàndard GDP, MicroGUI."
 
-#: C/iagno.xml:130(releaseinfo)
-msgid "This manual describes version 2.12 of Iagno."
-msgstr "Aquest manual descriu la versió 2.12 del Iagno."
+#: C/iagno.xml:145(releaseinfo)
+msgid "This manual describes version 2.20 of Iagno."
+msgstr "Aquest manual descriu la versió 2.20 del Iagno."
 
-#: C/iagno.xml:137(title)
+#: C/iagno.xml:152(title)
 msgid "Feedback"
 msgstr "Comentaris"
 
-#: C/iagno.xml:138(para)
+#: C/iagno.xml:153(para)
 msgid ""
 "To report a bug or make a suggestion regarding the <application>Iagno</"
 "application> application or this manual, follow the directions in the <ulink "
@@ -287,19 +307,19 @@ msgstr ""
 "la <ulink url=\"ghelp:gnome-feedback\" type=\"help\">pàgina de comentaris "
 "del GNOME</ulink>."
 
-#: C/iagno.xml:149(primary)
+#: C/iagno.xml:164(primary)
 msgid "Iagno"
 msgstr "Iagno"
 
-#: C/iagno.xml:155(title)
+#: C/iagno.xml:170(title)
 msgid "Introduction"
 msgstr "Introducció"
 
-#: C/iagno.xml:157(title)
+#: C/iagno.xml:172(title)
 msgid "What is Iagno?"
 msgstr "Què és el Iagno?"
 
-#: C/iagno.xml:159(para)
+#: C/iagno.xml:174(para)
 msgid ""
 "<application>Iagno</application> is a computer version of the game Reversi, "
 "more popularly called Othello. <application>Iagno</application> is a two "
@@ -318,7 +338,7 @@ msgstr ""
 "vostres. S'aconsegueix bloquejant les fitxes de l'adversari entre dues "
 "fitxes del vostre color."
 
-#: C/iagno.xml:172(para)
+#: C/iagno.xml:187(para)
 msgid ""
 "Iagno also features <link linkend=\"network-games\">multiplayer</link> "
 "support with two human players in hotseat or network mode."
@@ -326,7 +346,7 @@ msgstr ""
 "El Iagno també admet la funció <link linkend=\"network-games\">multijugador</"
 "link> amb dos jugadors humans en mode cadira-calenta o en xarxa."
 
-#: C/iagno.xml:177(para)
+#: C/iagno.xml:192(para)
 msgid ""
 "To run <application>Iagno</application>, select <guimenuitem>Iagno</"
 "guimenuitem> from the <guisubmenu>Games</guisubmenu> submenu of the "
@@ -338,11 +358,11 @@ msgstr ""
 "<guimenu>Menú principal</guimenu> o introduïu <command>iagno</command> en la "
 "línia d'ordres."
 
-#: C/iagno.xml:187(title)
+#: C/iagno.xml:202(title)
 msgid "Why is Othello called Iagno?"
 msgstr "Per què l'Othello s'anomena Iagno?"
 
-#: C/iagno.xml:188(para)
+#: C/iagno.xml:203(para)
 msgid ""
 "You're probably wondering why this game is called <application>Iagno</"
 "application> instead of Othello or even gnothello. The answer is "
@@ -356,7 +376,7 @@ msgstr ""
 "lloc de deixar aquí la cosa, us explicarem una mentida llarga i complicada "
 "sobre l'origen del nom <application>Iagno</application>."
 
-#: C/iagno.xml:197(para)
+#: C/iagno.xml:212(para)
 msgid ""
 "On a stormy night, like those depicted so much in England, a lonely "
 "programmer was sitting in front of his computer screen. Ian had finished his "
@@ -370,7 +390,7 @@ msgstr ""
 "decidir anomenar-lo gnothello, ja que el joc estava escrit utilitzant el "
 "GNOME."
 
-#: C/iagno.xml:212(para)
+#: C/iagno.xml:227(para)
 msgid ""
 "Iago is Othello's nemesis in the play <citetitle>Othello </citetitle> by "
 "William Shakespeare."
@@ -378,7 +398,7 @@ msgstr ""
 "En Iago és l'enemic d'Otel·lo en l'obra <citetitle>Otel·lo</citetitle> de "
 "William Shakespeare."
 
-#: C/iagno.xml:205(para)
+#: C/iagno.xml:220(para)
 msgid ""
 "Later his buddies came over and like all programmers he showed off his "
 "masterpiece. They all laughed in his face and told Ian that his game was "
@@ -398,11 +418,11 @@ msgstr ""
 "contenen una part del GNOME. Després de molt pensar va decidir el nom que "
 "s'ha mantingut, <application>Iagno </application>."
 
-#: C/iagno.xml:228(title)
+#: C/iagno.xml:243(title)
 msgid "Playing Iagno"
 msgstr " Jugar al Iagno"
 
-#: C/iagno.xml:229(para)
+#: C/iagno.xml:244(para)
 msgid ""
 "The board starts with four tiles arranged in a box on the middle of the "
 "board. The tiles have the same color at each corner, as shown in <xref "
@@ -412,15 +432,15 @@ msgstr ""
 "tauler. Les fitxes de cada cantonada tenen el mateix color, com es mostra a "
 "<xref linkend=\"start-shot\"/>."
 
-#: C/iagno.xml:236(title)
+#: C/iagno.xml:251(title)
 msgid "Starting Position"
 msgstr "Posició inicial"
 
-#: C/iagno.xml:243(phrase)
+#: C/iagno.xml:258(phrase)
 msgid "Screenshot of the starting position."
 msgstr "Captura de pantalla de la posició inicial."
 
-#: C/iagno.xml:249(para)
+#: C/iagno.xml:264(para)
 msgid ""
 "Black goes first and places a tile on the board such that it traps white's "
 "tiles between two of black's tiles. When black places a tile on the board "
@@ -434,15 +454,15 @@ msgstr ""
 "les altres fitxes negres, en horitzontal, vertical o diagonal, es giraran i "
 "es convertiran en negres, com es mostra a <xref linkend=\"first-shot\"/>."
 
-#: C/iagno.xml:258(title)
+#: C/iagno.xml:273(title)
 msgid "First Move"
 msgstr "Primer moviment"
 
-#: C/iagno.xml:265(phrase)
+#: C/iagno.xml:280(phrase)
 msgid "Screenshot of the first move."
 msgstr "Captura de pantalla del primer moviment."
 
-#: C/iagno.xml:282(title)
+#: C/iagno.xml:297(title)
 msgid ""
 "White cannot capture the black tile in the center of the middle column "
 "because there are white tiles blocking the ends of that column. If it where "
@@ -455,11 +475,11 @@ msgstr ""
 "superior de la columna però només giraria la primera de les dues fitxes "
 "blanques."
 
-#: C/iagno.xml:293(phrase)
+#: C/iagno.xml:308(phrase)
 msgid "Screenshot of black blocking."
 msgstr "Captura de pantalla de la negra bloquejant."
 
-#: C/iagno.xml:271(para)
+#: C/iagno.xml:286(para)
 msgid ""
 "When there is tile trapped between two tiles, of an identical color in the "
 "same row, the player captures tiles until another tile of the player's color "
@@ -479,23 +499,23 @@ msgstr ""
 "moure. La partida finalitza quan cap dels jugadors pot moure. <placeholder-1/"
 ">"
 
-#: C/iagno.xml:303(title)
+#: C/iagno.xml:318(title)
 msgid "Game Settings"
 msgstr "Paràmetres del joc"
 
-#: C/iagno.xml:306(title)
+#: C/iagno.xml:321(title)
 msgid "Player Color and Difficulty"
 msgstr "Color i dificultat del jugador"
 
-#: C/iagno.xml:308(para)
+#: C/iagno.xml:323(para)
 msgid ""
 "When you start Iagno the human player plays black and the computer player "
-"plays white with the first level of difficulty. Using the "
-"<guimenuitem>Players</guimenuitem> tab in the <guisubmenu>Preferences</"
-"guisubmenu> dialog you can set the type of player for each color. Human is "
-"of course you, level one is the easiest computer player and level three is "
-"the hardest. You can set both to human to play against a friend or set both "
-"to computer to watch the computer play itself."
+"plays white with the first level of difficulty. Using the <guimenuitem>Game</"
+"guimenuitem> tab in the <guisubmenu>Preferences</guisubmenu> dialog you can "
+"set the type of player for each color. Human is of course you, level one is "
+"the easiest computer player and level three is the hardest. You can set both "
+"to human to play against a friend or set both to computer to watch the "
+"computer play itself."
 msgstr ""
 "Quan inicieu el Iagno el jugador humà juga amb les negres i l'ordinador juga "
 "amb les blanques amb el primer nivell de dificultat. Si utilitzeu la "
@@ -506,14 +526,14 @@ msgstr ""
 "els dos jugadors com a humà per a jugar contra un amic o establir els dos "
 "jugadors a ordinador per a veure l'ordinador jugar contra ell mateix."
 
-#: C/iagno.xml:321(title)
+#: C/iagno.xml:336(title)
 msgid "Quick Moves Option"
 msgstr "Opció de moviments ràpids"
 
-#: C/iagno.xml:323(para)
+#: C/iagno.xml:338(para)
 msgid ""
 "This option is in the <guimenu>Settings</guimenu> menu. Then go to the "
-"<guisubmenu>Preferences</guisubmenu> submenu in the <guimenuitem>Players </"
+"<guisubmenu>Preferences</guisubmenu> submenu in the <guimenuitem>Game </"
 "guimenuitem> tab and it is initially off. When enabled this option makes the "
 "computer player place its tiles faster."
 msgstr ""
@@ -522,11 +542,11 @@ msgstr ""
 "guimenuitem>, on inicialment està inhabilitada. En habilitar aquesta opció "
 "fareu que el jugador ordinador situï les seves fitxes més ràpidament."
 
-#: C/iagno.xml:331(title) C/iagno.xml:422(title)
+#: C/iagno.xml:346(title) C/iagno.xml:447(title)
 msgid "Note:"
 msgstr "Nota:"
 
-#: C/iagno.xml:332(para)
+#: C/iagno.xml:347(para)
 msgid ""
 "Enabling this option does not force the computer player to move and does not "
 "reduce the level of difficulty."
@@ -534,19 +554,33 @@ msgstr ""
 "Habilitar aquesta opció no força al jugador ordinador a moure ni tampoc "
 "redueix el nivell de dificultat."
 
-#: C/iagno.xml:339(title)
-msgid "The Preferences menu with the Player tab highlighted."
-msgstr "El menú de preferències amb la pestanya partida realçada."
+#: C/iagno.xml:355(title)
+msgid "Enable/Disable Sound"
+msgstr "Habilita/Inhabilita el so"
 
-#: C/iagno.xml:346(phrase)
-msgid "Screenshot of the player settings."
+#: C/iagno.xml:357(para)
+msgid ""
+"The last option of the <guimenuitem>Game</guimenuitem> tab in the "
+"<guilabel>Preferences</guilabel> dialog allows you to enable or disable all "
+"sounds when playing in <application>Iagno</application>."
+msgstr ""
+"L'última opció de la pestanya <guimenuitem>Partida</guimenuitem> en el diàleg "
+"de <guilabel>Preferències</guilabel> us permet habilitar o inhabilitar tots "
+"els sons quan jugueu al <application>Iagno</application>."
+
+#: C/iagno.xml:364(title)
+msgid "The Preferences menu with the Game tab highlighted."
+msgstr "El menú de preferències amb la pestanya Partida realçada."
+
+#: C/iagno.xml:371(phrase)
+msgid "Screenshot of the game settings."
 msgstr "Captura de pantalla dels paràmetres de partida."
 
-#: C/iagno.xml:357(title)
+#: C/iagno.xml:382(title)
 msgid "Appearance"
 msgstr "Aparença"
 
-#: C/iagno.xml:359(para)
+#: C/iagno.xml:384(para)
 msgid ""
 "All the animation option are in the <menuchoice><guimenu>Settings</"
 "guimenu><guisubmenu>Preferences </guisubmenu></menuchoice> menus with the "
@@ -556,11 +590,11 @@ msgstr ""
 "guimenu><guisubmenu>Preferències</guisubmenu></menuchoice> amb la pestanya "
 "<guimenuitem>Aparença</guimenuitem> realçada."
 
-#: C/iagno.xml:369(title)
+#: C/iagno.xml:394(title)
 msgid "Animation"
 msgstr "Animació"
 
-#: C/iagno.xml:371(para)
+#: C/iagno.xml:396(para)
 msgid ""
 "This option controls the amount of animation present when each tile is "
 "flipped, using radio buttons. Selecting the option <guibutton>none </"
@@ -576,11 +610,11 @@ msgstr ""
 "canviïn de color lentament. Seleccionant l'opció <guibutton>Complet</"
 "guibutton> fareu que les fitxes canviïn de color lentament i suaument."
 
-#: C/iagno.xml:383(title)
+#: C/iagno.xml:408(title)
 msgid "Stagger Flips"
 msgstr "Gira les fitxes esglaonadament"
 
-#: C/iagno.xml:385(para)
+#: C/iagno.xml:410(para)
 msgid ""
 "This option causes captured tiles along a row, column, or diagonal to flip "
 "one after another, like dominoes, instead of all flipping simultaneously. It "
@@ -590,11 +624,11 @@ msgstr ""
 "girin una després de l'altra, com un dòmino, enlloc de girar totes a la "
 "vegada. No té cap efecte en la partida, però és un efecte divertit."
 
-#: C/iagno.xml:394(title)
+#: C/iagno.xml:419(title)
 msgid "Show Grid"
 msgstr "Mostra la quadrícula"
 
-#: C/iagno.xml:396(para)
+#: C/iagno.xml:421(para)
 msgid ""
 "This option will display a grid on top of the playing surface. The grid is "
 "useful to display because it shows the player exactly where they are placing "
@@ -604,11 +638,11 @@ msgstr ""
 "visualitzar la quadrícula perquè mostra al jugador on té situada exactament "
 "cada peça."
 
-#: C/iagno.xml:403(title)
+#: C/iagno.xml:428(title)
 msgid "Tip:"
 msgstr "Consell:"
 
-#: C/iagno.xml:404(para)
+#: C/iagno.xml:429(para)
 msgid ""
 "This option should be enabled for beginning players to see the gameplay more "
 "clearly."
@@ -616,11 +650,11 @@ msgstr ""
 "Aquesta opció hauria d'estar habilitada per als jugadors principiants per a "
 "veure més clarament la partida."
 
-#: C/iagno.xml:413(title)
+#: C/iagno.xml:438(title)
 msgid "Flip Final Results"
 msgstr "Gira els resultats finals"
 
-#: C/iagno.xml:415(para)
+#: C/iagno.xml:440(para)
 msgid ""
 "This option moves all the black tiles to the top of the board and all the "
 "white tiles to the bottom of the board at the end of the game. This allows "
@@ -630,15 +664,15 @@ msgstr ""
 "superior del tauler i totes les fitxes blanques a la part inferior del "
 "tauler. Aquesta opció us permet veure visualment el resultat de la partida."
 
-#: C/iagno.xml:423(para)
+#: C/iagno.xml:448(para)
 msgid "This option does not affect the outcome of the game in any way."
 msgstr "Aquesta opció no afecta de cap manera el resultat de la partida."
 
-#: C/iagno.xml:431(title)
+#: C/iagno.xml:456(title)
 msgid "Tile Set"
 msgstr "Joc de fitxes"
 
-#: C/iagno.xml:432(para)
+#: C/iagno.xml:457(para)
 msgid ""
 "This option lets you choose the type of board and tiles which are displayed. "
 "If you want to make your own tile sets use the classic tile set as a "
@@ -653,23 +687,23 @@ msgstr ""
 "envieu-lo a en Ian Peters <email>itp@gnu.org</email> i ell l'inclourà en la "
 "distribució següent."
 
-#: C/iagno.xml:441(title)
+#: C/iagno.xml:466(title)
 msgid "Important:"
 msgstr "Important:"
 
-#: C/iagno.xml:442(para)
+#: C/iagno.xml:467(para)
 msgid ""
-"There are three tile sets which look the same, but have different animations "
-"-- woodtrim, shrink, and blend."
+"There are two tile sets which look the same, but have different animations "
+"-- woodtrim and classic."
 msgstr ""
-"Hi ha tres jocs de fitxes que semblen iguals però tenen animacions diferents "
-"-- woodtrim, shrink i blend."
+"Hi ha dos jocs de fitxes que semblen iguals però tenen animacions diferents "
+"-- woodtrim i classic."
 
-#: C/iagno.xml:449(title)
+#: C/iagno.xml:474(title)
 msgid "The Preferences menu with the Appearance tab highlighted."
 msgstr "El menú de preferències amb la pestanya aparença realçada."
 
-#: C/iagno.xml:456(phrase)
+#: C/iagno.xml:481(phrase)
 msgid "Screenshot of the animation settings."
 msgstr "Captura de pantalla dels paràmetres d'animació."
 
@@ -858,19 +892,19 @@ msgstr ""
 "pantalla inicial de joc en xarxa. Llavors podeu jugar una altra partida "
 "addictiva multijugador del Iagno."
 
-#: C/iagno.xml:477(title)
+#: C/iagno.xml:502(title)
 msgid "Known Bugs and Limitations"
 msgstr "Errors i limitacions conegudes"
 
-#: C/iagno.xml:481(para)
+#: C/iagno.xml:506(para)
 msgid "The computer player for Iagno is easy to beat."
 msgstr "És fàcil guanyar el jugador ordinador del Iango."
 
-#: C/iagno.xml:490(title)
+#: C/iagno.xml:515(title)
 msgid "Authors"
 msgstr "Autors"
 
-#: C/iagno.xml:491(para)
+#: C/iagno.xml:516(para)
 msgid ""
 "<application>Iagno</application> was written by Ian Peters (<email>itp@gnu."
 "org</email>). This manual was written by Eric Baudais "
@@ -884,11 +918,11 @@ msgstr ""
 "aplicació o aquest manual, seguiu les indicacions d'aquest <ulink url="
 "\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
 
-#: C/iagno.xml:516(title)
+#: C/iagno.xml:541(title)
 msgid "License"
 msgstr "Llicència"
 
-#: C/iagno.xml:517(para)
+#: C/iagno.xml:542(para)
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
 "under the terms of the <citetitle>GNU General Public License</citetitle> as "
@@ -900,7 +934,7 @@ msgstr ""
 "citetitle> tal com publica la Free Software Foundation; tant en la versió 2 "
 "de la llicència, o (a la vostra opció) una versió posterior."
 
-#: C/iagno.xml:524(para)
+#: C/iagno.xml:549(para)
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -912,7 +946,7 @@ msgstr ""
 "ADEQUACIÓ A UN ÚS CONCRET. Per a més detalls vegeu la <citetitle>Llicència "
 "pública general de GNU</citetitle>."
 
-#: C/iagno.xml:530(para)
+#: C/iagno.xml:555(para)
 msgid ""
 "A copy of the <citetitle>GNU General Public License</citetitle> is included "
 "as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
@@ -935,4 +969,11 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #: C/iagno.xml:0(None)
 msgid "translator-credits"
-msgstr "Joan Duran <jodufi@gmail.com>, 2007"
+msgstr "Joan Duran <jodufi@gmail.com>, 2007, 2008"
+
+#~ msgid ""
+#~ "Iagno is a computer version of the game Reversi, more popularly called "
+#~ "Othello."
+#~ msgstr ""
+#~ "El Iagno és una versió d'ordinador del joc Reversi, més popularment "
+#~ "anomenat Othello."
