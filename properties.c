@@ -21,12 +21,16 @@
  */
 
 #include <config.h>
-#include <gnome.h>
+
 #include <string.h>
+
+#include <gnome.h>
+
 #include <games-conf.h>
 #include <games-frame.h>
 #include <games-files.h>
 #include <games-sound.h>
+#include <games-runtime.h>
 
 #include "properties.h"
 #include "gnothello.h"
@@ -361,20 +365,17 @@ free_str (GtkWidget * widget, void *data)
 static GtkWidget *
 fill_menu (void)
 {
-  gchar *dname = NULL;
+  const char *dname = NULL;
 
   /* FIXME: we need to check that both dname is valid and that
    * games_file_list_new_images returns something. */
 
-  dname = gnome_program_locate_file (NULL,
-				     GNOME_FILE_DOMAIN_APP_PIXMAP,
-				     "iagno", FALSE, NULL);
+  dname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
 
   if (theme_file_list)
     g_object_unref (theme_file_list);
 
   theme_file_list = games_file_list_new_images (dname, NULL);
-  g_free (dname);
 
   games_file_list_transform_basename (theme_file_list);
 

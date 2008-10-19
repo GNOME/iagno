@@ -22,15 +22,21 @@
  */
 
 #include <config.h>
+
+#include <string.h>
+
 #include <gnome.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
-#include <string.h>
 #include <games-stock.h>
 #include <games-sound.h>
 #include <games-conf.h>
 #include <games-runtime.h>
+
+#ifdef WITH_SMCLIENT
+#include <libgames-support/eggsmclient.h>
+#endif /* WITH_SMCLIENT */
 
 #ifdef GGZ_CLIENT
 #include <games-dlg-chat.h>
@@ -420,21 +426,19 @@ load_pixmaps (void)
 {
   GdkPixbuf *image;
   GError *error = NULL;
-  gchar *tmp;
   gchar *fname;
+  const char *dname;
 
   g_return_if_fail (tile_set != NULL && tile_set[0] != '0');
 
-  tmp = g_build_filename ("iagno", tile_set, NULL);
-  fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_PIXMAP,
-				     tmp, FALSE, NULL);
-  g_free (tmp);
+  dname = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
 
-  if (!g_file_test (fname, G_FILE_TEST_EXISTS)) {
+  fname = g_build_filename (dname, tile_set, NULL);
+
+  /* fall back to default tileset "classic.png" if tile_set not found*/
+  if (!g_file_test (fname, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_REGULAR)) {
     g_free (fname);
-    fname = gnome_program_locate_file (NULL,
-				       GNOME_FILE_DOMAIN_APP_PIXMAP,
-				       "iagno/classic.png", FALSE, NULL);
+    fname = g_build_filename (dname, "classic.png", NULL);
   }
 
   if (!g_file_test (fname, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_REGULAR)) {
@@ -841,26 +845,26 @@ set_bg_color (void)
   g_object_unref (tmpimage);
 }
 
+#ifdef WITH_SMCLIENT
 static int
-save_state (GnomeClient * client, gint phase, GnomeRestartStyle save_style,
-	    gint shutdown, GnomeInteractStyle interact_style,
-	    gint fast, gpointer client_data)
+save_state_cb (EggSMClient *client,
+	    GKeyFile* keyfile,
+	    gpointer client_data)
 {
-  char *argv[20];
-  int i;
+  gchar *argv[20];
+  gint argc;
   gint xpos, ypos;
 
   gdk_window_get_origin (window->window, &xpos, &ypos);
 
-  i = 0;
-  argv[i++] = (char *) client_data;
-  argv[i++] = "-x";
-  argv[i++] = g_strdup_printf ("%d", xpos);
-  argv[i++] = "-y";
-  argv[i++] = g_strdup_printf ("%d", ypos);
+  argc = 0;
+  argv[argc++] = g_get_prgname ();
+  argv[argc++] = "-x";
+  argv[argc++] = g_strdup_printf ("%d", xpos);
+  argv[argc++] = "-y";
+  argv[argc++] = g_strdup_printf ("%d", ypos);
 
-  gnome_client_set_restart_command (client, i, argv);
-  gnome_client_set_clone_command (client, 0, NULL);
+  egg_sm_client_set_restart_command (client, argc, (const char **) argv);
 
   g_free (argv[2]);
   g_free (argv[4]);
@@ -868,21 +872,39 @@ save_state (GnomeClient * client, gint phase, GnomeRestartStyle save_style,
   return TRUE;
 }
 
+static gint
+quit_cb (EggSMClient *client,
+         gpointer client_data)
+{
+  gtk_main_quit ();
+
+  return FALSE;
+}
+
+#endif /* WITH_SMCLIENT */
+
 int
 main (int argc, char **argv)
 {
-  GnomeClient *client;
   GnomeProgram *program;
   GOptionContext *context;
+#ifdef WITH_SMCLIENT
+  EggSMClient *sm_client;
+#endif /* WITH_SMCLIENT */
 
-  bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+#if defined(HAVE_GNOME) || defined(HAVE_RSVG_GNOMEVFS)
+  /* If we're going to use gnome-vfs, we need to init threads before
+   * calling any glib functions.
+   */
+  g_thread_init (NULL);
+#endif
+
+  if (!games_runtime_init ("iagno"))
+    return 1;
+
+  bindtextdomain (GETTEXT_PACKAGE, games_runtime_get_directory (GAMES_RUNTIME_LOCALE_DIRECTORY));
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
-
-  g_thread_init (NULL);
-
-  if (!games_runtime_init ("gnothello"))
-    return 1;
 
   context = g_option_context_new (NULL);
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
@@ -894,16 +916,20 @@ main (int argc, char **argv)
 				GNOME_PARAM_GOPTION_CONTEXT, context,
 				GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
 
-  gtk_window_set_default_icon_name ("gnome-iagno");
+
+  g_set_application_name (_(APP_NAME_LONG));
 
   games_conf_initialise (APP_NAME);
 
-  client = gnome_master_client ();
+  gtk_window_set_default_icon_name ("gnome-iagno");
 
-  g_signal_connect (G_OBJECT (client), "save_yourself",
-		    G_CALLBACK (save_state), argv[0]);
-  g_signal_connect (G_OBJECT (client), "die",
-		    G_CALLBACK (quit_game_cb), argv[0]);
+#ifdef WITH_SMCLIENT
+  sm_client = egg_sm_client_get ();
+  g_signal_connect (sm_client, "save-state",
+		    G_CALLBACK (save_state_cb), NULL);
+  g_signal_connect (sm_client, "quit",
+                    G_CALLBACK (quit_cb), NULL);
+#endif /* WITH_SMCLIENT */
 
   create_window ();
 

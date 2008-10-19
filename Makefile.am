@@ -2,7 +2,7 @@ SUBDIRS= help
 
 NULL =
 
-pixmapdir=$(datadir)/pixmaps/iagno
+pixmapdir=$(datadir)/gnome-games/iagno/pixmaps
 Gamesdir = $(datadir)/applications
 
 INCLUDES =						\
