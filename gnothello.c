@@ -25,14 +25,15 @@
 
 #include <string.h>
 
-#include <gnome.h>
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
-#include <games-stock.h>
-#include <games-sound.h>
-#include <games-conf.h>
-#include <games-runtime.h>
+#include <libgames-support/games-conf.h>
+#include <libgames-support/games-runtime.h>
+#include <libgames-support/games-sound.h>
+#include <libgames-support/games-stock.h>
 
 #ifdef WITH_SMCLIENT
 #include <libgames-support/eggsmclient.h>
@@ -43,7 +44,7 @@
 #include <games-dlg-players.h>
 #include "ggz-network.h"
 #include <ggz-embed.h>
-#endif
+#endif /* WITH GGZ_CLIENT */
 
 #include "gnothello.h"
 #include "othello.h"
@@ -52,20 +53,26 @@
 #define APP_NAME "iagno"
 #define APP_NAME_LONG N_("Iagno")
 
-GnomeAppBar *appbar;
 GtkWidget *window;
+GtkWidget *statusbar;
 GtkWidget *notebook;
 GtkWidget *drawing_area;
 GtkWidget *tile_dialog;
 GtkWidget *black_score;
 GtkWidget *white_score;
 
+GtkAction *new_game_action;
+GtkAction *new_network_action;
+GtkAction *leave_network_action;
+GtkAction *player_list_action;
+GtkAction *undo_action;
+
 GdkPixmap *buffer_pixmap = NULL;
 GdkPixmap *tiles_pixmap = NULL;
 GdkPixmap *tiles_mask = NULL;
 
 gint flip_pixmaps_id = 0;
-gint statusbar_id;
+guint statusbar_id;
 guint black_computer_level;
 guint white_computer_level;
 guint black_computer_id = 0;
@@ -140,50 +147,10 @@ static const GOptionEntry options[] = {
   {NULL}
 };
 
-GnomeUIInfo game_menu[] = {
-  GNOMEUIINFO_MENU_NEW_GAME_ITEM (new_game_cb, NULL),
-
-  GNOMEUIINFO_ITEM (N_("Net_work Game"), NULL, new_network_game_cb, NULL),
-
-  GNOMEUIINFO_SEPARATOR,
-
-  GNOMEUIINFO_MENU_UNDO_MOVE_ITEM (undo_move_cb, NULL),
-
-  GNOMEUIINFO_ITEM (N_("_Player list"), NULL, on_player_list, NULL),
-
-  GNOMEUIINFO_ITEM (N_("_Chat Window"), NULL, on_chat_window, NULL),
-
-  GNOMEUIINFO_SEPARATOR,
-
-  GNOMEUIINFO_ITEM (N_("_Leave Game"), NULL, on_network_leave, NULL),
-
-  GNOMEUIINFO_MENU_QUIT_ITEM (quit_game_cb, NULL),
-
-  GNOMEUIINFO_END
-};
-
-GnomeUIInfo settings_menu[] = {
-  GNOMEUIINFO_MENU_PREFERENCES_ITEM (properties_cb, NULL),
-  GNOMEUIINFO_END
-};
-
-GnomeUIInfo help_menu[] = {
-  GNOMEUIINFO_HELP ("iagno"),
-  GNOMEUIINFO_MENU_ABOUT_ITEM (about_cb, NULL),
-  GNOMEUIINFO_END
-};
-
-GnomeUIInfo mainmenu[] = {
-  GNOMEUIINFO_MENU_GAME_TREE (game_menu),
-  GNOMEUIINFO_MENU_SETTINGS_TREE (settings_menu),
-  GNOMEUIINFO_MENU_HELP_TREE (help_menu),
-  GNOMEUIINFO_END
-};
-
 static void
 undo_set_sensitive (gboolean state)
 {
-  gtk_widget_set_sensitive (game_menu[3].widget, state);
+  gtk_action_set_sensitive (undo_action, state);
 }
 
 void
@@ -203,7 +170,7 @@ on_player_list (void)
 {
 #ifdef GGZ_CLIENT
   create_or_raise_dlg_players (GTK_WINDOW (window));
-#endif
+#endif /* GGZ_CLIENT */
 }
 
 void
@@ -211,7 +178,7 @@ on_chat_window (void)
 {
 #ifdef GGZ_CLIENT
   create_or_raise_dlg_chat (GTK_WINDOW (window));
-#endif
+#endif /* GGZ_CLIENT */
 }
 
 void
@@ -219,9 +186,10 @@ new_network_game_cb (GtkWidget * widget, gpointer data)
 {
 #ifdef GGZ_CLIENT
   on_network_game ();
-  gtk_widget_hide (mainmenu[0].widget);
-  gtk_widget_hide (mainmenu[1].widget);
-#endif
+  gtk_action_set_sensitive (new_network_action, TRUE);
+  gtk_action_set_sensitive (leave_network_action, TRUE);
+  gtk_action_set_sensitive (player_list_action, TRUE);
+#endif /* GGZ_CLIENT */
 }
 
 void
@@ -230,7 +198,7 @@ on_network_leave (GObject * object, gpointer data)
 #ifdef GGZ_CLIENT
   ggz_embed_leave_table ();
   gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), NETWORK_PAGE);
-#endif
+#endif /* GGZ_CLIENT */
 }
 
 void
@@ -278,7 +246,7 @@ undo_move_cb (GtkWidget * widget, gpointer data)
 }
 
 void
-about_cb (GtkWidget * widget, gpointer data)
+about_cb (GtkAction * action, gpointer data)
 {
   const gchar *authors[] = { "Ian Peters", NULL };
 
@@ -369,7 +337,7 @@ button_press_event (GtkWidget * widget, GdkEventButton * event)
 	&& is_valid_move (x, y, whose_turn)) {
 #ifdef GGZ_CLIENT
       send_my_move (CART (x + 1, y + 1), whose_turn);
-#endif
+#endif /* GGZ_CLIENT */
     } else if (!ggz_network_mode && is_valid_move (x, y, whose_turn)) {
       move (x, y, whose_turn);
     } else {
@@ -612,86 +580,8 @@ init_new_game (void)
 
   whose_turn = BLACK_TURN;
   gui_status ();
-  gtk_widget_show (mainmenu[0].widget);
-  gtk_widget_show (mainmenu[1].widget);
 
   check_computer_players ();
-}
-
-void
-create_window (void)
-{
-  GtkWidget *table;
-
-  window = gnome_app_new ("iagno", _(APP_NAME_LONG));
-
-  games_conf_add_window (GTK_WINDOW (window), NULL);
-
-  notebook = gtk_notebook_new ();
-  gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
-
-  gtk_widget_realize (window);
-  gtk_window_set_resizable (GTK_WINDOW (window), FALSE);
-  g_signal_connect (G_OBJECT (window), "delete_event",
-		    G_CALLBACK (quit_game_cb), NULL);
-
-  gnome_app_create_menus (GNOME_APP (window), mainmenu);
-
-  drawing_area = gtk_drawing_area_new ();
-
-  gtk_widget_pop_colormap ();
-
-  gnome_app_set_contents (GNOME_APP (window), notebook);
-  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), drawing_area, NULL);
-  gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
-
-  gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-			       BOARDWIDTH, BOARDHEIGHT);
-  g_signal_connect (G_OBJECT (drawing_area), "expose_event",
-		    G_CALLBACK (expose_event), NULL);
-  g_signal_connect (G_OBJECT (window), "configure_event",
-		    G_CALLBACK (configure_event), NULL);
-  g_signal_connect (G_OBJECT (drawing_area), "button_press_event",
-		    G_CALLBACK (button_press_event), NULL);
-  gtk_widget_set_events (drawing_area,
-			 GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
-  /* We do our own double-buffering. */
-  gtk_widget_set_double_buffered (drawing_area, FALSE);
-
-  gtk_widget_show (drawing_area);
-
-  appbar = GNOME_APPBAR (gnome_appbar_new (FALSE, TRUE, FALSE));
-  gnome_app_set_statusbar (GNOME_APP (window), GTK_WIDGET (appbar));
-  gnome_app_install_menu_hints (GNOME_APP (window), mainmenu);
-
-  table = gtk_table_new (1, 8, FALSE);
-
-  black_score = gtk_label_new (_("Dark:"));
-  gtk_widget_show (black_score);
-
-  gtk_table_attach (GTK_TABLE (table), black_score, 1, 2, 0, 1, 0, 0, 3, 1);
-
-  black_score = gtk_label_new ("00");
-  gtk_widget_show (black_score);
-
-  gtk_table_attach (GTK_TABLE (table), black_score, 2, 3, 0, 1, 0, 0, 3, 1);
-
-  white_score = gtk_label_new (_("Light:"));
-  gtk_widget_show (white_score);
-
-  gtk_table_attach (GTK_TABLE (table), white_score, 4, 5, 0, 1, 0, 0, 3, 1);
-
-  white_score = gtk_label_new ("00");
-  gtk_widget_show (white_score);
-
-  gtk_table_attach (GTK_TABLE (table), white_score, 5, 6, 0, 1, 0, 0, 3, 1);
-  undo_set_sensitive (FALSE);
-
-  gtk_widget_show (table);
-
-  gtk_box_pack_start (GTK_BOX (appbar), table, FALSE, TRUE, 0);
-
-  gnome_appbar_set_status (GNOME_APPBAR (appbar), _("Welcome to Iagno!"));
 }
 
 void
@@ -706,28 +596,20 @@ gui_status (void)
   undo_set_sensitive (move_count > 0);
 
   if (ggz_network_mode) {
-    gtk_widget_hide (game_menu[0].widget);
-    gtk_widget_hide (game_menu[1].widget);
-    gtk_widget_hide (game_menu[2].widget);
-    gtk_widget_hide (game_menu[3].widget);
-    gtk_widget_show (game_menu[4].widget);
-    gtk_widget_show (game_menu[5].widget);
-    gtk_widget_show (game_menu[7].widget);
+    gtk_action_set_sensitive(new_game_action, FALSE);
+    gtk_action_set_sensitive(new_network_action, FALSE);
+    gtk_action_set_sensitive(leave_network_action, FALSE);
+    gtk_action_set_sensitive(player_list_action, FALSE);
   } else {
-    gtk_widget_show (game_menu[0].widget);
-    gtk_widget_show (game_menu[1].widget);
-    gtk_widget_show (game_menu[2].widget);
-    gtk_widget_show (game_menu[3].widget);
-    gtk_widget_hide (game_menu[4].widget);
-    gtk_widget_hide (game_menu[5].widget);
-    gtk_widget_hide (game_menu[7].widget);
+    gtk_action_set_sensitive(new_game_action, TRUE);
+    gtk_action_set_sensitive(new_network_action, TRUE);
+    gtk_action_set_sensitive(leave_network_action, TRUE);
+    gtk_action_set_sensitive(player_list_action, TRUE);
   }
 
-  gtk_widget_set_sensitive (settings_menu[0].widget, !ggz_network_mode);
-
 #ifndef GGZ_CLIENT
-  gtk_widget_set_sensitive (game_menu[1].widget, FALSE);
-#endif
+    gtk_action_set_sensitive(new_network_action, FALSE);
+#endif /* GGZ_CLIENT */
 
   if (ggz_network_mode) {
     if (whose_turn == player_id && whose_turn == BLACK_TURN) {
@@ -749,15 +631,13 @@ gui_status (void)
     }
 
   }
-
-
 }
 
 void
 gui_message (gchar * message)
 {
-  gnome_appbar_pop (GNOME_APPBAR (appbar));
-  gnome_appbar_push (GNOME_APPBAR (appbar), message);
+  gtk_statusbar_pop (GTK_STATUSBAR(statusbar), statusbar_id);
+  gtk_statusbar_push (GTK_STATUSBAR(statusbar), statusbar_id, message);
 }
 
 guint
@@ -883,11 +763,208 @@ quit_cb (EggSMClient *client,
 
 #endif /* WITH_SMCLIENT */
 
+static void
+help_cb (GtkAction * action, gpointer data)
+{
+  GdkScreen *screen;
+  GError *error = NULL;
+
+  screen = gtk_widget_get_screen (GTK_WIDGET (window));
+  gtk_show_uri (screen, "ghelp:iagno", gtk_get_current_event_time (), &error);
+
+  if (error != NULL)
+  {
+    GtkWidget *d;
+    d = gtk_message_dialog_new (GTK_WINDOW (window), 
+                              GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                              GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, 
+                              "%s", _("Unable to open help file"));
+    gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (d),
+                              "             %s", error->message);
+    g_signal_connect (d, "response", G_CALLBACK (gtk_widget_destroy), NULL);
+    gtk_window_present (GTK_WINDOW (d));
+
+    g_error_free (error);
+  }
+}
+
+static const GtkActionEntry actions[] = {
+  {"GameMenu", NULL, N_("_Game")},
+  {"SettingsMenu", NULL, N_("_Settings")},
+  {"HelpMenu", NULL, N_("_Help")},
+  {"NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL, 
+   G_CALLBACK (new_game_cb)},
+#ifdef GGZ_CLIENT
+  {"NewNetworkGame", GAMES_STOCK_NETWORK_GAME, NULL, NULL, NULL,
+   G_CALLBACK (new_network_game_cb)},
+#else
+  {"NewNetworkGame", GAMES_STOCK_NETWORK_GAME, NULL, NULL, NULL, NULL},
+#endif
+  {"LeaveNetworkGame", GAMES_STOCK_NETWORK_LEAVE, NULL, NULL, NULL,
+   G_CALLBACK (on_network_leave)},
+  {"PlayerList", GAMES_STOCK_PLAYER_LIST, NULL, NULL, NULL,
+   G_CALLBACK (on_player_list)},
+  {"UndoMove", GAMES_STOCK_UNDO_MOVE, NULL, NULL, NULL,
+   G_CALLBACK (undo_move_cb)},
+  {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb)},
+  {"Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL,
+   G_CALLBACK (properties_cb)},
+  {"Contents", GAMES_STOCK_CONTENTS, NULL, NULL, NULL,
+   G_CALLBACK (help_cb)},
+  {"About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb)}
+};
+
+static const char ui_description[] =
+  "<ui>"
+  "  <menubar name='MainMenu'>"
+  "    <menu action='GameMenu'>"
+  "      <menuitem action='NewGame'/>"
+  "      <menuitem action='NewNetworkGame'/>"
+  "      <separator/>"
+  "      <menuitem action='UndoMove'/>"
+  "      <separator/>"
+  "      <menuitem action='Quit'/>"
+  "    </menu>"
+  "    <menu action='SettingsMenu'>"
+  "      <menuitem action='Preferences'/>"
+  "    </menu>"
+  "    <menu action='HelpMenu'>"
+  "      <menuitem action='Contents'/>"
+  "      <menuitem action='About'/>"
+  "    </menu>"
+  "  </menubar>"
+  "</ui>";
+
+
+static void
+create_menus (GtkUIManager * ui_manager)
+{
+  GtkActionGroup *action_group;
+
+
+  action_group = gtk_action_group_new ("group");
+
+  gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
+  gtk_action_group_add_actions (action_group, actions, G_N_ELEMENTS (actions),
+				window);
+
+  gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
+  gtk_ui_manager_add_ui_from_string (ui_manager, ui_description, -1, NULL);
+
+  gtk_window_add_accel_group (GTK_WINDOW (window),
+			      gtk_ui_manager_get_accel_group (ui_manager));
+
+  new_game_action = gtk_action_group_get_action (action_group, "NewGame");
+  new_network_action = gtk_action_group_get_action (action_group,
+						    "NewNetworkGame");
+#ifndef GGZ_CLIENT
+  gtk_action_set_sensitive (new_network_action, FALSE);
+#endif /* GGZ_CLIENT */
+  leave_network_action =
+    gtk_action_group_get_action (action_group, "LeaveNetworkGame");
+  player_list_action =
+    gtk_action_group_get_action (action_group, "PlayerList");
+  undo_action = gtk_action_group_get_action (action_group, "UndoMove");
+}
+
+void
+create_window (void)
+{
+  GtkWidget *table;
+  GtkUIManager *ui_manager;
+  GtkWidget *menubar;
+  GtkWidget *vbox;
+
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window), _(APP_NAME_LONG));
+
+  games_conf_add_window (GTK_WINDOW (window), NULL);
+
+  vbox = gtk_vbox_new (FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (window), vbox);
+
+  ui_manager = gtk_ui_manager_new ();
+  create_menus (ui_manager);
+  menubar = gtk_ui_manager_get_widget (ui_manager, "/MainMenu");
+  gtk_box_pack_start (GTK_BOX (vbox), menubar, FALSE, FALSE, 0);
+
+  notebook = gtk_notebook_new ();
+  gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
+
+  g_signal_connect (G_OBJECT (window), "delete_event",
+		    G_CALLBACK (quit_game_cb), NULL);
+
+  drawing_area = gtk_drawing_area_new ();
+
+  gtk_widget_pop_colormap ();
+
+  gtk_notebook_append_page (GTK_NOTEBOOK (notebook), drawing_area, NULL);
+  gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
+  gtk_box_pack_start (GTK_BOX (vbox), notebook, FALSE, FALSE, 0);
+
+  gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
+			       BOARDWIDTH, BOARDHEIGHT);
+
+  g_signal_connect (G_OBJECT (drawing_area), "expose_event",
+		    G_CALLBACK (expose_event), NULL);
+  g_signal_connect (G_OBJECT (window), "configure_event",
+		    G_CALLBACK (configure_event), NULL);
+  g_signal_connect (G_OBJECT (drawing_area), "button_press_event",
+		    G_CALLBACK (button_press_event), NULL);
+
+  gtk_widget_set_events (drawing_area,
+			 GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
+  /* We do our own double-buffering. */
+  gtk_widget_set_double_buffered (drawing_area, FALSE);
+
+  statusbar = gtk_statusbar_new ();
+  gtk_box_pack_start (GTK_BOX (vbox), statusbar, FALSE, FALSE, 0);
+
+  table = gtk_table_new (1, 8, FALSE);
+
+  black_score = gtk_label_new (_("Dark:"));
+  gtk_widget_show (black_score);
+
+  gtk_table_attach (GTK_TABLE (table), black_score, 1, 2, 0, 1, 0, 0, 3, 1);
+
+  black_score = gtk_label_new ("00");
+  gtk_widget_show (black_score);
+
+  gtk_table_attach (GTK_TABLE (table), black_score, 2, 3, 0, 1, 0, 0, 3, 1);
+
+  white_score = gtk_label_new (_("Light:"));
+  gtk_widget_show (white_score);
+
+  gtk_table_attach (GTK_TABLE (table), white_score, 4, 5, 0, 1, 0, 0, 3, 1);
+
+  white_score = gtk_label_new ("00");
+  gtk_widget_show (white_score);
+
+  gtk_table_attach (GTK_TABLE (table), white_score, 5, 6, 0, 1, 0, 0, 3, 1);
+  undo_set_sensitive (FALSE);
+
+  gtk_widget_show (vbox);
+  gtk_widget_show (drawing_area);
+  gtk_widget_show (notebook);
+  gtk_widget_show (table);
+  gtk_widget_show (statusbar);
+
+  gtk_box_pack_start (GTK_BOX (statusbar), table, FALSE, TRUE, 0);
+
+  gtk_window_set_resizable (GTK_WINDOW (window), FALSE);
+
+  statusbar_id = gtk_statusbar_get_context_id (GTK_STATUSBAR(statusbar),
+                                               "iagno");
+  gtk_statusbar_push (GTK_STATUSBAR(statusbar), statusbar_id, 
+                      _("Welcome to Iagno!"));
+}
+
 int
 main (int argc, char **argv)
 {
-  GnomeProgram *program;
   GOptionContext *context;
+  gboolean retval;
+  GError *error = NULL;
 #ifdef WITH_SMCLIENT
   EggSMClient *sm_client;
 #endif /* WITH_SMCLIENT */
@@ -907,19 +984,29 @@ main (int argc, char **argv)
   textdomain (GETTEXT_PACKAGE);
 
   context = g_option_context_new (NULL);
+#if GLIB_CHECK_VERSION (2, 12, 0)
+  g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
+#endif
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+#ifdef WITH_SMCLIENT
+  g_option_context_add_group (context, egg_sm_client_get_option_group ());
+#endif /* WITH_SMCLIENT */
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   games_sound_add_option_group (context);
 
-  program = gnome_program_init ("iagno", VERSION,
-				LIBGNOMEUI_MODULE,
-				argc, argv,
-				GNOME_PARAM_GOPTION_CONTEXT, context,
-				GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
-
+  retval = g_option_context_parse (context, &argc, &argv, &error);
+  g_option_context_free (context);
+  if (!retval) {
+    g_print ("%s", error->message);
+    g_error_free (error);
+    exit (1);
+  }
 
   g_set_application_name (_(APP_NAME_LONG));
 
   games_conf_initialise (APP_NAME);
+
+  games_stock_init ();
 
   gtk_window_set_default_icon_name ("gnome-iagno");
 
@@ -933,22 +1020,21 @@ main (int argc, char **argv)
 
   create_window ();
 
+  gtk_widget_show (window);
+  buffer_pixmap = gdk_pixmap_new (drawing_area->window,
+				  BOARDWIDTH, BOARDHEIGHT, -1);
+
   load_properties ();
 
   load_pixmaps ();
 
-  gtk_widget_show (window);
-
 #ifdef GGZ_CLIENT
   network_init ();
-#endif
+#endif /* GGZ_CLIENT */
 
   if (session_xpos >= 0 && session_ypos >= 0) {
     gdk_window_move (window->window, session_xpos, session_ypos);
   }
-
-  buffer_pixmap = gdk_pixmap_new (drawing_area->window,
-				  BOARDWIDTH, BOARDHEIGHT, -1);
 
   set_bg_color ();
 
@@ -957,8 +1043,6 @@ main (int argc, char **argv)
   gtk_main ();
 
   games_conf_shutdown ();
-
-  g_object_unref (program);
 
   games_runtime_shutdown ();
 
