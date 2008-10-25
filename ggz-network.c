@@ -18,16 +18,19 @@
  * USA
  */
 
-#include "config.h"
-#include <gnome.h>
+#include <config.h>
+
 #include <pwd.h>
+
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
 
 #include <ggzmod.h>
 #include <ggz-embed.h>
 #include <ggz-gtk.h>
 
-#include "games-dlg-chat.h"
-#include "games-dlg-players.h"
+#include <libgames-support/games-dlg-chat.h>
+#include <libgames-support/games-dlg-players.h>
 
 #include "gnothello.h"
 #include "ggz-network.h"

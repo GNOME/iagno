@@ -22,10 +22,14 @@
  */
 
 #include <config.h>
-#include <gnome.h>
+
 #include <string.h>
-#include <games-clock.h>
-#include <games-sound.h>
+
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
+
+#include <libgames-support/games-clock.h>
+#include <libgames-support/games-sound.h>
 
 #include "othello.h"
 #include "gnothello.h"

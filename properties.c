@@ -24,13 +24,14 @@
 
 #include <string.h>
 
-#include <gnome.h>
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
 
-#include <games-conf.h>
-#include <games-frame.h>
-#include <games-files.h>
-#include <games-sound.h>
-#include <games-runtime.h>
+#include <libgames-support/games-conf.h>
+#include <libgames-support/games-frame.h>
+#include <libgames-support/games-files.h>
+#include <libgames-support/games-sound.h>
+#include <libgames-support/games-runtime.h>
 
 #include "properties.h"
 #include "gnothello.h"
