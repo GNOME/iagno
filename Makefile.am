@@ -6,7 +6,7 @@ pixmapdir=$(datadir)/gnome-games/iagno/pixmaps
 Gamesdir = $(datadir)/applications
 
 INCLUDES =						\
-	-I$(top_srcdir)/libgames-support		\
+	-I$(top_srcdir)		\
 	$(WARN_CFLAGS)					\
 	-DDATADIR=\""$(datadir)"\"		   	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"	\
