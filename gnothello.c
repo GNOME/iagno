@@ -789,7 +789,7 @@ static const GtkActionEntry actions[] = {
    G_CALLBACK (on_player_list)},
   {"UndoMove", GAMES_STOCK_UNDO_MOVE, NULL, NULL, NULL,
    G_CALLBACK (undo_move_cb)},
-  {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_cb)},
+  {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_game_cb)},
   {"Preferences", GTK_STOCK_PREFERENCES, NULL, NULL, NULL,
    G_CALLBACK (properties_cb)},
   {"Contents", GAMES_STOCK_CONTENTS, NULL, NULL, NULL,
