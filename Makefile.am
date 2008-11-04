@@ -1,37 +1,30 @@
-SUBDIRS= help
+SUBDIRS = help
 
 NULL =
-
-pixmapdir=$(datadir)/gnome-games/iagno/pixmaps
-Gamesdir = $(datadir)/applications
-
-INCLUDES =						\
-	-I$(top_srcdir)		\
-	$(WARN_CFLAGS)					\
-	-DDATADIR=\""$(datadir)"\"		   	\
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"	\
-	$(GGZ_GTK_INCLUDES) $(GGZMOD_INCLUDES) $(GGZCORE_INCLUDES) \
-	$(LIBGGZ_INCLUDES) $(GGZCORE_INCLUDES) $(GGZDMOD_INCLUDES) \
-	$(GNOME_GAMES_CFLAGS)
 
 bin_PROGRAMS = iagno
 ggzexecmod_PROGRAMS =
 
 if GGZ_SERVER
 ggzexecmod_PROGRAMS += iagnod
+
 iagnod_SOURCES = server.h   \
 		 server.c   
+
+iagnod_CPPFLAGS = \
+	-I$(top_srcdir) \
+	$(AM_CPPFLAGS)
+
+iagnod_CFLAGS = \
+	$(GGZ_GTK_INCLUDES) $(GGZMOD_INCLUDES) $(GGZCORE_INCLUDES) \
+	$(LIBGGZ_INCLUDES) $(GGZDMOD_INCLUDES) \
+	$(GNOME_GAMES_CFLAGS) \
+	$(AM_CFLAGS)
 
 iagnod_LDADD = \
 	$(GNOME_GAMES_LIBS)     \
 	$(INTLLIBS) 		\
 	$(LIB_GGZDMOD)
-endif
-
-if GGZ_CLIENT
-GGZ_FILES =	ggz-network.h \
-		ggz-network.c \
-		$(NULL)
 endif
 
 iagno_SOURCES = \
@@ -41,7 +34,24 @@ iagno_SOURCES = \
 	othello.h \
 	properties.c \
 	properties.h \
-	$(GGZ_FILES)
+	$(NULL)
+
+if GGZ_CLIENT
+iagno_SOURCES += \
+	ggz-network.h \
+	ggz-network.c \
+	$(NULL)
+endif
+
+iagno_CPPFLAGS = \
+	-I$(top_srcdir) \
+	$(AM_CPPFLAGS)
+
+iagno_CFLAGS = \
+	$(GGZ_GTK_INCLUDES) $(GGZMOD_INCLUDES) $(GGZCORE_INCLUDES) \
+	$(LIBGGZ_INCLUDES) $(GGZDMOD_INCLUDES) \
+	$(GNOME_GAMES_CFLAGS) \
+	$(AM_CFLAGS)
 
 iagno_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
@@ -50,17 +60,18 @@ iagno_LDADD = \
 	$(LIB_GGZMOD) \
 	$(LIB_GGZ_GTK)
 
+pixmapdir = $(pkgdatadir)/iagno/pixmaps
 pixmap_DATA = \
 	classic.png \
 	woodtrim.png
 
+Gamesdir = $(datadir)/applications
 Games_in_files = iagno.desktop.in.in
 Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = iagno.schemas.in
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
-
 
 if GGZ_SERVER
 ggzroom_in_files = iagno.room.in
