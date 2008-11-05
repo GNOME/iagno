@@ -366,13 +366,12 @@ free_str (GtkWidget * widget, void *data)
 static GtkWidget *
 fill_menu (void)
 {
-  char *dir;
+  const char *dir;
 
   /* FIXME: we need to check that both dname is valid and that
    * games_file_list_new_images returns something. */
 
-  dir = g_strdup (games_runtime_get_directory (
-                    GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY));
+  dir = games_runtime_get_directory (GAMES_RUNTIME_GAME_PIXMAP_DIRECTORY);
 
   if (theme_file_list)
     g_object_unref (theme_file_list);
@@ -381,8 +380,6 @@ fill_menu (void)
 
   games_file_list_transform_basename (theme_file_list);
  
-  g_free (dir);
-
   return games_file_list_create_widget (theme_file_list, tile_set,
 					GAMES_FILE_LIST_REMOVE_EXTENSION |
 					GAMES_FILE_LIST_REPLACE_UNDERSCORES);
