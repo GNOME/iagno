@@ -101,8 +101,6 @@ extern guint whose_turn;
 extern gint bcount;
 extern gint wcount;
 
-extern guint tiles_to_flip;
-
 /* Initialization of data */
 void
 init (void)
@@ -275,7 +273,7 @@ move (guint x, guint y, guint me)
 
   gui_status ();
 
-  tiles_to_flip = 1;
+  start_animation ();
   check_valid_moves ();
   check_computer_players ();
 
@@ -578,7 +576,7 @@ static
 computer_move (gint level)
 {
   gint nn, aa, kind, best_xy;
-
+    
   vsquares[0][0] = -1;
   nn = 64 - move_count;
   if (nn > BEST)
@@ -646,7 +644,7 @@ flip_final_results (gpointer data)
   guint white_pieces;
   guint black_pieces;
   guint adder = 0;
-
+    
   white_pieces = wcount;
   black_pieces = bcount;
 
@@ -676,7 +674,7 @@ flip_final_results (gpointer data)
     }
   }
 
-  tiles_to_flip = 1;
+  start_animation ();
 
   return FALSE;
 }

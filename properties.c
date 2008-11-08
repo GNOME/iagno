@@ -61,7 +61,6 @@ extern gchar *tile_set_tmp;
 extern gint8 pixmaps[8][8];
 extern gint animate;
 extern gint animate_stagger;
-extern gint flip_pixmaps_id;
 extern gint flip_final;
 extern gint grid;
 gint sound;
@@ -127,15 +126,14 @@ load_properties (void)
 
   switch (animate) {
   case 0:
-    flip_pixmaps_id = g_timeout_add (100, flip_pixmaps, NULL);
+    set_animation_speed (100);
     break;
   case 1:
-    flip_pixmaps_id =
-      g_timeout_add (PIXMAP_FLIP_DELAY * 8, flip_pixmaps, NULL);
+    set_animation_speed (PIXMAP_FLIP_DELAY * 8);
     break;
   default:
   case 2:
-    flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
+    set_animation_speed (PIXMAP_FLIP_DELAY);
     break;
   }
 }
@@ -298,21 +296,16 @@ apply_changes (void)
 
   animate = t_animate;
 
-  if (flip_pixmaps_id) {
-    g_source_remove (flip_pixmaps_id);
-    flip_pixmaps_id = 0;
-  }
-
   switch (animate) {
   case 0:
-    flip_pixmaps_id = g_timeout_add (100, flip_pixmaps, NULL);
+    set_animation_speed (100);
     break;
   case 1:
-    flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY * 8,
-				     flip_pixmaps, NULL);
+    set_animation_speed (PIXMAP_FLIP_DELAY * 8);
     break;
+  default:
   case 2:
-    flip_pixmaps_id = g_timeout_add (PIXMAP_FLIP_DELAY, flip_pixmaps, NULL);
+    set_animation_speed (PIXMAP_FLIP_DELAY);
     break;
   }
 

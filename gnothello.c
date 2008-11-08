@@ -73,7 +73,8 @@ GdkPixmap *buffer_pixmap = NULL;
 GdkPixmap *tiles_pixmap = NULL;
 GdkPixmap *tiles_mask = NULL;
 
-gint flip_pixmaps_id = 0;
+static gint flip_pixmaps_id = 0;
+static gint flip_animation_speed = PIXMAP_FLIP_DELAY;
 guint statusbar_id;
 guint black_computer_level;
 guint white_computer_level;
@@ -243,7 +244,7 @@ undo_move_cb (GtkWidget * widget, gpointer data)
   }
 
   gui_status ();
-  tiles_to_flip = 1;
+  start_animation ();
   check_computer_players ();
 }
 
@@ -432,14 +433,40 @@ load_pixmaps (void)
   g_free (fname);
 }
 
+void
+set_animation_speed (gint speed)
+{
+    flip_animation_speed = speed;
+    if (flip_pixmaps_id) {
+        g_source_remove (flip_pixmaps_id);
+        flip_pixmaps_id = g_timeout_add (flip_animation_speed, flip_pixmaps, NULL);
+    }
+}
+
+void
+start_animation (void)
+{
+    if (flip_pixmaps_id == 0)
+        flip_pixmaps_id = g_timeout_add (flip_animation_speed, flip_pixmaps, NULL);
+    tiles_to_flip = 1;
+}
+
+void
+stop_animation (void)
+{
+    tiles_to_flip = 0;
+}
+
 gint
 flip_pixmaps (gpointer data)
 {
   guint i, j;
   guint flipped_tiles = 0;
 
-  if (!tiles_to_flip)
-    return TRUE;
+  if (!tiles_to_flip) {
+      flip_pixmaps_id = 0;
+      return FALSE;
+  }
 
   for (i = 0; i < 8; i++)
     for (j = 0; j < 8; j++) {
@@ -505,7 +532,7 @@ flip_pixmaps (gpointer data)
     }
 
   if (!flipped_tiles)
-    tiles_to_flip = 0;
+    stop_animation ();
 
   return TRUE;
 }
