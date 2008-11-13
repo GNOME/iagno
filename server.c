@@ -32,7 +32,6 @@
 #include <time.h>
 #include <unistd.h>
 
-#include <gtk/gtk.h>
 #include <ggzdmod.h>
 
 
