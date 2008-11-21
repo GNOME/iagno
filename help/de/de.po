@@ -2,57 +2,56 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "POT-Creation-Date: 2008-08-29 04:15+0000\n"
-"PO-Revision-Date: 2008-08-29 14:08+0100\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
+"PO-Revision-Date: 2008-11-18 22:10+0100\n"
+"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:255(None)
 msgid "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
-msgstr ""
+msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:277(None)
 msgid "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
-msgstr ""
+msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:305(None)
 msgid "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
-msgstr ""
+msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:368(None)
 msgid "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
-msgstr ""
+msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:478(None)
 msgid "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
-msgstr ""
+msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:54(None)
 msgid "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
-msgstr ""
+msgstr "translated"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/iagno.xml:77(None)
 msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-msgstr ""
+msgstr "translated"
 
 #: C/iagno.xml:26(title)
 msgid "<application>Iagno</application> Manual"
@@ -103,7 +102,7 @@ msgstr ""
 "sowie ohne Texte auf dem vorderen und hinteren Buchdeckel kopiert, verteilt "
 "und/oder modifiziert werden. Eine Kopie der GFDL finden Sie unter diesem "
 "<ulink type=\"help\" url=\"ghelp:fdl\">Link</ulink> oder in der mit diesem "
-"Handbuch gelieferten Datei COPYING-DOC."
+"Handbuch gelieferten Datei COPYING-DOCS."
 
 #: C/iagno.xml:12(para)
 msgid ""
@@ -382,7 +381,7 @@ msgstr ""
 "Sie werden sich vielleicht wundern, warum dieses Spiel <application>Iagno</"
 "application> genannt wird, und nicht Othello oder Gnothello. Die Antwort ist "
 "kompliziert, es geht um Markenrechte, Anwälte und noch einiges mehr. Anstelle "
-"es dabei zu belassen, präsentiere ich Ihnen hier eine lange und komplizierte "
+"es dabei zu belassen, präsentiere ich Ihnen hier eine lange und verwickelte "
 "Lüge über den Ursprung des Namens <application>Iagno</application>."
 
 #: C/iagno.xml:212(para)
@@ -473,7 +472,7 @@ msgstr "Erster Zug"
 
 #: C/iagno.xml:280(phrase)
 msgid "Screenshot of the first move."
-msgstr "Bildschirmfoto des ersten Zuges"
+msgstr "Bildschirmfoto des ersten Zuges."
 
 #: C/iagno.xml:297(title)
 msgid ""
@@ -482,11 +481,17 @@ msgid ""
 "blacks turn instead, black could place a tile at the top of the column but "
 "would only flip the first of the two white tiles."
 msgstr ""
+"Weiß kann den schwarzen Jeton in der Mitte der mittleren Spalte nicht "
+"einschließen, weil weiße Jetons die Enden dieser Spalte blockieren. Falls "
+"Schwarz stattdessen am Zug wäre, könnte Schwarz einen Jeton an der Spitze "
+"dieser Spalte platzieren, aber würde nur den ersten der zwei weißen Jetons "
+"umdrehen."
 
 #: C/iagno.xml:308(phrase)
 msgid "Screenshot of black blocking."
 msgstr "Bildschirmfoto einer Blockierung durch Schwarz."
 
+# CHECK: Etwas verwirrend.
 #: C/iagno.xml:286(para)
 msgid ""
 "When there is tile trapped between two tiles, of an identical color in the "
@@ -498,6 +503,14 @@ msgid ""
 "game ends when it is no longer possible for either player to move. "
 "<placeholder-1/>"
 msgstr ""
+"Wenn Jetons zwischen zwei anderen Jetons gleicher Farbe in der gleichen Zeile "
+"eingeschlossen sind, kann ein Spieler so alle Jetons erreichen bis hin zu dem "
+"seiner eigenen Farbe, wie in <xref linkend=\"block-shot\"/> gezeigt. Dies ist "
+"nur durch direktes Platzieren des Jetons möglich, nachträgliches Entfernen "
+"oder Verschieben eines Jetons an eine andere Position ist nicht möglich. Wenn "
+"ein Spieler nicht mehr ziehen kann, verliert er diesen Zug. Das Spiel endet, "
+"wenn es für keinen der Spieler mehr möglich ist, einen Zug auszuführen. "
+"<placeholder-1/>"
 
 #: C/iagno.xml:318(title)
 msgid "Game Settings"
@@ -537,6 +550,10 @@ msgid ""
 "guimenuitem> tab and it is initially off. When enabled this option makes the "
 "computer player place its tiles faster."
 msgstr ""
+"Diese Option befindet sich im Menü <guimenu>Einstellungen</guimenu>. Von dort "
+"aus öffnen Sie das Untermenü <guimenu>Einstellungen</guimenu>, wobei diese "
+"Option anfänglich deaktiviert ist. Wenn Sie sie aktivieren, setzt der "
+"Computergegner seine Jetons schneller."
 
 #: C/iagno.xml:346(title) C/iagno.xml:447(title)
 msgid "Note:"
@@ -547,6 +564,8 @@ msgid ""
 "Enabling this option does not force the computer player to move and does not "
 "reduce the level of difficulty."
 msgstr ""
+"Das Aktivieren dieser Option beeinflusst weder die Reaktionszeit des "
+"Computergegners noch den Schwierigkeitsgrad des Spiels."
 
 #: C/iagno.xml:355(title)
 msgid "Enable/Disable Sound"
@@ -558,6 +577,10 @@ msgid ""
 "<guilabel>Preferences</guilabel> dialog allows you to enable or disable all "
 "sounds when playing in <application>Iagno</application>."
 msgstr ""
+"Die letzte Option im Reiter <guimenuitem>Spiel</guimenuitem> des Dialogs "
+"<guilabel>Einstellungen</guilabel> ermöglicht Ihnen die Aktivierung oder "
+"Deaktivierung von Klängen, während Sie <application>Iagno</application> "
+"spielen."
 
 #: C/iagno.xml:364(title)
 msgid "The Preferences menu with the Game tab highlighted."
@@ -569,7 +592,7 @@ msgstr "Bildschirmfoto des Einstellungsfensters"
 
 #: C/iagno.xml:382(title)
 msgid "Appearance"
-msgstr "Erscheinungsbild"
+msgstr "Erscheinungsbild-Einstellungen"
 
 #: C/iagno.xml:384(para)
 msgid ""
@@ -595,6 +618,12 @@ msgid ""
 "the tiles slowly. Selecting the <guibutton>complete </guibutton> option will "
 "cause the tiles to flip slowly and smoothly."
 msgstr ""
+"Diese Option beeinflusst mit Hilfe von Radio-Knöpfen den Grad der Animation "
+"beim Umdrehen von Jetons. Die Einstellung <guibutton>Keine</guibutton> "
+"bewirkt, dass die Jetons unmittelbar ohne Animation umgedreht werden. Die "
+"Einstellung <guibutton>Teilweise</guibutton> erzeugt eine langsame Animation "
+"beim Umdrehen. Die Einstellung <guibutton>Vollständig</guibutton> bewirkt, "
+"dass die Jetons langsam und weich umgedreht werden."
 
 #: C/iagno.xml:408(title)
 msgid "Stagger Flips"
@@ -606,6 +635,10 @@ msgid ""
 "one after another, like dominoes, instead of all flipping simultaneously. It "
 "has no effect on game play, but looks cool."
 msgstr ""
+"Diese Einstellung bewirkt, dass die Steine einer Zeile, Spalte oder Diagonale "
+"wie Dominosteine einer nach dem anderen umgedreht werden, anstatt sie "
+"gleichzeitig zu drehen. Dies hat keinen Einfluss auf den Spielverlauf, aber "
+"sieht cool aus."
 
 #: C/iagno.xml:419(title)
 msgid "Show Grid"
@@ -643,7 +676,7 @@ msgid ""
 "white tiles to the bottom of the board at the end of the game. This allows "
 "you to visually see the outcome of the game."
 msgstr ""
-"diese Option verschiebt am Ende des Spiels alle schwarzen Jetons an den "
+"Diese Option verschiebt am Ende des Spiels alle schwarzen Jetons an den "
 "oberen Spielfeldrand und alle weißen an den unteren, um das Spielergebnis "
 "optisch zu verdeutlichen."
 
@@ -794,6 +827,16 @@ msgid ""
 "you the number of available seats, which means the number of players that can "
 "join the game table."
 msgstr ""
+"Sobald Sie sich erfolgreich mit einem Server verbunden haben, können Sie "
+"wählen, welchen Raum Sie betreten wollen. Um Nibbles im Mehrspieler-Modus zu "
+"spielen, wählen sie einen Nibbles-Raum. Wenn Sie ein eigenes Spiel "
+"bereitstellen wollen, klicken Sie auf die Schaltfläche »Starten«. Dies "
+"erstellt einen neuen Spieltisch, an dem andere Spieler Platz nehmen können, "
+"um gegen Sie zu spielen. Falls einige andere Spiele bereits gestartet wurden, "
+"doppelklicken Sie auf eines der vorhandenen Spiele, um daran teilzunehmen. "
+"Die Liste der Spieltische rechts zeigt Ihnen die Anzahl der verfügbaren "
+"Plätze, das heißt die Anzahl der Spieler. die noch an diesem Spieltisch "
+"teilnehmen können."
 
 #: C/iagno.xml:73(title) C/iagno.xml:80(phrase)
 msgid ""
@@ -810,6 +853,10 @@ msgid ""
 "players for the game. Once the total number of seats have been taken, then no "
 "more players are allowed to join that game table."
 msgstr ""
+"Beim Erstellen eines neuen Spieltisches für Iagno wird ein Einstellungsdialog "
+"angezeigt, der Ihnen die Anpassung des Spiels ermöglicht, wie beispielsweise "
+"die Anzahl der Spielteilnehmer. Sobald die gesamten Plätze belegt sind, wird "
+"es keinen weiteren Spielern erlaubt, am Spieltisch Platz zu nehmen."
 
 #: C/iagno.xml:90(para)
 msgid ""
@@ -832,6 +879,11 @@ msgid ""
 "joined the game. The game will begin immediately when the total number of "
 "players in the the game have been reached."
 msgstr ""
+"Sobald Sie erfolgreich an einem Spieltisch Platz genommen haben, warten Sie "
+"bitte, bis genug Spieler ebenfalls Platz genommen haben. Der Menüeintrag "
+"<guimenuitem>Spielerliste</guimenuitem> ermöglicht Ihnen zu sehen, welche "
+"Spieler am Spiel teilnehmen wollen. Das Spiel beginnt sofort, wenn die "
+"Gesamtzahl der Spieler erreicht ist."
 
 #: C/iagno.xml:107(title)
 msgid "Playing multiplayer Iagno games"
@@ -942,4 +994,4 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #: C/iagno.xml:0(None)
 msgid "translator-credits"
-msgstr "Mario Blättermann <mario.blaettermann@t-online.de>, 2008"
+msgstr "Mario Blättermann <mariobl@gnome.org>, 2008"
