@@ -429,7 +429,7 @@ load_pixmaps (void)
 						  &tiles_pixmap,
 						  &tiles_mask, 127);
 
-  gdk_pixbuf_unref (image);
+  g_object_unref (image);
   g_free (fname);
 }
 
