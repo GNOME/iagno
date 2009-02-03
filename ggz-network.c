@@ -124,7 +124,7 @@ get_players (void)
 }
 
 int
-get_gameover ()
+get_gameover (void)
 {
   int winner;
 
