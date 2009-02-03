@@ -423,7 +423,7 @@ show_properties_dialog (void)
   gtk_table_set_col_spacings (GTK_TABLE (table), 18);
   gtk_box_pack_start (GTK_BOX (vbox), table, FALSE, FALSE, 0);
 
-  vbox2 = gtk_vbox_new (FALSE, 0);
+  vbox2 = gtk_vbox_new (FALSE, 6);
   gtk_box_pack_start (GTK_BOX (vbox), vbox2, FALSE, FALSE, 0);
 
   button = gtk_check_button_new_with_mnemonic (_("_Use quick moves"));
