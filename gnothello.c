@@ -682,17 +682,17 @@ check_computer_players (void)
     switch (black_computer_level) {
     case 1:
       black_computer_id =
-	g_timeout_add (computer_speed, (GSourceFunc) computer_move_1,
+	add_timeout (computer_speed, (GSourceFunc) computer_move_1,
 		       (gpointer) BLACK_TURN);
       break;
     case 2:
       black_computer_id =
-	g_timeout_add (computer_speed, (GSourceFunc) computer_move_2,
+	add_timeout (computer_speed, (GSourceFunc) computer_move_2,
 		       (gpointer) BLACK_TURN);
       break;
     case 3:
       black_computer_id =
-	g_timeout_add (computer_speed, (GSourceFunc) computer_move_3,
+	add_timeout (computer_speed, (GSourceFunc) computer_move_3,
 		       (gpointer) BLACK_TURN);
       break;
     }
@@ -701,22 +701,33 @@ check_computer_players (void)
     switch (white_computer_level) {
     case 1:
       white_computer_id =
-	g_timeout_add (computer_speed, (GSourceFunc) computer_move_1,
+	add_timeout (computer_speed, (GSourceFunc) computer_move_1,
 		       (gpointer) WHITE_TURN);
       break;
     case 2:
       white_computer_id =
-	g_timeout_add (computer_speed, (GSourceFunc) computer_move_2,
+	add_timeout (computer_speed, (GSourceFunc) computer_move_2,
 		       (gpointer) WHITE_TURN);
       break;
     case 3:
       white_computer_id =
-	g_timeout_add (computer_speed, (GSourceFunc) computer_move_3,
+	add_timeout (computer_speed, (GSourceFunc) computer_move_3,
 		       (gpointer) WHITE_TURN);
       break;
     }
 
   return TRUE;
+}
+
+guint
+add_timeout (guint time, GSourceFunc func, gpointer turn)
+{
+  if (time % 1000) {
+    return g_timeout_add (time, func, turn);
+  } else {
+    time = time / 1000;
+    return g_timeout_add_seconds (time, func, turn);
+  }
 }
 
 void

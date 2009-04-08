@@ -82,6 +82,7 @@ void create_window (void);
 void gui_status (void);
 void gui_message (gchar * message);
 guint check_computer_players (void);
+guint add_timeout (guint time, GSourceFunc func, gpointer turn);
 void load_pixmaps (void);
 void properties_cb (GtkWidget * widget, gpointer data);
 void set_bg_color (void);
