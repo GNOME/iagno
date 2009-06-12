@@ -197,7 +197,7 @@ msgid "Feedback"
 msgstr "Återkoppling"
 
 #: C/iagno.xml:153(para)
-msgid "To report a bug or make a suggestion regarding the <application>Iagno</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
+msgid "To report a bug or make a suggestion regarding the <application>Iagno</application> application or this manual, follow the directions in the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
 msgstr ""
 
 #: C/iagno.xml:164(primary)
@@ -496,8 +496,8 @@ msgid "Authors"
 msgstr "Upphovsmän"
 
 #: C/iagno.xml:516(para)
-msgid "<application>Iagno</application> was written by Ian Peters (<email>itp@gnu.org</email>). This manual was written by Eric Baudais (<email>baudais@okstate.edu</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
-msgstr "<application>Iagno</application> skrevs av Ian Peters (<email>itp@gnu.org</email>). Den här handboken skrevs av Eric Baudais (<email>baudais@okstate.edu</email>). För att rapportera ett fel eller föreslå någonting angående det här programmet eller den här handboken, följ anvisningarna i det här <ulink url=\"ghelp:gnome-feedback\" type=\"help\">dokumentet</ulink>."
+msgid "<application>Iagno</application> was written by Ian Peters (<email>itp@gnu.org</email>). This manual was written by Eric Baudais (<email>baudais@okstate.edu</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
+msgstr "<application>Iagno</application> skrevs av Ian Peters (<email>itp@gnu.org</email>). Den här handboken skrevs av Eric Baudais (<email>baudais@okstate.edu</email>). För att rapportera ett fel eller föreslå någonting angående det här programmet eller den här handboken, följ anvisningarna i det här <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">dokumentet</ulink>."
 
 #: C/iagno.xml:541(title)
 msgid "License"

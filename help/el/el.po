@@ -197,8 +197,8 @@ msgid "Feedback"
 msgstr "Ανάδραση"
 
 #: C/iagno.xml:153(para)
-msgid "To report a bug or make a suggestion regarding the <application>Iagno</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
-msgstr "Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με την εφαρμογή <application>Ιάγνος</application> ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες στη <ulink url=\"ghelp:gnome-feedback\" type=\"help\">Σελίδα ανάδρασης του GNOME</ulink>."
+msgid "To report a bug or make a suggestion regarding the <application>Iagno</application> application or this manual, follow the directions in the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+msgstr "Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με την εφαρμογή <application>Ιάγνος</application> ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες στη <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">Σελίδα ανάδρασης του GNOME</ulink>."
 
 #: C/iagno.xml:164(primary)
 msgid "Iagno"
@@ -493,8 +493,8 @@ msgid "Authors"
 msgstr "Συγγραφείς"
 
 #: C/iagno.xml:516(para)
-msgid "<application>Iagno</application> was written by Ian Peters (<email>itp@gnu.org</email>). This manual was written by Eric Baudais (<email>baudais@okstate.edu</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
-msgstr "Ο <application>Ιάγνος/application> γράφτηκε από τον by Ian Peters (<email>itp@gnu.org</email>). Αυτό το εγχειρίδιο γράφτηκε από τον Eric Baudais (<email>baudais@okstate.edu</email>). Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με αυτή την εφαρμογή η την τεκμηρίωση, ακολουθήστε τις οδηγίες σε αυτό το <ulink url=\"ghelp:gnome-feedback\" type=\"help\">έγγραφο</ulink>."
+msgid "<application>Iagno</application> was written by Ian Peters (<email>itp@gnu.org</email>). This manual was written by Eric Baudais (<email>baudais@okstate.edu</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
+msgstr "Ο <application>Ιάγνος/application> γράφτηκε από τον by Ian Peters (<email>itp@gnu.org</email>). Αυτό το εγχειρίδιο γράφτηκε από τον Eric Baudais (<email>baudais@okstate.edu</email>). Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με αυτή την εφαρμογή η την τεκμηρίωση, ακολουθήστε τις οδηγίες σε αυτό το <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">έγγραφο</ulink>."
 
 #: C/iagno.xml:541(title)
 msgid "License"
