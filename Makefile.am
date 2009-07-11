@@ -85,9 +85,11 @@ Gamesdir = $(datadir)/applications
 Games_in_files = iagno.desktop.in.in
 Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
 
-schemadir   = @GCONF_SCHEMA_FILE_DIR@
 schema_in_files = iagno.schemas.in
+if HAVE_GNOME
+schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+endif
 
 if GGZ_SERVER
 ggzroom_in_files = iagno.room.in
