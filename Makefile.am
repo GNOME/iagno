@@ -91,6 +91,8 @@ schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
 endif
 
+man_MANS = iagno.6
+
 if GGZ_SERVER
 ggzroom_in_files = iagno.room.in
 ggzroom_DATA = $(ggzroom_in_files:.room.in=.room)
@@ -111,7 +113,8 @@ EXTRA_DIST = \
 	iagno-server.dsc.in \
         iagno.room.in \
 	$(pixmap_DATA)	\
-	$(schema_in_files)
+	$(schema_in_files) \
+	$(man_MANS)
 
 CLEANFILES = \
 	$(ggzroom_DATA) \
