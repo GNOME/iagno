@@ -167,7 +167,7 @@ static void
 black_computer_level_select (GtkWidget * widget, gpointer data)
 {
   if ((GPOINTER_TO_INT (data) != t_black_computer_level)
-      && (GTK_TOGGLE_BUTTON (widget)->active)) {
+      && (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))) {
     t_black_computer_level = GPOINTER_TO_INT (data);
     apply_changes ();
   }
@@ -177,7 +177,7 @@ static void
 white_computer_level_select (GtkWidget * widget, gpointer data)
 {
   if ((GPOINTER_TO_INT (data) != t_white_computer_level)
-      && (GTK_TOGGLE_BUTTON (widget)->active)) {
+      && (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))) {
     t_white_computer_level = GPOINTER_TO_INT (data);
     apply_changes ();
   }
@@ -186,14 +186,14 @@ white_computer_level_select (GtkWidget * widget, gpointer data)
 static void
 sound_select (GtkWidget * widget, gpointer data)
 {
-  sound = GTK_TOGGLE_BUTTON (widget)->active;
+  sound = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
   apply_changes ();
 }
 
 static void
 quick_moves_select (GtkWidget * widget, gpointer data)
 {
-  if (GTK_TOGGLE_BUTTON (widget)->active)
+  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
     t_quick_moves = 1;
   else
     t_quick_moves = 0;
@@ -203,7 +203,7 @@ quick_moves_select (GtkWidget * widget, gpointer data)
 static void
 flip_final_select (GtkWidget * widget, gpointer data)
 {
-  if (GTK_TOGGLE_BUTTON (widget)->active)
+  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
     t_flip_final = 1;
   else
     t_flip_final = 0;
@@ -213,7 +213,7 @@ flip_final_select (GtkWidget * widget, gpointer data)
 static void
 animate_stagger_select (GtkWidget * widget, gpointer data)
 {
-  if (GTK_TOGGLE_BUTTON (widget)->active)
+  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
     t_animate_stagger = 1;
   else
     t_animate_stagger = 0;
@@ -223,7 +223,7 @@ animate_stagger_select (GtkWidget * widget, gpointer data)
 static void
 grid_select (GtkWidget * widget, gpointer data)
 {
-  if (GTK_TOGGLE_BUTTON (widget)->active)
+  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
     t_grid = 1;
   else
     t_grid = 0;
@@ -233,7 +233,7 @@ grid_select (GtkWidget * widget, gpointer data)
 static void
 animate_select (GtkWidget * widget, gpointer data)
 {
-  if (GTK_TOGGLE_BUTTON (widget)->active) {
+  if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
     t_animate = GPOINTER_TO_INT (data);
   }
   apply_changes ();
@@ -407,11 +407,14 @@ show_properties_dialog (void)
 
   gtk_dialog_set_has_separator (GTK_DIALOG (propbox), FALSE);
   gtk_container_set_border_width (GTK_CONTAINER (propbox), 5);
-  gtk_box_set_spacing (GTK_BOX (GTK_DIALOG (propbox)->vbox), 2);
+  gtk_box_set_spacing
+    (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (propbox))), 2);
   gtk_window_set_resizable (GTK_WINDOW (propbox), FALSE);
   notebook = gtk_notebook_new ();
   gtk_container_set_border_width (GTK_CONTAINER (notebook), 5);
-  gtk_container_add (GTK_CONTAINER (GTK_DIALOG (propbox)->vbox), notebook);
+  gtk_container_add
+    (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (propbox))),
+     notebook);
 
   label = gtk_label_new (_("Game"));
 

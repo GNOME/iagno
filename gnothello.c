@@ -283,8 +283,8 @@ properties_cb (GtkWidget * widget, gpointer data)
 gint
 expose_event (GtkWidget * widget, GdkEventExpose * event)
 {
-  gdk_draw_drawable (widget->window,
-		     widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
+  gdk_draw_drawable (gtk_widget_get_window (widget),
+		     gtk_widget_get_style (widget)->fg_gc[gtk_widget_get_state (widget)],
 		     buffer_pixmap,
 		     event->area.x, event->area.y,
 		     event->area.x, event->area.y,
@@ -354,7 +354,7 @@ button_press_event (GtkWidget * widget, GdkEventButton * event)
 void
 gui_draw_pixmap (gint which, gint x, gint y)
 {
-  gdk_draw_drawable (drawing_area->window, gridGC[0], tiles_pixmap,
+  gdk_draw_drawable (gtk_widget_get_window (drawing_area), gridGC[0], tiles_pixmap,
 		     (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT,
 		     x * (TILEWIDTH + GRIDWIDTH),
 		     y * (TILEHEIGHT + GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
@@ -387,8 +387,8 @@ gui_draw_grid (void)
 		   BOARDWIDTH, i * BOARDHEIGHT / 8 - 1);
   }
 
-  gdk_draw_drawable (drawing_area->window, gridGC[0], buffer_pixmap,
-		     0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
+  gdk_draw_drawable (gtk_widget_get_window (drawing_area), gridGC[0],
+		     buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
 }
 
 void
@@ -737,17 +737,17 @@ set_bg_color (void)
 
   tmpimage = gdk_drawable_get_image (tiles_pixmap, 0, 0, 1, 1);
   bgcolor.pixel = gdk_image_get_pixel (tmpimage, 0, 0);
-  gdk_window_set_background (drawing_area->window, &bgcolor);
+  gdk_window_set_background (gtk_widget_get_window (drawing_area), &bgcolor);
 
   if (gridGC[0])
     g_object_unref (gridGC[0]);
-  gridGC[0] = gdk_gc_new (drawing_area->window);
+  gridGC[0] = gdk_gc_new (gtk_widget_get_window (drawing_area));
   if (gridGC[1])
     g_object_unref (gridGC[1]);
-  gridGC[1] = gdk_gc_new (drawing_area->window);
+  gridGC[1] = gdk_gc_new (gtk_widget_get_window (drawing_area));
 
-  gdk_gc_copy (gridGC[0], drawing_area->style->bg_gc[0]);
-  gdk_gc_copy (gridGC[1], drawing_area->style->bg_gc[0]);
+  gdk_gc_copy (gridGC[0], gtk_widget_get_style (drawing_area)->bg_gc[0]);
+  gdk_gc_copy (gridGC[1], gtk_widget_get_style (drawing_area)->bg_gc[0]);
 
   gdk_gc_set_background (gridGC[0], &bgcolor);
   gdk_gc_set_foreground (gridGC[0], &bgcolor);
@@ -774,7 +774,7 @@ save_state_cb (EggSMClient *client,
   gint argc;
   gint xpos, ypos;
 
-  gdk_window_get_origin (window->window, &xpos, &ypos);
+  gdk_window_get_origin (gtk_widget_get_window (window), &xpos, &ypos);
 
   argc = 0;
   argv[argc++] = g_get_prgname ();
@@ -1029,7 +1029,7 @@ main (int argc, char **argv)
   create_window ();
 
   gtk_widget_show (window);
-  buffer_pixmap = gdk_pixmap_new (drawing_area->window,
+  buffer_pixmap = gdk_pixmap_new (gtk_widget_get_window (drawing_area),
 				  BOARDWIDTH, BOARDHEIGHT, -1);
 
   load_properties ();
@@ -1041,7 +1041,7 @@ main (int argc, char **argv)
 #endif /* GGZ_CLIENT */
 
   if (session_xpos >= 0 && session_ypos >= 0) {
-    gdk_window_move (window->window, session_xpos, session_ypos);
+    gdk_window_move (gtk_widget_get_window (window), session_xpos, session_ypos);
   }
 
   set_bg_color ();
