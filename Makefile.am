@@ -81,3 +81,5 @@ endif
 @INTLTOOL_DESKTOP_RULE@
 @INTLTOOL_SCHEMAS_RULE@
 @INTLTOOL_SOUNDLIST_RULE@
+
+-include $(top_srcdir)/git.mk
