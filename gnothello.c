@@ -90,6 +90,10 @@ gint64 milliseconds_current_start = 0;
 
 guint game_in_progress;
 
+guint tile_width = 80, tile_height = 80;
+guint board_width = 648, board_height = 648;
+#define GRIDWIDTH 1
+
 gint8 pixmaps[8][8] = { {0, 0, 0, 0, 0, 0, 0, 0}
 ,
 {0, 0, 0, 0, 0, 0, 0, 0}
@@ -280,7 +284,7 @@ properties_cb (GtkWidget * widget, gpointer data)
   show_properties_dialog ();
 }
 
-gint
+gboolean
 expose_event (GtkWidget * widget, GdkEventExpose * event)
 {
   gdk_draw_drawable (gtk_widget_get_window (widget),
@@ -300,7 +304,7 @@ configure_event (GtkWidget * widget, GdkEventConfigure * event)
   guint i, j;
 
   if (old_width == event->width && old_height == event->height) {
-    return TRUE;
+    return FALSE;
   } else {
     old_width = event->width;
     old_height = event->height;
@@ -308,14 +312,14 @@ configure_event (GtkWidget * widget, GdkEventConfigure * event)
 
   if (gridGC[0] != 0) {
     gdk_draw_rectangle (buffer_pixmap, gridGC[0], 1,
-			0, 0, BOARDWIDTH, BOARDHEIGHT);
+			0, 0, board_width, board_height);
     for (i = 0; i < 8; i++)
       for (j = 0; j < 8; j++)
 	gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
     gui_draw_grid ();
   }
 
-  return TRUE;
+  return FALSE;
 }
 
 gint
@@ -333,8 +337,8 @@ button_press_event (GtkWidget * widget, GdkEventButton * event)
     return TRUE;
 
   if (event->button == 1) {
-    x = event->x / (TILEWIDTH + GRIDWIDTH);
-    y = event->y / (TILEHEIGHT + GRIDWIDTH);
+    x = event->x / (tile_width + GRIDWIDTH);
+    y = event->y / (tile_height + GRIDWIDTH);
     if (ggz_network_mode && player_id == whose_turn
 	&& is_valid_move (x, y, whose_turn)) {
 #ifdef GGZ_CLIENT
@@ -355,22 +359,22 @@ void
 gui_draw_pixmap (gint which, gint x, gint y)
 {
   gdk_draw_drawable (gtk_widget_get_window (drawing_area), gridGC[0], tiles_pixmap,
-		     (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT,
-		     x * (TILEWIDTH + GRIDWIDTH),
-		     y * (TILEHEIGHT + GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+		     (which % 8) * tile_width, (which / 8) * tile_height,
+		     x * (tile_width + GRIDWIDTH),
+		     y * (tile_height + GRIDWIDTH), tile_width, tile_height);
   gdk_draw_drawable (buffer_pixmap, gridGC[0], tiles_pixmap,
-		     (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT,
-		     x * (TILEWIDTH + GRIDWIDTH),
-		     y * (TILEHEIGHT + GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+		     (which % 8) * tile_width, (which / 8) * tile_height,
+		     x * (tile_width + GRIDWIDTH),
+		     y * (tile_height + GRIDWIDTH), tile_width, tile_height);
 }
 
 void
 gui_draw_pixmap_buffer (gint which, gint x, gint y)
 {
   gdk_draw_drawable (buffer_pixmap, gridGC[0], tiles_pixmap,
-		     (which % 8) * TILEWIDTH, (which / 8) * TILEHEIGHT,
-		     x * (TILEWIDTH + GRIDWIDTH),
-		     y * (TILEHEIGHT + GRIDWIDTH), TILEWIDTH, TILEHEIGHT);
+		     (which % 8) * tile_width, (which / 8) * tile_height,
+		     x * (tile_width + GRIDWIDTH),
+		     y * (tile_height + GRIDWIDTH), tile_width, tile_height);
 }
 
 void
@@ -380,15 +384,15 @@ gui_draw_grid (void)
 
   for (i = 1; i < 8; i++) {
     gdk_draw_line (buffer_pixmap, gridGC[grid],
-		   i * BOARDWIDTH / 8 - 1, 0,
-		   i * BOARDWIDTH / 8 - 1, BOARDHEIGHT);
+		   i * board_width / 8 - 1, 0,
+		   i * board_width / 8 - 1, board_height);
     gdk_draw_line (buffer_pixmap, gridGC[grid],
-		   0, i * BOARDHEIGHT / 8 - 1,
-		   BOARDWIDTH, i * BOARDHEIGHT / 8 - 1);
+		   0, i * board_height / 8 - 1,
+		   board_width, i * board_height / 8 - 1);
   }
 
   gdk_draw_drawable (gtk_widget_get_window (drawing_area), gridGC[0],
-		     buffer_pixmap, 0, 0, 0, 0, BOARDWIDTH, BOARDHEIGHT);
+		     buffer_pixmap, 0, 0, 0, 0, board_width, board_height);
 }
 
 void
@@ -422,6 +426,18 @@ load_pixmaps (void)
     g_error_free (error);
     error = NULL;
   }
+
+  tile_width = gdk_pixbuf_get_width (image) / 8;
+  tile_height = gdk_pixbuf_get_height (image) / 4;
+  board_width = (tile_width+GRIDWIDTH) * 8;
+  board_height = (tile_height+GRIDWIDTH) * 8;
+  if (buffer_pixmap)
+    g_object_unref (buffer_pixmap);
+  gtk_widget_realize (drawing_area);
+  buffer_pixmap = gdk_pixmap_new (gtk_widget_get_window (drawing_area),
+                                  board_width, board_height, -1);
+  gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
+			       board_width, board_height);
 
   gdk_pixbuf_render_pixmap_and_mask_for_colormap (image,
 						  gdk_colormap_get_system (),
@@ -734,7 +750,7 @@ set_bg_color (void)
 {
   GdkImage *tmpimage;
   GdkColor bgcolor;
-
+    
   tmpimage = gdk_drawable_get_image (tiles_pixmap, 0, 0, 1, 1);
   bgcolor.pixel = gdk_image_get_pixel (tmpimage, 0, 0);
   gdk_window_set_background (gtk_widget_get_window (drawing_area), &bgcolor);
@@ -922,9 +938,6 @@ create_window (void)
   gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), MAIN_PAGE);
   gtk_box_pack_start (GTK_BOX (vbox), notebook, FALSE, FALSE, 0);
 
-  gtk_widget_set_size_request (GTK_WIDGET (drawing_area),
-			       BOARDWIDTH, BOARDHEIGHT);
-
   g_signal_connect (G_OBJECT (drawing_area), "expose_event",
 		    G_CALLBACK (expose_event), NULL);
   g_signal_connect (G_OBJECT (window), "configure_event",
@@ -1028,13 +1041,11 @@ main (int argc, char **argv)
 
   create_window ();
 
-  gtk_widget_show (window);
-  buffer_pixmap = gdk_pixmap_new (gtk_widget_get_window (drawing_area),
-				  BOARDWIDTH, BOARDHEIGHT, -1);
-
   load_properties ();
 
   load_pixmaps ();
+
+  gtk_widget_show (window);
 
 #ifdef GGZ_CLIENT
   network_init ();

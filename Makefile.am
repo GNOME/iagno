@@ -48,7 +48,8 @@ endif
 pixmapdir = $(pkgdatadir)/iagno/pixmaps
 pixmap_DATA = \
 	classic.png \
-	woodtrim.png
+	woodtrim.png \
+	small.png
 
 Gamesdir = $(datadir)/applications
 Games_in_files = iagno.desktop.in.in

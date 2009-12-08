@@ -30,12 +30,6 @@
 
 #define OTHER_PLAYER(w) (((w) == WHITE_TURN) ? BLACK_TURN : WHITE_TURN)
 
-#define TILEWIDTH   80
-#define TILEHEIGHT  80
-#define GRIDWIDTH   1
-#define BOARDWIDTH  ((TILEWIDTH+GRIDWIDTH)  * 8)
-#define BOARDHEIGHT ((TILEHEIGHT+GRIDWIDTH) * 8)
-
 #define MAIN_PAGE           	0
 #define NETWORK_PAGE           	1
 
