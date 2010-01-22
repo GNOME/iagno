@@ -1,6 +1,6 @@
 include $(top_srcdir)/gnome-doc-utils.make
 
-DOC_LINGUAS = ca cs de el en_GB es eu fr it oc pt_BR sr sv
+DOC_LINGUAS = ca cs de el en_GB es eu fr it oc pt_BR sr sr@latin sv
 
 DOC_MODULE = iagno
 
