@@ -68,8 +68,9 @@ GtkAction *leave_network_action;
 GtkAction *player_list_action;
 GtkAction *undo_action;
 
-cairo_surface_t *buffer_surface = NULL;
-cairo_surface_t *tiles_surface = NULL;
+cairo_surface_t *buffer_surface     = NULL;
+cairo_surface_t *tiles_surface      = NULL;
+cairo_surface_t *background_surface = NULL;
 
 static gint flip_pixmaps_id = 0;
 static gint flip_animation_speed = PIXMAP_FLIP_DELAY;
@@ -81,7 +82,6 @@ guint white_computer_id = 0;
 guint computer_speed = COMPUTER_MOVE_DELAY;
 gint animate;
 gint animate_stagger;
-gint grid = 0;
 guint tiles_to_flip = 0;
 
 gint64 milliseconds_total = 0;
@@ -92,6 +92,7 @@ guint game_in_progress;
 guint tile_width = 80, tile_height = 80;
 guint board_width = 648, board_height = 648;
 #define GRIDWIDTH 1
+double dash[1] = {4.0};
 
 gint8 pixmaps[8][8] = { {0, 0, 0, 0, 0, 0, 0, 0}
 ,
@@ -293,7 +294,6 @@ gboolean
 configure_event (GtkWidget * widget, GdkEventConfigure * event)
 {
   static int old_width = 0, old_height = 0;
-  guint i, j;
 
   if (old_width == event->width && old_height == event->height) {
     return FALSE;
@@ -302,11 +302,7 @@ configure_event (GtkWidget * widget, GdkEventConfigure * event)
     old_height = event->height;
   }
 
-  for (i = 0; i < 8; i++)
-    for (j = 0; j < 8; j++)
-      gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
-  gui_draw_grid ();
-
+  gui_draw_board ();
   return FALSE;
 }
 
@@ -343,54 +339,93 @@ button_press_event (GtkWidget * widget, GdkEventButton * event)
   return TRUE;
 }
 
+static void
+gui_fill_background(cairo_t *cr)
+{
+  cairo_pattern_t *p = cairo_pattern_create_for_surface(background_surface);
+  cairo_pattern_set_extend(p, CAIRO_EXTEND_REPEAT);
+  cairo_set_source(cr, p);
+  cairo_move_to(cr, 0, 0);
+  cairo_line_to (cr, 0, board_height);
+  cairo_line_to (cr, board_width, board_height);
+  cairo_line_to (cr, board_width, 0);
+  cairo_line_to (cr, 0, 0);
+  cairo_fill(cr);
+}
+
+static void
+gui_draw_pixmap_buffer (cairo_t *cr, gint which, gint x, gint y)
+{
+  int tile_surface_x = x * (tile_width + GRIDWIDTH) - (which % 8) * tile_width;
+  int tile_surface_y = y * (tile_height + GRIDWIDTH) - (which / 8) * tile_height;
+
+  cairo_set_source_surface (cr, tiles_surface, tile_surface_x, tile_surface_y);
+  cairo_rectangle (cr, x * (tile_width + GRIDWIDTH), y * (tile_height + GRIDWIDTH), tile_width, tile_height);
+  cairo_fill (cr);
+}
+
+static void
+gui_draw_grid (cairo_t *cr)
+{
+  int i;
+  if (!show_grid)
+    return;
+
+  cairo_set_source_rgb(cr, 1.0, 1.0, 1.0);
+  cairo_set_operator(cr, CAIRO_OPERATOR_DIFFERENCE);
+  cairo_set_dash(cr, dash, 1, 2.5);
+  cairo_set_line_width(cr, GRIDWIDTH);
+  for (i = 1; i < 8; i++) {
+    cairo_move_to (cr, i * board_width / 8 - 0.5, 0);
+    cairo_line_to (cr, i * board_width / 8 - 0.5, board_height);
+
+    cairo_move_to (cr, 0, i * board_height / 8 - 0.5);
+    cairo_line_to (cr, board_width, i * board_height / 8 - 0.5);
+  }
+  cairo_stroke(cr);
+}
+
 void
 gui_draw_pixmap (gint which, gint x, gint y)
 {
+  cairo_t *cr;
   GdkRectangle rect;
+
+  cr = cairo_create (buffer_surface);
+  gui_draw_pixmap_buffer (cr, which, x, y);
+  cairo_destroy (cr);
 
   rect.x = x * (tile_width + GRIDWIDTH);
   rect.y = y * (tile_height + GRIDWIDTH);
   rect.width = tile_width;
   rect.height = tile_height;
-
-  gui_draw_pixmap_buffer (which, x, y);
   gdk_window_invalidate_rect (gtk_widget_get_window (drawing_area), &rect, FALSE);
 }
 
 void
-gui_draw_pixmap_buffer (gint which, gint x, gint y)
-{
+gui_draw_board() {
   cairo_t *cr;
-
-  int tile_surface_x = x * (tile_width + GRIDWIDTH) - (which % 8) * tile_width;
-  int tile_surface_y = y * (tile_height + GRIDWIDTH) - (which / 8) * tile_height;
+  guint i, j;
+  GdkRectangle rect;
 
   cr = cairo_create (buffer_surface);
-  cairo_set_source_surface (cr, tiles_surface, tile_surface_x, tile_surface_y);
-  cairo_rectangle (cr, x * (tile_width + GRIDWIDTH), y * (tile_height + GRIDWIDTH), tile_width, tile_height);
-  cairo_fill (cr);
+  gui_fill_background(cr);
 
-  cairo_destroy (cr);
-}
+  for (i = 0; i < 8; i++)
+    for (j = 0; j < 8; j++)
+      if (pixmaps[i][j] >= BLACK_TURN && pixmaps[i][j] <= WHITE_TURN)
+        gui_draw_pixmap_buffer (cr, pixmaps[i][j], i, j);
+      else
+        gui_draw_pixmap_buffer (cr, 0, i, j);
 
-void
-gui_draw_grid (void)
-{
-  int i;
-  cairo_t *cr;
-
-  cr = cairo_create (buffer_surface);
-  for (i = 1; i < 8; i++) {
-    cairo_move_to (cr, i * board_width / 8 - 1, 0);
-    cairo_line_to (cr, i * board_width / 8 - 1, board_height);
-
-    cairo_move_to (cr, 0, i * board_height / 8 - 1);
-    cairo_line_to (cr, board_width, i * board_height / 8 - 1);
-  }
-
+  gui_draw_grid(cr);
   cairo_destroy (cr);
 
-  gdk_window_invalidate_rect (gtk_widget_get_window (drawing_area), NULL, FALSE);
+  rect.x = 0;
+  rect.y = 0;
+  rect.width = board_width;
+  rect.height = board_height;
+  gdk_window_invalidate_rect (gtk_widget_get_window (drawing_area), &rect, FALSE);
 }
 
 void
@@ -401,6 +436,7 @@ load_pixmaps (void)
   gchar *fname;
   const char *dname;
   cairo_t *cr;
+  int dash_count;
 
   g_return_if_fail (tile_set != NULL && tile_set[0] != '0');
 
@@ -428,6 +464,14 @@ load_pixmaps (void)
 
   tile_width = gdk_pixbuf_get_width (image) / 8;
   tile_height = gdk_pixbuf_get_height (image) / 4;
+
+  /* Make sure the dash width evenly subdivides the tile height, and is at least 4 pixels long.
+   * This makes the dash crossings always cross in the same place, which looks nicer. */
+  dash_count = (tile_height + GRIDWIDTH)/4;
+  if (dash_count%2 != 0)
+    dash_count--;
+  dash[0] = ((double)(tile_height + GRIDWIDTH))/dash_count;
+
   board_width = (tile_width+GRIDWIDTH) * 8;
   board_height = (tile_height+GRIDWIDTH) * 8;
   if (buffer_surface)
@@ -446,12 +490,21 @@ load_pixmaps (void)
                                                      CAIRO_CONTENT_COLOR_ALPHA,
                                                      gdk_pixbuf_get_width (image),
                                                      gdk_pixbuf_get_height (image));
-
   cr = cairo_create (tiles_surface);
   gdk_cairo_set_source_pixbuf (cr, image, 0, 0);
   cairo_paint (cr);
-
   cairo_destroy (cr);
+
+  if (background_surface)
+    cairo_surface_destroy (background_surface);
+  background_surface = gdk_window_create_similar_surface (gtk_widget_get_window (drawing_area),
+                                                     CAIRO_CONTENT_COLOR_ALPHA,
+                                                     1, 1);
+  cr = cairo_create (background_surface);
+  gdk_cairo_set_source_pixbuf (cr, image, 0, 0);
+  cairo_paint (cr);
+  cairo_destroy (cr);
+
   g_object_unref (image);
   g_free (fname);
 }
@@ -563,15 +616,8 @@ flip_pixmaps (gpointer data)
 static void
 redraw_board (void)
 {
-  guint i, j;
-
   gui_status ();
-
-  for (i = 0; i < 8; i++)
-    for (j = 0; j < 8; j++)
-      gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
-
-  gui_draw_grid ();
+  gui_draw_board();
 }
 
 void
@@ -751,11 +797,6 @@ add_timeout (guint time, GSourceFunc func, gpointer turn)
     time = time / 1000;
     return g_timeout_add_seconds (time, func, turn);
   }
-}
-
-void
-set_bg_color (void)
-{
 }
 
 #ifdef WITH_SMCLIENT
@@ -1029,8 +1070,6 @@ main (int argc, char **argv)
   if (session_xpos >= 0 && session_ypos >= 0) {
     gdk_window_move (gtk_widget_get_window (window), session_xpos, session_ypos);
   }
-
-  set_bg_color ();
 
   init_new_game ();
 

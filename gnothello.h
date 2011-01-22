@@ -65,7 +65,7 @@ gboolean draw_event (GtkWidget * widget, cairo_t * cr);
 gint configure_event (GtkWidget * widget, GdkEventConfigure * event);
 gint button_press_event (GtkWidget * widget, GdkEventButton * event);
 void gui_draw_pixmap (gint which, gint x, gint y);
-void gui_draw_pixmap_buffer (gint which, gint x, gint y);
+void gui_draw_board (void);
 void set_animation_speed (gint speed);
 void start_animation (void);
 void stop_animation (void);
@@ -79,7 +79,5 @@ guint check_computer_players (void);
 guint add_timeout (guint time, GSourceFunc func, gpointer turn);
 void load_pixmaps (void);
 void properties_cb (GtkWidget * widget, gpointer data);
-void set_bg_color (void);
-void gui_draw_grid (void);
 
 #endif

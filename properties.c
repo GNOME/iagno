@@ -62,7 +62,7 @@ extern gint8 pixmaps[8][8];
 extern gint animate;
 extern gint animate_stagger;
 extern gint flip_final;
-extern gint grid;
+gint show_grid;
 gint sound;
 
 guint t_black_computer_level;
@@ -120,7 +120,7 @@ load_properties (void)
   sound = games_conf_get_boolean (NULL, KEY_SOUND, NULL);
   games_sound_enable (sound);
 
-  grid = games_conf_get_boolean (NULL, KEY_SHOW_GRID, NULL);
+  show_grid = games_conf_get_boolean (NULL, KEY_SHOW_GRID, NULL);
 
   flip_final = games_conf_get_boolean (NULL, KEY_FLIP_FINAL_RESULTS, NULL);
 
@@ -159,7 +159,7 @@ reset_properties (void)
 
   t_animate = animate;
   t_animate_stagger = animate_stagger;
-  t_grid = grid;
+  t_grid = show_grid;
   t_flip_final = flip_final;
 }
 
@@ -252,7 +252,7 @@ save_properties (void)
   games_conf_set_integer (NULL, KEY_ANIMATE, animate);
 
   games_conf_set_boolean (NULL, KEY_ANIMATE_STAGGER, animate_stagger);
-  games_conf_set_boolean (NULL, KEY_SHOW_GRID, grid);
+  games_conf_set_boolean (NULL, KEY_SHOW_GRID, show_grid);
   games_conf_set_boolean (NULL, KEY_FLIP_FINAL_RESULTS, flip_final);
   games_conf_set_boolean (NULL, KEY_SOUND, sound);
 }
@@ -260,7 +260,7 @@ save_properties (void)
 static void
 apply_changes (void)
 {
-  guint i, j;
+  guint redraw = 0;
 
   black_computer_level = t_black_computer_level;
   white_computer_level = t_white_computer_level;
@@ -283,15 +283,7 @@ apply_changes (void)
   if (strcmp (tile_set, tile_set_tmp)) {
     g_free (tile_set);
     tile_set = g_strdup (tile_set_tmp);
-    load_pixmaps ();
-    set_bg_color ();
-    for (i = 0; i < 8; i++)
-      for (j = 0; j < 8; j++)
-	if (pixmaps[i][j] >= BLACK_TURN && pixmaps[i][j] <= WHITE_TURN)
-	  gui_draw_pixmap_buffer (pixmaps[i][j], i, j);
-	else
-	  gui_draw_pixmap_buffer (0, i, j);
-    gui_draw_grid ();
+    redraw = 1;
   }
 
   animate = t_animate;
@@ -313,9 +305,14 @@ apply_changes (void)
 
   flip_final = t_flip_final;
 
-  if (grid != t_grid) {
-    grid = t_grid;
-    gui_draw_grid ();
+  if (show_grid != t_grid) {
+    show_grid = t_grid;
+    redraw = 1;
+  }
+
+  if (redraw) {
+    load_pixmaps ();
+    gui_draw_board ();
   }
 
   games_sound_enable (sound);
