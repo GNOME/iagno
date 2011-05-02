@@ -18,7 +18,7 @@
         <applyto>/apps/iagno/white_level</applyto>
         <owner>iagno</owner>
         <type>int</type>
-        <default>2</default>
+        <default>1</default>
         <locale name="C">
           <short></short>
           <long></long>
