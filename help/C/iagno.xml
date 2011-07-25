@@ -186,11 +186,6 @@
   </para>
 
   <para>
-    &appname; also features <link linkend="network-games">multiplayer</link> support with two 
-    human players in hotseat or network mode.
-  </para>
-
-  <para>
    To run <application>Iagno</application>, select
    <guimenuitem>Iagno</guimenuitem> from the
    <guisubmenu>Games</guisubmenu> submenu of the <guimenu>Main
