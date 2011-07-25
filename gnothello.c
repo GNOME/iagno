@@ -40,13 +40,6 @@
 #include <libgames-support/eggsmclient.h>
 #endif /* WITH_SMCLIENT */
 
-#ifdef GGZ_CLIENT
-#include <libgames-support/games-dlg-chat.h>
-#include <libgames-support/games-dlg-players.h>
-#include "ggz-network.h"
-#include <ggz-embed.h>
-#endif /* WITH GGZ_CLIENT */
-
 #include "gnothello.h"
 #include "othello.h"
 #include "properties.h"
@@ -64,9 +57,6 @@ GtkWidget *black_score;
 GtkWidget *white_score;
 
 GtkAction *new_game_action;
-GtkAction *new_network_action;
-GtkAction *leave_network_action;
-GtkAction *player_list_action;
 GtkAction *undo_action;
 
 cairo_surface_t *buffer_surface     = NULL;
@@ -171,45 +161,9 @@ new_game_cb (GtkWidget * widget, gpointer data)
 }
 
 void
-on_player_list (void)
-{
-#ifdef GGZ_CLIENT
-  create_or_raise_dlg_players (GTK_WINDOW (window));
-#endif /* GGZ_CLIENT */
-}
-
-void
-on_chat_window (void)
-{
-#ifdef GGZ_CLIENT
-  create_or_raise_dlg_chat (GTK_WINDOW (window));
-#endif /* GGZ_CLIENT */
-}
-
-void
-new_network_game_cb (GtkWidget * widget, gpointer data)
-{
-#ifdef GGZ_CLIENT
-  on_network_game ();
-  gtk_action_set_sensitive (new_network_action, TRUE);
-  gtk_action_set_sensitive (leave_network_action, TRUE);
-  gtk_action_set_sensitive (player_list_action, TRUE);
-#endif /* GGZ_CLIENT */
-}
-
-void
-on_network_leave (GObject * object, gpointer data)
-{
-#ifdef GGZ_CLIENT
-  ggz_embed_leave_table ();
-  gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), NETWORK_PAGE);
-#endif /* GGZ_CLIENT */
-}
-
-void
 undo_move_cb (GtkWidget * widget, gpointer data)
 {
-  gint8 which_computer, xy;
+  gint8 xy;
 
   if ((black_computer_level && white_computer_level) || move_count == 4)
     return;
@@ -231,7 +185,6 @@ undo_move_cb (GtkWidget * widget, gpointer data)
 
   game_in_progress = 1;
 
-  which_computer = OTHER_PLAYER (whose_turn);
   undo ();
   board_copy ();
   xy = squares[move_count];
@@ -315,21 +268,16 @@ button_press_event (GtkWidget * widget, GdkEventButton * event)
   if (game_in_progress == 0)
     return TRUE;
 
-  if (!ggz_network_mode && (whose_turn == WHITE_TURN) && white_computer_level)
+  if ((whose_turn == WHITE_TURN) && white_computer_level)
     return TRUE;
 
-  if (!ggz_network_mode && (whose_turn == BLACK_TURN) && black_computer_level)
+  if ((whose_turn == BLACK_TURN) && black_computer_level)
     return TRUE;
 
   if (event->button == 1) {
     x = event->x / (tile_width + GRIDWIDTH);
     y = event->y / (tile_height + GRIDWIDTH);
-    if (ggz_network_mode && player_id == whose_turn
-	&& is_valid_move (x, y, whose_turn)) {
-#ifdef GGZ_CLIENT
-      send_my_move (CART (x + 1, y + 1), whose_turn);
-#endif /* GGZ_CLIENT */
-    } else if (!ggz_network_mode && is_valid_move (x, y, whose_turn)) {
+    if (is_valid_move (x, y, whose_turn)) {
       move (x, y, whose_turn);
     } else {
       gui_message (_("Invalid move."));
@@ -692,44 +640,16 @@ gui_status (void)
   gtk_label_set_text (GTK_LABEL (black_score), message);
   sprintf (message, _("%.2d"), wcount);
   gtk_label_set_text (GTK_LABEL (white_score), message);
-  undo_set_sensitive (move_count > 0);
+  undo_set_sensitive (move_count > 4);
 
-  if (ggz_network_mode) {
-    gtk_action_set_sensitive(new_game_action, FALSE);
-    gtk_action_set_sensitive(new_network_action, FALSE);
-    gtk_action_set_sensitive(leave_network_action, FALSE);
-    gtk_action_set_sensitive(player_list_action, FALSE);
-  } else {
-    gtk_action_set_sensitive(new_game_action, TRUE);
-    gtk_action_set_sensitive(new_network_action, TRUE);
-    gtk_action_set_sensitive(leave_network_action, TRUE);
-    gtk_action_set_sensitive(player_list_action, TRUE);
+  gtk_action_set_sensitive(new_game_action, TRUE);
+
+  if (whose_turn == BLACK_TURN) {
+    gui_message (_("Dark's move"));
+  } else if (whose_turn == WHITE_TURN) {
+    gui_message (_("Light's move"));
   }
 
-#ifndef GGZ_CLIENT
-    gtk_action_set_sensitive(new_network_action, FALSE);
-#endif /* GGZ_CLIENT */
-
-  if (ggz_network_mode) {
-    if (whose_turn == player_id && whose_turn == BLACK_TURN) {
-      gui_message (_("It is your turn to place a dark piece"));
-    } else if (whose_turn == player_id && whose_turn == WHITE_TURN) {
-      gui_message (_("It is your turn to place a light piece"));
-    } else {
-      gchar *str;
-      str = g_strdup_printf (_("Waiting for %s to move"),
-			     names[(seat + 1) % 2]);
-      gui_message (str);
-      g_free (str);
-    }
-  } else {
-    if (whose_turn == BLACK_TURN) {
-      gui_message (_("Dark's move"));
-    } else if (whose_turn == WHITE_TURN) {
-      gui_message (_("Light's move"));
-    }
-
-  }
 }
 
 void
@@ -743,11 +663,6 @@ guint
 check_computer_players (void)
 {
 
-  if (ggz_network_mode) {
-    black_computer_id = 0;
-    white_computer_id = 0;
-    return TRUE;
-  }
   if (black_computer_level && whose_turn == BLACK_TURN)
     switch (black_computer_level) {
     case 1:
@@ -850,16 +765,6 @@ static const GtkActionEntry actions[] = {
   {"HelpMenu", NULL, N_("_Help")},
   {"NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL, 
    G_CALLBACK (new_game_cb)},
-#ifdef GGZ_CLIENT
-  {"NewNetworkGame", GAMES_STOCK_NETWORK_GAME, NULL, NULL, NULL,
-   G_CALLBACK (new_network_game_cb)},
-#else
-  {"NewNetworkGame", GAMES_STOCK_NETWORK_GAME, NULL, NULL, NULL, NULL},
-#endif
-  {"LeaveNetworkGame", GAMES_STOCK_NETWORK_LEAVE, NULL, NULL, NULL,
-   G_CALLBACK (on_network_leave)},
-  {"PlayerList", GAMES_STOCK_PLAYER_LIST, NULL, NULL, NULL,
-   G_CALLBACK (on_player_list)},
   {"UndoMove", GAMES_STOCK_UNDO_MOVE, NULL, NULL, NULL,
    G_CALLBACK (undo_move_cb)},
   {"Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_game_cb)},
@@ -875,7 +780,6 @@ static const char ui_description[] =
   "  <menubar name='MainMenu'>"
   "    <menu action='GameMenu'>"
   "      <menuitem action='NewGame'/>"
-  "      <menuitem action='NewNetworkGame'/>"
   "      <separator/>"
   "      <menuitem action='UndoMove'/>"
   "      <separator/>"
@@ -911,15 +815,6 @@ create_menus (GtkUIManager * ui_manager)
 			      gtk_ui_manager_get_accel_group (ui_manager));
 
   new_game_action = gtk_action_group_get_action (action_group, "NewGame");
-  new_network_action = gtk_action_group_get_action (action_group,
-						    "NewNetworkGame");
-#ifndef GGZ_CLIENT
-  gtk_action_set_sensitive (new_network_action, FALSE);
-#endif /* GGZ_CLIENT */
-  leave_network_action =
-    gtk_action_group_get_action (action_group, "LeaveNetworkGame");
-  player_list_action =
-    gtk_action_group_get_action (action_group, "PlayerList");
   undo_action = gtk_action_group_get_action (action_group, "UndoMove");
 }
 
@@ -1063,10 +958,6 @@ main (int argc, char **argv)
   load_pixmaps ();
 
   gtk_widget_show (window);
-
-#ifdef GGZ_CLIENT
-  network_init ();
-#endif /* GGZ_CLIENT */
 
   if (session_xpos >= 0 && session_ypos >= 0) {
     gdk_window_move (gtk_widget_get_window (window), session_xpos, session_ypos);
