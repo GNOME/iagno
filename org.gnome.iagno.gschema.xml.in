@@ -1,0 +1,36 @@
+<schemalist>
+  <schema id="org.gnome.iagno" path="/org/gnome/iagno/" gettext-domain="gnome-games">
+    <key name="black-level" type="i">
+      <default>0</default>
+      <range min="0" max="3" />
+    </key>
+    <key name="white-level" type="i">
+      <default>1</default>
+      <range min="0" max="3" />
+    </key>
+    <key name="quick-moves" type="b">
+      <default>false</default>
+    </key>
+    <key name="tileset" type="s">
+      <default>'classic.png'</default>
+    </key>
+    <key name="animate" type="i">
+      <default>2</default>
+      <range min="0" max="2" />
+    </key>
+    <key name="animate-stagger" type="b">
+      <default>false</default>
+    </key>
+    <key name="show-grid" type="b">
+      <default>false</default>
+    </key>
+    <key name="flip-final-results" type="b">
+      <default>true</default>
+    </key>
+    <key name="sound" type="b">
+      <default>true</default>
+      <_summary>Sound</_summary>
+      <_description>Whether or not to play event sounds.</_description>
+    </key>
+  </schema>
+</schemalist>

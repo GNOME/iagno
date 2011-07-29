@@ -27,7 +27,6 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
-#include <libgames-support/games-conf.h>
 #include <libgames-support/games-frame.h>
 #include <libgames-support/games-files.h>
 #include <libgames-support/games-sound.h>
@@ -38,18 +37,16 @@
 #include "othello.h"
 
 #define KEY_TILESET             "tileset"
-#define KEY_BLACK_LEVEL         "black_level"
-#define KEY_WHITE_LEVEL         "white_level"
-#define KEY_QUICK_MOVES         "quick_moves"
+#define KEY_BLACK_LEVEL         "black-level"
+#define KEY_WHITE_LEVEL         "white-level"
+#define KEY_QUICK_MOVES         "quick-moves"
 #define KEY_ANIMATE             "animate"
-#define KEY_ANIMATE_STAGGER     "animate_stagger"
-#define KEY_SHOW_GRID           "show_grid"
-#define KEY_FLIP_FINAL_RESULTS "flip_final_results"
+#define KEY_ANIMATE_STAGGER     "animate-stagger"
+#define KEY_SHOW_GRID           "show-grid"
+#define KEY_FLIP_FINAL_RESULTS "flip-final-results"
 #define KEY_SOUND               "sound"
 
-#define DEFAULT_TILESET "classic.png"
-
-
+extern GSettings *settings;
 extern GtkWidget *window;
 extern guint black_computer_level;
 extern guint white_computer_level;
@@ -82,27 +79,14 @@ static void apply_changes (void);
  *	It doesn't abide by the HIG.
  */
 
-static gint
-clamp_int (gint input, gint low, gint high)
-{
-  if (input < low)
-    input = low;
-  if (input > high)
-    input = high;
-
-  return input;
-}
-
 void
 load_properties (void)
 {
-  black_computer_level = games_conf_get_integer (NULL, KEY_BLACK_LEVEL, NULL);
-  black_computer_level = clamp_int (black_computer_level, 0, 3);
+  black_computer_level = g_settings_get_int (settings, KEY_BLACK_LEVEL);
 
-  white_computer_level = games_conf_get_integer (NULL, KEY_WHITE_LEVEL, NULL);
-  white_computer_level = clamp_int (white_computer_level, 0, 3);
+  white_computer_level = g_settings_get_int (settings, KEY_WHITE_LEVEL);
 
-  if (games_conf_get_boolean (NULL, KEY_QUICK_MOVES, NULL))
+  if (g_settings_get_boolean (settings, KEY_QUICK_MOVES))
     computer_speed = COMPUTER_MOVE_DELAY / 2;
   else
     computer_speed = COMPUTER_MOVE_DELAY;
@@ -110,19 +94,18 @@ load_properties (void)
   if (tile_set)
     g_free (tile_set);
 
-  tile_set = games_conf_get_string_with_default (NULL, KEY_TILESET, DEFAULT_TILESET);
+  tile_set = g_settings_get_string (settings, KEY_TILESET);
 
-  animate = games_conf_get_integer (NULL, KEY_ANIMATE, NULL);
-  animate = clamp_int (animate, 0, 2);
+  animate = g_settings_get_int (settings, KEY_ANIMATE);
 
-  animate_stagger = games_conf_get_boolean (NULL, KEY_ANIMATE_STAGGER, NULL);
+  animate_stagger = g_settings_get_boolean (settings, KEY_ANIMATE_STAGGER);
 
-  sound = games_conf_get_boolean (NULL, KEY_SOUND, NULL);
+  sound = g_settings_get_boolean (settings, KEY_SOUND);
   games_sound_enable (sound);
 
-  show_grid = games_conf_get_boolean (NULL, KEY_SHOW_GRID, NULL);
+  show_grid = g_settings_get_boolean (settings, KEY_SHOW_GRID);
 
-  flip_final = games_conf_get_boolean (NULL, KEY_FLIP_FINAL_RESULTS, NULL);
+  flip_final = g_settings_get_boolean (settings, KEY_FLIP_FINAL_RESULTS);
 
   switch (animate) {
   case 0:
@@ -141,21 +124,19 @@ load_properties (void)
 static void
 reset_properties (void)
 {
-  black_computer_level = games_conf_get_integer (NULL, KEY_BLACK_LEVEL, NULL);
-  black_computer_level = clamp_int (black_computer_level, 0, 3);
+  black_computer_level = g_settings_get_int (settings, KEY_BLACK_LEVEL);
 
-  white_computer_level = games_conf_get_integer (NULL, KEY_WHITE_LEVEL, NULL);
-  white_computer_level = clamp_int (white_computer_level, 0, 3);
+  white_computer_level = g_settings_get_int (settings, KEY_WHITE_LEVEL);
       
   t_black_computer_level = black_computer_level;
   t_white_computer_level = white_computer_level;
 
-  t_quick_moves = games_conf_get_boolean (NULL, KEY_QUICK_MOVES, NULL);
+  t_quick_moves = g_settings_get_boolean (settings, KEY_QUICK_MOVES);
 
   if (tile_set_tmp)
     g_free (tile_set_tmp);
 
-  tile_set_tmp = games_conf_get_string_with_default (NULL, KEY_TILESET, DEFAULT_TILESET);
+  tile_set_tmp = g_settings_get_string (settings, KEY_TILESET);
 
   t_animate = animate;
   t_animate_stagger = animate_stagger;
@@ -242,19 +223,19 @@ animate_select (GtkWidget * widget, gpointer data)
 static void
 save_properties (void)
 {
-  games_conf_set_integer (NULL, KEY_BLACK_LEVEL, black_computer_level);
-  games_conf_set_integer (NULL, KEY_WHITE_LEVEL, white_computer_level);
+  g_settings_set_int (settings, KEY_BLACK_LEVEL, black_computer_level);
+  g_settings_set_int (settings, KEY_WHITE_LEVEL, white_computer_level);
 
-  games_conf_set_boolean (NULL, KEY_QUICK_MOVES, t_quick_moves);
+  g_settings_set_boolean (settings, KEY_QUICK_MOVES, t_quick_moves);
 
-  games_conf_set_string (NULL, KEY_TILESET, tile_set_tmp);
+  g_settings_set_string (settings, KEY_TILESET, tile_set_tmp);
 
-  games_conf_set_integer (NULL, KEY_ANIMATE, animate);
+  g_settings_set_int (settings, KEY_ANIMATE, animate);
 
-  games_conf_set_boolean (NULL, KEY_ANIMATE_STAGGER, animate_stagger);
-  games_conf_set_boolean (NULL, KEY_SHOW_GRID, show_grid);
-  games_conf_set_boolean (NULL, KEY_FLIP_FINAL_RESULTS, flip_final);
-  games_conf_set_boolean (NULL, KEY_SOUND, sound);
+  g_settings_set_boolean (settings, KEY_ANIMATE_STAGGER, animate_stagger);
+  g_settings_set_boolean (settings, KEY_SHOW_GRID, show_grid);
+  g_settings_set_boolean (settings, KEY_FLIP_FINAL_RESULTS, flip_final);
+  g_settings_set_boolean (settings, KEY_SOUND, sound);
 }
 
 static void

@@ -31,9 +31,9 @@
 #include <gdk/gdkkeysyms.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
-#include <libgames-support/games-conf.h>
 #include <libgames-support/games-help.h>
 #include <libgames-support/games-runtime.h>
+#include <libgames-support/games-settings.h>
 #include <libgames-support/games-stock.h>
 
 #ifdef WITH_SMCLIENT
@@ -54,6 +54,7 @@
 #define APP_NAME "iagno"
 #define APP_NAME_LONG N_("Iagno")
 
+GSettings *settings;
 GtkWidget *window;
 GtkWidget *statusbar;
 GtkWidget *notebook;
@@ -933,7 +934,7 @@ create_window (void)
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (window), _(APP_NAME_LONG));
 
-  games_conf_add_window (GTK_WINDOW (window), NULL);
+  games_settings_bind_window_state ("/org/gnome/iagno/", GTK_WINDOW (window));
 
   vbox = gtk_vbox_new (FALSE, 0);
   gtk_container_add (GTK_CONTAINER (window), vbox);
@@ -1041,7 +1042,7 @@ main (int argc, char **argv)
 
   g_set_application_name (_(APP_NAME_LONG));
 
-  games_conf_initialise (APP_NAME);
+  settings = g_settings_new ("org.gnome.iagno");
 
   games_stock_init ();
 
@@ -1075,7 +1076,7 @@ main (int argc, char **argv)
 
   gtk_main ();
 
-  games_conf_shutdown ();
+  g_settings_sync ();
 
   games_runtime_shutdown ();
 

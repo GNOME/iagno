@@ -55,32 +55,25 @@ Gamesdir = $(datadir)/applications
 Games_in_files = iagno.desktop.in.in
 Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
 
-schema_in_files = iagno.schemas.in
-if HAVE_GNOME
-schemadir = $(GCONF_SCHEMA_FILE_DIR)
-schema_DATA = $(schema_in_files:.schemas.in=.schemas)
-endif
+gsettings_in_file = org.gnome.iagno.gschema.xml.in
+gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
+@INTLTOOL_XML_NOMERGE_RULE@
+@GSETTINGS_RULES@
 
 man_MANS = iagno.6
 
 EXTRA_DIST = \
 	AUTHORS \
 	$(pixmap_DATA)	\
-	$(schema_in_files) \
+	$(gsettings_in_file) \
 	$(man_MANS)
 
 CLEANFILES = \
 	$(NULL)
 
-DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
-
-install-data-local:
-if GCONF_SCHEMAS_INSTALL
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/iagno/$(schema_DATA)
-endif
+DISTCLEANFILES = $(Games_DATA) $(gsettings_in_file)
 
 @INTLTOOL_DESKTOP_RULE@
-@INTLTOOL_SCHEMAS_RULE@
 @INTLTOOL_SOUNDLIST_RULE@
 
 -include $(top_srcdir)/git.mk
