@@ -831,7 +831,7 @@ create_window (void)
 
   games_settings_bind_window_state ("/org/gnome/iagno/", GTK_WINDOW (window));
 
-  vbox = gtk_vbox_new (FALSE, 0);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
   gtk_container_add (GTK_CONTAINER (window), vbox);
 
   ui_manager = gtk_ui_manager_new ();

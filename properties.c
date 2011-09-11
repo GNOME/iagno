@@ -395,7 +395,7 @@ show_properties_dialog (void)
 
   label = gtk_label_new (_("Game"));
 
-  vbox = gtk_vbox_new (FALSE, 18);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 18);
   gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), vbox, label);
 
@@ -403,7 +403,7 @@ show_properties_dialog (void)
   gtk_table_set_col_spacings (GTK_TABLE (table), 18);
   gtk_box_pack_start (GTK_BOX (vbox), table, FALSE, FALSE, 0);
 
-  vbox2 = gtk_vbox_new (FALSE, 6);
+  vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_box_pack_start (GTK_BOX (vbox), vbox2, FALSE, FALSE, 0);
 
   button = gtk_check_button_new_with_mnemonic (_("_Use quick moves"));
@@ -424,7 +424,7 @@ show_properties_dialog (void)
   frame = games_frame_new (_("Dark"));
   gtk_table_attach_defaults (GTK_TABLE (table), frame, 0, 1, 0, 1);
 
-  vbox = gtk_vbox_new (FALSE, 6);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 
   button = gtk_radio_button_new_with_label (NULL, _("Human"));
   if (black_computer_level == 0)
@@ -465,7 +465,7 @@ show_properties_dialog (void)
   frame = games_frame_new (_("Light"));
   gtk_table_attach_defaults (GTK_TABLE (table), frame, 1, 2, 0, 1);
 
-  vbox = gtk_vbox_new (FALSE, 6);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 
   button = gtk_radio_button_new_with_label (NULL, _("Human"));
   if (white_computer_level == 0)
@@ -513,7 +513,7 @@ show_properties_dialog (void)
 
   frame = games_frame_new (_("Animation"));
 
-  vbox = gtk_vbox_new (FALSE, 6);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 
   button = gtk_radio_button_new_with_label (NULL, _("None"));
   if (animate == 0)
@@ -545,7 +545,7 @@ show_properties_dialog (void)
   gtk_table_attach_defaults (GTK_TABLE (table), frame, 0, 1, 0, 1);
 
   frame = games_frame_new (_("Options"));
-  vbox = gtk_vbox_new (FALSE, 6);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_container_add (GTK_CONTAINER (frame), vbox);
   button = gtk_check_button_new_with_mnemonic (_("_Stagger flips"));
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button),
@@ -569,7 +569,7 @@ show_properties_dialog (void)
 
   gtk_box_pack_start (GTK_BOX (vbox), button, FALSE, FALSE, 0);
 
-  hbox = gtk_hbox_new (FALSE, 12);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 
   label2 = gtk_label_new_with_mnemonic (_("_Tile set:"));
 
