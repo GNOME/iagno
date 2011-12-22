@@ -14,13 +14,6 @@
     <key name="tileset" type="s">
       <default>'classic.png'</default>
     </key>
-    <key name="animate" type="i">
-      <default>2</default>
-      <range min="0" max="2" />
-    </key>
-    <key name="animate-stagger" type="b">
-      <default>false</default>
-    </key>
     <key name="show-grid" type="b">
       <default>false</default>
     </key>

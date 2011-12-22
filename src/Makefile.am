@@ -1,26 +1,27 @@
 bin_PROGRAMS = iagno
 
 iagno_SOURCES = \
-	gnothello.c \
-	gnothello.h \
-	othello.c \
-	othello.h \
-	properties.c \
-	properties.h \
-	$(NULL)
-
-iagno_CPPFLAGS = \
-	-I$(top_srcdir) \
-	$(AM_CPPFLAGS)
+	config.vapi \
+	computer-player.vala \
+	game.vala \
+	game-view.vala \
+	iagno.vala
 
 iagno_CFLAGS = \
-	$(GTK_CFLAGS) \
-	$(AM_CFLAGS)
+	-I$(top_srcdir)/libgames-support \
+	-DVERSION=\"$(VERSION)\" \
+	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
+	$(GTK_CFLAGS)
+
+iagno_VALAFLAGS = \
+	--pkg posix \
+	--pkg gtk+-3.0 \
+	--vapidir $(top_srcdir)/libgames-support \
+	--pkg GnomeGamesSupport-1.0
 
 iagno_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
-	$(GTK_LIBS) \
-	$(INTLLIBS)
+	$(GTK_LIBS)
 
 if HAVE_GNOME
 iagno_CFLAGS += $(GNOME_CFLAGS)
