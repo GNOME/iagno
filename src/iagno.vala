@@ -101,23 +101,22 @@ public class Iagno
         var menubar = (Gtk.MenuBar) ui_manager.get_widget ("/MainMenu");
         vbox.pack_start (menubar, false, false, 0);
 
-        var notebook = new Gtk.Notebook ();
-        notebook.show ();
-        notebook.set_show_tabs (false);
-        notebook.set_show_border (false);
-
         window.delete_event.connect (window_delete_event_cb);
 
         view = new GameView ();
         view.game = game;
         view.move.connect (player_move_cb);
         view.show_grid = settings.get_boolean ("show-grid");
-        view.tile_set = settings.get_string ("tileset");
+        var tile_set = settings.get_string ("tileset");
+        var theme = load_theme_texture (tile_set);
+        if (theme == null)
+        {
+            warning ("Unable to load theme %s, falling back to default", tile_set);
+            theme = load_theme_texture ("black_and_white.svg", true);
+        }
+        view.theme = theme;
         view.show ();
-
-        notebook.append_page (view, null);
-        notebook.set_current_page (0);
-        vbox.pack_start (notebook, false, false, 0);
+        vbox.pack_start (view, true, true, 0);
 
         statusbar = new Gtk.Statusbar ();
         statusbar.show ();
@@ -144,8 +143,6 @@ public class Iagno
         light_score_label.show ();
         grid.attach (light_score_label, 5, 0, 1, 1);
 
-        window.set_resizable (false);
-
         statusbar_id = statusbar.get_context_id ("iagno");
 
         GnomeGamesSupport.sound_enable (settings.get_boolean ("sound"));
@@ -156,6 +153,21 @@ public class Iagno
     private void show ()
     {
         window.show ();
+    }
+
+    private GnomeGamesSupport.Preimage? load_theme_texture (string filename, bool fail_on_error = false)
+    {
+        var pixmap_directory = GnomeGamesSupport.runtime_get_directory (GnomeGamesSupport.RuntimeDirectory.GAME_PIXMAP_DIRECTORY);
+        var path = Path.build_filename (pixmap_directory, filename);
+        try
+        {
+            return new GnomeGamesSupport.Preimage.from_file (path);
+        }
+        catch (Error e)
+        {
+            warning ("Failed to load theme %s: %s", filename, path);
+            return null;
+        }
     }
 
     private void quit_game_cb ()
@@ -413,10 +425,17 @@ public class Iagno
         return true;
     }
 
-    private void set_selection (Gtk.ComboBox widget)
+    private void theme_changed_cb (Gtk.ComboBox widget)
     {
-        view.tile_set = theme_file_list.get_nth (widget.get_active ());
-        settings.set_string ("tileset", view.tile_set);
+        var tile_set = theme_file_list.get_nth (widget.get_active ());
+        settings.set_string ("tileset", tile_set);
+
+        var theme = load_theme_texture (tile_set);
+        if (theme == null)
+            warning ("Unable to load theme %s", tile_set);
+        else
+            view.theme = theme;
+
         view.redraw ();
     }
 
@@ -544,12 +563,11 @@ public class Iagno
         var dir = GnomeGamesSupport.runtime_get_directory (GnomeGamesSupport.RuntimeDirectory.GAME_PIXMAP_DIRECTORY);
         theme_file_list = new GnomeGamesSupport.FileList.images (dir, null);
         theme_file_list.transform_basename ();
-        var option_menu = (Gtk.ComboBox) theme_file_list.create_widget (view.tile_set, GnomeGamesSupport.FILE_LIST_REMOVE_EXTENSION | GnomeGamesSupport.FILE_LIST_REPLACE_UNDERSCORES);
+        var theme_combo = (Gtk.ComboBox) theme_file_list.create_widget (settings.get_string ("tileset"), GnomeGamesSupport.FILE_LIST_REMOVE_EXTENSION | GnomeGamesSupport.FILE_LIST_REPLACE_UNDERSCORES);
 
-        label.set_mnemonic_widget (option_menu);
-        option_menu.changed.connect (set_selection);
-        hbox.pack_start (option_menu, true, true, 0);
-
+        label.set_mnemonic_widget (theme_combo);
+        theme_combo.changed.connect (theme_changed_cb);
+        hbox.pack_start (theme_combo, true, true, 0);
 
         propbox.show_all ();
     }
