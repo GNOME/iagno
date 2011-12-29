@@ -2,7 +2,9 @@ pixmapdir = $(pkgdatadir)/iagno/pixmaps
 pixmap_DATA = \
 	classic.png \
 	woodtrim.png \
-	small.png
+	small.png \
+	sun_and_star.svg \
+	black_and_white.svg
 
 Gamesdir = $(datadir)/applications
 Games_in_files = iagno.desktop.in.in
