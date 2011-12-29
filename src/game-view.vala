@@ -115,9 +115,9 @@ public class GameView : Gtk.DrawingArea
         var dname = GnomeGamesSupport.runtime_get_directory (GnomeGamesSupport.RuntimeDirectory.GAME_PIXMAP_DIRECTORY);
         var fname = Path.build_filename (dname, tile_set);
 
-        /* fall back to default tileset "classic.png" if tile_set not found */
+        /* fall back to default tileset if chosen set not found */
         if (!FileUtils.test (fname, FileTest.EXISTS | FileTest.IS_REGULAR))
-            fname = Path.build_filename (dname, "classic.png");
+            fname = Path.build_filename (dname, "sun_and_star.svg");
 
         if (!FileUtils.test (fname, FileTest.EXISTS | FileTest.IS_REGULAR))
         {
