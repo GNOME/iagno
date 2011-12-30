@@ -278,7 +278,7 @@ public class Iagno
                                "authors", authors,
                                "documenters", documenters,
                                "translator-credits", _("translator-credits"),
-                               "logo-icon-name", "gnome-iagno",
+                               "logo-icon-name", "iagno",
                                "website-label", _("GNOME Games web site"),
                                "website", "http://www.gnome.org/projects/gnome-games/",
                                "wrap-license", true,
@@ -595,7 +595,7 @@ public class Iagno
 
         GnomeGamesSupport.stock_init ();
 
-        Gtk.Window.set_default_icon_name ("gnome-iagno");
+        Gtk.Window.set_default_icon_name ("iagno");
 
         var app = new Iagno ();
         app.show ();

@@ -1,3 +1,5 @@
+SUBDIRS = icons
+
 pixmapdir = $(pkgdatadir)/iagno/pixmaps
 pixmap_DATA = \
 	sun_and_star.svg \
