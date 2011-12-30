@@ -1,4 +1,4 @@
-public class Iagno
+public class Iagno : Gtk.Application
 {
     /* Application settings */
     private Settings settings;
@@ -66,12 +66,15 @@ public class Iagno
 
     public Iagno ()
     {
+        Object (application_id: "org.gnome.iagno", flags: ApplicationFlags.FLAGS_NONE);
+
         settings = new Settings ("org.gnome.iagno");
 
         window = new Gtk.Window (Gtk.WindowType.TOPLEVEL);
         window.set_title (_("Iagno"));
 
         GnomeGamesSupport.settings_bind_window_state ("/org/gnome/iagno/", window);
+        add_window (window);
 
         var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         vbox.show ();
@@ -100,8 +103,6 @@ public class Iagno
         undo_action.set_sensitive (false);
         var menubar = (Gtk.MenuBar) ui_manager.get_widget ("/MainMenu");
         vbox.pack_start (menubar, false, false, 0);
-
-        window.delete_event.connect (window_delete_event_cb);
 
         view = new GameView ();
         view.game = game;
@@ -150,6 +151,11 @@ public class Iagno
         start_game ();
     }
 
+    public override void activate ()
+    {
+        window.show ();
+    }
+
     private void show ()
     {
         window.show ();
@@ -172,13 +178,7 @@ public class Iagno
 
     private void quit_game_cb ()
     {
-        Gtk.main_quit ();
-    }
-
-    private bool window_delete_event_cb (Gtk.Widget widget, Gdk.EventAny event)
-    {
-        Gtk.main_quit ();
-        return true;
+        window.destroy ();
     }
 
     private void new_game_cb ()
@@ -600,10 +600,10 @@ public class Iagno
         var app = new Iagno ();
         app.show ();
 
-        Gtk.main ();
+        var result = app.run ();
 
         GnomeGamesSupport.runtime_shutdown ();
 
-        return Posix.EXIT_SUCCESS;
+        return result;
     }
 }
