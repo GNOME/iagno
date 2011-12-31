@@ -163,8 +163,7 @@ public class Iagno : Gtk.Application
 
     private GnomeGamesSupport.Preimage? load_theme_texture (string filename, bool fail_on_error = false)
     {
-        var pixmap_directory = GnomeGamesSupport.runtime_get_directory (GnomeGamesSupport.RuntimeDirectory.GAME_PIXMAP_DIRECTORY);
-        var path = Path.build_filename (pixmap_directory, filename);
+        var path = Path.build_filename (DATA_DIRECTORY, "themes", filename);
         try
         {
             return new GnomeGamesSupport.Preimage.from_file (path);
@@ -560,8 +559,7 @@ public class Iagno : Gtk.Application
         label = new Gtk.Label.with_mnemonic (_("_Tile set:"));
         hbox.pack_start (label, false, false, 0);
 
-        var dir = GnomeGamesSupport.runtime_get_directory (GnomeGamesSupport.RuntimeDirectory.GAME_PIXMAP_DIRECTORY);
-        theme_file_list = new GnomeGamesSupport.FileList.images (dir, null);
+        theme_file_list = new GnomeGamesSupport.FileList.images (Path.build_filename (DATA_DIRECTORY, "themes"), null);
         theme_file_list.transform_basename ();
         var theme_combo = (Gtk.ComboBox) theme_file_list.create_widget (settings.get_string ("tileset"), GnomeGamesSupport.FILE_LIST_REMOVE_EXTENSION | GnomeGamesSupport.FILE_LIST_REPLACE_UNDERSCORES);
 

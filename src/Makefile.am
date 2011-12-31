@@ -11,6 +11,7 @@ iagno_CFLAGS = \
 	-I$(top_srcdir)/libgames-support \
 	-DVERSION=\"$(VERSION)\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
+	-DDATA_DIRECTORY=\"$(datadir)/iagno\" \
 	$(GTK_CFLAGS)
 
 iagno_VALAFLAGS = \
