@@ -12,17 +12,22 @@ iagno_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	-DDATA_DIRECTORY=\"$(datadir)/iagno\" \
-	$(GTK_CFLAGS)
+	-DSOUND_DIRECTORY=\"$(pkgdatadir)/sounds\" \
+	$(GTK_CFLAGS) \
+	$(CANBERRA_GTK_CFLAGS)
 
 iagno_VALAFLAGS = \
 	--pkg posix \
 	--pkg gtk+-3.0 \
+	--pkg libcanberra \
+	--pkg libcanberra-gtk \
 	--vapidir $(top_srcdir)/libgames-support \
 	--pkg GnomeGamesSupport-1.0
 
 iagno_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
-	$(GTK_LIBS)
+	$(GTK_LIBS) \
+	$(CANBERRA_GTK_LIBS)
 
 if HAVE_GNOME
 iagno_CFLAGS += $(GNOME_CFLAGS)

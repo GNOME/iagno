@@ -146,8 +146,6 @@ public class Iagno : Gtk.Application
 
         statusbar_id = statusbar.get_context_id ("iagno");
 
-        GnomeGamesSupport.sound_enable (settings.get_boolean ("sound"));
-
         start_game ();
     }
 
@@ -337,7 +335,12 @@ public class Iagno : Gtk.Application
         if (game.n_light_tiles == game.n_dark_tiles)
             show_message (_("The game was a draw."));
 
-        GnomeGamesSupport.sound_play ("gameover");
+        if (settings.get_boolean ("sound"))
+        {
+            CanberraGtk.play_for_widget (view, 0,
+                                         Canberra.PROP_MEDIA_NAME, "gameover",
+                                         Canberra.PROP_MEDIA_FILENAME, Path.build_filename (SOUND_DIRECTORY, "gameover.ogg"));
+        }
     }
 
     private void player_move_cb (int x, int y)
@@ -404,7 +407,6 @@ public class Iagno : Gtk.Application
     {
         var play_sounds = widget.get_active ();
         settings.set_boolean ("sound", play_sounds);
-        GnomeGamesSupport.sound_enable (play_sounds);
     }
 
     private void grid_select (Gtk.ToggleButton widget)
