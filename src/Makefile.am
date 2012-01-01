@@ -29,11 +29,6 @@ iagno_LDADD = \
 	$(GTK_LIBS) \
 	$(CANBERRA_GTK_LIBS)
 
-if HAVE_GNOME
-iagno_CFLAGS += $(GNOME_CFLAGS)
-iagno_LDADD += $(GNOME_LIBS)
-endif
-
 if HAVE_RSVG
 iagno_CFLAGS += $(RSVG_CFLAGS)
 iagno_LDADD += $(RSVG_LIBS)
