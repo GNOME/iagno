@@ -581,9 +581,6 @@ public class Iagno : Gtk.Application
 
     public static int main (string[] args)
     {
-        if (!GnomeGamesSupport.runtime_init ("iagno"))
-            return Posix.EXIT_FAILURE;
-
         var context = new OptionContext ("");
         context.set_translation_domain (GETTEXT_PACKAGE);
         context.add_group (Gtk.get_option_group (true));
@@ -608,8 +605,6 @@ public class Iagno : Gtk.Application
         app.show ();
 
         var result = app.run ();
-
-        GnomeGamesSupport.runtime_shutdown ();
 
         return result;
     }
