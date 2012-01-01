@@ -295,7 +295,14 @@ public class Iagno : Gtk.Application
 
     private void help_cb (Gtk.Action action)
     {
-        GnomeGamesSupport.help_display (window, "iagno", null);
+        try
+        {
+            Gtk.show_uri (window.get_screen (), "ghelp:iagno", Gtk.get_current_event_time ());
+        }
+        catch (Error e)
+        {
+            warning ("Failed to show help: %s", e.message);
+        }
     }
 
     private void game_move_cb ()
