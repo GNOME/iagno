@@ -34,9 +34,4 @@ iagno_CFLAGS += $(RSVG_CFLAGS)
 iagno_LDADD += $(RSVG_LIBS)
 endif
 
-if WITH_GTHREAD
-iagno_CFLAGS += $(GHTREAD_CFLAGS)
-iagno_LDADD += $(GTHREAD_LIBS)
-endif
-
 -include $(top_srcdir)/git.mk
