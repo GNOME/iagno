@@ -1,7 +1,3 @@
-SUBDIRS = src data
-
-if BUILD_HELP
-SUBDIRS += help
-endif
+SUBDIRS = src data help
 
 -include $(top_srcdir)/git.mk
