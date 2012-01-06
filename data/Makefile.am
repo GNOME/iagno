@@ -24,6 +24,5 @@ EXTRA_DIST = \
 DISTCLEANFILES = $(Games_DATA) $(gsettings_SCHEMAS)
 
 @INTLTOOL_DESKTOP_RULE@
-@INTLTOOL_SOUNDLIST_RULE@
 
 -include $(top_srcdir)/git.mk
