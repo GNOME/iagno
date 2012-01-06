@@ -21,6 +21,7 @@ EXTRA_DIST = \
 	$(gsettings_in_file) \
 	$(man_MANS)
 
+CLEANFILES = $(Games_DATA) $(gsettings_SCHEMAS)
 DISTCLEANFILES = $(Games_DATA) $(gsettings_SCHEMAS)
 
 @INTLTOOL_DESKTOP_RULE@
