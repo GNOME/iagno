@@ -1,4 +1,4 @@
-public class Iagno : Gtk.Application
+public class Iagno : Gtk3.Application
 {
     /* Application settings */
     private Settings settings;
@@ -24,7 +24,7 @@ public class Iagno : Gtk.Application
 
     /* The game being played */
     private Game? game = null;
-    
+
     /* true if the last move was a pass */
     private bool was_pass = false;
 
@@ -43,6 +43,19 @@ public class Iagno : Gtk.Application
         {"Contents", GnomeGamesSupport.STOCK_CONTENTS, null, null, null, help_cb},
         {"About", Gtk.Stock.ABOUT, null, null, null, about_cb}
     };
+
+    private const GLib2.ActionEntry app_actions[] =
+    {
+        {"new-game", new_game_cb},
+        {"undo-move", undo_move_cb}
+
+    };
+
+    protected override void startup()
+    {
+        base.startup ();
+        add_action_entries (app_actions, this);
+    }
 
     private string ui_description =
         "<ui>" +
@@ -79,15 +92,22 @@ public class Iagno : Gtk.Application
 
         settings = new Settings ("org.gnome.iagno");
 
-        window = new Gtk.Window (Gtk.WindowType.TOPLEVEL);
+        var builder = new Gtk.Builder ();
+        try
+        {
+            builder.add_from_file (DATA_DIRECTORY + "/iagno.ui");
+        }
+        catch (Error e)
+        {
+            stderr.printf ("Could not load UI: %s\n", e.message);
+            return;
+        }
+        window = builder.get_object ("window") as Gtk.Window;
+        var top_grid = builder.get_object ("grid") as Gtk.Grid;
         window.set_title (_("Iagno"));
 
         GnomeGamesSupport.settings_bind_window_state ("/org/gnome/iagno/", window);
         add_window (window);
-
-        var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        vbox.show ();
-        window.add (vbox);
 
         var ui_manager = new Gtk.UIManager ();
         var action_group = new Gtk.ActionGroup ("group");
@@ -111,9 +131,11 @@ public class Iagno : Gtk.Application
         undo_action = action_group.get_action ("UndoMove");
         undo_action.set_sensitive (false);
         var menubar = (Gtk.MenuBar) ui_manager.get_widget ("/MainMenu");
-        vbox.pack_start (menubar, false, false, 0);
+        top_grid.attach (menubar, 0, 0, 1, 1);
 
         view = new GameView ();
+        view.hexpand = true;
+        view.vexpand = true;
         view.game = game;
         view.move.connect (player_move_cb);
         view.show_grid = settings.get_boolean ("show-grid");
@@ -126,16 +148,30 @@ public class Iagno : Gtk.Application
         }
         view.theme = theme;
         view.show ();
-        vbox.pack_start (view, true, true, 0);
+        top_grid.attach (view, 0, 2, 1, 1);
 
         statusbar = new Gtk.Statusbar ();
         statusbar.show ();
-        vbox.pack_start (statusbar, false, false, 0);
+
+        var toolbar = builder.get_object ("toolbar") as Gtk.Toolbar;
+        toolbar.insert (new Gtk.SeparatorToolItem (), -1);
+        var status_item = new Gtk.ToolItem ();
+        status_item.set_visible_horizontal (true);
+        status_item.set_expand (true);
+
+        var status_alignment = new Gtk.Alignment (1.0f, 0.5f, 0.0f, 0.0f);
+        status_alignment.add (statusbar);
+        status_item.add (status_alignment);
+
+        toolbar.insert (status_item, -1);
+        toolbar.show_all ();
 
         var grid = new Gtk.Grid ();
         grid.set_column_spacing (6);
         grid.show ();
         statusbar.pack_start (grid, false, true, 0);
+
+        GnomeGamesSupport.stock_prepare_for_statusbar_tooltips (ui_manager, grid);
 
         var label = new Gtk.Label (_("Dark:"));
         label.show ();
@@ -200,7 +236,7 @@ public class Iagno : Gtk.Application
         game.move.connect (game_move_cb);
         game.complete.connect (game_complete_cb);
         view.game = game;
-        
+
         var dark_level = settings.get_int ("black-level");
         if (dark_level > 0)
             dark_computer = new ComputerPlayer (game, dark_level);
@@ -216,7 +252,7 @@ public class Iagno : Gtk.Application
 
         game.start ();
     }
-    
+
     private void update_ui ()
     {
         /* Can't undo when running two computer players */

@@ -1,5 +1,8 @@
 SUBDIRS = icons
 
+uidir = $(datadir)/iagno
+ui_DATA = iagno.ui
+
 themedir = $(datadir)/iagno/themes
 theme_DATA = \
 	sun_and_star.svg \
