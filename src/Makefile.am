@@ -34,4 +34,8 @@ iagno_CFLAGS += $(RSVG_CFLAGS)
 iagno_LDADD += $(RSVG_LIBS)
 endif
 
+CLEANFILES = \
+	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
+	*_vala.stamp
+
 -include $(top_srcdir)/git.mk
