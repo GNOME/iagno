@@ -3,17 +3,23 @@
       id="quick-move">
   <info>
     <link type="guide" xref="index#tips" />
-    <revision version="0.1" date="2011-12-10" status="stub"/>
+    <revision version="0.1" date="2012-01-15" status="review"/>
 
     <credit type="author copyright">
-      <name></name>
-      <email></email>
-      <years>2011</years>
+      <name>Brian Grohe</name>
+      <email>grohe43@gmail.com</email>
+      <years>2012</years>
     </credit>
 
     <desc></desc>
   </info>
 
   <title>Quick move option</title>
-
+  <p>The quick move option makes the computer move faster. To enable it:</p>
+  
+  <list type="numbered">
+  <item><p>Go to the <gui>Settings</gui> menu</p></item>
+  <item><p>Then select <gui>preferences</gui></p></item>
+  <item><p>Then check the checkbox next to <gui>Use quick moves</gui></p></item>
+  </list>
 </page>
