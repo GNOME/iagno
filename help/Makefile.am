@@ -8,13 +8,9 @@ DOC_ENTITIES = \
 	legal.xml
 
 DOC_FIGURES = \
-	figures/ANIMATION.png \
 	figures/BLOCK.png \
 	figures/FIRST.png \
-	figures/PLAYER.png \
-	figures/START.png \
-	figures/connect.png \
-	figures/tables.png 
+	figures/START.png
 
 dist-hook: doc-dist-hook
 
