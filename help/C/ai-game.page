@@ -10,17 +10,20 @@
       <email>grohe43@gmail.com</email>
       <years>2012</years>
     </credit>
+   <credit type="editor">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+    </credit>
 
-    <desc></desc>
   </info>
 
   <title>Play against the computer</title>
-  <p>The computer has different levels of difficulty. Easy, medium, and hard. To change this setting</p>
-
+   <p>The computer has different levels of difficulty: Level One, Level Two, and Level Three. To change this setting:</p>
   
-  <list type="numbered">
-  <item><p>Go to the <gui>Settings</gui> menu</p></item>
-  <item><p>Select <gui>Preferences</gui></p></item>
-  <item><p>Select the difficulty that you would like to face by clicking the radio button next to the desired selection</p></item>
-  </list>
+   <steps>
+    <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>.</p></item>
+    <item><p>Select the <gui>Game</gui> tab.</p></item>
+    <item><p>Select the difficulty level of your computer opponenet.</p></item>
+    <item><p>Click <gui>Close</gui>.</p></item>
+   </steps>
 </page>

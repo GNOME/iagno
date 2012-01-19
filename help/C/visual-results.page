@@ -10,16 +10,21 @@
       <email>grohe43@gmail.com</email>
       <years>2012</years>
     </credit>
+    <credit type="editor">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+    </credit>
 
-    <desc></desc>
+    <desc>Flip final results</desc>
   </info>
 
   <title>Visually see game results</title>
-  <p>Visual game results allows you to visually see who won, by grouping the pieces. To enable this</p>
+  <p>Visual game results allows you to visually see who won, by grouping the pieces. To enable this option:</p>
 
-  <list type="numbered">
-  <item><p>Go to the <gui>Settings</gui> menu</p></item>
-  <item><p>Select <gui>Preferences</gui></p></item>
-  <item><p>Check the box next to <gui>Use quick moves</gui></p></item>
-  </list>
+  <steps>
+  <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>.</p></item>
+  <item><p>Select the <gui>Appearance</gui> tab.</p></item>
+  <item><p>Check the <gui>Flip final results</gui> box.</p></item>
+  <item><p>Click <gui>Close</gui>.</p></item>
+  </steps>
 </page>

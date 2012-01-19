@@ -10,17 +10,22 @@
       <email>grohe43@gmail.com</email>
       <years>2012</years>
     </credit>
-
-    <desc></desc>
+    <credit type="editor">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+    </credit>
   </info>
 
   <title>Two-player mode</title>
   <p>Two player mode allows you to play against another human rather than a computer. To enable this</p>
 
-  <list type="numbered">
-  <item><p>Go to the <gui>Settings</gui> menu</p></item>
-  <item><p>Then select <gui>preferences</gui></p></item>
-  <item><p>Change the selection of both columns too human.</p></item>
-  <item><p>Your changes will be applied when a new game is started</p></item>
-  </list>
+<steps>
+  <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq></p></item>
+  <item><p>Select the <gui>Game</gui> tab.</p></item>
+  <item><p>Check <gui>human</gui> in both player columns.</p></item>
+  <item><p>Your changes will be applied when a new game is started.</p></item>
+  <item><p>Click <gui>Close</gui></p>
+  <note><p>Your changes will apply when a new game is started.</p></note>
+  </item>
+  </steps>
 </page>
