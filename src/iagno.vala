@@ -67,6 +67,15 @@ public class Iagno : Gtk.Application
     public Iagno ()
     {
         Object (application_id: "org.gnome.iagno", flags: ApplicationFlags.FLAGS_NONE);
+    }
+
+    protected override void activate ()
+    {
+        if (window != null)
+        {
+            window.show ();
+            return;
+        }
 
         settings = new Settings ("org.gnome.iagno");
 
@@ -147,15 +156,7 @@ public class Iagno : Gtk.Application
         statusbar_id = statusbar.get_context_id ("iagno");
 
         start_game ();
-    }
 
-    public override void activate ()
-    {
-        window.show ();
-    }
-
-    private void show ()
-    {
         window.show ();
     }
 
@@ -602,7 +603,6 @@ public class Iagno : Gtk.Application
         Gtk.Window.set_default_icon_name ("iagno");
 
         var app = new Iagno ();
-        app.show ();
 
         var result = app.run ();
 
