@@ -298,7 +298,7 @@ public class Iagno : Gtk.Application
     {
         try
         {
-            Gtk.show_uri (window.get_screen (), "ghelp:iagno", Gtk.get_current_event_time ());
+            Gtk.show_uri (window.get_screen (), "help:iagno", Gtk.get_current_event_time ());
         }
         catch (Error e)
         {

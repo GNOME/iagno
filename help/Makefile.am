@@ -1,17 +1,15 @@
-include $(top_srcdir)/gnome-doc-utils.make
+@YELP_HELP_RULES@
+HELP_ID = iagno
 
-DOC_LINGUAS = ca cs de el en_GB es eu fr it oc pt_BR sl sr sr@latin sv zh_CN
-
-DOC_MODULE = iagno
-
-DOC_ENTITIES = \
-	legal.xml
-
-DOC_FIGURES = \
+HELP_MEDIA = \
 	figures/BLOCK.png \
 	figures/FIRST.png \
 	figures/START.png
 
-dist-hook: doc-dist-hook
+HELP_FILES = \
+	iagno.xml \
+	legal.xml
+
+HELP_LINGUAS = ca cs de el en_GB es eu fr it oc pt_BR sl sr sr@latin sv zh_CN
 
 -include $(top_srcdir)/git.mk
