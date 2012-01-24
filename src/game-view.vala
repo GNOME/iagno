@@ -102,7 +102,7 @@ public class GameView : Gtk.DrawingArea
         if (tiles_pattern == null || render_size != tile_size)
         {
             render_size = tile_size;
-            var surface = new Cairo.ImageSurface (Cairo.Format.ARGB32, tile_size * 8, tile_size * 4);
+            var surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8, tile_size * 4);
             var c = new Cairo.Context (surface);
             var pixbuf = theme.render (tile_size * 8, tile_size * 4);
             Gdk.cairo_set_source_pixbuf (c, pixbuf, 0, 0);
