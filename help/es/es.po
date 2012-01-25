@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2012-01-22 20:08+0000\n"
-"PO-Revision-Date: 2012-01-23 14:11+0100\n"
+"POT-Creation-Date: 2012-01-23 13:45+0000\n"
+"PO-Revision-Date: 2012-01-25 17:06+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
-#| msgid "translator-credits"
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
@@ -28,7 +27,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/index.page:6(media)
-#| msgid "@@image: 'figures/logo.png'; md5=34046001ffd88e9a366443f7a1b68f80"
 msgctxt "_"
 msgid "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
 msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
@@ -38,7 +36,6 @@ msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/index.page:19(media)
-#| msgid "@@image: 'figures/logo32.png'; md5=db3dc503168aafbeb6a1d0428cc394ac"
 msgctxt "_"
 msgid ""
 "external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
@@ -46,13 +43,11 @@ msgstr ""
 "external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
 
 #: C/index.page:7(info/title)
-#| msgid "Iagno"
 msgctxt "link"
 msgid "Iagno"
 msgstr "Iagno"
 
 #: C/index.page:8(info/title)
-#| msgid "Iagno"
 msgctxt "text"
 msgid "Iagno"
 msgstr "Iagno"
@@ -73,7 +68,7 @@ msgstr ""
 
 #: C/index.page:21(page/p)
 msgid "Short introductory text here..."
-msgstr ""
+msgstr "NO TRADUCIR"
 
 #: C/index.page:26(section/title)
 msgid "Game Play"
@@ -281,10 +276,6 @@ msgstr ""
 "DAÑOS."
 
 #: C/iagno.xml:37(legalnotice/para) C/legal.xml:37(legalnotice/para)
-#| msgid ""
-#| "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE "
-#| "TERMS OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER "
-#| "UNDERSTANDING THAT: <placeholder-1/>"
 msgid ""
 "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
 "OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
@@ -311,6 +302,8 @@ msgid ""
 "<revnumber>Iagno Manual V2.9</revnumber> <date>February 2008</date> <_:"
 "revdescription-1/>"
 msgstr ""
+"<revnumber>Manual de Iagno v2.9</revnumber> <date>Febrero 2008</date> <_:"
+"revdescription-1/>"
 
 #: C/iagno.xml:101(revdescription/para)
 msgid "Eric Baudais <email>baudais@okstate.edu</email>"
@@ -321,12 +314,17 @@ msgid ""
 "<revnumber>Iagno Manual V2.8</revnumber> <date>September 2004</date> <_:"
 "revdescription-1/>"
 msgstr ""
+"<revnumber>Manual de Iagno v2.8</revnumber> <date>Septiembre 2004</date> <_:"
+"revdescription-1/>"
 
 #: C/iagno.xml:107(revhistory/revision)
 msgid ""
 "<revnumber>0.1</revnumber> <date>4 February 2000</date> <authorinitials>EB</"
 "authorinitials> <revremark> First draft completed. </revremark>"
 msgstr ""
+"<revnumber>0.1</revnumber> <date>4 de febrero del 2000</date> "
+"<authorinitials>EB</authorinitials> <revremark> Primer borrador completado. "
+"</revremark>"
 
 #: C/iagno.xml:116(revhistory/revision)
 msgid ""
@@ -334,6 +332,9 @@ msgid ""
 "authorinitials> <revremark> Added a footnote to why section. Fixed some "
 "typos. </revremark>"
 msgstr ""
+"<revnumber>0.2</revnumber> <date>5 de febrero del 2000</date> "
+"<authorinitials>EB</authorinitials> <revremark> Añadido pie de página a cada "
+"sección. Corregidos algunos errores </revremark>"
 
 #: C/iagno.xml:125(revhistory/revision)
 msgid ""
@@ -341,9 +342,11 @@ msgid ""
 "authorinitials> <revremark> Made the doc compliant with the GDP template. "
 "Clarified the playing section. </revremark>"
 msgstr ""
+"<revnumber>0.3</revnumber> <date>7 de febrero del 2000</date> "
+"<authorinitials>EB</authorinitials> <revremark> Documentación compatible con "
+"la plantilla de GDP. Aclarada la sección de juego. </revremark>"
 
 #: C/iagno.xml:135(revhistory/revision)
-#, fuzzy
 #| msgid ""
 #| "Licensed the Iagno Manual under the FDL. Updated the screenshots to the "
 #| "GDP standard theme, MicroGUI."
@@ -352,8 +355,10 @@ msgid ""
 "authorinitials> <revremark> Licensed the Iagno Manual under the FDL. Updated "
 "the screenshots to the GDP standard theme, MicroGUI. </revremark>"
 msgstr ""
-"Licenciado manual de Iagno bajo la FDL. Actualizadas las capturas de "
-"pantalla al tema estándar del GDP, MicroGUI."
+"<revnumber>1.0</revnumber> <date>7 April 2000</date> <authorinitials>EB</"
+"authorinitials> <revremark>Licenciado el manual de Iagno bajo la FDL. "
+"Actualizadas las capturas de pantalla al tema estándar del GDP, MicroGUI.</"
+"revremark>"
 
 #: C/iagno.xml:146(articleinfo/releaseinfo)
 msgid "This manual describes version 2.20 of Iagno."
@@ -458,15 +463,6 @@ msgstr ""
 "de William Shakespeare."
 
 #: C/iagno.xml:216(sect2/para)
-#| msgid ""
-#| "Later his buddies came over and like all programmers he showed off his "
-#| "masterpiece. They all laughed in his face and told Ian that his game was "
-#| "worthless and a pitiful attempt to be a true hacker. After Ian kicked "
-#| "them out he decided to rename his program Iago <placeholder-1/> for the "
-#| "evil which had manifested itself due to his game. Yet it still didn't "
-#| "sound right. All GNOME programs have some part of GNOME in it, Ian "
-#| "thought. After much thought he decided on the name we have come to "
-#| "cherish, <application>Iagno </application>."
 msgid ""
 "Later his buddies came over and like all programmers he showed off his "
 "masterpiece. They all laughed in his face and told Ian that his game was "
@@ -511,6 +507,9 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of the starting position.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata fileref=\"figures/START.png\" format=\"PNG\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Captura de "
+"pantalla de la posición inicial.</phrase> </textobject>"
 
 #: C/iagno.xml:260(sect1/para)
 msgid ""
@@ -537,6 +536,9 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of the first move.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata fileref=\"figures/FIRST.png\" format=\"PNG\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Captura de "
+"pantalla del primer movimiento.</phrase> </textobject>"
 
 #: C/iagno.xml:293(figure/title)
 msgid ""
@@ -557,17 +559,11 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of black blocking.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata format=\"PNG\" fileref=\"figures/BLOCK.png\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Captura de "
+"pantalla de un bloque negro.</phrase> </textobject>"
 
 #: C/iagno.xml:282(sect1/para)
-#| msgid ""
-#| "When there is tile trapped between two tiles, of an identical color in "
-#| "the same row, the player captures tiles until another tile of the "
-#| "player's color is encountered, as shown in <xref linkend=\"block-shot\"/"
-#| ">. The player can only take tiles that are a direct result of the placing "
-#| "a tile on the board. Once a tile is placed on the board the player cannot "
-#| "remove it and place the tile somewhere else. If a player cannot move they "
-#| "forfeit their turn. The game ends when it is no longer possible for "
-#| "either player to move. <placeholder-1/>"
 msgid ""
 "When there is tile trapped between two tiles, of an identical color in the "
 "same row, the player captures tiles until another tile of the player's color "
@@ -666,16 +662,15 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of the game settings.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata format=\"PNG\" fileref=\"figures/PLAYER.png\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Captura de "
+"pantalla de la configuración del juego.</phrase> </textobject>"
 
 #: C/iagno.xml:378(sect1/title)
 msgid "Appearance"
 msgstr "Aspecto"
 
 #: C/iagno.xml:380(sect1/para)
-#| msgid ""
-#| "All the animation option are in the <menuchoice><guimenu>Settings</"
-#| "guimenu><guisubmenu>Preferences </guisubmenu></menuchoice> menus with the "
-#| "<guimenuitem>Appearance</guimenuitem> tab highlighted."
 msgid ""
 "All the animation option are in the <menuchoice> <guimenu>Settings</guimenu> "
 "<guisubmenu>Preferences </guisubmenu> </menuchoice> menus with the "
@@ -807,6 +802,9 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of the animation settings.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata format=\"PNG\" fileref=\"figures/ANIMATION.png\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Captura de "
+"pantalla de la configuración de las animaciones.</phrase> </textobject>"
 
 #: C/iagno.xml:488(sect1/title)
 msgid "Known Bugs and Limitations"
@@ -881,15 +879,6 @@ msgstr ""
 "   "
 
 #: C/iagno.xml:541(sect1/para)
-#| msgid ""
-#| "A copy of the <citetitle>GNU General Public License</citetitle> is "
-#| "included as an appendix to the <citetitle>GNOME Users Guide</citetitle>. "
-#| "You may also obtain a copy of the <citetitle>GNU General Public License</"
-#| "citetitle> from the Free Software Foundation by visiting <ulink type="
-#| "\"http\" url=\"http://www.fsf.org\">their Web site</ulink> or by writing "
-#| "to <address> Free Software Foundation, Inc. <street>59 Temple Place</"
-#| "street> - Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-"
-#| "1307</postcode><country>USA</country></address>"
 msgid ""
 "A copy of the <citetitle>GNU General Public License</citetitle> is included "
 "as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
@@ -929,13 +918,6 @@ msgid "link"
 msgstr "enlace"
 
 #: C/legal.xml:11(legalnotice/para)
-#| msgid ""
-#| "Permission is granted to copy, distribute and/or modify this document "
-#| "under the terms of the GNU Free Documentation License (GFDL), Version 1.1 "
-#| "or any later version published by the Free Software Foundation with no "
-#| "Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. You "
-#| "can find a copy of the GFDL at this <ulink type=\"help\" url=\"ghelp:fdl"
-#| "\">link</ulink> or in the file COPYING-DOCS distributed with this manual."
 msgid ""
 "Permission is granted to copy, distribute and/or modify this document under "
 "the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
