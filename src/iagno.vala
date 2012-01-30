@@ -582,6 +582,11 @@ public class Iagno : Gtk.Application
 
     public static int main (string[] args)
     {
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+
         var context = new OptionContext ("");
         context.set_translation_domain (GETTEXT_PACKAGE);
         context.add_group (Gtk.get_option_group (true));
