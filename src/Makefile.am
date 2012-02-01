@@ -12,7 +12,7 @@ iagno_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	-DDATA_DIRECTORY=\"$(datadir)/iagno\" \
-	-DSOUND_DIRECTORY=\"$(pkgdatadir)/sounds\" \
+	-DSOUND_DIRECTORY=\"$(datadir)/iagno/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	$(GTK_CFLAGS) \
 	$(CANBERRA_GTK_CFLAGS)

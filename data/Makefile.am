@@ -5,6 +5,11 @@ theme_DATA = \
 	sun_and_star.svg \
 	black_and_white.svg
 
+soundsdir = $(datadir)/iagno/sounds
+sounds_DATA = \
+	flip-piece.ogg \
+	gameover.ogg
+
 Gamesdir = $(datadir)/applications
 Games_in_files = iagno.desktop.in.in
 Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
@@ -17,7 +22,8 @@ gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 man_MANS = iagno.6
 
 EXTRA_DIST = \
-	$(theme_DATA)	\
+	$(theme_DATA) \
+	$(sounds_DATA) \
 	$(gsettings_in_file) \
 	$(man_MANS)
 

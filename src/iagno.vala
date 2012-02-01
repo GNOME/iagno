@@ -308,6 +308,8 @@ public class Iagno : Gtk.Application
 
     private void game_move_cb ()
     {
+        play_sound ("flip-piece");
+
         if (!game.can_move)
         {
             was_pass = true;
@@ -343,12 +345,17 @@ public class Iagno : Gtk.Application
         if (game.n_light_tiles == game.n_dark_tiles)
             show_message (_("The game was a draw."));
 
-        if (settings.get_boolean ("sound"))
-        {
-            CanberraGtk.play_for_widget (view, 0,
-                                         Canberra.PROP_MEDIA_NAME, "gameover",
-                                         Canberra.PROP_MEDIA_FILENAME, Path.build_filename (SOUND_DIRECTORY, "gameover.ogg"));
-        }
+        play_sound ("gameover");
+    }
+
+    private void play_sound (string name)
+    {
+        if (!settings.get_boolean ("sound"))
+            return;
+
+        CanberraGtk.play_for_widget (view, 0,
+                                     Canberra.PROP_MEDIA_NAME, name,
+                                     Canberra.PROP_MEDIA_FILENAME, Path.build_filename (SOUND_DIRECTORY, "%s.ogg".printf (name)));
     }
 
     private void player_move_cb (int x, int y)
