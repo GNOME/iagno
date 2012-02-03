@@ -224,7 +224,7 @@ public class Iagno : Gtk.Application
             undo_action.set_sensitive (false);
         else
             undo_action.set_sensitive (game.can_undo);
-
+        /* Translators: this is a 2 digit representation of the current score. */
         dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
         light_score_label.set_text (_("%.2d").printf (game.n_light_tiles));
 
