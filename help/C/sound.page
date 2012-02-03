@@ -6,14 +6,22 @@
     <revision version="0.1" date="2011-12-10" status="stub"/>
 
     <credit type="author copyright">
-      <name></name>
-      <email></email>
-      <years>2011</years>
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
     </credit>
 
     <desc></desc>
   </info>
 
   <title>Enable and disable sound</title>
-
+  <p>To enable or disable the sound:</p>
+  <steps>
+    <item><p>Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>.</p></item>
+    <item><p>Select the <gui>Game</gui> tab.</p></item>
+    <item><p>Click the <gui>Enable sounds</gui> checkbox.</p></item>
+    <item><p>Click <gui>Close</gui>.</p>
+    <note><p>The change will be available immediately.</p></note>
+    </item>
+  </steps>
 </page>

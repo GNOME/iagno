@@ -6,14 +6,28 @@
     <revision version="0.1" date="2011-12-10" status="stub"/>
 
     <credit type="author copyright">
-      <name></name>
-      <email></email>
-      <years>2011</years>
+      <name>Tiffany Antopolski</name>
+      <email>tiffany.antopolski@gmail.com</email>
+      <years>2012</years>
     </credit>
 
     <desc></desc>
   </info>
 
   <title>How to Play</title>
+
+  <p><app>Iagno</app> has simple <link xref="rules">rules</link> and is easy to play. The game is played using the mouse. To make a move:</p>
+
+  <steps>
+    <item><p>Click on the cell you would like to place your piece in.</p>
+    <note><p>If the move is legal, the piece will be placed in the cell, and the opponent
+             pieces will be flipped to match your color.</p>
+          <p>If the move is not allowed, nothing will happen.</p>
+    </note>
+    </item>
+    <item>
+    <p>You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></guiseq>.</p>
+    </item>
+  </steps>
 
 </page>
