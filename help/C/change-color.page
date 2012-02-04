@@ -6,7 +6,7 @@
     <revision version="0.1" date="2011-12-10" status="stub"/>
 
     <credit type="author copyright">
-      <name></name>
+      <name>Tiffany Antopolski</name>
       <email></email>
       <years>2011</years>
     </credit>
@@ -14,6 +14,21 @@
     <desc></desc>
   </info>
 
-  <title>Change color</title>
+  <title>Change player color and difficulty</title>
+
+  <p>
+   To change the player for each color:
+  </p>
+
+  <steps>
+  <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>.</p></item>
+  <item><p>Select the <gui>Game</gui> tab</p></item>
+  <item><p>Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</gui>.</p>
+  <note><p>
+   Your choice is effective immediately.
+  </p></note>
+  </item>
+  <item><p>Click <gui>Close</gui></p></item>
+  </steps>
 
 </page>

@@ -19,11 +19,11 @@
 
   <title>Play against the computer</title>
    <p>The computer has different levels of difficulty: Level One, Level Two, and Level Three. To change this setting:</p>
-  
+
    <steps>
     <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>.</p></item>
     <item><p>Select the <gui>Game</gui> tab.</p></item>
-    <item><p>Select the difficulty level of your computer opponenet.</p></item>
+    <item><p>Select the difficulty level for your computer opponent.</p></item>
     <item><p>Click <gui>Close</gui>.</p></item>
    </steps>
 </page>

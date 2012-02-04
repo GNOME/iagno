@@ -16,7 +16,12 @@
 
   <title>How to Play</title>
 
-  <p><app>Iagno</app> has simple <link xref="rules">rules</link> and is easy to play. The game is played using the mouse. To make a move:</p>
+  <p><app>Iagno</app> has simple <link xref="rules">rules</link> and is easy to play.</p>
+
+  <p>When the game first starts, you play <em>Dark</em> and the computer player plays <em>Light</em>.  The <link xref="ai-game">difficulty level</link> is <gui>Level one</gui> by default.</p>
+
+
+  <p>The game is played using the mouse. To make a move:</p>
 
   <steps>
     <item><p>Click on the cell you would like to place your piece in.</p>
