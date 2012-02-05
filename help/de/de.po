@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno help master\n"
-"POT-Creation-Date: 2012-01-22 20:08+0000\n"
-"PO-Revision-Date: 2012-01-24 02:23+0100\n"
+"POT-Creation-Date: 2012-02-03 15:53+0000\n"
+"PO-Revision-Date: 2012-02-05 23:34+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -63,22 +63,32 @@ msgstr ""
 "<media type=\"image\" src=\"figures/logo32.png\">Iagno-Logo</media>Iagno"
 
 #: C/index.page:21(page/p)
-msgid "Short introductory text here..."
-msgstr "Kurzer Einführungstext …"
+msgid ""
+"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark on "
+"one side and light on the other. When a piece is captured it is turned over "
+"to join the capturing player's forces; the winner is the player with the most "
+"pieces of their color at the end of the game."
+msgstr ""
+"<app>Iagno</app> ist ein Brettspiel, das auf einem 64 Felder großen Spielfeld "
+"in einem 8x8-Gitter gespielt wird. Schwarz befindet sich auf der einen Seite "
+"und Weiß auf der anderen. Wenn ein Jeton eingeschlossen wird, dann gehört er "
+"durch Wechsel der Farbe fortan zu den Jetons des einschließenden Spielers. "
+"Der Gewinner ist der Spieler mit den meisten Jetons seiner Farbe am Ende des "
+"Spiels."
 
-#: C/index.page:26(section/title)
+#: C/index.page:25(section/title)
 msgid "Game Play"
 msgstr "Spielverlauf"
 
-#: C/index.page:30(section/title)
+#: C/index.page:29(section/title)
 msgid "Useful tips"
 msgstr "Nützliche Tipps"
 
-#: C/index.page:34(section/title)
+#: C/index.page:33(section/title)
 msgid "Advanced"
 msgstr "Fortgeschritten"
 
-#: C/index.page:38(section/title)
+#: C/index.page:37(section/title)
 msgid "Get Involved"
 msgstr "Mithelfen"
 
@@ -89,7 +99,7 @@ msgstr "Mithelfen"
 #: C/iagno.xml:251(imagedata)
 msgctxt "_"
 msgid "external ref='figures/START.png' md5='fa0ad688595ed15c51399c91f07d9f74'"
-msgstr ""
+msgstr "original"
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
@@ -98,7 +108,7 @@ msgstr ""
 #: C/iagno.xml:273(imagedata)
 msgctxt "_"
 msgid "external ref='figures/FIRST.png' md5='83f7cd8b2a958751bacd7934bdcd28ed'"
-msgstr ""
+msgstr "original"
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
@@ -107,7 +117,7 @@ msgstr ""
 #: C/iagno.xml:301(imagedata)
 msgctxt "_"
 msgid "external ref='figures/BLOCK.png' md5='05fd072f1b7a1ce785250d5a64cbf43b'"
-msgstr ""
+msgstr "original"
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
@@ -116,7 +126,7 @@ msgstr ""
 #: C/iagno.xml:364(imagedata)
 msgctxt "_"
 msgid "external ref='figures/PLAYER.png' md5='__failed__'"
-msgstr ""
+msgstr "original"
 
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
@@ -125,7 +135,7 @@ msgstr ""
 #: C/iagno.xml:474(imagedata)
 msgctxt "_"
 msgid "external ref='figures/ANIMATION.png' md5='__failed__'"
-msgstr ""
+msgstr "original"
 
 #: C/iagno.xml:25(articleinfo/title)
 msgid "<application>Iagno</application> Manual"
@@ -140,6 +150,15 @@ msgid ""
 "same. Once the board is filled with tiles, the winner is the player with the "
 "most of his/her color tiles on the board."
 msgstr ""
+"Iagno ist eine Computerversion des Spiels Reversi, besser bekannt unter "
+"Othello. Iagno ist ein Strategiespiel für zwei Spieler, das Go ähnlich ist. "
+"Die verwendeten Jetons sind auf der einen Seite schwarz und auf der anderen "
+"Seite weiß. Das Ziel von Iagno ist es, so viele gegnerische Jetons wie "
+"möglich umzudrehen, um sie der eigenen Farbe zuzuordnen, ohne dass der Gegner "
+"Ihre eigenen Jetons umdreht. Dies geschieht, indem Sie die gegnerischen "
+"Jetons in eine Falle zwischen zwei Ihrer eigenen Jetons locken. Sobald das "
+"Spielfeld mit Jetons gefüllt ist, gewinnt derjenige, der die meisten Jetons "
+"seiner Farbe platzieren konnte."
 
 #: C/iagno.xml:38(articleinfo/copyright)
 msgid "<year>2000</year> <holder>Eric Baudais</holder>"
@@ -158,6 +177,12 @@ msgid ""
 "is licensed</link> under, or you can distribute it under the terms of the GNU "
 "Free Documentation License. A copy of this follows."
 msgstr ""
+"Dieses Dokument steht unter einer dualen Lizenz. Sie können es entweder unter "
+"den Bedingungen der <ulink type=\"help\" url=\"gnome-help:gpl\">GNU General "
+"Public License</ulink> verbreiten (auch in geänderter Fassung), worunter "
+"<link linkend=\"license\"> das Programm lizensiert ist</link>, oder Sie "
+"verbreiten es unter den Bedingungen der GNU Free Documentation License. Eine "
+"Kopie finden Sie nachfolgend."
 
 #: C/iagno.xml:11(legalnotice/para)
 msgid ""
@@ -488,6 +513,9 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of the starting position.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata fileref=\"figures/START.png\" format=\"PNG\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> "
+"<phrase>Bildschirmfoto der Startposition.</phrase> </textobject>"
 
 #: C/iagno.xml:260(sect1/para)
 msgid ""
@@ -497,6 +525,12 @@ msgid ""
 "a horizontal, vertical, or diagonal row, are flipped over and become black, "
 "as shown in <xref linkend=\"first-shot\"/>."
 msgstr ""
+"Schwarz beginnt und setzt einen Jeton so auf das Spielfeld, dass ein weißer "
+"Jeton von zwei schwarzen Jetons eingeschlossen ist. Wenn Schwarz einen Jeton "
+"setzt, werden alle in horizontaler, vertikaler oder diagonaler Richtung "
+"zwischen dem neu gesetzten schwarzen Jeton und anderen schwarzen Jetons "
+"liegenden weißen Jetons umgedreht, so wie in <xref linkend=\"first-shot\"/> "
+"gezeigt."
 
 #: C/iagno.xml:269(figure/title)
 msgid "First Move"
@@ -508,6 +542,9 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of the first move.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata fileref=\"figures/FIRST.png\" format=\"PNG\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> "
+"<phrase>Bildschirmfoto des ersten Zuges.</phrase> </textobject>"
 
 #: C/iagno.xml:293(figure/title)
 msgid ""
@@ -516,6 +553,11 @@ msgid ""
 "blacks turn instead, black could place a tile at the top of the column but "
 "would only flip the first of the two white tiles."
 msgstr ""
+"Weiß kann den schwarzen Jeton in der Mitte der mittleren Spalte nicht "
+"einschließen, weil weiße Jetons die Enden dieser Spalte blockieren. Falls "
+"Schwarz stattdessen am Zug wäre, könnte Schwarz einen Jeton an der Spitze "
+"dieser Spalte platzieren, aber würde nur den ersten der zwei weißen Jetons "
+"umdrehen."
 
 #: C/iagno.xml:299(screenshot/mediaobject)
 msgid ""
@@ -523,6 +565,9 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of black blocking.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata format=\"PNG\" fileref=\"figures/BLOCK.png\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> "
+"<phrase>Bildschirmfoto einer Blockade für Schwarz.</phrase> </textobject>"
 
 #: C/iagno.xml:282(sect1/para)
 msgid ""
@@ -535,6 +580,14 @@ msgid ""
 "game ends when it is no longer possible for either player to move. <_:"
 "figure-1/>"
 msgstr ""
+"Wenn Jetons zwischen zwei anderen Jetons gleicher Farbe in der gleichen Zeile "
+"eingeschlossen sind, kann ein Spieler so alle Jetons erreichen bis hin zu dem "
+"seiner eigenen Farbe, wie in <xref linkend=\"block-shot\"/> gezeigt. Dies ist "
+"nur durch direktes Platzieren des Jetons möglich, nachträgliches Entfernen "
+"oder Verschieben eines Jetons an eine andere Position ist nicht möglich. Wenn "
+"ein Spieler nicht mehr ziehen kann, verliert er diesen Zug. Das Spiel endet, "
+"wenn es für keinen der Spieler mehr möglich ist, einen Zug auszuführen. <_:"
+"figure-1/>"
 
 #: C/iagno.xml:314(sect1/title)
 msgid "Game Settings"
@@ -542,7 +595,7 @@ msgstr "Einstellungen des Spiels"
 
 #: C/iagno.xml:317(sect2/title)
 msgid "Player Color and Difficulty"
-msgstr ""
+msgstr "Spielerfarbe und Schwierigkeitsgrad"
 
 #: C/iagno.xml:319(sect2/para)
 msgid ""
@@ -554,6 +607,14 @@ msgid ""
 "to human to play against a friend or set both to computer to watch the "
 "computer play itself."
 msgstr ""
+"Wenn Sie Iagno starten, spielt ein menschlicher Spieler mit Schwarz und der "
+"Computergegner mit Weiß im Level Eins. Im Reiter <guimenuitem>Spiel</"
+"guimenuitem> des Dialogs <guisubmenu>Iagno-Einstellungen</guisubmenu> können "
+"Sie den Spielertyp für jede Farbe bestimmen. »Menschlich« sind natürlich Sie, "
+"Level Eins bezeichnet den schwächsten Computergegner und Level Drei den "
+"stärksten. Sie können beide Gegner auf »Menschlich« setzen, um gegen einen "
+"Freund zu spielen, oder beide auf einen Computerlevel, um ein Spiel des "
+"Computers gegen sich selbst zu verfolgen."
 
 #: C/iagno.xml:332(sect2/title)
 msgid "Quick Moves Option"
@@ -566,6 +627,10 @@ msgid ""
 "guimenuitem> tab and it is initially off. When enabled this option makes the "
 "computer player place its tiles faster."
 msgstr ""
+"Diese Option befindet sich im Menü <guimenu>Einstellungen</guimenu>. Von dort "
+"aus öffnen Sie das Untermenü <guisubmenu>Einstellungen</guisubmenu> im Reiter "
+"<guimenuitem>Spiel</guimenuitem>, wobei diese Option anfänglich deaktiviert "
+"ist. Wenn Sie sie aktivieren, setzt der Computergegner seine Jetons schneller."
 
 #: C/iagno.xml:342(note/title) C/iagno.xml:443(note/title)
 msgid "Note:"
@@ -576,6 +641,8 @@ msgid ""
 "Enabling this option does not force the computer player to move and does not "
 "reduce the level of difficulty."
 msgstr ""
+"Das Aktivieren dieser Option beeinflusst weder die Reaktionszeit des "
+"Computergegners noch den Schwierigkeitsgrad des Spiels."
 
 #: C/iagno.xml:351(sect2/title)
 msgid "Enable/Disable Sound"
@@ -587,10 +654,14 @@ msgid ""
 "<guilabel>Preferences</guilabel> dialog allows you to enable or disable all "
 "sounds when playing in <application>Iagno</application>."
 msgstr ""
+"Die letzte Option im Reiter <guimenuitem>Spiel</guimenuitem> des Dialogs "
+"<guilabel>Einstellungen</guilabel> ermöglicht Ihnen die Aktivierung oder "
+"Deaktivierung von Klängen, während Sie <application>Iagno</application> "
+"spielen."
 
 #: C/iagno.xml:360(figure/title)
 msgid "The Preferences menu with the Game tab highlighted."
-msgstr ""
+msgstr "Das Einstellungsmenü mit dem hervorgehobenen »Spiel«-Reiter."
 
 #: C/iagno.xml:362(screenshot/mediaobject)
 msgid ""
@@ -598,6 +669,9 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of the game settings.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata format=\"PNG\" fileref=\"figures/PLAYER.png\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> "
+"<phrase>Bildschirmfoto der Spieleinstellungen.</phrase> </textobject>"
 
 #: C/iagno.xml:378(sect1/title)
 msgid "Appearance"
@@ -609,6 +683,10 @@ msgid ""
 "<guisubmenu>Preferences </guisubmenu> </menuchoice> menus with the "
 "<guimenuitem>Appearance</guimenuitem> tab highlighted."
 msgstr ""
+"Alle Animationsoptionen befinden sich in den Menüs <menuchoice> "
+"<guimenu>Einstellungen</guimenu> <guisubmenu>Einstellungen</guisubmenu> </"
+"menuchoice> im hervorgehobenen Reiter <guimenuitem>Erscheinungsbild</"
+"guimenuitem>."
 
 #: C/iagno.xml:390(sect2/title)
 msgid "Animation"
@@ -623,6 +701,12 @@ msgid ""
 "the tiles slowly. Selecting the <guibutton>complete </guibutton> option will "
 "cause the tiles to flip slowly and smoothly."
 msgstr ""
+"Diese Option beeinflusst mit Hilfe von Radio-Knöpfen den Grad der Animation "
+"beim Umdrehen von Jetons. Die Einstellung <guibutton>Keine</guibutton> "
+"bewirkt, dass die Jetons unmittelbar ohne Animation umgedreht werden. Die "
+"Einstellung <guibutton>Teilweise</guibutton> erzeugt eine langsame Animation "
+"beim Umdrehen. Die Einstellung <guibutton>Vollständig</guibutton> bewirkt, "
+"dass die Jetons langsam und weich umgedreht werden."
 
 #: C/iagno.xml:404(sect2/title)
 msgid "Stagger Flips"
@@ -634,6 +718,10 @@ msgid ""
 "one after another, like dominoes, instead of all flipping simultaneously. It "
 "has no effect on game play, but looks cool."
 msgstr ""
+"Diese Einstellung bewirkt, dass die Steine einer Zeile, Spalte oder Diagonale "
+"wie Dominosteine einer nach dem anderen umgedreht werden, anstatt sie "
+"gleichzeitig zu drehen. Dies hat keinen Einfluss auf den Spielverlauf, aber "
+"sieht cool aus."
 
 #: C/iagno.xml:415(sect2/title)
 msgid "Show Grid"
@@ -645,6 +733,9 @@ msgid ""
 "useful to display because it shows the player exactly where they are placing "
 "each tile."
 msgstr ""
+"Mit dieser Option wird ein Gitternetz auf der Oberfläche des Spielfeldes "
+"angezeigt. Das Gitternetz ist nützlich, weil es dem Spieler den exakten Platz "
+"für die Positionierung der Jetons anzeigt."
 
 #: C/iagno.xml:424(tip/title)
 msgid "Tip:"
@@ -655,6 +746,8 @@ msgid ""
 "This option should be enabled for beginning players to see the gameplay more "
 "clearly."
 msgstr ""
+"Diese Option sollte von Anfängern aktiviert werden, um den Ablauf des Spiels "
+"zu verdeutlichen."
 
 #: C/iagno.xml:434(sect2/title)
 msgid "Flip Final Results"
@@ -666,10 +759,13 @@ msgid ""
 "white tiles to the bottom of the board at the end of the game. This allows "
 "you to visually see the outcome of the game."
 msgstr ""
+"Diese Option verschiebt am Ende des Spiels alle schwarzen Jetons an den "
+"oberen Spielfeldrand und alle weißen an den unteren, um das Spielergebnis "
+"optisch zu verdeutlichen."
 
 #: C/iagno.xml:444(note/para)
 msgid "This option does not affect the outcome of the game in any way."
-msgstr ""
+msgstr "Diese Option beeinflusst das Ergebnis des Spiels in keiner Weise."
 
 #: C/iagno.xml:452(sect2/title)
 msgid "Tile Set"
@@ -683,6 +779,13 @@ msgid ""
 "tile set that works with Iagno send it to Ian Peters <email>itp@gnu.org</"
 "email> and he will include it with the next distribution."
 msgstr ""
+"Mit dieser Option wählen Sie den Typ des Spielfeldes und den Typ der "
+"anzuzeigenden Jetons. Wenn Sie Ihre eigenen Jeton-Sätze erstellen möchten, "
+"verwenden Sie den Satz »classic« als Vorlage und ändern die Textur der "
+"Oberfläche und die Farben, um verschiedene Effekte zu erzielen. Sobald Sie "
+"einen neuen Jeton-Satz erstellt haben, der mit Iagno zusammenarbeitet, senden "
+"Sie ihn an Ian Peters <email><itp@gnu.org></email> und er wird diesen Satz in "
+"der nächsten Version mitliefern."
 
 #: C/iagno.xml:462(important/title)
 msgid "Important:"
@@ -693,10 +796,12 @@ msgid ""
 "There are two tile sets which look the same, but have different animations -- "
 "woodtrim and classic."
 msgstr ""
+"Es gibt zwei gleich aussehende Jeton-Sätze, die aber verschiedene Animationen "
+"zeigen -- »woodtrim« und »classic«."
 
 #: C/iagno.xml:470(figure/title)
 msgid "The Preferences menu with the Appearance tab highlighted."
-msgstr ""
+msgstr "Das Einstellungsmenü mit dem hervorgehobenen »Erscheinungsbild«-Reiter."
 
 #: C/iagno.xml:472(screenshot/mediaobject)
 msgid ""
@@ -704,6 +809,9 @@ msgid ""
 "srccredit=\"Eric Baudais\"/> </imageobject> <textobject> <phrase>Screenshot "
 "of the animation settings.</phrase> </textobject>"
 msgstr ""
+"<imageobject> <imagedata format=\"PNG\" fileref=\"figures/ANIMATION.png\" "
+"srccredit=\"Eric Baudais\"/> </imageobject> <textobject> "
+"<phrase>Bildschirmfoto der Animationseinstellungen.</phrase> </textobject>"
 
 #: C/iagno.xml:488(sect1/title)
 msgid "Known Bugs and Limitations"
@@ -711,7 +819,7 @@ msgstr "Bekannte Fehler und Einschränkungen"
 
 #: C/iagno.xml:492(listitem/para)
 msgid "The computer player for Iagno is easy to beat."
-msgstr ""
+msgstr "Der Computergegner in Iagno ist leicht zu schlagen."
 
 #: C/iagno.xml:501(sect1/title)
 msgid "Authors"
@@ -725,6 +833,12 @@ msgid ""
 "or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?"
 "feedback-bugs\" type=\"help\">document</ulink>."
 msgstr ""
+"<application>Iagno</application> wurde von Ian Peters geschrieben "
+"(<email><itp@gnu.org></email>). Dieses Handbuch schrieb Eric Baudais "
+"(<email><baudais@okstate.edu></email>). Um einen Fehler zu melden oder einen "
+"Vorschlag zu dieser Anwendung oder diesem Handbuch zu machen, folgen Sie den "
+"Anweisungen in <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
+"\">diesem Dokument</ulink>."
 
 #: C/iagno.xml:527(sect1/title)
 msgid "License"
@@ -767,6 +881,12 @@ msgid ""
 "    <country>USA</country>\n"
 "   "
 msgstr ""
+"\n"
+"    Free Software Foundation, Inc.\n"
+"    <street>59 Temple Place</street> - Suite 330\n"
+"    <city>Boston</city>, <state>MA</state> <postcode>02111-1307</postcode>\n"
+"    <country>USA</country>\n"
+"   "
 
 #: C/iagno.xml:541(sect1/para)
 msgid ""
@@ -776,6 +896,13 @@ msgid ""
 "the Free Software Foundation by visiting <ulink type=\"http\" url=\"http://"
 "www.fsf.org\">their Web site</ulink> or by writing to <_:address-1/>"
 msgstr ""
+"Eine Kopie der <citetitle>GNU General Public License</citetitle> ist im "
+"Anhang des <citetitle>GNOME Benutzerhandbuchs</citetitle> enthalten. Sie "
+"können außerdem eine Kopie der <citetitle><ulink type=\"help\" url=\"gnome-"
+"help:gpl\">GNU General Public License</ulink></citetitle> von der Free "
+"Software Foundation erhalten, indem Sie auf <ulink type=\"http\" url=\"http://"
+"www.fsf.org\">ihre Internetseite</ulink> gehen oder schreiben Sie an <_:"
+"address-1/>"
 
 #: C/legal.xml:5(para/ulink)
 msgid "GNU General Public License"
@@ -783,7 +910,7 @@ msgstr "GNU General Public License"
 
 #: C/legal.xml:6(para/link)
 msgid "program is licensed"
-msgstr ""
+msgstr "das Programm lizensiert ist"
 
 #: C/legal.xml:2(legalnotice/para)
 msgid ""
@@ -792,10 +919,14 @@ msgid ""
 "distribute it under the terms of the GNU Free Documentation License. A copy "
 "of this follows."
 msgstr ""
+"Dieses Dokument steht unter einer dualen Lizenz. Sie können es entweder unter "
+"den Bedingungen der <_:ulink-1/> verbreiten (auch in geänderter Fassung, "
+"worunter <_:link-2/>, oder Sie verbreiten es unter den Bedingungen der GNU "
+"Free Documentation License. Eine Kopie finden Sie nachfolgend."
 
 #: C/legal.xml:18(para/ulink)
 msgid "link"
-msgstr ""
+msgstr "Link"
 
 #: C/legal.xml:11(legalnotice/para)
 msgid ""
@@ -806,4 +937,12 @@ msgid ""
 "of the GFDL at this <_:ulink-1/> or in the file COPYING-DOCS distributed with "
 "this manual."
 msgstr ""
+"Das vorliegende Dokument kann gemäß den Bedingungen der GNU Free "
+"Documentation License (GFDL), Version 1.1 oder jeder späteren, von der Free "
+"Software Foundation veröffentlichten Version ohne unveränderbare Abschnitte "
+"sowie ohne Texte auf dem vorderen und hinteren Buchdeckel kopiert, verteilt "
+"und/oder modifiziert werden. Eine Kopie der GFDL finden Sie unter diesem <_:"
+"ulink-1/> oder in der mit diesem Handbuch gelieferten Datei COPYING-DOCS."
 
+#~ msgid "Short introductory text here..."
+#~ msgstr "Kurzer Einführungstext …"
