@@ -25,6 +25,7 @@ gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 man_MANS = iagno.6
 
 EXTRA_DIST = \
+	$(ui_DATA) \
 	$(theme_DATA) \
 	$(sounds_DATA) \
 	$(gsettings_in_file) \
