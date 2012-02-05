@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2012-01-23 13:45+0000\n"
-"PO-Revision-Date: 2012-01-25 17:06+0100\n"
+"POT-Creation-Date: 2012-02-03 15:53+0000\n"
+"PO-Revision-Date: 2012-02-05 19:35+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -67,22 +67,30 @@ msgstr ""
 "<media type=\"image\" src=\"figures/logo32.png\">Logo de Iagno</media>Iagno"
 
 #: C/index.page:21(page/p)
-msgid "Short introductory text here..."
-msgstr "NO TRADUCIR"
+msgid ""
+"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
+"on one side and light on the other. When a piece is captured it is turned "
+"over to join the capturing player's forces; the winner is the player with "
+"the most pieces of their color at the end of the game."
+msgstr ""
+"<app>Iagno</app> se juega en un tablero de 8x8 con 64 piezas, negras en un "
+"lado y blancas en el otro. Cuando se captura una pieza, se saca del tablero "
+"y el jugador la guarda; el ganador es el jugador con más piezas de su color "
+"al terminar la partida"
 
-#: C/index.page:26(section/title)
+#: C/index.page:25(section/title)
 msgid "Game Play"
 msgstr "Juego"
 
-#: C/index.page:30(section/title)
+#: C/index.page:29(section/title)
 msgid "Useful tips"
 msgstr "Consejos útiles"
 
-#: C/index.page:34(section/title)
+#: C/index.page:33(section/title)
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: C/index.page:38(section/title)
+#: C/index.page:37(section/title)
 msgid "Get Involved"
 msgstr "Involucrarse"
 
@@ -347,9 +355,6 @@ msgstr ""
 "la plantilla de GDP. Aclarada la sección de juego. </revremark>"
 
 #: C/iagno.xml:135(revhistory/revision)
-#| msgid ""
-#| "Licensed the Iagno Manual under the FDL. Updated the screenshots to the "
-#| "GDP standard theme, MicroGUI."
 msgid ""
 "<revnumber>1.0</revnumber> <date>7 April 2000</date> <authorinitials>EB</"
 "authorinitials> <revremark> Licensed the Iagno Manual under the FDL. Updated "
@@ -571,8 +576,8 @@ msgid ""
 "only take tiles that are a direct result of the placing a tile on the board. "
 "Once a tile is placed on the board the player cannot remove it and place the "
 "tile somewhere else. If a player cannot move they forfeit their turn. The "
-"game ends when it is no longer possible for either player to move. <_:figure-"
-"1/>"
+"game ends when it is no longer possible for either player to move. <_:"
+"figure-1/>"
 msgstr ""
 "Cuando hay una ficha atrapada entre otras dos fichas de idéntico color en la "
 "misma fila, el jugador captura fichas hasta que se encuentra con otra ficha "
@@ -932,6 +937,9 @@ msgstr ""
 "Secciones invariantes, Textos de portada y Textos de contraportada. "
 "Encontrará una copia de la GFDL en este <_:ulink-1/> o en el archivo COPYING-"
 "DOCS distribuido con este manual."
+
+#~ msgid "Short introductory text here..."
+#~ msgstr "NO TRADUCIR"
 
 #~ msgid "tiffany.antopolski@gmail.com"
 #~ msgstr "tiffany.antopolski@gmail.com"
