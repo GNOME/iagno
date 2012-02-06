@@ -193,7 +193,7 @@ public class GameView : Gtk.DrawingArea
             if (n_losing_tiles > n_winning_tiles)
             {
                 winning_color = Player.DARK;
-                winning_color = Player.LIGHT;
+                losing_color = Player.LIGHT;
                 var t = n_winning_tiles;
                 n_winning_tiles = n_losing_tiles;
                 n_losing_tiles = t;
