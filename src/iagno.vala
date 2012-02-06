@@ -154,6 +154,7 @@ public class Iagno : Gtk3.Application
         statusbar.show ();
 
         var toolbar = builder.get_object ("toolbar") as Gtk.Toolbar;
+        toolbar.show_arrow = false;
         toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
         toolbar.insert (new Gtk.SeparatorToolItem (), -1);
         var status_item = new Gtk.ToolItem ();
