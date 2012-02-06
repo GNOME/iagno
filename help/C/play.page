@@ -35,4 +35,13 @@
     </item>
   </steps>
 
+
+    <section id="usage-video">
+      <title>Video demonstration</title>
+       <media type="video" mime="application/ogg" src="figures/iagno-video.ogv">
+
+        </media>
+    </section>
+
+
 </page>

@@ -16,4 +16,19 @@
 
   <title>Strategy</title>
 
+  <p><app>Iagno</app> doesn't have a one particular winning strategery. Rather it has strategic elements which can be used to help one gain advantage. Some strategies, such as tryinging to flip as many of your opponents pieces early on in the game, should be avoided.</p>
+
+  <p>Much has been written on the topic of strategy for the games <em>Othello</em> and <em>Reversi</em>, which <app>Iagno</app> is based on.</p>
+
+  <note style="tip"><p>Some sources state that Reversi does not have a predefined starting position, whereas Othello and <app>Iagno</app> do.</p></note>
+
+  <p>If you are interested in learning about specific strategies for the game, the following links may be of interest:</p>
+  <list>
+   <item><p><link href="http://othello.dk/book/index.php/From_Scratch">A great beginners to strategy of the game</link></p></item>
+   <item><p><link href="http://gaurang.org/gothello/guide/guide.html">An introduction to strategy and tactics</link></p></item>
+   <item><p><link href="http://en.wikipedia.org/wiki/Reversi#Strategic_elements">Wikipedia: Strategic elements</link></p></item>
+   <item><p><link href="http://radagast.se/othello/Help/strategy.html">A strategy guide</link></p></item>
+  </list>
+
+
 </page>

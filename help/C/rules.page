@@ -17,10 +17,10 @@
   <title>Rules</title>
 
   <p>The object of the game is to flip as many of the opponent tiles while blocking your opponent from flipping your tiles. In order to flip a tile, you must first trap it between two of your tiles, horizontally, vertically or diagonally.</p>
-  <p>
-  The game begins with four pieces, two light and two dark, placed in the center of the board.
-  </p>
   <steps>
+    <item><p>
+      The game begins with four pieces, two light and two dark, placed in the center of the board.
+    </p></item>
     <item><p>Dark goes first.</p></item>
     <item><p>Dark places a tile on the board in such a way that it traps white tiles between two of the dark tiles.</p>
     <note><p>This placement can be horizontal, vertical or diagonal.
@@ -29,9 +29,39 @@
      When the dark tile is placed, the light tiles between the newly placed dark tile and another dark tile are flipped over and become part of the light forces.
     </p>
     </item>
-    <item><p>The players alternate turns until no moves can be made by either player.  At this point the game is over. The end of the game usually results in a full board.</p></item>
+    <item><p>The players alternate turns until no more legal moves can be made by either player.  At this point the game is over. The end of the game often results in a full board.</p></item>
     <item><p>The winner is the the player with the most pieces of his color on the board.</p></item>
   </steps>
 
+<table>
+ <tr>
+  <td>
+  <media type="image" src="figures/start.png" width="200">
+    <p>Start position</p>
+  </media>
+   </td>
+   <td>
+  <media type="image" src="figures/first.png" width="200">
+    <p>Example first move</p>
+  </media>
+   </td>
+   <td>
+  <media type="image" src="figures/block.png" width="200">
+    <p>Blocking move</p>
+  </media>
+   </td>
+   <td>
+  <media type="image" src="figures/iagno-gameover.png" width="200">
+    <p><app>Iagno</app> game over position.</p>
+  </media>
+    </td>
+   </tr>
+   <tr>
+     <td><p><em>Start position</em></p></td>
+     <td><p><em>Example first move</em></p></td>
+     <td><p><em>A blocking move</em></p></td>
+     <td><p><em>Game over position</em></p></td>
+   </tr>
+</table>
 
 </page>
