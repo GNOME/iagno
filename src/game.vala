@@ -246,6 +246,9 @@ public class Game
 
     public void undo (int count = 1)
     {
+        if (!can_undo)
+            return;
+
         if (count < 1)
             return;
 
