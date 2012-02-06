@@ -9,6 +9,16 @@ public class Game
 {
     /* Tiles on the board */
     public Player[,] tiles;
+    
+    public int width
+    {
+        get { return tiles.length[0]; }
+    }
+
+    public int height
+    {
+        get { return tiles.length[1]; }
+    }
 
     /* Undo stack.  This is a record of all the tile changes since the start of the game
      * in the binary form ccxxxyyy where cc is the color (0-2), xxx is the x location (0-7)
@@ -36,9 +46,9 @@ public class Game
         get
         {
             var count = 0;
-            for (var x = 0; x < 8; x++)
+            for (var x = 0; x < width; x++)
             {
-                for (var y = 0; y < 8; y++)
+                for (var y = 0; y < height; y++)
                 {
                     if (tiles[x, y] != Player.NONE)
                         count++;
@@ -62,8 +72,8 @@ public class Game
     {
         get
         {
-            for (var x = 0; x < 8; x++)
-                for (var y = 0; y < 8; y++)
+            for (var x = 0; x < width; x++)
+                for (var y = 0; y < height; y++)
                     if (can_place (x, y))
                         return true;
             return false;
@@ -72,15 +82,15 @@ public class Game
 
     public bool is_complete
     {
-        get { return n_tiles == 64 || n_light_tiles == 0 || n_dark_tiles == 0; }
+        get { return n_tiles == width * height || n_light_tiles == 0 || n_dark_tiles == 0; }
     }
 
-    public Game ()
+    public Game (int width = 8, int height = 8)
     {
         /* Setup board with four tiles by default */
-        tiles = new Player[8, 8];
-        for (var x = 0; x < 8; x++)
-            for (var y = 0; y < 8; y++)
+        tiles = new Player[width, height];
+        for (var x = 0; x < width; x++)
+            for (var y = 0; y < height; y++)
                 tiles[x, y] = Player.NONE;
         set_tile (3, 3, Player.LIGHT, false);
         set_tile (3, 4, Player.DARK, false);
@@ -101,9 +111,9 @@ public class Game
 
     public Game.copy (Game game)
     {
-        tiles = new Player[8, 8];
-        for (var x = 0; x < 8; x++)
-            for (var y = 0; y < 8; y++)
+        tiles = new Player[width, height];
+        for (var x = 0; x < width; x++)
+            for (var y = 0; y < height; y++)
                 tiles[x, y] = game.tiles[x, y];
         for (var i = 0; i < game.undo_index; i++)
             undo_history[i] = game.undo_history[i];
@@ -186,8 +196,8 @@ public class Game
     private int count_tiles (Player color)
     {
         var count = 0;
-        for (var x = 0; x < 8; x++)
-            for (var y = 0; y < 8; y++)
+        for (var x = 0; x < width; x++)
+            for (var y = 0; y < height; y++)
                 if (tiles[x, y] == color)
                     count++;
         return count;
@@ -195,7 +205,7 @@ public class Game
 
     private bool is_valid_location (int x, int y)
     {
-        return x >= 0 && x < 8 && y >= 0 && y < 8;
+        return x >= 0 && x < width && y >= 0 && y < height;
     }
 
     private int flip_tiles (int x, int y, int x_step, int y_step, Player color, bool apply)
@@ -251,7 +261,7 @@ public class Game
                 undo_index--;
                 var c = (Player) (n >> 6);
                 var xy = n & 0x3F;
-                set_tile (xy / 8, xy % 8, c, false);
+                set_tile (xy % width, xy / width, c, false);
             }
 
             /* Previous player to move again */
@@ -272,7 +282,7 @@ public class Game
         /* Store the old color in the history */
         if (update_history)
         {
-            undo_history[undo_index] = ((int) tiles[x, y] << 6) | (x * 8 + y);
+            undo_history[undo_index] = ((int) tiles[x, y] << 6) | (y * width + x);
             undo_index++;
         }
 

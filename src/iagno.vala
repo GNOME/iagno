@@ -139,6 +139,7 @@ public class Iagno : Gtk3.Application
         view.game = game;
         view.move.connect (player_move_cb);
         view.show_grid = settings.get_boolean ("show-grid");
+        view.flip_final_result = settings.get_boolean ("flip-final-results");
         var tile_set = settings.get_string ("tileset");
         var theme = load_theme_texture (tile_set);
         if (theme == null)
@@ -462,10 +463,16 @@ public class Iagno : Gtk3.Application
         settings.set_boolean ("sound", play_sounds);
     }
 
-    private void grid_select (Gtk.ToggleButton widget)
+    private void grid_toggled_cb (Gtk.ToggleButton widget)
     {
         view.show_grid = widget.get_active ();
         settings.set_boolean ("show-grid", view.show_grid);
+    }
+
+    private void flip_final_toggled_cb (Gtk.ToggleButton widget)
+    {
+        view.flip_final_result = widget.get_active ();
+        settings.set_boolean ("flip-final-results", view.flip_final_result);
     }
 
     private void propbox_response_cb (Gtk.Widget widget, int response_id)
@@ -605,8 +612,13 @@ public class Iagno : Gtk3.Application
 
         var grid_button = new Gtk.CheckButton.with_mnemonic (_("S_how grid"));
         grid_button.set_active (settings.get_boolean ("show-grid"));
-        grid_button.toggled.connect (grid_select);
+        grid_button.toggled.connect (grid_toggled_cb);
         vbox.pack_start (grid_button, false, false, 0);
+
+        var flip_final_button = new Gtk.CheckButton.with_mnemonic (_("_Flip final results"));
+        flip_final_button.set_active (settings.get_boolean ("flip-final-results"));
+        flip_final_button.toggled.connect (flip_final_toggled_cb);
+        vbox.pack_start (flip_final_button, false, false, 0);
 
         var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
         vbox.pack_start (hbox, false, false, 0);

@@ -8,9 +8,6 @@
       <default>1</default>
       <range min="0" max="3" />
     </key>
-    <key name="quick-moves" type="b">
-      <default>false</default>
-    </key>
     <key name="tileset" type="s">
       <default>'classic.png'</default>
     </key>

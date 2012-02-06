@@ -84,6 +84,21 @@ public class GameView : Gtk.DrawingArea
         set { _show_grid = value; redraw (); }
     }
 
+    private bool _flip_final_result;
+    public bool flip_final_result
+    {
+        get { return _flip_final_result; }
+        set
+        {
+            _flip_final_result = value;
+            if (game == null)
+                return;
+            for (var x = 0; x < game.width; x++)
+                for (var y = 0; y < game.height; y++)
+                    square_changed_cb (x, y);
+        }
+    }
+
     public override void get_preferred_width (out int minimum, out int natural)
     {
         minimum = natural = (int) (8 * (20 + GRID_WIDTH));
@@ -165,16 +180,45 @@ public class GameView : Gtk.DrawingArea
 
     private void square_changed_cb (int x, int y)
     {
-        var target = get_pixmap (game.get_owner (x, y));
+        var pixmap = get_pixmap (game.get_owner (x, y));
 
-        if (pixmaps[x, y] == target)
+        /* If requested show the result by laying the tiles with winning color first */
+        if (game.is_complete && flip_final_result)
+        {
+            var n = y * game.width + x;
+            var winning_color = Player.LIGHT;
+            var losing_color = Player.DARK;
+            var n_winning_tiles = game.n_light_tiles;
+            var n_losing_tiles = game.n_dark_tiles;
+            if (n_losing_tiles > n_winning_tiles)
+            {
+                winning_color = Player.DARK;
+                winning_color = Player.LIGHT;
+                var t = n_winning_tiles;
+                n_winning_tiles = n_losing_tiles;
+                n_losing_tiles = t;
+            }
+            if (n < n_winning_tiles)
+                pixmap = get_pixmap (winning_color);
+            else if (n < n_winning_tiles + n_losing_tiles)
+                pixmap = get_pixmap (losing_color);
+            else
+                pixmap = get_pixmap (Player.NONE);
+        }
+
+        set_square (x, y, pixmap);
+    }
+    
+    private void set_square (int x, int y, int pixmap)
+    {
+        if (pixmaps[x, y] == pixmap)
             return;
 
-        if (target == 0 || pixmaps[x, y] == 0)
-            pixmaps[x, y] = target;
+        if (pixmap == 0 || pixmaps[x, y] == 0)
+            pixmaps[x, y] = pixmap;
         else
         {
-            if (target > pixmaps[x, y])
+            if (pixmap > pixmaps[x, y])
                 pixmaps[x, y]++;
             else
                 pixmaps[x, y]--;
