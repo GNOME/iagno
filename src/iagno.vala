@@ -10,8 +10,7 @@ public class Iagno : Gtk.Application
     private GameView view;
     private Gtk.Label dark_score_label;
     private Gtk.Label light_score_label;
-    private Gtk.Action new_game_action;
-    private Gtk.Action undo_action;
+    private SimpleAction undo_action;
 
     /* Light computer player (if there is one) */
     private ComputerPlayer? light_computer = null;
@@ -31,50 +30,22 @@ public class Iagno : Gtk.Application
     /* Possible themes */
     private GnomeGamesSupport.FileList? theme_file_list = null;
 
-    private const Gtk.ActionEntry actions[] =
-    {
-        {"GameMenu", null, N_("_Game")},
-        {"SettingsMenu", null, N_("_Settings")},
-        {"HelpMenu", null, N_("_Help")},
-        {"NewGame", GnomeGamesSupport.STOCK_NEW_GAME, null, null, null, new_game_cb},
-        {"UndoMove", GnomeGamesSupport.STOCK_UNDO_MOVE, null, null, null, undo_move_cb},
-        {"Quit", Gtk.Stock.QUIT, null, null, null, quit_game_cb},
-        {"Preferences", Gtk.Stock.PREFERENCES, null, null, null, properties_cb},
-        {"Contents", GnomeGamesSupport.STOCK_CONTENTS, null, null, null, help_cb},
-        {"About", Gtk.Stock.ABOUT, null, null, null, about_cb}
-    };
-
     private const GLib.ActionEntry app_actions[] =
     {
         {"new-game", new_game_cb},
-        {"undo-move", undo_move_cb}
+        {"undo-move", undo_move_cb},
+        {"preferences", preferences_cb},
+        {"help", help_cb},
+        {"about", about_cb},
+        {"quit", quit_cb}
     };
 
     protected override void startup()
     {
         base.startup ();
         add_action_entries (app_actions, this);
+        undo_action = lookup_action ("undo-move") as SimpleAction;
     }
-
-    private string ui_description =
-        "<ui>" +
-        "  <menubar name='MainMenu'>" +
-        "    <menu action='GameMenu'>" +
-        "      <menuitem action='NewGame'/>" +
-        "      <separator/>" +
-        "      <menuitem action='UndoMove'/>" +
-        "      <separator/>" +
-        "      <menuitem action='Quit'/>" +
-        "    </menu>" +
-        "    <menu action='SettingsMenu'>" +
-        "      <menuitem action='Preferences'/>" +
-        "    </menu>" +
-        "    <menu action='HelpMenu'>" +
-        "      <menuitem action='Contents'/>" +
-        "      <menuitem action='About'/>" +
-        "    </menu>" +
-        "  </menubar>" +
-        "</ui>";
 
     public Iagno ()
     {
@@ -101,6 +72,7 @@ public class Iagno : Gtk.Application
             stderr.printf ("Could not load UI: %s\n", e.message);
             return;
         }
+        set_app_menu (builder.get_object ("iagno-menu") as MenuModel);
         window = builder.get_object ("window") as Gtk.Window;
         var top_grid = builder.get_object ("grid") as Gtk.Grid;
         window.set_title (_("Iagno"));
@@ -108,29 +80,7 @@ public class Iagno : Gtk.Application
         GnomeGamesSupport.settings_bind_window_state ("/org/gnome/iagno/", window);
         add_window (window);
 
-        var ui_manager = new Gtk.UIManager ();
-        var action_group = new Gtk.ActionGroup ("group");
-
-        action_group.set_translation_domain (GETTEXT_PACKAGE);
-        action_group.add_actions (actions, this);
-
-        ui_manager.insert_action_group (action_group, 0);
-        try
-        {
-            ui_manager.add_ui_from_string (ui_description, -1);
-        }
-        catch (Error e)
-        {
-            warning ("Failed to load UI: %s", e.message);
-        }
-
-        window.add_accel_group (ui_manager.get_accel_group ());
-
-        new_game_action = action_group.get_action ("NewGame");
-        undo_action = action_group.get_action ("UndoMove");
-        undo_action.set_sensitive (false);
-        var menubar = (Gtk.MenuBar) ui_manager.get_widget ("/MainMenu");
-        top_grid.attach (menubar, 0, 0, 1, 1);
+        undo_action.set_enabled (true);
 
         view = new GameView ();
         view.hexpand = true;
@@ -173,8 +123,6 @@ public class Iagno : Gtk.Application
         grid.show ();
         statusbar.pack_start (grid, false, true, 0);
 
-        GnomeGamesSupport.stock_prepare_for_statusbar_tooltips (ui_manager, grid);
-
         var label = new Gtk.Label (_("Dark:"));
         label.show ();
         grid.attach (label, 1, 0, 1, 1);
@@ -212,7 +160,7 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void quit_game_cb ()
+    private void quit_cb ()
     {
         window.destroy ();
     }
@@ -259,9 +207,9 @@ public class Iagno : Gtk.Application
     {
         /* Can't undo when running two computer players */
         if (light_computer != null && dark_computer != null)
-            undo_action.set_sensitive (false);
+            undo_action.set_enabled (false);
         else
-            undo_action.set_sensitive (game.can_undo);
+            undo_action.set_enabled (game.can_undo);
         /* Translators: this is a 2 digit representation of the current score. */
         dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
         light_score_label.set_text (_("%.2d").printf (game.n_light_tiles));
@@ -299,7 +247,7 @@ public class Iagno : Gtk.Application
             game.undo (2);
     }
 
-    private void about_cb (Gtk.Action action)
+    private void about_cb ()
     {
         string[] authors = { "Ian Peters", "Robert Ancell", null };
         string[] documenters = { "Eric Baudais", null };
@@ -321,9 +269,9 @@ public class Iagno : Gtk.Application
                                null);
     }
 
-    private void properties_cb ()
+    private void preferences_cb ()
     {
-        show_properties_dialog ();
+        show_preferences_dialog ();
     }
 
     private void show_message (string message)
@@ -332,7 +280,7 @@ public class Iagno : Gtk.Application
         statusbar.push (statusbar_id, message);
     }
 
-    private void help_cb (Gtk.Action action)
+    private void help_cb ()
     {
         try
         {
@@ -499,7 +447,7 @@ public class Iagno : Gtk.Application
         view.redraw ();
     }
 
-    private void show_properties_dialog ()
+    private void show_preferences_dialog ()
     {
         var propbox = new Gtk.Dialog.with_buttons (_("Iagno Preferences"),
                                                    window,
