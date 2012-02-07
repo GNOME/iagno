@@ -17,13 +17,12 @@
   </info>
 
   <title>Two-player mode</title>
-  <p>Two player mode allows you to play against another human rather than a computer. To enable this</p>
+  <p>Two player mode allows you to play against another human rather than a computer. To enable this:</p>
 
 <steps>
   <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq></p></item>
   <item><p>Select the <gui>Game</gui> tab.</p></item>
   <item><p>Check <gui>human</gui> in both player columns.</p></item>
-  <item><p>Your changes will be applied when a new game is started.</p></item>
   <item><p>Click <gui>Close</gui></p>
   <note><p>Your changes will apply when a new game is started.</p></note>
   </item>

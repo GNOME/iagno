@@ -10,6 +10,10 @@
       <email>tiffany.antpolski@gmail.com</email>
       <years>2012</years>
     </credit>
+    <credit type="editor">
+      <name>Michael Hill</name>
+      <email>mdhillca@gmail.com</email>
+    </credit>
 
     <desc></desc>
   </info>
@@ -26,7 +30,7 @@
     <note><p>This placement can be horizontal, vertical or diagonal.
     </p></note>
     <p>
-     When the dark tile is placed, the light tiles between the newly placed dark tile and another dark tile are flipped over and become part of the light forces.
+     When the dark tile is placed, the light tiles between the newly placed dark tile and another dark tile are flipped over and become part of the dark forces.
     </p>
     </item>
     <item><p>The players alternate turns until no more legal moves can be made by either player.  At this point the game is over. The end of the game often results in a full board.</p></item>
