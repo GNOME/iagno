@@ -3,7 +3,6 @@ bin_PROGRAMS = iagno
 iagno_SOURCES = \
 	config.vapi \
 	computer-player.vala \
-	fixes.vapi \
 	game.vala \
 	game-view.vala \
 	iagno.vala

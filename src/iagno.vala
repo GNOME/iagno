@@ -1,4 +1,4 @@
-public class Iagno : Gtk3.Application
+public class Iagno : Gtk.Application
 {
     /* Application settings */
     private Settings settings;
@@ -44,11 +44,10 @@ public class Iagno : Gtk3.Application
         {"About", Gtk.Stock.ABOUT, null, null, null, about_cb}
     };
 
-    private const GLib2.ActionEntry app_actions[] =
+    private const GLib.ActionEntry app_actions[] =
     {
         {"new-game", new_game_cb},
         {"undo-move", undo_move_cb}
-
     };
 
     protected override void startup()
