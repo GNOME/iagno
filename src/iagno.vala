@@ -8,6 +8,8 @@ public class Iagno : Gtk.Application
     private Gtk.Statusbar statusbar;
     private uint statusbar_id;
     private GameView view;
+    private Gtk.Label dark_label;
+    private Gtk.Label light_label;
     private Gtk.Label dark_score_label;
     private Gtk.Label light_score_label;
     private SimpleAction undo_action;
@@ -123,17 +125,17 @@ public class Iagno : Gtk.Application
         grid.show ();
         statusbar.pack_start (grid, false, true, 0);
 
-        var label = new Gtk.Label (_("Dark:"));
-        label.show ();
-        grid.attach (label, 1, 0, 1, 1);
+        dark_label = new Gtk.Label (_("Dark:"));
+        dark_label.show ();
+        grid.attach (dark_label, 1, 0, 1, 1);
 
         dark_score_label = new Gtk.Label ("00");
         dark_score_label.show ();
         grid.attach (dark_score_label, 2, 0, 1, 1);
 
-        label = new Gtk.Label (_("Light:"));
-        label.show ();
-        grid.attach (label, 4, 0, 1, 1);
+        light_label = new Gtk.Label (_("Light:"));
+        light_label.show ();
+        grid.attach (light_label, 4, 0, 1, 1);
 
         light_score_label = new Gtk.Label ("00");
         light_score_label.show ();
@@ -210,9 +212,6 @@ public class Iagno : Gtk.Application
             undo_action.set_enabled (false);
         else
             undo_action.set_enabled (game.can_undo);
-        /* Translators: this is a 2 digit representation of the current score. */
-        dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
-        light_score_label.set_text (_("%.2d").printf (game.n_light_tiles));
 
         if (was_pass)
         {
@@ -224,9 +223,21 @@ public class Iagno : Gtk.Application
         else
         {
             if (game.current_color == Player.DARK)
-                show_message (_("Dark's move"));
+            {
+                dark_label.set_markup ("<span font_weight='bold'>"+_("Dark:")+"</span>");
+                light_label.set_markup ("<span font_weight='normal'>"+_("Light:")+"</span>");
+                /* Translators: this is a 2 digit representation of the current score. */
+                dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
+                light_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
+            }
             else if (game.current_color == Player.LIGHT)
-                show_message (_("Light's move"));
+            {
+                dark_label.set_markup ("<span font_weight='normal'>"+_("Dark:")+"</span>");
+                light_label.set_markup ("<span font_weight='bold'>"+_("Light:")+"</span>");
+                /* Translators: this is a 2 digit representation of the current score. */
+                dark_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
+                light_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
+            }
         }
     }
 
