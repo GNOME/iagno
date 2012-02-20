@@ -5,9 +5,11 @@ public class Iagno : Gtk.Application
 
     /* Widgets */
     private Gtk.Window window;
+    private Gtk.InfoBar infobar;
     private Gtk.Statusbar statusbar;
     private uint statusbar_id;
     private GameView view;
+    private Gtk.Label infobar_label;
     private Gtk.Label dark_label;
     private Gtk.Label light_label;
     private Gtk.Label dark_score_label;
@@ -100,7 +102,13 @@ public class Iagno : Gtk.Application
         }
         view.theme = theme;
         view.show ();
-        top_grid.attach (view, 0, 2, 1, 1);
+        top_grid.attach (view, 0, 3, 1, 1);
+
+        infobar = new Gtk.InfoBar ();
+        top_grid.attach (infobar, 0, 2, 1, 1);
+        infobar_label = new Gtk.Label ("");
+        infobar_label.show ();
+        infobar.add (infobar_label);
 
         statusbar = new Gtk.Statusbar ();
         statusbar.show ();
@@ -207,6 +215,7 @@ public class Iagno : Gtk.Application
 
     private void update_ui ()
     {
+        infobar.hide ();
         /* Can't undo when running two computer players */
         if (light_computer != null && dark_computer != null)
             undo_action.set_enabled (false);
@@ -216,9 +225,9 @@ public class Iagno : Gtk.Application
         if (was_pass)
         {
             if (game.current_color == Player.DARK)
-                show_message (_("Light must pass, Dark's move"));
+                show_message (_("Light must pass, Dark's move"), Gtk.MessageType.INFO);
             else
-                show_message (_("Dark must pass, Light's move"));
+                show_message (_("Dark must pass, Light's move"), Gtk.MessageType.INFO);
         }
         else
         {
@@ -285,10 +294,11 @@ public class Iagno : Gtk.Application
         show_preferences_dialog ();
     }
 
-    private void show_message (string message)
+    private void show_message (string message, Gtk.MessageType type)
     {
-        statusbar.pop (statusbar_id);
-        statusbar.push (statusbar_id, message);
+        infobar.message_type = type;
+        infobar_label.set_label (message);
+        infobar.show ();
     }
 
     private void help_cb ()
@@ -336,11 +346,11 @@ public class Iagno : Gtk.Application
     private void game_complete_cb ()
     {
         if (game.n_light_tiles > game.n_dark_tiles)
-            show_message (_("Light player wins!"));
+            show_message (_("Light player wins!"), Gtk.MessageType.INFO);
         if (game.n_dark_tiles > game.n_light_tiles)
-            show_message (_("Dark player wins!"));
+            show_message (_("Dark player wins!"), Gtk.MessageType.INFO);
         if (game.n_light_tiles == game.n_dark_tiles)
-            show_message (_("The game was a draw."));
+            show_message (_("The game was a draw."), Gtk.MessageType.INFO);
 
         play_sound ("gameover");
     }
@@ -364,7 +374,7 @@ public class Iagno : Gtk.Application
             return;
 
         if (game.place_tile (x, y) == 0)
-            show_message (_("Invalid move."));
+            show_message (_("Invalid move."), Gtk.MessageType.ERROR);
     }
 
     private void dark_human_cb (Gtk.ToggleButton widget)
