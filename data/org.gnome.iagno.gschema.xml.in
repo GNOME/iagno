@@ -9,7 +9,7 @@
       <range min="0" max="3" />
     </key>
     <key name="tileset" type="s">
-      <default>'classic.png'</default>
+      <default>'black_and_white.svg'</default>
     </key>
     <key name="show-grid" type="b">
       <default>false</default>
