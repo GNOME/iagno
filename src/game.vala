@@ -111,7 +111,7 @@ public class Game
 
     public Game.copy (Game game)
     {
-        tiles = new Player[width, height];
+        tiles = new Player[game.width, game.height];
         for (var x = 0; x < width; x++)
             for (var y = 0; y < height; y++)
                 tiles[x, y] = game.tiles[x, y];
