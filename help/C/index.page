@@ -6,7 +6,7 @@
     <title type='link' role="trail"><media type="image" src="figures/logo.png"/></title>
     <title type='link'>Iagno</title>
     <title type='text'>Iagno</title>
-    <revision pkgversion="3.4" version="0.1" date="2012-02-06" status="candidate"/>
+    <revision pkgversion="3.4" version="0.1" date="2012-03-08" status="final"/>
     <credit type="author">
       <name>Tiffany Antopolski</name>
       <email>tiffany.antopolski@gmail.com</email>
