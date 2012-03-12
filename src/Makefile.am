@@ -15,6 +15,7 @@ iagno_CFLAGS = \
 	-DSOUND_DIRECTORY=\"$(datadir)/iagno/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	$(GTK_CFLAGS) \
+	$(RSVG_CFLAGS) \
 	$(CANBERRA_GTK_CFLAGS)
 
 iagno_VALAFLAGS = \
@@ -28,12 +29,8 @@ iagno_VALAFLAGS = \
 iagno_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GTK_LIBS) \
+	$(RSVG_LIBS) \
 	$(CANBERRA_GTK_LIBS)
-
-if HAVE_RSVG
-iagno_CFLAGS += $(RSVG_CFLAGS)
-iagno_LDADD += $(RSVG_LIBS)
-endif
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
