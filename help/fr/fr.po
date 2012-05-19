@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno doc fr\n"
-"POT-Creation-Date: 2012-03-26 16:55+0000\n"
-"PO-Revision-Date: 2012-03-26 21:14+0200\n"
+"POT-Creation-Date: 2012-04-22 22:40+0000\n"
+"PO-Revision-Date: 2012-05-19 21:25+0200\n"
 "Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "Tiffany Antopolski"
 
 #: C/index.page:15(license/p) C/bug-filing.page:15(license/p)
 #: C/develop.page:15(license/p) C/documentation.page:13(license/p)
-#: C/legal.xml:2(license/p) C/translate.page:19(license/p)
+#: C/translate.page:19(license/p)
 msgid "Creative Commons Share Alike 3.0"
 msgstr ""
 "Creative Commons Paternité-Partage des Conditions Initiales à l'Identique 3.0"
@@ -365,6 +365,15 @@ msgid ""
 msgstr ""
 "Notre page <link href=\"https://live.gnome.org/DocumentationProject/"
 "Contributing\">wiki</link> contient des informations utiles."
+
+#: C/legal.xml:3(p/link)
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr ""
+"licence Creative Commons Paternité-Partage des Conditions Initiales à l'Identique 3.0 Unported"
+
+#: C/legal.xml:3(license/p)
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Cette œuvre est distribuée sous <_:link-1/>."
 
 #: C/license.page:8(info/desc)
 msgid "Legal information."
