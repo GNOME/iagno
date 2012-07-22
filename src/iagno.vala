@@ -377,52 +377,22 @@ public class Iagno : Gtk.Application
             show_message (_("Invalid move."), Gtk.MessageType.ERROR);
     }
 
-    private void dark_human_cb (Gtk.ToggleButton widget)
+    private void dark_level_changed_cb (Gtk.ComboBox combo)
     {
-        if (widget.get_active ())
-            settings.set_int ("black-level", 0);
+        Gtk.TreeIter iter;
+        combo.get_active_iter (out iter);
+        int level;
+        combo.model.get (iter, 1, out level);
+        settings.set_int ("black-level", level);
     }
 
-    private void dark_level_one_cb (Gtk.ToggleButton widget)
+    private void light_level_changed_cb (Gtk.ComboBox combo)
     {
-        if (widget.get_active ())
-            settings.set_int ("black-level", 1);
-    }
-
-    private void dark_level_two_cb (Gtk.ToggleButton widget)
-    {
-        if (widget.get_active ())
-            settings.set_int ("black-level", 2);
-    }
-
-    private void dark_level_three_cb (Gtk.ToggleButton widget)
-    {
-        if (widget.get_active ())
-            settings.set_int ("black-level", 3);
-    }
-
-    private void light_human_cb (Gtk.ToggleButton widget)
-    {
-        if (widget.get_active ())
-            settings.set_int ("white-level", 0);
-    }
-
-    private void light_level_one_cb (Gtk.ToggleButton widget)
-    {
-        if (widget.get_active ())
-            settings.set_int ("white-level", 1);
-    }
-
-    private void light_level_two_cb (Gtk.ToggleButton widget)
-    {
-        if (widget.get_active ())
-            settings.set_int ("white-level", 2);
-    }
-
-    private void light_level_three_cb (Gtk.ToggleButton widget)
-    {
-        if (widget.get_active ())
-            settings.set_int ("white-level", 3);
+        Gtk.TreeIter iter;
+        combo.get_active_iter (out iter);
+        int level;
+        combo.model.get (iter, 1, out level);
+        settings.set_int ("white-level", level);
     }
 
     private void sound_select (Gtk.ToggleButton widget)
@@ -483,124 +453,97 @@ public class Iagno : Gtk.Application
         propbox.response.connect (propbox_response_cb);
         propbox.delete_event.connect (propbox_close_cb);
 
-        var notebook = new Gtk.Notebook ();
-        notebook.set_border_width (5);
-        box.add (notebook);
-
-        var label = new Gtk.Label (_("Game"));
-
-        var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 18);
-        vbox.set_border_width (12);
-        notebook.append_page (vbox, label);
-
         var grid = new Gtk.Grid ();
+        grid.border_width = 6;
+        grid.set_row_spacing (6);
         grid.set_column_spacing (18);
-        vbox.pack_start (grid, false, false, 0);
+        box.add (grid);
 
-        var vbox2 = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-        vbox.pack_start (vbox2, false, false, 0);
+        var label = new Gtk.Label (_("Dark Player:"));
+        label.set_alignment (0.0f, 0.5f);
+        label.expand = true;
+        grid.attach (label, 0, 0, 1, 1);
+        var combo = new Gtk.ComboBox ();
+        combo.changed.connect (dark_level_changed_cb);
+        var renderer = new Gtk.CellRendererText ();
+        combo.pack_start (renderer, true);
+        combo.add_attribute (renderer, "text", 0);
+        var model = new Gtk.ListStore (2, typeof (string), typeof (int));
+        combo.model = model;
+        Gtk.TreeIter iter;
+        model.append (out iter);
+        model.set (iter, 0, _("Human"), 1, 0);
+        if (settings.get_int ("black-level") == 0)
+            combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Level one"), 1, 1);
+        if (settings.get_int ("black-level") == 1)
+            combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Level two"), 1, 2);
+        if (settings.get_int ("black-level") == 2)
+            combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Level three"), 1, 3);
+        if (settings.get_int ("black-level") == 3)
+            combo.set_active_iter (iter);
+        grid.attach (combo, 1, 0, 1, 1);
+
+        label = new Gtk.Label (_("Light Player:"));
+        label.set_alignment (0.0f, 0.5f);
+        label.expand = true;
+        grid.attach (label, 0, 1, 1, 1);
+        combo = new Gtk.ComboBox ();
+        combo.changed.connect (light_level_changed_cb);
+        renderer = new Gtk.CellRendererText ();
+        combo.pack_start (renderer, true);
+        combo.add_attribute (renderer, "text", 0);
+        model = new Gtk.ListStore (2, typeof (string), typeof (int));
+        combo.model = model;
+        model.append (out iter);
+        model.set (iter, 0, _("Human"), 1, 0);
+        if (settings.get_int ("white-level") == 0)
+            combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Level one"), 1, 1);
+        if (settings.get_int ("white-level") == 1)
+            combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Level two"), 1, 2);
+        if (settings.get_int ("white-level") == 2)
+            combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Level three"), 1, 3);
+        if (settings.get_int ("white-level") == 3)
+            combo.set_active_iter (iter);
+        grid.attach (combo, 1, 1, 1, 1);
 
         var enable_sounds_button = new Gtk.CheckButton.with_mnemonic (_("E_nable sounds"));
         enable_sounds_button.set_active (settings.get_boolean ("sound"));
         enable_sounds_button.toggled.connect (sound_select);
-        vbox2.pack_start (enable_sounds_button, false, false, 0);
-
-        var frame = new GnomeGamesSupport.Frame (_("Dark"));
-        grid.attach (frame, 0, 0, 1, 1);
-
-        vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-        frame.add (vbox);
-
-        var computer_button = new Gtk.RadioButton.with_label (null, _("Human"));
-        if (settings.get_int ("black-level") == 0)
-            computer_button.set_active (true);
-        computer_button.toggled.connect (dark_human_cb);
-        vbox.pack_start (computer_button, false, false, 0);
-
-        computer_button = new Gtk.RadioButton.with_label (computer_button.get_group (), _("Level one"));
-        if (settings.get_int ("black-level") == 1)
-            computer_button.set_active (true);
-        computer_button.toggled.connect (dark_level_one_cb);
-        vbox.pack_start (computer_button, false, false, 0);
-
-        computer_button = new Gtk.RadioButton.with_label (computer_button.get_group (), _("Level two"));
-        if (settings.get_int ("black-level") == 2)
-            computer_button.set_active (true);
-        computer_button.toggled.connect (dark_level_two_cb);
-        vbox.pack_start (computer_button, false, false, 0);
-
-        computer_button = new Gtk.RadioButton.with_label (computer_button.get_group (), _("Level three"));
-        if (settings.get_int ("black-level") == 3)
-            computer_button.set_active (true);
-        computer_button.toggled.connect (dark_level_three_cb);
-        vbox.pack_start (computer_button, false, false, 0);
-
-        frame = new GnomeGamesSupport.Frame (_("Light"));
-        grid.attach (frame, 1, 0, 1, 1);
-
-        vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-        frame.add (vbox);
-
-        computer_button = new Gtk.RadioButton.with_label (null, _("Human"));
-        if (settings.get_int ("white-level") == 0)
-            computer_button.set_active (true);
-        computer_button.toggled.connect (light_human_cb);
-        vbox.pack_start (computer_button, false, false, 0);
-
-        computer_button = new Gtk.RadioButton.with_label (computer_button.get_group (), _("Level one"));
-        if (settings.get_int ("white-level") == 1)
-            computer_button.set_active (true);
-        computer_button.toggled.connect (light_level_one_cb);
-        vbox.pack_start (computer_button, false, false, 0);
-
-        computer_button = new Gtk.RadioButton.with_label (computer_button.get_group (), _("Level two"));
-        if (settings.get_int ("white-level") == 2)
-            computer_button.set_active (true);
-        computer_button.toggled.connect (light_level_two_cb);
-        vbox.pack_start (computer_button, false, false, 0);
-
-        computer_button = new Gtk.RadioButton.with_label (computer_button.get_group (), _("Level three"));
-        if (settings.get_int ("white-level") == 3)
-            computer_button.set_active (true);
-        computer_button.toggled.connect (light_level_three_cb);
-        vbox.pack_start (computer_button, false, false, 0);
-
-        label = new Gtk.Label (_("Appearance"));
-
-        grid = new Gtk.Grid ();
-        grid.set_column_spacing (18);
-        grid.set_border_width (12);
-        notebook.append_page (grid, label);
-
-        frame = new GnomeGamesSupport.Frame (_("Options"));
-        grid.attach (frame, 0, 0, 1, 1);
-
-        vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-        frame.add (vbox);
+        grid.attach (enable_sounds_button, 0, 2, 2, 1);
 
         var grid_button = new Gtk.CheckButton.with_mnemonic (_("S_how grid"));
         grid_button.set_active (settings.get_boolean ("show-grid"));
         grid_button.toggled.connect (grid_toggled_cb);
-        vbox.pack_start (grid_button, false, false, 0);
+        grid.attach (grid_button, 0, 3, 2, 1);
 
         var flip_final_button = new Gtk.CheckButton.with_mnemonic (_("_Flip final results"));
         flip_final_button.set_active (settings.get_boolean ("flip-final-results"));
         flip_final_button.toggled.connect (flip_final_toggled_cb);
-        vbox.pack_start (flip_final_button, false, false, 0);
-
-        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
-        vbox.pack_start (hbox, false, false, 0);
+        grid.attach (flip_final_button, 0, 4, 2, 1);
 
         label = new Gtk.Label.with_mnemonic (_("_Tile set:"));
-        hbox.pack_start (label, false, false, 0);
+        label.set_alignment (0.0f, 0.5f);
+        label.expand = true;
+        grid.attach (label, 0, 5, 1, 1);
 
         theme_file_list = new GnomeGamesSupport.FileList.images (Path.build_filename (DATA_DIRECTORY, "themes"), null);
         theme_file_list.transform_basename ();
         var theme_combo = (Gtk.ComboBox) theme_file_list.create_widget (settings.get_string ("tileset"), GnomeGamesSupport.FILE_LIST_REMOVE_EXTENSION | GnomeGamesSupport.FILE_LIST_REPLACE_UNDERSCORES);
-
         label.set_mnemonic_widget (theme_combo);
         theme_combo.changed.connect (theme_changed_cb);
-        hbox.pack_start (theme_combo, true, true, 0);
+        grid.attach (theme_combo, 1, 5, 1, 1);
 
         propbox.show_all ();
     }
