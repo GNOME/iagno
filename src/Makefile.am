@@ -21,6 +21,7 @@ iagno_CFLAGS = \
 iagno_VALAFLAGS = \
 	--pkg posix \
 	--pkg gtk+-3.0 \
+	--pkg librsvg-2.0 \
 	--pkg libcanberra \
 	--pkg libcanberra-gtk \
 	--vapidir $(top_srcdir)/libgames-support \

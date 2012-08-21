@@ -91,13 +91,7 @@ public class Iagno : Gtk.Application
         view.show_grid = settings.get_boolean ("show-grid");
         view.flip_final_result = settings.get_boolean ("flip-final-results");
         var tile_set = settings.get_string ("tileset");
-        var theme = load_theme_texture (tile_set);
-        if (theme == null)
-        {
-            warning ("Unable to load theme %s, falling back to default", tile_set);
-            theme = load_theme_texture ("black_and_white.svg", true);
-        }
-        view.theme = theme;
+        view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
         view.show ();
         top_grid.attach (view, 0, 3, 1, 1);
 
@@ -151,20 +145,6 @@ public class Iagno : Gtk.Application
         start_game ();
 
         window.show ();
-    }
-
-    private GnomeGamesSupport.Preimage? load_theme_texture (string filename, bool fail_on_error = false)
-    {
-        var path = Path.build_filename (DATA_DIRECTORY, "themes", filename);
-        try
-        {
-            return new GnomeGamesSupport.Preimage.from_file (path);
-        }
-        catch (Error e)
-        {
-            warning ("Failed to load theme %s: %s", filename, path);
-            return null;
-        }
     }
 
     private void quit_cb ()
@@ -430,13 +410,7 @@ public class Iagno : Gtk.Application
         string tile_set;
         model.get (iter, 1, out tile_set);
         settings.set_string ("tileset", tile_set);
-
-        var theme = load_theme_texture (tile_set);
-        if (theme == null)
-            warning ("Unable to load theme %s", tile_set);
-        else
-            view.theme = theme;
-
+        view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
         view.redraw ();
     }
 

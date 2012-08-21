@@ -70,8 +70,8 @@ public class GameView : Gtk.DrawingArea
         }
     }
 
-    private GnomeGamesSupport.Preimage? _theme = null;
-    public GnomeGamesSupport.Preimage? theme
+    private string? _theme = null;
+    public string? theme
     {
         get { return _theme; }
         set { _theme = value; tiles_pattern = null; queue_draw (); }
@@ -119,7 +119,7 @@ public class GameView : Gtk.DrawingArea
             render_size = tile_size;
             var surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8, tile_size * 4);
             var c = new Cairo.Context (surface);
-            var pixbuf = theme.render (tile_size * 8, tile_size * 4);
+            var pixbuf = load_theme ();
             Gdk.cairo_set_source_pixbuf (c, pixbuf, 0, 0);
             c.paint ();
 
@@ -171,6 +171,30 @@ public class GameView : Gtk.DrawingArea
         }
 
         return false;
+    }
+
+    private Gdk.Pixbuf load_theme ()
+    {
+        var width = tile_size * 8;
+        var height = tile_size * 4;
+
+        try
+        {
+            return Rsvg.pixbuf_from_file_at_size (theme, width, height);
+        }
+        catch (Error e)
+        {
+        }
+        
+        try
+        {
+            return new Gdk.Pixbuf.from_file_at_scale (theme, width, height, false);
+        }
+        catch (Error e)
+        {
+        }
+
+        return new Gdk.Pixbuf (Gdk.Colorspace.RGB, true, 8, width, height);
     }
 
     public void redraw ()
