@@ -31,9 +31,6 @@ public class Iagno : Gtk.Application
     /* true if the last move was a pass */
     private bool was_pass = false;
 
-    /* Possible themes */
-    private GnomeGamesSupport.FileList? theme_file_list = null;
-
     private const GLib.ActionEntry app_actions[] =
     {
         {"new-game", new_game_cb},
@@ -426,7 +423,12 @@ public class Iagno : Gtk.Application
 
     private void theme_changed_cb (Gtk.ComboBox widget)
     {
-        var tile_set = theme_file_list.get_nth (widget.get_active ());
+        var model = widget.get_model ();
+        Gtk.TreeIter iter;
+        if (!widget.get_active_iter (out iter))
+            return;
+        string tile_set;
+        model.get (iter, 1, out tile_set);
         settings.set_string ("tileset", tile_set);
 
         var theme = load_theme_texture (tile_set);
@@ -538,9 +540,39 @@ public class Iagno : Gtk.Application
         label.expand = true;
         grid.attach (label, 0, 5, 1, 1);
 
-        theme_file_list = new GnomeGamesSupport.FileList.images (Path.build_filename (DATA_DIRECTORY, "themes"), null);
-        theme_file_list.transform_basename ();
-        var theme_combo = (Gtk.ComboBox) theme_file_list.create_widget (settings.get_string ("tileset"), GnomeGamesSupport.FILE_LIST_REMOVE_EXTENSION | GnomeGamesSupport.FILE_LIST_REPLACE_UNDERSCORES);
+        var theme_combo = new Gtk.ComboBox ();
+        renderer = new Gtk.CellRendererText ();
+        theme_combo.pack_start (renderer, true);
+        theme_combo.add_attribute (renderer, "text", 0);
+        model = new Gtk.ListStore (2, typeof (string), typeof (string));
+        theme_combo.model = model;
+        Dir dir;
+        try
+        {
+            dir = Dir.open (Path.build_filename (DATA_DIRECTORY, "themes"));
+            while (true)
+            {
+                var filename = dir.read_name ();
+                if (filename == null)
+                    break;
+                model.append (out iter);
+                
+                /* Create label by replacing underscores with space and stripping extension */
+                var label_text = filename;
+                label_text = label_text.replace ("_", " ");
+                var extension_index = label_text.last_index_of_char ('.');
+                if (extension_index > 0)
+                    label_text = label_text.substring (0, extension_index);
+
+                model.set (iter, 0, label_text, 1, filename);
+                if (filename == settings.get_string ("tileset"))
+                    theme_combo.set_active_iter (iter);
+            }
+        }
+        catch (FileError e)
+        {
+            warning ("Failed to load themes: %s", e.message);
+        }
         label.set_mnemonic_widget (theme_combo);
         theme_combo.changed.connect (theme_changed_cb);
         grid.attach (theme_combo, 1, 5, 1, 1);
