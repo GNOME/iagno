@@ -5,6 +5,10 @@ public class Iagno : Gtk.Application
 
     /* Widgets */
     private Gtk.Window window;
+    private int window_width;
+    private int window_height;
+    private bool is_fullscreen;
+    private bool is_maximized;
     private Gtk.InfoBar infobar;
     private Gtk.Statusbar statusbar;
     private uint statusbar_id;
@@ -74,11 +78,17 @@ public class Iagno : Gtk.Application
             return;
         }
         set_app_menu (builder.get_object ("iagno-menu") as MenuModel);
-        window = builder.get_object ("window") as Gtk.Window;
         var top_grid = builder.get_object ("grid") as Gtk.Grid;
         window.set_title (_("Iagno"));
+        window = builder.get_object ("window") as Gtk.Window;
+        window.configure_event.connect (window_configure_event_cb);
+        window.window_state_event.connect (window_state_event_cb);
+        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));        
+        if (settings.get_boolean ("window-is-fullscreen"))
+            window.fullscreen ();
+        else if (settings.get_boolean ("window-is-maximized"))
+            window.maximize ();
 
-        GnomeGamesSupport.settings_bind_window_state ("/org/gnome/iagno/", window);
         add_window (window);
 
         undo_action.set_enabled (true);
@@ -145,6 +155,37 @@ public class Iagno : Gtk.Application
         start_game ();
 
         window.show ();
+    }
+
+    protected override void shutdown ()
+    {
+        base.shutdown ();
+
+        /* Save window state */
+        settings.set_int ("window-width", window_width);
+        settings.set_int ("window-height", window_height);
+        settings.set_boolean ("window-is-maximized", is_maximized);
+        settings.set_boolean ("window-is-fullscreen", is_fullscreen);
+    }
+
+    private bool window_configure_event_cb (Gdk.EventConfigure event)
+    {
+        if (!is_maximized && !is_fullscreen)
+        {
+            window_width = event.width;
+            window_height = event.height;
+        }
+
+        return false;
+    }
+
+    private bool window_state_event_cb (Gdk.EventWindowState event)
+    {
+        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
+            is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
+            is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
+        return false;
     }
 
     private void quit_cb ()
