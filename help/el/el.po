@@ -4,986 +4,1702 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD.el\n"
-"POT-Creation-Date: 2009-08-25 04:28+0000\n"
-"PO-Revision-Date: 2009-08-27 02:13+0300\n"
-"Last-Translator: Μάριος Ζηντίλης <m.zindilis@dmajor.org>\n"
+"POT-Creation-Date: 2012-04-22 22:40+0000\n"
+"PO-Revision-Date: 2012-08-23 13:47+0200\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:257(None)
-msgid "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
-msgstr "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:279(None)
-msgid "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
-msgstr "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:307(None)
-msgid "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
-msgstr "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:370(None)
-msgid "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
-msgstr "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:480(None)
-msgid "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
-msgstr "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:54(None)
-msgid "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
-msgstr "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
-
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/iagno.xml:77(None)
-msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-msgstr "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
-
-#: C/iagno.xml:26(title)
-msgid "<application>Iagno</application> Manual"
-msgstr "Τεκμηρίωση του <application>Ιάγνος</application>"
-
-#: C/iagno.xml:29(para)
-msgid ""
-"Iagno is the two player strategy game of Othello, which is also known as "
-"Reversi and is similar to Go. The pieces are tiles that are black on one "
-"side and white on the other and the objective is for the player to flip his/"
-"her opponent's tiles to his/her color, while keeping the opponent from doing "
-"the same. Once the board is filled with tiles, the winner is the player with "
-"the most of his/her color tiles on the board."
-msgstr ""
-"Τα Ιάγνος είναι το παιχνίδι στρατηγικής δύο παικτών του Othello, το οποίο "
-"είναι επίσης γνωστό και ως Reversi και είναι παρόμοιο με το Go. Τα κομμάτια "
-"είναι πλακίδια με τη μία πλευρά τους μαύρη και την άλλη λευκή και ο στόχος "
-"του παίκτη είναι να γυρίζει τα πλακίδια του αντιπάλου στο δικό του χρώμα, "
-"ενώ εμποδίζει τον αντίπαλο να κάνει το ίδιο σ' αυτόν. Όταν το ταμπλώ γεμίσει "
-"με πλακίδια, κερδίζει ο παίκτης με τα περισσότερα πλακίδια του δικού του "
-"χρώματος."
-
-#: C/iagno.xml:40(year)
-msgid "2000"
-msgstr "2000"
-
-#: C/iagno.xml:41(holder)
-msgid "Eric Baudais"
-msgstr "Eric Baudais"
-
-#: C/iagno.xml:55(publishername) C/iagno.xml:95(para) C/iagno.xml:105(para)
-msgid "GNOME Documentation Project"
-msgstr "Έργο τεκμηρίωσης του GNOME"
-
-#: C/iagno.xml:2(para)
-msgid ""
-"Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
-"later version published by the Free Software Foundation with no Invariant "
-"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or "
-"in the file COPYING-DOCS distributed with this manual."
-msgstr ""
-"Δίνεται άδεια για αντιγραφή, διανομή και/ή τροποποίηση του εγγράφου υπό τους "
-"όρους της Ελεύθερης Άδειας Τεκμηρίωσης GNU (GFDL), Έκδοση 1.1 ή "
-"μεταγενέστερη εκδιδόμενη από το Ίδρυμα Ελεύθερου Λογισμικού χωρίς Σταθερά "
-"Εδάφια, χωρίς Εξώφυλλα Κειμένου, και χωρίς Οπισθόφυλλα Κειμένου. Μπορείτε να "
-"βρείτε ένα αντίγραφο της GFDL σε αυτόν τον <ulink type=\"help\" url=\"ghelp:"
-"fdl\">σύνδεσμο</ulink> ή στο αρχείο COPYING-DOCS που διανεμήθηκε με αυτόν "
-"τον οδηγό."
-
-#: C/iagno.xml:12(para)
-msgid ""
-"This manual is part of a collection of GNOME manuals distributed under the "
-"GFDL. If you want to distribute this manual separately from the collection, "
-"you can do so by adding a copy of the license to the manual, as described in "
-"section 6 of the license."
-msgstr ""
-"Αυτή η τεκμηρίωση είναι μέρος της συλλογής τεκμηρίωσης του GNOME όπως "
-"διανέμεται υπό τους όρους της GFDL. Εάν επιθυμείτε να διανείμετε αυτή την "
-"τεκμηρίωση ξεχωριστά από την συλλογή, μπορείτε να το κάνετε εάν η τεκμηρίωση "
-"συνοδεύεται από αντίγραφο της άδειας (GFDL) όπως περιγράφεται στον τομέα 6 "
-"της άδειας."
-
-#: C/iagno.xml:19(para)
-msgid ""
-"Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any GNOME "
-"documentation, and the members of the GNOME Documentation Project are made "
-"aware of those trademarks, then the names are in capital letters or initial "
-"capital letters."
-msgstr ""
-"Πολλά από τα ονόματα που χρησιμοποιούνται από εταιρίες για να ξεχωρίσουν τα "
-"προϊόντα και τις υπηρεσίες τους είναι σήματα κατατεθέντα. Όπου αυτά τα "
-"ονόματα εμφανίζονται στην τεκμηρίωση GNOME, και τα μέλη της ομάδας "
-"τεκμηρίωσης GNOME έχουν γνώση αυτών, τότε αυτά αναγράφονται με κεφαλαίους "
-"χαρακτήρες ή με αρχικούς κεφαλαίους χαρακτήρες."
-
-#: C/iagno.xml:35(para)
-msgid ""
-"DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
-"EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
-"THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS "
-"MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE "
-"RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR "
-"MODIFIED VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR "
-"MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL "
-"WRITER, AUTHOR OR ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY "
-"SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN "
-"ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
-"OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
-msgstr ""
-"Η ΤΕΚΜΗΡΙΩΣΗ ΑΥΤΗ ΠΑΡΕΧΕΤΑΙ \"ΩΣ ΕΧΕΙ\", ΧΩΡΙΣ ΚΑΜΙΑ ΕΓΓΥΗΣΗ ΚΑΝΕΝΟΣ ΕΙΔΟΥΣ, "
-"ΕΚΦΡΑΣΜΕΝΗ 'Η ΝΟΟΥΜΕΝΗ, ΠΕΡΙΛΑΜΒΑΝΟΜΕΝΩΝ, ΧΩΡΙΣ ΠΕΡΙΟΡΙΣΜΟ, ΕΓΓΥΗΣΕΩΝ ΟΤΙ ΤΟ "
-"ΕΓΓΡΑΦΟ 'Η ΠΑΡΑΛΛΑΓΕΣ ΤΟΥ ΕΓΓΡΑΦΟΥ ΕΙΝΑΙ ΕΛΕΥΘΕΡΑ ΚΑΘΕ ΕΛΑΤΤΩΜΑΤΟΣ, "
-"ΕΜΠΟΡΕΥΣΙΜΑ, ΚΑΤΑΛΛΗΛΑ ΓΙΑ ΕΝΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ, Η ΜΗ-ΠΑΡΑΒΑΙΝΟΝΤΑ. Η "
-"ΕΥΘΥΝΗ ΓΙΑ ΤΗΝ ΠΟΙΟΤΗΤΑ, ΑΚΡΙΒΕΙΑ, ΚΑΙ ΑΠΟΔΟΣΗ ΤΟΥ ΕΓΓΡΑΦΟΥ ΕΙΝΑΙ "
-"ΑΠΟΚΛΕΙΣΤΙΚΑ ΔΙΚΗ ΣΑΣ. ΑΝ ΟΠΟΙΟΔΗΠΟΤΕ ΕΓΓΡΑΦΟ Η ΠΑΡΑΛΛΑΓΗ ΤΟΥΑΠΟΔΕΙΚΤΟΥΝ "
-"ΕΛΑΤΤΩΜΑΤΙΚΑ ΜΕ ΟΠΟΙΟΔΗΠΟΤΕ ΤΡΟΠΟ, ΕΣΕΙΣ (ΚΑΙ ΟΧΙ Ο ΑΡΧΙΚΟΣ ΣΥΓΓΡΑΦΕΑΣ 'Η "
-"ΟΠΟΙΟΣΔΗΠΟΤΕ ΣΥΜΒΑΛΛΟΝΤΑΣ) ΑΝΑΛΑΜΒΑΝΕΤΕ ΤΟ ΚΟΣΤΟΣ ΟΠΟΙΑΣΔΗΠΟΤΕ ΑΝΑΓΚΑΙΑΣ "
-"ΥΠΗΡΕΣΙΑΣ, ΕΠΙΣΚΕΥΗΣ 'Η ΔΙΟΡΘΩΣΗΣ. Η ΑΠΑΛΛΑΓΗ ΕΥΘΥΝΗΣ ΠΟΥ ΣΥΝΟΔΕΥΕΙ ΑΥΤΗ ΤΗΝ "
-"ΤΕΚΜΗΡΙΩΣΗ ΕΙΝΑΙ ΑΝΑΠΟΣΠΑΣΤΟ ΚΟΜΜΑΤΙ ΑΥΤΗΣ. ΚΑΜΙΑ ΧΡΗΣΗ ΤΗΣ ΤΕΚΜΗΡΙΩΣΗΣ Ή "
-"ΠΑΡΑΛΛΑΓΩΝ ΑΥΤΗΣ ΔΕΝ ΕΠΙΤΡΕΠΕΤΑΙ ΠΑΡΑ ΜΟΝΟ ΕΑΝ ΣΥΝΟΔΕΥΕΤΑΙ ΑΠΟ ΤΗΝ ΑΠΑΛΛΑΓΗ "
-"ΕΥΘΥΝΗΣ. ΚΑΙ"
-
-#: C/iagno.xml:55(para)
-msgid ""
-"UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
-"NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
-"CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION OF THE "
-"DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON "
-"FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF "
-"ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, "
-"WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES "
-"OR LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED "
-"VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE "
-"POSSIBILITY OF SUCH DAMAGES."
-msgstr ""
-"ΣΕ ΚΑΜΙΑ ΠΕΡΙΠΤΩΣΗ ΚΑΙ ΥΠΟ ΚΑΜΙΑ ΝΟΜΙΚΗ ΣΥΝΘΗΚΗ, ΕΙΤΕ ΜΕΣΩ ΣΥΜΒΟΛΑΙΩΝ Ή "
-"ΑΛΛΙΩΣ, ΔΕΝ ΕΥΘΥΝΟΝΤΑΙ Ο ΣΥΓΓΡΑΦΕΑΣ, Ο ΔΙΑΝΟΜΕΑΣ, Η ΑΛΛΟΣ ΣΥΝΥΠΕΥΘΥΝΟΣ ΓΙΑ "
-"ΤΗΝ ΣΥΓΓΡΑΦΗ ΤΗΣ ΤΕΚΜΗΡΙΩΣΗΣ, ΓΙΑ ΕΜΜΕΣΕΣ Η ΑΜΕΣΕΣ, ΤΥΧΑΙΕΣ Ή ΜΗ ΖΗΜΙΕΣ "
-"ΠΑΝΤΩΣ ΦΥΣΕΩΣ ΠΟΥ ΠΡΟΕΡΧΟΝΤΑΙ ΑΠΟ ΤΗΝ ΧΡΗΣΗ ΤΗΣ ΤΕΚΜΗΡΙΩΣΗΣ ΚΑΙ/Ή ΠΑΡΑΛΛΑΓΩΝ "
-"ΑΥΤΗΣ ΑΚΟΜΑ ΚΑΙ ΕΑΝ ΕΧΕΙ ΥΠΑΡΞΕΙ ΠΡΟΕΙΔΟΠΟΙΗΣΗ ΓΙΑ ΤΗΝ ΠΙΘΑΝΟΤΗΤΑ ΥΠΑΡΞΗΣ "
-"ΤΕΤΟΙΩΝ ΖΗΜΙΩΝ."
-
-#: C/iagno.xml:28(para)
-msgid ""
-"DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
-"OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
-"<placeholder-1/>"
-msgstr ""
-"ΤΟ ΈΓΓΡΑΦΟ ΚΑΙ ΤΡΟΠΟΠΟΙΗΜΕΝΕΣ ΕΚΔΟΣΕΙΣ ΑΥΤΟΥ ΠΑΡΕΧΟΝΤΑΙ ΥΠΟ ΤΟΥΣ ΟΡΟΥΣ ΤΗΣ "
-"ΑΔΕΙΑΣ GNU FREE DOCUMENTATION ΜΕ ΤΗΝ ΠΕΡΑΙΤΕΡΩ ΔΙΕΥΚΡΙΝΙΣΗ ΟΤΙ: <placeholder-"
-"1/>"
-
-#: C/iagno.xml:65(firstname)
-msgid "Eric"
-msgstr "Eric"
-
-#: C/iagno.xml:66(surname)
-msgid "Baudais"
-msgstr "Baudais"
-
-#: C/iagno.xml:68(email)
-msgid "baudais@okstate.edu"
-msgstr "baudais@okstate.edu"
-
-#: C/iagno.xml:89(revnumber)
-msgid "Iagno Manual V2.9"
-msgstr "Τεκμηρίωση του Ιάγνος, έκδοση 2.9"
-
-#: C/iagno.xml:90(date)
-msgid "February 2008"
-msgstr "Φεβρουάριος 2008"
-
-#: C/iagno.xml:92(para)
-msgid "Claude Paroz <email>claude@2xlibre.net</email>"
-msgstr "Claude Paroz <email>claude@2xlibre.net</email>"
-
-#: C/iagno.xml:99(revnumber)
-msgid "Iagno Manual V2.8"
-msgstr "Τεκμηρίωση του Ιάγνος, έκδοση 2.8"
-
-#: C/iagno.xml:100(date)
-msgid "September 2004"
-msgstr "Σεπτέμβριος 2004"
-
-#: C/iagno.xml:102(para)
-msgid "Eric Baudais <email>baudais@okstate.edu</email>"
-msgstr "Eric Baudais <email>baudais@okstate.edu</email>"
-
-#: C/iagno.xml:109(revnumber)
-msgid "0.1"
-msgstr "0.1"
-
-#: C/iagno.xml:110(date)
-msgid "4 February 2000"
-msgstr "4 Φεβρουαρίου 2000"
-
-#: C/iagno.xml:111(authorinitials) C/iagno.xml:120(authorinitials)
-#: C/iagno.xml:129(authorinitials) C/iagno.xml:139(authorinitials)
-msgid "EB"
-msgstr "EB"
-
-#: C/iagno.xml:112(revremark)
-msgid "First draft completed."
-msgstr "Ολοκλήρωση πρώτου προσχεδίου."
-
-#: C/iagno.xml:118(revnumber)
-msgid "0.2"
-msgstr "0.2"
-
-#: C/iagno.xml:119(date)
-msgid "5 February 2000"
-msgstr "5 Φεβρουρίου 2000"
-
-#: C/iagno.xml:121(revremark)
-msgid "Added a footnote to why section. Fixed some typos."
-msgstr ""
-"Προσθήκη υποσημείωσης στην ενότητα Γιατί. Διόρθωση μερικών ορθογραφικών "
-"λαθών."
-
-#: C/iagno.xml:127(revnumber)
-msgid "0.3"
-msgstr "0.3"
-
-#: C/iagno.xml:128(date)
-msgid "7 February 2000"
-msgstr "7 Φεβρουαρίου 2000"
-
-#: C/iagno.xml:130(revremark)
-msgid ""
-"Made the doc compliant with the GDP template. Clarified the playing section."
-msgstr ""
-"Μετατροπή του εγγράφου για σύμβαση με το πρότυπο GDP. Ξεκαθάρισμα της "
-"ενότητα Παιχνιδιού."
-
-#: C/iagno.xml:137(revnumber)
-msgid "1.0"
-msgstr "1.0"
-
-#: C/iagno.xml:138(date)
-msgid "7 April 2000"
-msgstr "7 Απριλίου 2000"
-
-#: C/iagno.xml:140(revremark)
-msgid ""
-"Licensed the Iagno Manual under the FDL. Updated the screenshots to the GDP "
-"standard theme, MicroGUI."
-msgstr ""
-"Αδειοδότηση της τεκμηρίωσης του Ιάγνος υπό την FDL. Ανανέωση των "
-"στιγμιοτύπων οθόνης στο πρότυπο GDP, MicroGUI."
-
-#: C/iagno.xml:147(releaseinfo)
-msgid "This manual describes version 2.20 of Iagno."
-msgstr "Αυτή η τεκμηρίωση περιγράφει την έκδοση 2.20 του Ιάγνος.από Ιάγνος."
-
-#: C/iagno.xml:154(title)
-msgid "Feedback"
-msgstr "Ανάδραση"
-
-#: C/iagno.xml:155(para)
-msgid ""
-"To report a bug or make a suggestion regarding the <application>Iagno</"
-"application> application or this manual, follow the directions in the <ulink "
-"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</"
-"ulink>."
-msgstr ""
-"Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με την εφαρμογή "
-"<application>Ιάγνος</application> ή αυτή την τεκμηρίωση, ακολουθήστε τις "
-"οδηγίες στη <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
-"\">Σελίδα ανάδρασης του GNOME</ulink>."
-
-#: C/iagno.xml:166(primary)
-msgid "Iagno"
-msgstr "Ιάγνος"
-
-#: C/iagno.xml:172(title)
-msgid "Introduction"
-msgstr "Εισαγωγή"
-
-#: C/iagno.xml:174(title)
-msgid "What is Iagno?"
-msgstr "Τι είναι ο Ιάγνος;"
-
-#: C/iagno.xml:176(para)
-msgid ""
-"<application>Iagno</application> is a computer version of the game Reversi, "
-"more popularly called Othello. <application>Iagno</application> is a two "
-"player strategy game similar to Go. The board is 8 by 8 with tiles that are "
-"black on one side and white on the other side. The object of "
-"<application>Iagno</application> is to flip as many of your opponent's tiles "
-"to your color as possible without your opponent flipping your tiles. This is "
-"done by trapping your opponent's tiles between two tiles of your own color."
-msgstr ""
-"Ο <application>Ιάγνος</application> είναι μια εκδοχή στον υπολογιστή του "
-"παιχνιδιού Reversi, που πιο συχνά ονομάζεται Othello. Ο <application>Ιάγνος</"
-"application> είναι ένα παιχνίδι στρατηγικής δύο παικτών, όμοιο με το Go. Το "
-"ταμπλώ έχει διαστάσεις 8 επί 8 πλακίδια, τα οποία είναι μαύρα στη μία πλευρά "
-"και λευκά στην άλλη. Ο σκοπός του <application>Ιάγνος</application> είναι να "
-"γυρίσετε όσο το δυνατόν περισσότερα πλακίδια του αντιπάλου στο δικό σας "
-"χρώμα, χωρίς να γυρίσει ο αντίπαλος τα δικά σας. Αυτό συμβαίνει με την "
-"παγίδευση των πλακιδίων του αντιπάλου ανάμεσα σε δύο του δικού σας χρώματος."
-
-#: C/iagno.xml:189(para)
-msgid ""
-"Iagno also features <link linkend=\"network-games\">multiplayer</link> "
-"support with two human players in hotseat or network mode."
-msgstr ""
-"Ο <application>Ιάγνος</application> επίσης υποστηρίζει <link linkend="
-"\"network-games\">πολλαπλούς παίκτες</link> με δύο ανθρώπους στον ίδιο "
-"υπολογιστή ή σε δίκτυο."
-
-#: C/iagno.xml:194(para)
-msgid ""
-"To run <application>Iagno</application>, select <guimenuitem>Iagno</"
-"guimenuitem> from the <guisubmenu>Games</guisubmenu> submenu of the "
-"<guimenu>Main Menu</guimenu>, or type <command>iagno</command> on the "
-"command line."
-msgstr ""
-"Για να παίξετε το <application>Ιάγνος</application>, επιλέξτε "
-"<guimenuitem>Ιάγνος</guimenuitem> από το υπομενού <guisubmenu>Παιχνίδια</"
-"guisubmenu> του μενού <guimenu>Εφαρμογές</guimenu>, ή πληκτρολογήστε την "
-"εντολή <command>iagno</command> στη γραμμή εντολής."
-
-#: C/iagno.xml:204(title)
-msgid "Why is Othello called Iagno?"
-msgstr "Γιατί το Othello ονομάζεται Ιάγνος;"
-
-#: C/iagno.xml:205(para)
-msgid ""
-"You're probably wondering why this game is called <application>Iagno</"
-"application> instead of Othello or even gnothello. The answer is "
-"complicated, and involves things like trademarks and lawyers and whatnot. "
-"Instead of leaving it at that, I'll tell you a long and complicated lie "
-"about the origin of the name <application>Iagno</application>."
-msgstr ""
-"Πιθανώς θα αναρωτιέστε γιατί το παιχνίδι αυτό ονομάζεται "
-"<application>Ιάγνος</application> αντί για Othello ή gnothello. Η απάντηση "
-"σ' αυτό είναι πολύπλοκη, και περιλαμβάνει πράγματα όπως σήματα κατατεθέντα "
-"και δικηγόρους και τέτοια. Αντί να το αφήσουμε εκεί, θα σας πω μια μεγάλο "
-"και μπερδεμένο ψέμα για την προέλευση του ονόματος <application>Ιάγνος</"
-"application>."
-
-#: C/iagno.xml:214(para)
-msgid ""
-"On a stormy night, like those depicted so much in England, a lonely "
-"programmer was sitting in front of his computer screen. Ian had finished his "
-"masterpiece in gaming. It was a fully interactive game of Othello and he "
-"decided to play a pun with the name and called it gnothello for the game was "
-"written using GNOME."
-msgstr ""
-"Ένα βράδυ που 'βρεχε, σαν τα συνηθισμένα Λονδρέζικα βράδια, ένας μοναχικός "
-"προγραμματιστής καθόνταν μπροστά στη οθόνη του υπολογιστή του. Ο Ίαν είχε "
-"μόλις ολοκληρώσει ένα αριστουργηματικό παιχνίδι. Ήταν ένα πλήρως διαδραστικό "
-"παιχνίδι Othello και αποφάσισε να παίξει με το όνομα και να το ονομάσει "
-"gnothello, μια που το παιχνίδι γράφτηκε χρησιμοποιώντας το GNOME."
-
-#: C/iagno.xml:229(para)
-msgid ""
-"Iago is Othello's nemesis in the play <citetitle>Othello </citetitle> by "
-"William Shakespeare."
-msgstr ""
-"Ο Ιάγος είναι η νέμεση του Οθέλλου στο θεατρικό έργο <citetitle>Οθέλλος</"
-"citetitle> του Ουίλιαμ Σέξπιρ."
-
-#: C/iagno.xml:222(para)
-msgid ""
-"Later his buddies came over and like all programmers he showed off his "
-"masterpiece. They all laughed in his face and told Ian that his game was "
-"worthless and a pitiful attempt to be a true hacker. After Ian kicked them "
-"out he decided to rename his program Iago <placeholder-1/> for the evil "
-"which had manifested itself due to his game. Yet it still didn't sound "
-"right. All GNOME programs have some part of GNOME in it, Ian thought. After "
-"much thought he decided on the name we have come to cherish, "
-"<application>Iagno </application>."
-msgstr ""
-"Αργότερα όταν ήρθαν τα φιλαράκια του, όπως κάθε προγραμματιστής έτσι και ο "
-"Ίαν τους έδειξε το αριστούργημά του. Εκείνοι τον κορόιδεψαν και του είπαν "
-"ότι το παιχνιδάκι του δεν αξίζει δεκάρα και ότι ήταν μια γελοία προσπάθεια "
-"για να γίνει πραγματικός χάκερ. Μετά που τους έδιωξε με τις κλωτσιές ο Ίαν "
-"αποφάσισε να μετονομάσει το πρόγραμμά του σε Ιάγο <placeholder-1/> για το "
-"κακό που επέφερε στον εαυτό του λόγω αυτού του παιχνιδιού. Όλα τα "
-"προγράμματα του GNOME έχουν ένα μέρος του GNOME μέσα τους, σκέφτηκε ο Ίαν, "
-"και μετά από μακρά περίσκεψη αποφάσισε το όνομα που αργότερα λάτρεψε, "
-"<application>Ιάγνος</application>."
-
-#: C/iagno.xml:245(title)
-msgid "Playing Iagno"
-msgstr "Παίξιμο του Ιάγνος"
-
-#: C/iagno.xml:246(para)
-msgid ""
-"The board starts with four tiles arranged in a box on the middle of the "
-"board. The tiles have the same color at each corner, as shown in <xref "
-"linkend=\"start-shot\"/>."
-msgstr ""
-"Το παιχνίδι αρχίζει με τέσσερα πλακίδια τοποθετημένα σε ένα κουτί στο μέσο "
-"του ταμπλώ. Τα πλακίδια έχουν το ίδιο χρώμα σε κάθε γωνιά όπως φαίνεται στο "
-"<xref linkend=\"start-shot\"/>."
-
-#: C/iagno.xml:253(title)
-msgid "Starting Position"
-msgstr "Θέση εκκίνησης"
-
-#: C/iagno.xml:260(phrase)
-msgid "Screenshot of the starting position."
-msgstr "Στιγμιότυπο οθόνης από τη θέση εκκίνησης."
-
-#: C/iagno.xml:266(para)
-msgid ""
-"Black goes first and places a tile on the board such that it traps white's "
-"tiles between two of black's tiles. When black places a tile on the board "
-"all of white's tiles between black's newly placed tile and another black "
-"tile, in a horizontal, vertical, or diagonal row, are flipped over and "
-"become black, as shown in <xref linkend=\"first-shot\"/>."
-msgstr ""
-"Τα μαύρα παίζουν πρώτα και τοποθετούν ένα πλακίδιο στο ταμπλώ έτσι που να "
-"παγιδεύει λευκά πλακίδια ανάμεσα σε δύο μαύρα. Όταν τα μαύρα τοποθετούν ένα "
-"πλακίδιο στο ταμπλώ όλα τα λευκά πλακίδια ανάμεσα στο μόλις τοποθετημένο "
-"μαύρο και οποιοδήποτε άλλο μαύρο πλακίδιο, σε οιζόντια, κάθετη ή διαγώνια "
-"γραμμή, γυρίζουν και γίνονται μαύρα, όπως φαίνεται στο <xref linkend=\"first-"
-"shot\"/>."
-
-#: C/iagno.xml:275(title)
-msgid "First Move"
-msgstr "Πρώτη κίνηση"
-
-#: C/iagno.xml:282(phrase)
-msgid "Screenshot of the first move."
-msgstr "Στιγμιότυπο οθόνης από την πρώτη κίνηση."
-
-#: C/iagno.xml:299(title)
-msgid ""
-"White cannot capture the black tile in the center of the middle column "
-"because there are white tiles blocking the ends of that column. If it where "
-"blacks turn instead, black could place a tile at the top of the column but "
-"would only flip the first of the two white tiles."
-msgstr ""
-"Τα λευκά δε μπορούν να παγιδεύσουν το μαύρο πλακίδιο στο κέντρο της μεσαίας "
-"στήλης επειδή υπάρχουν λευκά πλακίδια που μπλοκάρουν τα άκρα εκείνης της "
-"στήλης. Αν ήταν η σειρά των μαύρων, τα μαύρα θα τοποθετούσαν ένα πλακίδιο "
-"στο πάνω μέρος της στήλης, αλλά θα γύριζαν μόνο το πρώτο από τα δύο λευκά "
-"πλακίδια."
-
-#: C/iagno.xml:310(phrase)
-msgid "Screenshot of black blocking."
-msgstr "Στιγμιότυπο οθόνης από μπλοκάρισμα μαύρων."
-
-#: C/iagno.xml:288(para)
-msgid ""
-"When there is tile trapped between two tiles, of an identical color in the "
-"same row, the player captures tiles until another tile of the player's color "
-"is encountered, as shown in <xref linkend=\"block-shot\"/>. The player can "
-"only take tiles that are a direct result of the placing a tile on the board. "
-"Once a tile is placed on the board the player cannot remove it and place the "
-"tile somewhere else. If a player cannot move they forfeit their turn. The "
-"game ends when it is no longer possible for either player to move. "
-"<placeholder-1/>"
-msgstr ""
-"Όταν υπάρχει ένα πλακίδιο παγιδευμένο ανάμεσα σε δύο άλλα πλακίδια, το ίδιου "
-"χρώματος στην ίδια γραμμή, ο παίκτης παγιδεύει πλακίδια μέχρι ένα ακόμα "
-"πλακίδιο του χρώματος του παίκτη να συναντηθεί, όπως φαίνεται στο <xref "
-"linkend=\"block-shot\"/>. Ο παίκτης μπορεί να παγιδεύσει μόνο πλακίδια ως "
-"άμεσο αποτέλεσμα της τελευταίας τοποθέτησης δικού του πλακιδίου στο ταμπλώ. "
-"Εφόσον ένα πλακίδιο έχει τοποθετηθεί στο ταμπλώ ο παίκτης δε μπορεί να το "
-"αφαιρέσει ή να το μετακινείσει. Αν ένας παίκτης δε μπορεί να κάνει καμμιά "
-"κίνηση τότε παραδίδει τη σειρά του. Το παιχνίδι τελειώνει όταν είναι πια "
-"αδύνατο για τους παίκτες να τοποθετήσουν πλακίδιο. <placeholder-1/>"
-
-#: C/iagno.xml:320(title)
-msgid "Game Settings"
-msgstr "Ρυθμίσεις παιχνιδιού"
-
-#: C/iagno.xml:323(title)
-msgid "Player Color and Difficulty"
-msgstr "Χρώμα παιχνιδιού και δυσκολία"
-
-#: C/iagno.xml:325(para)
-msgid ""
-"When you start Iagno the human player plays black and the computer player "
-"plays white with the first level of difficulty. Using the <guimenuitem>Game</"
-"guimenuitem> tab in the <guisubmenu>Preferences</guisubmenu> dialog you can "
-"set the type of player for each color. Human is of course you, level one is "
-"the easiest computer player and level three is the hardest. You can set both "
-"to human to play against a friend or set both to computer to watch the "
-"computer play itself."
-msgstr ""
-"Όταν ξεκινάτε το Ιάγνος ο χρήστης παίζει τα μαύρα και ο υπολογιστής τα "
-"λευκά, στο πρώτο επίπεδο δυσκολίας. Χρησιμοποιώντας την καρτέλα "
-"<guimenuitem>Παιχνίδι</guimenuitem> στο διάλογο <guisubmenu>Προτιμήσεις</"
-"guisubmenu> μπορείτε να ορίσετε τον τύπο παίκτη για κάθε χρώμα. Ο Άνθρωπος "
-"είστε φυσικά εσείς, το Πρώτο επίπεδο είναι το ευκολότερο επίπεδο του "
-"υπολογιστή και το Τρίτο επίπεδο το δυσκολότερο. Μπορείτε να ορίσετε και τους "
-"δύο ως Άνθρωπος για να παίξετε εναντίον ενός φίλου ή και τους δύο ως "
-"υπολογιστές για να δείτε τον υπολογιστή να παίζει τον εαυτό του."
-
-#: C/iagno.xml:338(title)
-msgid "Quick Moves Option"
-msgstr "Επιλογή χρήσης γρήγορων κινήσεων"
-
-#: C/iagno.xml:340(para)
-msgid ""
-"This option is in the <guimenu>Settings</guimenu> menu. Then go to the "
-"<guisubmenu>Preferences</guisubmenu> submenu in the <guimenuitem>Game </"
-"guimenuitem> tab and it is initially off. When enabled this option makes the "
-"computer player place its tiles faster."
-msgstr ""
-"Αυτή η επιλογή βρίσκεται στο μενού <guimenu>Ρυθμίσεις</guimenu>, στο "
-"υπομενού <guisubmenu>Προτιμήσεις</guisubmenu>, στην καρτέλα "
-"<guimenuitem>Παιχνίδι</guimenuitem>. Αρχικά είναι απενεργοποιημένη. Όταν "
-"ενεργοποιηθεί κάνει τον υπολογιστή να τοποθετεί τα δικά του πλακίδια πιο "
-"γρήγορα. "
-
-#: C/iagno.xml:348(title) C/iagno.xml:449(title)
-msgid "Note:"
-msgstr "Σημείωση:"
-
-#: C/iagno.xml:349(para)
-msgid ""
-"Enabling this option does not force the computer player to move and does not "
-"reduce the level of difficulty."
-msgstr ""
-"Η ενεργοποίηση αυτής της επιλογής δεν υποχρεώνει τον υπολογιστή να κινηθεί "
-"και δε μειώνει το επίπεδο δυσκολίας."
-
-#: C/iagno.xml:357(title)
-msgid "Enable/Disable Sound"
-msgstr "Ενεργοποίηση/Απενεργοποίηση ήχου"
-
-#: C/iagno.xml:359(para)
-msgid ""
-"The last option of the <guimenuitem>Game</guimenuitem> tab in the "
-"<guilabel>Preferences</guilabel> dialog allows you to enable or disable all "
-"sounds when playing in <application>Iagno</application>."
-msgstr ""
-"Η τελευταία επιλογή στην καρτέλα <guimenuitem>Παιχνίδι</guimenuitem> στο "
-"διάλογο <guilabel>Προτιμήσεις</guilabel> σας επιτρέπει να ενεργοποιείτε ή να "
-"απενεργοποιείτε όλους τους ήχους όταν παίζετε στο <application>Ιάγνος</"
-"application>."
-
-#: C/iagno.xml:366(title)
-msgid "The Preferences menu with the Game tab highlighted."
-msgstr "Το μενού Προτιμήσεις Iagno με την επιλεγμένη την καρτέλα Παιχνίδι."
-
-#: C/iagno.xml:373(phrase)
-msgid "Screenshot of the game settings."
-msgstr "Στιγμιότυπο οθόνης από τις προτιμήσεις του παιχνιδιού."
-
-#: C/iagno.xml:384(title)
-msgid "Appearance"
-msgstr "Εμφάνιση"
-
-#: C/iagno.xml:386(para)
-msgid ""
-"All the animation option are in the <menuchoice><guimenu>Settings</"
-"guimenu><guisubmenu>Preferences </guisubmenu></menuchoice> menus with the "
-"<guimenuitem>Appearance</guimenuitem> tab highlighted."
-msgstr ""
-"Όλες οι επιλογές για τις κινούμενες εικόνες βρίσκονται στο "
-"<menuchoice><guimenu>Ρυθμίσεις</guimenu><guisubmenu>Προτιμήσεις</"
-"guisubmenu></menuchoice> στην καρτέλα Εμφάνιση."
-
-#: C/iagno.xml:396(title)
-msgid "Animation"
-msgstr "Κινούμενες εικόνες"
-
-#: C/iagno.xml:398(para)
-msgid ""
-"This option controls the amount of animation present when each tile is "
-"flipped, using radio buttons. Selecting the option <guibutton>none </"
-"guibutton> will cause the tiles to change color instantaneously. Selecting "
-"the <guibutton>option</guibutton> partial will cause the animation to flip "
-"the tiles slowly. Selecting the <guibutton>complete </guibutton> option will "
-"cause the tiles to flip slowly and smoothly."
-msgstr ""
-"Αυτή η επιλογή ελέγχει τη χρήση κινούμενων εικόνων όταν ένα πλακίδιο "
-"γυρίζει. Ενεργοποιώντας την επιλογή <guibutton>Καμία</guibutton> οι εικόνες "
-"θα αλλάζουν χρώμα στιγμιαία. Ενεργοποιώντας το <guibutton>Μερική κίνηση</"
-"guibutton> θα αλλάζουν αργά. Ενεργοποιώντας το <guibutton>Πλήρης κίνηση</"
-"guibutton> θα αλλάζουν αργά και ομαλά."
-
-#: C/iagno.xml:410(title)
-msgid "Stagger Flips"
-msgstr "Αλλεπάλληλες αντιστροφές"
-
-#: C/iagno.xml:412(para)
-msgid ""
-"This option causes captured tiles along a row, column, or diagonal to flip "
-"one after another, like dominoes, instead of all flipping simultaneously. It "
-"has no effect on game play, but looks cool."
-msgstr ""
-"Αυτή η επιλογή κάνει τα παγιδευμένα πλακίδια σε μια σειρά, στήλη ή διαγώνια "
-"να γυρίζουν το ένα μετά το άλλο, σαν ντόμινο, αντί να γυρίζουν όλα "
-"ταυτόχρονα. Δεν έχει καμιά επίδραση στο παιχνίδι, απλά φαίνεται όμορφο."
-
-#: C/iagno.xml:421(title)
-msgid "Show Grid"
-msgstr "Εμφάνιση πλέγματος"
-
-#: C/iagno.xml:423(para)
-msgid ""
-"This option will display a grid on top of the playing surface. The grid is "
-"useful to display because it shows the player exactly where they are placing "
-"each tile."
-msgstr ""
-"Αυτή η επιλογή θα εμφανίζει ένα πλέγμα πάνω από την επιφάνεια του "
-"παιχνιδιού. Η εμφάνιση του πλέγματος είναι χρήσιμη γιατί δείχνει στον παίκτη "
-"ακριβώς πού να βάζει τα πλακίδια."
-
-#: C/iagno.xml:430(title)
-msgid "Tip:"
-msgstr "Υπόδειξη:"
-
-#: C/iagno.xml:431(para)
-msgid ""
-"This option should be enabled for beginning players to see the gameplay more "
-"clearly."
-msgstr ""
-"Αυτή η επιλογή είναι καλό να είναι ενεργοποιημένη στους νέους παίκτες για να "
-"παρακολουθούν το παίξιμο καθαρότερα."
-
-#: C/iagno.xml:440(title)
-msgid "Flip Final Results"
-msgstr "Αντιστροφή τελικών αποτελεσμάτων"
-
-#: C/iagno.xml:442(para)
-msgid ""
-"This option moves all the black tiles to the top of the board and all the "
-"white tiles to the bottom of the board at the end of the game. This allows "
-"you to visually see the outcome of the game."
-msgstr ""
-"Αυτή η επιλογή μεταφέρει όλα τα μαύρα πλακίδια στο πάνω μέρος του ταμπλώ και "
-"όλα τα λευκά στο κάτω μέρος όταν τελειώσει το παιχνίδι. Αυτό σας επιτρέπει "
-"να δείτε πιο καθαρά το αποτέλεσμα του παιχνιδιού."
-
-#: C/iagno.xml:450(para)
-msgid "This option does not affect the outcome of the game in any way."
-msgstr ""
-"Η επιλογή αυτή δεν επηρεάζει το αποτέλεσμα του παιχνιδιού με κανένα τρόπο."
-
-#: C/iagno.xml:458(title)
-msgid "Tile Set"
-msgstr "Σετ πλακιδίων"
-
-#: C/iagno.xml:459(para)
-msgid ""
-"This option lets you choose the type of board and tiles which are displayed. "
-"If you want to make your own tile sets use the classic tile set as a "
-"template and change the texture and colors for different effects. When you "
-"make a new tile set that works with Iagno send it to Ian Peters "
-"<email>itp@gnu.org</email> and he will include it with the next distribution."
-msgstr ""
-"Αυτή η επιλογή σας επιτρέπει να διαλέγετε τον τύπο του ταμπλώ και των "
-"πλακιδίων που εμφανίζονται. Αν θέλετε να φτιάξετε το δικό σας σετ πλακιδίων "
-"χρησιμοποιήστε το κλασσικό σετ ως πρότυπο και αλλάξτε την εμφάνιση και τα "
-"χρώματα για τα διαφορετικά εφέ. Όταν θα έχετε φτιάξει ένα νέο σετ πλακιδίων "
-"που δουλεύει με το Ιάγνος στείλτε το στον Ian Peters <email>itp@gnu.org</"
-"email> και θα το περιλάβει στην επόμενη διανομή."
-
-#: C/iagno.xml:468(title)
-msgid "Important:"
-msgstr "Σημαντικό:"
-
-#: C/iagno.xml:469(para)
-msgid ""
-"There are two tile sets which look the same, but have different animations "
-"-- woodtrim and classic."
-msgstr ""
-"Υπάρχουν δύο σετ πλακιδίων που φαίνονται ίδια, αλλά έχουν διαφορετικές "
-"κινούμενες εικόνες: το woodtrim και το classic."
-
-#: C/iagno.xml:476(title)
-msgid "The Preferences menu with the Appearance tab highlighted."
-msgstr "Το μενού Προτιμήσεις με επιλεγμένη την καρτέλα Εμφάνιση."
-
-#: C/iagno.xml:483(phrase)
-msgid "Screenshot of the animation settings."
-msgstr "Στιγμιότυπο οθόνης με τις προτιμήσεις για τις κινούμενες εικόνες."
-
-#: C/iagno.xml:10(title)
-msgid "Network Games"
-msgstr "Δικτυακά παιχνίδια"
-
-#: C/iagno.xml:11(para)
-msgid ""
-"Iagno support networked multiplayer games which is provided by <ulink type="
-"\"http\" url=\"http://www.ggzgamingzone.org\">GGZ Gaming Zone</ulink>. By "
-"connecting to a Iagno server on the Internet, you can challenge other "
-"players in multiplayer games. For news, updates and a list of servers to "
-"connect to, see the <ulink type=\"http\" url=\"http://www.gnome.org/projects/"
-"gnome-games/\">gnome-games website</ulink>."
-msgstr ""
-"Ο Ιάγνος υποστηρίζει παιχνίδια με πολλούς παίκτες μέσω δικτύου, που "
-"παρέχονται από το <ulink type=\"http\" url=\"http://www.ggzgamingzone.org"
-"\">GGZ Gaming Zone</ulink>. Συνδεόμενοι με ένα εξυπηρετητή Ιάγνος στο "
-"διαδίκτυο, μπορείτε να προκαλέσετε άλλους παίκτες σε ένα παιχνίδι με "
-"πολλαπλούς παίκτες. Για νέα, ανανεώσεις και μια λίστα με εξυπηρετητές, δείτε "
-"τον <ulink type=\"http\" url=\"http://www.gnome.org/projects/gnome-games/"
-"\">ιστότοπο των παιχνιδιών του GNOME</ulink>. "
-
-#: C/iagno.xml:18(para)
-msgid ""
-"To start the multiplayer game of Iagno, select <menuchoice><guimenu>Game</"
-"guimenu><guimenuitem>Network Game</guimenuitem></menuchoice> on the Iagno "
-"menu."
-msgstr ""
-"Για να αρχίσετε ένα παιχνίδι Ιάγνος με πολλούς παίκτες επιλέξτε "
-"<menuchoice><guimenu>Παιχνίδι</guimenu><guimenuitem>Νέο παιχνίδι μέσω "
-"δικτύου</guimenuitem></menuchoice> από το μενού του Ιάγνος."
-
-#: C/iagno.xml:24(title)
-msgid "Connecting to a Iagno network server"
-msgstr "Σύνδεση σε ένα εξυπηρετητή Ιάγνος."
-
-#: C/iagno.xml:25(para)
-msgid ""
-"The Iagno connection dialog is shown initially when starting a new network "
-"game. This dialog allows you to select a server to connect to, and the "
-"username that you will have while connected to that server."
-msgstr ""
-"Ο διάλογος σύνδεσης του Ιάγνος εμφανίζεται αρχικά όταν ξεκινάει ένα "
-"καινούριο δικτυακό παιχνίδι. Αυτός ο διάλογος σας επιτρέπει να επιλέξετε "
-"έναν εξυπηρετητή για να συνδεθείτε, και το όνομα χρήστη που θα έχετε ενόσω "
-"θα είστε εκεί συνδεδεμένοι."
-
-#: C/iagno.xml:31(para)
-msgid ""
-"It is possible to connect to a server with either a guest account or a "
-"normal registered account. Guest accounts allows you to anonymously login, "
-"while a normal login account allows you to reserve your own username which "
-"is protected by the password that you choose."
-msgstr ""
-"Μπορείτε να συνδεθείτε σε ένα εξυπηρετητή είτε με απλό λογαριασμό επισκέπτη "
-"(guest) είτε με λογαριασμό εγγεγραμμένου χρήστη. Οι λογαριασμοί επισκέπτη "
-"σας επιτρέπουν να συνδέεστε ανώνυμα, ενώ ένας κανονικός λογαριασμός σας "
-"επιτρέπει να διατηρείτε το όνομα χρήστη το οποίο προστατεύεται από τον "
-"κωδικό πρόσβασης που θα δώσετε."
-
-#: C/iagno.xml:38(para)
-msgid ""
-"The <guimenuitem>Guest Login</guimenuitem> option should be selected if you "
-"want an anonymous guest account. If you want to create a new login account, "
-"then select the <guimenuitem>First-time Login</guimenuitem> option, with the "
-"username, password and email of your choice. If you have already created "
-"your account, you can connect by selecting the <guimenuitem>Normal Login</"
-"guimenuitem> option, and enter the username and password that you have "
-"chosen."
-msgstr ""
-"Η επιλογή <guimenuitem>Σύνδεση επισκέπτη</guimenuitem> επιλέγεται όταν "
-"θέλετε έναν ανώνυμο λογαριασμό επισκέπτη. Αν θέλετε να δημιουργήσετε ένα "
-"καινούριο λογαριασμό εισόδου, επιλέξτε το <guimenuitem>Σύνδεση για πρώτη "
-"φορά</guimenuitem>, με το όνομα χρήστη, τον κωδικό πρόσβασης και το Email "
-"της επιλογής σας. Αν έχετε ήδη δημιουργήσει λογαριασμό, μπορείτε να "
-"συνδεθείτε επιλέγοντας την <guimenuitem>Κανονική σύνδεση</guimenuitem>, και "
-"να βάλετε το όνομα χρήστη και τον κωδικό πρόσβασης που ήδη επιλέξατε."
-
-#: C/iagno.xml:46(para)
-msgid ""
-"To connect to a server, click on the <guimenuitem>Connect</guimenuitem> "
-"button."
-msgstr ""
-"Για να συνδεθείτε σε ένα εξυπηρετητή πατήστε στο κουμπί "
-"<guimenuitem>Σύνδεση</guimenuitem>."
-
-#: C/iagno.xml:50(title) C/iagno.xml:57(phrase)
-msgid "The Iagno network connection dialog."
-msgstr "Διάλογος δικτυακής σύνδεσης του Ιάγνος."
-
-#: C/iagno.xml:65(title)
-msgid "Joining a game room"
-msgstr "Είσοδος σε δωμάτιο παιχνιδιών"
-
-#: C/iagno.xml:66(para)
-msgid ""
-"Once you have successfully connected to a server, you can choose which game "
-"room to join. To play a multiplayer game of Iagno, select the Iagno room. If "
-"you want to host your own game, then click on the Launch button. This "
-"creates a new table where other players can participate in a game against "
-"you. If there are any other games already started, then you can double-click "
-"on an existing game table to join it. The list of game tables on the right "
-"shows you the number of available seats, which means the number of players "
-"that can join the game table."
-msgstr ""
-"Όταν θα έχετε επιτυχώς συνδεθεί σε έναν εξυπηρετητή, μπορείτε να επιλέξετε "
-"σε ποιό δωμάτιο θα εισέλθετε. Για να παίξετε ένα δικτυακό παιχνίδι Ιάγνος, "
-"επιλέξτε το δωμάτιο Iagno. Αν θέλετε να φιλοξενήσετε το δικό σας παιχνίδι "
-"τότε πατήστε στο Έναρξη. Αυτό δημιουργεί ένα νέο πίνακα στον οποίο άλλοι "
-"παίκτες μπορούν να συμμετάσχουν σε ένα παιχνίδι εναντίον σας. Αν υπάρχουν "
-"άλλα παιχνίδια που έχουν ήδη αρχίσει, τότε μπορείτε με διπλό κλικ σε "
-"υφιστάμενο παιχνίδι να συνδεθείτε σε αυτό. Η λίστα με τα ταμπλώ παιχνιδιού "
-"στα δεξιά δείχνει έναν αριθμό διαθέσιμων θέσεων, που σημαίνει τον αριθμό των "
-"παικτών που μπορούν να συνδεθούν σε ένα παιχνίδι."
-
-#: C/iagno.xml:73(title) C/iagno.xml:80(phrase)
-msgid ""
-"This Iagno network dialog allows you to join a game room to find other "
-"players."
-msgstr ""
-"Ο διάλογος δικτύου του Ιάγνος σας επιτρέπει να εισέρχεστε σε ένα δωμάτιο για "
-"να βρίσκετε άλλους παίκτες."
-
-#: C/iagno.xml:85(para)
-msgid ""
-"When creating a new table for Iagno games, a preference dialog is displayed "
-"which allows you to customize the game, such as set the minimum number of "
-"players for the game. Once the total number of seats have been taken, then "
-"no more players are allowed to join that game table."
-msgstr ""
-"Όταν δημιουργείτε ένα νέο ταμπλώ για παιχνίδι Ιάγνος, ένας διάλογος "
-"προτιμήσεων εμφανίζεται ο οποίος σας επιτρέπει να κάνετε ρυθμίσεις στο "
-"παιχνίδι, όπως τον ελάχιστο αριθμό παικτών του παιχνιδιού. Όταν ο συνολικός "
-"αριθμός θέσεων έχει γεμίσει, τότε δε μπορούν άλλοι παίκτες να συνδεθούν στο "
-"συγκεκριμένο ταμπλώ."
-
-#: C/iagno.xml:90(para)
-msgid ""
-"It is possible to chat with other players in network games. Ask for advice "
-"or help playing the games, but please be polite against other players."
-msgstr ""
-"Μπορείτε να συνομιλήσετε με άλλους παίκτες στο δικτυακό παιχνίδι. Ρωτήστε "
-"για οδηγίες ή βοήθεια για τα παιχνίδια, αλλά σας παρακαλούμε να είστε "
-"ευγενικοί προς τους άλλους."
-
-#: C/iagno.xml:97(title)
-msgid "Waiting for other players to join the game"
-msgstr "Αναμονή για άλλους παίκτες να συδεθούν στον παιχνίδι."
-
-#: C/iagno.xml:98(para)
-msgid ""
-"Once you have successfully joined a game table, then you have to wait until "
-"enough players have joined the table. The <guimenuitem>Players List</"
-"guimenuitem> menu item allows you to see a list of the players who have "
-"joined the game. The game will begin immediately when the total number of "
-"players in the the game have been reached."
-msgstr ""
-"Όταν θα έχετε επιτυχώς συνδεθεί σε ένα παιχνίδι ταμπλώ, τότε πρέπει να "
-"περιμένετε μέχρι να συνδεθούν επαρκείς παίκτες. Το μενού <guimenuitem>Λίστα "
-"παικτών</guimenuitem> σας επιτρέπει να δείτε μια λίστα με τους παίκτες που "
-"έχουν συνδεθεί το παιχνίδι. Το παιχνίδι θα ξεκινήσει όταν ο συνολικός "
-"αριιθμός των παικτών έχει συμπληρωθεί."
-
-#: C/iagno.xml:107(title)
-msgid "Playing multiplayer Iagno games"
-msgstr "Δικτυακό παιχνίδι Ιάγνος"
-
-#: C/iagno.xml:108(para)
-msgid ""
-"Multiplayer Iagno games have pretty much the same rules as normal Iagno "
-"games, except that you are now playing against human players. This means "
-"that other strategies might possibly be better than when playing against AI "
-"players."
-msgstr ""
-"Τα παιχνίδια Ιάγνος το δίκτυο έχουν τους ίδιους κανόνες με τα κανονικά "
-"παιχνίδια, μόνο που τώρα παίζετε εναντίον άλλων ανθρώπων. Αυτό σημαίνει ότι "
-"ίσως είναι προτιμότερες άλλες στρατηγικές από αυτές που χρησιμοποιείτε όταν "
-"παίζετε εναντίον του υπολογιστή."
-
-#: C/iagno.xml:113(para)
-msgid ""
-"Once a player has won, the game ends and you can return to the initial "
-"network game screen. Then you can play yet another game of addictive Iagno "
-"multiplayer!"
-msgstr ""
-"Όταν ένας από τους παίκτες έχει κερδίσει το παιχνίδι τελειώνει και "
-"επιστρέφετε στην πρώτη οθόνη του δικτυακού παιχνιδιού. Τότε μπορείτε να "
-"παίξετε ένα ακόμα εθιστικό δικτυακό παιχνίδι Ιάγνος!"
-
-#: C/iagno.xml:504(title)
-msgid "Known Bugs and Limitations"
-msgstr "Γνωστά σφάλματα και περιορισμοί"
-
-#: C/iagno.xml:508(para)
-msgid "The computer player for Iagno is easy to beat."
-msgstr "Είναι εύκολο να κερδίσετε τον υπολογιστή στο Ιάγνος."
-
-#: C/iagno.xml:517(title)
-msgid "Authors"
-msgstr "Συγγραφείς"
-
-#: C/iagno.xml:518(para)
-msgid ""
-"<application>Iagno</application> was written by Ian Peters (<email>itp@gnu."
-"org</email>). This manual was written by Eric Baudais "
-"(<email>baudais@okstate.edu</email>). To report a bug or make a suggestion "
-"regarding this application or this manual, follow the directions in this "
-"<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
-msgstr ""
-"Ο <application>Ιάγνος</application> γράφτηκε από τον Ian Peters "
-"(<email>itp@gnu.org</email>). Αυτό το εγχειρίδιο γράφτηκε από τον Eric "
-"Baudais (<email>baudais@okstate.edu</email>). Για να αναφέρετε ένα σφάλμα ή "
-"να κάνετε μια πρόταση σχετικά με αυτήν την εφαρμογή η την τεκμηρίωση, "
-"ακολουθήστε τις οδηγίες σε αυτό το <ulink url=\"ghelp:user-guide?feedback-"
-"bugs\" type=\"help\">έγγραφο</ulink>."
-
-#: C/iagno.xml:543(title)
-msgid "License"
-msgstr "Άδεια χρήσης"
-
-#: C/iagno.xml:544(para)
-msgid ""
-"This program is free software; you can redistribute it and/or modify it "
-"under the terms of the <citetitle>GNU General Public License</citetitle> as "
-"published by the Free Software Foundation; either version 2 of the License, "
-"or (at your option) any later version."
-msgstr ""
-"Αυτό το πρόγραμμα είναι ελεύθερο λογισμικό. Μπορείτε να το αναδιανέμετε ή/"
-"και να το τροποποιείτε μέσω των όρων της <citetitle>Γενικής Άδειας Χρήσης "
-"GNU</citetitle> όπως αυτή δημοσιεύτηκε από το Ίδρυμα Ελεύθερου Λογισμικού, "
-"έκδοση 2, ή (προαιρετικά) οποιαδήποτε νεότερη έκδοση."
-
-#: C/iagno.xml:551(para)
-msgid ""
-"This program is distributed in the hope that it will be useful, but WITHOUT "
-"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
-"FITNESS FOR A PARTICULAR PURPOSE. See the <citetitle>GNU General Public "
-"License</citetitle> for more details."
-msgstr ""
-"Αυτό το πρόγραμμα διανέμεται με την ελπίδα οτι θα είναι χρήσιμο, αλλά ΧΩΡΙΣ "
-"ΚΑΜΜΙΑ ΑΠΟΛΥΤΩΣ ΕΓΓΥΗΣΗ - χωρίς ακόμη και την έμμεση εγγύηση "
-"ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ή ΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Δείτε για "
-"περισσότερες λεπτομέρειες την Γενική Άδεια Δημόσιας Χρήσης GNU "
-"(<citetitle>GNU General Public License</citetitle>)."
-
-#: C/iagno.xml:557(para)
-msgid ""
-"A copy of the <citetitle>GNU General Public License</citetitle> is included "
-"as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
-"obtain a copy of the <citetitle>GNU General Public License</citetitle> from "
-"the Free Software Foundation by visiting <ulink type=\"http\" url=\"http://"
-"www.fsf.org\">their Web site</ulink> or by writing to <address> Free "
-"Software Foundation, Inc. <street>59 Temple Place</street> - Suite 330 "
-"<city>Boston</city>, <state>MA</state><postcode>02111-1307</"
-"postcode><country>USA</country></address>"
-msgstr ""
-"Αντίγραφο της <citetitle>Γενικής Άδειας Δημόσιας Χρήσης GNU</citetitle> "
-"υπάρχει ως παράρτημα στο <citetitle>Εγχειρίδιο χρήσης του GNOME</citetitle>. "
-"Μπορείτε επίσης να αποκτήσετε ένα αντίγραφό της από το Ίδρυμα Ελεύθερου "
-"Λογισμικού (Free Software Foundation) επισκεπτόμενοι την <ulink type=\"http"
-"\" url=\"http://www.fsf.org\">ιστοσελίδα τους</ulink> ή γράφοντας στη "
-"διεύθυνση <address> Free Software Foundation, Inc. <street>59 Temple Place</"
-"street> - Suite 330 <city>Boston</city>, <state>MA</state> <postcode>02111-"
-"1307</postcode> <country>USA</country></address>."
-
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#: C/iagno.xml:0(None)
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+#| msgid "translator-credits"
+msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
-"  Κώστας Παπαδήμας <pkst@gnome.org>\n"
-"  Μάριος Ζηντίλης <m.zindilis@dmajor.org>\n"
-"\n"
-"Για περισσότερα, δείτε http://gnome.gr/"
+" Μάριος Ζηντίλης <m.zindilis@dmajor.org>, 2009 Θάνος Τρυφωνίδης "
+"<tomtryf@gmail.com>, 2012\n"
+"Για περισσότερα δείτε http://www.gnome.gr/."
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:6(media)
+msgctxt "_"
+msgid "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
+msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:19(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
+msgstr ""
+"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
+
+#: C/index.page:7(info/title)
+#| msgid "Iagno"
+msgctxt "link"
+msgid "Iagno"
+msgstr "Ιάγνος"
+
+#: C/index.page:8(info/title)
+#| msgid "Iagno"
+msgctxt "text"
+msgid "Iagno"
+msgstr "Ιάγνος"
+
+#: C/index.page:11(credit/name) C/2player.page:14(credit/name)
+#: C/ai-game.page:14(credit/name) C/bug-filing.page:10(credit/name)
+#: C/change-color.page:9(credit/name) C/develop.page:10(credit/name)
+#: C/documentation.page:8(credit/name) C/play.page:9(credit/name)
+#: C/rules.page:9(credit/name) C/sound.page:9(credit/name)
+#: C/visual-results.page:14(credit/name) C/translate.page:10(credit/name)
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
+
+#: C/index.page:15(license/p) C/bug-filing.page:15(license/p)
+#: C/develop.page:15(license/p) C/documentation.page:13(license/p)
+#: C/translate.page:19(license/p)
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#: C/index.page:19(page/title)
+msgid ""
+"<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media>Iagno"
+msgstr ""
+"<media type=\"image\" src=\"figures/logo32.png\">Λογότυπο του Ιάγνος</"
+"media>Ιάγνος"
+
+#: C/index.page:21(page/p)
+#, fuzzy
+msgid ""
+"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
+"on one side and light on the other. When a piece is captured it is turned "
+"over to join the capturing player's forces; the winner is the player with "
+"the most pieces of their color at the end of the game."
+msgstr ""
+"Ο <app> Ιάγνος</app> είναι ένα επιτραπέζιο παιχνίδι που παίζεται σε ένα "
+"πλέγμα 8Χ8 με 64 κομμάτια, με τα μαύρα από τη μία πλευρά και τα λευκά από "
+"την άλλη. Όταν ένα κομμάτι συλλαμβάνεται αναποδογυρίζει για να ενώσει τις "
+"δυνάμεις του άλλου παίκτη. Νικητής είναι ο παίκτης με τα περισσότερα "
+"κομμάτια του ίδιου χρώματος στο τέλος του παιχνιδιού."
+
+#: C/index.page:25(section/title)
+msgid "Game Play"
+msgstr "Παιχνίδι"
+
+#: C/index.page:29(section/title)
+msgid "Useful tips"
+msgstr "Χρήσιμες συμβουλές"
+
+#: C/index.page:33(section/title)
+msgid "Advanced"
+msgstr "Για προχωρημένους"
+
+#: C/index.page:37(section/title)
+msgid "Get Involved"
+msgstr "Συμμετοχή"
+
+#: C/2player.page:9(credit/name) C/ai-game.page:9(credit/name)
+#: C/shortcuts.page:9(credit/name) C/visual-results.page:9(credit/name)
+msgid "Brian Grohe"
+msgstr "Brian Grohe"
+
+#: C/2player.page:11(credit/years) C/ai-game.page:11(credit/years)
+#: C/play.page:11(credit/years) C/rules.page:11(credit/years)
+#: C/shortcuts.page:11(credit/years) C/sound.page:11(credit/years)
+#: C/visual-results.page:11(credit/years)
+msgid "2012"
+msgstr "2012"
+
+#: C/2player.page:19(page/title)
+msgid "Two-player mode"
+msgstr "Λειτουργία δύο παικτών"
+
+#: C/2player.page:20(page/p)
+msgid ""
+"Two player mode allows you to play against another human rather than a "
+"computer. To enable this:"
+msgstr ""
+"Η λειτουργία δύο παικτών σας επιτρέπει να παίξετε ενάντια σε έναν άνθρωπο "
+"και όχι με τον υπολογιστή. Για να το ενεργοποιήσετε:"
+
+#: C/2player.page:23(item/p)
+msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
+msgstr "Πατήστε <guiseq><gui>Ρυθμίσεις</gui><gui>Προτιμήσεις</gui></guiseq>"
+
+#: C/2player.page:24(item/p) C/ai-game.page:25(item/p) C/sound.page:21(item/p)
+msgid "Select the <gui>Game</gui> tab."
+msgstr "Επιλέξτε την καρτέλα <gui>Παιχνίδι</gui>"
+
+#: C/2player.page:25(item/p)
+msgid "Check <gui>human</gui> in both player columns."
+msgstr "Επιλέξτε <gui>άνθρωπος</gui> και στις δύο στήλες του παίκτη."
+
+#: C/2player.page:26(item/p) C/change-color.page:31(item/p)
+msgid "Click <gui>Close</gui>"
+msgstr "Κάντε κλικ στο <gui>Κλείσιμο</gui>."
+
+#: C/2player.page:27(note/p)
+msgid "Your changes will apply when a new game is started."
+msgstr "Οι αλλαγές σας θα εφαρμοστούν όταν ξεκινήσετε ένα νέο παιχνίδι."
+
+#: C/ai-game.page:20(page/title)
+msgid "Play against the computer"
+msgstr "Παίξτε με αντίπαλο τον υπολογιστή"
+
+#: C/ai-game.page:21(page/p)
+msgid ""
+"The computer has different levels of difficulty: Level One, Level Two, and "
+"Level Three. To change this setting:"
+msgstr ""
+"Ο υπολογιστής έχει διαφορετικά επίπεδα δυσκολίας: Επίπεδο ένα, επίπεδο δύο, "
+"και επίπεδο τρία. Για να αλλάξετε αυτή την ρύθμιση:"
+
+#: C/ai-game.page:24(item/p) C/change-color.page:24(item/p)
+#: C/visual-results.page:25(item/p)
+msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+msgstr "Κλικ στις <guiseq><gui>Ρυθμίσεις</gui><gui>Προτιμήσεις</gui></guiseq>."
+
+#: C/ai-game.page:26(item/p)
+msgid "Select the difficulty level for your computer opponent."
+msgstr "Επιλέξτε το επίπεδο δυσκολίες για τον υπολογιστή."
+
+#: C/ai-game.page:27(item/p) C/sound.page:23(item/p)
+#: C/visual-results.page:28(item/p)
+msgid "Click <gui>Close</gui>."
+msgstr "Κλικ στο <gui>Κλείσιμο</gui>."
+
+#: C/bug-filing.page:12(credit/years) C/change-color.page:11(credit/years)
+#: C/develop.page:12(credit/years) C/documentation.page:10(credit/years)
+#: C/strategy.page:11(credit/years) C/translate.page:12(credit/years)
+msgid "2011"
+msgstr "2011"
+
+#: C/bug-filing.page:19(page/title)
+msgid "Help make <app>Iagno</app> better"
+msgstr "Βοηθήστε να κάνουμε καλύτερο τον <app>Ιάγνο</app>"
+
+#: C/bug-filing.page:22(section/title)
+msgid "Report a bug or suggest an improvement"
+msgstr "Αναφορά σφάλματος ή πρόταση βελτίωσης"
+
+#: C/bug-filing.page:23(section/p)
+msgid ""
+"<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
+"participate. If you notice a problem you can file a <em>bug report</em>. To "
+"file a bug, go to <link href=\"https://bugzilla.gnome.org/\"/>."
+msgstr ""
+"Ο <app>Ιάγνος</app> διατηρείται από μια εθελοντική κοινότητα. Είστε "
+"ευπρόσδεκτοι να συμμετάσχετε. Αν παρατηρήσετε κάποιο πρόβλημα μπορείτε να "
+"κάνετε μια <em>αναφορά σφάλματος (bug report)</em>. Για να κάνετε αναφορά "
+"σφάλματος πηγαίνετε <link href=\"https://bugzilla.gnome.org/\"/>."
+
+#: C/bug-filing.page:26(section/p)
+msgid ""
+"This is a bug tracking system where users and developers can file details "
+"about bugs, crashes and request enhancements."
+msgstr ""
+"Αυτό είναι ένα σύστημα καταγραφής σφαλμάτων όπου χρήστες και προγραμματιστές "
+"μπορούν να κάνουν αναφορές για σφάλματα, «κρασαρίσματα» και βελτιώσεις."
+
+#: C/bug-filing.page:29(section/p)
+msgid ""
+"To participate you need an account which will give you the ability to gain "
+"access, file bugs, and make comments. Also, you need to register so you can "
+"receive updates by e-mail about the status of your bug. If you don't already "
+"have an account, just click on the <gui>New Account</gui> link to create one."
+msgstr ""
+"Για να λάβετε μέρος χρειάζεστε ένα λογαριασμό που θα σας δώσει πρόσβαση, να "
+"κάνετε αναφορές σφαλμάτων καθώς και σχόλια. Επίσης, πρέπει να εγγραφείτε για "
+"να δέχεστε ενημερώσεις μέσω ηλεκτρονικού ταχυδρομείου για την κατάσταση του "
+"σφάλματος σας. Εάν δεν έχετε ήδη λογαριασμό, απλά πατήστε <gui>Νέος "
+"λογαριασμός</gui> για να δημιουργήσετε."
+
+#: C/bug-filing.page:32(section/p)
+msgid ""
+"Once you have an account, log in, click on <guiseq><gui>File a Bug</"
+"gui><gui>Applications</gui><gui>gnome-games</gui></guiseq>. Before reporting "
+"a bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?"
+"id=bug-writing.html\">bug writing guidelines</link>, and please <link href="
+"\"https://bugzilla.gnome.org/browse.cgi?product=gnome-games\">browse</link> "
+"for the bug to see if it already exists."
+msgstr ""
+"Μόλις δημιουργήσετε λογαριασμό, συνδεθείτε (log in), πατήστε στο "
+"<guiseq><gui>File a Bug</gui><gui>Applications</gui><gui>gnome-games</gui></"
+"guiseq>. Πριν αναφέρετε ένα σφάλμα, παρακαλώ διαβάστε το <link href="
+"\"https://bugzilla.gnome.org/page.cgi?id=bug-writing.html\">bug writing "
+"guidelines</link>, και παρακαλώ κάντε <link href=\"https://bugzilla.gnome."
+"org/browse.cgi?product=gnome-games\">αναζήτηση</link> για να δείτε αν "
+"υπάρχει η ίδια αναφορά ήδη."
+
+#: C/bug-filing.page:36(section/p)
+msgid ""
+"To file your bug, choose the component <gui>iagno</gui> in the "
+"<gui>Component</gui> menu."
+msgstr ""
+"Για να αναφέρετε το σφάλμα, διαλέξτε το συστατικό <gui>glines</gui> στο "
+"μενού <gui>Component</gui>."
+
+#: C/bug-filing.page:39(section/p)
+msgid ""
+"If you are requesting a new feature, choose <gui>enhancement</gui> in the "
+"<gui>Severity</gui> menu. Fill in the Summary and Description sections and "
+"click <gui>Commit</gui>."
+msgstr ""
+"Αν θέλετε κάποιο καινούργιο χαρακτηριστικό, διαλέξτε <gui>enhancement</gui> "
+"στο μενού <gui>Severity</gui>. Συμπληρώστε την Περίληψη και την Περιγραφή "
+"και πατήστε <gui>Commit</gui>."
+
+#: C/bug-filing.page:43(section/p)
+msgid ""
+"Your report will be given an ID number, and its status will be updated as it "
+"is being dealt with. Thanks for helping make <app>Iagno</app> better!"
+msgstr ""
+"Στην αναφορά σας θα δοθεί ένας αριθμός ID και η κατάστασή της θα ενημερωθεί "
+"όταν θα επεξεργαστεί. Ευχαριστούμε για τη βοήθειά σας να κάνουμε τον "
+"<app>Ιάγνο</app> καλύτερο!"
+
+#: C/change-color.page:17(page/title)
+#| msgid "Player Color and Difficulty"
+msgid "Change player color and difficulty"
+msgstr "Αλλάξτε το χρώμα του παίκτη και τη δυσκολία"
+
+#: C/change-color.page:19(page/p)
+msgid "To change the player for each color:"
+msgstr "Για να αλλάξετε παίκτη για κάθε χρώμα:"
+
+#: C/change-color.page:25(item/p)
+msgid "Select the <gui>Game</gui> tab"
+msgstr "Επιλέξτε την καρτέλα <gui>Παιχνίδι</gui>."
+
+#: C/change-color.page:26(item/p)
+msgid ""
+"Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
+"gui>."
+msgstr ""
+"Επιλέξτε τον τύπου του παίκτη/δυσκολίας από το <gui>Μαύρα</gui> και "
+"<gui>Λευκά</gui>."
+
+#: C/change-color.page:27(note/p)
+msgid "Your choice is effective immediately."
+msgstr "Η επιλογή σας τίθεται αμέσως σε ισχύ."
+
+#: C/develop.page:19(page/title)
+msgid "Help develop"
+msgstr "Βοήθεια στην ανάπτυξη"
+
+#: C/develop.page:20(page/p)
+msgid ""
+"The <app>GNOME Games</app> are developed and maintained by a volunteer "
+"community. You are welcome to participate."
+msgstr ""
+"Τα <app>παιχνίδια του GNOME</app> αναπτύσσονται και συντηρούνται από μια "
+"εθελοντική κοινότητα. Είσαστε καλοδεχούμενοι να συμμετάσχετε."
+
+#: C/develop.page:23(page/p)
+msgid ""
+"If you would like to <link href=\"https://live.gnome.org/GnomeGames/"
+"Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
+"touch with the developers using <link href=\"https://cbe005.chat.mibbit.com/?"
+"url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our <link "
+"href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
+"link>."
+msgstr ""
+"Εάν θα θέλετε να <link href=\"https://live.gnome.org/GnomeGames/Contributing"
+"\">βοηθήσετε στην ανάπτυξη</link> των <app>Παιχνιδιών του GNOME</app>, "
+"μπορείτε να επικοινωνήσετε με τους προγραμματιστές χρησιμοποιώντας το <link "
+"href=\"https://cbe005.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-"
+"games\">irc</link>, ή μέσα από τη <link href=\"http://mail.gnome.org/mailman/"
+"listinfo/games-list\">λίστα αλληλογραφίας μας</link>."
+
+#: C/documentation.page:17(page/title)
+msgid "Help write documentation"
+msgstr "Βοήθεια συγγραφής τεκμηρίωσης"
+
+#: C/documentation.page:19(page/p)
+msgid ""
+"The <app>GNOME Games</app> documentation is maintained by a volunteer "
+"community. You are welcome to participate."
+msgstr ""
+"Τα <app>παιχνίδια του GNOME</app> αναπτύσσονται και συντηρούνται από μια "
+"εθελοντική κοινότητα. Είσαστε καλοδεχούμενοι να συμμετάσχετε."
+
+#: C/documentation.page:22(page/p)
+msgid ""
+"To contribute to the Documentation Project, feel free to get in touch with "
+"us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
+"gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail.gnome.org/"
+"mailman/listinfo/gnome-doc-list\">mailing list</link>."
+msgstr ""
+"Για συμμετοχή στο έργο τεκμηρίωσης, επικοινωνήστε μαζί μας χρησιμοποιώντας "
+"το <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org"
+"%2Fdocs\">irc</link>, ή μέσα από την <link href=\"http://mail.gnome.org/"
+"mailman/listinfo/gnome-doc-list\">λίστα αλληλογραφίας μας</link>"
+
+#: C/documentation.page:24(page/p)
+msgid ""
+"Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+"\">wiki</link> page contains useful information."
+msgstr ""
+"Το <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+"\">wiki</link> μας περιέχει χρήσιμες πληροφορίες."
+
+#: C/legal.xml:3(p/link)
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+
+#: C/legal.xml:3(license/p)
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Αυτό το έργο έχει αδειοδοτηθεί υπό την <_:link-1/>."
+
+#: C/license.page:8(info/desc)
+msgid "Legal information."
+msgstr "Νομικές πληροφορίες."
+
+#: C/license.page:11(page/title)
+msgid "License"
+msgstr "Άδεια χρήσης"
+
+#: C/license.page:12(page/p)
+msgid ""
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
+msgstr ""
+"Αυτό το έργο διανέμεται υπό την άδεια CreativeCommons Attribution-Share "
+"Alike 3.0 Unported."
+
+#: C/license.page:20(page/p)
+msgid "You are free:"
+msgstr "Μπορείτε ελεύθερα:"
+
+#: C/license.page:25(item/title)
+msgid "<em>To share</em>"
+msgstr "<em>Να μοιραστείτε</em>"
+
+#: C/license.page:26(item/p)
+msgid "To copy, distribute and transmit the work."
+msgstr "Να αντιγράψετε, να διανείμετε και να μεταδόσετε το έργο."
+
+#: C/license.page:29(item/title)
+msgid "<em>To remix</em>"
+msgstr "<em>Να τροποποιήσετε</em>"
+
+#: C/license.page:30(item/p)
+msgid "To adapt the work."
+msgstr "Να προσαρμόσετε το έργο."
+
+#: C/license.page:33(page/p)
+msgid "Under the following conditions:"
+msgstr "Υπό τους εξής όρους:"
+
+#: C/license.page:38(item/title)
+msgid "<em>Attribution</em>"
+msgstr "<em>Απόδοση</em>"
+
+#: C/license.page:39(item/p)
+msgid ""
+"You must attribute the work in the manner specified by the author or "
+"licensor (but not in any way that suggests that they endorse you or your use "
+"of the work)."
+msgstr ""
+"Πρέπει να αναφέρετε την πηγή του έργου με τον τρόπο που καθορίζεται από το "
+"δημιουργό του ή αυτόν που παρέχει την άδεια (αλλά όχι με τρόπο που να εννοεί "
+"ότι εγκρίνουν εσάς ή τη δική σας χρήση του έργου)."
+
+#: C/license.page:46(item/title)
+msgid "<em>Share Alike</em>"
+msgstr "<em>Παρόμοια διανομή</em>"
+
+#: C/license.page:47(item/p)
+msgid ""
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
+msgstr ""
+"Αν μετατρέψετε, μετασχηματίσετε ή επεκτείνετε αυτό το έργο, μπορείτε να "
+"αναδιανείμετε το αποτέλεσμα υπό την ίδια, παρόμοια ή συμβατή άδεια χρήσης."
+
+#: C/license.page:53(page/p)
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
+msgstr ""
+"Για το πλήρες κείμενο της άδειας, δείτε τον <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">ιστότοπο CreativeCommons</"
+"link>, ή διαβάστε όλη την <link href=\"http://creativecommons.org/licenses/"
+"by-sa/3.0/\">Πράξη Commons</link>."
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/play.page:41(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
+msgstr ""
+"external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
+
+#: C/play.page:17(page/title)
+msgid "How to Play"
+msgstr "Πως να παίξετε"
+
+#: C/play.page:19(page/p)
+msgid ""
+"<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
+"play."
+msgstr ""
+"Ο <app>Ιάγνος</app> έχει απλούς <link xref=\"rules\">κανόνες</link> και "
+"είναι εύκολο να το παίξετε."
+
+#: C/play.page:21(page/p)
+msgid ""
+"When the game first starts, you play <em>Dark</em> and the computer player "
+"plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
+"<gui>Level one</gui> by default."
+msgstr ""
+"Όταν ξεκινά το παιχνίδι, εσείς παίζεται με τα <em>Μαύρα</em> και ο "
+"υπολογιστής με τα <em>Λευκά</em>. Το <link xref=\"ai-game\">επίπεδο "
+"δυσκολίας</link> είναι από προεπιλογή το  <gui>Επίπεδο ένα</gui>."
+
+#: C/play.page:24(page/p)
+msgid "The game is played using the mouse. To make a move:"
+msgstr ""
+"Το παιχνίδι παίζεται χρησιμοποιώντας το ποντίκι. Για να κάνετε μια κίνηση:"
+
+#: C/play.page:27(item/p)
+msgid "Click on the cell you would like to place your piece in."
+msgstr "Κάντε κλικ στο κελί που θέλετε να τοποθετήσετε το κομμάτι σας."
+
+#: C/play.page:28(note/p)
+msgid ""
+"If the move is legal, the piece will be placed in the cell, and the opponent "
+"pieces will be flipped to match your color."
+msgstr ""
+"Αν η κίνηση είναι έγκυρη, το κομμάτι θα τοποθετηθεί στο κελί, και τα "
+"κομμάτια του αντιπάλου θα αντιστραφούν για να ταιριάζουν με το χρώμα."
+
+#: C/play.page:30(note/p)
+msgid "If the move is not allowed, nothing will happen."
+msgstr "Αν δεν επιτρέπετε η κίνηση, δεν θα συμβεί τίποτα."
+
+#: C/play.page:34(item/p)
+msgid ""
+"You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
+"guiseq>."
+msgstr ""
+"Μπορείτε να αναιρέσετε μια κίνηση κάνοντας κλικ στο <guiseq><gui>Παιχνίδι</"
+"gui><gui>Αναίρεση κίνησης</gui></guiseq>."
+
+#: C/play.page:40(section/title)
+msgid "Video demonstration"
+msgstr "Βίντεο επίδειξης"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rules.page:43(media)
+msgctxt "_"
+msgid "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
+msgstr ""
+"external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rules.page:48(media)
+msgctxt "_"
+msgid "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
+msgstr ""
+"external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rules.page:53(media)
+msgctxt "_"
+msgid "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
+msgstr ""
+"external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/rules.page:58(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/iagno-gameover.png' "
+"md5='b7792be5784722b905b78510452aee16'"
+msgstr ""
+"external ref='figures/iagno-gameover.png' "
+"md5='b7792be5784722b905b78510452aee16'"
+
+#: C/rules.page:14(credit/name) C/strategy.page:14(credit/name)
+#: C/translate.page:15(credit/name)
+msgid "Michael Hill"
+msgstr "Michael Hill"
+
+#: C/rules.page:21(page/title)
+msgid "Rules"
+msgstr "Κανόνες"
+
+#: C/rules.page:23(page/p)
+#, fuzzy
+msgid ""
+"The object of the game is to flip as many of the opponent tiles while "
+"blocking your opponent from flipping your tiles. In order to flip a tile, "
+"you must first trap it between two of your tiles, horizontally, vertically "
+"or diagonally."
+msgstr ""
+"Το αντικείμενο του παιχνιδιού είναι να αναποδογυρίσετε όσο περισσότερα "
+"πλακίδια του αντιπάλου σας μπορείτε ενώ συγχρόνως τον εμποδίζετε από το να "
+"χτυπήσει τα δικά σας πλακίδια. Για να αναποδογυρίσετε ένα πλακίδιο, θα "
+"πρέπει πρώτα να το παγιδεύσετε ανάμεσα σε δύο δικά σας, οριζόντια, κάθετα ή "
+"διαγώνια."
+
+#: C/rules.page:25(item/p)
+msgid ""
+"The game begins with four pieces, two light and two dark, placed in the "
+"center of the board."
+msgstr ""
+"Το παιχνίδι ξεκινά με τέσσερα κομμάτια, δύο λευκά και δύο μαύρα, "
+"τοποθετημένα στο κέντρο του ταμπλό."
+
+#: C/rules.page:28(item/p)
+msgid "Dark goes first."
+msgstr "Τα μαύρα ξεκινούν πρώτα."
+
+#: C/rules.page:29(item/p)
+msgid ""
+"Dark places a tile on the board in such a way that it traps white tiles "
+"between two of the dark tiles."
+msgstr ""
+"Τα μαύρα τοποθετούν ένα πλακίδιο στο ταμπλό με τέτοιο τρόπο ώστε να "
+"παγιδεύσουν λευκά πλακίδια ανάμεσα σε δύο μαύρα."
+
+#: C/rules.page:30(note/p)
+msgid "This placement can be horizontal, vertical or diagonal."
+msgstr "Αυτή η τοποθέτηση μπορεί να είναι οριζόντια, κατακόρυφη ή διαγώνια."
+
+#: C/rules.page:32(item/p)
+#, fuzzy
+msgid ""
+"When the dark tile is placed, the light tiles between the newly placed dark "
+"tile and another dark tile are flipped over and become part of the dark "
+"forces."
+msgstr ""
+"Όταν τοποθετείτε ένα μαύρο πλακίδιο, τα λευκά πλακίδια ανάμεσα στο "
+"τοποθετημένο και τα άλλα μαύρα πλακίδια αναποδογυρίζουν και ενώνουν τις "
+"δυνάμεις τους με τα μαύρα. "
+
+#: C/rules.page:36(item/p)
+msgid ""
+"The players alternate turns until no more legal moves can be made by either "
+"player. At this point the game is over. The end of the game often results in "
+"a full board."
+msgstr ""
+"Οι παίκτες παίζουν εναλλάξ μέχρι να μην μπορούν να υπάρξουν έγκυρες κινήσεις "
+"από κάθε παίκτη. Σε αυτό το σημείο το παιχνίδι έχει τελειώσει. Το τέλος του "
+"παιχνιδιού συνήθως τελειώνει με ένα γεμάτο πίνακα."
+
+#: C/rules.page:37(item/p)
+msgid ""
+"The winner is the the player with the most pieces of his color on the board."
+msgstr ""
+"Νικητής του παιχνιδιού είναι αυτός με τα περισσότερα κομμάτια ίδιου χρώματος "
+"στον πίνακα."
+
+#: C/rules.page:44(media/p)
+#| msgid "Starting Position"
+msgid "Start position"
+msgstr "Θέση εκκίνησης"
+
+#: C/rules.page:49(media/p)
+msgid "Example first move"
+msgstr "Παράδειγμα πρώτης κίνησης"
+
+#: C/rules.page:54(media/p)
+msgid "Blocking move"
+msgstr "Κίνηση μπλοκαρίσματος"
+
+#: C/rules.page:59(media/p)
+msgid "<app>Iagno</app> game over position."
+msgstr "Θέση τερματισμού του <app>Ιάγνος</app>"
+
+#: C/rules.page:64(td/p)
+#| msgid "Starting Position"
+msgid "<em>Start position</em>"
+msgstr "<em>Θέση εκκίνησης</em>"
+
+#: C/rules.page:65(td/p)
+msgid "<em>Example first move</em>"
+msgstr "<em>Παράδειγμα πρώτης κίνησης</em>"
+
+#: C/rules.page:66(td/p)
+msgid "<em>A blocking move</em>"
+msgstr "<em>Μια κίνηση μπλοκαρίσματος</em>"
+
+#: C/rules.page:67(td/p)
+msgid "<em>Game over position</em>"
+msgstr "<em>Θέση τερματισμού</em>"
+
+#: C/shortcuts.page:17(page/title)
+msgid "Keyboard shortcuts"
+msgstr "Συντομεύσεις πληκτρολογίου"
+
+#: C/shortcuts.page:20(td/p)
+#| msgid "Network Games"
+msgid "New game"
+msgstr "Νέο παιχνίδι"
+
+#: C/shortcuts.page:21(td/p)
+msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+
+#: C/shortcuts.page:25(td/p)
+msgid "Undo Move"
+msgstr "Αναίρεση κίνησης"
+
+#: C/shortcuts.page:26(td/p)
+msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+
+#: C/shortcuts.page:29(td/p)
+msgid "Help"
+msgstr "Βοήθεια"
+
+#: C/shortcuts.page:30(td/p)
+msgid "<key>F1</key>"
+msgstr "<key>F1</key>"
+
+#: C/shortcuts.page:33(td/p)
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: C/shortcuts.page:34(td/p)
+msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
+
+#: C/sound.page:17(page/title)
+#| msgid "Enable/Disable Sound"
+msgid "Enable and disable sound"
+msgstr "Ενεργοποίηση και απενεργοποίηση του ήχου"
+
+#: C/sound.page:18(page/p)
+#| msgid "Enable/Disable Sound"
+msgid "To enable or disable the sound:"
+msgstr "Για να ενεργοποιήσετε ή να απενεργοποιήσετε τον ήχο:"
+
+#: C/sound.page:20(item/p)
+msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+msgstr ""
+"Κάντε κλικ στο <guiseq><gui>Ρυθμίσεις</gui><gui>Προτιμήσεις</gui></guiseq>."
+
+#: C/sound.page:22(item/p)
+msgid "Click the <gui>Enable sounds</gui> checkbox."
+msgstr "Κάντε κλικ στο κουτί επιλογής <gui>Ενεργοποίηση ήχων</gui>."
+
+#: C/sound.page:24(note/p)
+msgid "The change will be available immediately."
+msgstr "Η αλλαγή θα είναι άμεσα διαθέσιμη."
+
+#: C/strategy.page:21(page/title)
+msgid "Strategy"
+msgstr "Στρατηγική"
+
+#: C/strategy.page:23(page/p)
+msgid ""
+"<app>Iagno</app> doesn't have one particular winning strategy. Rather it has "
+"strategic elements which can be used to help one gain advantage. Some "
+"strategies, such as trying to flip as many of your opponent's pieces early "
+"on in the game, should be avoided."
+msgstr ""
+"Ο <app>Ιάγνος</app> δεν έχει κάποια συγκεκριμένη στρατηγική νίκης. Μάλλον "
+"έχει στρατηγικά στοιχεία τα οποία μπορούν να χρησιμοποιηθούν για να "
+"βοηθήσουν κάποιον να πάρει το πλεονέκτημα. Μερικές στρατηγικές, όπως "
+"προσπαθήστε να αναποδογυρίσετε όσα περισσότερα κομμάτια του αντιπάλου σας "
+"από νωρίς στο παιχνίδι, θα πρέπει να αποφεύγονται."
+
+#: C/strategy.page:28(page/p)
+msgid ""
+"Much has been written on the topic of strategy for the games <em>Othello</"
+"em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
+msgstr ""
+"Έχουν γραφεί αρκετά στο θέμα της στρατηγικής για τα παιχνίδια <em>Othello</"
+"em> και <em>Reversi</em>, στα οποία βασίζετε ο <app>Ιάγνος</app>."
+
+#: C/strategy.page:31(note/p)
+msgid ""
+"Some sources state that Reversi does not have a predefined starting "
+"position, whereas Othello and <app>Iagno</app> do."
+msgstr ""
+"Ορισμένες πηγές λένε πως στο Reversi δεν υπάρχει προκαθορισμένη θέση "
+"εκκίνησης, ενώ έχουν τα Othello και <app>Ιάγνος</app>."
+
+#: C/strategy.page:35(page/p)
+msgid ""
+"If you are interested in learning about specific strategies for the game, "
+"the following links may be of interest:"
+msgstr ""
+"Αν θέλετε να μάθετε συγκεκριμένες στρατηγικές για το παιχνίδι, οι ακόλουθοι "
+"σύνδεσμοι μπορεί να σας ενδιαφέρουν:"
+
+#: C/strategy.page:40(item/p)
+msgid ""
+"<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
+"beginner's guide to strategy of the game</link>"
+msgstr ""
+"<link href=\"http://othello.dk/book/index.php/From_Scratch\">Ένας "
+"εξαιρετικός οδηγός αρχαρίων για τη στρατηγική του παιχνιδιού</link>"
+
+#: C/strategy.page:44(item/p)
+msgid ""
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
+"to strategy and tactics</link>"
+msgstr ""
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">Μια εισαγωγή στη "
+"στρατηγική και σε τακτικές</link>"
+
+#: C/strategy.page:48(item/p)
+msgid ""
+"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
+"\">Wikipedia: Strategic elements</link>"
+msgstr ""
+"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
+"\">Wikipedia: Στρατηγικά στοιχεία</link>"
+
+#: C/strategy.page:52(item/p)
+msgid ""
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
+"guide</link>"
+msgstr ""
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">Ένας οδηγός "
+"στρατηγικής</link>"
+
+#: C/visual-results.page:18(info/desc)
+#| msgid "Flip Final Results"
+msgid "Flip final results"
+msgstr "Αντιστροφή τελικών αποτελεσμάτων"
+
+#: C/visual-results.page:21(page/title)
+msgid "Visually see game results"
+msgstr "Οπτική απεικόνιση αποτελεσμάτων του παιχνιδιού"
+
+#: C/visual-results.page:22(page/p)
+msgid ""
+"Visual game results allows you to visually see who won, by grouping the "
+"pieces. To enable this option:"
+msgstr ""
+"Η οπτική απεικόνιση των αποτελεσμάτων σας δείχνουν ποιος κέρδισε, με την "
+"ομαδοποίηση των κομματιών ανά χρώμα. Για να ενεργοποιήσετε αυτή την επιλογή:"
+
+#: C/visual-results.page:26(item/p)
+msgid "Select the <gui>Appearance</gui> tab."
+msgstr "Επιλέξτε την καρτέλα <gui>Εμφάνιση</gui>."
+
+#: C/visual-results.page:27(item/p)
+msgid "Check the <gui>Flip final results</gui> box."
+msgstr ""
+"Κάντε κλικ στο κουτί επιλογής <gui>Αντιστροφή τελικών αποτελεσμάτων</gui>."
+
+#: C/translate.page:23(page/title)
+msgid "Help translate"
+msgstr "Βοήθεια στη μετάφραση"
+
+#: C/translate.page:24(page/p)
+msgid ""
+"The <app>GNOME Games</app> user interface and documentation is being "
+"translated by a world-wide volunteer community. You are welcome to "
+"participate."
+msgstr ""
+"Η διεπαφή και η τεκμηρίωση των <app>παιχνιδιών του GNOME</app>  "
+"μεταφράζονται από μια εθελοντική κοινότητα. Είσαστε καλοδεχούμενοι να "
+"συμμετάσχετε."
+
+#: C/translate.page:27(page/p)
+msgid ""
+"There are <link href=\"http://l10n.gnome.org/module/gnome-games/\">many "
+"languages</link> for which translations are still needed."
+msgstr ""
+"Υπάρχουν <link href=\"http://l10n.gnome.org/module/gnome-games/\">πολλές "
+"γλώσσες</link> για τις οποίες απαιτούνται μεταφράσεις."
+
+#: C/translate.page:30(page/p)
+msgid ""
+"To start translating you will need to <link href=\"http:l10n.gnome.org"
+"\">create an account</link> and join the <link href=\"http://l10n.gnome.org/"
+"teams/\">translation team</link> for your language. This will give you the "
+"ability to upload new translations."
+msgstr ""
+"Για να ξεκινήσετε να μεταφράζετε πρέπει να <link href=\"http:l10n.gnome.org"
+"\">δημιουργήσετε έναν λογαριασμό</link> και να συμμετάσχετε στην <link href="
+"\"http://l10n.gnome.org/teams/\">ομάδα μετάφρασης</link> της γλώσσας σας. "
+"Αυτό θα σας δώσει την δυνατότητα να ανεβάσετε νέες μεταφράσεις."
+
+#: C/translate.page:34(page/p)
+msgid ""
+"You can chat with GNOME translators using <link href=\"https://cbe003.chat."
+"mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. People on the "
+"channel are located worldwide, so you may not get an immediate response as a "
+"result of timezone differences."
+msgstr ""
+"Μπορείτε να συζητήσετε με μεταφραστές του GNOME χρησιμοποιώντας το <link "
+"href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n"
+"\">irc</link>. Άνθρωποι στο κανάλι βρίσκονται παντού, έτσι μπορείτε να "
+"πάρετε μια άμεση απάντηση ως αποτέλεσμα των διαφορών ώρας."
+
+#: C/translate.page:37(page/p)
+msgid ""
+"Alternatively, you can contact the Internationalization Team using their "
+"<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+"list</link>."
+msgstr ""
+"Εναλλακτικά, μπορείτε να επικοινωνήσετε με την ομάδα διεθνοποίησης "
+"χρησιμοποιώντας την <link href=\"http://mail.gnome.org/mailman/listinfo/"
+"gnome-i18n\">λίστα αλληλογραφίας</link> τους."
+
+#~ msgid "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
+#~ msgstr "@@image: 'figures/START.png'; md5=ed4b069d10fb75410a1171d5c6c29d66"
+
+#~ msgid "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
+#~ msgstr "@@image: 'figures/FIRST.png'; md5=99b4e5d5a6d570feba3d5db287a6020a"
+
+#~ msgid "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
+#~ msgstr "@@image: 'figures/BLOCK.png'; md5=f0b3c08a476b1adbfb34e132a40d5526"
+
+#~ msgid "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
+#~ msgstr "@@image: 'figures/PLAYER.png'; md5=6aa2ac5a1cfafc497fa6c7c3f829346c"
+
+#~ msgid ""
+#~ "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
+#~ msgstr ""
+#~ "@@image: 'figures/ANIMATION.png'; md5=9028b27e2afa57856d6590908e027ba3"
+
+#~ msgid "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
+#~ msgstr ""
+#~ "@@image: 'figures/connect.png'; md5=9a03bf23f04eacfd6feb9de823d6e321"
+
+#~ msgid "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
+#~ msgstr "@@image: 'figures/tables.png'; md5=96e520cee7fdbee56636794251a52b0d"
+
+#~ msgid "<application>Iagno</application> Manual"
+#~ msgstr "Τεκμηρίωση του <application>Ιάγνος</application>"
+
+#~ msgid ""
+#~ "Iagno is the two player strategy game of Othello, which is also known as "
+#~ "Reversi and is similar to Go. The pieces are tiles that are black on one "
+#~ "side and white on the other and the objective is for the player to flip "
+#~ "his/her opponent's tiles to his/her color, while keeping the opponent "
+#~ "from doing the same. Once the board is filled with tiles, the winner is "
+#~ "the player with the most of his/her color tiles on the board."
+#~ msgstr ""
+#~ "Τα Ιάγνος είναι το παιχνίδι στρατηγικής δύο παικτών του Othello, το οποίο "
+#~ "είναι επίσης γνωστό και ως Reversi και είναι παρόμοιο με το Go. Τα "
+#~ "κομμάτια είναι πλακίδια με τη μία πλευρά τους μαύρη και την άλλη λευκή "
+#~ "και ο στόχος του παίκτη είναι να γυρίζει τα πλακίδια του αντιπάλου στο "
+#~ "δικό του χρώμα, ενώ εμποδίζει τον αντίπαλο να κάνει το ίδιο σ' αυτόν. "
+#~ "Όταν το ταμπλώ γεμίσει με πλακίδια, κερδίζει ο παίκτης με τα περισσότερα "
+#~ "πλακίδια του δικού του χρώματος."
+
+#~ msgid "2000"
+#~ msgstr "2000"
+
+#~ msgid "Eric Baudais"
+#~ msgstr "Eric Baudais"
+
+#~ msgid "GNOME Documentation Project"
+#~ msgstr "Έργο τεκμηρίωσης του GNOME"
+
+#~ msgid ""
+#~ "Permission is granted to copy, distribute and/or modify this document "
+#~ "under the terms of the GNU Free Documentation License (GFDL), Version 1.1 "
+#~ "or any later version published by the Free Software Foundation with no "
+#~ "Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. You "
+#~ "can find a copy of the GFDL at this <ulink type=\"help\" url=\"ghelp:fdl"
+#~ "\">link</ulink> or in the file COPYING-DOCS distributed with this manual."
+#~ msgstr ""
+#~ "Δίνεται άδεια για αντιγραφή, διανομή και/ή τροποποίηση του εγγράφου υπό "
+#~ "τους όρους της Ελεύθερης Άδειας Τεκμηρίωσης GNU (GFDL), Έκδοση 1.1 ή "
+#~ "μεταγενέστερη εκδιδόμενη από το Ίδρυμα Ελεύθερου Λογισμικού χωρίς Σταθερά "
+#~ "Εδάφια, χωρίς Εξώφυλλα Κειμένου, και χωρίς Οπισθόφυλλα Κειμένου. Μπορείτε "
+#~ "να βρείτε ένα αντίγραφο της GFDL σε αυτόν τον <ulink type=\"help\" url="
+#~ "\"ghelp:fdl\">σύνδεσμο</ulink> ή στο αρχείο COPYING-DOCS που διανεμήθηκε "
+#~ "με αυτόν τον οδηγό."
+
+#~ msgid ""
+#~ "This manual is part of a collection of GNOME manuals distributed under "
+#~ "the GFDL. If you want to distribute this manual separately from the "
+#~ "collection, you can do so by adding a copy of the license to the manual, "
+#~ "as described in section 6 of the license."
+#~ msgstr ""
+#~ "Αυτή η τεκμηρίωση είναι μέρος της συλλογής τεκμηρίωσης του GNOME όπως "
+#~ "διανέμεται υπό τους όρους της GFDL. Εάν επιθυμείτε να διανείμετε αυτή την "
+#~ "τεκμηρίωση ξεχωριστά από την συλλογή, μπορείτε να το κάνετε εάν η "
+#~ "τεκμηρίωση συνοδεύεται από αντίγραφο της άδειας (GFDL) όπως περιγράφεται "
+#~ "στον τομέα 6 της άδειας."
+
+#~ msgid ""
+#~ "Many of the names used by companies to distinguish their products and "
+#~ "services are claimed as trademarks. Where those names appear in any GNOME "
+#~ "documentation, and the members of the GNOME Documentation Project are "
+#~ "made aware of those trademarks, then the names are in capital letters or "
+#~ "initial capital letters."
+#~ msgstr ""
+#~ "Πολλά από τα ονόματα που χρησιμοποιούνται από εταιρίες για να ξεχωρίσουν "
+#~ "τα προϊόντα και τις υπηρεσίες τους είναι σήματα κατατεθέντα. Όπου αυτά τα "
+#~ "ονόματα εμφανίζονται στην τεκμηρίωση GNOME, και τα μέλη της ομάδας "
+#~ "τεκμηρίωσης GNOME έχουν γνώση αυτών, τότε αυτά αναγράφονται με κεφαλαίους "
+#~ "χαρακτήρες ή με αρχικούς κεφαλαίους χαρακτήρες."
+
+#~ msgid ""
+#~ "DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
+#~ "EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES "
+#~ "THAT THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS "
+#~ "MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE "
+#~ "RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR "
+#~ "MODIFIED VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR "
+#~ "MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL "
+#~ "WRITER, AUTHOR OR ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY "
+#~ "SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES "
+#~ "AN ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED "
+#~ "VERSION OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS "
+#~ "DISCLAIMER; AND"
+#~ msgstr ""
+#~ "Η ΤΕΚΜΗΡΙΩΣΗ ΑΥΤΗ ΠΑΡΕΧΕΤΑΙ \"ΩΣ ΕΧΕΙ\", ΧΩΡΙΣ ΚΑΜΙΑ ΕΓΓΥΗΣΗ ΚΑΝΕΝΟΣ "
+#~ "ΕΙΔΟΥΣ, ΕΚΦΡΑΣΜΕΝΗ 'Η ΝΟΟΥΜΕΝΗ, ΠΕΡΙΛΑΜΒΑΝΟΜΕΝΩΝ, ΧΩΡΙΣ ΠΕΡΙΟΡΙΣΜΟ, "
+#~ "ΕΓΓΥΗΣΕΩΝ ΟΤΙ ΤΟ ΕΓΓΡΑΦΟ 'Η ΠΑΡΑΛΛΑΓΕΣ ΤΟΥ ΕΓΓΡΑΦΟΥ ΕΙΝΑΙ ΕΛΕΥΘΕΡΑ ΚΑΘΕ "
+#~ "ΕΛΑΤΤΩΜΑΤΟΣ, ΕΜΠΟΡΕΥΣΙΜΑ, ΚΑΤΑΛΛΗΛΑ ΓΙΑ ΕΝΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ, Η ΜΗ-"
+#~ "ΠΑΡΑΒΑΙΝΟΝΤΑ. Η ΕΥΘΥΝΗ ΓΙΑ ΤΗΝ ΠΟΙΟΤΗΤΑ, ΑΚΡΙΒΕΙΑ, ΚΑΙ ΑΠΟΔΟΣΗ ΤΟΥ "
+#~ "ΕΓΓΡΑΦΟΥ ΕΙΝΑΙ ΑΠΟΚΛΕΙΣΤΙΚΑ ΔΙΚΗ ΣΑΣ. ΑΝ ΟΠΟΙΟΔΗΠΟΤΕ ΕΓΓΡΑΦΟ Η ΠΑΡΑΛΛΑΓΗ "
+#~ "ΤΟΥΑΠΟΔΕΙΚΤΟΥΝ ΕΛΑΤΤΩΜΑΤΙΚΑ ΜΕ ΟΠΟΙΟΔΗΠΟΤΕ ΤΡΟΠΟ, ΕΣΕΙΣ (ΚΑΙ ΟΧΙ Ο "
+#~ "ΑΡΧΙΚΟΣ ΣΥΓΓΡΑΦΕΑΣ 'Η ΟΠΟΙΟΣΔΗΠΟΤΕ ΣΥΜΒΑΛΛΟΝΤΑΣ) ΑΝΑΛΑΜΒΑΝΕΤΕ ΤΟ ΚΟΣΤΟΣ "
+#~ "ΟΠΟΙΑΣΔΗΠΟΤΕ ΑΝΑΓΚΑΙΑΣ ΥΠΗΡΕΣΙΑΣ, ΕΠΙΣΚΕΥΗΣ 'Η ΔΙΟΡΘΩΣΗΣ. Η ΑΠΑΛΛΑΓΗ "
+#~ "ΕΥΘΥΝΗΣ ΠΟΥ ΣΥΝΟΔΕΥΕΙ ΑΥΤΗ ΤΗΝ ΤΕΚΜΗΡΙΩΣΗ ΕΙΝΑΙ ΑΝΑΠΟΣΠΑΣΤΟ ΚΟΜΜΑΤΙ "
+#~ "ΑΥΤΗΣ. ΚΑΜΙΑ ΧΡΗΣΗ ΤΗΣ ΤΕΚΜΗΡΙΩΣΗΣ Ή ΠΑΡΑΛΛΑΓΩΝ ΑΥΤΗΣ ΔΕΝ ΕΠΙΤΡΕΠΕΤΑΙ "
+#~ "ΠΑΡΑ ΜΟΝΟ ΕΑΝ ΣΥΝΟΔΕΥΕΤΑΙ ΑΠΟ ΤΗΝ ΑΠΑΛΛΑΓΗ ΕΥΘΥΝΗΣ. ΚΑΙ"
+
+#~ msgid ""
+#~ "UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT "
+#~ "(INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL "
+#~ "WRITER, ANY CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED "
+#~ "VERSION OF THE DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE "
+#~ "LIABLE TO ANY PERSON FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR "
+#~ "CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT LIMITATION, "
+#~ "DAMAGES FOR LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR "
+#~ "MALFUNCTION, OR ANY AND ALL OTHER DAMAGES OR LOSSES ARISING OUT OF OR "
+#~ "RELATING TO USE OF THE DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT, "
+#~ "EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH "
+#~ "DAMAGES."
+#~ msgstr ""
+#~ "ΣΕ ΚΑΜΙΑ ΠΕΡΙΠΤΩΣΗ ΚΑΙ ΥΠΟ ΚΑΜΙΑ ΝΟΜΙΚΗ ΣΥΝΘΗΚΗ, ΕΙΤΕ ΜΕΣΩ ΣΥΜΒΟΛΑΙΩΝ Ή "
+#~ "ΑΛΛΙΩΣ, ΔΕΝ ΕΥΘΥΝΟΝΤΑΙ Ο ΣΥΓΓΡΑΦΕΑΣ, Ο ΔΙΑΝΟΜΕΑΣ, Η ΑΛΛΟΣ ΣΥΝΥΠΕΥΘΥΝΟΣ "
+#~ "ΓΙΑ ΤΗΝ ΣΥΓΓΡΑΦΗ ΤΗΣ ΤΕΚΜΗΡΙΩΣΗΣ, ΓΙΑ ΕΜΜΕΣΕΣ Η ΑΜΕΣΕΣ, ΤΥΧΑΙΕΣ Ή ΜΗ "
+#~ "ΖΗΜΙΕΣ ΠΑΝΤΩΣ ΦΥΣΕΩΣ ΠΟΥ ΠΡΟΕΡΧΟΝΤΑΙ ΑΠΟ ΤΗΝ ΧΡΗΣΗ ΤΗΣ ΤΕΚΜΗΡΙΩΣΗΣ ΚΑΙ/Ή "
+#~ "ΠΑΡΑΛΛΑΓΩΝ ΑΥΤΗΣ ΑΚΟΜΑ ΚΑΙ ΕΑΝ ΕΧΕΙ ΥΠΑΡΞΕΙ ΠΡΟΕΙΔΟΠΟΙΗΣΗ ΓΙΑ ΤΗΝ "
+#~ "ΠΙΘΑΝΟΤΗΤΑ ΥΠΑΡΞΗΣ ΤΕΤΟΙΩΝ ΖΗΜΙΩΝ."
+
+#~ msgid ""
+#~ "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE "
+#~ "TERMS OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER "
+#~ "UNDERSTANDING THAT: <placeholder-1/>"
+#~ msgstr ""
+#~ "ΤΟ ΈΓΓΡΑΦΟ ΚΑΙ ΤΡΟΠΟΠΟΙΗΜΕΝΕΣ ΕΚΔΟΣΕΙΣ ΑΥΤΟΥ ΠΑΡΕΧΟΝΤΑΙ ΥΠΟ ΤΟΥΣ ΟΡΟΥΣ "
+#~ "ΤΗΣ ΑΔΕΙΑΣ GNU FREE DOCUMENTATION ΜΕ ΤΗΝ ΠΕΡΑΙΤΕΡΩ ΔΙΕΥΚΡΙΝΙΣΗ ΟΤΙ: "
+#~ "<placeholder-1/>"
+
+#~ msgid "Eric"
+#~ msgstr "Eric"
+
+#~ msgid "Baudais"
+#~ msgstr "Baudais"
+
+#~ msgid "baudais@okstate.edu"
+#~ msgstr "baudais@okstate.edu"
+
+#~ msgid "Iagno Manual V2.9"
+#~ msgstr "Τεκμηρίωση του Ιάγνος, έκδοση 2.9"
+
+#~ msgid "February 2008"
+#~ msgstr "Φεβρουάριος 2008"
+
+#~ msgid "Claude Paroz <email>claude@2xlibre.net</email>"
+#~ msgstr "Claude Paroz <email>claude@2xlibre.net</email>"
+
+#~ msgid "Iagno Manual V2.8"
+#~ msgstr "Τεκμηρίωση του Ιάγνος, έκδοση 2.8"
+
+#~ msgid "September 2004"
+#~ msgstr "Σεπτέμβριος 2004"
+
+#~ msgid "Eric Baudais <email>baudais@okstate.edu</email>"
+#~ msgstr "Eric Baudais <email>baudais@okstate.edu</email>"
+
+#~ msgid "0.1"
+#~ msgstr "0.1"
+
+#~ msgid "4 February 2000"
+#~ msgstr "4 Φεβρουαρίου 2000"
+
+#~ msgid "EB"
+#~ msgstr "EB"
+
+#~ msgid "First draft completed."
+#~ msgstr "Ολοκλήρωση πρώτου προσχεδίου."
+
+#~ msgid "0.2"
+#~ msgstr "0.2"
+
+#~ msgid "5 February 2000"
+#~ msgstr "5 Φεβρουρίου 2000"
+
+#~ msgid "Added a footnote to why section. Fixed some typos."
+#~ msgstr ""
+#~ "Προσθήκη υποσημείωσης στην ενότητα Γιατί. Διόρθωση μερικών ορθογραφικών "
+#~ "λαθών."
+
+#~ msgid "0.3"
+#~ msgstr "0.3"
+
+#~ msgid "7 February 2000"
+#~ msgstr "7 Φεβρουαρίου 2000"
+
+#~ msgid ""
+#~ "Made the doc compliant with the GDP template. Clarified the playing "
+#~ "section."
+#~ msgstr ""
+#~ "Μετατροπή του εγγράφου για σύμβαση με το πρότυπο GDP. Ξεκαθάρισμα της "
+#~ "ενότητα Παιχνιδιού."
+
+#~ msgid "1.0"
+#~ msgstr "1.0"
+
+#~ msgid "7 April 2000"
+#~ msgstr "7 Απριλίου 2000"
+
+#~ msgid ""
+#~ "Licensed the Iagno Manual under the FDL. Updated the screenshots to the "
+#~ "GDP standard theme, MicroGUI."
+#~ msgstr ""
+#~ "Αδειοδότηση της τεκμηρίωσης του Ιάγνος υπό την FDL. Ανανέωση των "
+#~ "στιγμιοτύπων οθόνης στο πρότυπο GDP, MicroGUI."
+
+#~ msgid "This manual describes version 2.20 of Iagno."
+#~ msgstr "Αυτή η τεκμηρίωση περιγράφει την έκδοση 2.20 του Ιάγνος.από Ιάγνος."
+
+#~ msgid "Feedback"
+#~ msgstr "Ανάδραση"
+
+#~ msgid ""
+#~ "To report a bug or make a suggestion regarding the <application>Iagno</"
+#~ "application> application or this manual, follow the directions in the "
+#~ "<ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME "
+#~ "Feedback Page</ulink>."
+#~ msgstr ""
+#~ "Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με την "
+#~ "εφαρμογή <application>Ιάγνος</application> ή αυτή την τεκμηρίωση, "
+#~ "ακολουθήστε τις οδηγίες στη <ulink url=\"ghelp:user-guide?feedback-bugs\" "
+#~ "type=\"help\">Σελίδα ανάδρασης του GNOME</ulink>."
+
+#~ msgid "Introduction"
+#~ msgstr "Εισαγωγή"
+
+#~ msgid "What is Iagno?"
+#~ msgstr "Τι είναι ο Ιάγνος;"
+
+#~ msgid ""
+#~ "<application>Iagno</application> is a computer version of the game "
+#~ "Reversi, more popularly called Othello. <application>Iagno</application> "
+#~ "is a two player strategy game similar to Go. The board is 8 by 8 with "
+#~ "tiles that are black on one side and white on the other side. The object "
+#~ "of <application>Iagno</application> is to flip as many of your opponent's "
+#~ "tiles to your color as possible without your opponent flipping your "
+#~ "tiles. This is done by trapping your opponent's tiles between two tiles "
+#~ "of your own color."
+#~ msgstr ""
+#~ "Ο <application>Ιάγνος</application> είναι μια εκδοχή στον υπολογιστή του "
+#~ "παιχνιδιού Reversi, που πιο συχνά ονομάζεται Othello. Ο "
+#~ "<application>Ιάγνος</application> είναι ένα παιχνίδι στρατηγικής δύο "
+#~ "παικτών, όμοιο με το Go. Το ταμπλώ έχει διαστάσεις 8 επί 8 πλακίδια, τα "
+#~ "οποία είναι μαύρα στη μία πλευρά και λευκά στην άλλη. Ο σκοπός του "
+#~ "<application>Ιάγνος</application> είναι να γυρίσετε όσο το δυνατόν "
+#~ "περισσότερα πλακίδια του αντιπάλου στο δικό σας χρώμα, χωρίς να γυρίσει ο "
+#~ "αντίπαλος τα δικά σας. Αυτό συμβαίνει με την παγίδευση των πλακιδίων του "
+#~ "αντιπάλου ανάμεσα σε δύο του δικού σας χρώματος."
+
+#~ msgid ""
+#~ "Iagno also features <link linkend=\"network-games\">multiplayer</link> "
+#~ "support with two human players in hotseat or network mode."
+#~ msgstr ""
+#~ "Ο <application>Ιάγνος</application> επίσης υποστηρίζει <link linkend="
+#~ "\"network-games\">πολλαπλούς παίκτες</link> με δύο ανθρώπους στον ίδιο "
+#~ "υπολογιστή ή σε δίκτυο."
+
+#~ msgid ""
+#~ "To run <application>Iagno</application>, select <guimenuitem>Iagno</"
+#~ "guimenuitem> from the <guisubmenu>Games</guisubmenu> submenu of the "
+#~ "<guimenu>Main Menu</guimenu>, or type <command>iagno</command> on the "
+#~ "command line."
+#~ msgstr ""
+#~ "Για να παίξετε το <application>Ιάγνος</application>, επιλέξτε "
+#~ "<guimenuitem>Ιάγνος</guimenuitem> από το υπομενού <guisubmenu>Παιχνίδια</"
+#~ "guisubmenu> του μενού <guimenu>Εφαρμογές</guimenu>, ή πληκτρολογήστε την "
+#~ "εντολή <command>iagno</command> στη γραμμή εντολής."
+
+#~ msgid "Why is Othello called Iagno?"
+#~ msgstr "Γιατί το Othello ονομάζεται Ιάγνος;"
+
+#~ msgid ""
+#~ "You're probably wondering why this game is called <application>Iagno</"
+#~ "application> instead of Othello or even gnothello. The answer is "
+#~ "complicated, and involves things like trademarks and lawyers and whatnot. "
+#~ "Instead of leaving it at that, I'll tell you a long and complicated lie "
+#~ "about the origin of the name <application>Iagno</application>."
+#~ msgstr ""
+#~ "Πιθανώς θα αναρωτιέστε γιατί το παιχνίδι αυτό ονομάζεται "
+#~ "<application>Ιάγνος</application> αντί για Othello ή gnothello. Η "
+#~ "απάντηση σ' αυτό είναι πολύπλοκη, και περιλαμβάνει πράγματα όπως σήματα "
+#~ "κατατεθέντα και δικηγόρους και τέτοια. Αντί να το αφήσουμε εκεί, θα σας "
+#~ "πω μια μεγάλο και μπερδεμένο ψέμα για την προέλευση του ονόματος "
+#~ "<application>Ιάγνος</application>."
+
+#~ msgid ""
+#~ "On a stormy night, like those depicted so much in England, a lonely "
+#~ "programmer was sitting in front of his computer screen. Ian had finished "
+#~ "his masterpiece in gaming. It was a fully interactive game of Othello and "
+#~ "he decided to play a pun with the name and called it gnothello for the "
+#~ "game was written using GNOME."
+#~ msgstr ""
+#~ "Ένα βράδυ που 'βρεχε, σαν τα συνηθισμένα Λονδρέζικα βράδια, ένας "
+#~ "μοναχικός προγραμματιστής καθόνταν μπροστά στη οθόνη του υπολογιστή του. "
+#~ "Ο Ίαν είχε μόλις ολοκληρώσει ένα αριστουργηματικό παιχνίδι. Ήταν ένα "
+#~ "πλήρως διαδραστικό παιχνίδι Othello και αποφάσισε να παίξει με το όνομα "
+#~ "και να το ονομάσει gnothello, μια που το παιχνίδι γράφτηκε "
+#~ "χρησιμοποιώντας το GNOME."
+
+#~ msgid ""
+#~ "Iago is Othello's nemesis in the play <citetitle>Othello </citetitle> by "
+#~ "William Shakespeare."
+#~ msgstr ""
+#~ "Ο Ιάγος είναι η νέμεση του Οθέλλου στο θεατρικό έργο <citetitle>Οθέλλος</"
+#~ "citetitle> του Ουίλιαμ Σέξπιρ."
+
+#~ msgid ""
+#~ "Later his buddies came over and like all programmers he showed off his "
+#~ "masterpiece. They all laughed in his face and told Ian that his game was "
+#~ "worthless and a pitiful attempt to be a true hacker. After Ian kicked "
+#~ "them out he decided to rename his program Iago <placeholder-1/> for the "
+#~ "evil which had manifested itself due to his game. Yet it still didn't "
+#~ "sound right. All GNOME programs have some part of GNOME in it, Ian "
+#~ "thought. After much thought he decided on the name we have come to "
+#~ "cherish, <application>Iagno </application>."
+#~ msgstr ""
+#~ "Αργότερα όταν ήρθαν τα φιλαράκια του, όπως κάθε προγραμματιστής έτσι και "
+#~ "ο Ίαν τους έδειξε το αριστούργημά του. Εκείνοι τον κορόιδεψαν και του "
+#~ "είπαν ότι το παιχνιδάκι του δεν αξίζει δεκάρα και ότι ήταν μια γελοία "
+#~ "προσπάθεια για να γίνει πραγματικός χάκερ. Μετά που τους έδιωξε με τις "
+#~ "κλωτσιές ο Ίαν αποφάσισε να μετονομάσει το πρόγραμμά του σε Ιάγο "
+#~ "<placeholder-1/> για το κακό που επέφερε στον εαυτό του λόγω αυτού του "
+#~ "παιχνιδιού. Όλα τα προγράμματα του GNOME έχουν ένα μέρος του GNOME μέσα "
+#~ "τους, σκέφτηκε ο Ίαν, και μετά από μακρά περίσκεψη αποφάσισε το όνομα που "
+#~ "αργότερα λάτρεψε, <application>Ιάγνος</application>."
+
+#~ msgid "Playing Iagno"
+#~ msgstr "Παίξιμο του Ιάγνος"
+
+#~ msgid ""
+#~ "The board starts with four tiles arranged in a box on the middle of the "
+#~ "board. The tiles have the same color at each corner, as shown in <xref "
+#~ "linkend=\"start-shot\"/>."
+#~ msgstr ""
+#~ "Το παιχνίδι αρχίζει με τέσσερα πλακίδια τοποθετημένα σε ένα κουτί στο "
+#~ "μέσο του ταμπλώ. Τα πλακίδια έχουν το ίδιο χρώμα σε κάθε γωνιά όπως "
+#~ "φαίνεται στο <xref linkend=\"start-shot\"/>."
+
+#~ msgid "Screenshot of the starting position."
+#~ msgstr "Στιγμιότυπο οθόνης από τη θέση εκκίνησης."
+
+#~ msgid ""
+#~ "Black goes first and places a tile on the board such that it traps "
+#~ "white's tiles between two of black's tiles. When black places a tile on "
+#~ "the board all of white's tiles between black's newly placed tile and "
+#~ "another black tile, in a horizontal, vertical, or diagonal row, are "
+#~ "flipped over and become black, as shown in <xref linkend=\"first-shot\"/>."
+#~ msgstr ""
+#~ "Τα μαύρα παίζουν πρώτα και τοποθετούν ένα πλακίδιο στο ταμπλώ έτσι που να "
+#~ "παγιδεύει λευκά πλακίδια ανάμεσα σε δύο μαύρα. Όταν τα μαύρα τοποθετούν "
+#~ "ένα πλακίδιο στο ταμπλώ όλα τα λευκά πλακίδια ανάμεσα στο μόλις "
+#~ "τοποθετημένο μαύρο και οποιοδήποτε άλλο μαύρο πλακίδιο, σε οιζόντια, "
+#~ "κάθετη ή διαγώνια γραμμή, γυρίζουν και γίνονται μαύρα, όπως φαίνεται στο "
+#~ "<xref linkend=\"first-shot\"/>."
+
+#~ msgid "First Move"
+#~ msgstr "Πρώτη κίνηση"
+
+#~ msgid "Screenshot of the first move."
+#~ msgstr "Στιγμιότυπο οθόνης από την πρώτη κίνηση."
+
+#~ msgid ""
+#~ "White cannot capture the black tile in the center of the middle column "
+#~ "because there are white tiles blocking the ends of that column. If it "
+#~ "where blacks turn instead, black could place a tile at the top of the "
+#~ "column but would only flip the first of the two white tiles."
+#~ msgstr ""
+#~ "Τα λευκά δε μπορούν να παγιδεύσουν το μαύρο πλακίδιο στο κέντρο της "
+#~ "μεσαίας στήλης επειδή υπάρχουν λευκά πλακίδια που μπλοκάρουν τα άκρα "
+#~ "εκείνης της στήλης. Αν ήταν η σειρά των μαύρων, τα μαύρα θα τοποθετούσαν "
+#~ "ένα πλακίδιο στο πάνω μέρος της στήλης, αλλά θα γύριζαν μόνο το πρώτο από "
+#~ "τα δύο λευκά πλακίδια."
+
+#~ msgid "Screenshot of black blocking."
+#~ msgstr "Στιγμιότυπο οθόνης από μπλοκάρισμα μαύρων."
+
+#~ msgid ""
+#~ "When there is tile trapped between two tiles, of an identical color in "
+#~ "the same row, the player captures tiles until another tile of the "
+#~ "player's color is encountered, as shown in <xref linkend=\"block-shot\"/"
+#~ ">. The player can only take tiles that are a direct result of the placing "
+#~ "a tile on the board. Once a tile is placed on the board the player cannot "
+#~ "remove it and place the tile somewhere else. If a player cannot move they "
+#~ "forfeit their turn. The game ends when it is no longer possible for "
+#~ "either player to move. <placeholder-1/>"
+#~ msgstr ""
+#~ "Όταν υπάρχει ένα πλακίδιο παγιδευμένο ανάμεσα σε δύο άλλα πλακίδια, το "
+#~ "ίδιου χρώματος στην ίδια γραμμή, ο παίκτης παγιδεύει πλακίδια μέχρι ένα "
+#~ "ακόμα πλακίδιο του χρώματος του παίκτη να συναντηθεί, όπως φαίνεται στο "
+#~ "<xref linkend=\"block-shot\"/>. Ο παίκτης μπορεί να παγιδεύσει μόνο "
+#~ "πλακίδια ως άμεσο αποτέλεσμα της τελευταίας τοποθέτησης δικού του "
+#~ "πλακιδίου στο ταμπλώ. Εφόσον ένα πλακίδιο έχει τοποθετηθεί στο ταμπλώ ο "
+#~ "παίκτης δε μπορεί να το αφαιρέσει ή να το μετακινείσει. Αν ένας παίκτης "
+#~ "δε μπορεί να κάνει καμμιά κίνηση τότε παραδίδει τη σειρά του. Το παιχνίδι "
+#~ "τελειώνει όταν είναι πια αδύνατο για τους παίκτες να τοποθετήσουν "
+#~ "πλακίδιο. <placeholder-1/>"
+
+#~ msgid "Game Settings"
+#~ msgstr "Ρυθμίσεις παιχνιδιού"
+
+#~ msgid ""
+#~ "When you start Iagno the human player plays black and the computer player "
+#~ "plays white with the first level of difficulty. Using the "
+#~ "<guimenuitem>Game</guimenuitem> tab in the <guisubmenu>Preferences</"
+#~ "guisubmenu> dialog you can set the type of player for each color. Human "
+#~ "is of course you, level one is the easiest computer player and level "
+#~ "three is the hardest. You can set both to human to play against a friend "
+#~ "or set both to computer to watch the computer play itself."
+#~ msgstr ""
+#~ "Όταν ξεκινάτε το Ιάγνος ο χρήστης παίζει τα μαύρα και ο υπολογιστής τα "
+#~ "λευκά, στο πρώτο επίπεδο δυσκολίας. Χρησιμοποιώντας την καρτέλα "
+#~ "<guimenuitem>Παιχνίδι</guimenuitem> στο διάλογο <guisubmenu>Προτιμήσεις</"
+#~ "guisubmenu> μπορείτε να ορίσετε τον τύπο παίκτη για κάθε χρώμα. Ο "
+#~ "Άνθρωπος είστε φυσικά εσείς, το Πρώτο επίπεδο είναι το ευκολότερο επίπεδο "
+#~ "του υπολογιστή και το Τρίτο επίπεδο το δυσκολότερο. Μπορείτε να ορίσετε "
+#~ "και τους δύο ως Άνθρωπος για να παίξετε εναντίον ενός φίλου ή και τους "
+#~ "δύο ως υπολογιστές για να δείτε τον υπολογιστή να παίζει τον εαυτό του."
+
+#~ msgid "Quick Moves Option"
+#~ msgstr "Επιλογή χρήσης γρήγορων κινήσεων"
+
+#~ msgid ""
+#~ "This option is in the <guimenu>Settings</guimenu> menu. Then go to the "
+#~ "<guisubmenu>Preferences</guisubmenu> submenu in the <guimenuitem>Game </"
+#~ "guimenuitem> tab and it is initially off. When enabled this option makes "
+#~ "the computer player place its tiles faster."
+#~ msgstr ""
+#~ "Αυτή η επιλογή βρίσκεται στο μενού <guimenu>Ρυθμίσεις</guimenu>, στο "
+#~ "υπομενού <guisubmenu>Προτιμήσεις</guisubmenu>, στην καρτέλα "
+#~ "<guimenuitem>Παιχνίδι</guimenuitem>. Αρχικά είναι απενεργοποιημένη. Όταν "
+#~ "ενεργοποιηθεί κάνει τον υπολογιστή να τοποθετεί τα δικά του πλακίδια πιο "
+#~ "γρήγορα. "
+
+#~ msgid "Note:"
+#~ msgstr "Σημείωση:"
+
+#~ msgid ""
+#~ "Enabling this option does not force the computer player to move and does "
+#~ "not reduce the level of difficulty."
+#~ msgstr ""
+#~ "Η ενεργοποίηση αυτής της επιλογής δεν υποχρεώνει τον υπολογιστή να "
+#~ "κινηθεί και δε μειώνει το επίπεδο δυσκολίας."
+
+#~ msgid ""
+#~ "The last option of the <guimenuitem>Game</guimenuitem> tab in the "
+#~ "<guilabel>Preferences</guilabel> dialog allows you to enable or disable "
+#~ "all sounds when playing in <application>Iagno</application>."
+#~ msgstr ""
+#~ "Η τελευταία επιλογή στην καρτέλα <guimenuitem>Παιχνίδι</guimenuitem> στο "
+#~ "διάλογο <guilabel>Προτιμήσεις</guilabel> σας επιτρέπει να ενεργοποιείτε ή "
+#~ "να απενεργοποιείτε όλους τους ήχους όταν παίζετε στο <application>Ιάγνος</"
+#~ "application>."
+
+#~ msgid "The Preferences menu with the Game tab highlighted."
+#~ msgstr "Το μενού Προτιμήσεις Iagno με την επιλεγμένη την καρτέλα Παιχνίδι."
+
+#~ msgid "Screenshot of the game settings."
+#~ msgstr "Στιγμιότυπο οθόνης από τις προτιμήσεις του παιχνιδιού."
+
+#~ msgid "Appearance"
+#~ msgstr "Εμφάνιση"
+
+#~ msgid ""
+#~ "All the animation option are in the <menuchoice><guimenu>Settings</"
+#~ "guimenu><guisubmenu>Preferences </guisubmenu></menuchoice> menus with the "
+#~ "<guimenuitem>Appearance</guimenuitem> tab highlighted."
+#~ msgstr ""
+#~ "Όλες οι επιλογές για τις κινούμενες εικόνες βρίσκονται στο "
+#~ "<menuchoice><guimenu>Ρυθμίσεις</guimenu><guisubmenu>Προτιμήσεις</"
+#~ "guisubmenu></menuchoice> στην καρτέλα Εμφάνιση."
+
+#~ msgid "Animation"
+#~ msgstr "Κινούμενες εικόνες"
+
+#~ msgid ""
+#~ "This option controls the amount of animation present when each tile is "
+#~ "flipped, using radio buttons. Selecting the option <guibutton>none </"
+#~ "guibutton> will cause the tiles to change color instantaneously. "
+#~ "Selecting the <guibutton>option</guibutton> partial will cause the "
+#~ "animation to flip the tiles slowly. Selecting the <guibutton>complete </"
+#~ "guibutton> option will cause the tiles to flip slowly and smoothly."
+#~ msgstr ""
+#~ "Αυτή η επιλογή ελέγχει τη χρήση κινούμενων εικόνων όταν ένα πλακίδιο "
+#~ "γυρίζει. Ενεργοποιώντας την επιλογή <guibutton>Καμία</guibutton> οι "
+#~ "εικόνες θα αλλάζουν χρώμα στιγμιαία. Ενεργοποιώντας το <guibutton>Μερική "
+#~ "κίνηση</guibutton> θα αλλάζουν αργά. Ενεργοποιώντας το <guibutton>Πλήρης "
+#~ "κίνηση</guibutton> θα αλλάζουν αργά και ομαλά."
+
+#~ msgid "Stagger Flips"
+#~ msgstr "Αλλεπάλληλες αντιστροφές"
+
+#~ msgid ""
+#~ "This option causes captured tiles along a row, column, or diagonal to "
+#~ "flip one after another, like dominoes, instead of all flipping "
+#~ "simultaneously. It has no effect on game play, but looks cool."
+#~ msgstr ""
+#~ "Αυτή η επιλογή κάνει τα παγιδευμένα πλακίδια σε μια σειρά, στήλη ή "
+#~ "διαγώνια να γυρίζουν το ένα μετά το άλλο, σαν ντόμινο, αντί να γυρίζουν "
+#~ "όλα ταυτόχρονα. Δεν έχει καμιά επίδραση στο παιχνίδι, απλά φαίνεται "
+#~ "όμορφο."
+
+#~ msgid "Show Grid"
+#~ msgstr "Εμφάνιση πλέγματος"
+
+#~ msgid ""
+#~ "This option will display a grid on top of the playing surface. The grid "
+#~ "is useful to display because it shows the player exactly where they are "
+#~ "placing each tile."
+#~ msgstr ""
+#~ "Αυτή η επιλογή θα εμφανίζει ένα πλέγμα πάνω από την επιφάνεια του "
+#~ "παιχνιδιού. Η εμφάνιση του πλέγματος είναι χρήσιμη γιατί δείχνει στον "
+#~ "παίκτη ακριβώς πού να βάζει τα πλακίδια."
+
+#~ msgid "Tip:"
+#~ msgstr "Υπόδειξη:"
+
+#~ msgid ""
+#~ "This option should be enabled for beginning players to see the gameplay "
+#~ "more clearly."
+#~ msgstr ""
+#~ "Αυτή η επιλογή είναι καλό να είναι ενεργοποιημένη στους νέους παίκτες για "
+#~ "να παρακολουθούν το παίξιμο καθαρότερα."
+
+#~ msgid ""
+#~ "This option moves all the black tiles to the top of the board and all the "
+#~ "white tiles to the bottom of the board at the end of the game. This "
+#~ "allows you to visually see the outcome of the game."
+#~ msgstr ""
+#~ "Αυτή η επιλογή μεταφέρει όλα τα μαύρα πλακίδια στο πάνω μέρος του ταμπλώ "
+#~ "και όλα τα λευκά στο κάτω μέρος όταν τελειώσει το παιχνίδι. Αυτό σας "
+#~ "επιτρέπει να δείτε πιο καθαρά το αποτέλεσμα του παιχνιδιού."
+
+#~ msgid "This option does not affect the outcome of the game in any way."
+#~ msgstr ""
+#~ "Η επιλογή αυτή δεν επηρεάζει το αποτέλεσμα του παιχνιδιού με κανένα τρόπο."
+
+#~ msgid "Tile Set"
+#~ msgstr "Σετ πλακιδίων"
+
+#~ msgid ""
+#~ "This option lets you choose the type of board and tiles which are "
+#~ "displayed. If you want to make your own tile sets use the classic tile "
+#~ "set as a template and change the texture and colors for different "
+#~ "effects. When you make a new tile set that works with Iagno send it to "
+#~ "Ian Peters <email>itp@gnu.org</email> and he will include it with the "
+#~ "next distribution."
+#~ msgstr ""
+#~ "Αυτή η επιλογή σας επιτρέπει να διαλέγετε τον τύπο του ταμπλώ και των "
+#~ "πλακιδίων που εμφανίζονται. Αν θέλετε να φτιάξετε το δικό σας σετ "
+#~ "πλακιδίων χρησιμοποιήστε το κλασσικό σετ ως πρότυπο και αλλάξτε την "
+#~ "εμφάνιση και τα χρώματα για τα διαφορετικά εφέ. Όταν θα έχετε φτιάξει ένα "
+#~ "νέο σετ πλακιδίων που δουλεύει με το Ιάγνος στείλτε το στον Ian Peters "
+#~ "<email>itp@gnu.org</email> και θα το περιλάβει στην επόμενη διανομή."
+
+#~ msgid "Important:"
+#~ msgstr "Σημαντικό:"
+
+#~ msgid ""
+#~ "There are two tile sets which look the same, but have different "
+#~ "animations -- woodtrim and classic."
+#~ msgstr ""
+#~ "Υπάρχουν δύο σετ πλακιδίων που φαίνονται ίδια, αλλά έχουν διαφορετικές "
+#~ "κινούμενες εικόνες: το woodtrim και το classic."
+
+#~ msgid "The Preferences menu with the Appearance tab highlighted."
+#~ msgstr "Το μενού Προτιμήσεις με επιλεγμένη την καρτέλα Εμφάνιση."
+
+#~ msgid "Screenshot of the animation settings."
+#~ msgstr "Στιγμιότυπο οθόνης με τις προτιμήσεις για τις κινούμενες εικόνες."
+
+#~ msgid ""
+#~ "Iagno support networked multiplayer games which is provided by <ulink "
+#~ "type=\"http\" url=\"http://www.ggzgamingzone.org\">GGZ Gaming Zone</"
+#~ "ulink>. By connecting to a Iagno server on the Internet, you can "
+#~ "challenge other players in multiplayer games. For news, updates and a "
+#~ "list of servers to connect to, see the <ulink type=\"http\" url=\"http://"
+#~ "www.gnome.org/projects/gnome-games/\">gnome-games website</ulink>."
+#~ msgstr ""
+#~ "Ο Ιάγνος υποστηρίζει παιχνίδια με πολλούς παίκτες μέσω δικτύου, που "
+#~ "παρέχονται από το <ulink type=\"http\" url=\"http://www.ggzgamingzone.org"
+#~ "\">GGZ Gaming Zone</ulink>. Συνδεόμενοι με ένα εξυπηρετητή Ιάγνος στο "
+#~ "διαδίκτυο, μπορείτε να προκαλέσετε άλλους παίκτες σε ένα παιχνίδι με "
+#~ "πολλαπλούς παίκτες. Για νέα, ανανεώσεις και μια λίστα με εξυπηρετητές, "
+#~ "δείτε τον <ulink type=\"http\" url=\"http://www.gnome.org/projects/gnome-"
+#~ "games/\">ιστότοπο των παιχνιδιών του GNOME</ulink>. "
+
+#~ msgid ""
+#~ "To start the multiplayer game of Iagno, select <menuchoice><guimenu>Game</"
+#~ "guimenu><guimenuitem>Network Game</guimenuitem></menuchoice> on the Iagno "
+#~ "menu."
+#~ msgstr ""
+#~ "Για να αρχίσετε ένα παιχνίδι Ιάγνος με πολλούς παίκτες επιλέξτε "
+#~ "<menuchoice><guimenu>Παιχνίδι</guimenu><guimenuitem>Νέο παιχνίδι μέσω "
+#~ "δικτύου</guimenuitem></menuchoice> από το μενού του Ιάγνος."
+
+#~ msgid "Connecting to a Iagno network server"
+#~ msgstr "Σύνδεση σε ένα εξυπηρετητή Ιάγνος."
+
+#~ msgid ""
+#~ "The Iagno connection dialog is shown initially when starting a new "
+#~ "network game. This dialog allows you to select a server to connect to, "
+#~ "and the username that you will have while connected to that server."
+#~ msgstr ""
+#~ "Ο διάλογος σύνδεσης του Ιάγνος εμφανίζεται αρχικά όταν ξεκινάει ένα "
+#~ "καινούριο δικτυακό παιχνίδι. Αυτός ο διάλογος σας επιτρέπει να επιλέξετε "
+#~ "έναν εξυπηρετητή για να συνδεθείτε, και το όνομα χρήστη που θα έχετε "
+#~ "ενόσω θα είστε εκεί συνδεδεμένοι."
+
+#~ msgid ""
+#~ "It is possible to connect to a server with either a guest account or a "
+#~ "normal registered account. Guest accounts allows you to anonymously "
+#~ "login, while a normal login account allows you to reserve your own "
+#~ "username which is protected by the password that you choose."
+#~ msgstr ""
+#~ "Μπορείτε να συνδεθείτε σε ένα εξυπηρετητή είτε με απλό λογαριασμό "
+#~ "επισκέπτη (guest) είτε με λογαριασμό εγγεγραμμένου χρήστη. Οι λογαριασμοί "
+#~ "επισκέπτη σας επιτρέπουν να συνδέεστε ανώνυμα, ενώ ένας κανονικός "
+#~ "λογαριασμός σας επιτρέπει να διατηρείτε το όνομα χρήστη το οποίο "
+#~ "προστατεύεται από τον κωδικό πρόσβασης που θα δώσετε."
+
+#~ msgid ""
+#~ "The <guimenuitem>Guest Login</guimenuitem> option should be selected if "
+#~ "you want an anonymous guest account. If you want to create a new login "
+#~ "account, then select the <guimenuitem>First-time Login</guimenuitem> "
+#~ "option, with the username, password and email of your choice. If you have "
+#~ "already created your account, you can connect by selecting the "
+#~ "<guimenuitem>Normal Login</guimenuitem> option, and enter the username "
+#~ "and password that you have chosen."
+#~ msgstr ""
+#~ "Η επιλογή <guimenuitem>Σύνδεση επισκέπτη</guimenuitem> επιλέγεται όταν "
+#~ "θέλετε έναν ανώνυμο λογαριασμό επισκέπτη. Αν θέλετε να δημιουργήσετε ένα "
+#~ "καινούριο λογαριασμό εισόδου, επιλέξτε το <guimenuitem>Σύνδεση για πρώτη "
+#~ "φορά</guimenuitem>, με το όνομα χρήστη, τον κωδικό πρόσβασης και το Email "
+#~ "της επιλογής σας. Αν έχετε ήδη δημιουργήσει λογαριασμό, μπορείτε να "
+#~ "συνδεθείτε επιλέγοντας την <guimenuitem>Κανονική σύνδεση</guimenuitem>, "
+#~ "και να βάλετε το όνομα χρήστη και τον κωδικό πρόσβασης που ήδη επιλέξατε."
+
+#~ msgid ""
+#~ "To connect to a server, click on the <guimenuitem>Connect</guimenuitem> "
+#~ "button."
+#~ msgstr ""
+#~ "Για να συνδεθείτε σε ένα εξυπηρετητή πατήστε στο κουμπί "
+#~ "<guimenuitem>Σύνδεση</guimenuitem>."
+
+#~ msgid "The Iagno network connection dialog."
+#~ msgstr "Διάλογος δικτυακής σύνδεσης του Ιάγνος."
+
+#~ msgid "Joining a game room"
+#~ msgstr "Είσοδος σε δωμάτιο παιχνιδιών"
+
+#~ msgid ""
+#~ "Once you have successfully connected to a server, you can choose which "
+#~ "game room to join. To play a multiplayer game of Iagno, select the Iagno "
+#~ "room. If you want to host your own game, then click on the Launch button. "
+#~ "This creates a new table where other players can participate in a game "
+#~ "against you. If there are any other games already started, then you can "
+#~ "double-click on an existing game table to join it. The list of game "
+#~ "tables on the right shows you the number of available seats, which means "
+#~ "the number of players that can join the game table."
+#~ msgstr ""
+#~ "Όταν θα έχετε επιτυχώς συνδεθεί σε έναν εξυπηρετητή, μπορείτε να "
+#~ "επιλέξετε σε ποιό δωμάτιο θα εισέλθετε. Για να παίξετε ένα δικτυακό "
+#~ "παιχνίδι Ιάγνος, επιλέξτε το δωμάτιο Iagno. Αν θέλετε να φιλοξενήσετε το "
+#~ "δικό σας παιχνίδι τότε πατήστε στο Έναρξη. Αυτό δημιουργεί ένα νέο πίνακα "
+#~ "στον οποίο άλλοι παίκτες μπορούν να συμμετάσχουν σε ένα παιχνίδι εναντίον "
+#~ "σας. Αν υπάρχουν άλλα παιχνίδια που έχουν ήδη αρχίσει, τότε μπορείτε με "
+#~ "διπλό κλικ σε υφιστάμενο παιχνίδι να συνδεθείτε σε αυτό. Η λίστα με τα "
+#~ "ταμπλώ παιχνιδιού στα δεξιά δείχνει έναν αριθμό διαθέσιμων θέσεων, που "
+#~ "σημαίνει τον αριθμό των παικτών που μπορούν να συνδεθούν σε ένα παιχνίδι."
+
+#~ msgid ""
+#~ "This Iagno network dialog allows you to join a game room to find other "
+#~ "players."
+#~ msgstr ""
+#~ "Ο διάλογος δικτύου του Ιάγνος σας επιτρέπει να εισέρχεστε σε ένα δωμάτιο "
+#~ "για να βρίσκετε άλλους παίκτες."
+
+#~ msgid ""
+#~ "When creating a new table for Iagno games, a preference dialog is "
+#~ "displayed which allows you to customize the game, such as set the minimum "
+#~ "number of players for the game. Once the total number of seats have been "
+#~ "taken, then no more players are allowed to join that game table."
+#~ msgstr ""
+#~ "Όταν δημιουργείτε ένα νέο ταμπλώ για παιχνίδι Ιάγνος, ένας διάλογος "
+#~ "προτιμήσεων εμφανίζεται ο οποίος σας επιτρέπει να κάνετε ρυθμίσεις στο "
+#~ "παιχνίδι, όπως τον ελάχιστο αριθμό παικτών του παιχνιδιού. Όταν ο "
+#~ "συνολικός αριθμός θέσεων έχει γεμίσει, τότε δε μπορούν άλλοι παίκτες να "
+#~ "συνδεθούν στο συγκεκριμένο ταμπλώ."
+
+#~ msgid ""
+#~ "It is possible to chat with other players in network games. Ask for "
+#~ "advice or help playing the games, but please be polite against other "
+#~ "players."
+#~ msgstr ""
+#~ "Μπορείτε να συνομιλήσετε με άλλους παίκτες στο δικτυακό παιχνίδι. Ρωτήστε "
+#~ "για οδηγίες ή βοήθεια για τα παιχνίδια, αλλά σας παρακαλούμε να είστε "
+#~ "ευγενικοί προς τους άλλους."
+
+#~ msgid "Waiting for other players to join the game"
+#~ msgstr "Αναμονή για άλλους παίκτες να συδεθούν στον παιχνίδι."
+
+#~ msgid ""
+#~ "Once you have successfully joined a game table, then you have to wait "
+#~ "until enough players have joined the table. The <guimenuitem>Players "
+#~ "List</guimenuitem> menu item allows you to see a list of the players who "
+#~ "have joined the game. The game will begin immediately when the total "
+#~ "number of players in the the game have been reached."
+#~ msgstr ""
+#~ "Όταν θα έχετε επιτυχώς συνδεθεί σε ένα παιχνίδι ταμπλώ, τότε πρέπει να "
+#~ "περιμένετε μέχρι να συνδεθούν επαρκείς παίκτες. Το μενού "
+#~ "<guimenuitem>Λίστα παικτών</guimenuitem> σας επιτρέπει να δείτε μια λίστα "
+#~ "με τους παίκτες που έχουν συνδεθεί το παιχνίδι. Το παιχνίδι θα ξεκινήσει "
+#~ "όταν ο συνολικός αριιθμός των παικτών έχει συμπληρωθεί."
+
+#~ msgid "Playing multiplayer Iagno games"
+#~ msgstr "Δικτυακό παιχνίδι Ιάγνος"
+
+#~ msgid ""
+#~ "Multiplayer Iagno games have pretty much the same rules as normal Iagno "
+#~ "games, except that you are now playing against human players. This means "
+#~ "that other strategies might possibly be better than when playing against "
+#~ "AI players."
+#~ msgstr ""
+#~ "Τα παιχνίδια Ιάγνος το δίκτυο έχουν τους ίδιους κανόνες με τα κανονικά "
+#~ "παιχνίδια, μόνο που τώρα παίζετε εναντίον άλλων ανθρώπων. Αυτό σημαίνει "
+#~ "ότι ίσως είναι προτιμότερες άλλες στρατηγικές από αυτές που "
+#~ "χρησιμοποιείτε όταν παίζετε εναντίον του υπολογιστή."
+
+#~ msgid ""
+#~ "Once a player has won, the game ends and you can return to the initial "
+#~ "network game screen. Then you can play yet another game of addictive "
+#~ "Iagno multiplayer!"
+#~ msgstr ""
+#~ "Όταν ένας από τους παίκτες έχει κερδίσει το παιχνίδι τελειώνει και "
+#~ "επιστρέφετε στην πρώτη οθόνη του δικτυακού παιχνιδιού. Τότε μπορείτε να "
+#~ "παίξετε ένα ακόμα εθιστικό δικτυακό παιχνίδι Ιάγνος!"
+
+#~ msgid "Known Bugs and Limitations"
+#~ msgstr "Γνωστά σφάλματα και περιορισμοί"
+
+#~ msgid "The computer player for Iagno is easy to beat."
+#~ msgstr "Είναι εύκολο να κερδίσετε τον υπολογιστή στο Ιάγνος."
+
+#~ msgid "Authors"
+#~ msgstr "Συγγραφείς"
+
+#~ msgid ""
+#~ "<application>Iagno</application> was written by Ian Peters "
+#~ "(<email>itp@gnu.org</email>). This manual was written by Eric Baudais "
+#~ "(<email>baudais@okstate.edu</email>). To report a bug or make a "
+#~ "suggestion regarding this application or this manual, follow the "
+#~ "directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type="
+#~ "\"help\">document</ulink>."
+#~ msgstr ""
+#~ "Ο <application>Ιάγνος</application> γράφτηκε από τον Ian Peters "
+#~ "(<email>itp@gnu.org</email>). Αυτό το εγχειρίδιο γράφτηκε από τον Eric "
+#~ "Baudais (<email>baudais@okstate.edu</email>). Για να αναφέρετε ένα σφάλμα "
+#~ "ή να κάνετε μια πρόταση σχετικά με αυτήν την εφαρμογή η την τεκμηρίωση, "
+#~ "ακολουθήστε τις οδηγίες σε αυτό το <ulink url=\"ghelp:user-guide?feedback-"
+#~ "bugs\" type=\"help\">έγγραφο</ulink>."
+
+#~ msgid ""
+#~ "This program is free software; you can redistribute it and/or modify it "
+#~ "under the terms of the <citetitle>GNU General Public License</citetitle> "
+#~ "as published by the Free Software Foundation; either version 2 of the "
+#~ "License, or (at your option) any later version."
+#~ msgstr ""
+#~ "Αυτό το πρόγραμμα είναι ελεύθερο λογισμικό. Μπορείτε να το αναδιανέμετε ή/"
+#~ "και να το τροποποιείτε μέσω των όρων της <citetitle>Γενικής Άδειας Χρήσης "
+#~ "GNU</citetitle> όπως αυτή δημοσιεύτηκε από το Ίδρυμα Ελεύθερου "
+#~ "Λογισμικού, έκδοση 2, ή (προαιρετικά) οποιαδήποτε νεότερη έκδοση."
+
+#~ msgid ""
+#~ "This program is distributed in the hope that it will be useful, but "
+#~ "WITHOUT ANY WARRANTY; without even the implied warranty of "
+#~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the "
+#~ "<citetitle>GNU General Public License</citetitle> for more details."
+#~ msgstr ""
+#~ "Αυτό το πρόγραμμα διανέμεται με την ελπίδα οτι θα είναι χρήσιμο, αλλά "
+#~ "ΧΩΡΙΣ ΚΑΜΜΙΑ ΑΠΟΛΥΤΩΣ ΕΓΓΥΗΣΗ - χωρίς ακόμη και την έμμεση εγγύηση "
+#~ "ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ή ΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Δείτε για "
+#~ "περισσότερες λεπτομέρειες την Γενική Άδεια Δημόσιας Χρήσης GNU "
+#~ "(<citetitle>GNU General Public License</citetitle>)."
+
+#~ msgid ""
+#~ "A copy of the <citetitle>GNU General Public License</citetitle> is "
+#~ "included as an appendix to the <citetitle>GNOME Users Guide</citetitle>. "
+#~ "You may also obtain a copy of the <citetitle>GNU General Public License</"
+#~ "citetitle> from the Free Software Foundation by visiting <ulink type="
+#~ "\"http\" url=\"http://www.fsf.org\">their Web site</ulink> or by writing "
+#~ "to <address> Free Software Foundation, Inc. <street>59 Temple Place</"
+#~ "street> - Suite 330 <city>Boston</city>, <state>MA</"
+#~ "state><postcode>02111-1307</postcode><country>USA</country></address>"
+#~ msgstr ""
+#~ "Αντίγραφο της <citetitle>Γενικής Άδειας Δημόσιας Χρήσης GNU</citetitle> "
+#~ "υπάρχει ως παράρτημα στο <citetitle>Εγχειρίδιο χρήσης του GNOME</"
+#~ "citetitle>. Μπορείτε επίσης να αποκτήσετε ένα αντίγραφό της από το Ίδρυμα "
+#~ "Ελεύθερου Λογισμικού (Free Software Foundation) επισκεπτόμενοι την <ulink "
+#~ "type=\"http\" url=\"http://www.fsf.org\">ιστοσελίδα τους</ulink> ή "
+#~ "γράφοντας στη διεύθυνση <address> Free Software Foundation, Inc. "
+#~ "<street>59 Temple Place</street> - Suite 330 <city>Boston</city>, "
+#~ "<state>MA</state> <postcode>02111-1307</postcode> <country>USA</country></"
+#~ "address>."
