@@ -8,7 +8,6 @@ iagno_SOURCES = \
 	iagno.vala
 
 iagno_CFLAGS = \
-	-I$(top_srcdir)/libgames-support \
 	-DVERSION=\"$(VERSION)\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	-DDATA_DIRECTORY=\"$(datadir)/iagno\" \
@@ -23,12 +22,9 @@ iagno_VALAFLAGS = \
 	--pkg gtk+-3.0 \
 	--pkg librsvg-2.0 \
 	--pkg libcanberra \
-	--pkg libcanberra-gtk \
-	--vapidir $(top_srcdir)/libgames-support \
-	--pkg GnomeGamesSupport-1.0
+	--pkg libcanberra-gtk
 
 iagno_LDADD = \
-	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GTK_LIBS) \
 	$(RSVG_LIBS) \
 	$(CANBERRA_GTK_LIBS)
