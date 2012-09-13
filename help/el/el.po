@@ -4,17 +4,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD.el\n"
-"POT-Creation-Date: 2012-04-22 22:40+0000\n"
-"PO-Revision-Date: 2012-08-23 13:47+0200\n"
+"POT-Creation-Date: 2012-09-06 15:59+0000\n"
+"PO-Revision-Date: 2012-09-13 13:53+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
-#| msgid "translator-credits"
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
@@ -54,13 +54,11 @@ msgstr ""
 "external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
 
 #: C/index.page:7(info/title)
-#| msgid "Iagno"
 msgctxt "link"
 msgid "Iagno"
 msgstr "Ιάγνος"
 
 #: C/index.page:8(info/title)
-#| msgid "Iagno"
 msgctxt "text"
 msgid "Iagno"
 msgstr "Ιάγνος"
@@ -88,18 +86,17 @@ msgstr ""
 "media>Ιάγνος"
 
 #: C/index.page:21(page/p)
-#, fuzzy
 msgid ""
 "<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
 "on one side and light on the other. When a piece is captured it is turned "
 "over to join the capturing player's forces; the winner is the player with "
 "the most pieces of their color at the end of the game."
 msgstr ""
-"Ο <app> Ιάγνος</app> είναι ένα επιτραπέζιο παιχνίδι που παίζεται σε ένα "
+"Ο <app>Ιάγνος</app> είναι ένα επιτραπέζιο παιχνίδι που παίζεται σε ένα "
 "πλέγμα 8Χ8 με 64 κομμάτια, με τα μαύρα από τη μία πλευρά και τα λευκά από "
-"την άλλη. Όταν ένα κομμάτι συλλαμβάνεται αναποδογυρίζει για να ενώσει τις "
-"δυνάμεις του άλλου παίκτη. Νικητής είναι ο παίκτης με τα περισσότερα "
-"κομμάτια του ίδιου χρώματος στο τέλος του παιχνιδιού."
+"την άλλη. Όταν επιλεχθεί ένα κομμάτι αναποδογυρίζει και ενώνει τις δυνάμεις "
+"του με τον άλλο παίκτη. Νικητής στο τέλος του παιχνιδιού είναι ο παίκτης με "
+"τα περισσότερα κομμάτια του ίδιου χρώματος."
 
 #: C/index.page:25(section/title)
 msgid "Game Play"
@@ -278,7 +275,6 @@ msgstr ""
 "<app>Ιάγνο</app> καλύτερο!"
 
 #: C/change-color.page:17(page/title)
-#| msgid "Player Color and Difficulty"
 msgid "Change player color and difficulty"
 msgstr "Αλλάξτε το χρώμα του παίκτη και τη δυσκολία"
 
@@ -567,7 +563,6 @@ msgid "Rules"
 msgstr "Κανόνες"
 
 #: C/rules.page:23(page/p)
-#, fuzzy
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -575,8 +570,8 @@ msgid ""
 "or diagonally."
 msgstr ""
 "Το αντικείμενο του παιχνιδιού είναι να αναποδογυρίσετε όσο περισσότερα "
-"πλακίδια του αντιπάλου σας μπορείτε ενώ συγχρόνως τον εμποδίζετε από το να "
-"χτυπήσει τα δικά σας πλακίδια. Για να αναποδογυρίσετε ένα πλακίδιο, θα "
+"πλακίδια του αντιπάλου σας μπορείτε ενώ συγχρόνως να τον εμποδίσετε από το "
+"να χτυπήσει τα δικά σας πλακίδια. Για να αναποδογυρίσετε ένα πλακίδιο, θα "
 "πρέπει πρώτα να το παγιδεύσετε ανάμεσα σε δύο δικά σας, οριζόντια, κάθετα ή "
 "διαγώνια."
 
@@ -605,15 +600,14 @@ msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "Αυτή η τοποθέτηση μπορεί να είναι οριζόντια, κατακόρυφη ή διαγώνια."
 
 #: C/rules.page:32(item/p)
-#, fuzzy
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
 "forces."
 msgstr ""
-"Όταν τοποθετείτε ένα μαύρο πλακίδιο, τα λευκά πλακίδια ανάμεσα στο "
-"τοποθετημένο και τα άλλα μαύρα πλακίδια αναποδογυρίζουν και ενώνουν τις "
-"δυνάμεις τους με τα μαύρα. "
+"Όταν τοποθετείται ένα μαύρο πλακίδιο, τα λευκά πλακίδια ανάμεσα στο "
+"τοποθετημένο και τα άλλα μαύρα πλακίδια αναποδογυρίζουν και γίνονται ένα με "
+"τα μαύρα. "
 
 #: C/rules.page:36(item/p)
 msgid ""
@@ -633,7 +627,6 @@ msgstr ""
 "στον πίνακα."
 
 #: C/rules.page:44(media/p)
-#| msgid "Starting Position"
 msgid "Start position"
 msgstr "Θέση εκκίνησης"
 
@@ -650,7 +643,6 @@ msgid "<app>Iagno</app> game over position."
 msgstr "Θέση τερματισμού του <app>Ιάγνος</app>"
 
 #: C/rules.page:64(td/p)
-#| msgid "Starting Position"
 msgid "<em>Start position</em>"
 msgstr "<em>Θέση εκκίνησης</em>"
 
@@ -671,7 +663,6 @@ msgid "Keyboard shortcuts"
 msgstr "Συντομεύσεις πληκτρολογίου"
 
 #: C/shortcuts.page:20(td/p)
-#| msgid "Network Games"
 msgid "New game"
 msgstr "Νέο παιχνίδι"
 
@@ -704,12 +695,10 @@ msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 
 #: C/sound.page:17(page/title)
-#| msgid "Enable/Disable Sound"
 msgid "Enable and disable sound"
 msgstr "Ενεργοποίηση και απενεργοποίηση του ήχου"
 
 #: C/sound.page:18(page/p)
-#| msgid "Enable/Disable Sound"
 msgid "To enable or disable the sound:"
 msgstr "Για να ενεργοποιήσετε ή να απενεργοποιήσετε τον ήχο:"
 
@@ -800,7 +789,6 @@ msgstr ""
 "στρατηγικής</link>"
 
 #: C/visual-results.page:18(info/desc)
-#| msgid "Flip Final Results"
 msgid "Flip final results"
 msgstr "Αντιστροφή τελικών αποτελεσμάτων"
 
