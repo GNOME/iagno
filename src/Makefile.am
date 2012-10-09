@@ -13,9 +13,7 @@ iagno_CFLAGS = \
 	-DDATA_DIRECTORY=\"$(datadir)/iagno\" \
 	-DSOUND_DIRECTORY=\"$(datadir)/iagno/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
-	$(GTK_CFLAGS) \
-	$(RSVG_CFLAGS) \
-	$(CANBERRA_GTK_CFLAGS)
+	$(IAGNO_CFLAGS)
 
 iagno_VALAFLAGS = \
 	--pkg posix \
@@ -25,9 +23,7 @@ iagno_VALAFLAGS = \
 	--pkg libcanberra-gtk
 
 iagno_LDADD = \
-	$(GTK_LIBS) \
-	$(RSVG_LIBS) \
-	$(CANBERRA_GTK_LIBS)
+	$(IAGNO_LIBS)
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
