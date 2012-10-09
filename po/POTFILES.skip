@@ -1,5 +1,5 @@
-iagno/data/iagno.desktop.in
-iagno/src/computer-player.c
-iagno/src/game.c
-iagno/src/game-view.c
-iagno/src/iagno.c
+data/iagno.desktop.in
+src/computer-player.c
+src/game.c
+src/game-view.c
+src/iagno.c

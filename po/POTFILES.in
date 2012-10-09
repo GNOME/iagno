@@ -1,10 +1,10 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
 [encoding: UTF-8]
-iagno/data/iagno.desktop.in.in
-[type: gettext/glade]iagno/data/iagno.ui
-iagno/data/org.gnome.iagno.gschema.xml.in
-iagno/src/computer-player.vala
-iagno/src/game.vala
-iagno/src/game-view.vala
-iagno/src/iagno.vala
+data/iagno.desktop.in.in
+[type: gettext/glade]data/iagno.ui
+data/org.gnome.iagno.gschema.xml.in
+src/computer-player.vala
+src/game.vala
+src/game-view.vala
+src/iagno.vala
