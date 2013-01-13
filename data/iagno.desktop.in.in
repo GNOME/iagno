@@ -2,13 +2,13 @@
 Icon=iagno
 _Name=Iagno
 _Comment=Dominate the board in a classic version of Reversi
+_Keywords=othello;
 Exec=iagno
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;BoardGame;
-_Keywords=othello;
 X-GNOME-Bugzilla-Bugzilla=GNOME
-X-GNOME-Bugzilla-Product=gnome-games
+X-GNOME-Bugzilla-Product=iagno
 X-GNOME-Bugzilla-Component=BugBuddyBugs
 X-GNOME-Bugzilla-Version=@VERSION@
 StartupNotify=true
