@@ -15,14 +15,14 @@
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008.
 # Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010.
 # Wojciech Kapusta <wkapusta@aviary.pl>, 2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2012.
-# Aviary.pl <gnomepl@aviary.pl>, 2007-2012.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2013.
+# Aviary.pl <gnomepl@aviary.pl>, 2007-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-16 03:19+0100\n"
-"PO-Revision-Date: 2012-12-16 03:20+0100\n"
+"POT-Creation-Date: 2013-02-17 20:10+0100\n"
+"PO-Revision-Date: 2013-02-17 20:11+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -45,7 +45,7 @@ msgstr "Opanowanie planszy w klasycznej wersji Reversi"
 
 #: ../data/iagno.desktop.in.in.h:3
 msgid "othello;"
-msgstr "othello;"
+msgstr "othello;reversi;"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -77,7 +77,7 @@ msgstr "Dźwięk"
 
 #: ../data/org.gnome.iagno.gschema.xml.in.h:2
 msgid "Whether or not to play event sounds."
-msgstr "Określa, czy odtwarzać dźwięki zdarzeń"
+msgstr "Określa, czy odtwarzać dźwięki zdarzeń."
 
 #: ../data/org.gnome.iagno.gschema.xml.in.h:3
 msgid "Width of the window in pixels"
