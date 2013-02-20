@@ -1,0 +1,192 @@
+# Aragonese translation for iagno.
+# Copyright (C) 2013 iagno's COPYRIGHT HOLDER
+# This file is distributed under the same license as the iagno package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: iagno master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-02-19 13:45+0000\n"
+"PO-Revision-Date: 2013-02-20 01:00+0100\n"
+"Last-Translator: Daniel Martinez <entaltoaragon@gmail.com>\n"
+"Language-Team: Aragonese <softaragones@googlegroups.com>\n"
+"Language: an\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/iagno.desktop.in.in.h:1
+#: ../src/iagno.vala:82
+#: ../src/iagno.vala:295
+#: ../src/iagno.vala:620
+msgid "Iagno"
+msgstr "Iagno"
+
+#: ../data/iagno.desktop.in.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Domine o tablero en una versión clasica de Reversi"
+
+#: ../data/iagno.desktop.in.in.h:3
+msgid "othello;"
+msgstr "othello;"
+
+#: ../data/iagno.ui.h:1
+msgid "_New Game"
+msgstr "Chuego _nuevo"
+
+#: ../data/iagno.ui.h:2
+msgid "_Undo"
+msgstr "_Desfer"
+
+#: ../data/iagno.ui.h:3
+msgid "_Preferences"
+msgstr "_Preferencias"
+
+#: ../data/iagno.ui.h:4
+msgid "_Help"
+msgstr "Ad_uya"
+
+#: ../data/iagno.ui.h:5
+msgid "_About"
+msgstr "_Arredol"
+
+#: ../data/iagno.ui.h:6
+msgid "_Quit"
+msgstr "_Surtir"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:1
+msgid "Sound"
+msgstr "Son"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:2
+msgid "Whether or not to play event sounds."
+msgstr "Reproducir sons d'evento."
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:3
+msgid "Width of the window in pixels"
+msgstr "Amplaria d'a finestra en pixels"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:4
+msgid "Height of the window in pixels"
+msgstr "Altura d'a finestra en pixels"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:5
+msgid "true if the window is maximized"
+msgstr "cierto si a finestra ye maximizada"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:6
+msgid "true if the window is fullscren"
+msgstr "cierto si a finestra ye en pantalla completa"
+
+#: ../src/iagno.vala:137
+#: ../src/iagno.vala:254
+#: ../src/iagno.vala:262
+msgid "Dark:"
+msgstr "Negras:"
+
+#: ../src/iagno.vala:145
+#: ../src/iagno.vala:255
+#: ../src/iagno.vala:263
+msgid "Light:"
+msgstr "Blancas:"
+
+#: ../src/iagno.vala:246
+msgid "Light must pass, Dark's move"
+msgstr "Blancas pasan redolín, mueven as negras"
+
+#: ../src/iagno.vala:248
+msgid "Dark must pass, Light's move"
+msgstr "Negras pasan redolín, mueven as blancas"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:257
+#: ../src/iagno.vala:258
+#: ../src/iagno.vala:265
+#: ../src/iagno.vala:266
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#: ../src/iagno.vala:300
+msgid ""
+"A disk flipping game derived from Reversi.\n"
+"\n"
+"Iagno is a part of GNOME Games."
+msgstr ""
+"Un chuego de voltear fichas derivau de Reversi.\n"
+"\n"
+"Iagno ye parte d'os Chuegos de GNOME."
+
+#: ../src/iagno.vala:303
+msgid "translator-credits"
+msgstr "Daniel Martinez <entaltoaragon@gmail.com>, 2013"
+
+#: ../src/iagno.vala:305
+msgid "GNOME Games web site"
+msgstr "Pachina web d'os chuegos de GNOME"
+
+#: ../src/iagno.vala:368
+msgid "Light player wins!"
+msgstr "Ganan as blancas."
+
+#: ../src/iagno.vala:370
+msgid "Dark player wins!"
+msgstr "Ganan as negras."
+
+#: ../src/iagno.vala:372
+msgid "The game was a draw."
+msgstr "Empate."
+
+#: ../src/iagno.vala:396
+msgid "Invalid move."
+msgstr "Movimiento no valido."
+
+#: ../src/iagno.vala:461
+msgid "Iagno Preferences"
+msgstr "Preferencias de Iagno"
+
+#: ../src/iagno.vala:480
+msgid "Dark Player:"
+msgstr "Negras:"
+
+#: ../src/iagno.vala:493
+#: ../src/iagno.vala:522
+msgid "Human"
+msgstr "Humán"
+
+#: ../src/iagno.vala:497
+#: ../src/iagno.vala:526
+msgid "Level one"
+msgstr "Ran 1"
+
+#: ../src/iagno.vala:501
+#: ../src/iagno.vala:530
+msgid "Level two"
+msgstr "Ran 2"
+
+#: ../src/iagno.vala:505
+#: ../src/iagno.vala:534
+msgid "Level three"
+msgstr "Ran 3"
+
+#: ../src/iagno.vala:510
+msgid "Light Player:"
+msgstr "Blancas:"
+
+#: ../src/iagno.vala:539
+msgid "E_nable sounds"
+msgstr "A_ctivar sons"
+
+#: ../src/iagno.vala:544
+msgid "S_how grid"
+msgstr "M_ostrar reixeta"
+
+#: ../src/iagno.vala:549
+msgid "_Flip final results"
+msgstr "Invertir resultau _final"
+
+#: ../src/iagno.vala:554
+msgid "_Tile set:"
+msgstr "Chuego de _fichas:"
+
