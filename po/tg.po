@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Victor Ibragimov <victor.ibragimov@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Tajik Gnome\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-01-14 22:07+0000\n"
+"PO-Revision-Date: 2013-01-19 17:40+0500\n"
+"Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
+"Language-Team: \n"
+"Language: Tajik\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/iagno.desktop.in.in.h:1 ../src/iagno.vala:82 ../src/iagno.vala:295
+#: ../src/iagno.vala:620
+msgid "Iagno"
+msgstr ""
+
+#: ../data/iagno.desktop.in.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr ""
+
+#: ../data/iagno.desktop.in.in.h:3
+msgid "othello;"
+msgstr ""
+
+#: ../data/iagno.ui.h:1
+msgid "_New Game"
+msgstr "_Бозии нав"
+
+#: ../data/iagno.ui.h:2
+msgid "_Undo"
+msgstr "Ботил сохтан"
+
+#: ../data/iagno.ui.h:3
+msgid "_Preferences"
+msgstr "_Хусусиятҳо"
+
+#: ../data/iagno.ui.h:4
+msgid "_Help"
+msgstr "_Кӯмак"
+
+#: ../data/iagno.ui.h:5
+msgid "_About"
+msgstr "_Дар бораи"
+
+#: ../data/iagno.ui.h:6
+msgid "_Quit"
+msgstr "_Хуруҷ"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:1
+msgid "Sound"
+msgstr "Садо"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:2
+msgid "Whether or not to play event sounds."
+msgstr ""
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:3
+msgid "Width of the window in pixels"
+msgstr ""
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:4
+msgid "Height of the window in pixels"
+msgstr ""
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:5
+msgid "true if the window is maximized"
+msgstr ""
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:6
+msgid "true if the window is fullscren"
+msgstr ""
+
+#: ../src/iagno.vala:137 ../src/iagno.vala:254 ../src/iagno.vala:262
+msgid "Dark:"
+msgstr "Торик:"
+
+#: ../src/iagno.vala:145 ../src/iagno.vala:255 ../src/iagno.vala:263
+msgid "Light:"
+msgstr "Равшан:"
+
+#: ../src/iagno.vala:246
+msgid "Light must pass, Dark's move"
+msgstr ""
+
+#: ../src/iagno.vala:248
+msgid "Dark must pass, Light's move"
+msgstr ""
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:257 ../src/iagno.vala:258 ../src/iagno.vala:265
+#: ../src/iagno.vala:266
+#, c-format
+msgid "%.2d"
+msgstr ""
+
+#: ../src/iagno.vala:300
+msgid ""
+"A disk flipping game derived from Reversi.\n"
+"\n"
+"Iagno is a part of GNOME Games."
+msgstr ""
+
+#: ../src/iagno.vala:303
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/iagno.vala:305
+msgid "GNOME Games web site"
+msgstr ""
+
+#: ../src/iagno.vala:368
+msgid "Light player wins!"
+msgstr ""
+
+#: ../src/iagno.vala:370
+msgid "Dark player wins!"
+msgstr ""
+
+#: ../src/iagno.vala:372
+msgid "The game was a draw."
+msgstr ""
+
+#: ../src/iagno.vala:396
+msgid "Invalid move."
+msgstr ""
+
+#: ../src/iagno.vala:461
+msgid "Iagno Preferences"
+msgstr ""
+
+#: ../src/iagno.vala:480
+msgid "Dark Player:"
+msgstr ""
+
+#: ../src/iagno.vala:493 ../src/iagno.vala:522
+msgid "Human"
+msgstr ""
+
+#: ../src/iagno.vala:497 ../src/iagno.vala:526
+msgid "Level one"
+msgstr ""
+
+#: ../src/iagno.vala:501 ../src/iagno.vala:530
+msgid "Level two"
+msgstr ""
+
+#: ../src/iagno.vala:505 ../src/iagno.vala:534
+msgid "Level three"
+msgstr ""
+
+#: ../src/iagno.vala:510
+msgid "Light Player:"
+msgstr ""
+
+#: ../src/iagno.vala:539
+msgid "E_nable sounds"
+msgstr ""
+
+#: ../src/iagno.vala:544
+msgid "S_how grid"
+msgstr ""
+
+#: ../src/iagno.vala:549
+msgid "_Flip final results"
+msgstr ""
+
+#: ../src/iagno.vala:554
+msgid "_Tile set:"
+msgstr ""
