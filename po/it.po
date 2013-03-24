@@ -4243,7 +4243,7 @@ msgstr "Domina la tavola in una versione classica di Reversi"
 
 #: ../iagno/data/iagno.desktop.in.in.h:3
 msgid "othello;"
-msgstr "othello;iagno;otello"
+msgstr "othello;iagno;otello;"
 
 #: ../iagno/src/iagno.vala:137 ../iagno/src/iagno.vala:254
 #: ../iagno/src/iagno.vala:262
