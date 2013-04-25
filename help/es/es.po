@@ -1,19 +1,20 @@
 # translation of iagno.HEAD.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2012-04-22 22:40+0000\n"
-"PO-Revision-Date: 2012-04-23 11:36+0200\n"
+"POT-Creation-Date: 2013-04-17 18:22+0000\n"
+"PO-Revision-Date: 2013-04-24 12:07+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -230,31 +231,30 @@ msgstr ""
 "Si todavía no tiene una cuenta, simplemente pulse en el enlace <gui>New "
 "Account</gui> para crear una."
 
-#: C/bug-filing.page:32(section/p)
+#: C/bug-filing.page:33(section/p)
+#| msgid ""
+#| "Once you have an account, log in, click on <guiseq><gui>File a Bug</"
+#| "gui><gui>Applications</gui><gui>gnome-games</gui></guiseq>. Before "
+#| "reporting a bug, please read the <link href=\"https://bugzilla.gnome.org/"
+#| "page.cgi?id=bug-writing.html\">bug writing guidelines</link>, and please "
+#| "<link href=\"https://bugzilla.gnome.org/browse.cgi?product=gnome-games"
+#| "\">browse</link> for the bug to see if it already exists."
 msgid ""
 "Once you have an account, log in, click on <guiseq><gui>File a Bug</"
-"gui><gui>Applications</gui><gui>gnome-games</gui></guiseq>. Before reporting "
-"a bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?"
-"id=bug-writing.html\">bug writing guidelines</link>, and please <link href="
-"\"https://bugzilla.gnome.org/browse.cgi?product=gnome-games\">browse</link> "
-"for the bug to see if it already exists."
+"gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
+"bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?id=bug-"
+"writing.html\">bug writing guidelines</link>, and please <link href="
+"\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">browse</link> for "
+"the bug to see if it already exists."
 msgstr ""
 "Una vez que tenga su cuenta, inicie sesión y pulse en <guiseq><gui>Informar "
-"de un error</gui><gui>Aplicaciones</gui><gui>gnome-games</gui></guiseq>. "
-"Antes de informar de un error, lea las <link href=\"https://bugzilla.gnome."
-"org/page.cgi?id=bug-writing.html\">guías para informar de un error</link> y "
-"<link href=\"https://bugzilla.gnome.org/browse.cgi?product=evince\">busque</"
-"link> el error para ver si ya existe."
+"de un error</gui><gui>Aplicaciones</gui><gui>iagno</gui></guiseq>. Antes de "
+"informar de un error, lea las <link href=\"https://bugzilla.gnome.org/page."
+"cgi?id=bug-writing.html\">guías para informar de un error</link> y <link "
+"href=\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">busque</link> "
+"el error para ver si ya existe."
 
-#: C/bug-filing.page:36(section/p)
-msgid ""
-"To file your bug, choose the component <gui>iagno</gui> in the "
-"<gui>Component</gui> menu."
-msgstr ""
-"Para informar de un error, elija el componente <gui>iagno</gui> en el menú "
-"<gui>Component</gui>."
-
-#: C/bug-filing.page:39(section/p)
+#: C/bug-filing.page:41(section/p)
 msgid ""
 "If you are requesting a new feature, choose <gui>enhancement</gui> in the "
 "<gui>Severity</gui> menu. Fill in the Summary and Description sections and "
@@ -264,7 +264,7 @@ msgstr ""
 "en el menú <gui>Severity</gui>. Rellene las secciones «Summary» y "
 "«Description» y pulse en <gui>Commit</gui>."
 
-#: C/bug-filing.page:43(section/p)
+#: C/bug-filing.page:45(section/p)
 msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
 "is being dealt with. Thanks for helping make <app>Iagno</app> better!"
@@ -357,9 +357,6 @@ msgstr ""
 "\">wiki</link> contiene información útil."
 
 #: C/legal.xml:3(p/link)
-#| msgid ""
-#| "This work is distributed under a CreativeCommons Attribution-Share Alike "
-#| "3.0 Unported license."
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr "Licencia Creative Commons Compartir-Igual 3.0. sin soporte"
 
@@ -864,6 +861,13 @@ msgstr ""
 "Alternativamente, puede contactar con el equipo de internacionalización "
 "usando su <link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n"
 "\">lista de correo</link>."
+
+#~ msgid ""
+#~ "To file your bug, choose the component <gui>iagno</gui> in the "
+#~ "<gui>Component</gui> menu."
+#~ msgstr ""
+#~ "Para informar de un error, elija el componente <gui>iagno</gui> en el "
+#~ "menú <gui>Component</gui>."
 
 #~ msgctxt "_"
 #~ msgid ""
