@@ -16,7 +16,7 @@
     </license>
   </info>
 
-<title><media type="image" src="figures/logo32.png">Iagno logo</media>Iagno</title>
+<title><media type="image" src="figures/logo32.png">Iagno logo</media> Iagno</title>
 
    <p><app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark on one side and light on the other. When a piece is captured it is turned over to join the capturing player's forces; the winner is the player with the most pieces of their color at the end of the game.
    </p>
