@@ -1,0 +1,181 @@
+# Kirghiz translation for iagno.
+# Copyright (C) 2013 iagno's COPYRIGHT HOLDER
+# This file is distributed under the same license as the iagno package.
+# Chynggyz Jumaliev <translatorky@lavabit.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: iagno master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-04-25 08:28+0000\n"
+"PO-Revision-Date: 2013-06-02 20:24+0600\n"
+"Last-Translator: Chynggyz Jumaliev <translatorky@lavabit.com>\n"
+"Language-Team: Kirghiz <ky@li.org>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/iagno.desktop.in.in.h:1 ../src/iagno.vala:82 ../src/iagno.vala:295
+#: ../src/iagno.vala:620
+msgid "Iagno"
+msgstr "Ягно"
+
+#: ../data/iagno.desktop.in.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Реверсинин классикалык версиясынан тактаны басып алыңыз"
+
+#: ../data/iagno.desktop.in.in.h:3
+msgid "othello;"
+msgstr "отелло;"
+
+#: ../data/iagno.ui.h:1
+msgid "_New Game"
+msgstr "_Жаңы оюн"
+
+#: ../data/iagno.ui.h:2
+msgid "_Undo"
+msgstr "Ж_окко чыгаруу"
+
+#: ../data/iagno.ui.h:3
+msgid "_Preferences"
+msgstr "_Параметрлер"
+
+#: ../data/iagno.ui.h:4
+msgid "_Help"
+msgstr "Жа_рдам"
+
+#: ../data/iagno.ui.h:5
+msgid "_About"
+msgstr "_Программа жөнүндө"
+
+#: ../data/iagno.ui.h:6
+msgid "_Quit"
+msgstr "_Чыгуу"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:1
+msgid "Sound"
+msgstr "Үн"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:2
+msgid "Whether or not to play event sounds."
+msgstr "Үн окуялары ойнотулабы дегенин дайындайт."
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:3
+msgid "Width of the window in pixels"
+msgstr "Терезенин туурасы (пикс.)"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:4
+msgid "Height of the window in pixels"
+msgstr "Терезенин бийиктиги (пикс.)"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:5
+msgid "true if the window is maximized"
+msgstr "чын, эгер терезе максималдуу өлчмөдө болсо"
+
+#: ../data/org.gnome.iagno.gschema.xml.in.h:6
+msgid "true if the window is fullscren"
+msgstr "чын, эгер терезе толук экран болсо"
+
+#: ../src/iagno.vala:137 ../src/iagno.vala:254 ../src/iagno.vala:262
+msgid "Dark:"
+msgstr "Карасы:"
+
+#: ../src/iagno.vala:145 ../src/iagno.vala:255 ../src/iagno.vala:263
+msgid "Light:"
+msgstr "Ачыгы:"
+
+#: ../src/iagno.vala:246
+msgid "Light must pass, Dark's move"
+msgstr "Ачыгы жол берет, карасы жүрөт"
+
+#: ../src/iagno.vala:248
+msgid "Dark must pass, Light's move"
+msgstr "Карасы жол берет, ачыгы жүрөт"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:257 ../src/iagno.vala:258 ../src/iagno.vala:265
+#: ../src/iagno.vala:266
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#: ../src/iagno.vala:300
+msgid ""
+"A disk flipping game derived from Reversi.\n"
+"\n"
+"Iagno is a part of GNOME Games."
+msgstr ""
+"Реверсиден пайда болгон фишкаларды ыргытмай оюн.\n"
+"\n"
+"Ягно GNOME оюндарынын бөлүгү."
+
+#: ../src/iagno.vala:303
+msgid "translator-credits"
+msgstr "Жумалиев Чыңгыз <translatorky@lavabit.com>"
+
+#: ../src/iagno.vala:305
+msgid "GNOME Games web site"
+msgstr "GNOME Games веб-сайты"
+
+#: ../src/iagno.vala:368
+msgid "Light player wins!"
+msgstr "Ак оюнчу утту!"
+
+#: ../src/iagno.vala:370
+msgid "Dark player wins!"
+msgstr "Кара оюнчу утту!"
+
+#: ../src/iagno.vala:372
+msgid "The game was a draw."
+msgstr "Оюндан эч ким уткан жок."
+
+#: ../src/iagno.vala:396
+msgid "Invalid move."
+msgstr "Туура эмес жүрүш."
+
+#: ../src/iagno.vala:461
+msgid "Iagno Preferences"
+msgstr "Ягнонун параметрлери"
+
+#: ../src/iagno.vala:480
+msgid "Dark Player:"
+msgstr "Кара оюнчусу:"
+
+#: ../src/iagno.vala:493 ../src/iagno.vala:522
+msgid "Human"
+msgstr "Киши"
+
+#: ../src/iagno.vala:497 ../src/iagno.vala:526
+msgid "Level one"
+msgstr "Биринчи деңгээл"
+
+#: ../src/iagno.vala:501 ../src/iagno.vala:530
+msgid "Level two"
+msgstr "Экинчи деңгээл"
+
+#: ../src/iagno.vala:505 ../src/iagno.vala:534
+msgid "Level three"
+msgstr "Үчүнчү деңгээл"
+
+#: ../src/iagno.vala:510
+msgid "Light Player:"
+msgstr "Ачык оюнчусу:"
+
+#: ../src/iagno.vala:539
+msgid "E_nable sounds"
+msgstr "Үндөрдү күй_гүзүү"
+
+#: ../src/iagno.vala:544
+msgid "S_how grid"
+msgstr "Тор сызыкты _көрсөтүү"
+
+#: ../src/iagno.vala:549
+msgid "_Flip final results"
+msgstr "Акыркы натыйжаларын _ыргытуу"
+
+#: ../src/iagno.vala:554
+msgid "_Tile set:"
+msgstr "_Фишка жыйыны:"
