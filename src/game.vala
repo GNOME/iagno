@@ -19,7 +19,7 @@ public class Game
 {
     /* Tiles on the board */
     public Player[,] tiles;
-    
+
     public int width
     {
         get { return tiles.length[0]; }
@@ -90,9 +90,29 @@ public class Game
         }
     }
 
+    /* Game is complete if neither side can move */ 
     public bool is_complete
-    {
-        get { return n_tiles == width * height || n_light_tiles == 0 || n_dark_tiles == 0; }
+    {      
+       get
+       {
+           var save_color = current_color;
+           current_color = Player.DARK;
+           if (can_move)
+           {
+               current_color = save_color;
+               return false;
+           }
+
+           current_color = Player.LIGHT;
+           if (can_move)
+           {
+               current_color = save_color;
+               return false;
+           }
+            
+           current_color = save_color;
+           return true; 
+       }
     }
 
     public Game (int width = 8, int height = 8)
