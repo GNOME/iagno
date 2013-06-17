@@ -563,6 +563,9 @@ public class Iagno : Gtk.Application
         model = new Gtk.ListStore (2, typeof (string), typeof (string));
         theme_combo.model = model;
         Dir dir;
+        List<string> dirlist = new List<string> ();
+
+        /* get sorted list of filenames in the themes directory */
         try
         {
             dir = Dir.open (Path.build_filename (DATA_DIRECTORY, "themes"));
@@ -571,24 +574,31 @@ public class Iagno : Gtk.Application
                 var filename = dir.read_name ();
                 if (filename == null)
                     break;
-                model.append (out iter);
-                
-                /* Create label by replacing underscores with space and stripping extension */
-                var label_text = filename;
-                label_text = label_text.replace ("_", " ");
-                var extension_index = label_text.last_index_of_char ('.');
-                if (extension_index > 0)
-                    label_text = label_text.substring (0, extension_index);
-
-                model.set (iter, 0, label_text, 1, filename);
-                if (filename == settings.get_string ("tileset"))
-                    theme_combo.set_active_iter (iter);
+                dirlist.insert_sorted (filename, strcmp);
             }
         }
         catch (FileError e)
         {
             warning ("Failed to load themes: %s", e.message);
         }
+
+        foreach (string filename in dirlist)
+        {
+            model.append (out iter);
+
+            /* Create label by replacing underscores with space and stripping extension */
+            var label_text = filename;
+
+            label_text = label_text.replace ("_", " ");
+            var extension_index = label_text.last_index_of_char ('.');
+            if (extension_index > 0)
+                label_text = label_text.substring (0, extension_index);
+
+            model.set (iter, 0, label_text, 1, filename);
+            if (filename == settings.get_string ("tileset"))
+                theme_combo.set_active_iter (iter);
+        }
+
         label.set_mnemonic_widget (theme_combo);
         theme_combo.changed.connect (theme_changed_cb);
         grid.attach (theme_combo, 1, 5, 1, 1);
