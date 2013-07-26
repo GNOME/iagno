@@ -4304,7 +4304,7 @@ msgstr "Bílý hráč:"
 
 #: ../iagno/src/iagno.vala:544
 msgid "S_how grid"
-msgstr "Zobrazit _mřížku"
+msgstr "Zobrazovat _mřížku"
 
 #: ../iagno/src/iagno.vala:549
 msgid "_Flip final results"
