@@ -89,8 +89,8 @@ public class Iagno : Gtk.Application
         }
         set_app_menu (builder.get_object ("iagno-menu") as MenuModel);
         var top_grid = builder.get_object ("grid") as Gtk.Grid;
-        window.set_title (_("Iagno"));
         window = builder.get_object ("window") as Gtk.Window;
+        window.set_title (_("Iagno"));
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));        
