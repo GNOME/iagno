@@ -23,6 +23,9 @@ Gamesdir = $(datadir)/applications
 Games_in_files = iagno.desktop.in.in
 Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
 
+appdatadir = $(datadir)/appdata
+appdata_files = iagno.appdata.xml
+
 gsettings_in_file = org.gnome.iagno.gschema.xml.in
 gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 @INTLTOOL_XML_NOMERGE_RULE@
@@ -34,6 +37,7 @@ EXTRA_DIST = \
 	$(ui_DATA) \
 	$(theme_DATA) \
 	$(sounds_DATA) \
+	$(appdata_files) \
 	$(gsettings_in_file) \
 	$(man_MANS)
 
