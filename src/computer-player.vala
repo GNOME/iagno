@@ -60,19 +60,19 @@ public class ComputerPlayer
             return;
         }
 
+        var depth = 7 - (3 - level) * 2;
+        var tiles_remaining = 64 - game.n_tiles;
+
         /* Choose a strategy based on how close to the end we are.
          * At the end of the game try and maximise the number of tokens.
          * Near the end try and push for a win.
          * For the rest of the game try and maximise everything.
          */
-        var depth = 64 - game.n_tiles;
         var strategy = Strategy.BEST;
-        if (depth <= 17 - (3 - level) * 2)
+        if (tiles_remaining <= depth + 10)
             strategy = Strategy.PERFECT;
-        else if (depth <= 19 - (3 - level) * 2)
+        else if (tiles_remaining <= depth + 12)
             strategy = Strategy.VICTORY;
-        else
-            depth = 7 - (3 - level) * 2;
 
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
