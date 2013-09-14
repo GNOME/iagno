@@ -12,7 +12,7 @@
       <default>'black_and_white.svg'</default>
     </key>
     <key name="show-grid" type="b">
-      <default>false</default>
+      <default>true</default>
     </key>
     <key name="flip-final-results" type="b">
       <default>true</default>
