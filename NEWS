@@ -1,3 +1,11 @@
+Iagno 3.9.92
+============
+
+* Show the grid by default so the edges of the board are clear
+* Fix hang after many pieces have been placed on the board
+* Fix hang when neither player has a valid move
+* Prohibit Undo after the game has ended
+
 Iagno 3.9.91
 ============
 
