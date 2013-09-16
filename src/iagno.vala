@@ -375,6 +375,8 @@ public class Iagno : Gtk.Application
     private void game_complete_cb ()
     {
         update_ui ();
+        undo_action.set_enabled (false);
+
         if (game.n_light_tiles > game.n_dark_tiles)
             show_message (_("Light player wins!"), Gtk.MessageType.INFO);
         if (game.n_dark_tiles > game.n_light_tiles)
