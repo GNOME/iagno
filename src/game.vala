@@ -170,11 +170,7 @@ public class Game
         if (n_tiles == 0)
             return 0;
 
-        /* Move to the next player */
-        if (current_color == Player.LIGHT)
-            current_color = Player.DARK;
-        else
-            current_color = Player.LIGHT;
+        flip_current_color ();
 
         if (is_complete)
             complete ();
@@ -188,12 +184,7 @@ public class Game
     {
         undo_history[undo_index] = 0;
         undo_index++;
-
-        if (current_color == Player.LIGHT)
-            current_color = Player.DARK;
-        else
-            current_color = Player.LIGHT;
-
+        flip_current_color ();
         move ();
     }
 
@@ -298,10 +289,7 @@ public class Game
             }
 
             /* Previous player to move again */
-            if (current_color == Player.LIGHT)
-                current_color = Player.DARK;
-            else
-                current_color = Player.LIGHT;
+            flip_current_color ();
         }
 
         move ();
@@ -321,5 +309,13 @@ public class Game
 
         tiles[x, y] = color;
         square_changed (x, y);
+    }
+
+    private void flip_current_color ()
+    {
+        if (current_color == Player.LIGHT)
+            current_color = Player.DARK;
+        else
+            current_color = Player.LIGHT;
     }
 }
