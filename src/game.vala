@@ -18,7 +18,7 @@ public enum Player
 public class Game
 {
     /* Tiles on the board */
-    public Player[,] tiles;
+    private Player[,] tiles;
 
     public int width
     {
@@ -39,7 +39,7 @@ public class Game
     private int undo_index = 0;
 
     /* Color to move next */
-    public Player current_color;
+    public Player current_color { get; private set; }
 
     /* Indicate that a player should move */
     public signal void move ();
