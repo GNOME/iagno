@@ -175,6 +175,10 @@ public class ComputerPlayer
         return b.n_tiles - a.n_tiles;
     }
 
+    /* Perhaps surprisingly, the *lower* the return value from this method,
+     * the "better" the position. So callers want to minimize the result here
+     * to find the best move.
+     */
     private int calculate_heuristic (Game g, Strategy strategy)
     {
         var tile_difference = g.n_dark_tiles - g.n_light_tiles;
@@ -193,7 +197,7 @@ public class ComputerPlayer
 
         /* Try to maximise a number of values */
         default:
-            return tile_difference + eval_heuristic (g);
+            return tile_difference - around (g) - eval_heuristic (g);
         }
     }
 
