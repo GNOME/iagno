@@ -67,8 +67,10 @@ public class ComputerPlayer
          * At the end of the game try and maximise the number of tokens.
          * Near the end try and push for a win.
          * For the rest of the game try and maximise everything.
+         * Note, for level 1 we default to the "PERFECT" strategy, which is not as
+         * good as the "BEST" strategy, so as not to make the AI too difficult.
          */
-        var strategy = Strategy.BEST;
+        var strategy = (level == 1) ? Strategy.PERFECT : Strategy.BEST;
         if (tiles_remaining <= depth + 10)
             strategy = Strategy.PERFECT;
         else if (tiles_remaining <= depth + 12)
@@ -173,6 +175,10 @@ public class ComputerPlayer
         return b.n_tiles - a.n_tiles;
     }
 
+    /* Perhaps surprisingly, the *lower* the return value from this method,
+     * the "better" the position. So callers want to minimize the result here
+     * to find the best move.
+     */
     private int calculate_heuristic (Game g, Strategy strategy)
     {
         var tile_difference = g.n_dark_tiles - g.n_light_tiles;
@@ -191,11 +197,11 @@ public class ComputerPlayer
 
         /* Try to maximise a number of values */
         default:
-            return tile_difference + around () + eval_heuristic ();
+            return tile_difference - around (g) - eval_heuristic (g);
         }
     }
 
-    private int eval_heuristic ()
+    private static int eval_heuristic (Game g)
     {
         var count = 0;
         for (var x = 0; x < 8; x++)
@@ -203,7 +209,7 @@ public class ComputerPlayer
             for (var y = 0; y < 8; y++)
             {
                 var h = heuristic[y * 8 + x];
-                if (game.get_owner (x, y) != game.current_color)
+                if (g.get_owner (x, y) != g.current_color)
                     h = -h;
                 count += h;
             }
@@ -212,7 +218,7 @@ public class ComputerPlayer
         return count;
     }
 
-    private int around ()
+    private static int around (Game g)
     {
         var count = 0;
         for (var x = 0; x < 8; x++)
@@ -220,20 +226,20 @@ public class ComputerPlayer
             for (var y = 0; y < 8; y++)
             {
                 var a = 0;
-                a += is_empty (x + 1, y);
-                a += is_empty (x + 1, y + 1);
-                a += is_empty (x, y + 1);
-                a += is_empty (x - 1, y + 1);
-                a += is_empty (x - 1, y);
-                a += is_empty (x - 1, y - 1);
-                a += is_empty (x, y - 1);
-                a += is_empty (x + 1, y - 1);
+                a += is_empty (g, x + 1, y);
+                a += is_empty (g, x + 1, y + 1);
+                a += is_empty (g, x, y + 1);
+                a += is_empty (g, x - 1, y + 1);
+                a += is_empty (g, x - 1, y);
+                a += is_empty (g, x - 1, y - 1);
+                a += is_empty (g, x, y - 1);
+                a += is_empty (g, x + 1, y - 1);
 
                 /* Two points for completely surrounded tiles */
                 if (a == 0)
                     a = 2;
 
-                if (game.get_owner (x, y) != game.current_color)
+                if (g.get_owner (x, y) != g.current_color)
                     a = -a;
                 count += a;
             }
@@ -242,9 +248,9 @@ public class ComputerPlayer
         return count;
     }
 
-    private int is_empty (int x, int y)
+    private static int is_empty (Game g, int x, int y)
     {
-        if (x < 0 || x >= 8 || y < 0 || y >= 8 || game.get_owner (x, y) != Player.NONE)
+        if (x < 0 || x >= 8 || y < 0 || y >= 8 || g.get_owner (x, y) != Player.NONE)
             return 0;
 
         return 1;
