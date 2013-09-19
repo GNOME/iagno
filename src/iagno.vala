@@ -364,11 +364,14 @@ public class Iagno : Gtk.Application
 
     private bool computer_move_cb ()
     {
+        /* set computer_timer to 0 *before* calling move() since that will
+         * call game_move_cb and possibly create a new timer.
+         */
+        computer_timer = 0;
         if (game.current_color == Player.LIGHT)
             light_computer.move ();
         else
             dark_computer.move ();
-        computer_timer = 0;
         return false;
     }
 
