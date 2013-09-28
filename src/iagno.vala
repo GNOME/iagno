@@ -42,9 +42,6 @@ public class Iagno : Gtk.Application
     /* The game being played */
     private Game? game = null;
 
-    /* true if the last move was a pass */
-    private bool was_pass = false;
-
     private const GLib.ActionEntry app_actions[] =
     {
         {"new-game", new_game_cb},
@@ -100,8 +97,6 @@ public class Iagno : Gtk.Application
             window.maximize ();
 
         add_window (window);
-
-        undo_action.set_enabled (true);
 
         view = new GameView ();
         view.hexpand = true;
@@ -253,31 +248,21 @@ public class Iagno : Gtk.Application
         else
             undo_action.set_enabled (game.can_undo ());
 
-        if (was_pass)
+        if (game.current_color == Player.DARK)
         {
-            if (game.current_color == Player.DARK)
-                show_message (_("Light must pass, Dark's move"), Gtk.MessageType.INFO);
-            else
-                show_message (_("Dark must pass, Light's move"), Gtk.MessageType.INFO);
+            dark_label.set_markup ("<span font_weight='bold'>"+_("Dark:")+"</span>");
+            light_label.set_markup ("<span font_weight='normal'>"+_("Light:")+"</span>");
+            /* Translators: this is a 2 digit representation of the current score. */
+            dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
+            light_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
         }
-        else
+        else if (game.current_color == Player.LIGHT)
         {
-            if (game.current_color == Player.DARK)
-            {
-                dark_label.set_markup ("<span font_weight='bold'>"+_("Dark:")+"</span>");
-                light_label.set_markup ("<span font_weight='normal'>"+_("Light:")+"</span>");
-                /* Translators: this is a 2 digit representation of the current score. */
-                dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
-                light_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
-            }
-            else if (game.current_color == Player.LIGHT)
-            {
-                dark_label.set_markup ("<span font_weight='normal'>"+_("Dark:")+"</span>");
-                light_label.set_markup ("<span font_weight='bold'>"+_("Light:")+"</span>");
-                /* Translators: this is a 2 digit representation of the current score. */
-                dark_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
-                light_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
-            }
+            dark_label.set_markup ("<span font_weight='normal'>"+_("Dark:")+"</span>");
+            light_label.set_markup ("<span font_weight='bold'>"+_("Light:")+"</span>");
+            /* Translators: this is a 2 digit representation of the current score. */
+            dark_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
+            light_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
         }
     }
 
@@ -354,13 +339,15 @@ public class Iagno : Gtk.Application
 
         if (!game.can_move (game.current_color))
         {
-            was_pass = true;
             game.pass ();
+            if (game.current_color == Player.DARK)
+                show_message (_("Light must pass, Dark's move"), Gtk.MessageType.INFO);
+            else
+                show_message (_("Dark must pass, Light's move"), Gtk.MessageType.INFO);
             return;
         }
 
         update_ui ();
-        was_pass = false;
 
         /* Get the computer to move after a delay (so it looks like it's thinking) */
         if ((game.current_color == Player.LIGHT && light_computer != null) ||
