@@ -8,7 +8,7 @@
  * license.
  */
 
-public class Game
+public class Game : Object
 {
     /* Tiles on the board */
     private Player[,] tiles;
