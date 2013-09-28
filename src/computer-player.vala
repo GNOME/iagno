@@ -8,22 +8,29 @@
  * license.
  */
 
-private enum Strategy
-{
-    PERFECT,
-    VICTORY,
-    BEST
-}
-
-private struct PossibleMove
-{
-    int x;
-    int y;
-    int n_tiles;
-}
-
 public class ComputerPlayer : Object
 {
+    private enum Strategy
+    {
+        PERFECT,
+        VICTORY,
+        BEST
+    }
+
+    private struct PossibleMove
+    {
+        public int x;
+        public int y;
+        public int n_tiles;
+
+        public PossibleMove (int x, int y, int n_tiles)
+        {
+            this.x = x;
+            this.y = y;
+            this.n_tiles = n_tiles;
+        }
+    }
+
     /* Game being played */
     private Game game;
 
@@ -100,11 +107,7 @@ public class ComputerPlayer : Object
                 var n_tiles = g.place_tile (x, y);
                 if (n_tiles > 0)
                 {
-                    var move = PossibleMove ();
-                    move.x = x;
-                    move.y = y;
-                    //warning ("%d %d", x, y);
-                    move.n_tiles = n_tiles;
+                    var move = PossibleMove (x, y, n_tiles);
                     moves.insert_sorted (move, compare_move);
                     g.undo ();
                 }
@@ -114,10 +117,7 @@ public class ComputerPlayer : Object
         /* If no moves then pass */
         if (moves == null)
         {
-            var move = PossibleMove ();
-            move.x = 0;
-            move.y = 0;
-            move.n_tiles = 0;
+            var move = PossibleMove (0, 0, 0);
             moves.append (move);
         }
 
