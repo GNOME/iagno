@@ -246,6 +246,7 @@ public class Iagno : Gtk.Application
     private void update_ui ()
     {
         infobar.hide ();
+
         /* Can't undo when running two computer players */
         if (light_computer != null && dark_computer != null)
             undo_action.set_enabled (false);
@@ -361,7 +362,9 @@ public class Iagno : Gtk.Application
         /* Get the computer to move after a delay (so it looks like it's thinking) */
         if ((game.current_color == Player.LIGHT && light_computer != null) ||
             (game.current_color == Player.DARK && dark_computer != null))
+        {
             computer_timer = Timeout.add (1000, computer_move_cb);
+        }
     }
 
     private bool computer_move_cb ()
@@ -384,9 +387,9 @@ public class Iagno : Gtk.Application
 
         if (game.n_light_tiles > game.n_dark_tiles)
             show_message (_("Light player wins!"), Gtk.MessageType.INFO);
-        if (game.n_dark_tiles > game.n_light_tiles)
+        else if (game.n_dark_tiles > game.n_light_tiles)
             show_message (_("Dark player wins!"), Gtk.MessageType.INFO);
-        if (game.n_light_tiles == game.n_dark_tiles)
+        else if (game.n_light_tiles == game.n_dark_tiles)
             show_message (_("The game was a draw."), Gtk.MessageType.INFO);
 
         play_sound ("gameover");
