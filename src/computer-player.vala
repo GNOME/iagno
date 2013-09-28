@@ -143,19 +143,28 @@ public class ComputerPlayer : Object
         foreach (var move in moves)
         {
             if (move.n_tiles == 0)
+            {
                 g.pass ();
+            }
             else if (g.place_tile (move.x, move.y) == 0)
             {
                 warning ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking", depth, move.x, move.y, move.n_tiles);
                 continue;
             }
 
+            /*
+             * We have to update the principle variant if the new alpha/beta is
+             * equal to the previous one, since we use (0, 0) as our default
+             * move, and a search could otherwise select it even if invalid
+             * when the search reaches the end of the game.
+             */
+
             /* If our move then maximise the result */
             if (p > 0)
             {
                 int next_x_move = 0, next_y_move = 0;
                 var a_new = search (g, strategy, depth - 1, a, b, -p, ref next_x_move, ref next_y_move);
-                if (a_new > a)
+                if (a_new >= a)
                 {
                     a = a_new;
                     move_x = move.x;
@@ -167,7 +176,7 @@ public class ComputerPlayer : Object
             {
                 int next_x_move = 0, next_y_move = 0;
                 var b_new = search (g, strategy, depth - 1, a, b, -p, ref next_x_move, ref next_y_move);
-                if (b_new < b)
+                if (b_new <= b)
                 {
                     b = b_new;
                     move_x = move.x;
