@@ -8,13 +8,6 @@
  * license.
  */
 
-public enum Player
-{
-    NONE,
-    LIGHT,
-    DARK
-}
-
 public class Game
 {
     /* Tiles on the board */

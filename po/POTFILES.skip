@@ -3,3 +3,4 @@ src/computer-player.c
 src/game.c
 src/game-view.c
 src/iagno.c
+src/player.c

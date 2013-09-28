@@ -5,7 +5,8 @@ iagno_SOURCES = \
 	computer-player.vala \
 	game.vala \
 	game-view.vala \
-	iagno.vala
+	iagno.vala \
+	player.vala
 
 iagno_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \

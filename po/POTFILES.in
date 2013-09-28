@@ -8,3 +8,4 @@ src/computer-player.vala
 src/game.vala
 src/game-view.vala
 src/iagno.vala
+src/player.vala
