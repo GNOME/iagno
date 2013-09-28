@@ -121,14 +121,6 @@ public class Game
         current_color = Player.DARK;
     }
 
-    public void start ()
-    {
-        if (n_tiles != 4)
-            return;
-
-        move ();
-    }
-
     public Game.copy (Game game)
     {
         tiles = new Player[game.width, game.height];
