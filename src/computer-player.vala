@@ -22,7 +22,7 @@ private struct PossibleMove
     int n_tiles;
 }
 
-public class ComputerPlayer
+public class ComputerPlayer : Object
 {
     /* Game being played */
     private Game game;
