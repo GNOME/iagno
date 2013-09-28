@@ -190,7 +190,7 @@ public class Game : Object
         return n_flips;
     }
 
-    private int count_tiles (Player color)
+    public int count_tiles (Player color)
     {
         var count = 0;
         for (var x = 0; x < width; x++)

@@ -95,7 +95,7 @@ public class ComputerPlayer : Object
     private static int search (Game g, Strategy strategy, int depth, int a, int b, int p, ref int move_x, ref int move_y)
     {
         /* If the end of the search depth or end of the game calculate how good a result this is */
-        if (depth == 0 || g.is_complete ())
+        if (depth == 0)
             return calculate_heuristic (g, strategy);
 
         /* Find all possible moves and sort from most new tiles to least new tiles */
@@ -105,12 +105,30 @@ public class ComputerPlayer : Object
             for (var y = 0; y < 8; y++)
             {
                 var n_tiles = g.place_tile (x, y);
-                if (n_tiles > 0)
+
+                if (g.is_complete ())
+                {
+                    move_x = x;
+                    move_y = y;
+
+                    if (g.count_tiles (g.current_color) > g.count_tiles (Player.flip_color (g.current_color)))
+                    {
+                        g.undo ();
+                        return p > 0 ? int.MAX : int.MIN;
+                    }
+                    else
+                    {
+                        g.undo ();
+                        return p > 0 ? int.MIN : int.MAX;
+                    }
+                }
+                else if (n_tiles > 0)
                 {
                     var move = PossibleMove (x, y, n_tiles);
                     moves.insert_sorted (move, compare_move);
                     g.undo ();
                 }
+                /* Do not undo if place_tile failed */
             }
         }
 
