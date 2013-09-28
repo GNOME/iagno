@@ -238,7 +238,9 @@ public class Iagno : Gtk.Application
 
         update_ui ();
 
-        game.start ();
+        /* Get the computer to move after a delay (so it looks like it's thinking) */
+        if (dark_computer != null)
+            computer_timer = Timeout.add (1000, computer_move_cb);
     }
 
     private void update_ui ()

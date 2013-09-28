@@ -75,14 +75,6 @@ public class Game : Object
         current_color = Player.DARK;
     }
 
-    public void start ()
-    {
-        if (n_tiles != 4)
-            return;
-
-        move ();
-    }
-
     public Game.from_strings (string[] setup, Player to_move, int width = 8, int height = 8)
         requires (setup.length == height)
         requires (setup[0].length == width)
