@@ -120,6 +120,21 @@ public class Game : Object
         move ();
     }
 
+    public Game.from_strings (string[] setup, Player to_move, int width = 8, int height = 8)
+        requires (setup.length == height)
+        requires (setup[0].length == width)
+    {
+        tiles = new Player[width, height];
+
+        for (int y = 0; y < height; y++)
+            for (int x = 0; x < width; x++)
+                tiles[x, y] = Player.from_char (setup[y][x]);
+
+        current_color = to_move;
+
+        warn_if_fail (string.joinv ("\n", setup).strip () == to_string ().strip ());
+    }
+
     public Game.copy (Game game)
     {
         tiles = new Player[game.width, game.height];
@@ -290,6 +305,20 @@ public class Game : Object
 
         tiles[x, y] = color;
         square_changed (x, y);
+    }
+
+    public string to_string ()
+    {
+        string s = "\n";
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+                s += tiles[x, y].to_string ();
+            s += "\n";
+        }
+
+        return s;
     }
 
     private void flip_current_color ()
