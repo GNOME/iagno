@@ -1,4 +1,5 @@
 bin_PROGRAMS = iagno
+check_PROGRAMS = test-iagno
 
 iagno_SOURCES = \
 	config.vapi \
@@ -23,8 +24,20 @@ iagno_VALAFLAGS = \
 	--pkg libcanberra \
 	--pkg libcanberra-gtk
 
-iagno_LDADD = \
-	$(IAGNO_LIBS)
+iagno_LDADD = $(IAGNO_LIBS)
+
+test_iagno_SOURCES = \
+	test-iagno.vala \
+	computer-player.vala \
+	game.vala \
+	player.vala
+
+test_iagno_CFLAGS = $(IAGNO_CFLAGS)
+
+test_iagno_LDADD = $(IAGNO_LIBS)
+
+check-local: $(check_PROGRAMS)
+	$(GTESTER) --keep-going --verbose $(check_PROGRAMS)
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \

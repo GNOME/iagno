@@ -50,7 +50,7 @@ public class ComputerPlayer : Object
         65,  -3, 6, 4, 4, 6,  -3, 65
     };
 
-    public ComputerPlayer (Game game, int level)
+    public ComputerPlayer (Game game, int level = 1)
     {
         this.game = game;
         this.level = level;

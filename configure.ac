@@ -23,6 +23,8 @@ PKG_CHECK_MODULES(IAGNO, [
   libcanberra-gtk3 >= $CANBERRA_GTK_REQUIRED
 ])
 
+AC_PATH_PROG(GTESTER, gtester)
+
 dnl ###########################################################################
 dnl Internationalization
 dnl ###########################################################################
