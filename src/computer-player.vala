@@ -95,7 +95,7 @@ public class ComputerPlayer : Object
     private int search (Game g, Strategy strategy, int depth, int a, int b, int p, ref int move_x, ref int move_y)
     {
         /* If the end of the search depth or end of the game calculate how good a result this is */
-        if (depth == 0 || g.is_complete)
+        if (depth == 0 || g.is_complete ())
             return calculate_heuristic (g, strategy);
 
         /* Find all possible moves and sort from most new tiles to least new tiles */
@@ -263,7 +263,7 @@ public class ComputerPlayer : Object
         {
             for (var y = 0; y < 8; y++)
             {
-                if (game.can_place (x, y))
+                if (game.can_place (x, y, game.current_color))
                     moves.append (x * 8 + y);
             }
         }

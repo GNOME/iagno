@@ -248,7 +248,7 @@ public class Iagno : Gtk.Application
         if (light_computer != null && dark_computer != null)
             undo_action.set_enabled (false);
         else
-            undo_action.set_enabled (game.can_undo);
+            undo_action.set_enabled (game.can_undo ());
 
         if (was_pass)
         {
@@ -346,7 +346,7 @@ public class Iagno : Gtk.Application
     {
         play_sound ("flip-piece");
 
-        if (!game.can_move)
+        if (!game.can_move (game.current_color))
         {
             was_pass = true;
             game.pass ();

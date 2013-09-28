@@ -59,43 +59,6 @@ public class Game : Object
         get { return count_tiles (Player.DARK); }
     }
 
-    public bool can_move
-    {
-        get
-        {
-            for (var x = 0; x < width; x++)
-                for (var y = 0; y < height; y++)
-                    if (can_place (x, y))
-                        return true;
-            return false;
-        }
-    }
-
-    /* Game is complete if neither side can move */ 
-    public bool is_complete
-    {      
-       get
-       {
-           var save_color = current_color;
-           current_color = Player.DARK;
-           if (can_move)
-           {
-               current_color = save_color;
-               return false;
-           }
-
-           current_color = Player.LIGHT;
-           if (can_move)
-           {
-               current_color = save_color;
-               return false;
-           }
-            
-           current_color = save_color;
-           return true; 
-       }
-    }
-
     public Game (int width = 8, int height = 8)
     {
         /* Setup board with four tiles by default */
@@ -155,9 +118,25 @@ public class Game : Object
             return Player.NONE;
     }
 
-    public bool can_place (int x, int y)
+    /* Game is complete if neither side can move */
+    public bool is_complete ()
+        ensures (result || n_tiles < width * height)
     {
-        return place (x, y, current_color, false) > 0;
+        return !can_move (Player.LIGHT) && !can_move (Player.DARK);
+    }
+
+    public bool can_move (Player color)
+    {
+        for (var x = 0; x < width; x++)
+            for (var y = 0; y < height; y++)
+                if (can_place (x, y, color))
+                    return true;
+        return false;
+    }
+
+    public bool can_place (int x, int y, Player color)
+    {
+        return place (x, y, color, false) > 0;
     }
 
     public int place_tile (int x, int y)
@@ -166,9 +145,9 @@ public class Game : Object
         if (n_tiles == 0)
             return 0;
 
-        flip_current_color ();
+        current_color = Player.flip_color (current_color);
 
-        if (is_complete)
+        if (is_complete ())
             complete ();
         else
             move ();
@@ -177,10 +156,11 @@ public class Game : Object
     }
 
     public void pass ()
+        requires (!can_move (current_color))
     {
         undo_history[undo_index] = 0;
         undo_index++;
-        flip_current_color ();
+        current_color = Player.flip_color (current_color);
         move ();
     }
 
@@ -256,17 +236,15 @@ public class Game : Object
         return enemy_count;
     }
 
-    public bool can_undo
+    public bool can_undo ()
     {
-        get { return undo_index > 0; }
+        return undo_index > 0;
     }
 
     public void undo (int count = 1)
+        requires (count == 1 || count == 2)
     {
-        if (!can_undo)
-            return;
-
-        if (count < 1)
+        if (!can_undo ())
             return;
 
         for (var i = 0; i < count; i++)
@@ -285,7 +263,7 @@ public class Game : Object
             }
 
             /* Previous player to move again */
-            flip_current_color ();
+            current_color = Player.flip_color (current_color);
         }
 
         move ();
@@ -321,11 +299,4 @@ public class Game : Object
         return s;
     }
 
-    private void flip_current_color ()
-    {
-        if (current_color == Player.LIGHT)
-            current_color = Player.DARK;
-        else
-            current_color = Player.LIGHT;
-    }
 }

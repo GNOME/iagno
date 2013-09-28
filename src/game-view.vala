@@ -217,7 +217,7 @@ public class GameView : Gtk.DrawingArea
         var pixmap = get_pixmap (game.get_owner (x, y));
 
         /* If requested show the result by laying the tiles with winning color first */
-        if (game.is_complete && flip_final_result && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
+        if (game.is_complete () && flip_final_result && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
         {
             var n = y * game.width + x;
             var winning_color = Player.LIGHT;
