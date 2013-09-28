@@ -46,19 +46,7 @@ public class Game
     /* The number of tiles on the board */
     public int n_tiles
     {
-        get
-        {
-            var count = 0;
-            for (var x = 0; x < width; x++)
-            {
-                for (var y = 0; y < height; y++)
-                {
-                    if (tiles[x, y] != Player.NONE)
-                        count++;
-                }
-            }
-            return count;
-        }
+        get { return n_light_tiles + n_dark_tiles; }
     }
 
     public int n_light_tiles
