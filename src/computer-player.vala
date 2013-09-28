@@ -57,6 +57,7 @@ public class ComputerPlayer : Object
     }
 
     public void move ()
+        requires (game.can_move (game.current_color))
     {
         /* For the first two moves play randomly so the game is not always the same */
         if (game.n_tiles < 8)
@@ -89,10 +90,13 @@ public class ComputerPlayer : Object
         int x = 0, y = 0;
         search (new Game.copy (game), strategy, depth, int.MIN, int.MAX, 1, ref x, ref y);
         if (game.place_tile (x, y) == 0)
-            warning ("Computer chose an invalid move: %d,%d", x, y);
+            critical ("Computer chose an invalid move: %d,%d", x, y);
     }
 
     private static int search (Game g, Strategy strategy, int depth, int a, int b, int p, ref int move_x, ref int move_y)
+        requires (!g.is_complete ())
+        requires (p == 1 || p == -1)
+        requires (a < b)
     {
         /* If the end of the search depth or end of the game calculate how good a result this is */
         if (depth == 0)
