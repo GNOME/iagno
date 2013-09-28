@@ -38,7 +38,7 @@ public class ComputerPlayer : Object
     private int level;
 
     /* Value of owning each location */
-    private const int[] heuristic =
+    private static const int[] heuristic =
     {
         65,  -3, 6, 4, 4, 6,  -3, 65,
         -3, -29, 3, 1, 1, 3, -29, -3,
@@ -62,7 +62,7 @@ public class ComputerPlayer : Object
         if (game.n_tiles < 8)
         {
             int x, y;
-            random_select (out x, out y);
+            random_select (game, out x, out y);
             game.place_tile (x, y);
             return;
         }
@@ -92,7 +92,7 @@ public class ComputerPlayer : Object
             warning ("Computer chose an invalid move: %d,%d", x, y);
     }
 
-    private int search (Game g, Strategy strategy, int depth, int a, int b, int p, ref int move_x, ref int move_y)
+    private static int search (Game g, Strategy strategy, int depth, int a, int b, int p, ref int move_x, ref int move_y)
     {
         /* If the end of the search depth or end of the game calculate how good a result this is */
         if (depth == 0 || g.is_complete ())
@@ -179,7 +179,7 @@ public class ComputerPlayer : Object
      * the "better" the position. So callers want to minimize the result here
      * to find the best move.
      */
-    private int calculate_heuristic (Game g, Strategy strategy)
+    private static int calculate_heuristic (Game g, Strategy strategy)
     {
         var tile_difference = g.n_dark_tiles - g.n_light_tiles;
         if (g.current_color == Player.DARK)
@@ -256,14 +256,14 @@ public class ComputerPlayer : Object
         return 1;
     }
 
-    private void random_select (out int move_x, out int move_y)
+    private static void random_select (Game g, out int move_x, out int move_y)
     {
         List<int> moves = null;
         for (var x = 0; x < 8; x++)
         {
             for (var y = 0; y < 8; y++)
             {
-                if (game.can_place (x, y, game.current_color))
+                if (g.can_place (x, y, g.current_color))
                     moves.append (x * 8 + y);
             }
         }
