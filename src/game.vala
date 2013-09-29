@@ -110,7 +110,6 @@ public class Game : Object
             return Player.NONE;
     }
 
-    /* Game is complete if neither side can move */
     public bool is_complete ()
         ensures (result || n_tiles < width * height)
     {
