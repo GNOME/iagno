@@ -28,6 +28,9 @@ public class GameView : Gtk.DrawingArea
 
     public signal void move (int x, int y);
 
+    /* Used for a delay between the last move and flipping the pieces */
+    private bool flip_final_result_now = false;
+
     private int tile_size
     {
         get
@@ -216,8 +219,8 @@ public class GameView : Gtk.DrawingArea
     {
         var pixmap = get_pixmap (game.get_owner (x, y));
 
-        /* If requested show the result by laying the tiles with winning color first */
-        if (game.is_complete && flip_final_result && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
+        /* Show the result by laying the tiles with winning color first */
+        if (flip_final_result_now && game.is_complete)
         {
             var n = y * game.width + x;
             var winning_color = Player.LIGHT;
@@ -239,8 +242,28 @@ public class GameView : Gtk.DrawingArea
             else
                 pixmap = get_pixmap (Player.NONE);
         }
+        /* An undo occurred after the game was complete */
+        else if (flip_final_result_now && !game.is_complete)
+        {
+            flip_final_result_now = false;
+        }
 
         set_square (x, y, pixmap);
+
+        if (game.is_complete && flip_final_result && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
+        {
+            /*
+             * Show the actual final positions of the pieces before flipping the board.
+             * Otherwise, it could seem like the final player placed the others' piece.
+             */
+            Timeout.add (2000, () =>
+                {
+                    flip_final_result_now = true;
+                    square_changed_cb (x, y);
+                    /* Disconnect from mainloop */
+                    return false;
+                });
+        }
     }
     
     private void set_square (int x, int y, int pixmap)
