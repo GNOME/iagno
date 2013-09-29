@@ -205,12 +205,7 @@ public class Iagno : Gtk.Application
 
     private void start_game ()
     {
-        /* Cancel any pending computer moves */
-        if (computer_timer != 0)
-        {
-            Source.remove (computer_timer);
-            computer_timer = 0;
-        }
+        cancel_pending_computer_moves ();
 
         if (game != null)
             SignalHandler.disconnect_by_func (game, null, this);
@@ -268,12 +263,7 @@ public class Iagno : Gtk.Application
 
     private void undo_move_cb ()
     {
-        /* Cancel any pending computer moves */
-        if (computer_timer != 0)
-        {
-            Source.remove (computer_timer);
-            computer_timer = 0;
-        }
+        cancel_pending_computer_moves ();
 
         /* Undo once if the human player just moved, otherwise undo both moves */
         if ((game.current_color == Player.DARK && dark_computer != null) ||
@@ -359,15 +349,21 @@ public class Iagno : Gtk.Application
 
     private bool computer_move_cb ()
     {
-        /* set computer_timer to 0 *before* calling move() since that will
-         * call game_move_cb and possibly create a new timer.
-         */
-        computer_timer = 0;
+        cancel_pending_computer_moves ();
         if (game.current_color == Player.LIGHT)
             light_computer.move ();
         else
             dark_computer.move ();
         return false;
+    }
+
+    private void cancel_pending_computer_moves ()
+    {
+        if (computer_timer != 0)
+        {
+            Source.remove (computer_timer);
+            computer_timer = 0;
+        }
     }
 
     private void game_complete_cb ()
