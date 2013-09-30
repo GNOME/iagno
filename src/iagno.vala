@@ -275,6 +275,12 @@ public class Iagno : Gtk.Application
             game.undo (1);
         else
             game.undo (2);
+
+        /* If forced to pass, undo to last chosen move */
+        while (!game.can_move)
+            game.undo (2);
+
+        game_move_cb (game);
     }
 
     private void about_cb ()
