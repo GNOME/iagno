@@ -1,3 +1,16 @@
+iagno 3.8.3
+===========
+
+* Fix inevitable hangs (caused by slow play) when the board is about 3/4 full
+* Fix hang when neither side can move (now properly game over)
+* Fix New Game after computer vs. computer game causing the computers to go nuts
+* Fix Undo after the human was forced to pass
+* Fix hidden infobar if it's visible when a new message is displayed
+* Don't improperly play piece flip sound at the beginning of each game
+* Fix piece flip sound sometimes playing many times in a row (like one too-long sound)
+
+Contributors: Michael Catanzaro, John Cheetham, Dave Paul
+
 iagno 3.8.2
 ===========
 
