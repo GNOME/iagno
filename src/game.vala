@@ -256,8 +256,6 @@ public class Game : Object
             /* Previous player to move again */
             current_color = Player.flip_color (current_color);
         }
-
-        move ();
     }
 
     private void set_tile (int x, int y, Player color, bool update_history)
