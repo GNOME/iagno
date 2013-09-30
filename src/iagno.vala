@@ -311,8 +311,16 @@ public class Iagno : Gtk.Application
         show_preferences_dialog ();
     }
 
-    private void show_message (string message, Gtk.MessageType type)
+    private async void show_message (string message, Gtk.MessageType type)
     {
+        /* Bug #708132 */
+        infobar.hide ();
+        while (infobar.visible)
+        {
+            Idle.add (show_message.callback);
+            yield;
+        }
+
         infobar.message_type = type;
         infobar_label.set_label (message);
         infobar.show ();
