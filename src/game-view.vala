@@ -254,7 +254,7 @@ public class GameView : Gtk.DrawingArea
         {
             /*
              * Show the actual final positions of the pieces before flipping the board.
-             * Otherwise, it could seem like the final player placed the others' piece.
+             * Otherwise, it could seem like the final player placed the other's piece.
              */
             Timeout.add (2000, () =>
                 {
