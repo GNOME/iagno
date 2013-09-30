@@ -283,8 +283,6 @@ public class Game
             /* Previous player to move again */
             flip_current_color ();
         }
-
-        move ();
     }
 
     private void set_tile (int x, int y, Player color, bool update_history)
