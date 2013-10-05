@@ -23,6 +23,8 @@ PKG_CHECK_MODULES(IAGNO, [
   libcanberra-gtk3 >= $CANBERRA_GTK_REQUIRED
 ])
 
+AC_PATH_PROG(APPDATA_VALIDATE, appdata-validate)
+AC_PATH_PROG(DESKTOP_FILE_VALIDATE, desktop-file-validate)
 AC_PATH_PROG(GTESTER, gtester)
 
 dnl ###########################################################################
