@@ -13,7 +13,7 @@
     </_p>
   </description>
   <screenshots>
-    <_screenshot type="default" width="602" height="438">https://wiki.gnome.org/Apps/Iagno?action=AttachFile&#x26;do=get&#x26;target=iagno.png</_screenshot>
+    <_screenshot type="default" width="602" height="438">https://people.gnome.org/~mcatanzaro/iagno.png</_screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/Iagno</url>
   <updatecontact>games-list_at_gnome.org</updatecontact>
