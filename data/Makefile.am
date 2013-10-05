@@ -19,9 +19,10 @@ sounds_DATA = \
 	flip-piece.ogg \
 	gameover.ogg
 
-Gamesdir = $(datadir)/applications
-Games_in_files = iagno.desktop.in.in
-Games_DATA = $(Games_in_files:.desktop.in.in=.desktop)
+desktopdir = $(datadir)/applications
+desktop_in_files = iagno.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
 appdatadir = $(datadir)/appdata
 appdata_files = iagno.appdata.xml
@@ -38,12 +39,11 @@ EXTRA_DIST = \
 	$(theme_DATA) \
 	$(sounds_DATA) \
 	$(appdata_files) \
+	$(desktop_in_files) \
 	$(gsettings_in_file) \
 	$(man_MANS)
 
-CLEANFILES = $(Games_DATA) $(gsettings_SCHEMAS)
-DISTCLEANFILES = $(Games_DATA) $(gsettings_SCHEMAS)
-
-@INTLTOOL_DESKTOP_RULE@
+CLEANFILES = $(desktop_DATA) $(gsettings_SCHEMAS)
+DISTCLEANFILES = $(gsettings_SCHEMAS)
 
 -include $(top_srcdir)/git.mk

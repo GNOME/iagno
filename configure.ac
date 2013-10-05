@@ -47,7 +47,6 @@ Makefile
 po/Makefile.in
 data/Makefile
 data/icons/Makefile
-data/iagno.desktop.in
 help/Makefile
 src/Makefile
 ])
