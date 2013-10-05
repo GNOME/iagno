@@ -19,24 +19,24 @@
     </key>
     <key name="sound" type="b">
       <default>true</default>
-      <_summary>Sound</_summary>
-      <_description>Whether or not to play event sounds.</_description>
+      <summary>Sound</summary>
+      <description>Whether or not to play event sounds.</description>
     </key>
     <key name="window-width" type="i">
       <default>600</default>
-      <_summary>Width of the window in pixels</_summary>
+      <summary>Width of the window in pixels</summary>
     </key>
     <key name="window-height" type="i">
       <default>400</default>
-      <_summary>Height of the window in pixels</_summary>
+      <summary>Height of the window in pixels</summary>
     </key>
     <key name="window-is-maximized" type="b">
       <default>false</default>
-      <_summary>true if the window is maximized</_summary>
+      <summary>true if the window is maximized</summary>
     </key>
     <key name="window-is-fullscreen" type="b">
       <default>false</default>
-      <_summary>true if the window is fullscren</_summary>
+      <summary>true if the window is fullscren</summary>
     </key>
   </schema>
 </schemalist>

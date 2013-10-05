@@ -3,7 +3,7 @@
 [encoding: UTF-8]
 data/iagno.desktop.in
 [type: gettext/glade]data/iagno.ui
-data/org.gnome.iagno.gschema.xml.in
+data/org.gnome.iagno.gschema.xml
 src/computer-player.vala
 src/game.vala
 src/game-view.vala
