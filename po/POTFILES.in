@@ -1,6 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
 [encoding: UTF-8]
+data/iagno.appdata.xml.in
 data/iagno.desktop.in
 [type: gettext/glade]data/iagno.ui
 data/org.gnome.iagno.gschema.xml

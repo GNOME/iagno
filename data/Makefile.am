@@ -25,7 +25,9 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 appdatadir = $(datadir)/appdata
-appdata_files = iagno.appdata.xml
+appdata_in_files = iagno.appdata.xml.in
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+@INTLTOOL_XML_RULE@
 
 gsettings_SCHEMAS = org.gnome.iagno.gschema.xml
 @GSETTINGS_RULES@
@@ -36,12 +38,14 @@ EXTRA_DIST = \
 	$(ui_DATA) \
 	$(theme_DATA) \
 	$(sounds_DATA) \
-	$(appdata_files) \
+	$(appdata_in_files) \
 	$(desktop_in_files) \
 	$(gsettings_SCHEMAS) \
 	$(man_MANS)
 
-CLEANFILES = $(desktop_DATA)
+CLEANFILES = \
+	$(appdata_DATA) \
+	$(desktop_DATA)
 
 check-local: $(appdata_DATA) $(desktop_DATA)
 	$(APPDATA_VALIDATE) $(appdata_DATA)
