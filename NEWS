@@ -1,3 +1,20 @@
+3.10.1 - October 12, 2013
+=========================
+
+* Fix crazy comupters when starting a new game in computer vs. computer mode
+* Fix bug affecting the correctness of the computer's choice of moves
+* Fix additional low-level issues triggered by computer search, including one
+  that caused the piece flip sound to play many times in close succession
+* Fix undo after having passed
+* Fix infobar disappearing if intended to be displayed two moves in a row
+* Fix piece flipped sound improperly playing at the start of the game
+* Reallow undo after the game has ended
+* Add delay between last move and final flip to prevent the scenario where it
+  appears the last player placed a piece of the wrong color
+* Updated translations
+
+Contributors: Michael Catanzaro, Dave Paul
+
 3.10.0 - September 22, 2013
 ===========================
 
