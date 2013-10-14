@@ -132,10 +132,7 @@ public class GameView : Gtk.DrawingArea
             render_size = tile_size;
             var surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8, tile_size * 4);
             var c = new Cairo.Context (surface);
-            var pixbuf = load_theme ();
-            Gdk.cairo_set_source_pixbuf (c, pixbuf, 0, 0);
-            c.paint ();
-
+            load_theme (c);
             tiles_pattern = new Cairo.Pattern.for_surface (surface);
         }
 
@@ -186,28 +183,37 @@ public class GameView : Gtk.DrawingArea
         return false;
     }
 
-    private Gdk.Pixbuf load_theme ()
+    private void load_theme (Cairo.Context c)
     {
         var width = tile_size * 8;
         var height = tile_size * 4;
 
         try
         {
-            return Rsvg.pixbuf_from_file_at_size (theme, width, height);
+            var h = new Rsvg.Handle.from_file (theme);
+
+            var m = Cairo.Matrix.identity ();
+            m.scale ((double) width / h.width, (double) height / h.height);
+            c.set_matrix (m);
+            h.render_cairo (c);
+
+            return;
         }
         catch (Error e)
         {
-        }
-        
-        try
-        {
-            return new Gdk.Pixbuf.from_file_at_scale (theme, width, height, false);
-        }
-        catch (Error e)
-        {
+            /* Fall through and try loading as a pixbuf */
         }
 
-        return new Gdk.Pixbuf (Gdk.Colorspace.RGB, true, 8, width, height);
+        try
+        {
+            var p = new Gdk.Pixbuf.from_file_at_scale (theme, width, height, false);
+            Gdk.cairo_set_source_pixbuf (c, p, 0, 0);
+            c.paint ();
+        }
+        catch (Error e)
+        {
+            warning ("Failed to load theme %s: %s", theme, e.message);
+        }
     }
 
     public void redraw ()
