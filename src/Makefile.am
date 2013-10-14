@@ -22,7 +22,8 @@ iagno_VALAFLAGS = \
 	--pkg gtk+-3.0 \
 	--pkg librsvg-2.0 \
 	--pkg libcanberra \
-	--pkg libcanberra-gtk
+	--pkg libcanberra-gtk \
+	--target-glib 2.36
 
 iagno_LDADD = $(IAGNO_LIBS)
 
