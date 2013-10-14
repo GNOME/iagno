@@ -96,6 +96,12 @@ public class Iagno : Gtk.Application
         else if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
+        var headerbar = new Gtk.HeaderBar ();
+        headerbar.show_close_button = true;
+        headerbar.set_title (_("Iagno"));
+        headerbar.show ();
+        window.set_titlebar (headerbar);
+
         add_window (window);
 
         view = new GameView ();
