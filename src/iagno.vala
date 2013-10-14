@@ -481,7 +481,7 @@ public class Iagno : Gtk.Application
         var propbox = new Gtk.Dialog.with_buttons (_("Iagno Preferences"),
                                                    window,
                                                    0,
-                                                   Gtk.Stock.CLOSE, Gtk.ResponseType.CLOSE,
+                                                   _("_Close"), Gtk.ResponseType.CLOSE,
                                                    null);
 
         propbox.set_border_width (5);
