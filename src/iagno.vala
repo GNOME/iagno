@@ -345,9 +345,9 @@ public class Iagno : Gtk.Application
         {
             game.pass ();
             if (game.current_color == Player.DARK)
-                show_message (_("Light must pass, Dark's move"), Gtk.MessageType.INFO);
+                show_message.begin (_("Light must pass, Dark's move"), Gtk.MessageType.INFO);
             else
-                show_message (_("Dark must pass, Light's move"), Gtk.MessageType.INFO);
+                show_message.begin (_("Dark must pass, Light's move"), Gtk.MessageType.INFO);
             return;
         }
 
@@ -385,11 +385,11 @@ public class Iagno : Gtk.Application
         update_ui ();
 
         if (game.n_light_tiles > game.n_dark_tiles)
-            show_message (_("Light player wins!"), Gtk.MessageType.INFO);
+            show_message.begin (_("Light player wins!"), Gtk.MessageType.INFO);
         else if (game.n_dark_tiles > game.n_light_tiles)
-            show_message (_("Dark player wins!"), Gtk.MessageType.INFO);
+            show_message.begin (_("Dark player wins!"), Gtk.MessageType.INFO);
         else if (game.n_light_tiles == game.n_dark_tiles)
-            show_message (_("The game was a draw."), Gtk.MessageType.INFO);
+            show_message.begin (_("The game was a draw."), Gtk.MessageType.INFO);
 
         play_sound ("gameover");
     }
@@ -413,7 +413,7 @@ public class Iagno : Gtk.Application
             return;
 
         if (game.place_tile (x, y) == 0)
-            show_message (_("Invalid move."), Gtk.MessageType.ERROR);
+            show_message.begin (_("Invalid move."), Gtk.MessageType.ERROR);
     }
 
     private void dark_level_changed_cb (Gtk.ComboBox combo)
