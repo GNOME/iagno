@@ -15,6 +15,7 @@ iagno_CFLAGS = \
 	-DDATA_DIRECTORY=\"$(datadir)/iagno\" \
 	-DSOUND_DIRECTORY=\"$(datadir)/iagno/sounds\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
+	-w \
 	$(IAGNO_CFLAGS)
 
 iagno_VALAFLAGS = \
