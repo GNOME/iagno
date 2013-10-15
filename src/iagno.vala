@@ -234,7 +234,10 @@ public class Iagno : Gtk.Application
 
         update_ui ();
 
-        /* Get the computer to move after a delay (so it looks like it's thinking) */
+        /*
+         * Get the computer to move after a delay (so it looks like it's
+         * thinking - but only a short delay for the first move)
+         */
         if (dark_computer != null)
             computer_timer = Timeout.add (1000, computer_move_cb);
     }
@@ -359,12 +362,17 @@ public class Iagno : Gtk.Application
 
         update_ui ();
 
-        /* Get the computer to move after a delay (so it looks like it's thinking) */
-        if ((game.current_color == Player.LIGHT && light_computer != null) ||
-            (game.current_color == Player.DARK && dark_computer != null))
-        {
-            computer_timer = Timeout.add (1000, computer_move_cb);
-        }
+        /*
+         * Get the computer to move after a delay, so it looks like it's
+         * thinking. Make it fairly long so the human doesn't feel overwhelmed,
+         * but not so long as to become boring. Also, attempt to play faster at
+         * higher difficulties. (In actuality, Hard will take longer anyway
+         * since it must search deeper, but this compensates somewhat.)
+         */
+        if (game.current_color == Player.LIGHT && light_computer != null)
+            computer_timer = Timeout.add_seconds (5 - light_computer.level, computer_move_cb);
+        else if (game.current_color == Player.DARK && dark_computer != null)
+            computer_timer = Timeout.add_seconds (5 - dark_computer.level, computer_move_cb);
     }
 
     private bool computer_move_cb ()

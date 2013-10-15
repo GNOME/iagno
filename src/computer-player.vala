@@ -35,7 +35,7 @@ public class ComputerPlayer : Object
     private Game game;
 
     /* Strength */
-    private int level;
+    public int level { get; private set; }
 
     /* Value of owning each location */
     private static const int[] heuristic =
