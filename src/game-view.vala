@@ -90,13 +90,6 @@ public class GameView : Gtk.DrawingArea
         set { _theme = value; tiles_pattern = null; queue_draw (); }
     }
 
-    private bool _show_grid;
-    public bool show_grid
-    {
-        get { return _show_grid; }
-        set { _show_grid = value; redraw (); }
-    }
-
     private bool _flip_final_result;
     public bool flip_final_result
     {
@@ -110,6 +103,17 @@ public class GameView : Gtk.DrawingArea
                 for (var y = 0; y < game.height; y++)
                     square_changed_cb (x, y);
         }
+    }
+
+    public override Gtk.SizeRequestMode get_request_mode ()
+    {
+        return Gtk.SizeRequestMode.WIDTH_FOR_HEIGHT;
+    }
+
+    public override void get_preferred_width_for_height (int height, out int minimum_width, out int natural_width)
+    {
+        /* Try and be square */
+        minimum_width = natural_width = height;
     }
 
     public override void get_preferred_width (out int minimum, out int natural)
@@ -126,7 +130,7 @@ public class GameView : Gtk.DrawingArea
     {
         if (game == null)
             return false;
-            
+
         if (tiles_pattern == null || render_size != tile_size)
         {
             render_size = tile_size;
@@ -154,31 +158,21 @@ public class GameView : Gtk.DrawingArea
             }
         }
 
-        if (show_grid)
+        cr.set_source_rgba (1.0, 1.0, 1.0, 0.5);
+        cr.set_operator (Cairo.Operator.DIFFERENCE);
+        cr.set_line_width (GRID_WIDTH);
+        for (var i = 1; i < 8; i++)
         {
-            /* Make sure the dash width evenly subdivides the tile height, and is at least 4 pixels long.
-            * This makes the dash crossings always cross in the same place, which looks nicer. */
-            var dash_count = (tile_size + GRID_WIDTH) / 4;
-            if (dash_count % 2 != 0)
-                dash_count--;
-            double dash[1];
-            dash[0] = ((double)(tile_size + GRID_WIDTH)) / dash_count;
-            cr.set_dash (dash, 2.5);
+            cr.move_to (x_offset + i * board_size / 8 - 0.5, y_offset);
+            cr.rel_line_to (0, board_size);
 
-            cr.set_source_rgb (1.0, 1.0, 1.0);
-            cr.set_operator (Cairo.Operator.DIFFERENCE);
-            cr.set_line_width (GRID_WIDTH);
-            for (var i = 1; i < 8; i++)
-            {
-                cr.move_to (x_offset + i * board_size / 8 - 0.5, y_offset);
-                cr.rel_line_to (0, board_size);
-
-                cr.move_to (x_offset, y_offset + i * board_size / 8 - 0.5);
-                cr.rel_line_to (board_size, 0);
-            }
-
-            cr.stroke ();
+            cr.move_to (x_offset, y_offset + i * board_size / 8 - 0.5);
+            cr.rel_line_to (board_size, 0);
         }
+
+        cr.rectangle (x_offset + 0.5, y_offset + 0.5, board_size - 1, board_size - 1);
+
+        cr.stroke ();
 
         return false;
     }

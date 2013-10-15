@@ -19,15 +19,15 @@ public class Iagno : Gtk.Application
     private int window_height;
     private bool is_fullscreen;
     private bool is_maximized;
-    private Gtk.InfoBar infobar;
-    private Gtk.Statusbar statusbar;
-    private uint statusbar_id;
     private GameView view;
-    private Gtk.Label infobar_label;
-    private Gtk.Label dark_label;
-    private Gtk.Label light_label;
+    private Gtk.Button new_game_button;
+    private Gtk.Label new_game_label;
+    private Gtk.Label dark_active_image;
+    private Gtk.Label dark_score_image;
     private Gtk.Label dark_score_label;
+    private Gtk.Label light_active_image;
     private Gtk.Label light_score_label;
+    private Gtk.Label light_score_image;
     private SimpleAction undo_action;
 
     /* Light computer player (if there is one) */
@@ -85,8 +85,8 @@ public class Iagno : Gtk.Application
             return;
         }
         set_app_menu (builder.get_object ("iagno-menu") as MenuModel);
-        var top_grid = builder.get_object ("grid") as Gtk.Grid;
-        window = builder.get_object ("window") as Gtk.Window;
+        window = new Gtk.ApplicationWindow (this);
+        window.set_border_width (6);
         window.set_title (_("Iagno"));
         window.icon_name = "iagno";
         window.configure_event.connect (window_configure_event_cb);
@@ -103,66 +103,67 @@ public class Iagno : Gtk.Application
         headerbar.show ();
         window.set_titlebar (headerbar);
 
-        add_window (window);
+        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+        hbox.show ();
+        window.add (hbox);
 
         view = new GameView ();
         view.hexpand = true;
         view.vexpand = true;
         view.game = game;
         view.move.connect (player_move_cb);
-        view.show_grid = settings.get_boolean ("show-grid");
         view.flip_final_result = settings.get_boolean ("flip-final-results");
         var tile_set = settings.get_string ("tileset");
         view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
         view.show ();
-        top_grid.attach (view, 0, 3, 1, 1);
+        hbox.pack_start (view, false, true, 0);
 
-        infobar = new Gtk.InfoBar ();
-        top_grid.attach (infobar, 0, 2, 1, 1);
-        infobar_label = new Gtk.Label ("");
-        infobar_label.show ();
-        infobar.add (infobar_label);
+        var side_box = new Gtk.Grid ();
+        side_box.show ();
+        side_box.border_width = 6;
+        hbox.pack_start (side_box, true, true, 0);
 
-        statusbar = new Gtk.Statusbar ();
-        statusbar.show ();
+        dark_active_image = new Gtk.Label ("〉");
+        dark_active_image.show ();
+        side_box.attach (dark_active_image, 0, 0, 1, 1);
 
-        var toolbar = builder.get_object ("toolbar") as Gtk.Toolbar;
-        toolbar.show_arrow = false;
-        toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
-        toolbar.insert (new Gtk.SeparatorToolItem (), -1);
-        var status_item = new Gtk.ToolItem ();
-        status_item.set_visible_horizontal (true);
-        status_item.set_expand (true);
+        dark_score_image = new Gtk.Label ("●");
+        dark_score_image.show ();
+        side_box.attach (dark_score_image, 1, 0, 1, 1);
 
-        var status_alignment = new Gtk.Alignment (1.0f, 0.5f, 0.0f, 0.0f);
-        status_alignment.add (statusbar);
-        status_item.add (status_alignment);
-
-        toolbar.insert (status_item, -1);
-        toolbar.show_all ();
-
-        var grid = new Gtk.Grid ();
-        grid.set_column_spacing (6);
-        grid.show ();
-        statusbar.pack_start (grid, false, true, 0);
-
-        dark_label = new Gtk.Label (_("Dark:"));
-        dark_label.show ();
-        grid.attach (dark_label, 1, 0, 1, 1);
-
-        dark_score_label = new Gtk.Label ("00");
+        dark_score_label = new Gtk.Label ("0");
         dark_score_label.show ();
-        grid.attach (dark_score_label, 2, 0, 1, 1);
+        dark_score_label.xalign = 0.0f;
+        dark_score_label.hexpand = true;
+        side_box.attach (dark_score_label, 2, 0, 1, 1);
 
-        light_label = new Gtk.Label (_("Light:"));
-        light_label.show ();
-        grid.attach (light_label, 4, 0, 1, 1);
+        light_active_image = new Gtk.Label ("〉");
+        side_box.attach (light_active_image, 0, 1, 1, 1);
 
-        light_score_label = new Gtk.Label ("00");
+        light_score_image = new Gtk.Label ("○");
+        light_score_image.show ();
+        side_box.attach (light_score_image, 1, 1, 1, 1);
+
+        light_score_label = new Gtk.Label ("0");
         light_score_label.show ();
-        grid.attach (light_score_label, 5, 0, 1, 1);
+        light_score_label.xalign = 0.0f;
+        light_score_label.expand = false;
+        side_box.attach (light_score_label, 2, 1, 1, 1);
 
-        statusbar_id = statusbar.get_context_id ("iagno");
+        new_game_button = new Gtk.Button ();
+        new_game_button.show ();
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+        box.show ();
+        var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.BUTTON);
+        image.show ();
+        box.pack_start (image);
+        new_game_label = new Gtk.Label.with_mnemonic (_("_Start Over"));
+        new_game_label.show ();
+        box.pack_start (new_game_label);
+        new_game_button.add (box);
+        new_game_button.relief = Gtk.ReliefStyle.NONE;
+        new_game_button.action_name = "app.new-game";
+        side_box.attach (new_game_button, 0, 2, 3, 1);
 
         start_game ();
 
@@ -245,30 +246,17 @@ public class Iagno : Gtk.Application
 
     private void update_ui ()
     {
-        infobar.hide ();
-
         /* Can't undo when running two computer players */
         if (light_computer != null && dark_computer != null)
             undo_action.set_enabled (false);
         else
             undo_action.set_enabled (game.can_undo ());
 
-        if (game.current_color == Player.DARK)
-        {
-            dark_label.set_markup ("<span font_weight='bold'>"+_("Dark:")+"</span>");
-            light_label.set_markup ("<span font_weight='normal'>"+_("Light:")+"</span>");
-            /* Translators: this is a 2 digit representation of the current score. */
-            dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
-            light_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
-        }
-        else if (game.current_color == Player.LIGHT)
-        {
-            dark_label.set_markup ("<span font_weight='normal'>"+_("Dark:")+"</span>");
-            light_label.set_markup ("<span font_weight='bold'>"+_("Light:")+"</span>");
-            /* Translators: this is a 2 digit representation of the current score. */
-            dark_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
-            light_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
-        }
+        dark_active_image.visible = game.current_color == Player.DARK;
+        light_active_image.visible = game.current_color == Player.LIGHT;
+
+        dark_score_label.set_markup ("%d".printf (game.n_dark_tiles));
+        light_score_label.set_markup ("%d".printf (game.n_light_tiles));
     }
 
     private void undo_move_cb ()
@@ -314,21 +302,6 @@ public class Iagno : Gtk.Application
         show_preferences_dialog ();
     }
 
-    private async void show_message (string message, Gtk.MessageType type)
-    {
-        /* Bug #708132 */
-        infobar.hide ();
-        while (infobar.visible)
-        {
-            Idle.add (show_message.callback);
-            yield;
-        }
-
-        infobar.message_type = type;
-        infobar_label.set_label (message);
-        infobar.show ();
-    }
-
     private void help_cb ()
     {
         try
@@ -351,10 +324,6 @@ public class Iagno : Gtk.Application
         if (!game.can_move (game.current_color))
         {
             game.pass ();
-            if (game.current_color == Player.DARK)
-                show_message.begin (_("Light must pass, Dark's move"), Gtk.MessageType.INFO);
-            else
-                show_message.begin (_("Dark must pass, Light's move"), Gtk.MessageType.INFO);
             return;
         }
 
@@ -396,13 +365,6 @@ public class Iagno : Gtk.Application
     {
         update_ui ();
 
-        if (game.n_light_tiles > game.n_dark_tiles)
-            show_message.begin (_("Light player wins!"), Gtk.MessageType.INFO);
-        else if (game.n_dark_tiles > game.n_light_tiles)
-            show_message.begin (_("Dark player wins!"), Gtk.MessageType.INFO);
-        else if (game.n_light_tiles == game.n_dark_tiles)
-            show_message.begin (_("The game was a draw."), Gtk.MessageType.INFO);
-
         play_sound ("gameover");
     }
 
@@ -424,8 +386,7 @@ public class Iagno : Gtk.Application
         if (game.current_color == Player.DARK && settings.get_int ("black-level") > 0)
             return;
 
-        if (game.place_tile (x, y) == 0)
-            show_message.begin (_("Invalid move."), Gtk.MessageType.ERROR);
+        game.place_tile (x, y);
     }
 
     private void dark_level_changed_cb (Gtk.ComboBox combo)
@@ -450,12 +411,6 @@ public class Iagno : Gtk.Application
     {
         var play_sounds = widget.get_active ();
         settings.set_boolean ("sound", play_sounds);
-    }
-
-    private void grid_toggled_cb (Gtk.ToggleButton widget)
-    {
-        view.show_grid = widget.get_active ();
-        settings.set_boolean ("show-grid", view.show_grid);
     }
 
     private void flip_final_toggled_cb (Gtk.ToggleButton widget)
@@ -572,11 +527,6 @@ public class Iagno : Gtk.Application
         enable_sounds_button.set_active (settings.get_boolean ("sound"));
         enable_sounds_button.toggled.connect (sound_select);
         grid.attach (enable_sounds_button, 0, 2, 2, 1);
-
-        var grid_button = new Gtk.CheckButton.with_mnemonic (_("S_how grid"));
-        grid_button.set_active (settings.get_boolean ("show-grid"));
-        grid_button.toggled.connect (grid_toggled_cb);
-        grid.attach (grid_button, 0, 3, 2, 1);
 
         var flip_final_button = new Gtk.CheckButton.with_mnemonic (_("_Flip final results"));
         flip_final_button.set_active (settings.get_boolean ("flip-final-results"));
