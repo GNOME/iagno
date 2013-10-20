@@ -17,7 +17,7 @@
     </_p>
   </description>
   <screenshots>
-    <_screenshot type="default" width="602" height="438">https://people.gnome.org/~mcatanzaro/iagno.png</_screenshot>
+    <screenshot type="default" width="1176" height="650">https://people.gnome.org/~mcatanzaro/iagno.png</screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/Iagno</url>
   <updatecontact>games-list_at_gnome.org</updatecontact>
