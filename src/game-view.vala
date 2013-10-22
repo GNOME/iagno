@@ -90,21 +90,6 @@ public class GameView : Gtk.DrawingArea
         set { _theme = value; tiles_pattern = null; queue_draw (); }
     }
 
-    private bool _flip_final_result;
-    public bool flip_final_result
-    {
-        get { return _flip_final_result; }
-        set
-        {
-            _flip_final_result = value;
-            if (game == null)
-                return;
-            for (var x = 0; x < game.width; x++)
-                for (var y = 0; y < game.height; y++)
-                    square_changed_cb (x, y);
-        }
-    }
-
     public override Gtk.SizeRequestMode get_request_mode ()
     {
         return Gtk.SizeRequestMode.WIDTH_FOR_HEIGHT;
@@ -250,7 +235,7 @@ public class GameView : Gtk.DrawingArea
 
         set_square (x, y, pixmap);
 
-        if (game.is_complete () && flip_final_result && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
+        if (game.is_complete () && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
         {
             /*
              * Show the actual final positions of the pieces before flipping the board.

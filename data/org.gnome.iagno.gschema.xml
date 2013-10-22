@@ -11,9 +11,6 @@
     <key name="tileset" type="s">
       <default>'black_and_white.svg'</default>
     </key>
-    <key name="flip-final-results" type="b">
-      <default>true</default>
-    </key>
     <key name="sound" type="b">
       <default>true</default>
       <summary>Sound</summary>

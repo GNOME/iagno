@@ -112,7 +112,6 @@ public class Iagno : Gtk.Application
         view.vexpand = true;
         view.game = game;
         view.move.connect (player_move_cb);
-        view.flip_final_result = settings.get_boolean ("flip-final-results");
         var tile_set = settings.get_string ("tileset");
         view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
         view.show ();
@@ -423,12 +422,6 @@ public class Iagno : Gtk.Application
         settings.set_boolean ("sound", play_sounds);
     }
 
-    private void flip_final_toggled_cb (Gtk.ToggleButton widget)
-    {
-        view.flip_final_result = widget.get_active ();
-        settings.set_boolean ("flip-final-results", view.flip_final_result);
-    }
-
     private void propbox_response_cb (Gtk.Widget widget, int response_id)
     {
         widget.hide ();
@@ -533,20 +526,10 @@ public class Iagno : Gtk.Application
             combo.set_active_iter (iter);
         grid.attach (combo, 1, 1, 1, 1);
 
-        var enable_sounds_button = new Gtk.CheckButton.with_mnemonic (_("E_nable sounds"));
-        enable_sounds_button.set_active (settings.get_boolean ("sound"));
-        enable_sounds_button.toggled.connect (sound_select);
-        grid.attach (enable_sounds_button, 0, 2, 2, 1);
-
-        var flip_final_button = new Gtk.CheckButton.with_mnemonic (_("_Flip final results"));
-        flip_final_button.set_active (settings.get_boolean ("flip-final-results"));
-        flip_final_button.toggled.connect (flip_final_toggled_cb);
-        grid.attach (flip_final_button, 0, 4, 2, 1);
-
         label = new Gtk.Label.with_mnemonic (_("_Tile set:"));
         label.set_alignment (0.0f, 0.5f);
         label.expand = true;
-        grid.attach (label, 0, 5, 1, 1);
+        grid.attach (label, 0, 2, 1, 1);
 
         var theme_combo = new Gtk.ComboBox ();
         renderer = new Gtk.CellRendererText ();
@@ -593,7 +576,12 @@ public class Iagno : Gtk.Application
 
         label.set_mnemonic_widget (theme_combo);
         theme_combo.changed.connect (theme_changed_cb);
-        grid.attach (theme_combo, 1, 5, 1, 1);
+        grid.attach (theme_combo, 1, 2, 1, 1);
+
+        var enable_sounds_button = new Gtk.CheckButton.with_mnemonic (_("E_nable sounds"));
+        enable_sounds_button.set_active (settings.get_boolean ("sound"));
+        enable_sounds_button.toggled.connect (sound_select);
+        grid.attach (enable_sounds_button, 0, 3, 2, 1);
 
         propbox.show_all ();
     }
