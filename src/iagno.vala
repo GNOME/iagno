@@ -118,52 +118,58 @@ public class Iagno : Gtk.Application
         view.show ();
         hbox.pack_start (view, false, true, 0);
 
-        var side_box = new Gtk.Grid ();
+        var side_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
         side_box.show ();
-        side_box.border_width = 6;
         hbox.pack_start (side_box, true, true, 0);
+
+        var scores_grid = new Gtk.Grid ();
+        scores_grid.show ();
+        scores_grid.border_width = 6;
+        side_box.pack_start (scores_grid, true, true, 0);
 
         dark_active_image = new Gtk.Label ("〉");
         dark_active_image.show ();
-        side_box.attach (dark_active_image, 0, 0, 1, 1);
+        scores_grid.attach (dark_active_image, 0, 0, 1, 1);
 
         dark_score_image = new Gtk.Label ("●");
         dark_score_image.show ();
-        side_box.attach (dark_score_image, 1, 0, 1, 1);
+        scores_grid.attach (dark_score_image, 1, 0, 1, 1);
 
         dark_score_label = new Gtk.Label ("0");
         dark_score_label.show ();
         dark_score_label.xalign = 0.0f;
         dark_score_label.hexpand = true;
-        side_box.attach (dark_score_label, 2, 0, 1, 1);
+        scores_grid.attach (dark_score_label, 2, 0, 1, 1);
 
         light_active_image = new Gtk.Label ("〉");
-        side_box.attach (light_active_image, 0, 1, 1, 1);
+        scores_grid.attach (light_active_image, 0, 1, 1, 1);
 
         light_score_image = new Gtk.Label ("○");
         light_score_image.show ();
-        side_box.attach (light_score_image, 1, 1, 1, 1);
+        scores_grid.attach (light_score_image, 1, 1, 1, 1);
 
         light_score_label = new Gtk.Label ("0");
         light_score_label.show ();
         light_score_label.xalign = 0.0f;
         light_score_label.expand = false;
-        side_box.attach (light_score_label, 2, 1, 1, 1);
+        scores_grid.attach (light_score_label, 2, 1, 1, 1);
 
         new_game_button = new Gtk.Button ();
         new_game_button.show ();
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
         box.show ();
-        var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.BUTTON);
+        var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
         image.show ();
         box.pack_start (image);
         new_game_label = new Gtk.Label.with_mnemonic (_("_Start Over"));
         new_game_label.show ();
         box.pack_start (new_game_label);
         new_game_button.add (box);
+        new_game_button.valign = Gtk.Align.END;
+        new_game_button.halign = Gtk.Align.CENTER;
         new_game_button.relief = Gtk.ReliefStyle.NONE;
         new_game_button.action_name = "app.new-game";
-        side_box.attach (new_game_button, 0, 2, 3, 1);
+        side_box.pack_end (new_game_button, false, true, 10);
 
         start_game ();
 
@@ -222,6 +228,8 @@ public class Iagno : Gtk.Application
         game.move.connect (game_move_cb);
         game.complete.connect (game_complete_cb);
         view.game = game;
+
+        new_game_label.label = _("_Start Over");
 
         var dark_level = settings.get_int ("black-level");
         if (dark_level > 0)
@@ -364,8 +372,8 @@ public class Iagno : Gtk.Application
     private void game_complete_cb ()
     {
         update_ui ();
-
         play_sound ("gameover");
+        new_game_label.label = _("Play _Again");
     }
 
     private void play_sound (string name)
