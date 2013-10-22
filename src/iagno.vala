@@ -374,6 +374,8 @@ public class Iagno : Gtk.Application
         update_ui ();
         play_sound ("gameover");
         new_game_label.label = _("Play _Again");
+        dark_active_image.visible = false;
+        light_active_image.visible = false;
     }
 
     private void play_sound (string name)
