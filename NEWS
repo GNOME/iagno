@@ -1,3 +1,21 @@
+3.11.1 - October 27, 2013
+=========================
+
+Updated Dependencies: intltool >= 0.50
+
+* Make the AI play much slower to give the game a more natural tempo
+* Fix serious bug affecting the performance of the AI
+* Fix AI playing like crazy after starting a second computer vs. computer game
+* Once again allow Undo after the game has ended
+* Add a visual delay between the final move and when the pieces are flipped
+* Fix infobar improperly disappearing when used two moves in a row
+* Miscellaneous code cleanups
+* Add some simple test cases
+* Appdata is now translatable
+* Updated translations
+
+Contributors: Michael Catanzaro, Dave Paul
+
 3.10.0 - September 22, 2013
 ===========================
 
