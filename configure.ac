@@ -26,8 +26,15 @@ PKG_CHECK_MODULES(IAGNO, [
 ])
 
 AC_PATH_PROG(APPDATA_VALIDATE, appdata-validate)
+AM_CONDITIONAL([VALIDATE_APPDATA], [test -n "${APPDATA_VALIDATE}"])
+
 AC_PATH_PROG(DESKTOP_FILE_VALIDATE, desktop-file-validate)
+AM_CONDITIONAL([VALIDATE_DESKTOP_FILE], [test -n "${DESKTOP_FILE_VALIDATE}"])
+
 AC_PATH_PROG(GTESTER, gtester)
+if test -z "${GTESTER}" ; then
+  AC_MSG_ERROR([Please install gtester])
+fi
 
 dnl ###########################################################################
 dnl Internationalization
