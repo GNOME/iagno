@@ -154,14 +154,12 @@ public class Iagno : Gtk.Application
         scores_grid.attach (light_score_label, 2, 1, 1, 1);
 
         new_game_button = new Gtk.Button ();
-        new_game_button.show ();
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
         box.show ();
         var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
         image.show ();
         box.pack_start (image);
-        new_game_label = new Gtk.Label.with_mnemonic (_("_Start Over"));
-        new_game_label.show ();
+        new_game_label = new Gtk.Label.with_mnemonic (_("Play _Again"));
         box.pack_start (new_game_label);
         new_game_button.add (box);
         new_game_button.valign = Gtk.Align.END;
@@ -228,7 +226,8 @@ public class Iagno : Gtk.Application
         game.complete.connect (game_complete_cb);
         view.game = game;
 
-        new_game_label.label = _("_Start Over");
+        new_game_button.hide ();
+        new_game_label.hide ();
 
         var dark_level = settings.get_int ("black-level");
         if (dark_level > 0)
@@ -280,6 +279,10 @@ public class Iagno : Gtk.Application
         /* If forced to pass, undo to last chosen move */
         while (!game.can_move (game.current_color))
             game.undo (2);
+
+        /* For undo after the end of the game */
+        new_game_button.hide ();
+        new_game_label.hide ();
 
         game_move_cb (game);
     }
@@ -372,7 +375,8 @@ public class Iagno : Gtk.Application
     {
         update_ui ();
         play_sound ("gameover");
-        new_game_label.label = _("Play _Again");
+        new_game_button.show ();
+        new_game_label.show ();
         dark_active_image.visible = false;
         light_active_image.visible = false;
     }
