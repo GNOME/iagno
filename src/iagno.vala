@@ -346,7 +346,9 @@ public class Iagno : Gtk.Application
          * higher difficulties. (In actuality, Hard will take longer anyway
          * since it must search deeper, but this compensates somewhat.)
          */
-        if (game.current_color == Player.LIGHT && light_computer != null)
+        if (game.n_tiles == 63)
+            computer_timer = Timeout.add_seconds (1, computer_move_cb);
+        else if (game.current_color == Player.LIGHT && light_computer != null)
             computer_timer = Timeout.add_seconds (5 - light_computer.level, computer_move_cb);
         else if (game.current_color == Player.DARK && dark_computer != null)
             computer_timer = Timeout.add_seconds (5 - dark_computer.level, computer_move_cb);
