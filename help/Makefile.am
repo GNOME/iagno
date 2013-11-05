@@ -25,7 +25,6 @@ HELP_FILES = \
 	shortcuts.page			\
 	sound.page			\
 	strategy.page			\
-	visual-results.page		\
 	translate.page
 
 HELP_LINGUAS = ca cs de el en_GB es eu fr gl hu it oc pt_BR sl sr sr@latin sv zh_CN
