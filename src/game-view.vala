@@ -143,7 +143,7 @@ public class GameView : Gtk.DrawingArea
             }
         }
 
-        cr.set_source_rgba (1.0, 1.0, 1.0, 0.5);
+        cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
         cr.set_operator (Cairo.Operator.DIFFERENCE);
         cr.set_line_width (GRID_WIDTH);
         for (var i = 1; i < 8; i++)
