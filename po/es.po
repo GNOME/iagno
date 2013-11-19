@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-20 03:22+0000\n"
-"PO-Revision-Date: 2013-11-04 16:29+0100\n"
+"POT-Creation-Date: 2013-11-19 05:35+0000\n"
+"PO-Revision-Date: 2013-11-19 16:35+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -30,7 +30,7 @@ msgid ""
 "game. The game is played with tiles that are dark on one side and light on "
 "the other."
 msgstr ""
-"Iagno es una versión para ordenador de Revers, un juego de estrategia con "
+"Iagno es una versión para ordenador de Reversi, un juego de estrategia con "
 "tablero para dos jugadores. Se juega con fichas blancas a un lado del "
 "tablero y negras al otro."
 
@@ -46,7 +46,7 @@ msgstr ""
 "atrapando las fichas del oponente entre dos fichas de su color."
 
 #: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:90 ../src/iagno.vala:101
-#: ../src/iagno.vala:298 ../src/iagno.vala:664
+#: ../src/iagno.vala:297 ../src/iagno.vala:662
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -121,17 +121,21 @@ msgstr "Blancas:"
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:303
+#: ../src/iagno.vala:302
+#| msgid ""
+#| "A disk flipping game derived from Reversi.\n"
+#| "\n"
+#| "Iagno is a part of GNOME Games."
 msgid ""
-"A disk flipping game derived from Reversi.\n"
+"A disk flipping game derived from Reversi\n"
 "\n"
 "Iagno is a part of GNOME Games."
 msgstr ""
 "Un juego de voltear fichas derivado de Reversi.\n"
 "\n"
-"Iagno es parte de los Juegos de GNOME."
+"Iagno es parte de los juegos de GNOME."
 
-#: ../src/iagno.vala:306
+#: ../src/iagno.vala:305
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -140,79 +144,79 @@ msgstr ""
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
-#: ../src/iagno.vala:308
+#: ../src/iagno.vala:307
 msgid "GNOME Games web site"
 msgstr "Página web de los juegos de GNOME"
 
-#: ../src/iagno.vala:357
+#: ../src/iagno.vala:355
 msgid "Light must pass, Dark's move"
 msgstr "Blancas pasan turno, mueven las negras"
 
-#: ../src/iagno.vala:359
+#: ../src/iagno.vala:357
 msgid "Dark must pass, Light's move"
 msgstr "Negras pasan turno, mueven las blancas"
 
-#: ../src/iagno.vala:402
+#: ../src/iagno.vala:400
 msgid "Light player wins!"
 msgstr "Ganan las blancas."
 
-#: ../src/iagno.vala:404
+#: ../src/iagno.vala:402
 msgid "Dark player wins!"
 msgstr "Ganan las negras."
 
-#: ../src/iagno.vala:406
+#: ../src/iagno.vala:404
 msgid "The game was a draw."
 msgstr "Empate."
 
-#: ../src/iagno.vala:430
+#: ../src/iagno.vala:428
 msgid "Invalid move."
 msgstr "Movimiento no válido."
 
-#: ../src/iagno.vala:495
+#: ../src/iagno.vala:493
 msgid "Iagno Preferences"
 msgstr "Preferencias de Iagno"
 
-#: ../src/iagno.vala:498
+#: ../src/iagno.vala:496
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: ../src/iagno.vala:514
+#: ../src/iagno.vala:512
 msgid "Dark Player:"
 msgstr "Negras:"
 
-#: ../src/iagno.vala:527 ../src/iagno.vala:556
+#: ../src/iagno.vala:525 ../src/iagno.vala:554
 msgid "Human"
 msgstr "Humano"
 
-#: ../src/iagno.vala:531 ../src/iagno.vala:560
+#: ../src/iagno.vala:529 ../src/iagno.vala:558
 msgid "Level one"
 msgstr "Nivel 1"
 
-#: ../src/iagno.vala:535 ../src/iagno.vala:564
+#: ../src/iagno.vala:533 ../src/iagno.vala:562
 msgid "Level two"
 msgstr "Nivel 2"
 
-#: ../src/iagno.vala:539 ../src/iagno.vala:568
+#: ../src/iagno.vala:537 ../src/iagno.vala:566
 msgid "Level three"
 msgstr "Nivel 3"
 
-#: ../src/iagno.vala:544
+#: ../src/iagno.vala:542
 msgid "Light Player:"
 msgstr "Blancas:"
 
-#: ../src/iagno.vala:573
+#: ../src/iagno.vala:571
 msgid "E_nable sounds"
 msgstr "A_ctivar sonidos"
 
-#: ../src/iagno.vala:578
+#: ../src/iagno.vala:576
 msgid "S_how grid"
 msgstr "M_ostrar rejilla"
 
-#: ../src/iagno.vala:583
+#: ../src/iagno.vala:581
 msgid "_Flip final results"
 msgstr "Invertir resultado _final"
 
-#: ../src/iagno.vala:588
+#: ../src/iagno.vala:586
 msgid "_Tile set:"
 msgstr "Juego de _fichas:"
 
