@@ -292,14 +292,13 @@ public class Iagno : Gtk.Application
     {
         string[] authors = { "Ian Peters", "Robert Ancell", null };
         string[] documenters = { "Eric Baudais", null };
-        var license = "Iagno is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\n\nIagno is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with Iagno; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA";
 
         Gtk.show_about_dialog (window,
                                "name", _("Iagno"),
                                "version", VERSION,
                                "copyright",
                                "Copyright \xc2\xa9 1998-2008 Ian Peters",
-                               "license", license,
+                               "license-type", Gtk.License.GPL_2_0,
                                "comments", _("A disk flipping game derived from Reversi\n\nIagno is a part of GNOME Games."),
                                "authors", authors,
                                "documenters", documenters,
@@ -307,7 +306,6 @@ public class Iagno : Gtk.Application
                                "logo-icon-name", "iagno",
                                "website-label", _("GNOME Games web site"),
                                "website", "http://www.gnome.org/projects/gnome-games/",
-                               "wrap-license", true,
                                null);
     }
 
