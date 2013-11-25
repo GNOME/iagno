@@ -88,6 +88,7 @@ public class Iagno : Gtk.Application
         var top_grid = builder.get_object ("grid") as Gtk.Grid;
         window = builder.get_object ("window") as Gtk.Window;
         window.set_title (_("Iagno"));
+        window.icon_name = "iagno";
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));        
@@ -98,6 +99,7 @@ public class Iagno : Gtk.Application
 
         var headerbar = new Gtk.HeaderBar ();
         headerbar.show_close_button = true;
+        headerbar.show_fallback_app_menu = true;
         headerbar.set_title (_("Iagno"));
         headerbar.show ();
         window.set_titlebar (headerbar);
