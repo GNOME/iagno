@@ -99,7 +99,6 @@ public class Iagno : Gtk.Application
 
         var headerbar = new Gtk.HeaderBar ();
         headerbar.show_close_button = true;
-        headerbar.show_fallback_app_menu = true;
         headerbar.set_title (_("Iagno"));
         headerbar.show ();
         window.set_titlebar (headerbar);
