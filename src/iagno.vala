@@ -305,8 +305,7 @@ public class Iagno : Gtk.Application
                                "documenters", documenters,
                                "translator-credits", _("translator-credits"),
                                "logo-icon-name", "iagno",
-                               "website-label", _("GNOME Games web site"),
-                               "website", "http://www.gnome.org/projects/gnome-games/",
+                               "website", "https://wiki.gnome.org/Apps/Iagno",
                                null);
     }
 
