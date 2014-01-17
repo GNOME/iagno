@@ -6,13 +6,7 @@ ui_DATA = iagno.ui
 themedir = $(datadir)/iagno/themes
 theme_DATA = \
 	sun_and_star.svg \
-	black_and_white.svg \
-	blend.png \
-	flipblend.png \
-	metal.png \
-	metal2.png \
-	shrink.png \
-	sunmoon.png
+	black_and_white.svg
 
 soundsdir = $(datadir)/iagno/sounds
 sounds_DATA = \
