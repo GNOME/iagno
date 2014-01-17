@@ -262,7 +262,7 @@ public class GameView : Gtk.DrawingArea
              * Show the actual final positions of the pieces before flipping the board.
              * Otherwise, it could seem like the final player placed the other's piece.
              */
-            Timeout.add (2000, () =>
+            Timeout.add_seconds (2, () =>
                 {
                     flip_final_result_now = true;
                     square_changed_cb (x, y);

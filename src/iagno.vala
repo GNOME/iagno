@@ -240,7 +240,7 @@ public class Iagno : Gtk.Application
          * thinking - but only a short delay for the first move)
          */
         if (dark_computer != null)
-            computer_timer = Timeout.add (1000, computer_move_cb);
+            computer_timer = Timeout.add_seconds (1, computer_move_cb);
     }
 
     private void update_ui ()
