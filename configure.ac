@@ -1,4 +1,6 @@
-AC_INIT([iagno],[3.11.2])
+AC_PREREQ([2.63])
+AC_INIT([Iagno], [3.11.2], [https://bugzilla.gnome.org/],
+        [iagno], [https://wiki.gnome.org/Apps/Iagno])
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz foreign])
 AM_SILENT_RULES([yes])
 AM_MAINTAINER_MODE
