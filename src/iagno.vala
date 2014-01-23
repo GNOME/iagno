@@ -21,7 +21,6 @@ public class Iagno : Gtk.Application
     private bool is_maximized;
     private GameView view;
     private Gtk.Button new_game_button;
-    private Gtk.Label new_game_label;
     private Gtk.Label dark_active_image;
     private Gtk.Label dark_score_image;
     private Gtk.Label dark_score_label;
@@ -154,14 +153,9 @@ public class Iagno : Gtk.Application
         scores_grid.attach (light_score_label, 2, 1, 1, 1);
 
         new_game_button = new Gtk.Button ();
-        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
-        box.show ();
         var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
         image.show ();
-        box.pack_start (image);
-        new_game_label = new Gtk.Label.with_mnemonic (_("Play _Again"));
-        box.pack_start (new_game_label);
-        new_game_button.add (box);
+        new_game_button.add (image);
         new_game_button.valign = Gtk.Align.END;
         new_game_button.halign = Gtk.Align.CENTER;
         new_game_button.relief = Gtk.ReliefStyle.NONE;
@@ -227,7 +221,6 @@ public class Iagno : Gtk.Application
         view.game = game;
 
         new_game_button.hide ();
-        new_game_label.hide ();
 
         var dark_level = settings.get_int ("black-level");
         if (dark_level > 0)
@@ -282,7 +275,6 @@ public class Iagno : Gtk.Application
 
         /* For undo after the end of the game */
         new_game_button.hide ();
-        new_game_label.hide ();
 
         game_move_cb (game);
     }
@@ -378,7 +370,6 @@ public class Iagno : Gtk.Application
         update_ui ();
         play_sound ("gameover");
         new_game_button.show ();
-        new_game_label.show ();
         dark_active_image.visible = false;
         light_active_image.visible = false;
     }
