@@ -5,15 +5,15 @@
 # Lucas Vieites <lucas@codexion.com>, 2007, 2008.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
 # Chris Leonard <cjl@laptop.org>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-11-19 05:35+0000\n"
-"PO-Revision-Date: 2013-11-19 16:35+0100\n"
+"POT-Creation-Date: 2014-01-23 03:06+0000\n"
+"PO-Revision-Date: 2014-01-23 10:44+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -45,8 +45,8 @@ msgstr ""
 "evitando que su oponente haga lo mismo con las suyas. Esto se consigue "
 "atrapando las fichas del oponente entre dos fichas de su color."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:90 ../src/iagno.vala:101
-#: ../src/iagno.vala:297 ../src/iagno.vala:662
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:90 ../src/iagno.vala:102
+#: ../src/iagno.vala:296 ../src/iagno.vala:616
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -106,26 +106,12 @@ msgstr "cierto si la ventana está maximizada"
 msgid "true if the window is fullscren"
 msgstr "cierto si la ventana está en pantalla completa"
 
-#: ../src/iagno.vala:148 ../src/iagno.vala:257 ../src/iagno.vala:265
-msgid "Dark:"
-msgstr "Negras:"
+#: ../src/iagno.vala:162
+#| msgid "Playing"
+msgid "Play _Again"
+msgstr "Jugar _otra vez"
 
-#: ../src/iagno.vala:156 ../src/iagno.vala:258 ../src/iagno.vala:266
-msgid "Light:"
-msgstr "Blancas:"
-
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:260 ../src/iagno.vala:261 ../src/iagno.vala:268
-#: ../src/iagno.vala:269
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
-
-#: ../src/iagno.vala:302
-#| msgid ""
-#| "A disk flipping game derived from Reversi.\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
+#: ../src/iagno.vala:301
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -135,7 +121,7 @@ msgstr ""
 "\n"
 "Iagno es parte de los juegos de GNOME."
 
-#: ../src/iagno.vala:305
+#: ../src/iagno.vala:304
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -144,81 +130,81 @@ msgstr ""
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
-#: ../src/iagno.vala:307
-msgid "GNOME Games web site"
-msgstr "Página web de los juegos de GNOME"
-
-#: ../src/iagno.vala:355
-msgid "Light must pass, Dark's move"
-msgstr "Blancas pasan turno, mueven las negras"
-
-#: ../src/iagno.vala:357
-msgid "Dark must pass, Light's move"
-msgstr "Negras pasan turno, mueven las blancas"
-
-#: ../src/iagno.vala:400
-msgid "Light player wins!"
-msgstr "Ganan las blancas."
-
-#: ../src/iagno.vala:402
-msgid "Dark player wins!"
-msgstr "Ganan las negras."
-
-#: ../src/iagno.vala:404
-msgid "The game was a draw."
-msgstr "Empate."
-
-#: ../src/iagno.vala:428
-msgid "Invalid move."
-msgstr "Movimiento no válido."
-
-#: ../src/iagno.vala:493
+#: ../src/iagno.vala:457
 msgid "Iagno Preferences"
 msgstr "Preferencias de Iagno"
 
-#: ../src/iagno.vala:496
+#: ../src/iagno.vala:460
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: ../src/iagno.vala:512
+#: ../src/iagno.vala:476
 msgid "Dark Player:"
 msgstr "Negras:"
 
-#: ../src/iagno.vala:525 ../src/iagno.vala:554
+#: ../src/iagno.vala:489 ../src/iagno.vala:518
 msgid "Human"
 msgstr "Humano"
 
-#: ../src/iagno.vala:529 ../src/iagno.vala:558
+#: ../src/iagno.vala:493 ../src/iagno.vala:522
 msgid "Level one"
 msgstr "Nivel 1"
 
-#: ../src/iagno.vala:533 ../src/iagno.vala:562
+#: ../src/iagno.vala:497 ../src/iagno.vala:526
 msgid "Level two"
 msgstr "Nivel 2"
 
-#: ../src/iagno.vala:537 ../src/iagno.vala:566
+#: ../src/iagno.vala:501 ../src/iagno.vala:530
 msgid "Level three"
 msgstr "Nivel 3"
 
-#: ../src/iagno.vala:542
+#: ../src/iagno.vala:506
 msgid "Light Player:"
 msgstr "Blancas:"
 
-#: ../src/iagno.vala:571
+#: ../src/iagno.vala:535
+msgid "_Tile set:"
+msgstr "Juego de _fichas:"
+
+#: ../src/iagno.vala:587
 msgid "E_nable sounds"
 msgstr "A_ctivar sonidos"
 
-#: ../src/iagno.vala:576
-msgid "S_how grid"
-msgstr "M_ostrar rejilla"
+#~ msgid "Dark:"
+#~ msgstr "Negras:"
 
-#: ../src/iagno.vala:581
-msgid "_Flip final results"
-msgstr "Invertir resultado _final"
+#~ msgid "Light:"
+#~ msgstr "Blancas:"
 
-#: ../src/iagno.vala:586
-msgid "_Tile set:"
-msgstr "Juego de _fichas:"
+#~ msgid "%.2d"
+#~ msgstr "%.2d"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Página web de los juegos de GNOME"
+
+#~ msgid "Light must pass, Dark's move"
+#~ msgstr "Blancas pasan turno, mueven las negras"
+
+#~ msgid "Dark must pass, Light's move"
+#~ msgstr "Negras pasan turno, mueven las blancas"
+
+#~ msgid "Light player wins!"
+#~ msgstr "Ganan las blancas."
+
+#~ msgid "Dark player wins!"
+#~ msgstr "Ganan las negras."
+
+#~ msgid "The game was a draw."
+#~ msgstr "Empate."
+
+#~ msgid "Invalid move."
+#~ msgstr "Movimiento no válido."
+
+#~ msgid "S_how grid"
+#~ msgstr "M_ostrar rejilla"
+
+#~ msgid "_Flip final results"
+#~ msgstr "Invertir resultado _final"
 
 #~ msgid "Chess"
 #~ msgstr "Ajedrez"
@@ -2316,7 +2302,8 @@ msgstr "Juego de _fichas:"
 #~ msgstr "Usar la bandera de «desconocido»"
 
 #~ msgid "Set to true to be able to mark squares as unknown."
-#~ msgstr "Ponga el valor a «true» para poder marcar cuadros como desconocidos."
+#~ msgstr ""
+#~ "Ponga el valor a «true» para poder marcar cuadros como desconocidos."
 
 #~ msgid "Warning about too many flags"
 #~ msgstr "Advertir acerca de demasiadas banderas"
@@ -5336,8 +5323,8 @@ msgstr "Juego de _fichas:"
 #~ "'lan' (long algebraic notation) or 'san' (standard algebraic notation)"
 #~ msgstr ""
 #~ "El formato en el que mostrar jugadas, puede ser «humano» (legible por "
-#~ "personas), «lan» (notación algebraica larga - «long algebraic notation») o "
-#~ "«san» (notación algebraica estándar - «standard algebraic notation»)"
+#~ "personas), «lan» (notación algebraica larga - «long algebraic notation») "
+#~ "o «san» (notación algebraica estándar - «standard algebraic notation»)"
 
 #~ msgid "The piece style to use. Can be one of: 'simple' or 'fancy'"
 #~ msgstr "El estilo de pieza que usar. Puede ser «simple» o «fantasía»."
@@ -5349,9 +5336,9 @@ msgstr "Juego de _fichas:"
 #~ "g. handhelds)"
 #~ msgstr ""
 #~ "El lado del tablero que está en primero plano, "
-#~ "«white» (blanco),«black» (negro), «current» (el jugador actual), «human» (el "
-#~ "lado del jugador humano actual) o «facetoface» (apropiado para jugadores a "
-#~ "cada lado de la pantalla, ej. dispositivos portátiles)"
+#~ "«white» (blanco),«black» (negro), «current» (el jugador actual), "
+#~ "«human» (el lado del jugador humano actual) o «facetoface» (apropiado "
+#~ "para jugadores a cada lado de la pantalla, ej. dispositivos portátiles)"
 
 #~ msgid "Logs"
 #~ msgstr "Registros"
@@ -6427,9 +6414,6 @@ msgstr "Juego de _fichas:"
 
 #~ msgid "--> Table"
 #~ msgstr "--> Mesa"
-
-#~ msgid "Playing"
-#~ msgstr "Jugando"
 
 #~ msgid "<-- Table"
 #~ msgstr "<-- Mesa"
