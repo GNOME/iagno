@@ -10,17 +10,16 @@
 
 public class Iagno : Gtk.Application
 {
-    private static bool fast_mode;
-
     /* Application settings */
     private Settings settings;
+    private bool is_fullscreen;
+    private bool is_maximized;
+    private static bool fast_mode;
 
     /* Widgets */
     private Gtk.Window window;
     private int window_width;
     private int window_height;
-    private bool is_fullscreen;
-    private bool is_maximized;
     private GameView view;
     private Gtk.Button new_game_button;
     private Gtk.Label dark_active_image;
@@ -29,7 +28,6 @@ public class Iagno : Gtk.Application
     private Gtk.Label light_active_image;
     private Gtk.Label light_score_label;
     private Gtk.Label light_score_image;
-    private SimpleAction undo_action;
 
     /* Light computer player (if there is one) */
     private ComputerPlayer? light_computer = null;
@@ -57,7 +55,6 @@ public class Iagno : Gtk.Application
     {
         base.startup ();
         add_action_entries (app_actions, this);
-        undo_action = lookup_action ("undo-move") as SimpleAction;
     }
 
     public Iagno ()
@@ -247,6 +244,7 @@ public class Iagno : Gtk.Application
 
     private void update_ui ()
     {
+        var undo_action = (SimpleAction) lookup_action ("undo-move");
         /* Can't undo when running two computer players */
         if (light_computer != null && dark_computer != null)
             undo_action.set_enabled (false);
