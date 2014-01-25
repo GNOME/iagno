@@ -10,6 +10,8 @@
 
 public class Iagno : Gtk.Application
 {
+    private static bool fast_mode;
+
     /* Application settings */
     private Settings settings;
 
@@ -338,12 +340,20 @@ public class Iagno : Gtk.Application
          * higher difficulties. (In actuality, Hard will take longer anyway
          * since it must search deeper, but this compensates somewhat.)
          */
-        if (game.n_tiles == 63)
-            computer_timer = Timeout.add_seconds (1, computer_move_cb);
-        else if (game.current_color == Player.LIGHT && light_computer != null)
-            computer_timer = Timeout.add_seconds (5 - light_computer.level, computer_move_cb);
+        if (game.current_color == Player.LIGHT && light_computer != null)
+        {
+            if (game.n_tiles == 63 || fast_mode)
+                computer_timer = Timeout.add_seconds (1, computer_move_cb);
+            else
+                computer_timer = Timeout.add_seconds (5 - light_computer.level, computer_move_cb);
+        }
         else if (game.current_color == Player.DARK && dark_computer != null)
-            computer_timer = Timeout.add_seconds (5 - dark_computer.level, computer_move_cb);
+        {
+            if (game.n_tiles == 63 || fast_mode)
+                computer_timer = Timeout.add_seconds (1, computer_move_cb);
+            else
+                computer_timer = Timeout.add_seconds (5 - dark_computer.level, computer_move_cb);
+        }
     }
 
     private bool computer_move_cb ()
@@ -583,6 +593,14 @@ public class Iagno : Gtk.Application
         propbox.show_all ();
     }
 
+    private static const OptionEntry[] options =
+    {
+        { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,
+          /* Help string for command line --fast-mode flag */
+          N_("Disable delay before AI moves"), null},
+        { null }
+    };
+
     public static int main (string[] args)
     {
         Intl.setlocale (LocaleCategory.ALL, "");
@@ -591,7 +609,7 @@ public class Iagno : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         var context = new OptionContext (null);
-        context.set_translation_domain (GETTEXT_PACKAGE);
+        context.add_main_entries (options, GETTEXT_PACKAGE);
         context.add_group (Gtk.get_option_group (true));
 
         try
