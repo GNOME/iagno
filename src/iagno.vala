@@ -285,7 +285,7 @@ public class Iagno : Gtk.Application
     private void about_cb ()
     {
         string[] authors = { "Ian Peters", "Robert Ancell", null };
-        string[] documenters = { "Eric Baudais", null };
+        string[] documenters = { "Tiffany Antopolski", null };
 
         Gtk.show_about_dialog (window,
                                "name", _("Iagno"),
