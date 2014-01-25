@@ -20,6 +20,7 @@ public class Iagno : Gtk.Application
     private Gtk.Window window;
     private int window_width;
     private int window_height;
+    private Gtk.HeaderBar headerbar;
     private GameView view;
     private Gtk.Button new_game_button;
     private Gtk.Label dark_active_image;
@@ -95,7 +96,7 @@ public class Iagno : Gtk.Application
         else if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
-        var headerbar = new Gtk.HeaderBar ();
+        headerbar = new Gtk.HeaderBar ();
         headerbar.show_close_button = true;
         headerbar.set_title (_("Iagno"));
         headerbar.show ();
@@ -244,6 +245,8 @@ public class Iagno : Gtk.Application
 
     private void update_ui ()
     {
+        headerbar.set_subtitle (null);
+
         var undo_action = (SimpleAction) lookup_action ("undo-move");
         /* Can't undo when running two computer players */
         if (light_computer != null && dark_computer != null)
@@ -326,6 +329,16 @@ public class Iagno : Gtk.Application
         if (!game.can_move (game.current_color))
         {
             game.pass ();
+            if (game.current_color == Player.DARK)
+            {
+                /* Message to display when Light has no possible moves */
+                headerbar.set_subtitle (_("Light must pass, Dark’s move"));
+            }
+            else
+            {
+                /* Message to display when Dark has no possible moves */
+                headerbar.set_subtitle (_("Dark must pass, Light’s move"));
+            }
             return;
         }
 
@@ -376,6 +389,24 @@ public class Iagno : Gtk.Application
     private void game_complete_cb ()
     {
         update_ui ();
+
+        if (game.n_light_tiles > game.n_dark_tiles)
+        {
+            /* Message to display when Light has won the game */
+            headerbar.set_subtitle (_("Light wins!"));
+        }
+        else if (game.n_dark_tiles > game.n_light_tiles)
+        {
+            /* Message to display when Dark has won the game */
+            headerbar.set_subtitle (_("Dark wins!"));
+        }
+        else if (game.n_light_tiles == game.n_dark_tiles)
+        {
+            /* Message to display when the game is a draw */
+            headerbar.set_subtitle (_("The game is draw."));
+        }
+        else assert_not_reached ();
+
         play_sound ("gameover");
         new_game_button.show ();
         dark_active_image.visible = false;
@@ -400,7 +431,11 @@ public class Iagno : Gtk.Application
         if (game.current_color == Player.DARK && settings.get_int ("black-level") > 0)
             return;
 
-        game.place_tile (x, y);
+        if (game.place_tile (x, y) == 0)
+        {
+            /* Message to display when the player tries to make an illegal move */
+            headerbar.set_subtitle (_("You can’t move there!"));
+        }
     }
 
     private void dark_level_changed_cb (Gtk.ComboBox combo)
