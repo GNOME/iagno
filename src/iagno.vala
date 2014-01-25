@@ -87,7 +87,7 @@ public class Iagno : Gtk.Application
         }
         set_app_menu (builder.get_object ("iagno-menu") as MenuModel);
         window = new Gtk.ApplicationWindow (this);
-        window.set_border_width (6);
+        window.set_border_width (25);
         window.set_title (_("Iagno"));
         window.icon_name = "iagno";
         window.configure_event.connect (window_configure_event_cb);
@@ -109,8 +109,6 @@ public class Iagno : Gtk.Application
         window.add (hbox);
 
         view = new GameView ();
-        view.hexpand = true;
-        view.vexpand = true;
         view.game = game;
         view.move.connect (player_move_cb);
         var tile_set = settings.get_string ("tileset");
