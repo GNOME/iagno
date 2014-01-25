@@ -16,6 +16,7 @@ public class Iagno : Gtk.Application
     private bool is_fullscreen;
     private bool is_maximized;
     private static bool fast_mode;
+    private static bool show_version;
 
     /* Widgets */
     private Gtk.Window window;
@@ -157,8 +158,6 @@ public class Iagno : Gtk.Application
         var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
         image.show ();
         new_game_button.add (image);
-        new_game_button.valign = Gtk.Align.END;
-        new_game_button.halign = Gtk.Align.CENTER;
         new_game_button.relief = Gtk.ReliefStyle.NONE;
         new_game_button.action_name = "app.new-game";
         side_box.pack_end (new_game_button, false, true, 10);
@@ -632,6 +631,9 @@ public class Iagno : Gtk.Application
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,
           /* Help string for command line --fast-mode flag */
           N_("Disable delay before AI moves"), null},
+        { "version", 'v', 0, OptionArg.NONE, ref show_version,
+          /* Help string for command line --version flag */
+          N_("Show release version"), null},
         { null }
     };
 
@@ -654,6 +656,13 @@ public class Iagno : Gtk.Application
         {
             stderr.printf ("%s\n", e.message);
             return Posix.EXIT_FAILURE;
+        }
+
+        if (show_version)
+        {
+            /* Note, not translated so can be easily parsed */
+            stderr.printf ("iagno %s\n", VERSION);
+            return Posix.EXIT_SUCCESS;
         }
 
         Environment.set_application_name (_("Iagno"));
