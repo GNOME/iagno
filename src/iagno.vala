@@ -345,23 +345,15 @@ public class Iagno : Gtk.Application
         /*
          * Get the computer to move after a delay, so it looks like it's
          * thinking. Make it fairly long so the human doesn't feel overwhelmed,
-         * but not so long as to become boring. Also, attempt to play faster at
-         * higher difficulties. (In actuality, Hard will take longer anyway
-         * since it must search deeper, but this compensates somewhat.)
+         * but not so long as to become boring.
          */
-        if (game.current_color == Player.LIGHT && light_computer != null)
+        if (game.current_color == Player.LIGHT && light_computer != null ||
+            game.current_color == Player.DARK && dark_computer != null)
         {
             if (game.n_tiles == 63 || fast_mode)
                 computer_timer = Timeout.add_seconds (1, computer_move_cb);
             else
-                computer_timer = Timeout.add_seconds (5 - light_computer.level, computer_move_cb);
-        }
-        else if (game.current_color == Player.DARK && dark_computer != null)
-        {
-            if (game.n_tiles == 63 || fast_mode)
-                computer_timer = Timeout.add_seconds (1, computer_move_cb);
-            else
-                computer_timer = Timeout.add_seconds (5 - dark_computer.level, computer_move_cb);
+                computer_timer = Timeout.add_seconds (3, computer_move_cb);
         }
     }
 
