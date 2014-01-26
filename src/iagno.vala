@@ -620,7 +620,7 @@ public class Iagno : Gtk.Application
     {
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,
           /* Help string for command line --fast-mode flag */
-          N_("Disable delay before AI moves"), null},
+          N_("Reduce delay before AI moves"), null},
         { "version", 'v', 0, OptionArg.NONE, ref show_version,
           /* Help string for command line --version flag */
           N_("Show release version"), null},
