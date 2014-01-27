@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-23 03:06+0000\n"
-"PO-Revision-Date: 2014-01-23 10:44+0100\n"
+"POT-Creation-Date: 2014-01-26 20:01+0000\n"
+"PO-Revision-Date: 2014-01-27 13:49+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -45,8 +45,8 @@ msgstr ""
 "evitando que su oponente haga lo mismo con las suyas. Esto se consigue "
 "atrapando las fichas del oponente entre dos fichas de su color."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:90 ../src/iagno.vala:102
-#: ../src/iagno.vala:296 ../src/iagno.vala:616
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:91 ../src/iagno.vala:103
+#: ../src/iagno.vala:289 ../src/iagno.vala:658
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -106,12 +106,7 @@ msgstr "cierto si la ventana está maximizada"
 msgid "true if the window is fullscren"
 msgstr "cierto si la ventana está en pantalla completa"
 
-#: ../src/iagno.vala:162
-#| msgid "Playing"
-msgid "Play _Again"
-msgstr "Jugar _otra vez"
-
-#: ../src/iagno.vala:301
+#: ../src/iagno.vala:294
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -121,7 +116,7 @@ msgstr ""
 "\n"
 "Iagno es parte de los juegos de GNOME."
 
-#: ../src/iagno.vala:304
+#: ../src/iagno.vala:297
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -130,45 +125,95 @@ msgstr ""
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
-#: ../src/iagno.vala:457
+#. Message to display when Light has no possible moves
+#: ../src/iagno.vala:333
+#| msgid "Light must pass, Dark's move"
+msgid "Light must pass, Dark’s move"
+msgstr "Blancas pasan turno, mueven las negras"
+
+#. Message to display when Dark has no possible moves
+#: ../src/iagno.vala:338
+#| msgid "Dark must pass, Light's move"
+msgid "Dark must pass, Light’s move"
+msgstr "Negras pasan turno, mueven las blancas"
+
+#. Message to display when Light has won the game
+#: ../src/iagno.vala:386
+#| msgid "Light player wins!"
+msgid "Light wins!"
+msgstr "Ganan las blancas."
+
+#. Message to display when Dark has won the game
+#: ../src/iagno.vala:391
+#| msgid "Dark player wins!"
+msgid "Dark wins!"
+msgstr "Ganan las negras."
+
+#. Message to display when the game is a draw
+#: ../src/iagno.vala:396
+#| msgid "The game is a draw!"
+msgid "The game is draw."
+msgstr "El juego ha resultado en empate."
+
+#. Message to display when the player tries to make an illegal move
+#: ../src/iagno.vala:427
+#| msgid "You can't move there!"
+msgid "You can’t move there!"
+msgstr "No puede mover ahí"
+
+#: ../src/iagno.vala:481
 msgid "Iagno Preferences"
 msgstr "Preferencias de Iagno"
 
-#: ../src/iagno.vala:460
+#: ../src/iagno.vala:484
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: ../src/iagno.vala:476
+#: ../src/iagno.vala:500
 msgid "Dark Player:"
 msgstr "Negras:"
 
-#: ../src/iagno.vala:489 ../src/iagno.vala:518
+#: ../src/iagno.vala:513 ../src/iagno.vala:542
 msgid "Human"
 msgstr "Humano"
 
-#: ../src/iagno.vala:493 ../src/iagno.vala:522
+#: ../src/iagno.vala:517 ../src/iagno.vala:546
 msgid "Level one"
 msgstr "Nivel 1"
 
-#: ../src/iagno.vala:497 ../src/iagno.vala:526
+#: ../src/iagno.vala:521 ../src/iagno.vala:550
 msgid "Level two"
 msgstr "Nivel 2"
 
-#: ../src/iagno.vala:501 ../src/iagno.vala:530
+#: ../src/iagno.vala:525 ../src/iagno.vala:554
 msgid "Level three"
 msgstr "Nivel 3"
 
-#: ../src/iagno.vala:506
+#: ../src/iagno.vala:530
 msgid "Light Player:"
 msgstr "Blancas:"
 
-#: ../src/iagno.vala:535
+#: ../src/iagno.vala:559
 msgid "_Tile set:"
 msgstr "Juego de _fichas:"
 
-#: ../src/iagno.vala:587
+#: ../src/iagno.vala:611
 msgid "E_nable sounds"
 msgstr "A_ctivar sonidos"
+
+#. Help string for command line --fast-mode flag
+#: ../src/iagno.vala:623
+msgid "Reduce delay before AI moves"
+msgstr "Reducir el retardo entre movimientos de IA"
+
+#. Help string for command line --version flag
+#: ../src/iagno.vala:626
+msgid "Show release version"
+msgstr "Mostrar el número de versión"
+
+#~| msgid "Playing"
+#~ msgid "Play _Again"
+#~ msgstr "Jugar _otra vez"
 
 #~ msgid "Dark:"
 #~ msgstr "Negras:"
@@ -181,18 +226,6 @@ msgstr "A_ctivar sonidos"
 
 #~ msgid "GNOME Games web site"
 #~ msgstr "Página web de los juegos de GNOME"
-
-#~ msgid "Light must pass, Dark's move"
-#~ msgstr "Blancas pasan turno, mueven las negras"
-
-#~ msgid "Dark must pass, Light's move"
-#~ msgstr "Negras pasan turno, mueven las blancas"
-
-#~ msgid "Light player wins!"
-#~ msgstr "Ganan las blancas."
-
-#~ msgid "Dark player wins!"
-#~ msgstr "Ganan las negras."
 
 #~ msgid "The game was a draw."
 #~ msgstr "Empate."
@@ -808,9 +841,6 @@ msgstr "A_ctivar sonidos"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Falló al cargar la partida: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Mostrar el número de versión"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FILE]: jugar a Ajedrez"
 
@@ -1102,9 +1132,6 @@ msgstr "A_ctivar sonidos"
 
 #~ msgid "Game Over!"
 #~ msgstr "Juego terminado"
-
-#~ msgid "You can't move there!"
-#~ msgstr "No puede mover ahí"
 
 #~ msgid ""
 #~ "GNOME port of the once-popular Color Lines game.\n"
@@ -2743,9 +2770,6 @@ msgstr "A_ctivar sonidos"
 
 #~ msgid "Roll!"
 #~ msgstr "Lanzar"
-
-#~ msgid "The game is a draw!"
-#~ msgstr "El juego ha resultado en empate."
 
 #~ msgid "Tali Scores"
 #~ msgstr "Puntuación de Tali"
