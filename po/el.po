@@ -29,14 +29,14 @@
 # Simos Xenitellis <simos.lists@googlemail.com>, 2010.
 # Michael Kotsarinis <mk73628@hotmail.com>, 2010.
 # George Stefanakis <george.stefanakis@gmail.com>, 2011.
-# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013.
+# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-11-19 05:35+0000\n"
-"PO-Revision-Date: 2013-11-19 10:26+0300\n"
+"POT-Creation-Date: 2014-01-26 20:01+0000\n"
+"PO-Revision-Date: 2014-01-30 20:57+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@lists.gnome.gr\n"
 "Language: el\n"
@@ -70,8 +70,8 @@ msgstr ""
 "παγιδεύοντας τα πλακίδια του αντιπάλου σας μεταξύ δύο πλακιδίων του δικού "
 "σας χρώματος."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:90 ../src/iagno.vala:101
-#: ../src/iagno.vala:297 ../src/iagno.vala:662
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:91 ../src/iagno.vala:103
+#: ../src/iagno.vala:289 ../src/iagno.vala:658
 msgid "Iagno"
 msgstr "Ιάγνος"
 
@@ -131,22 +131,7 @@ msgstr "αληθής αν το παράθυρο είναι μεγιστοποι�
 msgid "true if the window is fullscren"
 msgstr "αληθής αν το παράθυρο είναι σε πλήρη οθόνη"
 
-#: ../src/iagno.vala:148 ../src/iagno.vala:257 ../src/iagno.vala:265
-msgid "Dark:"
-msgstr "Μαύρα:"
-
-#: ../src/iagno.vala:156 ../src/iagno.vala:258 ../src/iagno.vala:266
-msgid "Light:"
-msgstr "Λευκά:"
-
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:260 ../src/iagno.vala:261 ../src/iagno.vala:268
-#: ../src/iagno.vala:269
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
-
-#: ../src/iagno.vala:302
+#: ../src/iagno.vala:294
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -156,7 +141,7 @@ msgstr ""
 "\n"
 "Ο Ιάγνος είναι μέρος των παιχνιδιών του GNOME."
 
-#: ../src/iagno.vala:305
+#: ../src/iagno.vala:297
 msgid "translator-credits"
 msgstr ""
 "Δημήτρης Σπίγγος <dmtrs32@gmail.com>\n"
@@ -165,81 +150,109 @@ msgstr ""
 "Κώστας Παπαδήμας <pkst@gmx.net>\n"
 "Τζένη Πετούμενου <epetoumenou@gmail.com>"
 
-#: ../src/iagno.vala:307
-msgid "GNOME Games web site"
-msgstr "Ιστοσελίδα των παιχνιδιών του GNOME"
-
-#: ../src/iagno.vala:355
-msgid "Light must pass, Dark's move"
+#. Message to display when Light has no possible moves
+#: ../src/iagno.vala:333
+msgid "Light must pass, Dark’s move"
 msgstr "Ο λευκός πρέπει να περιμένει, κίνηση του μαύρου"
 
-#: ../src/iagno.vala:357
-msgid "Dark must pass, Light's move"
-msgstr "Ο μαύρος δεν παίζει, κίνηση του λευκού"
+#. Message to display when Dark has no possible moves
+#: ../src/iagno.vala:338
+msgid "Dark must pass, Light’s move"
+msgstr "Ο μαύρος πρέπει να περιμένει, κίνηση του λευκού"
 
-#: ../src/iagno.vala:400
-msgid "Light player wins!"
+#. Message to display when Light has won the game
+#: ../src/iagno.vala:386
+msgid "Light wins!"
 msgstr "Ο λευκός κερδίζει!"
 
-#: ../src/iagno.vala:402
-msgid "Dark player wins!"
+#. Message to display when Dark has won the game
+#: ../src/iagno.vala:391
+msgid "Dark wins!"
 msgstr "Ο μαύρος κερδίζει!"
 
-#: ../src/iagno.vala:404
-msgid "The game was a draw."
-msgstr "Το παιχνίδι έληξε ισόπαλο."
+#. Message to display when the game is a draw
+#: ../src/iagno.vala:396
+msgid "The game is draw."
+msgstr "Το παιχνίδι είναι ισόπαλο."
 
-#: ../src/iagno.vala:428
-msgid "Invalid move."
-msgstr "Άκυρη κίνηση."
+#. Message to display when the player tries to make an illegal move
+#: ../src/iagno.vala:427
+msgid "You can’t move there!"
+msgstr "Δε μπορείτε να μετακινηθείτε εκεί!"
 
-#: ../src/iagno.vala:493
+#: ../src/iagno.vala:481
 msgid "Iagno Preferences"
 msgstr "Προτιμήσεις Ιάγνος"
 
-#: ../src/iagno.vala:496
+#: ../src/iagno.vala:484
 msgid "_Close"
 msgstr "Κλεί_σιμο"
 
-#: ../src/iagno.vala:512
+#: ../src/iagno.vala:500
 msgid "Dark Player:"
 msgstr "Μαύρος παίχτης:"
 
-#: ../src/iagno.vala:525 ../src/iagno.vala:554
+#: ../src/iagno.vala:513 ../src/iagno.vala:542
 msgid "Human"
 msgstr "Άνθρωπος"
 
-#: ../src/iagno.vala:529 ../src/iagno.vala:558
+#: ../src/iagno.vala:517 ../src/iagno.vala:546
 msgid "Level one"
 msgstr "Πρώτο επίπεδο"
 
-#: ../src/iagno.vala:533 ../src/iagno.vala:562
+#: ../src/iagno.vala:521 ../src/iagno.vala:550
 msgid "Level two"
 msgstr "Δεύτερο επίπεδο"
 
-#: ../src/iagno.vala:537 ../src/iagno.vala:566
+#: ../src/iagno.vala:525 ../src/iagno.vala:554
 msgid "Level three"
 msgstr "Τρίτο επίπεδο"
 
-#: ../src/iagno.vala:542
+#: ../src/iagno.vala:530
 msgid "Light Player:"
 msgstr "Λευκος παίχτης:"
 
-#: ../src/iagno.vala:571
+#: ../src/iagno.vala:559
+msgid "_Tile set:"
+msgstr "Σύνολο πλα_κιδίων:"
+
+#: ../src/iagno.vala:611
 msgid "E_nable sounds"
 msgstr "Ενε_ργοποίηση ήχων"
 
-#: ../src/iagno.vala:576
-msgid "S_how grid"
-msgstr "Εμ_φάνιση πλέγματος"
+#. Help string for command line --fast-mode flag
+#: ../src/iagno.vala:623
+msgid "Reduce delay before AI moves"
+msgstr "Μειώστε την καθυστέρηση πριν να μετακινηθεί η AI"
 
-#: ../src/iagno.vala:581
-msgid "_Flip final results"
-msgstr "Αντιστρο_φή τελικών αποτελεσμάτων"
+#. Help string for command line --version flag
+#: ../src/iagno.vala:626
+msgid "Show release version"
+msgstr "Προβολή της έκδοσης"
 
-#: ../src/iagno.vala:586
-msgid "_Tile set:"
-msgstr "Σύνολο πλα_κιδίων:"
+#~ msgid "Dark:"
+#~ msgstr "Μαύρα:"
+
+#~ msgid "Light:"
+#~ msgstr "Λευκά:"
+
+#~ msgid "%.2d"
+#~ msgstr "%.2d"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Ιστοσελίδα των παιχνιδιών του GNOME"
+
+#~ msgid "The game was a draw."
+#~ msgstr "Το παιχνίδι έληξε ισόπαλο."
+
+#~ msgid "Invalid move."
+#~ msgstr "Άκυρη κίνηση."
+
+#~ msgid "S_how grid"
+#~ msgstr "Εμ_φάνιση πλέγματος"
+
+#~ msgid "_Flip final results"
+#~ msgstr "Αντιστρο_φή τελικών αποτελεσμάτων"
 
 #~ msgid "Chess"
 #~ msgstr "Σκάκι"
@@ -845,9 +858,6 @@ msgstr "Σύνολο πλα_κιδίων:"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Αδυναμία φόρτωσης παιχνιδιού: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Προβολή της έκδοσης"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FILE] - Παίξτε σκάκι"
 
@@ -1166,9 +1176,6 @@ msgstr "Σύνολο πλα_κιδίων:"
 
 #~ msgid "Game Over!"
 #~ msgstr "Τέλος Παιχνιδιού!"
-
-#~ msgid "You can't move there!"
-#~ msgstr "Δε μπορείτε να μετακινηθείτε εκεί!"
 
 #~ msgid ""
 #~ "GNOME port of the once-popular Color Lines game.\n"
@@ -2783,9 +2790,6 @@ msgstr "Σύνολο πλα_κιδίων:"
 
 #~ msgid "Roll!"
 #~ msgstr " Ζαριά!"
-
-#~ msgid "The game is a draw!"
-#~ msgstr "Το παιχνίδι λήγει ισόπαλο!"
 
 #~ msgid "Tali Scores"
 #~ msgstr "Βαθμολογία Τάλι"
