@@ -351,7 +351,7 @@ public class Iagno : Gtk.Application
             game.current_color == Player.DARK && dark_computer != null)
         {
             if (game.n_tiles == 63 || fast_mode)
-                computer_timer = Timeout.add_seconds (1, computer_move_cb);
+                computer_timer = Timeout.add (400, computer_move_cb);
             else
                 computer_timer = Timeout.add_seconds (2, computer_move_cb);
         }
