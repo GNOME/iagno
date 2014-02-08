@@ -13,14 +13,14 @@
 .\"You should have received a copy of the GNU General Public License along
 .\"with this program; if not, write to the Free Software Foundation, Inc.,
 .\"51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-.TH gnotski 6 "2007\-06\-09" "GNOME"
+.TH IAGNO 6 "2014\-02\-08" "GNOME"
 .SH NAME
-Iagno \- A disk flipping game derived from Reversi.
+Iagno \- A disk flipping game derived from Reversi
 .SH SYNOPSIS
 .B iagno
 .RI [ OPTION... ]
 .SH DESCRIPTION
-Iagno is a two player strategy game similar to Go.  The board is 8 by
+Iagno is a two\-player strategy game similar to Go.  The board is 8 by
 8 with tiles that are black on one side and white on the other side.
 The object of Iagno is to flip as  many of your opponent's tiles to
 your color as possible without your opponent flipping your tiles.
@@ -28,23 +28,19 @@ This is done by trapping your opponent's tiles between two tiles of
 your own color.
 .SH OPTIONS
 .TP
-.B \-x, \-\-x=X
-X location of window
+.B \-f, \-\-fast\-moves
+Play with reduced delay before the computer moves.
 .TP
-.B \-y, \-\-y=Y
-Y location of window
+.B \-h, \-\-help
+Prints the command line options and exits.
+.TP
+.B \-\-version
+Prints the program version and exits.
 .P
-This program also accepts the standard GNOME and GTK options.
+This program also accepts the standard GTK+ options.
 .SH AUTHORS
 .B iagno
 was written by Ian Peters.
 .P
 This manual page was written by Sven Arvidsson <sa@whiz.se>,
 for the Debian project (but may be used by others).
-.SH SEE ALSO
-.BR "gtk-options" (7),
-.BR "gnome-options" (7)
-.P
-The online documentation available through the program's
-.I Help
-menu.
