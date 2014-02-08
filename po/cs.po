@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-25 18:53+0000\n"
-"PO-Revision-Date: 2014-01-26 16:10+0100\n"
+"POT-Creation-Date: 2014-02-07 22:44+0000\n"
+"PO-Revision-Date: 2014-02-08 07:23+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -57,7 +57,7 @@ msgstr ""
 "to tak, že uzavřete soupeřovy kameny mezi dva kameny své barvy."
 
 #: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:91 ../src/iagno.vala:103
-#: ../src/iagno.vala:291 ../src/iagno.vala:668
+#: ../src/iagno.vala:289 ../src/iagno.vala:658
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -117,7 +117,7 @@ msgstr "Zapnuto, pokud je okno maximalizováno"
 msgid "true if the window is fullscren"
 msgstr "Zapnuto, pokud je okno v režimu celé obrazovky"
 
-#: ../src/iagno.vala:296
+#: ../src/iagno.vala:294
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -127,7 +127,7 @@ msgstr ""
 "\n"
 "Iagno je součástí her GNOME."
 
-#: ../src/iagno.vala:299
+#: ../src/iagno.vala:297
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -145,81 +145,81 @@ msgstr ""
 "Marek Černocký <marek@manet.cz>"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:335
+#: ../src/iagno.vala:333
 msgid "Light must pass, Dark’s move"
 msgstr "Bílý musí vynechat, černý táhne"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:340
+#: ../src/iagno.vala:338
 msgid "Dark must pass, Light’s move"
 msgstr "Černý musí vynechat, bílý táhne"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:396
+#: ../src/iagno.vala:386
 msgid "Light wins!"
 msgstr "Bílý vyhrává!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:401
+#: ../src/iagno.vala:391
 msgid "Dark wins!"
 msgstr "Černý vyhrává!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:406
+#: ../src/iagno.vala:396
 msgid "The game is draw."
 msgstr "Hra skončila nerozhodně."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:437
+#: ../src/iagno.vala:427
 msgid "You can’t move there!"
 msgstr "Sem nemůžete táhnout!"
 
-#: ../src/iagno.vala:491
+#: ../src/iagno.vala:481
 msgid "Iagno Preferences"
 msgstr "Nastavení Iagno"
 
-#: ../src/iagno.vala:494
+#: ../src/iagno.vala:484
 msgid "_Close"
 msgstr "_Zavřít"
 
-#: ../src/iagno.vala:510
+#: ../src/iagno.vala:500
 msgid "Dark Player:"
 msgstr "Černý hráč:"
 
-#: ../src/iagno.vala:523 ../src/iagno.vala:552
+#: ../src/iagno.vala:513 ../src/iagno.vala:542
 msgid "Human"
 msgstr "Člověk"
 
-#: ../src/iagno.vala:527 ../src/iagno.vala:556
+#: ../src/iagno.vala:517 ../src/iagno.vala:546
 msgid "Level one"
 msgstr "První úroveň"
 
-#: ../src/iagno.vala:531 ../src/iagno.vala:560
+#: ../src/iagno.vala:521 ../src/iagno.vala:550
 msgid "Level two"
 msgstr "Druhá úroveň"
 
-#: ../src/iagno.vala:535 ../src/iagno.vala:564
+#: ../src/iagno.vala:525 ../src/iagno.vala:554
 msgid "Level three"
 msgstr "Třetí úroveň"
 
-#: ../src/iagno.vala:540
+#: ../src/iagno.vala:530
 msgid "Light Player:"
 msgstr "Bílý hráč:"
 
-#: ../src/iagno.vala:569
+#: ../src/iagno.vala:559
 msgid "_Tile set:"
 msgstr "_Sada kamenů:"
 
-#: ../src/iagno.vala:621
+#: ../src/iagno.vala:611
 msgid "E_nable sounds"
 msgstr "Povolit _zvuky"
 
 #. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:633
-msgid "Disable delay before AI moves"
-msgstr "Vypnout prodlevu před tahem UI"
+#: ../src/iagno.vala:623
+msgid "Reduce delay before AI moves"
+msgstr "Omezit prodlevu před tahem UI"
 
 #. Help string for command line --version flag
-#: ../src/iagno.vala:636
+#: ../src/iagno.vala:626
 msgid "Show release version"
 msgstr "Zobrazit verzi vydání"
