@@ -141,13 +141,12 @@ public class Iagno : Gtk.Application
         light_score_label.show ();
         grid.attach (light_score_label, 2, 1, 1, 1);
 
-        new_game_button = new Gtk.Button ();
-        var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
-        image.show ();
-        new_game_button.add (image);
+        new_game_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
+        new_game_button.halign = Gtk.Align.CENTER;
+        new_game_button.valign = Gtk.Align.CENTER;
         new_game_button.relief = Gtk.ReliefStyle.NONE;
         new_game_button.action_name = "app.new-game";
-        side_box.pack_end (new_game_button, false, true, 10);
+        side_box.pack_end (new_game_button, false, false, 0);
 
         start_game ();
 
