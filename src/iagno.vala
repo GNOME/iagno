@@ -25,12 +25,10 @@ public class Iagno : Gtk.Application
     private Gtk.HeaderBar headerbar;
     private GameView view;
     private Gtk.Button new_game_button;
-    private Gtk.Label dark_active_image;
-    private Gtk.Label dark_score_image;
+    private Gtk.Label dark_label;
     private Gtk.Label dark_score_label;
-    private Gtk.Label light_active_image;
+    private Gtk.Label light_label;
     private Gtk.Label light_score_label;
-    private Gtk.Label light_score_image;
 
     /* Light computer player (if there is one) */
     private ComputerPlayer? light_computer = null;
@@ -118,39 +116,30 @@ public class Iagno : Gtk.Application
 
         var side_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
         side_box.show ();
-        hbox.pack_start (side_box, true, true, 0);
+        hbox.pack_start (side_box, true, true, 20);
 
-        var scores_grid = new Gtk.Grid ();
-        scores_grid.show ();
-        scores_grid.border_width = 6;
-        side_box.pack_start (scores_grid, true, true, 0);
+        var grid = new Gtk.Grid ();
+        grid.vexpand = true;
+        grid.hexpand = true;
+        grid.set_column_spacing (8);
+        grid.show ();
+        side_box.pack_start (grid, false, true, 0);
 
-        dark_active_image = new Gtk.Label ("〉");
-        dark_active_image.show ();
-        scores_grid.attach (dark_active_image, 0, 0, 1, 1);
+        dark_label = new Gtk.Label (_("Dark:"));
+        dark_label.show ();
+        grid.attach (dark_label, 1, 0, 1, 1);
 
-        dark_score_image = new Gtk.Label ("●");
-        dark_score_image.show ();
-        scores_grid.attach (dark_score_image, 1, 0, 1, 1);
-
-        dark_score_label = new Gtk.Label ("0");
+        dark_score_label = new Gtk.Label ("00");
         dark_score_label.show ();
-        dark_score_label.xalign = 0.0f;
-        dark_score_label.hexpand = true;
-        scores_grid.attach (dark_score_label, 2, 0, 1, 1);
+        grid.attach (dark_score_label, 2, 0, 1, 1);
 
-        light_active_image = new Gtk.Label ("〉");
-        scores_grid.attach (light_active_image, 0, 1, 1, 1);
+        light_label = new Gtk.Label (_("Light:"));
+        light_label.show ();
+        grid.attach (light_label, 1, 1, 1, 1);
 
-        light_score_image = new Gtk.Label ("○");
-        light_score_image.show ();
-        scores_grid.attach (light_score_image, 1, 1, 1, 1);
-
-        light_score_label = new Gtk.Label ("0");
+        light_score_label = new Gtk.Label ("00");
         light_score_label.show ();
-        light_score_label.xalign = 0.0f;
-        light_score_label.expand = false;
-        scores_grid.attach (light_score_label, 2, 1, 1, 1);
+        grid.attach (light_score_label, 2, 1, 1, 1);
 
         new_game_button = new Gtk.Button ();
         var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
@@ -252,11 +241,22 @@ public class Iagno : Gtk.Application
         else
             undo_action.set_enabled (game.can_undo ());
 
-        dark_active_image.visible = game.current_color == Player.DARK;
-        light_active_image.visible = game.current_color == Player.LIGHT;
-
-        dark_score_label.set_markup ("%d".printf (game.n_dark_tiles));
-        light_score_label.set_markup ("%d".printf (game.n_light_tiles));
+        if (game.current_color == Player.DARK)
+        {
+            dark_label.set_markup ("<span font_weight='bold'>"+_("Dark:")+"</span>");
+            light_label.set_markup ("<span font_weight='normal'>"+_("Light:")+"</span>");
+            /* Translators: this is a 2 digit representation of the current score. */
+            dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
+            light_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
+        }
+        else if (game.current_color == Player.LIGHT)
+        {
+            dark_label.set_markup ("<span font_weight='normal'>"+_("Dark:")+"</span>");
+            light_label.set_markup ("<span font_weight='bold'>"+_("Light:")+"</span>");
+            /* Translators: this is a 2 digit representation of the current score. */
+            dark_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
+            light_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
+        }
     }
 
     private void undo_move_cb ()
@@ -399,8 +399,6 @@ public class Iagno : Gtk.Application
 
         play_sound ("gameover");
         new_game_button.show ();
-        dark_active_image.visible = false;
-        light_active_image.visible = false;
     }
 
     private void play_sound (string name)

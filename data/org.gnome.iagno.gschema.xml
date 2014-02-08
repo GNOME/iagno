@@ -17,7 +17,7 @@
       <description>Whether or not to play event sounds.</description>
     </key>
     <key name="window-width" type="i">
-      <default>510</default>
+      <default>540</default>
       <summary>Width of the window in pixels</summary>
     </key>
     <key name="window-height" type="i">
