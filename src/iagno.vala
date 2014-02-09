@@ -96,9 +96,23 @@ public class Iagno : Gtk.Application
         else if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
+        var image = new Gtk.Image ();
+        image.icon_size = Gtk.IconSize.BUTTON;
+        if (Gtk.Widget.get_default_direction () == Gtk.TextDirection.RTL)
+            image.icon_name = "edit-undo-rtl-symbolic";
+        else
+            image.icon_name = "edit-undo-symbolic";
+
+        var undo_button = new Gtk.Button ();
+        undo_button.image = image;
+        undo_button.valign = Gtk.Align.CENTER;
+        undo_button.action_name = "app.undo-move";
+        undo_button.show ();
+
         headerbar = new Gtk.HeaderBar ();
         headerbar.show_close_button = true;
         headerbar.set_title (_("Iagno"));
+        headerbar.pack_start (undo_button);
         headerbar.show ();
         window.set_titlebar (headerbar);
 
