@@ -4,15 +4,15 @@
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # Gil 'Dolfin' Osher <dolfin@rpg.org.il>, 2002,2003
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
-# Yosef Or Boczko <yoseforb@gmail.com>, 2014.
+# Yosef Or Boczko <yoseforb@gnome.org>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-26 04:06+0200\n"
-"PO-Revision-Date: 2014-01-26 04:20+0200\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2014-02-09 02:22+0200\n"
+"PO-Revision-Date: 2014-02-09 02:23+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -43,8 +43,8 @@ msgstr ""
 "מניעה מהיריב שלך להפוך את האריחים שלך לצבע שלו. הדבר נעשה על ידי לכידת "
 "האריחים  של הריב שלך בין שני אריחים מהצבע שלך."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:91 ../src/iagno.vala:103
-#: ../src/iagno.vala:289 ../src/iagno.vala:658
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:114
+#: ../src/iagno.vala:302 ../src/iagno.vala:669
 msgid "Iagno"
 msgstr "יאגנו"
 
@@ -61,22 +61,18 @@ msgid "_New Game"
 msgstr "_משחק חדש"
 
 #: ../data/iagno.ui.h:2
-msgid "_Undo"
-msgstr "_בטל"
-
-#: ../data/iagno.ui.h:3
 msgid "_Preferences"
 msgstr "ה_עדפות"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno.ui.h:3
 msgid "_Help"
 msgstr "ע_זרה"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:4
 msgid "_About"
 msgstr "על _אודות"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:5
 msgid "_Quit"
 msgstr "י_ציאה"
 
@@ -104,7 +100,22 @@ msgstr "true if the window is maximized"
 msgid "true if the window is fullscren"
 msgstr "true if the window is fullscren"
 
-#: ../src/iagno.vala:294
+#: ../src/iagno.vala:142 ../src/iagno.vala:259 ../src/iagno.vala:267
+msgid "Dark:"
+msgstr "כהה:"
+
+#: ../src/iagno.vala:150 ../src/iagno.vala:260 ../src/iagno.vala:268
+msgid "Light:"
+msgstr "בהיר:"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:262 ../src/iagno.vala:263 ../src/iagno.vala:270
+#: ../src/iagno.vala:271
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#: ../src/iagno.vala:307
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -114,7 +125,7 @@ msgstr ""
 "\n"
 "יאגנו הוא חלק ממשחקי GNOME."
 
-#: ../src/iagno.vala:297
+#: ../src/iagno.vala:310
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -130,84 +141,87 @@ msgstr ""
 "‏http://gnome-il.berlios.de"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:333
+#: ../src/iagno.vala:346
 msgid "Light must pass, Dark’s move"
 msgstr "הבהיר חייב לחכות, תור הכהה"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:338
+#: ../src/iagno.vala:351
 msgid "Dark must pass, Light’s move"
 msgstr "הכהה חייב לחכות, תור הבהיר"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:386
+#: ../src/iagno.vala:399
 msgid "Light wins!"
 msgstr "השחקן הבהיר ניצח!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:391
+#: ../src/iagno.vala:404
 msgid "Dark wins!"
 msgstr "השחקן הכהה ניצח!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:396
+#: ../src/iagno.vala:409
 msgid "The game is draw."
 msgstr "המשחק הסתיים בתיקו."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:427
+#: ../src/iagno.vala:438
 msgid "You can’t move there!"
 msgstr "לא ניתן לזוז לשם!"
 
-#: ../src/iagno.vala:481
+#: ../src/iagno.vala:492
 msgid "Iagno Preferences"
 msgstr "העדפות יאגנו"
 
-#: ../src/iagno.vala:484
+#: ../src/iagno.vala:495
 msgid "_Close"
 msgstr "_סגירה"
 
-#: ../src/iagno.vala:500
+#: ../src/iagno.vala:511
 msgid "Dark Player:"
 msgstr "שחקן כהה:"
 
-#: ../src/iagno.vala:513 ../src/iagno.vala:542
+#: ../src/iagno.vala:524 ../src/iagno.vala:553
 msgid "Human"
 msgstr "אנושי"
 
-#: ../src/iagno.vala:517 ../src/iagno.vala:546
+#: ../src/iagno.vala:528 ../src/iagno.vala:557
 msgid "Level one"
 msgstr "רמה אחת"
 
-#: ../src/iagno.vala:521 ../src/iagno.vala:550
+#: ../src/iagno.vala:532 ../src/iagno.vala:561
 msgid "Level two"
 msgstr "רמה שתיים"
 
-#: ../src/iagno.vala:525 ../src/iagno.vala:554
+#: ../src/iagno.vala:536 ../src/iagno.vala:565
 msgid "Level three"
 msgstr "רמה שלוש"
 
-#: ../src/iagno.vala:530
+#: ../src/iagno.vala:541
 msgid "Light Player:"
 msgstr "שחקן בהיר:"
 
-#: ../src/iagno.vala:559
+#: ../src/iagno.vala:570
 msgid "_Tile set:"
 msgstr "_ערכת אריחים:"
 
-#: ../src/iagno.vala:611
+#: ../src/iagno.vala:622
 msgid "E_nable sounds"
 msgstr "א_פשר צלילים"
 
 #. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:623
-msgid "Disable delay before AI moves"
-msgstr "Disable delay before AI moves"
+#: ../src/iagno.vala:634
+msgid "Reduce delay before AI moves"
+msgstr "Reduce delay before AI moves"
 
 #. Help string for command line --version flag
-#: ../src/iagno.vala:626
+#: ../src/iagno.vala:637
 msgid "Show release version"
 msgstr "Show release version"
+
+#~ msgid "_Undo"
+#~ msgstr "_בטל"
 
 #~ msgid "Chess"
 #~ msgstr "שחמט"
@@ -2858,15 +2872,6 @@ msgstr "Show release version"
 
 #~ msgid "5 of a Kind [total]"
 #~ msgstr "5 מאותו סוג [סך הכול]"
-
-#~ msgid "Dark:"
-#~ msgstr "כהה:"
-
-#~ msgid "Light:"
-#~ msgstr "בהיר:"
-
-#~ msgid "%.2d"
-#~ msgstr "%.2d"
 
 #~ msgid "The game was a draw."
 #~ msgstr "המשחק הסתיים בתיקו."
