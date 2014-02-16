@@ -107,6 +107,7 @@ public class Iagno : Gtk.Application
         undo_button.image = image;
         undo_button.valign = Gtk.Align.CENTER;
         undo_button.action_name = "app.undo-move";
+        undo_button.tooltip_text = _("Undo your most recent move");
         undo_button.show ();
 
         headerbar = new Gtk.HeaderBar ();
