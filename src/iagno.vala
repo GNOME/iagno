@@ -161,6 +161,7 @@ public class Iagno : Gtk.Application
         new_game_button.valign = Gtk.Align.CENTER;
         new_game_button.relief = Gtk.ReliefStyle.NONE;
         new_game_button.action_name = "app.new-game";
+        new_game_button.tooltip_text = _("Start a new game");
         side_box.pack_end (new_game_button, false, false, 0);
 
         start_game ();
