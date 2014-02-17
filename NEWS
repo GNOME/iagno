@@ -1,3 +1,18 @@
+3.11.90 - February 16, 2014
+===========================
+
+* Now uses a header bar.
+* Removed the info bar. Messages are now displayed in the header bar instead.
+* Undo Move has moved from the app menu to the header bar.
+* The grid is now solid and mandatory, and sits on the left side of the window.
+* A new game button now appears in the window after the game is complete.
+* Flip final result preference removed; this is now mandatory.
+* The computer now moves more slowly, to avoid overwhelming the player.
+* Iagno can be started with -f or --fast-mode to avoid this delay.
+* Many older themes have been removed.
+* Updated man page
+* Updated translations
+
 3.11.2 - November 16, 2013
 ==========================
 
