@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games 3.11.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-26 12:44+0100\n"
-"PO-Revision-Date: 2014-01-26 12:45+0100\n"
+"POT-Creation-Date: 2014-02-19 23:45+0100\n"
+"PO-Revision-Date: 2014-02-19 23:46+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -32,8 +32,8 @@ msgid ""
 "of your own color."
 msgstr ""
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:91 ../src/iagno.vala:103
-#: ../src/iagno.vala:289 ../src/iagno.vala:658
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
+#: ../src/iagno.vala:304 ../src/iagno.vala:671
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -50,22 +50,18 @@ msgid "_New Game"
 msgstr "_Nytt spill"
 
 #: ../data/iagno.ui.h:2
-msgid "_Undo"
-msgstr "_Angre"
-
-#: ../data/iagno.ui.h:3
 msgid "_Preferences"
 msgstr "_Brukervalg"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno.ui.h:3
 msgid "_Help"
 msgstr "_Hjelp"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:4
 msgid "_About"
 msgstr "_Om"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:5
 msgid "_Quit"
 msgstr "A_vslutt"
 
@@ -93,7 +89,30 @@ msgstr "«true» hvis vinduet er maksimert"
 msgid "true if the window is fullscren"
 msgstr "«true» hvis vinduet er fullskjerm"
 
-#: ../src/iagno.vala:294
+#: ../src/iagno.vala:110
+msgid "Undo your most recent move"
+msgstr "Angre siste trekk"
+
+#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+msgid "Dark:"
+msgstr "Mørk:"
+
+#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
+msgid "Light:"
+msgstr "Lys:"
+
+#: ../src/iagno.vala:164
+msgid "Start a new game"
+msgstr "Start et nytt spill"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
+#: ../src/iagno.vala:273
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#: ../src/iagno.vala:309
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -103,7 +122,7 @@ msgstr ""
 "\n"
 "Iagno er en del av GNOME-spillene."
 
-#: ../src/iagno.vala:297
+#: ../src/iagno.vala:312
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
@@ -111,81 +130,81 @@ msgstr ""
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:333
+#: ../src/iagno.vala:348
 msgid "Light must pass, Dark’s move"
 msgstr "Lys må stå over. Mørk sitt trekk"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:338
+#: ../src/iagno.vala:353
 msgid "Dark must pass, Light’s move"
 msgstr "Mørk må stå over. Lys sitt trekk"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:386
+#: ../src/iagno.vala:401
 msgid "Light wins!"
 msgstr "Lys spiller vinner!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:391
+#: ../src/iagno.vala:406
 msgid "Dark wins!"
 msgstr "Mørk spiller vinner!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:396
+#: ../src/iagno.vala:411
 msgid "The game is draw."
 msgstr "Spillet er uavgjort."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:427
+#: ../src/iagno.vala:440
 msgid "You can’t move there!"
 msgstr "Du kan ikke flytte dit!"
 
-#: ../src/iagno.vala:481
+#: ../src/iagno.vala:494
 msgid "Iagno Preferences"
 msgstr "Brukervalg for Iagno"
 
-#: ../src/iagno.vala:484
+#: ../src/iagno.vala:497
 msgid "_Close"
 msgstr "_Lukk"
 
-#: ../src/iagno.vala:500
+#: ../src/iagno.vala:513
 msgid "Dark Player:"
 msgstr "Mørk spiller:"
 
-#: ../src/iagno.vala:513 ../src/iagno.vala:542
+#: ../src/iagno.vala:526 ../src/iagno.vala:555
 msgid "Human"
 msgstr "Menneske"
 
-#: ../src/iagno.vala:517 ../src/iagno.vala:546
+#: ../src/iagno.vala:530 ../src/iagno.vala:559
 msgid "Level one"
 msgstr "Nivå en"
 
-#: ../src/iagno.vala:521 ../src/iagno.vala:550
+#: ../src/iagno.vala:534 ../src/iagno.vala:563
 msgid "Level two"
 msgstr "Nivå to"
 
-#: ../src/iagno.vala:525 ../src/iagno.vala:554
+#: ../src/iagno.vala:538 ../src/iagno.vala:567
 msgid "Level three"
 msgstr "Nivå tre"
 
-#: ../src/iagno.vala:530
+#: ../src/iagno.vala:543
 msgid "Light Player:"
 msgstr "Lys spiller:"
 
-#: ../src/iagno.vala:559
+#: ../src/iagno.vala:572
 msgid "_Tile set:"
 msgstr "S_teinsett:"
 
-#: ../src/iagno.vala:611
+#: ../src/iagno.vala:624
 msgid "E_nable sounds"
 msgstr "A_ktiver lyder"
 
 #. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:623
-msgid "Disable delay before AI moves"
-msgstr "Slå av pause før AI-bevegelser"
+#: ../src/iagno.vala:636
+msgid "Reduce delay before AI moves"
+msgstr "Reduser pause før AI-bevegelser"
 
 #. Help string for command line --version flag
-#: ../src/iagno.vala:626
+#: ../src/iagno.vala:639
 msgid "Show release version"
 msgstr "Vis versjon"
