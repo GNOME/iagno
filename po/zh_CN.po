@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-16 16:08+0000\n"
+"POT-Creation-Date: 2014-02-22 01:36+0000\n"
 "PO-Revision-Date: 2012-03-23 17:59+0800\n"
 "Last-Translator: tuhaihe <wangdianjin@linuxdeepin.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -24,8 +24,8 @@ msgid ""
 "game. The game is played with tiles that are dark on one side and light on "
 "the other."
 msgstr ""
-"Iagno 是黑白棋的电脑版本。这是一款双人策略棋牌游戏，游戏使用一面涂成黑色，另一面涂成白色的小方块来玩。"
-""
+"Iagno 是黑白棋的电脑版本。这是一款双人策略棋牌游戏，游戏使用一面涂成黑色，另"
+"一面涂成白色的小方块来玩。"
 
 #: ../data/iagno.appdata.xml.in.h:2
 msgid ""
@@ -95,10 +95,9 @@ msgid "true if the window is fullscren"
 msgstr "若窗口已全屏则为 true"
 
 #: ../src/iagno.vala:110
-#, fuzzy
 #| msgid "The users's most recent level."
 msgid "Undo your most recent move"
-msgstr "用户最近的级别。"
+msgstr "撤消您最近的移动。"
 
 #: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
 msgid "Dark:"
