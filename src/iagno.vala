@@ -30,11 +30,11 @@ public class Iagno : Gtk.Application
     private Gtk.Label light_label;
     private Gtk.Label light_score_label;
 
-    /* Light computer player (if there is one) */
-    private ComputerPlayer? light_computer = null;
+    /* Computer player (if there is one) */
+    private ComputerPlayer? computer = null;
 
-    /* Dark computer player (if there is one) */
-    private ComputerPlayer? dark_computer = null;
+    /* Human player */
+    private Player player_one;
 
     /* Timer to delay computer moves */
     private uint computer_timer = 0;
@@ -221,16 +221,13 @@ public class Iagno : Gtk.Application
 
         new_game_button.hide ();
 
-        var dark_level = settings.get_int ("black-level");
-        if (dark_level > 0)
-            dark_computer = new ComputerPlayer (game, dark_level);
+        var computer_level = settings.get_int ("computer-level");
+        if (computer_level > 0)
+            computer = new ComputerPlayer (game, computer_level);
         else
-            dark_computer = null;
-        var light_level = settings.get_int ("white-level");
-        if (light_level > 0)
-            light_computer = new ComputerPlayer (game, light_level);
-        else
-            light_computer = null;
+            computer = null;
+
+        player_one = (settings.get_int ("play-as") == 2) ? Player.DARK : Player.LIGHT;
 
         update_ui ();
 
@@ -238,7 +235,7 @@ public class Iagno : Gtk.Application
          * Get the computer to move after a delay (so it looks like it's
          * thinking - but only a short delay for the first move)
          */
-        if (dark_computer != null)
+        if (player_one != Player.DARK && computer != null)
             computer_timer = Timeout.add_seconds (1, computer_move_cb);
     }
 
@@ -247,11 +244,7 @@ public class Iagno : Gtk.Application
         headerbar.set_subtitle (null);
 
         var undo_action = (SimpleAction) lookup_action ("undo-move");
-        /* Can't undo when running two computer players */
-        if (light_computer != null && dark_computer != null)
-            undo_action.set_enabled (false);
-        else
-            undo_action.set_enabled (game.can_undo ());
+        undo_action.set_enabled (game.can_undo ());
 
         if (game.current_color == Player.DARK)
         {
@@ -276,8 +269,7 @@ public class Iagno : Gtk.Application
         cancel_pending_computer_moves ();
 
         /* Undo once if the human player just moved, otherwise undo both moves */
-        if ((game.current_color == Player.DARK && dark_computer != null) ||
-            (game.current_color == Player.LIGHT && light_computer != null))
+        if (game.current_color != player_one && computer != null)
             game.undo (1);
         else
             game.undo (2);
@@ -359,8 +351,7 @@ public class Iagno : Gtk.Application
          * thinking. Make it fairly long so the human doesn't feel overwhelmed,
          * but not so long as to become boring.
          */
-        if (game.current_color == Player.LIGHT && light_computer != null ||
-            game.current_color == Player.DARK && dark_computer != null)
+        if (game.current_color != player_one && computer != null)
         {
             if (game.n_tiles == 63 || fast_mode)
                 computer_timer = Timeout.add (400, computer_move_cb);
@@ -372,10 +363,8 @@ public class Iagno : Gtk.Application
     private bool computer_move_cb ()
     {
         cancel_pending_computer_moves ();
-        if (game.current_color == Player.LIGHT)
-            light_computer.move ();
-        else
-            dark_computer.move ();
+        if (game.current_color != player_one)
+            computer.move ();
         return false;
     }
 
@@ -426,9 +415,7 @@ public class Iagno : Gtk.Application
     private void player_move_cb (int x, int y)
     {
         /* Ignore if we are waiting for the AI to move */
-        if (game.current_color == Player.LIGHT && settings.get_int ("white-level") > 0)
-            return;
-        if (game.current_color == Player.DARK && settings.get_int ("black-level") > 0)
+        if (game.current_color != player_one && computer != null)
             return;
 
         if (game.place_tile (x, y) == 0)
@@ -438,22 +425,23 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void dark_level_changed_cb (Gtk.ComboBox combo)
+    private void computer_level_changed_cb (Gtk.ComboBox combo, Gtk.ComboBox color_combo)
     {
         Gtk.TreeIter iter;
         combo.get_active_iter (out iter);
         int level;
         combo.model.get (iter, 1, out level);
-        settings.set_int ("black-level", level);
+        settings.set_int ("computer-level", level);
+        color_combo.sensitive = (level > 0) ? true : false;
     }
 
-    private void light_level_changed_cb (Gtk.ComboBox combo)
+    private void color_changed_cb (Gtk.ComboBox combo)
     {
         Gtk.TreeIter iter;
         combo.get_active_iter (out iter);
         int level;
         combo.model.get (iter, 1, out level);
-        settings.set_int ("white-level", level);
+        settings.set_int ("play-as", level);
     }
 
     private void sound_select (Gtk.ToggleButton widget)
@@ -506,12 +494,14 @@ public class Iagno : Gtk.Application
         grid.set_column_spacing (18);
         box.add (grid);
 
-        var label = new Gtk.Label (_("Dark Player:"));
+        var combo = new Gtk.ComboBox ();
+        var color_combo = new Gtk.ComboBox ();
+        combo.changed.connect (() => computer_level_changed_cb (combo, color_combo));
+
+        var label = new Gtk.Label (_("Opponent:"));
         label.set_alignment (0.0f, 0.5f);
         label.expand = true;
         grid.attach (label, 0, 0, 1, 1);
-        var combo = new Gtk.ComboBox ();
-        combo.changed.connect (dark_level_changed_cb);
         var renderer = new Gtk.CellRendererText ();
         combo.pack_start (renderer, true);
         combo.add_attribute (renderer, "text", 0);
@@ -520,50 +510,44 @@ public class Iagno : Gtk.Application
         Gtk.TreeIter iter;
         model.append (out iter);
         model.set (iter, 0, _("Human"), 1, 0);
-        if (settings.get_int ("black-level") == 0)
+        if (settings.get_int ("computer-level") == 0)
+        {
             combo.set_active_iter (iter);
+            color_combo.sensitive = false;
+        }
         model.append (out iter);
         model.set (iter, 0, _("Level one"), 1, 1);
-        if (settings.get_int ("black-level") == 1)
+        if (settings.get_int ("computer-level") == 1)
             combo.set_active_iter (iter);
         model.append (out iter);
         model.set (iter, 0, _("Level two"), 1, 2);
-        if (settings.get_int ("black-level") == 2)
+        if (settings.get_int ("computer-level") == 2)
             combo.set_active_iter (iter);
         model.append (out iter);
         model.set (iter, 0, _("Level three"), 1, 3);
-        if (settings.get_int ("black-level") == 3)
+        if (settings.get_int ("computer-level") == 3)
             combo.set_active_iter (iter);
         grid.attach (combo, 1, 0, 1, 1);
 
-        label = new Gtk.Label (_("Light Player:"));
+        label = new Gtk.Label (_("Play as:"));
         label.set_alignment (0.0f, 0.5f);
         label.expand = true;
         grid.attach (label, 0, 1, 1, 1);
-        combo = new Gtk.ComboBox ();
-        combo.changed.connect (light_level_changed_cb);
+        color_combo.changed.connect (color_changed_cb);
         renderer = new Gtk.CellRendererText ();
-        combo.pack_start (renderer, true);
-        combo.add_attribute (renderer, "text", 0);
+        color_combo.pack_start (renderer, true);
+        color_combo.add_attribute (renderer, "text", 0);
         model = new Gtk.ListStore (2, typeof (string), typeof (int));
-        combo.model = model;
+        color_combo.model = model;
         model.append (out iter);
-        model.set (iter, 0, _("Human"), 1, 0);
-        if (settings.get_int ("white-level") == 0)
-            combo.set_active_iter (iter);
+        model.set (iter, 0, _("Light"), 1, 1);
+        if (settings.get_int ("play-as") == 1)
+            color_combo.set_active_iter (iter);
         model.append (out iter);
-        model.set (iter, 0, _("Level one"), 1, 1);
-        if (settings.get_int ("white-level") == 1)
-            combo.set_active_iter (iter);
-        model.append (out iter);
-        model.set (iter, 0, _("Level two"), 1, 2);
-        if (settings.get_int ("white-level") == 2)
-            combo.set_active_iter (iter);
-        model.append (out iter);
-        model.set (iter, 0, _("Level three"), 1, 3);
-        if (settings.get_int ("white-level") == 3)
-            combo.set_active_iter (iter);
-        grid.attach (combo, 1, 1, 1, 1);
+        model.set (iter, 0, _("Dark"), 1, 2);
+        if (settings.get_int ("play-as") == 2)
+            color_combo.set_active_iter (iter);
+        grid.attach (color_combo, 1, 1, 1, 1);
 
         label = new Gtk.Label.with_mnemonic (_("_Tile set:"));
         label.set_alignment (0.0f, 0.5f);
