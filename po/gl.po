@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-07 02:09+0100\n"
-"PO-Revision-Date: 2014-02-07 02:11+0200\n"
+"POT-Creation-Date: 2014-03-03 17:03+0100\n"
+"PO-Revision-Date: 2014-03-03 17:03+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -48,8 +48,8 @@ msgstr ""
 "evitando que o seu opoñente faga o mesmo coas suas. Isto conséguese "
 "atrapando as fichas do opoñente entre dúas fichas da súa cor."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:91 ../src/iagno.vala:103
-#: ../src/iagno.vala:289 ../src/iagno.vala:658
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
+#: ../src/iagno.vala:304 ../src/iagno.vala:671
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -66,22 +66,18 @@ msgid "_New Game"
 msgstr "Xogo _novo"
 
 #: ../data/iagno.ui.h:2
-msgid "_Undo"
-msgstr "_Desfacer"
-
-#: ../data/iagno.ui.h:3
 msgid "_Preferences"
 msgstr "_Preferencias"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno.ui.h:3
 msgid "_Help"
 msgstr "_Axuda"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:4
 msgid "_About"
 msgstr "So_bre"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:5
 msgid "_Quit"
 msgstr "_Saír"
 
@@ -109,7 +105,30 @@ msgstr "verdadeiro se a xanela está maximizada"
 msgid "true if the window is fullscren"
 msgstr "verdadeiro se a xanela está en en pantalla completa"
 
-#: ../src/iagno.vala:294
+#: ../src/iagno.vala:110
+msgid "Undo your most recent move"
+msgstr "Desfacer o movemento máis recente"
+
+#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+msgid "Dark:"
+msgstr "Negras:"
+
+#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
+msgid "Light:"
+msgstr "Brancas:"
+
+#: ../src/iagno.vala:164
+msgid "Start a new game"
+msgstr "Comezar un xogo novo"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
+#: ../src/iagno.vala:273
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#: ../src/iagno.vala:309
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -119,107 +138,101 @@ msgstr ""
 "\n"
 "O Iagno forma parte do GNOME Games."
 
-#: ../src/iagno.vala:297
+#: ../src/iagno.vala:312
 msgid "translator-credits"
 msgstr ""
 "Fran Diéguez <frandieguez@ubuntu.com>, 2009-2014.\n"
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.\n"
 "Antón Méixome <meixome@mancomun.org>, 2009.\n"
 "Suso Baleato <suso.baleato@xunta.es>, 2009.\n"
-"Mancomún - Centro de Referencia e Servizos de Software Libre "
-"<g11n@mancomun.org>, 2009.\n"
+"Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun."
+"org>, 2009.\n"
 "Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2008.\n"
 "Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.\n"
 "Jesús Bravo Álvarez <jba@pobox.com>, 2000."
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:333
+#: ../src/iagno.vala:348
 msgid "Light must pass, Dark’s move"
 msgstr "As brancas teñen que pasar, moven as negras"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:338
+#: ../src/iagno.vala:353
 msgid "Dark must pass, Light’s move"
 msgstr "As negras teñen que pasar, moven as brancas"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:386
+#: ../src/iagno.vala:401
 msgid "Light wins!"
 msgstr "Gañan as brancas!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:391
+#: ../src/iagno.vala:406
 msgid "Dark wins!"
 msgstr "Gañan as negras!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:396
+#: ../src/iagno.vala:411
 msgid "The game is draw."
 msgstr "A partida rematou en empate!"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:427
+#: ../src/iagno.vala:440
 msgid "You can’t move there!"
 msgstr "Non pode moverse aí!"
 
-#: ../src/iagno.vala:481
+#: ../src/iagno.vala:494
 msgid "Iagno Preferences"
 msgstr "Preferencias do Iagno"
 
-#: ../src/iagno.vala:484
+#: ../src/iagno.vala:497
 msgid "_Close"
 msgstr "Pecha_r"
 
-#: ../src/iagno.vala:500
+#: ../src/iagno.vala:513
 msgid "Dark Player:"
 msgstr "Negras:"
 
-#: ../src/iagno.vala:513 ../src/iagno.vala:542
+#: ../src/iagno.vala:526 ../src/iagno.vala:555
 msgid "Human"
 msgstr "Humano"
 
-#: ../src/iagno.vala:517 ../src/iagno.vala:546
+#: ../src/iagno.vala:530 ../src/iagno.vala:559
 msgid "Level one"
 msgstr "Nivel 1"
 
-#: ../src/iagno.vala:521 ../src/iagno.vala:550
+#: ../src/iagno.vala:534 ../src/iagno.vala:563
 msgid "Level two"
 msgstr "Level 2"
 
-#: ../src/iagno.vala:525 ../src/iagno.vala:554
+#: ../src/iagno.vala:538 ../src/iagno.vala:567
 msgid "Level three"
 msgstr "Level 3"
 
-#: ../src/iagno.vala:530
+#: ../src/iagno.vala:543
 msgid "Light Player:"
 msgstr "Brancas:"
 
-#: ../src/iagno.vala:559
+#: ../src/iagno.vala:572
 msgid "_Tile set:"
 msgstr "Definir as _fichas:"
 
-#: ../src/iagno.vala:611
+#: ../src/iagno.vala:624
 msgid "E_nable sounds"
 msgstr "Acti_var sons"
 
 #. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:623
+#: ../src/iagno.vala:636
 msgid "Reduce delay before AI moves"
 msgstr "Reducir atraso antes dos movementos de IA"
 
 #. Help string for command line --version flag
-#: ../src/iagno.vala:626
+#: ../src/iagno.vala:639
 msgid "Show release version"
 msgstr "Mostrar o número de versión"
 
-#~ msgid "Dark:"
-#~ msgstr "Negras:"
-
-#~ msgid "Light:"
-#~ msgstr "Brancas:"
-
-#~ msgid "%.2d"
-#~ msgstr "%.2d"
+#~ msgid "_Undo"
+#~ msgstr "_Desfacer"
 
 #~ msgid "GNOME Games web site"
 #~ msgstr "Sitio web do GNOME Games"
@@ -259,9 +272,6 @@ msgstr "Mostrar o número de versión"
 
 #~ msgid "_Contents"
 #~ msgstr "_Contidos"
-
-#~ msgid "Start a new game"
-#~ msgstr "Comezar un xogo novo"
 
 #~ msgid "New Game"
 #~ msgstr "Xogo novo"
@@ -2941,9 +2951,6 @@ msgstr "Mostrar o número de versión"
 
 #~ msgid "The current level"
 #~ msgstr "O nivel actual"
-
-#~ msgid "The users's most recent level."
-#~ msgstr "O nivel máis recente do usuario."
 
 #~ msgid ""
 #~ "Turn off all the lights\n"
