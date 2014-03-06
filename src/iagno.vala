@@ -127,7 +127,7 @@ public class Iagno : Gtk.Application
         var tile_set = settings.get_string ("tileset");
         view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
         view.show ();
-        hbox.pack_start (view, false, true, 0);
+        hbox.pack_start (view, true, true, 0);
 
         var side_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
         side_box.show ();
