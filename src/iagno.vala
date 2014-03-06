@@ -117,7 +117,7 @@ public class Iagno : Gtk.Application
         headerbar.show ();
         window.set_titlebar (headerbar);
 
-        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         hbox.show ();
         window.add (hbox);
 
