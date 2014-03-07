@@ -22,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-02-16 16:08+0000\n"
-"PO-Revision-Date: 2014-03-08 05:09+0900\n"
+"PO-Revision-Date: 2014-03-08 05:47+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: Korean\n"
@@ -36,7 +36,7 @@ msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
 "the other."
-msgstr ""
+msgstr "이아그노는 2인용 보드 게임인 리버시의 컴퓨터 버전입니다. 게임은 한쪽 면이 검은색이고 다른 면이 흰색인 타일로 플레이합니다."
 
 #: ../data/iagno.appdata.xml.in.h:2
 msgid ""
@@ -44,7 +44,7 @@ msgid ""
 "color as possible while preventing your opponent from flipping your tiles to "
 "his color. This is done by trapping your opponent's tiles between two tiles "
 "of your own color."
-msgstr ""
+msgstr "이아그노의 목표는 상대편의 타일을 내 색으로 뒤집으면서, 상대편이 내 타일을 상대편 색으로 뒤집는 걸 막는 것입니다. 상대편 타일을 내 색깔 타일 사이로 집어 넣으면 됩니다."
 
 #: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
 #: ../src/iagno.vala:304 ../src/iagno.vala:671
