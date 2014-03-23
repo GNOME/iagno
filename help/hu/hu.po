@@ -2,12 +2,12 @@
 # Copyright (C) 2013. Free Software Foundation, Inc.
 # This file is distributed under the same license as the iagno help.
 #
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2013.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2013-06-10 06:42+0000\n"
-"PO-Revision-Date: 2013-09-27 23:06+0200\n"
+"POT-Creation-Date: 2014-03-23 22:35+0000\n"
+"PO-Revision-Date: 2014-03-24 00:41+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -15,156 +15,81 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 1.4\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Kelemen Gábor <kelemeng at gnome dot hu>, 2013."
+msgstr "Kelemen Gábor <kelemeng at gnome dot hu>, 2013, 2014."
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:6(media)
-msgctxt "_"
-msgid "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
-msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:19(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
-msgstr ""
-"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
-
-#: C/index.page:7(info/title)
-msgctxt "link"
-msgid "Iagno"
-msgstr "Iagno"
-
-#: C/index.page:8(info/title)
-msgctxt "text"
-msgid "Iagno"
-msgstr "Iagno"
-
-#: C/index.page:11(credit/name) C/2player.page:14(credit/name)
-#: C/ai-game.page:14(credit/name) C/bug-filing.page:10(credit/name)
-#: C/change-color.page:9(credit/name) C/develop.page:10(credit/name)
-#: C/documentation.page:8(credit/name) C/play.page:9(credit/name)
-#: C/rules.page:9(credit/name) C/sound.page:9(credit/name)
-#: C/visual-results.page:14(credit/name) C/translate.page:10(credit/name)
-msgid "Tiffany Antopolski"
-msgstr "Tiffany Antopolski"
-
-#: C/index.page:15(license/p) C/bug-filing.page:15(license/p)
-#: C/develop.page:15(license/p) C/documentation.page:13(license/p)
-#: C/translate.page:19(license/p)
-msgid "Creative Commons Share Alike 3.0"
-msgstr "Creative Commons Share Alike 3.0"
-
-#: C/index.page:19(page/title)
-#| msgid ""
-#| "<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media>Iagno"
-msgid ""
-"<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media> Iagno"
-msgstr ""
-"<media type=\"image\" src=\"figures/logo32.png\">Iagno logó</media> Iagno"
-
-#: C/index.page:21(page/p)
-msgid ""
-"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
-"on one side and light on the other. When a piece is captured it is turned "
-"over to join the capturing player's forces; the winner is the player with "
-"the most pieces of their color at the end of the game."
-msgstr ""
-"Az <app>Iagno</app> egy 8x8-as táblán 64 (egyik oldalán sötét, a másikon "
-"világos) figurával játszott táblajáték. Az egyik figura elfogásakor az "
-"megfordul és a másik játékos erőihez csatlakozik; a nyertes az a játékos, "
-"akinek több azonos színű figurája van a játék végén."
-
-#: C/index.page:25(section/title)
-msgid "Game Play"
-msgstr "Játékmenet"
-
-#: C/index.page:29(section/title)
-msgid "Useful tips"
-msgstr "Hasznos tippek"
-
-#: C/index.page:33(section/title)
-msgid "Advanced"
-msgstr "Speciális"
-
-#: C/index.page:37(section/title)
-msgid "Get Involved"
-msgstr "Közreműködés"
-
-#: C/2player.page:9(credit/name) C/ai-game.page:9(credit/name)
-#: C/shortcuts.page:9(credit/name) C/visual-results.page:9(credit/name)
+#. (itstool) path: credit/name
+#: C/2player.page:9 C/ai-game.page:9 C/shortcuts.page:9
 msgid "Brian Grohe"
 msgstr "Brian Grohe"
 
-#: C/2player.page:11(credit/years) C/ai-game.page:11(credit/years)
-#: C/play.page:11(credit/years) C/rules.page:11(credit/years)
-#: C/shortcuts.page:11(credit/years) C/sound.page:11(credit/years)
-#: C/visual-results.page:11(credit/years)
+#. (itstool) path: credit/years
+#: C/2player.page:11 C/ai-game.page:11 C/play.page:11 C/rules.page:11
+#: C/shortcuts.page:11 C/sound.page:11
 msgid "2012"
 msgstr "2012"
 
-#: C/2player.page:19(page/title)
+#. (itstool) path: credit/name
+#: C/2player.page:14 C/ai-game.page:14 C/bug-filing.page:9
+#: C/change-color.page:9 C/develop.page:10 C/documentation.page:8
+#: C/index.page:11 C/play.page:9 C/rules.page:9 C/sound.page:9
+#: C/translate.page:10
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
+
+#. (itstool) path: page/title
+#: C/2player.page:19
 msgid "Two-player mode"
 msgstr "Kétszemélyes mód"
 
-#: C/2player.page:20(page/p)
+#. (itstool) path: page/p
+#: C/2player.page:20
 msgid ""
 "Two player mode allows you to play against another human rather than a "
 "computer. To enable this:"
 msgstr ""
-"A kétszemélyes mód lehetővé teszi egy másik ember elleni játékot a számítógép "
-"helyett. Ehhez:"
+"A kétszemélyes mód lehetővé teszi egy másik ember elleni játékot a "
+"számítógép helyett. Ehhez:"
 
-#: C/2player.page:23(item/p)
+#. (itstool) path: item/p
+#: C/2player.page:23
 msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
 msgstr ""
 "Válassza a <guiseq><gui>Beállítások</gui><gui>Beállítások</gui></guiseq> "
 "menüpontot."
 
-#: C/2player.page:24(item/p) C/ai-game.page:25(item/p) C/sound.page:21(item/p)
+#. (itstool) path: item/p
+#: C/2player.page:24 C/ai-game.page:25 C/sound.page:21
 msgid "Select the <gui>Game</gui> tab."
 msgstr "Válassza a <gui>Játék</gui> lapot."
 
-#: C/2player.page:25(item/p)
+#. (itstool) path: item/p
+#: C/2player.page:25
 msgid "Check <gui>human</gui> in both player columns."
 msgstr "Jelölje be az <gui>Ember</gui> lehetőséget mindkét játékos oszlopban."
 
-#: C/2player.page:26(item/p) C/change-color.page:31(item/p)
+#. (itstool) path: item/p
+#: C/2player.page:26 C/change-color.page:31
 msgid "Click <gui>Close</gui>"
 msgstr "Nyomja meg a <gui>Bezárás</gui> gombot."
 
-#: C/2player.page:27(note/p)
+#. (itstool) path: note/p
+#: C/2player.page:27
 msgid "Your changes will apply when a new game is started."
 msgstr ""
 "A változtatásai automatikusan életbe lépnek a következő játék elindításakor."
 
-#: C/ai-game.page:20(page/title)
+#. (itstool) path: page/title
+#: C/ai-game.page:20
 msgid "Play against the computer"
 msgstr "Játék a számítógép ellen"
 
-#: C/ai-game.page:21(page/p)
+#. (itstool) path: page/p
+#: C/ai-game.page:21
 msgid ""
 "The computer has different levels of difficulty: Level One, Level Two, and "
 "Level Three. To change this setting:"
@@ -172,47 +97,58 @@ msgstr ""
 "A számítógép különböző nehézségi fokozatokat ismer: első, második és "
 "harmadik. A beállítás módosításához:"
 
-#: C/ai-game.page:24(item/p) C/change-color.page:24(item/p)
-#: C/visual-results.page:25(item/p)
+#. (itstool) path: item/p
+#: C/ai-game.page:24 C/change-color.page:24
 msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
 msgstr ""
 "Válassza a <guiseq><gui>Beállítások</gui><gui>Beállítások</gui></guiseq> "
 "menüpontot."
 
-#: C/ai-game.page:26(item/p)
+#. (itstool) path: item/p
+#: C/ai-game.page:26
 msgid "Select the difficulty level for your computer opponent."
 msgstr "Válassza ki a nehézségi szintet a számítógép ellenfélhez."
 
-#: C/ai-game.page:27(item/p) C/sound.page:23(item/p)
-#: C/visual-results.page:28(item/p)
+#. (itstool) path: item/p
+#: C/ai-game.page:27 C/sound.page:23
 msgid "Click <gui>Close</gui>."
 msgstr "Nyomja meg a <gui>Bezárás</gui> gombot."
 
-#: C/bug-filing.page:12(credit/years) C/change-color.page:11(credit/years)
-#: C/develop.page:12(credit/years) C/documentation.page:10(credit/years)
-#: C/strategy.page:11(credit/years) C/translate.page:12(credit/years)
+#. (itstool) path: credit/years
+#: C/bug-filing.page:11 C/change-color.page:11 C/develop.page:12
+#: C/documentation.page:10 C/strategy.page:11 C/translate.page:12
 msgid "2011"
 msgstr "2011"
 
-#: C/bug-filing.page:19(page/title)
+#. (itstool) path: license/p
+#: C/bug-filing.page:14 C/develop.page:15 C/documentation.page:13
+#: C/index.page:15 C/translate.page:19
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: page/title
+#: C/bug-filing.page:18
 msgid "Help make <app>Iagno</app> better"
 msgstr "Segítsen az <app>Iagnot</app> jobbá tenni"
 
-#: C/bug-filing.page:22(section/title)
+#. (itstool) path: section/title
+#: C/bug-filing.page:21
 msgid "Report a bug or suggest an improvement"
 msgstr "Hiba jelentése vagy továbbfejlesztés kérése"
 
-#: C/bug-filing.page:23(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:22
 msgid ""
 "<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
 "participate. If you notice a problem you can file a <em>bug report</em>. To "
 "file a bug, go to <link href=\"https://bugzilla.gnome.org/\"/>."
 msgstr ""
-"Az <app>Iagnot</app> egy önkéntes közösség készíti. Közreműködését "
-"szívesen fogadjuk. Ha hibát észlelt, beküldhet egy <em>hibajelentést</em>. "
-"Ehhez keresse fel a <link href=\"https://bugzilla.gnome.org/\"/> oldalt."
+"Az <app>Iagnot</app> egy önkéntes közösség készíti. Közreműködését szívesen "
+"fogadjuk. Ha hibát észlelt, beküldhet egy <em>hibajelentést</em>. Ehhez "
+"keresse fel a <link href=\"https://bugzilla.gnome.org/\"/> oldalt."
 
-#: C/bug-filing.page:26(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:25
 msgid ""
 "This is a bug tracking system where users and developers can file details "
 "about bugs, crashes and request enhancements."
@@ -221,7 +157,8 @@ msgstr ""
 "hibákkal, összeomlásokkal kapcsolatos adatokat, és továbbfejlesztéseket "
 "kérhetnek."
 
-#: C/bug-filing.page:29(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:28
 msgid ""
 "To participate you need an account which will give you the ability to gain "
 "access, file bugs, and make comments. Also, you need to register so you can "
@@ -234,14 +171,8 @@ msgstr ""
 "fiókja, akkor a <gui>New Account</gui> hivatkozásra kattintva létrehozhat "
 "egyet."
 
-#: C/bug-filing.page:33(section/p)
-#| msgid ""
-#| "Once you have an account, log in, click on <guiseq><gui>File a Bug</"
-#| "gui><gui>Applications</gui><gui>gnome-games</gui></guiseq>. Before "
-#| "reporting a bug, please read the <link href=\"https://bugzilla.gnome.org/"
-#| "page.cgi?id=bug-writing.html\">bug writing guidelines</link>, and please "
-#| "<link href=\"https://bugzilla.gnome.org/browse.cgi?product=gnome-games"
-#| "\">browse</link> for the bug to see if it already exists."
+#. (itstool) path: section/p
+#: C/bug-filing.page:32
 msgid ""
 "Once you have an account, log in, click on <guiseq><gui>File a Bug</"
 "gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
@@ -251,13 +182,14 @@ msgid ""
 "the bug to see if it already exists."
 msgstr ""
 "Ha létrehozta fiókját, jelentkezzen be, kattintson a <guiseq><gui>File a "
-"Bug</gui><gui>Applications</gui><gui>iagno</gui></guiseq> "
-"hivatkozásokra. Hiba jelentése előtt olvassa el a <link href=\"https://"
-"bugzilla.gnome.org/page.cgi?id=bug-writing.html\">hibajelentés-írási "
-"irányelveket</link>, és <link href=\"https://bugzilla.gnome.org/browse.cgi?"
-"product=iagno\">ellenőrizze</link>, hogy nincs-e már a hiba bejelentve."
+"Bug</gui><gui>Applications</gui><gui>iagno</gui></guiseq> hivatkozásokra. "
+"Hiba jelentése előtt olvassa el a <link href=\"https://bugzilla.gnome.org/"
+"page.cgi?id=bug-writing.html\">hibajelentés-írási irányelveket</link>, és "
+"<link href=\"https://bugzilla.gnome.org/browse.cgi?product=iagno"
+"\">ellenőrizze</link>, hogy nincs-e már a hiba bejelentve."
 
-#: C/bug-filing.page:41(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:40
 msgid ""
 "If you are requesting a new feature, choose <gui>enhancement</gui> in the "
 "<gui>Severity</gui> menu. Fill in the Summary and Description sections and "
@@ -267,7 +199,8 @@ msgstr ""
 "<gui>Severity</gui> menüben. Töltse ki a Summary és Description szakaszokat, "
 "és kattintson a <gui>Commit</gui> gombra."
 
-#: C/bug-filing.page:45(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:44
 msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
 "is being dealt with. Thanks for helping make <app>Iagno</app> better!"
@@ -276,35 +209,42 @@ msgstr ""
 "feldolgozása során frissülni fog. Köszönjük, hogy segít jobbá tenni az "
 "<app>Iagnot</app>!"
 
-#: C/change-color.page:17(page/title)
+#. (itstool) path: page/title
+#: C/change-color.page:17
 msgid "Change player color and difficulty"
 msgstr "A játékos színének és nehézségi szintjének módosítása"
 
-#: C/change-color.page:19(page/p)
+#. (itstool) path: page/p
+#: C/change-color.page:19
 msgid "To change the player for each color:"
 msgstr "Az adott színnel játszó játékos módosításához:"
 
-#: C/change-color.page:25(item/p)
+#. (itstool) path: item/p
+#: C/change-color.page:25
 msgid "Select the <gui>Game</gui> tab"
 msgstr "Válassza a <gui>Játék</gui> lapot"
 
-#: C/change-color.page:26(item/p)
+#. (itstool) path: item/p
+#: C/change-color.page:26
 msgid ""
 "Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
 "gui>."
 msgstr ""
-"Válassza ki a játékos típusát és nehézségét a <gui>Sötét</gui> és <gui>"
-"Világos</gui> alatt."
+"Válassza ki a játékos típusát és nehézségét a <gui>Sötét</gui> és "
+"<gui>Világos</gui> alatt."
 
-#: C/change-color.page:27(note/p)
+#. (itstool) path: note/p
+#: C/change-color.page:27
 msgid "Your choice is effective immediately."
 msgstr "A választása azonnal életbe lép."
 
-#: C/develop.page:19(page/title)
+#. (itstool) path: page/title
+#: C/develop.page:19
 msgid "Help develop"
 msgstr "Segítsen a fejlesztésben"
 
-#: C/develop.page:20(page/p)
+#. (itstool) path: page/p
+#: C/develop.page:20
 msgid ""
 "The <app>GNOME Games</app> are developed and maintained by a volunteer "
 "community. You are welcome to participate."
@@ -312,27 +252,37 @@ msgstr ""
 "A <app>GNOME játékokat</app> egy önkéntes közösség fejleszti és tartja "
 "karban. Közreműködését szívesen fogadjuk!"
 
-#: C/develop.page:23(page/p)
+#. (itstool) path: page/p
+#: C/develop.page:23
+#| msgid ""
+#| "If you would like to <link href=\"https://live.gnome.org/GnomeGames/"
+#| "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
+#| "touch with the developers using <link href=\"https://cbe005.chat.mibbit."
+#| "com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our "
+#| "<link href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing "
+#| "list</link>."
 msgid ""
-"If you would like to <link href=\"https://live.gnome.org/GnomeGames/"
+"If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
 "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
 "touch with the developers using <link href=\"https://cbe005.chat.mibbit.com/?"
 "url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our <link "
 "href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
 "link>."
 msgstr ""
-"Ha szeretne <link href=\"https://live.gnome.org/GnomeGames/Contributing"
-"\">közreműködni a <app>GNOME játékok</app> fejlesztésében</link>, akkor a "
+"Ha szeretne <link href=\"https://wiki.gnome.org/Apps/Games/Contributing\">"
+"közreműködni a <app>GNOME játékok</app> fejlesztésében</link>, akkor a "
 "fejlesztőkkel a kapcsolatot <link href=\"https://cbe005.chat.mibbit.com/?"
 "url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">IRC</link>-n vagy a <link href="
 "\"http://mail.gnome.org/mailman/listinfo/games-list\">levelezőlistán</link> "
 "veheti fel."
 
-#: C/documentation.page:17(page/title)
+#. (itstool) path: page/title
+#: C/documentation.page:17
 msgid "Help write documentation"
 msgstr "Segítsen dokumentációt írni"
 
-#: C/documentation.page:19(page/p)
+#. (itstool) path: page/p
+#: C/documentation.page:19
 msgid ""
 "The <app>GNOME Games</app> documentation is maintained by a volunteer "
 "community. You are welcome to participate."
@@ -340,7 +290,8 @@ msgstr ""
 "A <app>GNOME játékok</app> dokumentációját egy önkéntes közösség tartja "
 "karban. Közreműködését szívesen fogadjuk!"
 
-#: C/documentation.page:22(page/p)
+#. (itstool) path: page/p
+#: C/documentation.page:22
 msgid ""
 "To contribute to the Documentation Project, feel free to get in touch with "
 "us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
@@ -352,7 +303,8 @@ msgstr ""
 "\">irc</link> csatornát vagy a <link href=\"http://mail.gnome.org/mailman/"
 "listinfo/gnome-doc-list\">levelezőlistát</link>."
 
-#: C/documentation.page:24(page/p)
+#. (itstool) path: page/p
+#: C/documentation.page:24
 msgid ""
 "Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
 "\">wiki</link> page contains useful information."
@@ -360,23 +312,102 @@ msgstr ""
 "A projekt <link href=\"https://live.gnome.org/DocumentationProject/"
 "Contributing\">wiki</link> oldala tartalmazza a legfontosabb információkat."
 
-#: C/legal.xml:3(p/link)
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:6
+msgctxt "_"
+msgid "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
+msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
+
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:19
+msgctxt "_"
+msgid ""
+"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
+msgstr ""
+"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "Iagno"
+msgstr "Iagno"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Iagno"
+msgstr "Iagno"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid ""
+"<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media> Iagno"
+msgstr ""
+"<media type=\"image\" src=\"figures/logo32.png\">Iagno logó</media> Iagno"
+
+#. (itstool) path: page/p
+#: C/index.page:21
+msgid ""
+"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
+"on one side and light on the other. When a piece is captured it is turned "
+"over to join the capturing player's forces; the winner is the player with "
+"the most pieces of their color at the end of the game."
+msgstr ""
+"Az <app>Iagno</app> egy 8x8-as táblán 64 (egyik oldalán sötét, a másikon "
+"világos) figurával játszott táblajáték. Az egyik figura elfogásakor az "
+"megfordul és a másik játékos erőihez csatlakozik; a nyertes az a játékos, "
+"akinek több azonos színű figurája van a játék végén."
+
+#. (itstool) path: section/title
+#: C/index.page:25
+msgid "Game Play"
+msgstr "Játékmenet"
+
+#. (itstool) path: section/title
+#: C/index.page:29
+msgid "Useful tips"
+msgstr "Hasznos tippek"
+
+#. (itstool) path: section/title
+#: C/index.page:33
+msgid "Advanced"
+msgstr "Speciális"
+
+#. (itstool) path: section/title
+#: C/index.page:37
+msgid "Get Involved"
+msgstr "Közreműködés"
+
+#. (itstool) path: p/link
+#: C/legal.xml:3
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 
-#: C/legal.xml:3(license/p)
+#. (itstool) path: license/p
+#: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Ez a munka a <_:link-1/> feltételei szerint használható."
 
-#: C/license.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/license.page:8
 msgid "Legal information."
 msgstr "Jogi információk."
 
-#: C/license.page:11(page/title)
+#. (itstool) path: page/title
+#: C/license.page:11
 msgid "License"
 msgstr "Licenc"
 
-#: C/license.page:12(page/p)
+#. (itstool) path: page/p
+#: C/license.page:12
 msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
@@ -384,35 +415,43 @@ msgstr ""
 "Ez a mű a CreativeCommons Attribution-Share Alike 3.0 Unported licenc "
 "feltételei szerint terjeszthető."
 
-#: C/license.page:20(page/p)
+#. (itstool) path: page/p
+#: C/license.page:20
 msgid "You are free:"
 msgstr "Jogában áll:"
 
-#: C/license.page:25(item/title)
+#. (itstool) path: item/title
+#: C/license.page:25
 msgid "<em>To share</em>"
 msgstr "<em>Megosztani</em>"
 
-#: C/license.page:26(item/p)
+#. (itstool) path: item/p
+#: C/license.page:26
 msgid "To copy, distribute and transmit the work."
 msgstr "Másolni, terjeszteni és továbbítani a művet."
 
-#: C/license.page:29(item/title)
+#. (itstool) path: item/title
+#: C/license.page:29
 msgid "<em>To remix</em>"
 msgstr "<em>Feldolgozni</em>"
 
-#: C/license.page:30(item/p)
+#. (itstool) path: item/p
+#: C/license.page:30
 msgid "To adapt the work."
 msgstr "Módosítani a művet."
 
-#: C/license.page:33(page/p)
+#. (itstool) path: page/p
+#: C/license.page:33
 msgid "Under the following conditions:"
 msgstr "A következő feltételek szerint:"
 
-#: C/license.page:38(item/title)
+#. (itstool) path: item/title
+#: C/license.page:38
 msgid "<em>Attribution</em>"
 msgstr "<em>Nevezd meg!</em>"
 
-#: C/license.page:39(item/p)
+#. (itstool) path: item/p
+#: C/license.page:39
 msgid ""
 "You must attribute the work in the manner specified by the author or "
 "licensor (but not in any way that suggests that they endorse you or your use "
@@ -421,11 +460,13 @@ msgstr ""
 "A szerző vagy a jogosult által meghatározott módon fel kell tüntetnie a "
 "műhöz kapcsolódó információkat (pl. a szerző nevét vagy álnevét, a Mű címét)."
 
-#: C/license.page:46(item/title)
+#. (itstool) path: item/title
+#: C/license.page:46
 msgid "<em>Share Alike</em>"
 msgstr "<em>Így add tovább!</em>"
 
-#: C/license.page:47(item/p)
+#. (itstool) path: item/p
+#: C/license.page:47
 msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
@@ -433,7 +474,8 @@ msgstr ""
 "Ha megváltoztatja, átalakítja, feldolgozza ezt a művet, az így létrejött "
 "alkotást csak a jelenlegivel megegyező licenc alatt terjesztheti."
 
-#: C/license.page:53(page/p)
+#. (itstool) path: page/p
+#: C/license.page:53
 msgid ""
 "For the full text of the license, see the <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
@@ -445,22 +487,25 @@ msgstr ""
 "teljes <link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons "
 "összefoglalót</link>."
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/play.page:41(media)
+#: C/play.page:41
 msgctxt "_"
 msgid ""
 "external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
 msgstr ""
 "external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
 
-#: C/play.page:17(page/title)
+#. (itstool) path: page/title
+#: C/play.page:17
 msgid "How to Play"
 msgstr "Hogyan kell játszani?"
 
-#: C/play.page:19(page/p)
+#. (itstool) path: page/p
+#: C/play.page:19
 msgid ""
 "<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
 "play."
@@ -468,25 +513,29 @@ msgstr ""
 "Az <app>Iagno</app> egyszerű <link xref=\"rules\">szabályokkal</link> "
 "rendelkezik, és egyszerű játszani."
 
-#: C/play.page:21(page/p)
+#. (itstool) path: page/p
+#: C/play.page:21
 msgid ""
 "When the game first starts, you play <em>Dark</em> and the computer player "
 "plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
 "<gui>Level one</gui> by default."
 msgstr ""
-"A játék első indításakor Ön a <em>Sötét</em> színnel van, és a számítógép a <"
-"em>Világossal</em>. A <link xref=\"ai-game\">nehézségi szint</link> "
+"A játék első indításakor Ön a <em>Sötét</em> színnel van, és a számítógép a "
+"<em>Világossal</em>. A <link xref=\"ai-game\">nehézségi szint</link> "
 "alapesetben az <gui>Első</gui>."
 
-#: C/play.page:24(page/p)
+#. (itstool) path: page/p
+#: C/play.page:24
 msgid "The game is played using the mouse. To make a move:"
 msgstr "A játékot az egérrel kell játszani. A lépéshez:"
 
-#: C/play.page:27(item/p)
+#. (itstool) path: item/p
+#: C/play.page:27
 msgid "Click on the cell you would like to place your piece in."
 msgstr "Kattintson arra a cellára, amelybe a figuráját el szeretné helyezni."
 
-#: C/play.page:28(note/p)
+#. (itstool) path: note/p
+#: C/play.page:28
 msgid ""
 "If the move is legal, the piece will be placed in the cell, and the opponent "
 "pieces will be flipped to match your color."
@@ -494,57 +543,64 @@ msgstr ""
 "Ha a lépés érvényes, akkor a figura elhelyezésre kerül a cellába, és az "
 "ellenfél figurái megfordulnak, hogy az Ön színét erősítsék."
 
-#: C/play.page:30(note/p)
+#. (itstool) path: note/p
+#: C/play.page:30
 msgid "If the move is not allowed, nothing will happen."
 msgstr "Ha a lépés nem engedélyezett, akkor semmi nem történik."
 
-#: C/play.page:34(item/p)
+#. (itstool) path: item/p
+#: C/play.page:34
 msgid ""
 "You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
 "guiseq>."
 msgstr ""
-"Egy lépést a <guiseq><gui>Játék</gui><gui>Visszavonás</gui></guiseq> menüpont "
-"kiválasztásával vonhat vissza."
+"Egy lépést a <guiseq><gui>Játék</gui><gui>Visszavonás</gui></guiseq> "
+"menüpont kiválasztásával vonhat vissza."
 
-#: C/play.page:40(section/title)
+#. (itstool) path: section/title
+#: C/play.page:40
 msgid "Video demonstration"
 msgstr "Videobemutató"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rules.page:43(media)
+#: C/rules.page:43
 msgctxt "_"
 msgid "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
 msgstr ""
 "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rules.page:48(media)
+#: C/rules.page:48
 msgctxt "_"
 msgid "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
 msgstr ""
 "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rules.page:53(media)
+#: C/rules.page:53
 msgctxt "_"
 msgid "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
 msgstr ""
 "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rules.page:58(media)
+#: C/rules.page:58
 msgctxt "_"
 msgid ""
 "external ref='figures/iagno-gameover.png' "
@@ -553,16 +609,18 @@ msgstr ""
 "external ref='figures/iagno-gameover.png' "
 "md5='b7792be5784722b905b78510452aee16'"
 
-#: C/rules.page:14(credit/name) C/strategy.page:14(credit/name)
-#: C/translate.page:15(credit/name)
+#. (itstool) path: credit/name
+#: C/rules.page:14 C/strategy.page:14 C/translate.page:15
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
-#: C/rules.page:21(page/title)
+#. (itstool) path: page/title
+#: C/rules.page:21
 msgid "Rules"
 msgstr "Szabályok"
 
-#: C/rules.page:23(page/p)
+#. (itstool) path: page/p
+#: C/rules.page:23
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -574,19 +632,22 @@ msgstr ""
 "megfordításához csapdába kell azt ejtenie a sajátjai között vízszintesen, "
 "függőlegesen vagy átlósan."
 
-#: C/rules.page:25(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:25
 msgid ""
 "The game begins with four pieces, two light and two dark, placed in the "
 "center of the board."
 msgstr ""
-"A játék négy figurával indul, két világossal és két sötéttel, amelyek a tábla "
-"közepén találhatók."
+"A játék négy figurával indul, két világossal és két sötéttel, amelyek a "
+"tábla közepén találhatók."
 
-#: C/rules.page:28(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:28
 msgid "Dark goes first."
 msgstr "Először a sötét lép."
 
-#: C/rules.page:29(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:29
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -594,11 +655,13 @@ msgstr ""
 "A sötét elhelyez egy figurát a táblán úgy, hogy két sötét figura között "
 "világosakat fogjon el."
 
-#: C/rules.page:30(note/p)
+#. (itstool) path: note/p
+#: C/rules.page:30
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "Ez az elhelyezés lehet vízszintes, függőleges vagy átlós."
 
-#: C/rules.page:32(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:32
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
@@ -608,7 +671,8 @@ msgstr ""
 "másik sötét figura közötti világos figurák megfordulnak, és a sötét erők "
 "részeivé válnak."
 
-#: C/rules.page:36(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:36
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over. The end of the game often results in "
@@ -617,107 +681,132 @@ msgstr ""
 "A játékosok felváltva lépnek, amíg tudnak. Ha már egyik játékos sem tud "
 "lépni, akkor vége a játéknak. A játék vége gyakran teli táblát is eredményez."
 
-#: C/rules.page:37(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:37
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr ""
 "Az a játékos nyer, aki a táblán több azonos színű figurával rendelkezik."
 
-#: C/rules.page:44(media/p)
+#. (itstool) path: media/p
+#: C/rules.page:44
 msgid "Start position"
 msgstr "Kezdőpozíció"
 
-#: C/rules.page:49(media/p)
+#. (itstool) path: media/p
+#: C/rules.page:49
 msgid "Example first move"
 msgstr "Példa első lépés"
 
-#: C/rules.page:54(media/p)
+#. (itstool) path: media/p
+#: C/rules.page:54
 msgid "Blocking move"
 msgstr "Blokkoló lépés"
 
-#: C/rules.page:59(media/p)
+#. (itstool) path: media/p
+#: C/rules.page:59
 msgid "<app>Iagno</app> game over position."
 msgstr "Vége az <app>Iagno</app> játéknak."
 
-#: C/rules.page:64(td/p)
+#. (itstool) path: td/p
+#: C/rules.page:64
 msgid "<em>Start position</em>"
 msgstr "<em>Kezdőpozíció</em>"
 
-#: C/rules.page:65(td/p)
+#. (itstool) path: td/p
+#: C/rules.page:65
 msgid "<em>Example first move</em>"
 msgstr "<em>Példa első lépés</em>"
 
-#: C/rules.page:66(td/p)
+#. (itstool) path: td/p
+#: C/rules.page:66
 msgid "<em>A blocking move</em>"
 msgstr "<em>Egy blokkoló lépés</em>"
 
-#: C/rules.page:67(td/p)
+#. (itstool) path: td/p
+#: C/rules.page:67
 msgid "<em>Game over position</em>"
 msgstr "<em>Állás a játék végén</em>"
 
-#: C/shortcuts.page:17(page/title)
+#. (itstool) path: page/title
+#: C/shortcuts.page:17
 msgid "Keyboard shortcuts"
 msgstr "Gyorsbillentyűk"
 
-#: C/shortcuts.page:20(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:20
 msgid "New game"
 msgstr "Új játék"
 
-#: C/shortcuts.page:21(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:21
 msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
-#: C/shortcuts.page:25(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:25
 msgid "Undo Move"
 msgstr "Lépés visszavonása"
 
-#: C/shortcuts.page:26(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:26
 msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 
-#: C/shortcuts.page:29(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:29
 msgid "Help"
 msgstr "Súgó"
 
-#: C/shortcuts.page:30(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:30
 msgid "<key>F1</key>"
 msgstr "<key>F1</key>"
 
-#: C/shortcuts.page:33(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:33
 msgid "Quit"
 msgstr "Kilépés"
 
-#: C/shortcuts.page:34(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:34
 msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 
-#: C/sound.page:17(page/title)
+#. (itstool) path: page/title
+#: C/sound.page:17
 msgid "Enable and disable sound"
 msgstr "Hang ki- és bekapcsolása"
 
-#: C/sound.page:18(page/p)
+#. (itstool) path: page/p
+#: C/sound.page:18
 msgid "To enable or disable the sound:"
 msgstr "A hang be- vagy kikapcsolása:"
 
-#: C/sound.page:20(item/p)
+#. (itstool) path: item/p
+#: C/sound.page:20
 msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
 msgstr ""
 "Válassza a <guiseq><gui>Beállítások</gui><gui>Beállítások</gui></guiseq> "
 "menüpontot."
 
-#: C/sound.page:22(item/p)
+#. (itstool) path: item/p
+#: C/sound.page:22
 msgid "Click the <gui>Enable sounds</gui> checkbox."
 msgstr "Jelölje be a <gui>Hangok bekapcsolása</gui> négyzetet."
 
-#: C/sound.page:24(note/p)
+#. (itstool) path: note/p
+#: C/sound.page:24
 msgid "The change will be available immediately."
 msgstr "A változtatás azonnal alkalmazásra kerül."
 
-#: C/strategy.page:21(page/title)
+#. (itstool) path: page/title
+#: C/strategy.page:21
 msgid "Strategy"
 msgstr "Stratégia"
 
-#: C/strategy.page:23(page/p)
+#. (itstool) path: page/p
+#: C/strategy.page:23
 msgid ""
 "<app>Iagno</app> doesn't have one particular winning strategy. Rather it has "
 "strategic elements which can be used to help one gain advantage. Some "
@@ -729,7 +818,8 @@ msgstr ""
 "stratégiák kerülendők, mint például az ellenfél minél több figurájának "
 "átfordítása a játék elején."
 
-#: C/strategy.page:28(page/p)
+#. (itstool) path: page/p
+#: C/strategy.page:28
 msgid ""
 "Much has been written on the topic of strategy for the games <em>Othello</"
 "em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
@@ -737,7 +827,8 @@ msgstr ""
 "Sok írás született az <em>Othello</em> és <em>Reversi</em> játékok "
 "stratégiájának témájában, amelyeken az <app>Iagno</app> alapul."
 
-#: C/strategy.page:31(note/p)
+#. (itstool) path: note/p
+#: C/strategy.page:31
 msgid ""
 "Some sources state that Reversi does not have a predefined starting "
 "position, whereas Othello and <app>Iagno</app> do."
@@ -745,7 +836,8 @@ msgstr ""
 "Egyes források szerint a Reversinek nincs előre megadott kezdőpozíciója, míg "
 "az Othellonak és az <app>Iagnonak</app> van."
 
-#: C/strategy.page:35(page/p)
+#. (itstool) path: page/p
+#: C/strategy.page:35
 msgid ""
 "If you are interested in learning about specific strategies for the game, "
 "the following links may be of interest:"
@@ -753,7 +845,8 @@ msgstr ""
 "Ha szeretne konkrét stratégiákat megismerni a játékhoz, akkor a következő "
 "hivatkozások érdekelhetik:"
 
-#: C/strategy.page:40(item/p)
+#. (itstool) path: item/p
+#: C/strategy.page:40
 msgid ""
 "<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
 "beginner's guide to strategy of the game</link>"
@@ -761,7 +854,8 @@ msgstr ""
 "<link href=\"http://othello.dk/book/index.php/From_Scratch\">Egy remek "
 "útmutató kezdőknek a játék stratégiájáról</link>"
 
-#: C/strategy.page:44(item/p)
+#. (itstool) path: item/p
+#: C/strategy.page:44
 msgid ""
 "<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
 "to strategy and tactics</link>"
@@ -769,15 +863,17 @@ msgstr ""
 "<link href=\"http://gaurang.org/gothello/guide/guide.html\">Bevezetés a "
 "stratégiába és a taktikába</link>"
 
-#: C/strategy.page:48(item/p)
+#. (itstool) path: item/p
+#: C/strategy.page:48
 msgid ""
 "<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
 "\">Wikipedia: Strategic elements</link>"
 msgstr ""
-"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements\">"
-"Wikipedia: stratégiai elemek</link>"
+"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
+"\">Wikipedia: stratégiai elemek</link>"
 
-#: C/strategy.page:52(item/p)
+#. (itstool) path: item/p
+#: C/strategy.page:52
 msgid ""
 "<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
 "guide</link>"
@@ -785,35 +881,13 @@ msgstr ""
 "<link href=\"http://radagast.se/othello/Help/strategy.html\">Egy stratégiai "
 "útmutató</link>"
 
-#: C/visual-results.page:18(info/desc)
-msgid "Flip final results"
-msgstr "Végeredmény rendezése"
-
-#: C/visual-results.page:21(page/title)
-msgid "Visually see game results"
-msgstr "A játék eredményének vizuális ábrázolása"
-
-#: C/visual-results.page:22(page/p)
-msgid ""
-"Visual game results allows you to visually see who won, by grouping the "
-"pieces. To enable this option:"
-msgstr ""
-"A játék eredményének vizuális ábrázolásával a figurákat csoportosítva "
-"láthatja, hogy ki nyert. Ezen beállítás bekapcsolásához:"
-
-#: C/visual-results.page:26(item/p)
-msgid "Select the <gui>Appearance</gui> tab."
-msgstr "Válassza a <gui>Megjelenés</gui> lapot."
-
-#: C/visual-results.page:27(item/p)
-msgid "Check the <gui>Flip final results</gui> box."
-msgstr "Jelölje be <gui>A végeredmény rendezése</gui> négyzetet."
-
-#: C/translate.page:23(page/title)
+#. (itstool) path: page/title
+#: C/translate.page:23
 msgid "Help translate"
 msgstr "Segítsen a fordításban"
 
-#: C/translate.page:24(page/p)
+#. (itstool) path: page/p
+#: C/translate.page:24
 msgid ""
 "The <app>GNOME Games</app> user interface and documentation is being "
 "translated by a world-wide volunteer community. You are welcome to "
@@ -822,20 +896,24 @@ msgstr ""
 "A <app>GNOME játékok</app> felhasználói felületét és súgóját egy világszintű "
 "önkéntes közösség fordítja. Közreműködését szívesen fogadjuk!"
 
-#: C/translate.page:27(page/p)
-#| msgid ""
-#| "There are <link href=\"http://l10n.gnome.org/module/gnome-games/\">many "
-#| "languages</link> for which translations are still needed."
+#. (itstool) path: page/p
+#: C/translate.page:27
 msgid ""
 "There are <link href=\"http://l10n.gnome.org/module/iagno/\">many languages</"
 "link> for which translations are still needed."
 msgstr ""
-"<link href=\"http://l10n.gnome.org/module/iagno/\">Számos nyelv van</"
-"link>, amelyhez még szükség van fordításokra."
+"<link href=\"http://l10n.gnome.org/module/iagno/\">Számos nyelv van</link>, "
+"amelyhez még szükség van fordításokra."
 
-#: C/translate.page:30(page/p)
+#. (itstool) path: page/p
+#: C/translate.page:30
+#| msgid ""
+#| "To start translating you will need to <link href=\"http:l10n.gnome.org"
+#| "\">create an account</link> and join the <link href=\"http://l10n.gnome."
+#| "org/teams/\">translation team</link> for your language. This will give "
+#| "you the ability to upload new translations."
 msgid ""
-"To start translating you will need to <link href=\"http:l10n.gnome.org"
+"To start translating you will need to <link href=\"http://l10n.gnome.org"
 "\">create an account</link> and join the <link href=\"http://l10n.gnome.org/"
 "teams/\">translation team</link> for your language. This will give you the "
 "ability to upload new translations."
@@ -845,7 +923,8 @@ msgstr ""
 "href=\"http://l10n.gnome.org/teams/\">fordítócsapathoz</link>. Ez lehetővé "
 "teszi Önnek az új fordítások feltöltését."
 
-#: C/translate.page:34(page/p)
+#. (itstool) path: page/p
+#: C/translate.page:34
 msgid ""
 "You can chat with GNOME translators using <link href=\"https://cbe003.chat."
 "mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. People on the "
@@ -857,7 +936,8 @@ msgstr ""
 "minden részéről vannak emberek, így előfordulhat, hogy az időzóna-eltérések "
 "miatt nem kap azonnal választ."
 
-#: C/translate.page:37(page/p)
+#. (itstool) path: page/p
+#: C/translate.page:37
 msgid ""
 "Alternatively, you can contact the Internationalization Team using their "
 "<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
@@ -868,6 +948,25 @@ msgstr ""
 "is. A magyar csapat <link href=\"http://l10n.gnome.org/languages/hu/"
 "\">kezdőoldalán</link> megtalálja a magyar levelezőlista címét és a "
 "fordítások megkezdéséhez szükséges információkat."
+
+#~ msgid "Flip final results"
+#~ msgstr "Végeredmény rendezése"
+
+#~ msgid "Visually see game results"
+#~ msgstr "A játék eredményének vizuális ábrázolása"
+
+#~ msgid ""
+#~ "Visual game results allows you to visually see who won, by grouping the "
+#~ "pieces. To enable this option:"
+#~ msgstr ""
+#~ "A játék eredményének vizuális ábrázolásával a figurákat csoportosítva "
+#~ "láthatja, hogy ki nyert. Ezen beállítás bekapcsolásához:"
+
+#~ msgid "Select the <gui>Appearance</gui> tab."
+#~ msgstr "Válassza a <gui>Megjelenés</gui> lapot."
+
+#~ msgid "Check the <gui>Flip final results</gui> box."
+#~ msgstr "Jelölje be <gui>A végeredmény rendezése</gui> négyzetet."
 
 #~ msgid ""
 #~ "To file your bug, choose the component <gui>iagno</gui> in the "
