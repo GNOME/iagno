@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2014-03-23 22:35+0000\n"
-"PO-Revision-Date: 2014-03-24 00:41+0100\n"
+"POT-Creation-Date: 2014-03-24 15:11+0000\n"
+"PO-Revision-Date: 2014-03-24 20:07+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -95,7 +95,7 @@ msgid ""
 "Level Three. To change this setting:"
 msgstr ""
 "A számítógép különböző nehézségi fokozatokat ismer: első, második és "
-"harmadik. A beállítás módosításához:"
+"harmadik szint. A beállítás módosításához:"
 
 #. (itstool) path: item/p
 #: C/ai-game.page:24 C/change-color.page:24
@@ -254,13 +254,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/develop.page:23
-#| msgid ""
-#| "If you would like to <link href=\"https://live.gnome.org/GnomeGames/"
-#| "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
-#| "touch with the developers using <link href=\"https://cbe005.chat.mibbit."
-#| "com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our "
-#| "<link href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing "
-#| "list</link>."
 msgid ""
 "If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
 "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
@@ -269,8 +262,8 @@ msgid ""
 "href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
 "link>."
 msgstr ""
-"Ha szeretne <link href=\"https://wiki.gnome.org/Apps/Games/Contributing\">"
-"közreműködni a <app>GNOME játékok</app> fejlesztésében</link>, akkor a "
+"Ha szeretne <link href=\"https://wiki.gnome.org/Apps/Games/Contributing"
+"\">közreműködni a <app>GNOME játékok</app> fejlesztésében</link>, akkor a "
 "fejlesztőkkel a kapcsolatot <link href=\"https://cbe005.chat.mibbit.com/?"
 "url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">IRC</link>-n vagy a <link href="
 "\"http://mail.gnome.org/mailman/listinfo/games-list\">levelezőlistán</link> "
@@ -843,7 +836,7 @@ msgid ""
 "the following links may be of interest:"
 msgstr ""
 "Ha szeretne konkrét stratégiákat megismerni a játékhoz, akkor a következő "
-"hivatkozások érdekelhetik:"
+"(angol nyelvű) hivatkozások érdekelhetik:"
 
 #. (itstool) path: item/p
 #: C/strategy.page:40
@@ -907,11 +900,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/translate.page:30
-#| msgid ""
-#| "To start translating you will need to <link href=\"http:l10n.gnome.org"
-#| "\">create an account</link> and join the <link href=\"http://l10n.gnome."
-#| "org/teams/\">translation team</link> for your language. This will give "
-#| "you the ability to upload new translations."
 msgid ""
 "To start translating you will need to <link href=\"http://l10n.gnome.org"
 "\">create an account</link> and join the <link href=\"http://l10n.gnome.org/"
