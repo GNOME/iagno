@@ -1,136 +1,54 @@
 # translation of iagno.HEAD.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2013-06-04 03:39+0000\n"
-"PO-Revision-Date: 2013-06-05 18:21+0200\n"
+"POT-Creation-Date: 2014-03-23 22:35+0000\n"
+"PO-Revision-Date: 2014-03-24 13:48+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Gtranslator 2.91.5\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2014\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2008"
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:6(media)
-msgctxt "_"
-msgid "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
-msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
-
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:19(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
-msgstr ""
-"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
-
-#: C/index.page:7(info/title)
-msgctxt "link"
-msgid "Iagno"
-msgstr "Iagno"
-
-#: C/index.page:8(info/title)
-msgctxt "text"
-msgid "Iagno"
-msgstr "Iagno"
-
-#: C/index.page:11(credit/name) C/2player.page:14(credit/name)
-#: C/ai-game.page:14(credit/name) C/bug-filing.page:10(credit/name)
-#: C/change-color.page:9(credit/name) C/develop.page:10(credit/name)
-#: C/documentation.page:8(credit/name) C/play.page:9(credit/name)
-#: C/rules.page:9(credit/name) C/sound.page:9(credit/name)
-#: C/visual-results.page:14(credit/name) C/translate.page:10(credit/name)
-msgid "Tiffany Antopolski"
-msgstr "Tiffany Antopolski"
-
-#: C/index.page:15(license/p) C/bug-filing.page:15(license/p)
-#: C/develop.page:15(license/p) C/documentation.page:13(license/p)
-#: C/translate.page:19(license/p)
-msgid "Creative Commons Share Alike 3.0"
-msgstr "Creative Commons Compartir Igual 3.0"
-
-#: C/index.page:19(page/title)
-#| msgid ""
-#| "<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media>Iagno"
-msgid ""
-"<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media> Iagno"
-msgstr ""
-"<media type=\"image\" src=\"figures/logo32.png\">Logo de Iagno</media>Iagno"
-
-#: C/index.page:21(page/p)
-msgid ""
-"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
-"on one side and light on the other. When a piece is captured it is turned "
-"over to join the capturing player's forces; the winner is the player with "
-"the most pieces of their color at the end of the game."
-msgstr ""
-"<app>Iagno</app> se juega en un tablero de 8x8 con 64 fichas, negras en un "
-"lado y blancas en el otro. Cuando se captura una ficha, se saca del tablero "
-"y el jugador la guarda; el ganador es el jugador con más fichas de su color "
-"al terminar la partida"
-
-#: C/index.page:25(section/title)
-msgid "Game Play"
-msgstr "Juego"
-
-#: C/index.page:29(section/title)
-msgid "Useful tips"
-msgstr "Consejos útiles"
-
-#: C/index.page:33(section/title)
-msgid "Advanced"
-msgstr "Avanzado"
-
-#: C/index.page:37(section/title)
-msgid "Get Involved"
-msgstr "Involucrarse"
-
-#: C/2player.page:9(credit/name) C/ai-game.page:9(credit/name)
-#: C/shortcuts.page:9(credit/name) C/visual-results.page:9(credit/name)
+#. (itstool) path: credit/name
+#: C/2player.page:9 C/ai-game.page:9 C/shortcuts.page:9
 msgid "Brian Grohe"
 msgstr "Brian Grohe"
 
-#: C/2player.page:11(credit/years) C/ai-game.page:11(credit/years)
-#: C/play.page:11(credit/years) C/rules.page:11(credit/years)
-#: C/shortcuts.page:11(credit/years) C/sound.page:11(credit/years)
-#: C/visual-results.page:11(credit/years)
+#. (itstool) path: credit/years
+#: C/2player.page:11 C/ai-game.page:11 C/play.page:11 C/rules.page:11
+#: C/shortcuts.page:11 C/sound.page:11
 msgid "2012"
 msgstr "2012"
 
-#: C/2player.page:19(page/title)
+#. (itstool) path: credit/name
+#: C/2player.page:14 C/ai-game.page:14 C/bug-filing.page:9
+#: C/change-color.page:9 C/develop.page:10 C/documentation.page:8
+#: C/index.page:11 C/play.page:9 C/rules.page:9 C/sound.page:9
+#: C/translate.page:10
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
+
+#. (itstool) path: page/title
+#: C/2player.page:19
 msgid "Two-player mode"
 msgstr "Modo de dos jugadores"
 
-#: C/2player.page:20(page/p)
+#. (itstool) path: page/p
+#: C/2player.page:20
 msgid ""
 "Two player mode allows you to play against another human rather than a "
 "computer. To enable this:"
@@ -138,32 +56,39 @@ msgstr ""
 "El modo de dos jugadores le permite jugar contra otro jugador humano en vez "
 "de contra el equipo. Para activar esto:"
 
-#: C/2player.page:23(item/p)
+#. (itstool) path: item/p
+#: C/2player.page:23
 msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
 msgstr ""
 "Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>"
 
-#: C/2player.page:24(item/p) C/ai-game.page:25(item/p) C/sound.page:21(item/p)
+#. (itstool) path: item/p
+#: C/2player.page:24 C/ai-game.page:25 C/sound.page:21
 msgid "Select the <gui>Game</gui> tab."
 msgstr "Seleccione la pestaña <gui>Juego</gui>."
 
-#: C/2player.page:25(item/p)
+#. (itstool) path: item/p
+#: C/2player.page:25
 msgid "Check <gui>human</gui> in both player columns."
 msgstr "Marque <gui>humano</gui> en ambas columnas de los jugadores."
 
-#: C/2player.page:26(item/p) C/change-color.page:31(item/p)
+#. (itstool) path: item/p
+#: C/2player.page:26 C/change-color.page:31
 msgid "Click <gui>Close</gui>"
 msgstr "Pulse <gui>Cerrar</gui>"
 
-#: C/2player.page:27(note/p)
+#. (itstool) path: note/p
+#: C/2player.page:27
 msgid "Your changes will apply when a new game is started."
 msgstr "Sus cambios se aplicarán cuando se inicie una partida nueva."
 
-#: C/ai-game.page:20(page/title)
+#. (itstool) path: page/title
+#: C/ai-game.page:20
 msgid "Play against the computer"
 msgstr "Jugar contra el equipo"
 
-#: C/ai-game.page:21(page/p)
+#. (itstool) path: page/p
+#: C/ai-game.page:21
 msgid ""
 "The computer has different levels of difficulty: Level One, Level Two, and "
 "Level Three. To change this setting:"
@@ -171,36 +96,46 @@ msgstr ""
 "El equipo tiene varios niveles de dificultad: nivel uno, nivel dos y nivel "
 "tres. Para cambiar esta configuración:"
 
-#: C/ai-game.page:24(item/p) C/change-color.page:24(item/p)
-#: C/visual-results.page:25(item/p)
+#. (itstool) path: item/p
+#: C/ai-game.page:24 C/change-color.page:24
 msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
 msgstr ""
 "Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>."
 
-#: C/ai-game.page:26(item/p)
+#. (itstool) path: item/p
+#: C/ai-game.page:26
 msgid "Select the difficulty level for your computer opponent."
 msgstr "Seleccione el nivel de dificultad para el oponente no humano."
 
-#: C/ai-game.page:27(item/p) C/sound.page:23(item/p)
-#: C/visual-results.page:28(item/p)
+#. (itstool) path: item/p
+#: C/ai-game.page:27 C/sound.page:23
 msgid "Click <gui>Close</gui>."
 msgstr "Pulse <gui>Cerrar</gui>."
 
-#: C/bug-filing.page:12(credit/years) C/change-color.page:11(credit/years)
-#: C/develop.page:12(credit/years) C/documentation.page:10(credit/years)
-#: C/strategy.page:11(credit/years) C/translate.page:12(credit/years)
+#. (itstool) path: credit/years
+#: C/bug-filing.page:11 C/change-color.page:11 C/develop.page:12
+#: C/documentation.page:10 C/strategy.page:11 C/translate.page:12
 msgid "2011"
 msgstr "2011"
 
-#: C/bug-filing.page:19(page/title)
+#. (itstool) path: license/p
+#: C/bug-filing.page:14 C/develop.page:15 C/documentation.page:13
+#: C/index.page:15 C/translate.page:19
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Compartir Igual 3.0"
+
+#. (itstool) path: page/title
+#: C/bug-filing.page:18
 msgid "Help make <app>Iagno</app> better"
 msgstr "Ayudar a mejorar <app>Iagno</app>"
 
-#: C/bug-filing.page:22(section/title)
+#. (itstool) path: section/title
+#: C/bug-filing.page:21
 msgid "Report a bug or suggest an improvement"
 msgstr "Informar de un error o sugerir una mejora"
 
-#: C/bug-filing.page:23(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:22
 msgid ""
 "<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
 "participate. If you notice a problem you can file a <em>bug report</em>. To "
@@ -211,7 +146,8 @@ msgstr ""
 "<em>informe de error</em>. Para informar de un error, vaya a <link href="
 "\"https://bugzilla.gnome.org/\"/>."
 
-#: C/bug-filing.page:26(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:25
 msgid ""
 "This is a bug tracking system where users and developers can file details "
 "about bugs, crashes and request enhancements."
@@ -220,7 +156,8 @@ msgstr ""
 "desarrolladores pueden rellenar detalles acerca de los errores, cuelgues y "
 "solicitudes de mejoras."
 
-#: C/bug-filing.page:29(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:28
 msgid ""
 "To participate you need an account which will give you the ability to gain "
 "access, file bugs, and make comments. Also, you need to register so you can "
@@ -233,7 +170,8 @@ msgstr ""
 "Si todavía no tiene una cuenta, simplemente pulse en el enlace <gui>New "
 "Account</gui> para crear una."
 
-#: C/bug-filing.page:33(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:32
 msgid ""
 "Once you have an account, log in, click on <guiseq><gui>File a Bug</"
 "gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
@@ -249,7 +187,8 @@ msgstr ""
 "href=\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">busque</link> "
 "el error para ver si ya existe."
 
-#: C/bug-filing.page:41(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:40
 msgid ""
 "If you are requesting a new feature, choose <gui>enhancement</gui> in the "
 "<gui>Severity</gui> menu. Fill in the Summary and Description sections and "
@@ -259,7 +198,8 @@ msgstr ""
 "en el menú <gui>Severity</gui>. Rellene las secciones «Summary» y "
 "«Description» y pulse en <gui>Commit</gui>."
 
-#: C/bug-filing.page:45(section/p)
+#. (itstool) path: section/p
+#: C/bug-filing.page:44
 msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
 "is being dealt with. Thanks for helping make <app>Iagno</app> better!"
@@ -267,19 +207,23 @@ msgstr ""
 "Su informe obtendrá un número de ID, y su estado se actualizará a medida que "
 "se trata.Gracias por ayudar a mejorar <app>Iagno</app>."
 
-#: C/change-color.page:17(page/title)
+#. (itstool) path: page/title
+#: C/change-color.page:17
 msgid "Change player color and difficulty"
 msgstr "Cambiar el color del jugador y la dificultad"
 
-#: C/change-color.page:19(page/p)
+#. (itstool) path: page/p
+#: C/change-color.page:19
 msgid "To change the player for each color:"
 msgstr "Para cambiar el jugador de cada color:"
 
-#: C/change-color.page:25(item/p)
+#. (itstool) path: item/p
+#: C/change-color.page:25
 msgid "Select the <gui>Game</gui> tab"
 msgstr "Seleccione la pestaña <gui>Juego</gui>"
 
-#: C/change-color.page:26(item/p)
+#. (itstool) path: item/p
+#: C/change-color.page:26
 msgid ""
 "Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
 "gui>."
@@ -287,15 +231,18 @@ msgstr ""
 "Seleccione el tipo de jugador/dificultad en <gui>Negras</gui> y "
 "<gui>Blancas</gui>."
 
-#: C/change-color.page:27(note/p)
+#. (itstool) path: note/p
+#: C/change-color.page:27
 msgid "Your choice is effective immediately."
 msgstr "El cambio se aplica inmediatamente."
 
-#: C/develop.page:19(page/title)
+#. (itstool) path: page/title
+#: C/develop.page:19
 msgid "Help develop"
 msgstr "Ayudar al desarrollo"
 
-#: C/develop.page:20(page/p)
+#. (itstool) path: page/p
+#: C/develop.page:20
 msgid ""
 "The <app>GNOME Games</app> are developed and maintained by a volunteer "
 "community. You are welcome to participate."
@@ -303,27 +250,37 @@ msgstr ""
 "Los <app>juegos de GNOME</app> los desarrolla y los mantiene una comunidad "
 "de voluntarios. Si quiere participar es bienvenido."
 
-#: C/develop.page:23(page/p)
+#. (itstool) path: page/p
+#: C/develop.page:23
+#| msgid ""
+#| "If you would like to <link href=\"https://live.gnome.org/GnomeGames/"
+#| "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
+#| "touch with the developers using <link href=\"https://cbe005.chat.mibbit."
+#| "com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our "
+#| "<link href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing "
+#| "list</link>."
 msgid ""
-"If you would like to <link href=\"https://live.gnome.org/GnomeGames/"
+"If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
 "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
 "touch with the developers using <link href=\"https://cbe005.chat.mibbit.com/?"
 "url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our <link "
 "href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
 "link>."
 msgstr ""
-"Si quiere <link href=\"https://live.gnome.org/GnomeGames/Contributing"
+"Si quiere <link href=\"https://wiki.gnome.org/Apps/Games/Contributing"
 "\">contribuir al desarrollo de los <app>juegos de GNOME</app></link>, puede "
 "\"ponerse en contacto con los desarrolladores usando <link href=\"https://"
 "cbe005.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</"
 "link>, o mediante la <link href=\"http://mail.gnome.org/mailman/listinfo/"
 "games-list\">lista de correo</link>."
 
-#: C/documentation.page:17(page/title)
+#. (itstool) path: page/title
+#: C/documentation.page:17
 msgid "Help write documentation"
 msgstr "Ayudar a escribir la documentación"
 
-#: C/documentation.page:19(page/p)
+#. (itstool) path: page/p
+#: C/documentation.page:19
 msgid ""
 "The <app>GNOME Games</app> documentation is maintained by a volunteer "
 "community. You are welcome to participate."
@@ -331,7 +288,8 @@ msgstr ""
 "La documentación de los <app>juegos de GNOME</app> las mantiene una "
 "comunidad de voluntarios. Si quiere participar es bienvenido."
 
-#: C/documentation.page:22(page/p)
+#. (itstool) path: page/p
+#: C/documentation.page:22
 msgid ""
 "To contribute to the Documentation Project, feel free to get in touch with "
 "us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
@@ -339,11 +297,12 @@ msgid ""
 "mailman/listinfo/gnome-doc-list\">mailing list</link>."
 msgstr ""
 "Para colaborar con el Proyecto de documentación, póngase en contacto usando "
-"<link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%"
-"2Fdocs\">irc</link>, o mediante la <link href=\"http://mail.gnome.org/"
+"<link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org"
+"%2Fdocs\">irc</link>, o mediante la <link href=\"http://mail.gnome.org/"
 "mailman/listinfo/gnome-doc-list\">lista de correo</link>."
 
-#: C/documentation.page:24(page/p)
+#. (itstool) path: page/p
+#: C/documentation.page:24
 msgid ""
 "Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
 "\">wiki</link> page contains useful information."
@@ -351,23 +310,102 @@ msgstr ""
 "El <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
 "\">wiki</link> contiene información útil."
 
-#: C/legal.xml:3(p/link)
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:6
+msgctxt "_"
+msgid "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
+msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
+
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:19
+msgctxt "_"
+msgid ""
+"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
+msgstr ""
+"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link"
+msgid "Iagno"
+msgstr "Iagno"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "text"
+msgid "Iagno"
+msgstr "Iagno"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid ""
+"<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media> Iagno"
+msgstr ""
+"<media type=\"image\" src=\"figures/logo32.png\">Logo de Iagno</media>Iagno"
+
+#. (itstool) path: page/p
+#: C/index.page:21
+msgid ""
+"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
+"on one side and light on the other. When a piece is captured it is turned "
+"over to join the capturing player's forces; the winner is the player with "
+"the most pieces of their color at the end of the game."
+msgstr ""
+"<app>Iagno</app> se juega en un tablero de 8x8 con 64 fichas, negras en un "
+"lado y blancas en el otro. Cuando se captura una ficha, se saca del tablero "
+"y el jugador la guarda; el ganador es el jugador con más fichas de su color "
+"al terminar la partida"
+
+#. (itstool) path: section/title
+#: C/index.page:25
+msgid "Game Play"
+msgstr "Juego"
+
+#. (itstool) path: section/title
+#: C/index.page:29
+msgid "Useful tips"
+msgstr "Consejos útiles"
+
+#. (itstool) path: section/title
+#: C/index.page:33
+msgid "Advanced"
+msgstr "Avanzado"
+
+#. (itstool) path: section/title
+#: C/index.page:37
+msgid "Get Involved"
+msgstr "Involucrarse"
+
+#. (itstool) path: p/link
+#: C/legal.xml:3
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr "Licencia Creative Commons Compartir-Igual 3.0. sin soporte"
 
-#: C/legal.xml:3(license/p)
+#. (itstool) path: license/p
+#: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Este trabajo está licenciado bajo la <_:link-1/>."
 
-#: C/license.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/license.page:8
 msgid "Legal information."
 msgstr "Información legal."
 
-#: C/license.page:11(page/title)
+#. (itstool) path: page/title
+#: C/license.page:11
 msgid "License"
 msgstr "Licencia"
 
-#: C/license.page:12(page/p)
+#. (itstool) path: page/p
+#: C/license.page:12
 msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
@@ -375,35 +413,43 @@ msgstr ""
 "Este trabajo se distribuye bajo una licencia sin soporte CreativeCommons "
 "Compartir-Igual 3.0."
 
-#: C/license.page:20(page/p)
+#. (itstool) path: page/p
+#: C/license.page:20
 msgid "You are free:"
 msgstr "Es libre de:"
 
-#: C/license.page:25(item/title)
+#. (itstool) path: item/title
+#: C/license.page:25
 msgid "<em>To share</em>"
 msgstr "<em>Compartir</em>"
 
-#: C/license.page:26(item/p)
+#. (itstool) path: item/p
+#: C/license.page:26
 msgid "To copy, distribute and transmit the work."
 msgstr "Copiar, distribuir y transmitir el trabajo."
 
-#: C/license.page:29(item/title)
+#. (itstool) path: item/title
+#: C/license.page:29
 msgid "<em>To remix</em>"
 msgstr "<em>Hacer obras derivadas</em>"
 
-#: C/license.page:30(item/p)
+#. (itstool) path: item/p
+#: C/license.page:30
 msgid "To adapt the work."
 msgstr "Adaptar el trabajo."
 
-#: C/license.page:33(page/p)
+#. (itstool) path: page/p
+#: C/license.page:33
 msgid "Under the following conditions:"
 msgstr "Bajo las siguientes condiciones:"
 
-#: C/license.page:38(item/title)
+#. (itstool) path: item/title
+#: C/license.page:38
 msgid "<em>Attribution</em>"
 msgstr "<em>Atribución</em>"
 
-#: C/license.page:39(item/p)
+#. (itstool) path: item/p
+#: C/license.page:39
 msgid ""
 "You must attribute the work in the manner specified by the author or "
 "licensor (but not in any way that suggests that they endorse you or your use "
@@ -413,11 +459,13 @@ msgstr ""
 "autor o el licenciador (pero no de una manera que sugiera que tiene su apoyo "
 "o apoyan el uso que hace de su obra)."
 
-#: C/license.page:46(item/title)
+#. (itstool) path: item/title
+#: C/license.page:46
 msgid "<em>Share Alike</em>"
 msgstr "<em>Compartir igual</em>"
 
-#: C/license.page:47(item/p)
+#. (itstool) path: item/p
+#: C/license.page:47
 msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
@@ -426,7 +474,8 @@ msgstr ""
 "puede distribuir la obra resultante bajo la misma licencia, una similar o "
 "una compatible."
 
-#: C/license.page:53(page/p)
+#. (itstool) path: page/p
+#: C/license.page:53
 msgid ""
 "For the full text of the license, see the <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
@@ -438,22 +487,25 @@ msgstr ""
 "Commons</link> o lea el <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Escrito de Commons</link>."
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/play.page:41(media)
+#: C/play.page:41
 msgctxt "_"
 msgid ""
 "external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
 msgstr ""
 "external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
 
-#: C/play.page:17(page/title)
+#. (itstool) path: page/title
+#: C/play.page:17
 msgid "How to Play"
 msgstr "Cómo jugar"
 
-#: C/play.page:19(page/p)
+#. (itstool) path: page/p
+#: C/play.page:19
 msgid ""
 "<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
 "play."
@@ -461,7 +513,8 @@ msgstr ""
 "<app>Iagno</app> tiene unas <link xref=\"rules\">reglas</link> sencillas y "
 "es fácil de jugar."
 
-#: C/play.page:21(page/p)
+#. (itstool) path: page/p
+#: C/play.page:21
 msgid ""
 "When the game first starts, you play <em>Dark</em> and the computer player "
 "plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
@@ -471,15 +524,18 @@ msgstr ""
 "y el equipo juega con las <em>Blancas</em>. De manera predeterminada, el "
 "<link xref=\"ai-game\">nivel de dificultad</link> es el <gui>Nivel uno</gui>."
 
-#: C/play.page:24(page/p)
+#. (itstool) path: page/p
+#: C/play.page:24
 msgid "The game is played using the mouse. To make a move:"
 msgstr "Se juega usando el ratón. Para realizar un movimiento:"
 
-#: C/play.page:27(item/p)
+#. (itstool) path: item/p
+#: C/play.page:27
 msgid "Click on the cell you would like to place your piece in."
 msgstr "Pulse en la casilla en la que quiere colocar una ficha."
 
-#: C/play.page:28(note/p)
+#. (itstool) path: note/p
+#: C/play.page:28
 msgid ""
 "If the move is legal, the piece will be placed in the cell, and the opponent "
 "pieces will be flipped to match your color."
@@ -487,11 +543,13 @@ msgstr ""
 "Si el movimiento es legal, la ficha se colocará en la celda y las fichas de "
 "su oponente se voltearán para que coincidan con su color"
 
-#: C/play.page:30(note/p)
+#. (itstool) path: note/p
+#: C/play.page:30
 msgid "If the move is not allowed, nothing will happen."
 msgstr "Si el movimiento no está permitido, no pasará nada."
 
-#: C/play.page:34(item/p)
+#. (itstool) path: item/p
+#: C/play.page:34
 msgid ""
 "You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
 "guiseq>."
@@ -499,45 +557,50 @@ msgstr ""
 "Puede deshacer un movimiento pulsando en <guiseq><gui>Juego</"
 "gui><gui>Deshacer movimiento</gui></guiseq>."
 
-#: C/play.page:40(section/title)
+#. (itstool) path: section/title
+#: C/play.page:40
 msgid "Video demonstration"
 msgstr "Vídeo de demostración"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rules.page:43(media)
+#: C/rules.page:43
 msgctxt "_"
 msgid "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
 msgstr ""
 "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rules.page:48(media)
+#: C/rules.page:48
 msgctxt "_"
 msgid "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
 msgstr ""
 "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rules.page:53(media)
+#: C/rules.page:53
 msgctxt "_"
 msgid "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
 msgstr ""
 "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/rules.page:58(media)
+#: C/rules.page:58
 msgctxt "_"
 msgid ""
 "external ref='figures/iagno-gameover.png' "
@@ -546,16 +609,18 @@ msgstr ""
 "external ref='figures/iagno-gameover.png' "
 "md5='b7792be5784722b905b78510452aee16'"
 
-#: C/rules.page:14(credit/name) C/strategy.page:14(credit/name)
-#: C/translate.page:15(credit/name)
+#. (itstool) path: credit/name
+#: C/rules.page:14 C/strategy.page:14 C/translate.page:15
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
-#: C/rules.page:21(page/title)
+#. (itstool) path: page/title
+#: C/rules.page:21
 msgid "Rules"
 msgstr "Reglas"
 
-#: C/rules.page:23(page/p)
+#. (itstool) path: page/p
+#: C/rules.page:23
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -566,7 +631,8 @@ msgstr ""
 "evitando que el oponente voltee las suyas. Para voltear una ficha, primero "
 "debe atraparla entre dos de sus fichas, horizontal, vertical o diagonalmente."
 
-#: C/rules.page:25(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:25
 msgid ""
 "The game begins with four pieces, two light and two dark, placed in the "
 "center of the board."
@@ -574,11 +640,13 @@ msgstr ""
 "El juego emficha con cuatro fichas, dos blancas y dos negras, situadas en el "
 "centro del tablero."
 
-#: C/rules.page:28(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:28
 msgid "Dark goes first."
 msgstr "Las negras mueven primero."
 
-#: C/rules.page:29(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:29
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -586,11 +654,13 @@ msgstr ""
 "Las negras colocan una ficha en el tablero de manera que atrapan fichas "
 "blancas entre dos negras."
 
-#: C/rules.page:30(note/p)
+#. (itstool) path: note/p
+#: C/rules.page:30
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "La colocación puede ser horizontal, vertical o diagonal."
 
-#: C/rules.page:32(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:32
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
@@ -600,7 +670,8 @@ msgstr ""
 "que se ha puesto y otra se voltean y pasan a formar parte de las fuerzas "
 "oscuras."
 
-#: C/rules.page:36(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:36
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over. The end of the game often results in "
@@ -610,105 +681,130 @@ msgstr ""
 "para ninguno de los dos jugadores. En este punto el juego se termina. A "
 "menudo, el final del juego termina con un tablero completo."
 
-#: C/rules.page:37(item/p)
+#. (itstool) path: item/p
+#: C/rules.page:37
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr "El ganador es el jugador con más fichas de su color en el tablero."
 
-#: C/rules.page:44(media/p)
+#. (itstool) path: media/p
+#: C/rules.page:44
 msgid "Start position"
 msgstr "Posición inicial"
 
-#: C/rules.page:49(media/p)
+#. (itstool) path: media/p
+#: C/rules.page:49
 msgid "Example first move"
 msgstr "Ejemplo de primer movimiento"
 
-#: C/rules.page:54(media/p)
+#. (itstool) path: media/p
+#: C/rules.page:54
 msgid "Blocking move"
 msgstr "Movimiento de bloqueo"
 
-#: C/rules.page:59(media/p)
+#. (itstool) path: media/p
+#: C/rules.page:59
 msgid "<app>Iagno</app> game over position."
 msgstr "Posición de juego terminado en <app>Iagno</app>."
 
-#: C/rules.page:64(td/p)
+#. (itstool) path: td/p
+#: C/rules.page:64
 msgid "<em>Start position</em>"
 msgstr "<em>Posición inicial</em>"
 
-#: C/rules.page:65(td/p)
+#. (itstool) path: td/p
+#: C/rules.page:65
 msgid "<em>Example first move</em>"
 msgstr "<em>Ejemplo de primer movimiento</em>"
 
-#: C/rules.page:66(td/p)
+#. (itstool) path: td/p
+#: C/rules.page:66
 msgid "<em>A blocking move</em>"
 msgstr "<em>Un movimiento de bloqueo</em>"
 
-#: C/rules.page:67(td/p)
+#. (itstool) path: td/p
+#: C/rules.page:67
 msgid "<em>Game over position</em>"
 msgstr "<em>Posición de juego terminado</em>"
 
-#: C/shortcuts.page:17(page/title)
+#. (itstool) path: page/title
+#: C/shortcuts.page:17
 msgid "Keyboard shortcuts"
 msgstr "Atajos de teclado"
 
-#: C/shortcuts.page:20(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:20
 msgid "New game"
 msgstr "Partida nueva"
 
-#: C/shortcuts.page:21(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:21
 msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
-#: C/shortcuts.page:25(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:25
 msgid "Undo Move"
 msgstr "Deshacer movimiento"
 
-#: C/shortcuts.page:26(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:26
 msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 
-#: C/shortcuts.page:29(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:29
 msgid "Help"
 msgstr "Ayuda"
 
-#: C/shortcuts.page:30(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:30
 msgid "<key>F1</key>"
 msgstr "<key>F1</key>"
 
-#: C/shortcuts.page:33(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:33
 msgid "Quit"
 msgstr "Salir"
 
-#: C/shortcuts.page:34(td/p)
+#. (itstool) path: td/p
+#: C/shortcuts.page:34
 msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 
-#: C/sound.page:17(page/title)
+#. (itstool) path: page/title
+#: C/sound.page:17
 msgid "Enable and disable sound"
 msgstr "Activar y desactivar el sonido"
 
-#: C/sound.page:18(page/p)
+#. (itstool) path: page/p
+#: C/sound.page:18
 msgid "To enable or disable the sound:"
 msgstr "Para activar o desactivar el sonido:"
 
-#: C/sound.page:20(item/p)
+#. (itstool) path: item/p
+#: C/sound.page:20
 msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
 msgstr ""
 "Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>."
 
-#: C/sound.page:22(item/p)
+#. (itstool) path: item/p
+#: C/sound.page:22
 msgid "Click the <gui>Enable sounds</gui> checkbox."
 msgstr "Pulse en la casilla <gui>Activar sonidos</gui> checkbox."
 
-#: C/sound.page:24(note/p)
+#. (itstool) path: note/p
+#: C/sound.page:24
 msgid "The change will be available immediately."
 msgstr "El cambio estará disponible inmediatamente."
 
-#: C/strategy.page:21(page/title)
+#. (itstool) path: page/title
+#: C/strategy.page:21
 msgid "Strategy"
 msgstr "Estrategia"
 
-#: C/strategy.page:23(page/p)
+#. (itstool) path: page/p
+#: C/strategy.page:23
 msgid ""
 "<app>Iagno</app> doesn't have one particular winning strategy. Rather it has "
 "strategic elements which can be used to help one gain advantage. Some "
@@ -720,7 +816,8 @@ msgstr ""
 "conseguir ventaja. Algunas estrategias, como intentar voltear todas las "
 "fichas posibles del contrario al principio del juego, se deben evitar."
 
-#: C/strategy.page:28(page/p)
+#. (itstool) path: page/p
+#: C/strategy.page:28
 msgid ""
 "Much has been written on the topic of strategy for the games <em>Othello</"
 "em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
@@ -728,7 +825,8 @@ msgstr ""
 "Se ha escrito mucho sobre el tema de la estrategia para los juegos "
 "<em>Othello</em> y <em>Reversi</em>, en los que se basa <app>Iagno</app>."
 
-#: C/strategy.page:31(note/p)
+#. (itstool) path: note/p
+#: C/strategy.page:31
 msgid ""
 "Some sources state that Reversi does not have a predefined starting "
 "position, whereas Othello and <app>Iagno</app> do."
@@ -736,7 +834,8 @@ msgstr ""
 "Algunas fuentes mantienen que Reversi no tiene una posición se inicio "
 "predefinida, mientras que Othello e <app>Iagno</app> sí la tienen."
 
-#: C/strategy.page:35(page/p)
+#. (itstool) path: page/p
+#: C/strategy.page:35
 msgid ""
 "If you are interested in learning about specific strategies for the game, "
 "the following links may be of interest:"
@@ -744,7 +843,8 @@ msgstr ""
 "Si está interesado en aprender algunas estrategias específicas para el "
 "juego, los siguientes enlaces puede resultarle de interés."
 
-#: C/strategy.page:40(item/p)
+#. (itstool) path: item/p
+#: C/strategy.page:40
 msgid ""
 "<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
 "beginner's guide to strategy of the game</link>"
@@ -752,7 +852,8 @@ msgstr ""
 "<link href=\"http://othello.dk/book/index.php/From_Scratch\">Una guía muy "
 "buena para principiantes sobre la estrategia del juego</link>"
 
-#: C/strategy.page:44(item/p)
+#. (itstool) path: item/p
+#: C/strategy.page:44
 msgid ""
 "<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
 "to strategy and tactics</link>"
@@ -760,7 +861,8 @@ msgstr ""
 "<link href=\"http://gaurang.org/gothello/guide/guide.html\">Una introducción "
 "a la estrategia y las tácticas</link>"
 
-#: C/strategy.page:48(item/p)
+#. (itstool) path: item/p
+#: C/strategy.page:48
 msgid ""
 "<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
 "\">Wikipedia: Strategic elements</link>"
@@ -768,7 +870,8 @@ msgstr ""
 "<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
 "\">Wikipedia: elementos estratégicos</link>"
 
-#: C/strategy.page:52(item/p)
+#. (itstool) path: item/p
+#: C/strategy.page:52
 msgid ""
 "<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
 "guide</link>"
@@ -776,35 +879,13 @@ msgstr ""
 "<link href=\"http://radagast.se/othello/Help/strategy.html\">Una guía de "
 "estrategia</link>"
 
-#: C/visual-results.page:18(info/desc)
-msgid "Flip final results"
-msgstr "Invertir el resultado final"
-
-#: C/visual-results.page:21(page/title)
-msgid "Visually see game results"
-msgstr "Ver el resultado del juego"
-
-#: C/visual-results.page:22(page/p)
-msgid ""
-"Visual game results allows you to visually see who won, by grouping the "
-"pieces. To enable this option:"
-msgstr ""
-"Ver el resultado del juego le permite ver quién gana, agrupando las fichas. "
-"Para activar esta opción:"
-
-#: C/visual-results.page:26(item/p)
-msgid "Select the <gui>Appearance</gui> tab."
-msgstr "Seleccione la pestaña <gui>Apariencia</gui>."
-
-#: C/visual-results.page:27(item/p)
-msgid "Check the <gui>Flip final results</gui> box."
-msgstr "Marque la casilla <gui>Invertir resultado final</gui>."
-
-#: C/translate.page:23(page/title)
+#. (itstool) path: page/title
+#: C/translate.page:23
 msgid "Help translate"
 msgstr "Ayudar a traducir"
 
-#: C/translate.page:24(page/p)
+#. (itstool) path: page/p
+#: C/translate.page:24
 msgid ""
 "The <app>GNOME Games</app> user interface and documentation is being "
 "translated by a world-wide volunteer community. You are welcome to "
@@ -813,10 +894,8 @@ msgstr ""
 "La interfaz de usuario de los <app>juegos de GNOME</app> y su documentación "
 "la traduce una comunidad de voluntarios. Si quiere participar es bienvenido."
 
-#: C/translate.page:27(page/p)
-#| msgid ""
-#| "There are <link href=\"http://l10n.gnome.org/module/gnome-games/\">many "
-#| "languages</link> for which translations are still needed."
+#. (itstool) path: page/p
+#: C/translate.page:27
 msgid ""
 "There are <link href=\"http://l10n.gnome.org/module/iagno/\">many languages</"
 "link> for which translations are still needed."
@@ -824,9 +903,15 @@ msgstr ""
 "Hay <link href=\"http://l10n.gnome.org/module/iagno/\">muchos idiomas</link> "
 "para los que se siguen necesitando traducciones."
 
-#: C/translate.page:30(page/p)
+#. (itstool) path: page/p
+#: C/translate.page:30
+#| msgid ""
+#| "To start translating you will need to <link href=\"http:l10n.gnome.org"
+#| "\">create an account</link> and join the <link href=\"http://l10n.gnome."
+#| "org/teams/\">translation team</link> for your language. This will give "
+#| "you the ability to upload new translations."
 msgid ""
-"To start translating you will need to <link href=\"http:l10n.gnome.org"
+"To start translating you will need to <link href=\"http://l10n.gnome.org"
 "\">create an account</link> and join the <link href=\"http://l10n.gnome.org/"
 "teams/\">translation team</link> for your language. This will give you the "
 "ability to upload new translations."
@@ -836,7 +921,8 @@ msgstr ""
 "\">equipo de traducción</link> de su idioma. Esto le dará la posibilidad de "
 "subir traducciones nuevas."
 
-#: C/translate.page:34(page/p)
+#. (itstool) path: page/p
+#: C/translate.page:34
 msgid ""
 "You can chat with GNOME translators using <link href=\"https://cbe003.chat."
 "mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. People on the "
@@ -850,7 +936,8 @@ msgstr ""
 "\"que puede que no obtenga una respuesta inmediata debido a las diferencias "
 "horarias."
 
-#: C/translate.page:37(page/p)
+#. (itstool) path: page/p
+#: C/translate.page:37
 msgid ""
 "Alternatively, you can contact the Internationalization Team using their "
 "<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
@@ -859,6 +946,25 @@ msgstr ""
 "Alternativamente, puede contactar con el equipo de internacionalización "
 "usando su <link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n"
 "\">lista de correo</link>."
+
+#~ msgid "Flip final results"
+#~ msgstr "Invertir el resultado final"
+
+#~ msgid "Visually see game results"
+#~ msgstr "Ver el resultado del juego"
+
+#~ msgid ""
+#~ "Visual game results allows you to visually see who won, by grouping the "
+#~ "pieces. To enable this option:"
+#~ msgstr ""
+#~ "Ver el resultado del juego le permite ver quién gana, agrupando las "
+#~ "fichas. Para activar esta opción:"
+
+#~ msgid "Select the <gui>Appearance</gui> tab."
+#~ msgstr "Seleccione la pestaña <gui>Apariencia</gui>."
+
+#~ msgid "Check the <gui>Flip final results</gui> box."
+#~ msgstr "Marque la casilla <gui>Invertir resultado final</gui>."
 
 #~ msgid ""
 #~ "To file your bug, choose the component <gui>iagno</gui> in the "
