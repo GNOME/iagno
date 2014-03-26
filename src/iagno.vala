@@ -491,7 +491,7 @@ public class Iagno : Gtk.Application
 
     private void show_preferences_dialog ()
     {
-        var propbox = new Gtk.Dialog.with_buttons (_("Iagno Preferences"),
+        var propbox = new Gtk.Dialog.with_buttons (_("Preferences"),
                                                    window,
                                                    Gtk.DialogFlags.USE_HEADER_BAR,
                                                    null);
