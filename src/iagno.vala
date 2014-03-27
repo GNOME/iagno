@@ -91,9 +91,7 @@ public class Iagno : Gtk.Application
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));        
-        if (settings.get_boolean ("window-is-fullscreen"))
-            window.fullscreen ();
-        else if (settings.get_boolean ("window-is-maximized"))
+        if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
         var image = new Gtk.Image ();
@@ -177,7 +175,6 @@ public class Iagno : Gtk.Application
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
-        settings.set_boolean ("window-is-fullscreen", is_fullscreen);
     }
 
     private bool window_configure_event_cb (Gdk.EventConfigure event)
