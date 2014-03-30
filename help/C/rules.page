@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
       type="topic" style="task"
       id="rules">
   <info>
@@ -40,23 +41,23 @@
 <table>
  <tr>
   <td>
-  <media type="image" src="figures/start.png" width="200">
-    <p>Start position</p>
+  <media type="image" src="figures/start.png" width="200" its:translate="no">
+    <p its:translate="yes">Start position</p>
   </media>
    </td>
    <td>
-  <media type="image" src="figures/first.png" width="200">
-    <p>Example first move</p>
+  <media type="image" src="figures/first.png" width="200" its:translate="no">
+    <p its:translate="yes">Example first move</p>
   </media>
    </td>
    <td>
-  <media type="image" src="figures/block.png" width="200">
-    <p>Blocking move</p>
+  <media type="image" src="figures/block.png" width="200" its:translate="no">
+    <p its:translate="yes">Blocking move</p>
   </media>
    </td>
    <td>
-  <media type="image" src="figures/iagno-gameover.png" width="200">
-    <p><app>Iagno</app> game over position.</p>
+  <media type="image" src="figures/iagno-gameover.png" width="200" its:translate="no">
+    <p its:translate="yes"><app>Iagno</app> game over position.</p>
   </media>
     </td>
    </tr>
