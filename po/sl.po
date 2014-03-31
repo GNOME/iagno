@@ -4,23 +4,24 @@
 #
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
-# Matic Žgur <mr.zgur@gmail.com>, 2006 - 2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2013.
+# Matic Žgur <mr.zgur@gmail.com>, 2006-2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-20 03:22+0000\n"
-"PO-Revision-Date: 2013-10-24 21:00+0100\n"
+"POT-Creation-Date: 2014-03-31 09:48+0000\n"
+"PO-Revision-Date: 2014-03-31 22:56+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
@@ -39,8 +40,8 @@ msgid ""
 "of your own color."
 msgstr ""
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:90 ../src/iagno.vala:101
-#: ../src/iagno.vala:298 ../src/iagno.vala:664
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
+#: ../src/iagno.vala:304 ../src/iagno.vala:671
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -57,22 +58,18 @@ msgid "_New Game"
 msgstr "_Nova Igra"
 
 #: ../data/iagno.ui.h:2
-msgid "_Undo"
-msgstr "_Razveljavi"
-
-#: ../data/iagno.ui.h:3
 msgid "_Preferences"
 msgstr "_Možnosti"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno.ui.h:3
 msgid "_Help"
 msgstr "Pomo_č"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:4
 msgid "_About"
 msgstr "_O Programu"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:5
 msgid "_Quit"
 msgstr "_Končaj"
 
@@ -100,24 +97,32 @@ msgstr "prav, če je okno razpeto."
 msgid "true if the window is fullscren"
 msgstr "prav, če je okno razpeto čez celoten zaslon"
 
-#: ../src/iagno.vala:148 ../src/iagno.vala:257 ../src/iagno.vala:265
+#: ../src/iagno.vala:110
+msgid "Undo your most recent move"
+msgstr "Razveljavi zadnjo potezo"
+
+#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
 msgid "Dark:"
 msgstr "Temni:"
 
-#: ../src/iagno.vala:156 ../src/iagno.vala:258 ../src/iagno.vala:266
+#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
 msgid "Light:"
 msgstr "Svetli:"
 
+#: ../src/iagno.vala:164
+msgid "Start a new game"
+msgstr "Začni novo igro"
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:260 ../src/iagno.vala:261 ../src/iagno.vala:268
-#: ../src/iagno.vala:269
+#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
+#: ../src/iagno.vala:273
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:303
+#: ../src/iagno.vala:309
 msgid ""
-"A disk flipping game derived from Reversi.\n"
+"A disk flipping game derived from Reversi\n"
 "\n"
 "Iagno is a part of GNOME Games."
 msgstr ""
@@ -125,7 +130,7 @@ msgstr ""
 "\n"
 "igra Iagno je del iger GNOME."
 
-#: ../src/iagno.vala:306
+#: ../src/iagno.vala:312
 msgid "translator-credits"
 msgstr ""
 "Matic Žgur <mr.zgur@gmail.com>\n"
@@ -133,81 +138,103 @@ msgstr ""
 "Tadej Janež <tadej_janez@email.si>\n"
 "Matej Urbančič <mateju@svn.gnome.org>"
 
-#: ../src/iagno.vala:308
-msgid "GNOME Games web site"
-msgstr "Spletna stran GNOME iger"
+#. Message to display when Light has no possible moves
+#: ../src/iagno.vala:348
+msgid "Light must pass, Dark’s move"
+msgstr "Svetli mora počakati, temni je na potezi"
 
-#: ../src/iagno.vala:357
-msgid "Light must pass, Dark's move"
-msgstr "Svetli mora počakati, temni na potezi"
+#. Message to display when Dark has no possible moves
+#: ../src/iagno.vala:353
+msgid "Dark must pass, Light’s move"
+msgstr "Temni mora počakati, svetli je na potezi"
 
-#: ../src/iagno.vala:359
-msgid "Dark must pass, Light's move"
-msgstr "Temni mora počakati, svetli na potezi"
-
-#: ../src/iagno.vala:402
-msgid "Light player wins!"
+#. Message to display when Light has won the game
+#: ../src/iagno.vala:401
+msgid "Light wins!"
 msgstr "Zmagal je svetli igralec!"
 
-#: ../src/iagno.vala:404
-msgid "Dark player wins!"
+#. Message to display when Dark has won the game
+#: ../src/iagno.vala:406
+msgid "Dark wins!"
 msgstr "Zmagal je temni igralec!"
 
-#: ../src/iagno.vala:406
-msgid "The game was a draw."
-msgstr "Igra je neodločena."
+#. Message to display when the game is a draw
+#: ../src/iagno.vala:411
+msgid "The game is draw."
+msgstr "Igra je neodločena!"
 
-#: ../src/iagno.vala:430
-msgid "Invalid move."
-msgstr "Neveljaven premik."
+#. Message to display when the player tries to make an illegal move
+#: ../src/iagno.vala:440
+msgid "You can’t move there!"
+msgstr "Ta premik ni dovoljen!"
 
-#: ../src/iagno.vala:495
+#: ../src/iagno.vala:494
 msgid "Iagno Preferences"
 msgstr "Možnosti Iagno"
 
-#: ../src/iagno.vala:498
+#: ../src/iagno.vala:497
 msgid "_Close"
 msgstr "_Zapri"
 
-#: ../src/iagno.vala:514
+#: ../src/iagno.vala:513
 msgid "Dark Player:"
 msgstr "Temni igralec:"
 
-#: ../src/iagno.vala:527 ../src/iagno.vala:556
+#: ../src/iagno.vala:526 ../src/iagno.vala:555
 msgid "Human"
 msgstr "Človek"
 
-#: ../src/iagno.vala:531 ../src/iagno.vala:560
+#: ../src/iagno.vala:530 ../src/iagno.vala:559
 msgid "Level one"
 msgstr "Prva reven"
 
-#: ../src/iagno.vala:535 ../src/iagno.vala:564
+#: ../src/iagno.vala:534 ../src/iagno.vala:563
 msgid "Level two"
 msgstr "Druga reven"
 
-#: ../src/iagno.vala:539 ../src/iagno.vala:568
+#: ../src/iagno.vala:538 ../src/iagno.vala:567
 msgid "Level three"
 msgstr "Tretja reven"
 
-#: ../src/iagno.vala:544
+#: ../src/iagno.vala:543
 msgid "Light Player:"
 msgstr "Svetli igralec:"
 
-#: ../src/iagno.vala:573
+#: ../src/iagno.vala:572
+msgid "_Tile set:"
+msgstr "_Vrsta ploščic:"
+
+#: ../src/iagno.vala:624
 msgid "E_nable sounds"
 msgstr "Omogoči _zvoke"
 
-#: ../src/iagno.vala:578
-msgid "S_how grid"
-msgstr "P_okaži mrežo"
+#. Help string for command line --fast-mode flag
+#: ../src/iagno.vala:636
+msgid "Reduce delay before AI moves"
+msgstr "Zmanjšaj čas pred potezo računalnika"
 
-#: ../src/iagno.vala:583
-msgid "_Flip final results"
-msgstr "_Obrni končni rezultat"
+#. Help string for command line --version flag
+#: ../src/iagno.vala:639
+msgid "Show release version"
+msgstr "Pokaži podrobnosti različice"
 
-#: ../src/iagno.vala:588
-msgid "_Tile set:"
-msgstr "_Vrsta ploščic:"
+#~ msgid "_Undo"
+#~ msgstr "_Razveljavi"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Spletna stran GNOME iger"
+
+#~ msgid "The game was a draw."
+#~ msgstr "Igra je neodločena."
+
+#~ msgid "Invalid move."
+#~ msgstr "Neveljaven premik."
+
+#~ msgid "S_how grid"
+#~ msgstr "P_okaži mrežo"
+
+#~ msgid "_Flip final results"
+#~ msgstr "_Obrni končni rezultat"
 
 #~ msgid "Chess"
 #~ msgstr "Šah"
@@ -232,9 +259,6 @@ msgstr "_Vrsta ploščic:"
 
 #~ msgid "_Contents"
 #~ msgstr "_Vsebina"
-
-#~ msgid "Start a new game"
-#~ msgstr "Začni novo igro"
 
 #~ msgid "New Game"
 #~ msgstr "Nova igra"
@@ -816,9 +840,6 @@ msgstr "_Vrsta ploščic:"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Ni mogoče odpreti igre: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Pokaži podrobnosti različice"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[DATOTEKA] - Igre šaha"
 
@@ -1108,9 +1129,6 @@ msgstr "_Vrsta ploščic:"
 
 #~ msgid "Game Over!"
 #~ msgstr "Konec igre!"
-
-#~ msgid "You can't move there!"
-#~ msgstr "Ta premik ni možen!"
 
 #~ msgid ""
 #~ "GNOME port of the once-popular Color Lines game.\n"
@@ -2765,9 +2783,6 @@ msgstr "_Vrsta ploščic:"
 #~ msgid "Roll!"
 #~ msgstr "Vrzi kocko! "
 
-#~ msgid "The game is a draw!"
-#~ msgstr "Igra je neodločena!"
-
 #~ msgid "Tali Scores"
 #~ msgstr "Rezultati Tali"
 
@@ -2944,9 +2959,6 @@ msgstr "_Vrsta ploščic:"
 
 #~ msgid "The current level"
 #~ msgstr "Trenutna raven"
-
-#~ msgid "The users's most recent level."
-#~ msgstr "Uporabnikov najnovejši rezultat."
 
 #~ msgid ""
 #~ "Turn off all the lights\n"
