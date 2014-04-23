@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-2-28\n"
-"POT-Creation-Date: 2014-03-23 20:47+0000\n"
-"PO-Revision-Date: 2014-03-23 21:53+0100\n"
+"POT-Creation-Date: 2014-04-22 21:07+0000\n"
+"PO-Revision-Date: 2014-04-23 10:29+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -31,7 +31,7 @@ msgid "Brian Grohe"
 msgstr "Brian Grohe"
 
 #. (itstool) path: credit/years
-#: C/2player.page:11 C/ai-game.page:11 C/play.page:11 C/rules.page:11
+#: C/2player.page:11 C/ai-game.page:11 C/play.page:12 C/rules.page:12
 #: C/shortcuts.page:11 C/sound.page:11
 msgid "2012"
 msgstr "2012"
@@ -39,7 +39,7 @@ msgstr "2012"
 #. (itstool) path: credit/name
 #: C/2player.page:14 C/ai-game.page:14 C/bug-filing.page:9
 #: C/change-color.page:9 C/develop.page:10 C/documentation.page:8
-#: C/index.page:11 C/play.page:9 C/rules.page:9 C/sound.page:9
+#: C/index.page:12 C/play.page:10 C/rules.page:10 C/sound.page:9
 #: C/translate.page:10
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
@@ -122,7 +122,7 @@ msgstr "2011"
 
 #. (itstool) path: license/p
 #: C/bug-filing.page:14 C/develop.page:15 C/documentation.page:13
-#: C/index.page:15 C/translate.page:19
+#: C/index.page:16 C/translate.page:19
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
@@ -260,8 +260,8 @@ msgid ""
 "href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
 "link>."
 msgstr ""
-"Jestli chcete <link href=\"https://wiki.gnome.org/Apps/Games/"
-"Contributing\">pomoci s vývojem <app>her GNOME</app></link>, můžete se s vývojáři "
+"Jestli chcete <link href=\"https://wiki.gnome.org/Apps/Games/Contributing"
+"\">pomoci s vývojem <app>her GNOME</app></link>, můžete se s vývojáři "
 "kontaktovat na <link href=\"https://cbe005.chat.mibbit.com/?url=irc%3A%2F"
 "%2Firc.gnome.org%2Fgnome-games\">IRC</link> nebo přes <link href=\"http://"
 "mail.gnome.org/mailman/listinfo/games-list\">poštovní konferenci</link>. Ke "
@@ -304,49 +304,30 @@ msgstr ""
 "Užitečné informace obsahuje naše <link href=\"https://live.gnome.org/"
 "DocumentationProject/Contributing\">wikistránka</link>."
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:6
-msgctxt "_"
-msgid "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
-msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:19
-msgctxt "_"
-msgid ""
-"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
-msgstr ""
-"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
-
 #. (itstool) path: info/title
-#: C/index.page:7
+#: C/index.page:8
 msgctxt "link"
 msgid "Iagno"
 msgstr "Iagno"
 
 #. (itstool) path: info/title
-#: C/index.page:8
+#: C/index.page:9
 msgctxt "text"
 msgid "Iagno"
 msgstr "Iagno"
 
+#. (itstool) path: media/span
+#: C/index.page:20
+msgid "Iagno logo"
+msgstr "Logo hry Iagno"
+
 #. (itstool) path: page/title
-#: C/index.page:19
-msgid ""
-"<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media> Iagno"
-msgstr ""
-"<media type=\"image\" src=\"figures/logo32.png\">Logo hry Iagno</media> Iagno"
+#: C/index.page:20
+msgid "<_:media-1/> Iagno"
+msgstr "<_:media-1/> Iagno"
 
 #. (itstool) path: page/p
-#: C/index.page:21
+#: C/index.page:22
 msgid ""
 "<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
 "on one side and light on the other. When a piece is captured it is turned "
@@ -359,22 +340,22 @@ msgstr ""
 "má na konci hry většinu kamenů své barvy."
 
 #. (itstool) path: section/title
-#: C/index.page:25
+#: C/index.page:26
 msgid "Game Play"
 msgstr "Hraní hry"
 
 #. (itstool) path: section/title
-#: C/index.page:29
+#: C/index.page:30
 msgid "Useful tips"
 msgstr "Užitečné tipy"
 
 #. (itstool) path: section/title
-#: C/index.page:33
+#: C/index.page:34
 msgid "Advanced"
 msgstr "Pokročilé"
 
 #. (itstool) path: section/title
-#: C/index.page:37
+#: C/index.page:38
 msgid "Get Involved"
 msgstr "Zapojte se"
 
@@ -479,25 +460,13 @@ msgstr ""
 "nebo si přečtěte <link href=\"http://creativecommons.org/licenses/by-sa/3.0/"
 "\">výtah dokumentu pro neprávníky</link>."
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/play.page:41
-msgctxt "_"
-msgid ""
-"external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
-msgstr ""
-"external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
-
 #. (itstool) path: page/title
-#: C/play.page:17
+#: C/play.page:18
 msgid "How to Play"
 msgstr "Jak hrát"
 
 #. (itstool) path: page/p
-#: C/play.page:19
+#: C/play.page:20
 msgid ""
 "<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
 "play."
@@ -506,7 +475,7 @@ msgstr ""
 "snadná na hraní."
 
 #. (itstool) path: page/p
-#: C/play.page:21
+#: C/play.page:22
 msgid ""
 "When the game first starts, you play <em>Dark</em> and the computer player "
 "plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
@@ -517,17 +486,17 @@ msgstr ""
 "<gui>první úroveň</gui>."
 
 #. (itstool) path: page/p
-#: C/play.page:24
+#: C/play.page:25
 msgid "The game is played using the mouse. To make a move:"
 msgstr "Hra se hraje pomocí myši. Tah provedete takto:"
 
 #. (itstool) path: item/p
-#: C/play.page:27
+#: C/play.page:28
 msgid "Click on the cell you would like to place your piece in."
 msgstr "Kliknete na pole, do kterého si přejete položit svůj hrací kámen."
 
 #. (itstool) path: note/p
-#: C/play.page:28
+#: C/play.page:29
 msgid ""
 "If the move is legal, the piece will be placed in the cell, and the opponent "
 "pieces will be flipped to match your color."
@@ -536,12 +505,12 @@ msgstr ""
 "převrátí na vaši barvu."
 
 #. (itstool) path: note/p
-#: C/play.page:30
+#: C/play.page:31
 msgid "If the move is not allowed, nothing will happen."
 msgstr "Pokud tah možný není, nic se nestane."
 
 #. (itstool) path: item/p
-#: C/play.page:34
+#: C/play.page:35
 msgid ""
 "You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
 "guiseq>."
@@ -550,69 +519,22 @@ msgstr ""
 "gui></guiseq>."
 
 #. (itstool) path: section/title
-#: C/play.page:40
+#: C/play.page:41
 msgid "Video demonstration"
 msgstr "Videoukázka"
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rules.page:43
-msgctxt "_"
-msgid "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
-msgstr ""
-"external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rules.page:48
-msgctxt "_"
-msgid "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
-msgstr ""
-"external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rules.page:53
-msgctxt "_"
-msgid "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
-msgstr ""
-"external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rules.page:58
-msgctxt "_"
-msgid ""
-"external ref='figures/iagno-gameover.png' "
-"md5='b7792be5784722b905b78510452aee16'"
-msgstr ""
-"external ref='figures/iagno-gameover.png' "
-"md5='b7792be5784722b905b78510452aee16'"
-
 #. (itstool) path: credit/name
-#: C/rules.page:14 C/strategy.page:14 C/translate.page:15
+#: C/rules.page:15 C/strategy.page:14 C/translate.page:15
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
 #. (itstool) path: page/title
-#: C/rules.page:21
+#: C/rules.page:22
 msgid "Rules"
 msgstr "Pravidla"
 
 #. (itstool) path: page/p
-#: C/rules.page:23
+#: C/rules.page:24
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -624,7 +546,7 @@ msgstr ""
 "uzavřete mezi své dva kameny, ať už vodorovně, svisle nebo úhlopříčně."
 
 #. (itstool) path: item/p
-#: C/rules.page:25
+#: C/rules.page:26
 msgid ""
 "The game begins with four pieces, two light and two dark, placed in the "
 "center of the board."
@@ -633,12 +555,12 @@ msgstr ""
 "umístěnými ve středu hrací desky."
 
 #. (itstool) path: item/p
-#: C/rules.page:28
+#: C/rules.page:29
 msgid "Dark goes first."
 msgstr "Černý táhne první."
 
 #. (itstool) path: item/p
-#: C/rules.page:29
+#: C/rules.page:30
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -647,12 +569,12 @@ msgstr ""
 "mezi dva černé kameny."
 
 #. (itstool) path: note/p
-#: C/rules.page:30
+#: C/rules.page:31
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "Pro umístění lze volit vodorovný, svislý nebo úhlopříčný směr."
 
 #. (itstool) path: item/p
-#: C/rules.page:32
+#: C/rules.page:33
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
@@ -662,7 +584,7 @@ msgstr ""
 "nějakým jiným černým kamenem se převrátí a stanou se černými."
 
 #. (itstool) path: item/p
-#: C/rules.page:36
+#: C/rules.page:37
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over. The end of the game often results in "
@@ -673,48 +595,48 @@ msgstr ""
 "hrací deska."
 
 #. (itstool) path: item/p
-#: C/rules.page:37
+#: C/rules.page:38
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr "Vyhrává hráč, který má na hrací desce většinu kamenů své barvy."
 
 #. (itstool) path: media/p
-#: C/rules.page:44
+#: C/rules.page:45
 msgid "Start position"
 msgstr "Počáteční rozložení"
 
 #. (itstool) path: media/p
-#: C/rules.page:49
+#: C/rules.page:50
 msgid "Example first move"
 msgstr "Příklad prvního tahu"
 
 #. (itstool) path: media/p
-#: C/rules.page:54
+#: C/rules.page:55
 msgid "Blocking move"
 msgstr "Blokující tah"
 
 #. (itstool) path: media/p
-#: C/rules.page:59
+#: C/rules.page:60
 msgid "<app>Iagno</app> game over position."
 msgstr "Rozložení na konci hry <app>Iagno</app>"
 
 #. (itstool) path: td/p
-#: C/rules.page:64
+#: C/rules.page:65
 msgid "<em>Start position</em>"
 msgstr "<em>Počáteční rozložení</em>"
 
 #. (itstool) path: td/p
-#: C/rules.page:65
+#: C/rules.page:66
 msgid "<em>Example first move</em>"
 msgstr "<em>Příklad prvního tahu</em>"
 
 #. (itstool) path: td/p
-#: C/rules.page:66
+#: C/rules.page:67
 msgid "<em>A blocking move</em>"
 msgstr "<em>Blokující tah</em>"
 
 #. (itstool) path: td/p
-#: C/rules.page:67
+#: C/rules.page:68
 msgid "<em>Game over position</em>"
 msgstr "<em>Rozložení na konci hry</em>"
 
