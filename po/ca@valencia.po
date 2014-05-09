@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-10 00:09+0200\n"
-"PO-Revision-Date: 2014-03-18 06:52+0100\n"
+"POT-Creation-Date: 2014-05-10 00:13+0200\n"
+"PO-Revision-Date: 2014-05-10 00:11+0200\n"
 "Last-Translator: Pau Iranzo <paugnu@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca-XV\n"
@@ -100,9 +100,8 @@ msgid "true if the window is maximized"
 msgstr "«true» (cert) si la finestra està maximitzada"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:6
-#, fuzzy
 msgid "true if the window is fullscren"
-msgstr "«true» (cert) si la finestra està maximitzada"
+msgstr "«true» (cert) si la finestra és a pantalla completa"
 
 #: ../src/iagno.vala:110
 msgid "Undo your most recent move"
@@ -178,17 +177,16 @@ msgid "You can’t move there!"
 msgstr "Ací no s'hi pot anar!"
 
 #: ../src/iagno.vala:494
-#, fuzzy
 msgid "Iagno Preferences"
-msgstr "Preferències"
+msgstr "Preferències del Iagno"
 
 #: ../src/iagno.vala:497
 msgid "_Close"
-msgstr ""
+msgstr "_Tanca"
 
 #: ../src/iagno.vala:513
 msgid "Dark Player:"
-msgstr ""
+msgstr "Jugador de les negres:"
 
 #: ../src/iagno.vala:526 ../src/iagno.vala:555
 msgid "Human"
@@ -207,9 +205,8 @@ msgid "Level three"
 msgstr "Tercer nivell"
 
 #: ../src/iagno.vala:543
-#, fuzzy
 msgid "Light Player:"
-msgstr "Blanques:"
+msgstr "Jugador de les blanques:"
 
 #: ../src/iagno.vala:572
 msgid "_Tile set:"
@@ -228,12 +225,3 @@ msgstr "Redueix el retard abans del moviment de l'ordinador"
 #: ../src/iagno.vala:639
 msgid "Show release version"
 msgstr "Mostra la versió"
-
-#~ msgid "Play as:"
-#~ msgstr "Juga amb:"
-
-#~ msgid "Light"
-#~ msgstr "Blanques"
-
-#~ msgid "Dark"
-#~ msgstr "Negres"
