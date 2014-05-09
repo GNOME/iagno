@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-10 00:09+0200\n"
-"PO-Revision-Date: 2014-03-18 06:52+0100\n"
+"POT-Creation-Date: 2014-05-10 00:13+0200\n"
+"PO-Revision-Date: 2014-05-10 00:11+0200\n"
 "Last-Translator: Pau Iranzo <paugnu@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca-XV\n"
@@ -173,8 +173,9 @@ msgid "You can’t move there!"
 msgstr "Ací no s'hi pot anar!"
 
 #: ../src/iagno.vala:479
+#, fuzzy
 msgid "Preferences"
-msgstr "Preferències"
+msgstr "_Preferències"
 
 #: ../src/iagno.vala:501
 msgid "Opponent:"
@@ -198,15 +199,17 @@ msgstr "Tercer nivell"
 
 #: ../src/iagno.vala:532
 msgid "Play as:"
-msgstr "Juga amb:"
+msgstr ""
 
 #: ../src/iagno.vala:543
+#, fuzzy
 msgid "Light"
-msgstr "Blanques"
+msgstr "Blanques:"
 
 #: ../src/iagno.vala:547
+#, fuzzy
 msgid "Dark"
-msgstr "Negres"
+msgstr "Negres:"
 
 #: ../src/iagno.vala:552
 msgid "_Tile set:"
@@ -225,3 +228,18 @@ msgstr "Redueix el retard abans del moviment de l'ordinador"
 #: ../src/iagno.vala:619
 msgid "Show release version"
 msgstr "Mostra la versió"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "«true» (cert) si la finestra és a pantalla completa"
+
+#~ msgid "Iagno Preferences"
+#~ msgstr "Preferències del Iagno"
+
+#~ msgid "_Close"
+#~ msgstr "_Tanca"
+
+#~ msgid "Dark Player:"
+#~ msgstr "Jugador de les negres:"
+
+#~ msgid "Light Player:"
+#~ msgstr "Jugador de les blanques:"
