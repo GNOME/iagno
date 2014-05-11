@@ -2,7 +2,8 @@
 <!-- Copyright 2013 Michael Catanzaro and contributors -->
 <application>
   <id type="desktop">iagno.desktop</id>
-  <licence>CC0</licence>
+  <metadata_licence>CC0-1.0</metadata_licence>
+  <project_license>GPL-2.0+ and CC-BY-SA-3.0</project_license>
   <description>
     <_p>
       Iagno is a computer version of the game Reversi, a two-player strategy
