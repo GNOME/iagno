@@ -321,11 +321,8 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void game_move_cb (Game g)
+    private void game_move_cb ()
     {
-        /* Bug #708130 */
-        return_if_fail (g == game);
-
         play_sound ("flip-piece");
 
         if (!game.can_move (game.current_color))
