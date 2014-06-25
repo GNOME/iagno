@@ -1,5 +1,5 @@
 <schemalist>
-  <schema id="org.gnome.iagno" path="/org/gnome/iagno/" gettext-domain="gnome-games">
+  <schema id="org.gnome.iagno" path="/org/gnome/iagno/" gettext-domain="iagno">
     <key name="computer-level" type="i">
       <default>1</default>
       <range min="0" max="3" />
