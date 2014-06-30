@@ -281,7 +281,7 @@ public class Iagno : Gtk.Application
         /* For undo after the end of the game */
         new_game_button.hide ();
 
-        game_move_cb (game);
+        game_move_cb ();
     }
 
     private void about_cb ()
