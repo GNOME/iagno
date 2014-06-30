@@ -18,9 +18,9 @@ msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-16 16:08+0000\n"
-"PO-Revision-Date: 2014-03-22 11:34+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"POT-Creation-Date: 2014-06-30 09:15+0000\n"
+"PO-Revision-Date: 2014-06-30 23:02+0400\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.5\n"
 
 #: ../data/iagno.appdata.xml.in.h:1
 msgid ""
@@ -51,8 +51,8 @@ msgstr ""
 "фишку противника, необходимо, чтобы фишка соперника оказалась между двумя "
 "вашими фишками."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
-#: ../src/iagno.vala:304 ../src/iagno.vala:671
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:113
+#: ../src/iagno.vala:293 ../src/iagno.vala:648
 msgid "Iagno"
 msgstr "Ягно"
 
@@ -78,7 +78,7 @@ msgstr "_Справка"
 
 #: ../data/iagno.ui.h:4
 msgid "_About"
-msgstr "_О программе"
+msgstr "_О приложении"
 
 #: ../data/iagno.ui.h:5
 msgid "_Quit"
@@ -104,39 +104,30 @@ msgstr "Высота окна в пикселах"
 msgid "true if the window is maximized"
 msgstr "истинно, если окно имеет максимальный размер"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "true if the window is fullscren"
-msgstr "истинно, если окно раскрыто на полный экран"
-
-#: ../src/iagno.vala:110
-#| msgid "The users's most recent level."
+#: ../src/iagno.vala:108
 msgid "Undo your most recent move"
 msgstr "Отменить последний ход"
 
-#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+#: ../src/iagno.vala:141 ../src/iagno.vala:251 ../src/iagno.vala:259
 msgid "Dark:"
 msgstr "Чёрные:"
 
-#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
+#: ../src/iagno.vala:149 ../src/iagno.vala:252 ../src/iagno.vala:260
 msgid "Light:"
 msgstr "Белые:"
 
-#: ../src/iagno.vala:164
+#: ../src/iagno.vala:162
 msgid "Start a new game"
 msgstr "Начать новую игру"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
-#: ../src/iagno.vala:273
+#: ../src/iagno.vala:254 ../src/iagno.vala:255 ../src/iagno.vala:262
+#: ../src/iagno.vala:263
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:309
-#| msgid ""
-#| "A disk flipping game derived from Reversi.\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
+#: ../src/iagno.vala:298
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -146,7 +137,7 @@ msgstr ""
 "\n"
 "Ягно является частью GNOME Games."
 
-#: ../src/iagno.vala:312
+#: ../src/iagno.vala:301
 msgid "translator-credits"
 msgstr ""
 "Валек Филиппов aka frob\n"
@@ -156,90 +147,105 @@ msgstr ""
 "Леонид Кантер"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:348
-#| msgid "Light must pass, Dark's move"
+#: ../src/iagno.vala:334
 msgid "Light must pass, Dark’s move"
 msgstr "Белые должны пропустить ход, ход чёрных"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:353
-#| msgid "Dark must pass, Light's move"
+#: ../src/iagno.vala:339
 msgid "Dark must pass, Light’s move"
 msgstr "Чёрные должны пропустить ход, ход белых"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:401
-#| msgid "Light player wins!"
+#: ../src/iagno.vala:384
 msgid "Light wins!"
 msgstr "Белые победили!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:406
-#| msgid "Dark player wins!"
+#: ../src/iagno.vala:389
 msgid "Dark wins!"
 msgstr "Чёрные победили!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:411
-#| msgid "The game is a draw!"
+#: ../src/iagno.vala:394
 msgid "The game is draw."
 msgstr "Игра закончилась ничьёй."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:440
-#| msgid "You can't move there!"
+#: ../src/iagno.vala:421
 msgid "You can’t move there!"
 msgstr "Сюда нельзя сделать ход!"
 
-#: ../src/iagno.vala:494
-msgid "Iagno Preferences"
-msgstr "Параметры Ягно"
+#: ../src/iagno.vala:476
+msgid "Preferences"
+msgstr "Параметры"
 
-#: ../src/iagno.vala:497
-msgid "_Close"
-msgstr "_Закрыть"
+#: ../src/iagno.vala:498
+msgid "Opponent:"
+msgstr "Соперник:"
 
-#: ../src/iagno.vala:513
-msgid "Dark Player:"
-msgstr "Чёрный игрок:"
-
-#: ../src/iagno.vala:526 ../src/iagno.vala:555
+#: ../src/iagno.vala:509
 msgid "Human"
 msgstr "Человек"
 
-#: ../src/iagno.vala:530 ../src/iagno.vala:559
+#: ../src/iagno.vala:516
 msgid "Level one"
 msgstr "Первый уровень"
 
-#: ../src/iagno.vala:534 ../src/iagno.vala:563
+#: ../src/iagno.vala:520
 msgid "Level two"
 msgstr "Второй уровень"
 
-#: ../src/iagno.vala:538 ../src/iagno.vala:567
+#: ../src/iagno.vala:524
 msgid "Level three"
 msgstr "Третий уровень"
 
-#: ../src/iagno.vala:543
-msgid "Light Player:"
-msgstr "Белый игрок:"
+#: ../src/iagno.vala:529
+msgid "Play as:"
+msgstr "Играть за:"
 
-#: ../src/iagno.vala:572
+#: ../src/iagno.vala:540
+#| msgid "Light:"
+msgid "Light"
+msgstr "Белые"
+
+#: ../src/iagno.vala:544
+#| msgid "Dark:"
+msgid "Dark"
+msgstr "Чёрные"
+
+#: ../src/iagno.vala:549
 msgid "_Tile set:"
 msgstr "Набор _фишек:"
 
-#: ../src/iagno.vala:624
+#: ../src/iagno.vala:601
 msgid "E_nable sounds"
 msgstr "Включить _звуки"
 
 #. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:636
+#: ../src/iagno.vala:613
 msgid "Reduce delay before AI moves"
 msgstr "Сократить задержку ИИ на обдумывание ходов"
 
 #. Help string for command line --version flag
-#: ../src/iagno.vala:639
+#: ../src/iagno.vala:616
 msgid "Show release version"
 msgstr "Показать номер версии"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "истинно, если окно раскрыто на полный экран"
+
+#~ msgid "Iagno Preferences"
+#~ msgstr "Параметры Ягно"
+
+#~ msgid "_Close"
+#~ msgstr "_Закрыть"
+
+#~ msgid "Dark Player:"
+#~ msgstr "Чёрный игрок:"
+
+#~ msgid "Light Player:"
+#~ msgstr "Белый игрок:"
 
 #~ msgid "Chess"
 #~ msgstr "Шахматы"
@@ -364,12 +370,6 @@ msgstr "Показать номер версии"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Сложность игры шахматного движка"
-
-#~ msgid "Preferences"
-#~ msgstr "Параметры"
-
-#~ msgid "Play as:"
-#~ msgstr "Играть за:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Противник:"
