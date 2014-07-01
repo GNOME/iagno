@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-03 17:03+0100\n"
-"PO-Revision-Date: 2014-03-03 17:03+0200\n"
+"POT-Creation-Date: 2014-07-01 18:07+0200\n"
+"PO-Revision-Date: 2014-07-01 18:07+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -48,8 +48,8 @@ msgstr ""
 "evitando que o seu opoñente faga o mesmo coas suas. Isto conséguese "
 "atrapando as fichas do opoñente entre dúas fichas da súa cor."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
-#: ../src/iagno.vala:304 ../src/iagno.vala:671
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:113
+#: ../src/iagno.vala:293 ../src/iagno.vala:648
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -101,34 +101,30 @@ msgstr "Altura da xanela en píxeles"
 msgid "true if the window is maximized"
 msgstr "verdadeiro se a xanela está maximizada"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "true if the window is fullscren"
-msgstr "verdadeiro se a xanela está en en pantalla completa"
-
-#: ../src/iagno.vala:110
+#: ../src/iagno.vala:108
 msgid "Undo your most recent move"
 msgstr "Desfacer o movemento máis recente"
 
-#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+#: ../src/iagno.vala:141 ../src/iagno.vala:251 ../src/iagno.vala:259
 msgid "Dark:"
 msgstr "Negras:"
 
-#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
+#: ../src/iagno.vala:149 ../src/iagno.vala:252 ../src/iagno.vala:260
 msgid "Light:"
 msgstr "Brancas:"
 
-#: ../src/iagno.vala:164
+#: ../src/iagno.vala:162
 msgid "Start a new game"
 msgstr "Comezar un xogo novo"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
-#: ../src/iagno.vala:273
+#: ../src/iagno.vala:254 ../src/iagno.vala:255 ../src/iagno.vala:262
+#: ../src/iagno.vala:263
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:309
+#: ../src/iagno.vala:298
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -138,7 +134,7 @@ msgstr ""
 "\n"
 "O Iagno forma parte do GNOME Games."
 
-#: ../src/iagno.vala:312
+#: ../src/iagno.vala:301
 msgid "translator-credits"
 msgstr ""
 "Fran Diéguez <frandieguez@ubuntu.com>, 2009-2014.\n"
@@ -152,84 +148,103 @@ msgstr ""
 "Jesús Bravo Álvarez <jba@pobox.com>, 2000."
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:348
+#: ../src/iagno.vala:334
 msgid "Light must pass, Dark’s move"
 msgstr "As brancas teñen que pasar, moven as negras"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:353
+#: ../src/iagno.vala:339
 msgid "Dark must pass, Light’s move"
 msgstr "As negras teñen que pasar, moven as brancas"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:401
+#: ../src/iagno.vala:384
 msgid "Light wins!"
 msgstr "Gañan as brancas!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:406
+#: ../src/iagno.vala:389
 msgid "Dark wins!"
 msgstr "Gañan as negras!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:411
+#: ../src/iagno.vala:394
 msgid "The game is draw."
 msgstr "A partida rematou en empate!"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:440
+#: ../src/iagno.vala:421
 msgid "You can’t move there!"
 msgstr "Non pode moverse aí!"
 
-#: ../src/iagno.vala:494
-msgid "Iagno Preferences"
-msgstr "Preferencias do Iagno"
+#: ../src/iagno.vala:476
+msgid "Preferences"
+msgstr "Preferencias"
 
-#: ../src/iagno.vala:497
-msgid "_Close"
-msgstr "Pecha_r"
+#: ../src/iagno.vala:498
+msgid "Opponent:"
+msgstr "Contrincante:"
 
-#: ../src/iagno.vala:513
-msgid "Dark Player:"
-msgstr "Negras:"
-
-#: ../src/iagno.vala:526 ../src/iagno.vala:555
+#: ../src/iagno.vala:509
 msgid "Human"
 msgstr "Humano"
 
-#: ../src/iagno.vala:530 ../src/iagno.vala:559
+#: ../src/iagno.vala:516
 msgid "Level one"
 msgstr "Nivel 1"
 
-#: ../src/iagno.vala:534 ../src/iagno.vala:563
+#: ../src/iagno.vala:520
 msgid "Level two"
 msgstr "Level 2"
 
-#: ../src/iagno.vala:538 ../src/iagno.vala:567
+#: ../src/iagno.vala:524
 msgid "Level three"
 msgstr "Level 3"
 
-#: ../src/iagno.vala:543
-msgid "Light Player:"
-msgstr "Brancas:"
+#: ../src/iagno.vala:529
+msgid "Play as:"
+msgstr "Xogar como:"
 
-#: ../src/iagno.vala:572
+#: ../src/iagno.vala:540
+msgid "Light"
+msgstr "Brancas"
+
+#: ../src/iagno.vala:544
+msgid "Dark"
+msgstr "Negras"
+
+#: ../src/iagno.vala:549
 msgid "_Tile set:"
 msgstr "Definir as _fichas:"
 
-#: ../src/iagno.vala:624
+#: ../src/iagno.vala:601
 msgid "E_nable sounds"
 msgstr "Acti_var sons"
 
 #. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:636
+#: ../src/iagno.vala:613
 msgid "Reduce delay before AI moves"
 msgstr "Reducir atraso antes dos movementos de IA"
 
 #. Help string for command line --version flag
-#: ../src/iagno.vala:639
+#: ../src/iagno.vala:616
 msgid "Show release version"
 msgstr "Mostrar o número de versión"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "verdadeiro se a xanela está en en pantalla completa"
+
+#~ msgid "Iagno Preferences"
+#~ msgstr "Preferencias do Iagno"
+
+#~ msgid "_Close"
+#~ msgstr "Pecha_r"
+
+#~ msgid "Dark Player:"
+#~ msgstr "Negras:"
+
+#~ msgid "Light Player:"
+#~ msgstr "Brancas:"
 
 #~ msgid "_Undo"
 #~ msgstr "_Desfacer"
@@ -373,12 +388,6 @@ msgstr "Mostrar o número de versión"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Dificultade do motor de xadrez do opoñente"
-
-#~ msgid "Preferences"
-#~ msgstr "Preferencias"
-
-#~ msgid "Play as:"
-#~ msgstr "Xogar como:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Opoñente:"
@@ -3229,12 +3238,6 @@ msgstr "Mostrar o número de versión"
 
 #~ msgid "Flags"
 #~ msgstr "Bandeiras"
-
-#~ msgid "Dark"
-#~ msgstr "Negras"
-
-#~ msgid "Light"
-#~ msgstr "Brancas"
 
 #~ msgid "Tiles"
 #~ msgstr "Fichas"
