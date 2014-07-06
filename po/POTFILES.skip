@@ -1,4 +1,3 @@
-data/iagno.desktop.in
 src/computer-player.c
 src/game.c
 src/game-view.c
