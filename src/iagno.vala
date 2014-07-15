@@ -44,12 +44,10 @@ public class Iagno : Gtk.Application
 
     private static const OptionEntry[] option_entries =
     {
-        { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,
-          /* Help string for command line --fast-mode flag */
-          N_("Reduce delay before AI moves"), null},
-        { "version", 'v', 0, OptionArg.NONE, null,
-          /* Help string for command line --version flag */
-          N_("Print release version and exit"), null},
+        { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
+        { "mute", 0, 0, OptionArg.NONE, null, N_("Turn off the sound"), null},
+        { "unmute", 0, 0, OptionArg.NONE, null, N_("Turn on the sound"), null},
+        { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null},
         { null }
     };
 
@@ -83,8 +81,6 @@ public class Iagno : Gtk.Application
             window.show ();
             return;
         }
-
-        settings = new Settings ("org.gnome.iagno");
 
         var builder = new Gtk.Builder ();
         try
@@ -188,6 +184,16 @@ public class Iagno : Gtk.Application
             stderr.printf ("%1$s %2$s\n", "iagno", VERSION);
             return Posix.EXIT_SUCCESS;
         }
+
+        /* WARNING: Don't forget that changing at this moment settings
+        could interfere badly with a running instance of the game. */
+        settings = new Settings ("org.gnome.iagno");
+
+        /* Sound can be turned on/off via command-line while playing. */
+        if (options.contains ("unmute"))
+            settings.set_boolean ("sound", true);
+        if (options.contains ("mute"))
+            settings.set_boolean ("sound", false);
 
         /* Activate */
         return -1;
