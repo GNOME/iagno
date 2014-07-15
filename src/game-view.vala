@@ -39,7 +39,7 @@ public class GameView : Gtk.DrawingArea
             return int.min (get_allocated_width () / 8, get_allocated_height () / (int) 8) - GRID_WIDTH;
         }
     }
-    
+
     private int x_offset
     {
         get
@@ -251,7 +251,7 @@ public class GameView : Gtk.DrawingArea
                 });
         }
     }
-    
+
     private void set_square (int x, int y, int pixmap)
     {
         if (pixmaps[x, y] == pixmap)

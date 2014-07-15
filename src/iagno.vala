@@ -90,7 +90,7 @@ public class Iagno : Gtk.Application
         window.icon_name = "iagno";
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
-        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));        
+        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
