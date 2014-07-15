@@ -42,6 +42,17 @@ public class Iagno : Gtk.Application
     /* The game being played */
     private Game? game = null;
 
+    private static const OptionEntry[] option_entries =
+    {
+        { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,
+          /* Help string for command line --fast-mode flag */
+          N_("Reduce delay before AI moves"), null},
+        { "version", 'v', 0, OptionArg.NONE, null,
+          /* Help string for command line --version flag */
+          N_("Print release version and exit"), null},
+        { null }
+    };
+
     private const GLib.ActionEntry app_actions[] =
     {
         {"new-game", new_game_cb},
@@ -61,6 +72,8 @@ public class Iagno : Gtk.Application
     public Iagno ()
     {
         Object (application_id: "org.gnome.iagno", flags: ApplicationFlags.FLAGS_NONE);
+
+        add_main_option_entries (option_entries);
     }
 
     protected override void activate ()
@@ -165,6 +178,19 @@ public class Iagno : Gtk.Application
         start_game ();
 
         window.show ();
+    }
+
+    protected override int handle_local_options (GLib.VariantDict options)
+    {
+        if (options.contains ("version"))
+        {
+            /* NOTE: Is not translated so can be easily parsed */
+            stderr.printf ("%1$s %2$s\n", "iagno", VERSION);
+            return Posix.EXIT_SUCCESS;
+        }
+
+        /* Activate */
+        return -1;
     }
 
     protected override void shutdown ()
@@ -606,17 +632,6 @@ public class Iagno : Gtk.Application
         propbox.show_all ();
     }
 
-    private static const OptionEntry[] options =
-    {
-        { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,
-          /* Help string for command line --fast-mode flag */
-          N_("Reduce delay before AI moves"), null},
-        { "version", 'v', 0, OptionArg.NONE, ref show_version,
-          /* Help string for command line --version flag */
-          N_("Show release version"), null},
-        { null }
-    };
-
     public static int main (string[] args)
     {
         Intl.setlocale (LocaleCategory.ALL, "");
@@ -624,34 +639,13 @@ public class Iagno : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        var context = new OptionContext (null);
-        context.add_main_entries (options, GETTEXT_PACKAGE);
-        context.add_group (Gtk.get_option_group (true));
-
-        try
-        {
-            context.parse (ref args);
-        }
-        catch (Error e)
-        {
-            stderr.printf ("%s\n", e.message);
-            return Posix.EXIT_FAILURE;
-        }
-
-        if (show_version)
-        {
-            /* Note, not translated so can be easily parsed */
-            stderr.printf ("iagno %s\n", VERSION);
-            return Posix.EXIT_SUCCESS;
-        }
-
         Environment.set_application_name (_("Iagno"));
 
         Gtk.Window.set_default_icon_name ("iagno");
 
         var app = new Iagno ();
 
-        var result = app.run ();
+        var result = app.run (args);
 
         return result;
     }
