@@ -1,12 +1,16 @@
 <schemalist>
+  <enum id="org.gnome.iagno.PlayAs">
+    <value value="1" nick="first"/>
+    <value value="2" nick="second"/>
+  </enum>
+
   <schema id="org.gnome.iagno" path="/org/gnome/iagno/" gettext-domain="iagno">
     <key name="computer-level" type="i">
       <default>1</default>
       <range min="0" max="3" />
     </key>
-    <key name="play-as" type="i">
-      <default>2</default>
-      <range min="1" max="2" />
+    <key name="play-as" enum="org.gnome.iagno.PlayAs">
+      <default>'first'</default>
     </key>
     <key name="tileset" type="s">
       <default>'black_and_white.svg'</default>

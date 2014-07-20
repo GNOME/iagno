@@ -258,7 +258,7 @@ public class Iagno : Gtk.Application
         else
             computer = null;
 
-        player_one = (settings.get_int ("play-as") == 2) ? Player.DARK : Player.LIGHT;
+        player_one = (settings.get_string ("play-as") == "first") ? Player.DARK : Player.LIGHT;
 
         update_ui ();
 
@@ -467,9 +467,9 @@ public class Iagno : Gtk.Application
     {
         Gtk.TreeIter iter;
         combo.get_active_iter (out iter);
-        int level;
-        combo.model.get (iter, 1, out level);
-        settings.set_int ("play-as", level);
+        string mode;
+        combo.model.get (iter, 1, out mode);
+        settings.set_string ("play-as", mode);
     }
 
     private void sound_select (Gtk.ToggleButton widget)
@@ -565,15 +565,15 @@ public class Iagno : Gtk.Application
         renderer = new Gtk.CellRendererText ();
         color_combo.pack_start (renderer, true);
         color_combo.add_attribute (renderer, "text", 0);
-        model = new Gtk.ListStore (2, typeof (string), typeof (int));
+        model = new Gtk.ListStore (2, typeof (string), typeof (string));
         color_combo.model = model;
         model.append (out iter);
-        model.set (iter, 0, _("Light"), 1, 1);
-        if (settings.get_int ("play-as") == 1)
+        model.set (iter, 0, _("Dark"), 1, "first");
+        if (settings.get_string ("play-as") == "first")
             color_combo.set_active_iter (iter);
         model.append (out iter);
-        model.set (iter, 0, _("Dark"), 1, 2);
-        if (settings.get_int ("play-as") == 2)
+        model.set (iter, 0, _("Light"), 1, "second");
+        if (settings.get_string ("play-as") == "second")
             color_combo.set_active_iter (iter);
         grid.attach (color_combo, 1, 1, 1, 1);
 

@@ -21,8 +21,8 @@
 public enum Player
 {
     NONE,
-    LIGHT,
-    DARK;
+    DARK,
+    LIGHT;
 
     public string to_string ()
     {
