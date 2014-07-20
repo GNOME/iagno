@@ -16,6 +16,7 @@ public class Iagno : Gtk.Application
     private bool is_fullscreen;
     private bool is_maximized;
     private static bool fast_mode;
+    private static int computer_level = 0;
 
     /* Widgets */
     private Gtk.Window window;
@@ -44,6 +45,7 @@ public class Iagno : Gtk.Application
     private static const OptionEntry[] option_entries =
     {
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
+        { "level", 'l', 0, OptionArg.INT, ref computer_level, N_("Set the level of the computer's AI"), null},
         { "mute", 0, 0, OptionArg.NONE, null, N_("Turn off the sound"), null},
         { "unmute", 0, 0, OptionArg.NONE, null, N_("Turn on the sound"), null},
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null},
@@ -193,6 +195,15 @@ public class Iagno : Gtk.Application
             settings.set_boolean ("sound", true);
         if (options.contains ("mute"))
             settings.set_boolean ("sound", false);
+
+        /* The computer's AI level is set for the next game. */
+        if (computer_level > 0)
+        {
+            if (computer_level <= 3)
+                settings.set_int ("computer-level", computer_level);
+            else
+                stderr.printf ("%1$s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
+        }
 
         /* Activate */
         return -1;
