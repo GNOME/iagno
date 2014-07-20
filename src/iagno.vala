@@ -538,19 +538,19 @@ public class Iagno : Gtk.Application
         Gtk.TreeIter iter;
         model.append (out iter);
         model.set (iter, 0, _("Play first (Dark)"), 1, "first");
-        if (settings.get_string ("play-as") == "first")
-            combo.set_active_iter (iter);
         model.append (out iter);
         model.set (iter, 0, _("Play second (Light)"), 1, "second");
-        if (settings.get_string ("play-as") == "second")
-            combo.set_active_iter (iter);
         model.append (out iter);
         model.set (iter, 0, _("Two players"), 1, "two-players");
-        if (settings.get_string ("play-as") == "two-players")
-        {
-            combo.set_active_iter (iter);
-            level_combo.sensitive = false;
-        }
+        combo.set_id_column (1);
+        settings.changed["play-as"].connect (() => {
+            var mode = settings.get_string ("play-as");
+            combo.set_active_id (mode);
+            level_combo.sensitive = (mode == "two-players") ? false : true;
+        });
+        var mode = settings.get_string ("play-as");
+        combo.set_active_id (mode);
+        level_combo.sensitive = (mode == "two-players") ? false : true;
         grid.attach (combo, 1, 0, 1, 1);
 
         label = new Gtk.Label (_("Computer:"));
@@ -565,16 +565,14 @@ public class Iagno : Gtk.Application
         level_combo.model = model;
         model.append (out iter);
         model.set (iter, 0, _("Level one"), 1, 1);
-        if (settings.get_int ("computer-level") == 1)
-            level_combo.set_active_iter (iter);
         model.append (out iter);
         model.set (iter, 0, _("Level two"), 1, 2);
-        if (settings.get_int ("computer-level") == 2)
-            level_combo.set_active_iter (iter);
         model.append (out iter);
         model.set (iter, 0, _("Level three"), 1, 3);
-        if (settings.get_int ("computer-level") == 3)
-            level_combo.set_active_iter (iter);
+        settings.changed["computer-level"].connect (() => {
+            level_combo.set_active (settings.get_int ("computer-level") - 1);
+        });
+        level_combo.set_active (settings.get_int ("computer-level") - 1);
         grid.attach (level_combo, 1, 1, 1, 1);
 
         label = new Gtk.Label.with_mnemonic (_("_Tile set:"));
@@ -630,6 +628,9 @@ public class Iagno : Gtk.Application
         grid.attach (theme_combo, 1, 2, 1, 1);
 
         var enable_sounds_button = new Gtk.CheckButton.with_mnemonic (_("E_nable sounds"));
+        settings.changed["sound"].connect (() => {
+            enable_sounds_button.set_active (settings.get_boolean ("sound"));
+        });
         enable_sounds_button.set_active (settings.get_boolean ("sound"));
         enable_sounds_button.toggled.connect (sound_select);
         grid.attach (enable_sounds_button, 0, 3, 2, 1);
