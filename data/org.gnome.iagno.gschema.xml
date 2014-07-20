@@ -1,5 +1,6 @@
 <schemalist>
   <enum id="org.gnome.iagno.PlayAs">
+    <value value="0" nick="two-players"/>
     <value value="1" nick="first"/>
     <value value="2" nick="second"/>
   </enum>
@@ -7,10 +8,14 @@
   <schema id="org.gnome.iagno" path="/org/gnome/iagno/" gettext-domain="iagno">
     <key name="computer-level" type="i">
       <default>1</default>
-      <range min="0" max="3" />
+      <range min="1" max="3" />
+      <summary>Computer's AI level</summary>
+      <description>From 1, the easiest, to 3, the hardest.</description>
     </key>
     <key name="play-as" enum="org.gnome.iagno.PlayAs">
       <default>'first'</default>
+      <summary>Type of game</summary>
+      <description>Choose the type of the next game.</description>
     </key>
     <key name="tileset" type="s">
       <default>'black_and_white.svg'</default>

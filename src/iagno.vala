@@ -252,13 +252,13 @@ public class Iagno : Gtk.Application
 
         new_game_button.hide ();
 
-        var computer_level = settings.get_int ("computer-level");
-        if (computer_level > 0)
-            computer = new ComputerPlayer (game, computer_level);
-        else
+        var mode = settings.get_string ("play-as");
+        if (mode == "two-players")
             computer = null;
+        else
+            computer = new ComputerPlayer (game, settings.get_int ("computer-level"));
 
-        player_one = (settings.get_string ("play-as") == "first") ? Player.DARK : Player.LIGHT;
+        player_one = (mode == "first") ? Player.DARK : Player.LIGHT;
 
         update_ui ();
 
@@ -453,23 +453,23 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void computer_level_changed_cb (Gtk.ComboBox combo, Gtk.ComboBox color_combo)
+    private void computer_level_changed_cb (Gtk.ComboBox combo)
     {
         Gtk.TreeIter iter;
         combo.get_active_iter (out iter);
         int level;
         combo.model.get (iter, 1, out level);
         settings.set_int ("computer-level", level);
-        color_combo.sensitive = (level > 0) ? true : false;
     }
 
-    private void color_changed_cb (Gtk.ComboBox combo)
+    private void mode_changed_cb (Gtk.ComboBox combo, Gtk.ComboBox level_combo)
     {
         Gtk.TreeIter iter;
         combo.get_active_iter (out iter);
         string mode;
         combo.model.get (iter, 1, out mode);
         settings.set_string ("play-as", mode);
+        level_combo.sensitive = (mode == "two-players") ? false : true;
     }
 
     private void sound_select (Gtk.ToggleButton widget)
@@ -523,59 +523,59 @@ public class Iagno : Gtk.Application
         box.add (grid);
 
         var combo = new Gtk.ComboBox ();
-        var color_combo = new Gtk.ComboBox ();
-        combo.changed.connect (() => computer_level_changed_cb (combo, color_combo));
+        var level_combo = new Gtk.ComboBox ();
+        combo.changed.connect (() => mode_changed_cb (combo, level_combo));
 
-        var label = new Gtk.Label (_("Opponent:"));
+        var label = new Gtk.Label (_("Game mode:"));
         label.set_alignment (0.0f, 0.5f);
         label.expand = true;
         grid.attach (label, 0, 0, 1, 1);
         var renderer = new Gtk.CellRendererText ();
         combo.pack_start (renderer, true);
         combo.add_attribute (renderer, "text", 0);
-        var model = new Gtk.ListStore (2, typeof (string), typeof (int));
+        var model = new Gtk.ListStore (2, typeof (string), typeof (string));
         combo.model = model;
         Gtk.TreeIter iter;
         model.append (out iter);
-        model.set (iter, 0, _("Human"), 1, 0);
-        if (settings.get_int ("computer-level") == 0)
+        model.set (iter, 0, _("Play first (Dark)"), 1, "first");
+        if (settings.get_string ("play-as") == "first")
+            combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Play second (Light)"), 1, "second");
+        if (settings.get_string ("play-as") == "second")
+            combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Two players"), 1, "two-players");
+        if (settings.get_string ("play-as") == "two-players")
         {
             combo.set_active_iter (iter);
-            color_combo.sensitive = false;
+            level_combo.sensitive = false;
         }
-        model.append (out iter);
-        model.set (iter, 0, _("Level one"), 1, 1);
-        if (settings.get_int ("computer-level") == 1)
-            combo.set_active_iter (iter);
-        model.append (out iter);
-        model.set (iter, 0, _("Level two"), 1, 2);
-        if (settings.get_int ("computer-level") == 2)
-            combo.set_active_iter (iter);
-        model.append (out iter);
-        model.set (iter, 0, _("Level three"), 1, 3);
-        if (settings.get_int ("computer-level") == 3)
-            combo.set_active_iter (iter);
         grid.attach (combo, 1, 0, 1, 1);
 
-        label = new Gtk.Label (_("Play as:"));
+        label = new Gtk.Label (_("Computer:"));
         label.set_alignment (0.0f, 0.5f);
         label.expand = true;
         grid.attach (label, 0, 1, 1, 1);
-        color_combo.changed.connect (color_changed_cb);
+        level_combo.changed.connect (computer_level_changed_cb);
         renderer = new Gtk.CellRendererText ();
-        color_combo.pack_start (renderer, true);
-        color_combo.add_attribute (renderer, "text", 0);
-        model = new Gtk.ListStore (2, typeof (string), typeof (string));
-        color_combo.model = model;
+        level_combo.pack_start (renderer, true);
+        level_combo.add_attribute (renderer, "text", 0);
+        model = new Gtk.ListStore (2, typeof (string), typeof (int));
+        level_combo.model = model;
         model.append (out iter);
-        model.set (iter, 0, _("Dark"), 1, "first");
-        if (settings.get_string ("play-as") == "first")
-            color_combo.set_active_iter (iter);
+        model.set (iter, 0, _("Level one"), 1, 1);
+        if (settings.get_int ("computer-level") == 1)
+            level_combo.set_active_iter (iter);
         model.append (out iter);
-        model.set (iter, 0, _("Light"), 1, "second");
-        if (settings.get_string ("play-as") == "second")
-            color_combo.set_active_iter (iter);
-        grid.attach (color_combo, 1, 1, 1, 1);
+        model.set (iter, 0, _("Level two"), 1, 2);
+        if (settings.get_int ("computer-level") == 2)
+            level_combo.set_active_iter (iter);
+        model.append (out iter);
+        model.set (iter, 0, _("Level three"), 1, 3);
+        if (settings.get_int ("computer-level") == 3)
+            level_combo.set_active_iter (iter);
+        grid.attach (level_combo, 1, 1, 1, 1);
 
         label = new Gtk.Label.with_mnemonic (_("_Tile set:"));
         label.set_alignment (0.0f, 0.5f);
