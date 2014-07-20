@@ -16,7 +16,6 @@ public class Iagno : Gtk.Application
     private bool is_fullscreen;
     private bool is_maximized;
     private static bool fast_mode;
-    private static bool show_version;
 
     /* Widgets */
     private Gtk.Window window;
