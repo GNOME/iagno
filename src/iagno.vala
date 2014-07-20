@@ -45,8 +45,11 @@ public class Iagno : Gtk.Application
     private static const OptionEntry[] option_entries =
     {
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
+        { "first", 0, 0, OptionArg.NONE, null, N_("Play first"), null},
         { "level", 'l', 0, OptionArg.INT, ref computer_level, N_("Set the level of the computer's AI"), null},
         { "mute", 0, 0, OptionArg.NONE, null, N_("Turn off the sound"), null},
+        { "second", 0, 0, OptionArg.NONE, null, N_("Play second"), null},
+        { "two-players", 0, 0, OptionArg.NONE, null, N_("Two-players mode"), null},
         { "unmute", 0, 0, OptionArg.NONE, null, N_("Turn on the sound"), null},
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null},
         { null }
@@ -204,6 +207,14 @@ public class Iagno : Gtk.Application
             else
                 stderr.printf ("%1$s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
         }
+
+        /* The game mode is set for the next game. */
+        if (options.contains ("second"))
+            settings.set_string ("play-as", "second");
+        if (options.contains ("first"))
+            settings.set_string ("play-as", "first");
+        if (options.contains ("two-players"))
+            settings.set_string ("play-as", "two-players");
 
         /* Activate */
         return -1;
