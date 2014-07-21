@@ -24,7 +24,6 @@ public class Iagno : Gtk.Application
     private int window_height;
     private Gtk.HeaderBar headerbar;
     private GameView view;
-    private Gtk.Button new_game_button;
     private Gtk.Label dark_label;
     private Gtk.Label dark_score_label;
     private Gtk.Label light_label;
@@ -169,12 +168,15 @@ public class Iagno : Gtk.Application
         light_score_label.show ();
         grid.attach (light_score_label, 2, 1, 1, 1);
 
-        new_game_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
-        new_game_button.halign = Gtk.Align.CENTER;
+        var new_game_button = new Gtk.Button ();
+        var new_game_label = new Gtk.Label.with_mnemonic (_("_Start Over"));
+        new_game_label.margin = 10;
+        new_game_button.add (new_game_label);
         new_game_button.valign = Gtk.Align.CENTER;
-        new_game_button.relief = Gtk.ReliefStyle.NONE;
+        new_game_button.halign = Gtk.Align.CENTER;
         new_game_button.action_name = "app.new-game";
         new_game_button.tooltip_text = _("Start a new game");
+        new_game_button.show_all ();
         side_box.pack_end (new_game_button, false, false, 0);
 
         start_game ();
@@ -274,8 +276,6 @@ public class Iagno : Gtk.Application
         game.complete.connect (game_complete_cb);
         view.game = game;
 
-        new_game_button.hide ();
-
         var mode = settings.get_string ("play-as");
         if (mode == "two-players")
             computer = null;
@@ -300,6 +300,9 @@ public class Iagno : Gtk.Application
 
         var undo_action = (SimpleAction) lookup_action ("undo-move");
         undo_action.set_enabled (game.can_undo ());
+
+        var new_game_action = (SimpleAction) lookup_action ("new-game");
+        new_game_action.set_enabled (game.can_undo ());
 
         if (game.current_color == Player.DARK)
         {
@@ -332,9 +335,6 @@ public class Iagno : Gtk.Application
         /* If forced to pass, undo to last chosen move */
         while (!game.can_move (game.current_color))
             game.undo (2);
-
-        /* For undo after the end of the game */
-        new_game_button.hide ();
 
         game_move_cb ();
     }
@@ -451,7 +451,6 @@ public class Iagno : Gtk.Application
         else assert_not_reached ();
 
         play_sound ("gameover");
-        new_game_button.show ();
     }
 
     private void play_sound (string name)
