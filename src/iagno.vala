@@ -127,10 +127,15 @@ public class Iagno : Gtk.Application
         headerbar.show ();
         window.set_titlebar (headerbar);
 
+        var frame = new Gtk.AspectFrame (null, (float) 0.5, (float) 0.5, (float) 1.4, false);
+        frame.shadow_type = Gtk.ShadowType.NONE;
+        frame.show ();
+        window.add (frame);
+
         var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         hbox.halign = Gtk.Align.CENTER;
         hbox.show ();
-        window.add (hbox);
+        frame.add (hbox);
 
         view = new GameView ();
         view.game = game;
