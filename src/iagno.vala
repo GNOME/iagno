@@ -129,6 +129,7 @@ public class Iagno : Gtk.Application
         window.set_titlebar (headerbar);
 
         var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        hbox.halign = Gtk.Align.CENTER;
         hbox.show ();
         window.add (hbox);
 
@@ -145,6 +146,7 @@ public class Iagno : Gtk.Application
         hbox.pack_start (side_box, true, true, 20);
 
         var grid = new Gtk.Grid ();
+        grid.halign = Gtk.Align.CENTER;
         grid.vexpand = true;
         grid.hexpand = true;
         grid.set_column_spacing (8);

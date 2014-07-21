@@ -62,6 +62,8 @@ public class GameView : Gtk.DrawingArea
     {
         set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK);
         pixmaps = new int[8,8];
+
+        set_size_request (350, 350);
     }
 
     private Game? _game = null;
