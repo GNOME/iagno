@@ -1,3 +1,18 @@
+3.13.4 - July 20, 2014
+======================
+
+Dependencies: GTK+ 3.12, Vala 0.24
+
+* Use a text label for the new game button (Michael Catanzaro)
+* Use header bar on preferences dialog (Yosef Or Boczko)
+* Use better window title for preferences dialog (Michael Catanzaro)
+* Preferences dialog changes (Arnaud Bonatti, Alex Muñoz)
+* Do not allow computer vs. computer games (Alex Muñoz)
+* Add some new command line options (Arnaud Bonatti)
+* Add a jumplist to the desktop file (Arnaud Bonatti)
+* Window layout tweaks (Michael Catanzaro)
+* Many translation updates
+
 3.12.0 - March 24, 2014
 =======================
 
