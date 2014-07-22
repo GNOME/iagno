@@ -132,8 +132,8 @@ public class Iagno : Gtk.Application
         frame.show ();
         window.add (frame);
 
-        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        hbox.halign = Gtk.Align.CENTER;
+        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 25);
+        hbox.halign = Gtk.Align.FILL;
         hbox.show ();
         frame.add (hbox);
 
@@ -142,12 +142,13 @@ public class Iagno : Gtk.Application
         view.move.connect (player_move_cb);
         var tile_set = settings.get_string ("tileset");
         view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
+        view.halign = Gtk.Align.END;
         view.show ();
         hbox.pack_start (view, true, true, 0);
 
         var side_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
         side_box.show ();
-        hbox.pack_start (side_box, true, true, 20);
+        hbox.pack_end (side_box, false, true, 0);
 
         var grid = new Gtk.Grid ();
         grid.halign = Gtk.Align.CENTER;
@@ -174,11 +175,12 @@ public class Iagno : Gtk.Application
         grid.attach (light_score_label, 2, 1, 1, 1);
 
         var new_game_button = new Gtk.Button ();
-        var new_game_label = new Gtk.Label.with_mnemonic (_("_Start Over"));
-        new_game_label.margin = 10;
-        new_game_button.add (new_game_label);
-        new_game_button.valign = Gtk.Align.CENTER;
-        new_game_button.halign = Gtk.Align.CENTER;
+        new_game_button.label = _("_Start Over");
+        new_game_button.use_underline = true;
+        new_game_button.width_request = 120;
+        new_game_button.height_request = 60;
+        new_game_button.valign = Gtk.Align.END;
+        new_game_button.halign = Gtk.Align.END;
         new_game_button.action_name = "app.new-game";
         new_game_button.tooltip_text = _("Start a new game");
         new_game_button.show_all ();
