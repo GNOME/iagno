@@ -35,8 +35,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-02 21:17+0000\n"
-"PO-Revision-Date: 2014-07-04 21:32+0200\n"
+"POT-Creation-Date: 2014-07-30 21:20+0000\n"
+"PO-Revision-Date: 2014-08-01 00:59+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@lists.gnome.gr\n"
 "Language: el\n"
@@ -70,8 +70,8 @@ msgstr ""
 "παγιδεύοντας τα πλακίδια του αντιπάλου σας μεταξύ δύο πλακιδίων του δικού "
 "σας χρώματος."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:113
-#: ../src/iagno.vala:293 ../src/iagno.vala:648
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:101 ../src/iagno.vala:125
+#: ../src/iagno.vala:355 ../src/iagno.vala:678
 msgid "Iagno"
 msgstr "Ιάγνος"
 
@@ -82,6 +82,18 @@ msgstr "Κυριαρχήστε στον πίνακα με μια κλασσικ�
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "othello;"
+
+#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:570
+msgid "Play first (Dark)"
+msgstr "Παίξτε πρώτος (Μαύρα)"
+
+#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:572
+msgid "Play second (Light)"
+msgstr "Παίξτε δεύτερος (Λευκά)"
+
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "Παιχνίδι με δύο παίκτες"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -104,49 +116,107 @@ msgid "_Quit"
 msgstr "Έ_ξοδος"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Επίπεδο τεχνητής νοημοσύνης του υπολογιστή"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Από 1, το πιο εύκολο, σε 3, το πιο δύσκολο."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+msgid "Type of game"
+msgstr "Τύπος παιχνιδιού"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+msgid "Choose the type of the next game."
+msgstr "Επιλέξτε τον τύπο του επόμενου παιχνιδιού."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Sound"
 msgstr "Ήχος"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Whether or not to play event sounds."
 msgstr "Αν θα αναπαράγονται ήχοι συμβάντων ή όχι."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Width of the window in pixels"
 msgstr "Το πλάτος του παραθύρου σε εικονοστοιχεία"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Height of the window in pixels"
 msgstr "Το ύψος του παραθύρου σε εικονοστοιχεία"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "true if the window is maximized"
 msgstr "αληθές αν το παράθυρο είναι μεγιστοποιημένο"
 
-#: ../src/iagno.vala:108
+#: ../src/iagno.vala:46
+msgid "Reduce delay before AI moves"
+msgstr "Μειώστε την καθυστέρηση πριν να μετακινηθεί η ΤΝ"
+
+#: ../src/iagno.vala:47
+msgid "Play first"
+msgstr "Παίξτε πρώτος"
+
+#: ../src/iagno.vala:48
+msgid "Set the level of the computer's AI"
+msgstr "Ρυθμίστε το επίπεδο ΤΝ του υπολογιστή"
+
+#: ../src/iagno.vala:49
+msgid "Turn off the sound"
+msgstr "Απενεργοποίηση του ήχου"
+
+#: ../src/iagno.vala:50
+msgid "Play second"
+msgstr "Παίξτε δεύτερος"
+
+#: ../src/iagno.vala:51
+msgid "Two-players mode"
+msgstr "Λείτουργία παιχνιδιού με δύο παίχτες"
+
+#: ../src/iagno.vala:52
+msgid "Turn on the sound"
+msgstr "Ενεργοποίηση του ήχου"
+
+#: ../src/iagno.vala:53
+msgid "Print release version and exit"
+msgstr "Εκτύπωση της έκδοσης και έξοδος"
+
+#: ../src/iagno.vala:120
 msgid "Undo your most recent move"
 msgstr "Αναίρεση της πιο πρόσφατης κίνησής σας"
 
-#: ../src/iagno.vala:141 ../src/iagno.vala:251 ../src/iagno.vala:259
+#: ../src/iagno.vala:161 ../src/iagno.vala:316 ../src/iagno.vala:324
 msgid "Dark:"
 msgstr "Μαύρα:"
 
-#: ../src/iagno.vala:149 ../src/iagno.vala:252 ../src/iagno.vala:260
+#: ../src/iagno.vala:169 ../src/iagno.vala:317 ../src/iagno.vala:325
 msgid "Light:"
 msgstr "Λευκά:"
 
-#: ../src/iagno.vala:162
+#: ../src/iagno.vala:178
+msgid "_Start Over"
+msgstr "Εκκίνη_ση από την αρχή"
+
+#: ../src/iagno.vala:185
 msgid "Start a new game"
 msgstr "Εκκίνηση νέου παιχνιδιού"
 
+#: ../src/iagno.vala:219
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr ""
+"To επίπεδο πρέπει να είναι μεταξύ 1 (εύκολο) και 3 (δύσκολο). Ρυθμίσεις "
+"αμετάβλητες. "
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:254 ../src/iagno.vala:255 ../src/iagno.vala:262
-#: ../src/iagno.vala:263
+#: ../src/iagno.vala:319 ../src/iagno.vala:320 ../src/iagno.vala:327
+#: ../src/iagno.vala:328
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:298
+#: ../src/iagno.vala:360
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -157,7 +227,7 @@ msgstr ""
 "\n"
 "Ο Ιάγνος είναι μέρος των παιχνιδιών του GNOME."
 
-#: ../src/iagno.vala:301
+#: ../src/iagno.vala:363
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα του GNOME\n"
@@ -168,91 +238,87 @@ msgstr ""
 " Τζένη Πετούμενου <epetoumenou@gmail.com>\n"
 " Μαρία Θουκυδίδου <marablack3@gmail.com>\n"
 " Μαρία Μαυρίδου <mavridou@gmail.com>\n"
-"Για περισσότερα δείτε: http://gnome.gr"
+"\n"
+"Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
+"http://gnome.gr/"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:334
+#: ../src/iagno.vala:396
 msgid "Light must pass, Dark’s move"
 msgstr "Τα λευκά πρέπει να περιμένουν, κίνηση του μαύρου"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:339
+#: ../src/iagno.vala:401
 msgid "Dark must pass, Light’s move"
 msgstr "Τα μαύρα πρέπει να περιμένουν, κίνηση του λευκού"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:384
+#: ../src/iagno.vala:446
 msgid "Light wins!"
 msgstr "Τα λευκά κερδίζουν!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:389
+#: ../src/iagno.vala:451
 msgid "Dark wins!"
 msgstr "Τα μαύρα κερδίζουν!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:394
+#: ../src/iagno.vala:456
 msgid "The game is draw."
 msgstr "Το παιχνίδι είναι ισόπαλο."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:421
+#: ../src/iagno.vala:482
 msgid "You can’t move there!"
 msgstr "Δε μπορείτε να μετακινηθείτε εκεί!"
 
-#: ../src/iagno.vala:476
+#: ../src/iagno.vala:537
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
-#: ../src/iagno.vala:498
-msgid "Opponent:"
-msgstr "Αντίπαλος:"
+#: ../src/iagno.vala:559
+msgid "Game mode:"
+msgstr "Λειτουργία παιχνιδιού:"
 
-#: ../src/iagno.vala:509
-msgid "Human"
-msgstr "Άνθρωπος"
+#: ../src/iagno.vala:574
+msgid "Two players"
+msgstr "Δύο παίκτες"
 
-#: ../src/iagno.vala:516
+#: ../src/iagno.vala:586
+msgid "Computer:"
+msgstr "Υπολογιστής:"
+
+#: ../src/iagno.vala:597
 msgid "Level one"
 msgstr "Πρώτο επίπεδο"
 
-#: ../src/iagno.vala:520
+#: ../src/iagno.vala:599
 msgid "Level two"
 msgstr "Δεύτερο επίπεδο"
 
-#: ../src/iagno.vala:524
+#: ../src/iagno.vala:601
 msgid "Level three"
 msgstr "Τρίτο επίπεδο"
 
-#: ../src/iagno.vala:529
-msgid "Play as:"
-msgstr "Παίζετε με:"
-
-#: ../src/iagno.vala:540
-msgid "Light"
-msgstr "Λευκά"
-
-#: ../src/iagno.vala:544
-msgid "Dark"
-msgstr "Μαύρα"
-
-#: ../src/iagno.vala:549
+#: ../src/iagno.vala:608
 msgid "_Tile set:"
 msgstr "Σύνολο πλα_κιδίων:"
 
-#: ../src/iagno.vala:601
+#: ../src/iagno.vala:660
 msgid "E_nable sounds"
 msgstr "Ενε_ργοποίηση ήχων"
 
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:613
-msgid "Reduce delay before AI moves"
-msgstr "Μειώστε την καθυστέρηση πριν να μετακινηθεί η AI"
+#~ msgid "Opponent:"
+#~ msgstr "Αντίπαλος:"
 
-#. Help string for command line --version flag
-#: ../src/iagno.vala:616
-msgid "Show release version"
-msgstr "Προβολή της έκδοσης"
+#~ msgid "Human"
+#~ msgstr "Άνθρωπος"
+
+#~ msgid "Light"
+#~ msgstr "Λευκά"
+
+#~ msgid "Dark"
+#~ msgstr "Μαύρα"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "αληθής αν το παράθυρο είναι σε πλήρη οθόνη"
@@ -402,9 +468,6 @@ msgstr "Προβολή της έκδοσης"
 #~ msgid "true if the human player is playing white"
 #~ msgstr "αληθές αν ο παίχτης, άνθρωπος, παίζει με τα λευκά"
 
-#~ msgid "The opponent player"
-#~ msgstr "Ο αντίπαλος παίχτης"
-
 #~ msgid ""
 #~ "Can be 'human' (play against another human player), '' (use the first "
 #~ "available chess engine) or the name of a specific engine to play against"
@@ -427,9 +490,6 @@ msgstr "Προβολή της έκδοσης"
 
 #~ msgid "Promotion Type:"
 #~ msgstr "Τύπος προώθησης:"
-
-#~ msgid "Changes will take effect for the next game."
-#~ msgstr "Οι αλλαγές θα εφαρμοστούν στο επόμενο παιχνίδι."
 
 #~ msgid "Game"
 #~ msgstr "Παιχνίδι"
