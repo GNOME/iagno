@@ -306,10 +306,13 @@ public class Iagno : Gtk.Application
         headerbar.set_subtitle (null);
 
         var undo_action = (SimpleAction) lookup_action ("undo-move");
-        undo_action.set_enabled (game.can_undo ());
+        if (player_one == Player.DARK || computer == null)
+            undo_action.set_enabled (game.can_undo (1));
+        else
+            undo_action.set_enabled (game.can_undo (2));
 
         var new_game_action = (SimpleAction) lookup_action ("new-game");
-        new_game_action.set_enabled (game.can_undo ());
+        new_game_action.set_enabled (game.can_undo (1));
 
         if (game.current_color == Player.DARK)
         {
