@@ -253,8 +253,10 @@ public class Iagno : Gtk.Application
         /* Can't undo when running two computer players */
         if (light_computer != null && dark_computer != null)
             undo_action.set_enabled (false);
+        else if (light_computer != null)
+            undo_action.set_enabled (game.can_undo (1));
         else
-            undo_action.set_enabled (game.can_undo ());
+            undo_action.set_enabled (game.can_undo (2));
 
         if (game.current_color == Player.DARK)
         {

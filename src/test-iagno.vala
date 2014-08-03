@@ -45,6 +45,19 @@ public class TestIagno : Object
         assert (game.to_string ().strip () == string.joinv ("\n", board).strip ());
     }
 
+    private static void test_undo_at_start ()
+    {
+        Game game = new Game ();
+        assert (!game.can_undo (1));
+        assert (!game.can_undo (2));
+        game.place_tile (2, 3);
+        assert (game.can_undo (1));
+        assert (!game.can_undo (2));
+        game.place_tile (2, 2);
+        assert (game.can_undo (1));
+        assert (game.can_undo (2));
+    }
+
     private static void test_current_color_after_pass ()
     {
         string[] board = {"L LLLLLL",
@@ -147,6 +160,7 @@ public class TestIagno : Object
     public static int main (string[] args) {
         Test.init (ref args);
         Test.add_func ("/Iagno/Pass then Undo", test_undo_after_pass);
+        Test.add_func ("/Iagno/Undo at Start", test_undo_at_start);
         Test.add_func ("/Iagno/Current Color after Pass", test_current_color_after_pass);
         Test.add_func ("/Iagno/AI Search 1", test_ai_search_1);
         Test.add_func ("/Iagno/AI Search 2", test_ai_search_2);
