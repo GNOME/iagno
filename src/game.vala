@@ -228,20 +228,15 @@ public class Game : Object
         return enemy_count;
     }
 
-    public bool can_undo (int count = 1)
-        requires (count == 1 || count == 2)
+    public bool can_undo ()
     {
-        /* Can undo one move if a move has been played */
-        if (count == 1)
-            return undo_index > 0;
-        else /* Can undo two moves only after the second ply; after the first ply, undo_index == 3 */
-            return undo_index > 3;
+        return undo_index > 0;
     }
 
     public void undo (int count = 1)
         requires (count == 1 || count == 2)
     {
-        if (!can_undo (count))
+        if (!can_undo ())
             return;
 
         for (var i = 0; i < count; i++)
