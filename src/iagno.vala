@@ -336,15 +336,24 @@ public class Iagno : Gtk.Application
     {
         cancel_pending_computer_moves ();
 
-        /* Undo once if the human player just moved, otherwise undo both moves */
-        if (game.current_color != player_one && computer != null)
+        if (computer == null)
+        {
             game.undo (1);
+            if (!game.can_move (game.current_color))
+                game.undo (1);
+        }
         else
-            game.undo (2);
+        {
+            /* Undo once if the human player just moved, otherwise undo both moves */
+            if (game.current_color != player_one)
+                game.undo (1);
+            else
+                game.undo (2);
 
-        /* If forced to pass, undo to last chosen move */
-        while (!game.can_move (game.current_color))
-            game.undo (2);
+            /* If forced to pass, undo to last chosen move so the computer doesn't play next */
+            while (!game.can_move (game.current_color))
+                game.undo (2);
+        }
 
         game_move_cb ();
     }
