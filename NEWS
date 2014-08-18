@@ -1,3 +1,12 @@
+3.13.90 - August 18, 2014
+=========================
+
+* Distribute HighContrast icons (Michael Catanzaro)
+* Disallow undo if only computer has moved (Michael Catanzaro, Arnaud Bonatti)
+* Use an AspectFrame to ensure all looks good (Arnaud Bonatti)
+* Update man page (Arnaud Bonatti)
+* Updated translations
+
 3.13.4 - July 20, 2014
 ======================
 
