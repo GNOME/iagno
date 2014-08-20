@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-17 12:12+0200\n"
-"PO-Revision-Date: 2014-02-17 12:13+0200\n"
+"POT-Creation-Date: 2014-08-20 10:43+0300\n"
+"PO-Revision-Date: 2014-08-20 10:53+0300\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
@@ -43,8 +43,8 @@ msgstr ""
 "מניעה מהיריב שלך להפוך את האריחים שלך לצבע שלו. הדבר נעשה על ידי לכידת "
 "האריחים  של הריב שלך בין שני אריחים מהצבע שלך."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
-#: ../src/iagno.vala:304 ../src/iagno.vala:671
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:101 ../src/iagno.vala:125
+#: ../src/iagno.vala:367 ../src/iagno.vala:690
 msgid "Iagno"
 msgstr "יאגנו"
 
@@ -55,6 +55,18 @@ msgstr "נסו לשלוט על כל הלוח במשחק ריברסי קלסי"
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "הפוך אותי;"
+
+#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:582
+msgid "Play first (Dark)"
+msgstr "לשחק ראשון (כהה)"
+
+#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:584
+msgid "Play second (Light)"
+msgstr "לשחק שני (בהיר)"
+
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "משחק לשני שחקנים"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -77,53 +89,105 @@ msgid "_Quit"
 msgstr "י_ציאה"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Computer's AI level"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "From 1, the easiest, to 3, the hardest."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+msgid "Type of game"
+msgstr "Type of game"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+msgid "Choose the type of the next game."
+msgstr "Choose the type of the next game."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Sound"
 msgstr "Sound"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Whether or not to play event sounds."
 msgstr "Whether or not to play event sounds."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Width of the window in pixels"
 msgstr "Width of the window in pixels"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Height of the window in pixels"
 msgstr "Height of the window in pixels"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "true if the window is maximized"
 msgstr "true if the window is maximized"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "true if the window is fullscren"
-msgstr "true if the window is fullscren"
+#: ../src/iagno.vala:46
+msgid "Reduce delay before AI moves"
+msgstr "Reduce delay before AI moves"
 
-#: ../src/iagno.vala:110
+#: ../src/iagno.vala:47
+msgid "Play first"
+msgstr "Play first"
+
+#: ../src/iagno.vala:48
+msgid "Set the level of the computer's AI"
+msgstr "Set the level of the computer's AI"
+
+#: ../src/iagno.vala:49
+msgid "Turn off the sound"
+msgstr "Turn off the sound"
+
+#: ../src/iagno.vala:50
+msgid "Play second"
+msgstr "Play second"
+
+#: ../src/iagno.vala:51
+msgid "Two-players mode"
+msgstr "Two-players mode"
+
+#: ../src/iagno.vala:52
+msgid "Turn on the sound"
+msgstr "Turn on the sound"
+
+#: ../src/iagno.vala:53
+msgid "Print release version and exit"
+msgstr "Print release version and exit"
+
+#: ../src/iagno.vala:120
 msgid "Undo your most recent move"
 msgstr "ביטול המהלך האחרון שלך"
 
-#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+#: ../src/iagno.vala:161 ../src/iagno.vala:319 ../src/iagno.vala:327
 msgid "Dark:"
 msgstr "כהה:"
 
-#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
+#: ../src/iagno.vala:169 ../src/iagno.vala:320 ../src/iagno.vala:328
 msgid "Light:"
 msgstr "בהיר:"
 
-#: ../src/iagno.vala:164
+#: ../src/iagno.vala:178
+msgid "_Start Over"
+msgstr "ה_תחלה מחדש"
+
+#: ../src/iagno.vala:185
 msgid "Start a new game"
 msgstr "התחלת משחק חדש"
 
+#: ../src/iagno.vala:219
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
-#: ../src/iagno.vala:273
+#: ../src/iagno.vala:322 ../src/iagno.vala:323 ../src/iagno.vala:330
+#: ../src/iagno.vala:331
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:309
+#: ../src/iagno.vala:372
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -133,7 +197,7 @@ msgstr ""
 "\n"
 "יאגנו הוא חלק ממשחקי GNOME."
 
-#: ../src/iagno.vala:312
+#: ../src/iagno.vala:375
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -149,84 +213,88 @@ msgstr ""
 "‏http://gnome-il.berlios.de"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:348
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "הבהיר חייב לחכות, תור הכהה"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:353
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "הכהה חייב לחכות, תור הבהיר"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:401
+#: ../src/iagno.vala:458
 msgid "Light wins!"
 msgstr "השחקן הבהיר ניצח!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:406
+#: ../src/iagno.vala:463
 msgid "Dark wins!"
 msgstr "השחקן הכהה ניצח!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:411
+#: ../src/iagno.vala:468
 msgid "The game is draw."
 msgstr "המשחק הסתיים בתיקו."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:440
+#: ../src/iagno.vala:494
 msgid "You can’t move there!"
 msgstr "לא ניתן לזוז לשם!"
 
-#: ../src/iagno.vala:494
-msgid "Iagno Preferences"
-msgstr "העדפות יאגנו"
+#: ../src/iagno.vala:549
+msgid "Preferences"
+msgstr "העדפות"
 
-#: ../src/iagno.vala:497
-msgid "_Close"
-msgstr "_סגירה"
+#: ../src/iagno.vala:571
+msgid "Game mode:"
+msgstr "מצב משחק:"
 
-#: ../src/iagno.vala:513
-msgid "Dark Player:"
-msgstr "שחקן כהה:"
+#: ../src/iagno.vala:586
+msgid "Two players"
+msgstr "שני שחקנים"
 
-#: ../src/iagno.vala:526 ../src/iagno.vala:555
-msgid "Human"
-msgstr "אנושי"
+#: ../src/iagno.vala:598
+msgid "Computer:"
+msgstr "מחשב:"
 
-#: ../src/iagno.vala:530 ../src/iagno.vala:559
+#: ../src/iagno.vala:609
 msgid "Level one"
 msgstr "רמה אחת"
 
-#: ../src/iagno.vala:534 ../src/iagno.vala:563
+#: ../src/iagno.vala:611
 msgid "Level two"
 msgstr "רמה שתיים"
 
-#: ../src/iagno.vala:538 ../src/iagno.vala:567
+#: ../src/iagno.vala:613
 msgid "Level three"
 msgstr "רמה שלוש"
 
-#: ../src/iagno.vala:543
-msgid "Light Player:"
-msgstr "שחקן בהיר:"
-
-#: ../src/iagno.vala:572
+#: ../src/iagno.vala:620
 msgid "_Tile set:"
 msgstr "_ערכת אריחים:"
 
-#: ../src/iagno.vala:624
+#: ../src/iagno.vala:672
 msgid "E_nable sounds"
-msgstr "א_פשר צלילים"
+msgstr "ל_אפשר צלילים"
 
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:636
-msgid "Reduce delay before AI moves"
-msgstr "Reduce delay before AI moves"
+#~ msgid "true if the window is fullscren"
+#~ msgstr "true if the window is fullscren"
 
-#. Help string for command line --version flag
-#: ../src/iagno.vala:639
-msgid "Show release version"
-msgstr "Show release version"
+#~ msgid "Iagno Preferences"
+#~ msgstr "העדפות יאגנו"
+
+#~ msgid "_Close"
+#~ msgstr "_סגירה"
+
+#~ msgid "Dark Player:"
+#~ msgstr "שחקן כהה:"
+
+#~ msgid "Human"
+#~ msgstr "אנושי"
+
+#~ msgid "Light Player:"
+#~ msgstr "שחקן בהיר:"
 
 #~ msgid "_Undo"
 #~ msgstr "_בטל"
@@ -354,9 +422,6 @@ msgstr "Show release version"
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Difficulty of the opponent chess engine"
 
-#~ msgid "Preferences"
-#~ msgstr "העדפות"
-
 #~ msgid "Play as:"
 #~ msgstr "לשחק בתור:"
 
@@ -371,9 +436,6 @@ msgstr "Show release version"
 
 #~ msgid "Promotion Type:"
 #~ msgstr "סוג הכתרה:"
-
-#~ msgid "Changes will take effect for the next game."
-#~ msgstr "השינויים ייכנסו לתוקף החל מהמשחק הבא."
 
 #~ msgid "Game"
 #~ msgstr "משחק"
@@ -1012,9 +1074,6 @@ msgstr "Show release version"
 #~ msgid "L_eave Game"
 #~ msgstr "י_ציאה מהמשחק"
 
-#~ msgid "Player _List"
-#~ msgstr "_רשימת שחקנים"
-
 #~ msgid "_Pause"
 #~ msgstr "ה_שהייה"
 
@@ -1335,9 +1394,6 @@ msgstr "Show release version"
 
 #~ msgid "Enable sounds."
 #~ msgstr "Enable sounds."
-
-#~ msgid "Size of game tiles"
-#~ msgstr "Size of game tiles"
 
 #~ msgid "Size of game tiles."
 #~ msgstr "Size of game tiles."
@@ -2093,11 +2149,6 @@ msgstr "Show release version"
 #~ msgstr[0] "משחק למשך דקה %d"
 #~ msgstr[1] "משחק למשך %d דקות"
 
-#~ msgid "Played for %d second"
-#~ msgid_plural "Played for %d seconds"
-#~ msgstr[0] "משחק למשך שנייה %d"
-#~ msgstr[1] "משחק למשך %d שניות"
-
 #~ msgid "Do you really want to do this?"
 #~ msgstr "האם באמת ברצונך לעשות זאת?"
 
@@ -2781,9 +2832,6 @@ msgstr "Show release version"
 #~ msgid "Human Players"
 #~ msgstr "מתחרים אנושיים"
 
-#~ msgid "_Number of players:"
-#~ msgstr "מ_ספר שחקנים:"
-
 #~ msgid "Computer Opponents"
 #~ msgstr "מתחרים ממוחשבים"
 
@@ -2799,9 +2847,6 @@ msgstr "Show release version"
 #~ msgctxt "difficulty"
 #~ msgid "Medium"
 #~ msgstr "בינוני"
-
-#~ msgid "Player Names"
-#~ msgstr "שמות השחקנים"
 
 #~ msgid "1s [total of 1s]"
 #~ msgstr "1ים [סכום ה־1ים]"
@@ -2911,9 +2956,6 @@ msgstr "Show release version"
 
 #~ msgid "Lights Off"
 #~ msgstr "האורות כבויים"
-
-#~ msgid "Turn off all the lights"
-#~ msgstr "כבה את כל האורות"
 
 #~ msgid "The current level"
 #~ msgstr "The current level"
@@ -3530,9 +3572,6 @@ msgstr "Show release version"
 
 #~ msgid "Partial"
 #~ msgstr "חלקית"
-
-#~ msgid "Complete"
-#~ msgstr "מושלמת"
 
 #~ msgid "_Stagger flips"
 #~ msgstr "הפיכות _מתנודדות"
@@ -5315,12 +5354,6 @@ msgstr "Show release version"
 
 #~ msgid "_Black:"
 #~ msgstr "_שחור:"
-
-#~ msgid "_Game name:"
-#~ msgstr "_שם המשחק:"
-
-#~ msgid "_Start"
-#~ msgstr "ה_תחלה"
 
 #~ msgid "_White:"
 #~ msgstr "_לבן:"
