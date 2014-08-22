@@ -28,6 +28,7 @@ public class Iagno : Gtk.Application
     private Gtk.Label dark_score_label;
     private Gtk.Label light_label;
     private Gtk.Label light_score_label;
+    private Gtk.Dialog propbox;
 
     /* Computer player (if there is one) */
     private ComputerPlayer? computer = null;
@@ -380,7 +381,9 @@ public class Iagno : Gtk.Application
 
     private void preferences_cb ()
     {
-        show_preferences_dialog ();
+        if (propbox == null)
+            create_preferences_dialog ();
+        propbox.show_all ();
     }
 
     private void help_cb ()
@@ -544,12 +547,12 @@ public class Iagno : Gtk.Application
         view.redraw ();
     }
 
-    private void show_preferences_dialog ()
+    private void create_preferences_dialog ()
     {
-        var propbox = new Gtk.Dialog.with_buttons (_("Preferences"),
-                                                   window,
-                                                   Gtk.DialogFlags.USE_HEADER_BAR,
-                                                   null);
+        propbox = new Gtk.Dialog.with_buttons (_("Preferences"),
+                                               window,
+                                               Gtk.DialogFlags.USE_HEADER_BAR,
+                                               null);
 
         propbox.set_border_width (5);
         var box = (Gtk.Box) propbox.get_content_area ();
@@ -676,8 +679,6 @@ public class Iagno : Gtk.Application
         enable_sounds_button.set_active (settings.get_boolean ("sound"));
         enable_sounds_button.toggled.connect (sound_select);
         grid.attach (enable_sounds_button, 0, 3, 2, 1);
-
-        propbox.show_all ();
     }
 
     public static int main (string[] args)
