@@ -96,8 +96,7 @@ public class Iagno : Gtk.Application
         }
         catch (Error e)
         {
-            stderr.printf ("Could not load UI: %s\n", e.message);
-            return;
+            error ("Could not load UI: %s\n", e.message);
         }
         set_app_menu (builder.get_object ("app-menu") as MenuModel);
         // end of TODO
@@ -475,11 +474,6 @@ public class Iagno : Gtk.Application
         settings.set_boolean ("sound", play_sounds);
     }
 
-    private void propbox_response_cb (Gtk.Widget widget, int response_id)
-    {
-        widget.hide ();
-    }
-
     private bool propbox_close_cb (Gtk.Widget widget, Gdk.EventAny event)
     {
         widget.hide ();
@@ -501,45 +495,23 @@ public class Iagno : Gtk.Application
 
     private void create_preferences_dialog ()
     {
+        var builder = new Gtk.Builder.from_file (DATA_DIRECTORY + "/iagno-preferences.ui");
+
+        /* the dialog is not in the ui file for the use-header-bar flag to be switchable */
         propbox = new Gtk.Dialog.with_buttons (_("Preferences"),
                                                window,
                                                Gtk.DialogFlags.USE_HEADER_BAR,
                                                null);
-
-        propbox.set_border_width (5);
         var box = (Gtk.Box) propbox.get_content_area ();
-        box.set_spacing (2);
         propbox.resizable = false;
-        propbox.response.connect (propbox_response_cb);
         propbox.delete_event.connect (propbox_close_cb);
+        var grid = builder.get_object ("main-grid") as Gtk.Grid;
+        box.pack_start (grid, true, true, 0);
 
-        var grid = new Gtk.Grid ();
-        grid.border_width = 6;
-        grid.set_row_spacing (6);
-        grid.set_column_spacing (18);
-        box.add (grid);
+        var combo = builder.get_object ("mode-combo") as Gtk.ComboBox;
+        var level_combo = builder.get_object ("level-combo") as Gtk.ComboBox;
 
-        var combo = new Gtk.ComboBox ();
-        var level_combo = new Gtk.ComboBox ();
         combo.changed.connect (() => mode_changed_cb (combo, level_combo));
-
-        var label = new Gtk.Label (_("Game mode:"));
-        label.set_alignment (0.0f, 0.5f);
-        label.expand = true;
-        grid.attach (label, 0, 0, 1, 1);
-        var renderer = new Gtk.CellRendererText ();
-        combo.pack_start (renderer, true);
-        combo.add_attribute (renderer, "text", 0);
-        var model = new Gtk.ListStore (2, typeof (string), typeof (string));
-        combo.model = model;
-        Gtk.TreeIter iter;
-        model.append (out iter);
-        model.set (iter, 0, _("Play first (Dark)"), 1, "first");
-        model.append (out iter);
-        model.set (iter, 0, _("Play second (Light)"), 1, "second");
-        model.append (out iter);
-        model.set (iter, 0, _("Two players"), 1, "two-players");
-        combo.set_id_column (1);
         settings.changed["play-as"].connect (() => {
             var mode = settings.get_string ("play-as");
             combo.set_active_id (mode);
@@ -548,41 +520,15 @@ public class Iagno : Gtk.Application
         var mode = settings.get_string ("play-as");
         combo.set_active_id (mode);
         level_combo.sensitive = (mode == "two-players") ? false : true;
-        grid.attach (combo, 1, 0, 1, 1);
 
-        label = new Gtk.Label (_("Computer:"));
-        label.set_alignment (0.0f, 0.5f);
-        label.expand = true;
-        grid.attach (label, 0, 1, 1, 1);
         level_combo.changed.connect (computer_level_changed_cb);
-        renderer = new Gtk.CellRendererText ();
-        level_combo.pack_start (renderer, true);
-        level_combo.add_attribute (renderer, "text", 0);
-        model = new Gtk.ListStore (2, typeof (string), typeof (int));
-        level_combo.model = model;
-        model.append (out iter);
-        model.set (iter, 0, _("Level one"), 1, 1);
-        model.append (out iter);
-        model.set (iter, 0, _("Level two"), 1, 2);
-        model.append (out iter);
-        model.set (iter, 0, _("Level three"), 1, 3);
         settings.changed["computer-level"].connect (() => {
             level_combo.set_active (settings.get_int ("computer-level") - 1);
         });
         level_combo.set_active (settings.get_int ("computer-level") - 1);
-        grid.attach (level_combo, 1, 1, 1, 1);
 
-        label = new Gtk.Label.with_mnemonic (_("_Tile set:"));
-        label.set_alignment (0.0f, 0.5f);
-        label.expand = true;
-        grid.attach (label, 0, 2, 1, 1);
-
-        var theme_combo = new Gtk.ComboBox ();
-        renderer = new Gtk.CellRendererText ();
-        theme_combo.pack_start (renderer, true);
-        theme_combo.add_attribute (renderer, "text", 0);
-        model = new Gtk.ListStore (2, typeof (string), typeof (string));
-        theme_combo.model = model;
+        var theme_combo = builder.get_object ("theme-combo") as Gtk.ComboBox;
+        var model = builder.get_object ("liststore-theme") as Gtk.ListStore;
         Dir dir;
         List<string> dirlist = new List<string> ();
 
@@ -603,6 +549,7 @@ public class Iagno : Gtk.Application
             warning ("Failed to load themes: %s", e.message);
         }
 
+        Gtk.TreeIter iter;
         foreach (string filename in dirlist)
         {
             model.append (out iter);
@@ -619,18 +566,14 @@ public class Iagno : Gtk.Application
             if (filename == settings.get_string ("tileset"))
                 theme_combo.set_active_iter (iter);
         }
-
-        label.set_mnemonic_widget (theme_combo);
         theme_combo.changed.connect (theme_changed_cb);
-        grid.attach (theme_combo, 1, 2, 1, 1);
 
-        var enable_sounds_button = new Gtk.CheckButton.with_mnemonic (_("E_nable sounds"));
+        var enable_sounds_button = builder.get_object ("sound-button") as Gtk.CheckButton;
         settings.changed["sound"].connect (() => {
             enable_sounds_button.set_active (settings.get_boolean ("sound"));
         });
         enable_sounds_button.set_active (settings.get_boolean ("sound"));
         enable_sounds_button.toggled.connect (sound_select);
-        grid.attach (enable_sounds_button, 0, 3, 2, 1);
     }
 
     public static int main (string[] args)
