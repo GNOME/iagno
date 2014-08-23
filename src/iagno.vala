@@ -69,6 +69,7 @@ public class Iagno : Gtk.Application
     {
         base.startup ();
         add_action_entries (app_actions, this);
+        add_accelerator ("<Primary>z", "app.undo-move", null);
     }
 
     public Iagno ()
