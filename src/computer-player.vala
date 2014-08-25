@@ -99,7 +99,7 @@ public class ComputerPlayer : Object
         requires (p == 1 || p == -1)
         requires (a < b)
     {
-        /* If the end of the search depth or end of the game calculate how good a result this is */
+        /* End of the search, calculate how good a result this is */
         if (depth == 0)
             return calculate_heuristic (g, strategy);
 
