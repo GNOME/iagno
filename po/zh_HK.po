@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-games 3.3.91\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-05 22:18+0000\n"
-"PO-Revision-Date: 2014-03-09 13:04+0800\n"
+"POT-Creation-Date: 2014-08-23 21:22+0000\n"
+"PO-Revision-Date: 2014-08-25 14:14+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: zh_TW\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.5\n"
 
 #: ../data/iagno.appdata.xml.in.h:1
 msgid ""
@@ -37,8 +37,8 @@ msgid ""
 "of your own color."
 msgstr "Iagno 的目的是盡可能把你的對手的棋翻成你的顏色，同時避免你的對手將你的棋翻成他的顏色。要達成這個目標可以讓對手的棋被你自己的顏色夾住即可困住他。"
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
-#: ../src/iagno.vala:304 ../src/iagno.vala:671
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:102 ../src/iagno.vala:126
+#: ../src/iagno.vala:368 ../src/iagno.vala:691
 msgid "Iagno"
 msgstr "Iagno 蘋果棋"
 
@@ -49,6 +49,18 @@ msgstr "經典版本的蘋果棋"
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "othello;蘋果棋;"
+
+#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:585
+msgid "Play first (Dark)"
+msgstr "先玩 (黑子)"
+
+#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:587
+msgid "Play second (Light)"
+msgstr "後玩 (白子)"
+
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "兩人玩遊戲"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -71,56 +83,111 @@ msgid "_Quit"
 msgstr "結束(_Q)"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "電腦的人工智能等級"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "從 1，最簡單，到 3，最難。"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+msgid "Type of game"
+msgstr "遊戲類型"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+#| msgid "Changes will take effect for the next game."
+msgid "Choose the type of the next game."
+msgstr "選擇下次遊戲的類型。"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Sound"
 msgstr "音效"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Whether or not to play event sounds."
 msgstr "是否以音效代表不同事件發生。"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Width of the window in pixels"
 msgstr "視窗的闊度 (像素)"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Height of the window in pixels"
 msgstr "視窗的高度 (像素)"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "true if the window is maximized"
 msgstr "如果視窗為最大化則設定為‘TRUE’"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "true if the window is fullscren"
-msgstr "如果視窗為全螢幕則設定為‘TRUE’"
+#: ../src/iagno.vala:47
+msgid "Reduce delay before AI moves"
+msgstr "減少 AI 移動前的延遲"
 
-#: ../src/iagno.vala:110
+#: ../src/iagno.vala:48
+#| msgid "Player _List"
+msgid "Play first"
+msgstr "先玩"
+
+#: ../src/iagno.vala:49
+msgid "Set the level of the computer's AI"
+msgstr "設定電腦的人工智能等級"
+
+#: ../src/iagno.vala:50
+msgid "Turn off the sound"
+msgstr "關閉音效"
+
+#: ../src/iagno.vala:51
+#| msgid "second"
+#| msgid_plural "seconds"
+msgid "Play second"
+msgstr "後玩"
+
+#: ../src/iagno.vala:52
+msgid "Two-players mode"
+msgstr "兩人玩遊戲"
+
+#: ../src/iagno.vala:53
+msgid "Turn on the sound"
+msgstr "關閉音效"
+
+#: ../src/iagno.vala:54
+#| msgid "Show release version"
+msgid "Print release version and exit"
+msgstr "顯示推出版本並離開"
+
+#: ../src/iagno.vala:121
 msgid "Undo your most recent move"
 msgstr "取消你最後一次移動"
 
-#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+#: ../src/iagno.vala:162 ../src/iagno.vala:320 ../src/iagno.vala:328
 msgid "Dark:"
 msgstr "黑子："
 
-#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
-#| msgctxt "chess-piece"
-#| msgid "Knight"
+#: ../src/iagno.vala:170 ../src/iagno.vala:321 ../src/iagno.vala:329
 msgid "Light:"
 msgstr "白子："
 
-#: ../src/iagno.vala:164
+#: ../src/iagno.vala:179
+msgid "_Start Over"
+msgstr "重新開始(_S)"
+
+#: ../src/iagno.vala:186
 msgid "Start a new game"
 msgstr "開始另一局"
 
+#: ../src/iagno.vala:220
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr "等級應該在 1 (簡單) 到 3 (困難) 之間。設定值未更改。"
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
-#: ../src/iagno.vala:273
+#: ../src/iagno.vala:323 ../src/iagno.vala:324 ../src/iagno.vala:331
+#: ../src/iagno.vala:332
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 # (Abel) 這裡不會照譯了，完全不知黑白棋為何物的人應該不多
-#: ../src/iagno.vala:309
+#: ../src/iagno.vala:373
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -130,7 +197,7 @@ msgstr ""
 "\n"
 "lagno 蘋果棋是 GNOME 遊戲的一部分。"
 
-#: ../src/iagno.vala:312
+#: ../src/iagno.vala:376
 msgid "translator-credits"
 msgstr ""
 "如對翻譯有任何意見，請送一封電子郵件給\n"
@@ -141,84 +208,90 @@ msgstr ""
 "Fernando <bv1al@journalist.com.tw>, 1999"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:348
+#: ../src/iagno.vala:411
 msgid "Light must pass, Dark’s move"
 msgstr "白子無棋可走，黑子下"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:353
+#: ../src/iagno.vala:416
 msgid "Dark must pass, Light’s move"
 msgstr "黑子無棋可走，白子下"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:401
+#: ../src/iagno.vala:461
 msgid "Light wins!"
 msgstr "白子贏！"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:406
+#: ../src/iagno.vala:466
 msgid "Dark wins!"
 msgstr "黑子贏！"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:411
+#: ../src/iagno.vala:471
 msgid "The game is draw."
 msgstr "此局平手！"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:440
+#: ../src/iagno.vala:497
 msgid "You can’t move there!"
 msgstr "不能移動到那裏！"
 
-#: ../src/iagno.vala:494
-msgid "Iagno Preferences"
-msgstr "蘋果棋偏好設定"
+#: ../src/iagno.vala:552
+msgid "Preferences"
+msgstr "偏好設定"
 
-#: ../src/iagno.vala:497
-msgid "_Close"
-msgstr "關閉(_C)"
+#: ../src/iagno.vala:574
+#| msgid "Game score"
+msgid "Game mode:"
+msgstr "遊戲模式："
 
-#: ../src/iagno.vala:513
-msgid "Dark Player:"
-msgstr "黑子："
+#: ../src/iagno.vala:589
+#| msgid "The opponent player"
+msgid "Two players"
+msgstr "兩位玩家"
 
-#: ../src/iagno.vala:526 ../src/iagno.vala:555
-msgid "Human"
-msgstr "人類"
+#: ../src/iagno.vala:601
+msgid "Computer:"
+msgstr "電腦："
 
-#: ../src/iagno.vala:530 ../src/iagno.vala:559
+#: ../src/iagno.vala:612
 msgid "Level one"
 msgstr "第一級"
 
-#: ../src/iagno.vala:534 ../src/iagno.vala:563
+#: ../src/iagno.vala:614
 msgid "Level two"
 msgstr "第二級"
 
-#: ../src/iagno.vala:538 ../src/iagno.vala:567
+#: ../src/iagno.vala:616
 msgid "Level three"
 msgstr "第三級"
 
-#: ../src/iagno.vala:543
-msgid "Light Player:"
-msgstr "白子："
-
-#: ../src/iagno.vala:572
+#: ../src/iagno.vala:623
 msgid "_Tile set:"
 msgstr "圖形集(_T)："
 
-#: ../src/iagno.vala:624
+#: ../src/iagno.vala:675
 msgid "E_nable sounds"
 msgstr "開啟音效(_N)"
 
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:636
-msgid "Reduce delay before AI moves"
-msgstr "減少 AI 移動前的延遲"
+#~ msgid "true if the window is fullscren"
+#~ msgstr "如果視窗為全螢幕則設定為‘TRUE’"
 
-#. Help string for command line --version flag
-#: ../src/iagno.vala:639
-msgid "Show release version"
-msgstr "顯示推出版本"
+#~ msgid "Iagno Preferences"
+#~ msgstr "黑白棋偏好設定"
+
+#~ msgid "_Close"
+#~ msgstr "關閉(_C)"
+
+#~ msgid "Dark Player:"
+#~ msgstr "黑子："
+
+#~ msgid "Human"
+#~ msgstr "人類"
+
+#~ msgid "Light Player:"
+#~ msgstr "白子："
 
 #~ msgid "_Undo"
 #~ msgstr "回手(_U)"
@@ -332,9 +405,6 @@ msgstr "顯示推出版本"
 #~ msgid "true if the human player is playing white"
 #~ msgstr "如果人類玩家為白方時則為「true」"
 
-#~ msgid "The opponent player"
-#~ msgstr "對手玩家"
-
 #~ msgid ""
 #~ "Can be 'human' (play against another human player), '' (use the first "
 #~ "available chess engine) or the name of a specific engine to play against"
@@ -344,9 +414,6 @@ msgstr "顯示推出版本"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "對奕引擎的難度"
-
-#~ msgid "Preferences"
-#~ msgstr "偏好設定"
 
 #~ msgid "Play as:"
 #~ msgstr "黑方或白方："
@@ -362,9 +429,6 @@ msgstr "顯示推出版本"
 
 #~ msgid "Promotion Type:"
 #~ msgstr "升變類型："
-
-#~ msgid "Changes will take effect for the next game."
-#~ msgstr "變更會在下個遊戲生效。"
 
 #~ msgid "Game"
 #~ msgstr "遊戲"
@@ -766,10 +830,6 @@ msgstr "顯示推出版本"
 #~ msgid "_Save game for later"
 #~ msgstr "儲存遊戲以後再玩(_S)"
 
-#~ msgid "second"
-#~ msgid_plural "seconds"
-#~ msgstr[0] "秒"
-
 #~ msgid "minute"
 #~ msgid_plural "minutes"
 #~ msgstr[0] "分鐘"
@@ -893,9 +953,6 @@ msgstr "顯示推出版本"
 #~ msgid "Time between moves in milliseconds."
 #~ msgstr "移動棋子延遲時間 (亳秒)"
 
-#~ msgid "Game score"
-#~ msgstr "遊戲分數"
-
 #~ msgid "Game score from last saved session."
 #~ msgstr "上次遊戲的分數。"
 
@@ -994,9 +1051,6 @@ msgstr "顯示推出版本"
 
 #~ msgid "L_eave Game"
 #~ msgstr "離開遊戲(_E)"
-
-#~ msgid "Player _List"
-#~ msgstr "玩家名單(_L)"
 
 #~ msgid "_Pause"
 #~ msgstr "暫停(_P)"
