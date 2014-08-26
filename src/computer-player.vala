@@ -95,10 +95,20 @@ public class ComputerPlayer : Object
     }
 
     private static int search (Game g, Strategy strategy, int depth, int a, int b, int p, ref int move_x, ref int move_y)
-        requires (!g.is_complete ())
         requires (p == 1 || p == -1)
         requires (a < b)
     {
+        /* End of the game, return a near-infinite evaluation */
+        if (g.is_complete ())
+        {
+            var n_current_tiles = g.count_tiles (g.current_color);
+            var n_enemy_tiles = g.count_tiles (Player.flip_color (g.current_color));
+            if (n_current_tiles > n_enemy_tiles)
+                return p > 0 ? int.MAX - n_enemy_tiles : int.MIN + n_enemy_tiles;
+            else
+                return p > 0 ? int.MIN + n_current_tiles : int.MAX - n_current_tiles;
+        }
+
         /* End of the search, calculate how good a result this is */
         if (depth == 0)
             return calculate_heuristic (g, strategy);
@@ -110,30 +120,12 @@ public class ComputerPlayer : Object
             for (var y = 0; y < 8; y++)
             {
                 var n_tiles = g.place_tile (x, y);
+                if (n_tiles <= 0)
+                    continue;
 
-                if (g.is_complete ())
-                {
-                    move_x = x;
-                    move_y = y;
-
-                    if (g.count_tiles (g.current_color) > g.count_tiles (Player.flip_color (g.current_color)))
-                    {
-                        g.undo ();
-                        return p > 0 ? int.MAX : int.MIN;
-                    }
-                    else
-                    {
-                        g.undo ();
-                        return p > 0 ? int.MIN : int.MAX;
-                    }
-                }
-                else if (n_tiles > 0)
-                {
-                    var move = PossibleMove (x, y, n_tiles);
-                    moves.insert_sorted (move, compare_move);
-                    g.undo ();
-                }
-                /* Do not undo if place_tile failed */
+                var move = PossibleMove (x, y, n_tiles);
+                moves.insert_sorted (move, compare_move);
+                g.undo ();
             }
         }
 
