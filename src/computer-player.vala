@@ -32,6 +32,10 @@ public class ComputerPlayer : Object
         }
     }
 
+    /* Big enough. Don't use int.MIN / int.MAX, because int.MIN ≠ - int.MAX */
+    private static const int POSITIVE_INFINITY = 10000;
+    private static const int NEGATIVE_INFINITY = -10000;
+
     /* Game being played */
     private Game game;
 
@@ -89,24 +93,20 @@ public class ComputerPlayer : Object
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
         int x = 0, y = 0;
-        search (new Game.copy (game), strategy, depth, int.MIN, int.MAX, 1, ref x, ref y);
+        search (new Game.copy (game), strategy, depth, NEGATIVE_INFINITY, POSITIVE_INFINITY, ref x, ref y);
         if (game.place_tile (x, y) == 0)
             critical ("Computer chose an invalid move: %d,%d", x, y);
     }
 
-    private static int search (Game g, Strategy strategy, int depth, int a, int b, int p, ref int move_x, ref int move_y)
-        requires (p == 1 || p == -1)
-        requires (a < b)
+    private static int search (Game g, Strategy strategy, int depth, int a, int b, ref int move_x, ref int move_y)
+        requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
         if (g.is_complete ())
         {
             var n_current_tiles = g.count_tiles (g.current_color);
             var n_enemy_tiles = g.count_tiles (Player.flip_color (g.current_color));
-            if (n_current_tiles > n_enemy_tiles)
-                return p > 0 ? int.MAX - n_enemy_tiles : int.MIN + n_enemy_tiles;
-            else
-                return p > 0 ? int.MIN + n_current_tiles : int.MAX - n_current_tiles;
+            return n_current_tiles > n_enemy_tiles ? POSITIVE_INFINITY - n_enemy_tiles : NEGATIVE_INFINITY + n_current_tiles;
         }
 
         /* End of the search, calculate how good a result this is */
@@ -138,50 +138,31 @@ public class ComputerPlayer : Object
             var move = PossibleMove (0, 0, 0);
             moves.append (move);
         }
+        else
+        {
+            /* We use (0, 0) as our default move; if we don't change that,
+             * a search could select it even if invalid at the end of the game.
+             */
+            var move = moves.nth_data (0);
+            move_x = move.x;
+            move_y = move.y;
+        }
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
         foreach (var move in moves)
         {
             if (move.n_tiles == 0)
-            {
                 g.pass ();
-            }
             else if (g.place_tile (move.x, move.y) == 0)
-            {
-                warning ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking", depth, move.x, move.y, move.n_tiles);
-                continue;
-            }
+                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking", depth, move.x, move.y, move.n_tiles);
 
-            /*
-             * We have to update the principle variant if the new alpha/beta is
-             * equal to the previous one, since we use (0, 0) as our default
-             * move, and a search could otherwise select it even if invalid
-             * when the search reaches the end of the game.
-             */
-
-            /* If our move then maximise the result */
-            if (p > 0)
+            int next_x_move = 0, next_y_move = 0;
+            var a_new = -1 * search (g, strategy, depth - 1, -b, -a, ref next_x_move, ref next_y_move);
+            if (a_new > a)
             {
-                int next_x_move = 0, next_y_move = 0;
-                var a_new = search (g, strategy, depth - 1, a, b, -p, ref next_x_move, ref next_y_move);
-                if (a_new >= a)
-                {
-                    a = a_new;
-                    move_x = move.x;
-                    move_y = move.y;
-                }
-            }
-            /* If enemy move then minimise the result */
-            else
-            {
-                int next_x_move = 0, next_y_move = 0;
-                var b_new = search (g, strategy, depth - 1, a, b, -p, ref next_x_move, ref next_y_move);
-                if (b_new <= b)
-                {
-                    b = b_new;
-                    move_x = move.x;
-                    move_y = move.y;
-                }
+                a = a_new;
+                move_x = move.x;
+                move_y = move.y;
             }
 
             g.undo ();
@@ -190,11 +171,7 @@ public class ComputerPlayer : Object
             if (b <= a)
                 break;
         }
-
-        if (p > 0)
-            return a;
-        else
-            return b;
+        return a;
     }
 
     private static int compare_move (PossibleMove? a, PossibleMove? b)
