@@ -129,9 +129,12 @@ public class ComputerPlayer : Object
             }
         }
 
-        /* If no moves then pass */
         if (moves == null)
         {
+            /* The move.ntiles = 0 is used next to know we have to pass.
+             * The move.x = move.y = 0 is never used: move.x, move.y, move_x & move_y
+             * are only used at first iteration… and the game passes if there’s no move.
+             */
             var move = PossibleMove (0, 0, 0);
             moves.append (move);
         }
