@@ -256,21 +256,16 @@ public class ComputerPlayer : Object
     {
         List<int> moves = null;
         for (var x = 0; x < 8; x++)
-        {
             for (var y = 0; y < 8; y++)
-            {
                 if (g.can_place (x, y, g.current_color))
                     moves.append (x * 8 + y);
-            }
-        }
-        if (moves != null)
-        {
-            var i = Random.int_range (0, (int) moves.length ());
-            var xy = moves.nth_data (i);
-            move_x = xy / 8;
-            move_y = xy % 8;
-        }
-        else
-            move_x = move_y = 0;
+
+        if (moves == null)
+            warn_if_reached ();
+
+        var i = Random.int_range (0, (int) moves.length ());
+        var xy = moves.nth_data (i);
+        move_x = xy / 8;
+        move_y = xy % 8;
     }
 }
