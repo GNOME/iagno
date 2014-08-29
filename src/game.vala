@@ -104,11 +104,9 @@ public class Game : Object
     }
 
     public Player get_owner (int x, int y)
+        requires (is_valid_location (x, y))
     {
-        if (is_valid_location (x, y))
-            return tiles[x, y];
-        else
-            return Player.NONE;
+        return tiles[x, y];
     }
 
     public bool is_complete ()
