@@ -179,15 +179,9 @@ public class ComputerPlayer : Object
         return b.n_tiles - a.n_tiles;
     }
 
-    /* Perhaps surprisingly, the *lower* the return value from this method,
-     * the "better" the position. So callers want to minimize the result here
-     * to find the best move.
-     */
     private static int calculate_heuristic (Game g, Strategy strategy)
     {
-        var tile_difference = g.n_dark_tiles - g.n_light_tiles;
-        if (g.current_color == Player.DARK)
-            tile_difference = -tile_difference;
+        var tile_difference = g.current_color == Player.DARK ? g.n_dark_tiles - g.n_light_tiles : g.n_light_tiles - g.n_dark_tiles;
 
         switch (strategy)
         {
@@ -201,7 +195,7 @@ public class ComputerPlayer : Object
 
         /* Try to maximise a number of values */
         default:
-            return tile_difference - around (g) - eval_heuristic (g);
+            return tile_difference + eval_heuristic (g) + around (g) ;
         }
     }
 
@@ -230,22 +224,20 @@ public class ComputerPlayer : Object
             for (var y = 0; y < 8; y++)
             {
                 var a = 0;
-                a += is_empty (g, x + 1, y);
-                a += is_empty (g, x + 1, y + 1);
-                a += is_empty (g, x, y + 1);
-                a += is_empty (g, x - 1, y + 1);
-                a += is_empty (g, x - 1, y);
-                a += is_empty (g, x - 1, y - 1);
-                a += is_empty (g, x, y - 1);
-                a += is_empty (g, x + 1, y - 1);
+                a -= is_empty (g, x + 1, y);
+                a -= is_empty (g, x + 1, y + 1);
+                a -= is_empty (g, x, y + 1);
+                a -= is_empty (g, x - 1, y + 1);
+                a -= is_empty (g, x - 1, y);
+                a -= is_empty (g, x - 1, y - 1);
+                a -= is_empty (g, x, y - 1);
+                a -= is_empty (g, x + 1, y - 1);
 
                 /* Two points for completely surrounded tiles */
                 if (a == 0)
                     a = 2;
 
-                if (g.get_owner (x, y) != g.current_color)
-                    a = -a;
-                count += a;
+                count += g.get_owner (x, y) == g.current_color ? a : -a;
             }
         }
 
