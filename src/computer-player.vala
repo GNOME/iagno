@@ -73,7 +73,7 @@ public class ComputerPlayer : Object
             return;
         }
 
-        var depth = 7 - (3 - level) * 2;
+        var depth = level * 2 + 1;
         var tiles_remaining = 64 - game.n_tiles;
 
         /* Choose a strategy based on how close to the end we are.
