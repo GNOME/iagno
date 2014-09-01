@@ -1,3 +1,11 @@
+3.13.91 - September 1, 2014
+===========================
+
+* AI fixes and improvements, hopefully (Arnaud Bonatti)
+* Never create multiple preferences dialogs (Arnaud Bonatti)
+* Restore <ctrl>Z shortcut for undo move (Arnaud Bonatti)
+* Updated translations
+
 3.13.90 - August 18, 2014
 =========================
 
