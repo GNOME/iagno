@@ -6,7 +6,7 @@
 # Xavier Conde Rueda <xavi.conde@gmail.com>, 2004.
 # Jesús Corrius <jesus@softcatala.org>, 2005.
 # Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
-# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012.
+# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2014.
 # Carles Ferrando <carles.ferrando@gmail.com>, 2010.
 # Jordi Serratosa <jordis@softcatala.cat>, 2012.
 #
@@ -14,14 +14,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-10 00:13+0200\n"
-"PO-Revision-Date: 2014-05-10 00:11+0200\n"
-"Last-Translator: Pau Iranzo <paugnu@gmail.com>\n"
+"POT-Creation-Date: 2014-09-05 00:17+0200\n"
+"PO-Revision-Date: 2014-09-05 00:14+0200\n"
+"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca-XV\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bits\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../data/iagno.appdata.xml.in.h:1
@@ -46,8 +46,8 @@ msgstr ""
 "s'aconsegueix atrapant les peces de l'oponent entre dos peces del vostre "
 "color."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:113
-#: ../src/iagno.vala:293 ../src/iagno.vala:651
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:103 ../src/iagno.vala:127
+#: ../src/iagno.vala:369 ../src/iagno.vala:692
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -58,6 +58,18 @@ msgstr "Domineu el tauler en una versió clàssica del Reversi"
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "othello;"
+
+#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:586
+msgid "Play first (Dark)"
+msgstr "Juga primer (negres)"
+
+#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:588
+msgid "Play second (Light)"
+msgstr "Juga segon (blanques)"
+
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "Juguen dos jugadors"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -80,49 +92,107 @@ msgid "_Quit"
 msgstr "S_urt"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Nivell d'IA de l'ordinador"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Des d'1, el més senzill, fins a 3, el més difícil."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+msgid "Type of game"
+msgstr "Tipus de joc"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+msgid "Choose the type of the next game."
+msgstr "Trieu el tipus de la pròxima partida"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Sound"
 msgstr "So"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Whether or not to play event sounds."
 msgstr "Si s'han de reproduir els esdeveniments de so."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Width of the window in pixels"
 msgstr "L'amplada, en píxels, de la finestra"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Height of the window in pixels"
 msgstr "L'alçada, en píxels, de la finestra"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "true if the window is maximized"
 msgstr "«true» (cert) si la finestra està maximitzada"
 
-#: ../src/iagno.vala:108
+#: ../src/iagno.vala:47
+msgid "Reduce delay before AI moves"
+msgstr "Redueix el retard abans del moviment de l'ordinador"
+
+#: ../src/iagno.vala:48
+msgid "Play first"
+msgstr "Juga primer"
+
+#: ../src/iagno.vala:49
+msgid "Set the level of the computer's AI"
+msgstr "Estableix el nivell d'IA de l'ordinador"
+
+#: ../src/iagno.vala:50
+msgid "Turn off the sound"
+msgstr "Desactiva el so"
+
+#: ../src/iagno.vala:51
+msgid "Play second"
+msgstr "Juga segon"
+
+#: ../src/iagno.vala:52
+msgid "Two-players mode"
+msgstr "Mode de dos jugadors"
+
+#: ../src/iagno.vala:53
+msgid "Turn on the sound"
+msgstr "Activa el so"
+
+#: ../src/iagno.vala:54
+msgid "Print release version and exit"
+msgstr "Mostra la versió i ix"
+
+#: ../src/iagno.vala:122
 msgid "Undo your most recent move"
 msgstr "Desfés el moviment més recent"
 
-#: ../src/iagno.vala:141 ../src/iagno.vala:251 ../src/iagno.vala:259
+#: ../src/iagno.vala:163 ../src/iagno.vala:321 ../src/iagno.vala:329
 msgid "Dark:"
 msgstr "Negres:"
 
-#: ../src/iagno.vala:149 ../src/iagno.vala:252 ../src/iagno.vala:260
+#: ../src/iagno.vala:171 ../src/iagno.vala:322 ../src/iagno.vala:330
 msgid "Light:"
 msgstr "Blanques:"
 
-#: ../src/iagno.vala:162
+#: ../src/iagno.vala:180
+msgid "_Start Over"
+msgstr "_Torna a començar"
+
+#: ../src/iagno.vala:187
 msgid "Start a new game"
 msgstr "Comença una partida nova"
 
+#: ../src/iagno.vala:221
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr ""
+"El nivell ha de ser entre 1 (fàcil) i 3 (difícil). No s'ha canviat la "
+"configuració."
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:254 ../src/iagno.vala:255 ../src/iagno.vala:262
-#: ../src/iagno.vala:263
+#: ../src/iagno.vala:324 ../src/iagno.vala:325 ../src/iagno.vala:332
+#: ../src/iagno.vala:333
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:298
+#: ../src/iagno.vala:374
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -132,7 +202,7 @@ msgstr ""
 "\n"
 "L'Iagno forma part dels jocs del GNOME."
 
-#: ../src/iagno.vala:301
+#: ../src/iagno.vala:377
 msgid "translator-credits"
 msgstr ""
 "Jordi Vila <gnome@softcatala.net>\n"
@@ -143,103 +213,67 @@ msgstr ""
 "David Planella <david.planella@gmail.com>"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:337
+#: ../src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "Les blanques passen, les negres mouen"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:342
+#: ../src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "Les negres passen, les blanques mouen"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:387
+#: ../src/iagno.vala:462
 msgid "Light wins!"
 msgstr "Les blanques guanyen!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:392
+#: ../src/iagno.vala:467
 msgid "Dark wins!"
 msgstr "Les negres guanyen!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:397
+#: ../src/iagno.vala:472
 msgid "The game is draw."
 msgstr "El joc ha acabat en taules."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:424
+#: ../src/iagno.vala:498
 msgid "You can’t move there!"
 msgstr "Ací no s'hi pot anar!"
 
-#: ../src/iagno.vala:479
-#, fuzzy
+#: ../src/iagno.vala:553
 msgid "Preferences"
-msgstr "_Preferències"
+msgstr "Preferències"
 
-#: ../src/iagno.vala:501
-msgid "Opponent:"
-msgstr ""
+#: ../src/iagno.vala:575
+msgid "Game mode:"
+msgstr "Mode del joc:"
 
-#: ../src/iagno.vala:512
-msgid "Human"
-msgstr "Humà"
+#: ../src/iagno.vala:590
+msgid "Two players"
+msgstr "Dos jugadors"
 
-#: ../src/iagno.vala:519
+#: ../src/iagno.vala:602
+msgid "Computer:"
+msgstr "Ordinador:"
+
+#: ../src/iagno.vala:613
 msgid "Level one"
 msgstr "Primer nivell"
 
-#: ../src/iagno.vala:523
+#: ../src/iagno.vala:615
 msgid "Level two"
 msgstr "Segon nivell"
 
-#: ../src/iagno.vala:527
+#: ../src/iagno.vala:617
 msgid "Level three"
 msgstr "Tercer nivell"
 
-#: ../src/iagno.vala:532
-msgid "Play as:"
-msgstr ""
-
-#: ../src/iagno.vala:543
-#, fuzzy
-msgid "Light"
-msgstr "Blanques:"
-
-#: ../src/iagno.vala:547
-#, fuzzy
-msgid "Dark"
-msgstr "Negres:"
-
-#: ../src/iagno.vala:552
+#: ../src/iagno.vala:624
 msgid "_Tile set:"
 msgstr "_Fitxes:"
 
-#: ../src/iagno.vala:604
+#: ../src/iagno.vala:676
 msgid "E_nable sounds"
 msgstr "_Habilita el so"
-
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:616
-msgid "Reduce delay before AI moves"
-msgstr "Redueix el retard abans del moviment de l'ordinador"
-
-#. Help string for command line --version flag
-#: ../src/iagno.vala:619
-msgid "Show release version"
-msgstr "Mostra la versió"
-
-#~ msgid "true if the window is fullscren"
-#~ msgstr "«true» (cert) si la finestra és a pantalla completa"
-
-#~ msgid "Iagno Preferences"
-#~ msgstr "Preferències del Iagno"
-
-#~ msgid "_Close"
-#~ msgstr "_Tanca"
-
-#~ msgid "Dark Player:"
-#~ msgstr "Jugador de les negres:"
-
-#~ msgid "Light Player:"
-#~ msgstr "Jugador de les blanques:"
