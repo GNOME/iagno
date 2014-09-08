@@ -23,23 +23,23 @@
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Enrico Nicoletto <liverig@gmail.com>, 2013.
 # Fábio Nogueira <fnogueira@gnome.org>, 2014.
-# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014
+# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-05-21 08:54+0000\n"
-"PO-Revision-Date: 2014-05-21 14:00-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"POT-Creation-Date: 2014-09-07 21:21+0000\n"
+"PO-Revision-Date: 2014-09-08 01:26-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/iagno.appdata.xml.in.h:1
@@ -65,8 +65,8 @@ msgstr ""
 "ao interceptar as peças do seu adversário entre duas peças da sua própria "
 "cor."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:113
-#: ../src/iagno.vala:293 ../src/iagno.vala:651
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:103 ../src/iagno.vala:127
+#: ../src/iagno.vala:369 ../src/iagno.vala:692
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -77,6 +77,18 @@ msgstr "Domine o tabuleiro em uma versão clássica do Reversi"
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "othello;"
+
+#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:586
+msgid "Play first (Dark)"
+msgstr "Jogar primeiro (escuro)"
+
+#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:588
+msgid "Play second (Light)"
+msgstr "Jogar segundo (Claro)"
+
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "Jogo de dois jogadores"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -99,49 +111,106 @@ msgid "_Quit"
 msgstr "Sai_r"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Nível de IA do computador"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "De 1, o mais fácil, até 3, o mais difícil."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+msgid "Type of game"
+msgstr "Tipo de jogo"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+msgid "Choose the type of the next game."
+msgstr "Escolha o tipo do próximo jogo."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Sound"
 msgstr "Som"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Whether or not to play event sounds."
 msgstr "Reproduzir os sons dos eventos."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Width of the window in pixels"
-msgstr "A largura da janela em pixels."
+msgstr "A largura da janela em pixels"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Height of the window in pixels"
-msgstr "A altura da janela em pixels."
+msgstr "A altura da janela em pixels"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "true if the window is maximized"
 msgstr "verdadeiro se a janela estiver maximizada"
 
-#: ../src/iagno.vala:108
+#: ../src/iagno.vala:47
+msgid "Reduce delay before AI moves"
+msgstr "Reduzir atraso antes de movimentos de IA"
+
+#: ../src/iagno.vala:48
+msgid "Play first"
+msgstr "Jogar primeiro"
+
+#: ../src/iagno.vala:49
+msgid "Set the level of the computer's AI"
+msgstr "Define o nível da IA do computador"
+
+#: ../src/iagno.vala:50
+msgid "Turn off the sound"
+msgstr "Desligar o som"
+
+#: ../src/iagno.vala:51
+msgid "Play second"
+msgstr "Jogar segundo"
+
+#: ../src/iagno.vala:52
+msgid "Two-players mode"
+msgstr "Modo de dois jogadores"
+
+#: ../src/iagno.vala:53
+msgid "Turn on the sound"
+msgstr "Desligar o som"
+
+#: ../src/iagno.vala:54
+msgid "Print release version and exit"
+msgstr "Mostra versão de lançamento e sai"
+
+#: ../src/iagno.vala:122
 msgid "Undo your most recent move"
 msgstr "Desfaz seu movimento mais recente"
 
-#: ../src/iagno.vala:141 ../src/iagno.vala:251 ../src/iagno.vala:259
+#: ../src/iagno.vala:163 ../src/iagno.vala:321 ../src/iagno.vala:329
 msgid "Dark:"
 msgstr "Pretas:"
 
-#: ../src/iagno.vala:149 ../src/iagno.vala:252 ../src/iagno.vala:260
+#: ../src/iagno.vala:171 ../src/iagno.vala:322 ../src/iagno.vala:330
 msgid "Light:"
 msgstr "Brancas:"
 
-#: ../src/iagno.vala:162
+#: ../src/iagno.vala:180
+msgid "_Start Over"
+msgstr "_Iniciar novamente"
+
+#: ../src/iagno.vala:187
 msgid "Start a new game"
 msgstr "Inicia um novo jogo"
 
+#: ../src/iagno.vala:221
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr ""
+"Nível deve estar entre 1 (fácil) e 3 (difícil). Configurações inalteradas."
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:254 ../src/iagno.vala:255 ../src/iagno.vala:262
-#: ../src/iagno.vala:263
+#: ../src/iagno.vala:324 ../src/iagno.vala:325 ../src/iagno.vala:332
+#: ../src/iagno.vala:333
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:298
+#: ../src/iagno.vala:374
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -151,7 +220,7 @@ msgstr ""
 "\n"
 "Iagno faz parte do GNOME Games."
 
-#: ../src/iagno.vala:301
+#: ../src/iagno.vala:377
 msgid "translator-credits"
 msgstr ""
 "Sandro Nunes Henrique <sandro@conectiva.com.br>\n"
@@ -171,90 +240,87 @@ msgstr ""
 "Rafael Ferreira <rafael.f.f1@gmail.com>"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:337
+#: ../src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "As brancas passam, vez das pretas"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:342
+#: ../src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "As pretas passam, vez das brancas"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:387
+#: ../src/iagno.vala:462
 msgid "Light wins!"
 msgstr "As brancas venceram!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:392
+#: ../src/iagno.vala:467
 msgid "Dark wins!"
 msgstr "As pretas venceram!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:397
+#: ../src/iagno.vala:472
 msgid "The game is draw."
 msgstr "O jogo está empatado."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:424
+#: ../src/iagno.vala:498
 msgid "You can’t move there!"
 msgstr "Você não pode mover para lá!"
 
-#: ../src/iagno.vala:479
+#: ../src/iagno.vala:553
 msgid "Preferences"
 msgstr "Preferências"
 
-#: ../src/iagno.vala:501
-msgid "Opponent:"
-msgstr "Oponente:"
+#: ../src/iagno.vala:575
+msgid "Game mode:"
+msgstr "Modo de jogo:"
 
-#: ../src/iagno.vala:512
-msgid "Human"
-msgstr "Humano"
+#: ../src/iagno.vala:590
+msgid "Two players"
+msgstr "Dois jogadores"
 
-#: ../src/iagno.vala:519
+#: ../src/iagno.vala:602
+msgid "Computer:"
+msgstr "Computador:"
+
+#: ../src/iagno.vala:613
 msgid "Level one"
 msgstr "Nível um"
 
-#: ../src/iagno.vala:523
+#: ../src/iagno.vala:615
 msgid "Level two"
 msgstr "Nível dois"
 
-#: ../src/iagno.vala:527
+#: ../src/iagno.vala:617
 msgid "Level three"
 msgstr "Nível três"
 
-#: ../src/iagno.vala:532
-msgid "Play as:"
-msgstr "Jogar com as:"
-
-#: ../src/iagno.vala:543
-#| msgid "Light:"
-msgid "Light"
-msgstr "Brancas"
-
-#: ../src/iagno.vala:547
-#| msgid "Dark:"
-msgid "Dark"
-msgstr "Pretas"
-
-#: ../src/iagno.vala:552
+#: ../src/iagno.vala:624
 msgid "_Tile set:"
 msgstr "_Conjunto de pedras:"
 
-#: ../src/iagno.vala:604
+#: ../src/iagno.vala:676
 msgid "E_nable sounds"
 msgstr "Habilitar _sons"
 
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:616
-msgid "Reduce delay before AI moves"
-msgstr "Reduzir atraso antes de movimentos de IA"
+#~ msgid "Opponent:"
+#~ msgstr "Oponente:"
 
-#. Help string for command line --version flag
-#: ../src/iagno.vala:619
-msgid "Show release version"
-msgstr "Mostrar versão de lançamento"
+#~ msgid "Human"
+#~ msgstr "Humano"
+
+#~ msgid "Play as:"
+#~ msgstr "Jogar com as:"
+
+#~| msgid "Light:"
+#~ msgid "Light"
+#~ msgstr "Brancas"
+
+#~| msgid "Dark:"
+#~ msgid "Dark"
+#~ msgstr "Pretas"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "verdadeiro se a janela estiver em tela cheia"
@@ -425,9 +491,6 @@ msgstr "Mostrar versão de lançamento"
 
 #~ msgid "Promotion Type:"
 #~ msgstr "Tipo de promoção:"
-
-#~ msgid "Changes will take effect for the next game."
-#~ msgstr "Alterações afetarão o próximo jogo."
 
 #~ msgid "Game"
 #~ msgstr "Jogo"
@@ -801,7 +864,7 @@ msgstr "Mostrar versão de lançamento"
 
 #~ msgid "No piece has been taken or pawn moved in the last fifty moves"
 #~ msgstr ""
-#~ "Nenhuma peça foi capturada ou peão movido nos últimos cinqüenta movimentos"
+#~ "Nenhuma peça foi capturada ou peão movido nos últimos cinquenta movimentos"
 
 #~ msgid "Opponent has run out of time"
 #~ msgstr "O oponente excedeu o tempo"
@@ -967,9 +1030,6 @@ msgstr "Mostrar versão de lançamento"
 #~ msgid "Time between moves in milliseconds."
 #~ msgstr "Tempo entre jogadas em milissegundos."
 
-#~ msgid "Game score"
-#~ msgstr "Pontuação do jogo"
-
 #~ msgid "Game score from last saved session."
 #~ msgstr "Pontuação do jogo da última sessão salva."
 
@@ -1068,9 +1128,6 @@ msgstr "Mostrar versão de lançamento"
 
 #~ msgid "L_eave Game"
 #~ msgstr "D_eixar jogo"
-
-#~ msgid "Player _List"
-#~ msgstr "_Lista de jogadores"
 
 #~ msgid "_Pause"
 #~ msgstr "_Pausar"
@@ -1394,9 +1451,6 @@ msgstr "Mostrar versão de lançamento"
 #~ msgid "Enable sounds."
 #~ msgstr "Habilitar os sons."
 
-#~ msgid "Size of game tiles"
-#~ msgstr "Tamanho das pedras do jogo"
-
 #~ msgid "Size of game tiles."
 #~ msgstr "Tamanho das pedras do jogo."
 
@@ -1552,9 +1606,6 @@ msgstr "Mostrar versão de lançamento"
 
 #~ msgid "_Enable fake bonuses"
 #~ msgstr "_Habilitar bônus falsos"
-
-#~ msgid "_Starting level:"
-#~ msgstr "Nível _inicial:"
 
 #~ msgid "Number of _human players:"
 #~ msgstr "Número de jogadores _humanos:"
@@ -2158,11 +2209,6 @@ msgstr "Mostrar versão de lançamento"
 #~ msgid_plural "Played for %d minutes"
 #~ msgstr[0] "Jogado por %d minuto"
 #~ msgstr[1] "Jogado por %d minutos"
-
-#~ msgid "Played for %d second"
-#~ msgid_plural "Played for %d seconds"
-#~ msgstr[0] "Jogado por %d segundo"
-#~ msgstr[1] "Jogado por %d segundos"
 
 #~ msgid "Do you really want to do this?"
 #~ msgstr "Você realmente quer fazer isto?"
@@ -2855,9 +2901,6 @@ msgstr "Mostrar versão de lançamento"
 #~ msgid "Human Players"
 #~ msgstr "Jogadores humanos"
 
-#~ msgid "_Number of players:"
-#~ msgstr "_Número de jogadores:"
-
 #~ msgid "Computer Opponents"
 #~ msgstr "Oponentes controlados pelo computador"
 
@@ -2873,9 +2916,6 @@ msgstr "Mostrar versão de lançamento"
 #~ msgctxt "difficulty"
 #~ msgid "Medium"
 #~ msgstr "Médio"
-
-#~ msgid "Player Names"
-#~ msgstr "Nomes dos jogadores"
 
 #~ msgid "1s [total of 1s]"
 #~ msgstr "1s [total de 1s]"
@@ -2973,9 +3013,6 @@ msgstr "Mostrar versão de lançamento"
 
 #~ msgid "Lights Off"
 #~ msgstr "Luzes Desligadas"
-
-#~ msgid "Turn off all the lights"
-#~ msgstr "Apague todas as luzes"
 
 #~ msgid "The current level"
 #~ msgstr "O nível atual"
