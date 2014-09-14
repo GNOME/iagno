@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-16 16:08+0000\n"
-"PO-Revision-Date: 2014-03-16 23:07+0200\n"
+"POT-Creation-Date: 2014-09-12 09:21+0000\n"
+"PO-Revision-Date: 2014-09-12 22:05+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -34,6 +34,8 @@ msgid ""
 "game. The game is played with tiles that are dark on one side and light on "
 "the other."
 msgstr ""
+"Iagno on tietokoneversio Reversi-pelistä, joka on kahden pelaajan "
+"lautastrategiapeli. Peliä pelataan tummilla ja vaaleilla laatoilla."
 
 #: ../data/iagno.appdata.xml.in.h:2
 msgid ""
@@ -42,9 +44,12 @@ msgid ""
 "his color. This is done by trapping your opponent's tiles between two tiles "
 "of your own color."
 msgstr ""
+"Tavoite on kääntää mahdollisimman monta vastustajan laattaa, jolloin ne "
+"muuttavat väriä, mutta samalla estää vastustajaa kääntämästä sinun laattoja. "
+"Kääntäminen onnistuu, kun saat vastustajan laatat kahden oman laatan väliin."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
-#: ../src/iagno.vala:304 ../src/iagno.vala:671
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:103 ../src/iagno.vala:127
+#: ../src/iagno.vala:369 ../src/iagno.vala:692
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -55,6 +60,19 @@ msgstr "Hallitse pöytää Reversin klassisessa muodossa"
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "othello;"
+
+#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:586
+msgid "Play first (Dark)"
+msgstr "Pelaa ensin (musta)"
+
+#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:588
+msgid "Play second (Light)"
+msgstr "Pelaa toisena (valkoinen)"
+
+#: ../data/iagno.desktop.in.h:6
+#| msgid "Player Names"
+msgid "Two players game"
+msgstr "Kahden pelaajan peli"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -77,54 +95,115 @@ msgid "_Quit"
 msgstr "_Lopeta"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Tietokoneen tekoälyn taso"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "1 on helpoin, 3 vaikein."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+#| msgid "Size of game tiles"
+msgid "Type of game"
+msgstr "Pelin tyyppi"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+#| msgid "Changes will take effect for the next game."
+msgid "Choose the type of the next game."
+msgstr "Valitse seuraavan pelin tyyppi."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Sound"
 msgstr "Ääni"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Whether or not to play event sounds."
 msgstr "Tulisiko tapahtumaäänet soittaa?"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Width of the window in pixels"
 msgstr "Ikkunan leveys kuvapisteinä"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Height of the window in pixels"
 msgstr "Ikkunan korkeus kuvapisteinä"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "tosi jos ikkuna on suurennettu"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "true if the window is fullscren"
-msgstr ""
+#: ../src/iagno.vala:47
+msgid "Reduce delay before AI moves"
+msgstr "Vähennä viivettä ennen tekoälyn siirtoa"
 
-#: ../src/iagno.vala:110
+#: ../src/iagno.vala:48
+#| msgid "Player _List"
+msgid "Play first"
+msgstr "Pelaa ensin"
+
+#: ../src/iagno.vala:49
+msgid "Set the level of the computer's AI"
+msgstr "Aseta tietokoneen tekoälyn taso"
+
+#: ../src/iagno.vala:50
+#| msgid "Turn off all the lights"
+msgid "Turn off the sound"
+msgstr "Kytke äänet pois"
+
+#: ../src/iagno.vala:51
+#| msgid "Played for %d second"
+#| msgid_plural "Played for %d seconds"
+msgid "Play second"
+msgstr "Pelaa toisena"
+
+#: ../src/iagno.vala:52
+msgid "Two-players mode"
+msgstr "Kahden pelaajan tila"
+
+#: ../src/iagno.vala:53
+#| msgid "Turn off all the lights"
+msgid "Turn on the sound"
+msgstr "Kytke äänet päälle"
+
+#: ../src/iagno.vala:54
+#| msgid "Show release version"
+msgid "Print release version and exit"
+msgstr "Näytä julkaisuversio ja sulkeudu"
+
+#: ../src/iagno.vala:122
 msgid "Undo your most recent move"
 msgstr "Kumoa viimeisin siirtosi"
 
-#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+#: ../src/iagno.vala:163 ../src/iagno.vala:321 ../src/iagno.vala:329
 msgid "Dark:"
 msgstr "Musta:"
 
-#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
+#: ../src/iagno.vala:171 ../src/iagno.vala:322 ../src/iagno.vala:330
 msgid "Light:"
 msgstr "Valkoinen:"
 
-#: ../src/iagno.vala:164
+#: ../src/iagno.vala:180
+#| msgid "_Starting level:"
+msgid "_Start Over"
+msgstr "_Aloita alusta"
+
+#: ../src/iagno.vala:187
 msgid "Start a new game"
 msgstr "Aloita uusi peli"
 
+#: ../src/iagno.vala:221
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr ""
+"Tason tulee olla välillä 1 (helppo) ja 3 (vaikea). Asetuksia ei muutettu."
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
-#: ../src/iagno.vala:273
+#: ../src/iagno.vala:324 ../src/iagno.vala:325 ../src/iagno.vala:332
+#: ../src/iagno.vala:333
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:309
-#, fuzzy
+#: ../src/iagno.vala:374
 #| msgid ""
 #| "A disk flipping game derived from Reversi.\n"
 #| "\n"
@@ -134,11 +213,11 @@ msgid ""
 "\n"
 "Iagno is a part of GNOME Games."
 msgstr ""
-"Levynkääntelypeli, joka perustuu Reversiin.\n"
+"Laatankääntelypeli, joka perustuu Reversiin\n"
 "\n"
-"Iagno on osa GNOMEn pelejä."
+"Iagno on osa Gnomen pelejä."
 
-#: ../src/iagno.vala:312
+#: ../src/iagno.vala:377
 msgid "translator-credits"
 msgstr ""
 "Jiri Grönroos, 2013-2014\n"
@@ -160,90 +239,87 @@ msgstr ""
 "  eGetin https://launchpad.net/~egetin"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:348
-#| msgid "Light must pass, Dark's move"
+#: ../src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "Valkoisen täytyy passata, mustan siirto"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:353
-#| msgid "Dark must pass, Light's move"
+#: ../src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "Mustan täytyy passata, valkoisen siirto"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:401
-#| msgid "Light player wins!"
+#: ../src/iagno.vala:462
 msgid "Light wins!"
 msgstr "Valkoinen voitti!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:406
-#| msgid "Dark player wins!"
+#: ../src/iagno.vala:467
 msgid "Dark wins!"
 msgstr "Musta voitti!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:411
-#| msgid "The game is a draw!"
+#: ../src/iagno.vala:472
 msgid "The game is draw."
 msgstr "Tasapeli!"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:440
-#| msgid "You can't move there!"
+#: ../src/iagno.vala:498
 msgid "You can’t move there!"
 msgstr "Ei voi siirtää sinne!"
 
-#: ../src/iagno.vala:494
-msgid "Iagno Preferences"
-msgstr "Iagnon asetukset"
+#: ../src/iagno.vala:553
+msgid "Preferences"
+msgstr "Asetukset"
 
-#: ../src/iagno.vala:497
-msgid "_Close"
-msgstr "_Sulje"
+#: ../src/iagno.vala:575
+#| msgid "Game score"
+msgid "Game mode:"
+msgstr "Pelitila:"
 
-#: ../src/iagno.vala:513
-msgid "Dark Player:"
-msgstr "Musta pelaaja:"
+#: ../src/iagno.vala:590
+#| msgid "_Number of players:"
+msgid "Two players"
+msgstr "Kaksi pelaajaa"
 
-#: ../src/iagno.vala:526 ../src/iagno.vala:555
-msgid "Human"
-msgstr "Ihminen"
+#: ../src/iagno.vala:602
+msgid "Computer:"
+msgstr "Tietokone:"
 
-#: ../src/iagno.vala:530 ../src/iagno.vala:559
+#: ../src/iagno.vala:613
 msgid "Level one"
 msgstr "Helppo"
 
-#: ../src/iagno.vala:534 ../src/iagno.vala:563
+#: ../src/iagno.vala:615
 msgid "Level two"
 msgstr "Keskitaso"
 
-#: ../src/iagno.vala:538 ../src/iagno.vala:567
+#: ../src/iagno.vala:617
 msgid "Level three"
 msgstr "Vaikea"
 
-#: ../src/iagno.vala:543
-msgid "Light Player:"
-msgstr "Valkoinen pelaaja:"
-
-#: ../src/iagno.vala:572
+#: ../src/iagno.vala:624
 msgid "_Tile set:"
 msgstr "_Laattakuvio:"
 
-#: ../src/iagno.vala:624
+#: ../src/iagno.vala:676
 msgid "E_nable sounds"
 msgstr "Ää_net päälle"
 
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:636
-msgid "Reduce delay before AI moves"
-msgstr "Vähennä viivettä ennen tekoälyn siirtoa"
+#~ msgid "Iagno Preferences"
+#~ msgstr "Iagnon asetukset"
 
-#. Help string for command line --version flag
-#: ../src/iagno.vala:639
-msgid "Show release version"
-msgstr "Näytä julkaisuversio"
+#~ msgid "_Close"
+#~ msgstr "_Sulje"
+
+#~ msgid "Dark Player:"
+#~ msgstr "Musta pelaaja:"
+
+#~ msgid "Human"
+#~ msgstr "Ihminen"
+
+#~ msgid "Light Player:"
+#~ msgstr "Valkoinen pelaaja:"
 
 #~ msgid "Chess"
 #~ msgstr "Shakki"
@@ -359,9 +435,6 @@ msgstr "Näytä julkaisuversio"
 #~ msgid "The opponent player"
 #~ msgstr "Vastustajapelaaja"
 
-#~ msgid "Preferences"
-#~ msgstr "Asetukset"
-
 #~ msgid "Play as:"
 #~ msgstr "Pelattava puoli:"
 
@@ -376,9 +449,6 @@ msgstr "Näytä julkaisuversio"
 
 #~ msgid "Promotion Type:"
 #~ msgstr "Korotuksen tyyppi:"
-
-#~ msgid "Changes will take effect for the next game."
-#~ msgstr "Muutokset tulevat voimaan seuraavassa pelissä."
 
 #~ msgid "Game"
 #~ msgstr "Peli"
@@ -929,9 +999,6 @@ msgstr "Näytä julkaisuversio"
 #~ msgid "Time between moves in milliseconds."
 #~ msgstr "Viive siirtojen välissä millisekunneissa."
 
-#~ msgid "Game score"
-#~ msgstr "Pelipisteet"
-
 #~ msgid "Game score from last saved session."
 #~ msgstr "Pelipisteen edellisestä tallennetusta kerrasta."
 
@@ -1030,9 +1097,6 @@ msgstr "Näytä julkaisuversio"
 
 #~ msgid "L_eave Game"
 #~ msgstr "_Lopeta peli"
-
-#~ msgid "Player _List"
-#~ msgstr "_Pelaajalista"
 
 #~ msgid "_Pause"
 #~ msgstr "_Keskeytä"
@@ -1364,9 +1428,6 @@ msgstr "Näytä julkaisuversio"
 #~ msgid "Enable sounds."
 #~ msgstr "Äänet päälle."
 
-#~ msgid "Size of game tiles"
-#~ msgstr "Pelissä käytettävien esineiden koko"
-
 #~ msgid "Size of game tiles."
 #~ msgstr "Pelissä käytettävien esineiden koko."
 
@@ -1521,9 +1582,6 @@ msgstr "Näytä julkaisuversio"
 
 #~ msgid "_Enable fake bonuses"
 #~ msgstr "_Huijausbonukset päälle"
-
-#~ msgid "_Starting level:"
-#~ msgstr "_Aloitustaso:"
 
 #~ msgid "Number of _human players:"
 #~ msgstr "_Ihmispelaajien määrä:"
@@ -2109,11 +2167,6 @@ msgstr "Näytä julkaisuversio"
 #~ msgid_plural "Played for %d minutes"
 #~ msgstr[0] "Pelattu %d minuutti"
 #~ msgstr[1] "Pelattu %d minuuttia"
-
-#~ msgid "Played for %d second"
-#~ msgid_plural "Played for %d seconds"
-#~ msgstr[0] "Pelattu %d sekunti"
-#~ msgstr[1] "Pelattu %d sekuntia"
 
 #~ msgid "Do you really want to do this?"
 #~ msgstr "Haluatko varmasti tehdä tämän?"
@@ -2785,9 +2838,6 @@ msgstr "Näytä julkaisuversio"
 #~ msgid "Human Players"
 #~ msgstr "Ihmispelaajat"
 
-#~ msgid "_Number of players:"
-#~ msgstr "_Pelaajien määrä:"
-
 #~ msgid "Computer Opponents"
 #~ msgstr "Tietokonevastustajat"
 
@@ -2803,9 +2853,6 @@ msgstr "Näytä julkaisuversio"
 #~ msgctxt "difficulty"
 #~ msgid "Medium"
 #~ msgstr "Melko vaikea"
-
-#~ msgid "Player Names"
-#~ msgstr "Pelaajien nimet"
 
 #~ msgid "1s [total of 1s]"
 #~ msgstr "Ykköset"
@@ -2915,9 +2962,6 @@ msgstr "Näytä julkaisuversio"
 
 #~ msgid "Lights Off"
 #~ msgstr "Valot pois"
-
-#~ msgid "Turn off all the lights"
-#~ msgstr "Kytke kaikki valot pois päältä"
 
 #, fuzzy
 #~ msgid "The current level"
