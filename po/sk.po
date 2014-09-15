@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-09 10:17+0000\n"
-"PO-Revision-Date: 2014-03-23 01:23+0100\n"
-"Last-Translator: Peter Mráz <etkinator@gmail.com>\n"
+"POT-Creation-Date: 2014-09-15 09:21+0000\n"
+"PO-Revision-Date: 2014-09-15 22:57+0100\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -42,8 +42,8 @@ msgstr ""
 "zároveň zabrániť súperovi prevrátiť vaše kamene na jeho farbu. Prevracanie "
 "kameňov sa robí zajatím súperových kameňov medzi dva kamene vašej farby."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
-#: ../src/iagno.vala:304 ../src/iagno.vala:671
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:103 ../src/iagno.vala:127
+#: ../src/iagno.vala:369 ../src/iagno.vala:692
 msgid "Iagno"
 msgstr "Naruby"
 
@@ -54,6 +54,18 @@ msgstr "Ovládnite hracie pole v klasickej hre podobnej Reversi"
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "othello;"
+
+#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:586
+msgid "Play first (Dark)"
+msgstr "Hrať ako prvý (tmavý)"
+
+#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:588
+msgid "Play second (Light)"
+msgstr "Hrať ako druhý (svetlý)"
+
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "Hra s dvoma hráčmi"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -76,53 +88,114 @@ msgid "_Quit"
 msgstr "_Ukončiť"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Úroveň umelej inteligencie počítača"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Od 1 (najľahšej), po 3 (najťažšiu)."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+msgid "Type of game"
+msgstr "Typ hry"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+msgid "Choose the type of the next game."
+msgstr "Zvolí typ ďalšej hry."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Sound"
 msgstr "Zvuk"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Whether or not to play event sounds."
 msgstr "Či sa majú prehrať zvuky udalostí."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Width of the window in pixels"
 msgstr "Šírka okna v pixeloch"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Height of the window in pixels"
 msgstr "Výška okna v pixeloch"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "true if the window is maximized"
 msgstr "true, ak je okno maximalizované"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "true if the window is fullscren"
-msgstr "true, ak je okno v celoobrazovkovom režime"
+#: ../src/iagno.vala:47
+msgid "Reduce delay before AI moves"
+msgstr "Zmenší oneskorenie pred ťahmi UI"
 
-#: ../src/iagno.vala:110
+#: ../src/iagno.vala:48
+#| msgid "Play as:"
+msgid "Play first"
+msgstr "Budete hrať ako prvý"
+
+# cmd desc
+#: ../src/iagno.vala:49
+msgid "Set the level of the computer's AI"
+msgstr "Nastaví úroveň umelej inteligencie počítača"
+
+# cmd desc
+#: ../src/iagno.vala:50
+msgid "Turn off the sound"
+msgstr "Vypne zvuk"
+
+#: ../src/iagno.vala:51
+#| msgid "Play as:"
+msgid "Play second"
+msgstr "Budete hrať ako druhý"
+
+# cmd desc
+#: ../src/iagno.vala:52
+msgid "Two-players mode"
+msgstr "Režim dvoch hráčov"
+
+# cmd desc
+#: ../src/iagno.vala:53
+msgid "Turn on the sound"
+msgstr "Zapne zvuk"
+
+# cmd desc
+#: ../src/iagno.vala:54
+#| msgid "Show release version"
+msgid "Print release version and exit"
+msgstr "Vypíše verziu vydania a skončí"
+
+#: ../src/iagno.vala:122
 msgid "Undo your most recent move"
 msgstr "Vráti naposledy použitý ťah"
 
-#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+#: ../src/iagno.vala:163 ../src/iagno.vala:321 ../src/iagno.vala:329
 msgid "Dark:"
 msgstr "Tmavé:"
 
-#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
+#: ../src/iagno.vala:171 ../src/iagno.vala:322 ../src/iagno.vala:330
 msgid "Light:"
 msgstr "Svetlé:"
 
-#: ../src/iagno.vala:164
+#: ../src/iagno.vala:180
+msgid "_Start Over"
+msgstr "_Začať odznovu"
+
+#: ../src/iagno.vala:187
 msgid "Start a new game"
 msgstr "Začať novú hru"
 
+#: ../src/iagno.vala:221
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr ""
+"Úroveň musí byť v rozpätí 1 (ľahká) a 3 (ťažká). Nastavenia neboli zmenené."
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
-#: ../src/iagno.vala:273
+#: ../src/iagno.vala:324 ../src/iagno.vala:325 ../src/iagno.vala:332
+#: ../src/iagno.vala:333
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:309
+#: ../src/iagno.vala:374
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -132,93 +205,99 @@ msgstr ""
 "\n"
 "Hra Naruby je súčasťou Hier GNOME."
 
-#: ../src/iagno.vala:312
+#: ../src/iagno.vala:377
 msgid "translator-credits"
 msgstr ""
 "Stanislav Višňovský (visnovsky@nenya.ms.mff.cuni.cz)\n"
 "Marcel Telka <marcel@telka.sk>\n"
 "Peter Mráz <etkinator@gmail.com>\n"
-"Ján Kyselica <kyselica.jan@gmail.com>"
+"Ján Kyselica <kyselica.jan@gmail.com>\n"
+"Dušan Kazik <prescott66@gmail.com>"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:348
+#: ../src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "Svetlé musia vynechať, ťahajú tmavé"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:353
+#: ../src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "Tmavé musia vynechať, ťahajú svetlé"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:401
+#: ../src/iagno.vala:462
 msgid "Light wins!"
 msgstr "Svetlé vyhrali!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:406
+#: ../src/iagno.vala:467
 msgid "Dark wins!"
 msgstr "Tmavé vyhrali!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:411
+#: ../src/iagno.vala:472
 msgid "The game is draw."
 msgstr "Hra skončila remízou."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:440
+#: ../src/iagno.vala:498
 msgid "You can’t move there!"
 msgstr "Sem nemôžete ťahať!"
 
-#: ../src/iagno.vala:494
-msgid "Iagno Preferences"
-msgstr "Nastavenia hry Naruby"
+#: ../src/iagno.vala:553
+msgid "Preferences"
+msgstr "Nastavenia"
 
-#: ../src/iagno.vala:497
-msgid "_Close"
-msgstr "_Zavrieť"
+#: ../src/iagno.vala:575
+msgid "Game mode:"
+msgstr "Režim hry:"
 
-#: ../src/iagno.vala:513
-msgid "Dark Player:"
-msgstr "Hráč s tmavými:"
+#: ../src/iagno.vala:590
+#| msgid "The opponent player"
+msgid "Two players"
+msgstr "Dvaja hráči"
 
-#: ../src/iagno.vala:526 ../src/iagno.vala:555
-msgid "Human"
-msgstr "Človek"
+#: ../src/iagno.vala:602
+msgid "Computer:"
+msgstr "Počítač:"
 
-#: ../src/iagno.vala:530 ../src/iagno.vala:559
+#: ../src/iagno.vala:613
 msgid "Level one"
 msgstr "Úroveň 1"
 
-#: ../src/iagno.vala:534 ../src/iagno.vala:563
+#: ../src/iagno.vala:615
 msgid "Level two"
 msgstr "Úroveň 2"
 
-#: ../src/iagno.vala:538 ../src/iagno.vala:567
+#: ../src/iagno.vala:617
 msgid "Level three"
 msgstr "Úroveň 3"
 
-#: ../src/iagno.vala:543
-msgid "Light Player:"
-msgstr "Hráč so svetlými:"
-
-#: ../src/iagno.vala:572
+#: ../src/iagno.vala:624
 msgid "_Tile set:"
 msgstr "_Sada kameňov:"
 
-#: ../src/iagno.vala:624
+#: ../src/iagno.vala:676
 msgid "E_nable sounds"
 msgstr "Povoliť _zvuky"
 
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:636
-msgid "Reduce delay before AI moves"
-msgstr "Zmenší oneskorenie pred ťahmi UI"
+#~ msgid "true if the window is fullscren"
+#~ msgstr "true, ak je okno v celoobrazovkovom režime"
 
-#. Help string for command line --version flag
-#: ../src/iagno.vala:639
-msgid "Show release version"
-msgstr "Zobrazí verziu vydania"
+#~ msgid "Iagno Preferences"
+#~ msgstr "Nastavenia hry Naruby"
+
+#~ msgid "_Close"
+#~ msgstr "_Zavrieť"
+
+#~ msgid "Dark Player:"
+#~ msgstr "Hráč s tmavými:"
+
+#~ msgid "Human"
+#~ msgstr "Človek"
+
+#~ msgid "Light Player:"
+#~ msgstr "Hráč so svetlými:"
 
 #~ msgid "_Undo"
 #~ msgstr "_Vrátiť späť"
@@ -339,9 +418,6 @@ msgstr "Zobrazí verziu vydania"
 #~ msgid "true if the human player is playing white"
 #~ msgstr "true, ak človek hrá bielymi figúrkami"
 
-#~ msgid "The opponent player"
-#~ msgstr "Protihráč"
-
 #~ msgid ""
 #~ "Can be 'human' (play against another human player), '' (use the first "
 #~ "available chess engine) or the name of a specific engine to play against"
@@ -352,12 +428,6 @@ msgstr "Zobrazí verziu vydania"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Obtiažnosť šachového stroja v úlohe protihráča"
-
-#~ msgid "Preferences"
-#~ msgstr "Nastavenia"
-
-#~ msgid "Play as:"
-#~ msgstr "Hrá ako:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Protihráč:"
