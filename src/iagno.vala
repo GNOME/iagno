@@ -24,9 +24,9 @@ public class Iagno : Gtk.Application
     private int window_height;
     private Gtk.HeaderBar headerbar;
     private GameView view;
-    private Gtk.Label dark_label;
+    private Gtk.Image mark_icon_dark;
+    private Gtk.Image mark_icon_light;
     private Gtk.Label dark_score_label;
-    private Gtk.Label light_label;
     private Gtk.Label light_score_label;
     private Gtk.Dialog propbox;
 
@@ -156,25 +156,35 @@ public class Iagno : Gtk.Application
         grid.halign = Gtk.Align.CENTER;
         grid.vexpand = true;
         grid.hexpand = true;
-        grid.set_column_spacing (8);
+        grid.set_column_spacing (12);
+        grid.set_row_spacing (18);
+        grid.margin_end = 12;
         grid.show ();
-        side_box.pack_start (grid, false, true, 0);
+        side_box.pack_start (grid, false, true, 6);
 
-        dark_label = new Gtk.Label (_("Dark:"));
-        dark_label.show ();
-        grid.attach (dark_label, 1, 0, 1, 1);
+        var dark = Path.build_filename (DATA_DIRECTORY, "images", "dark.svg");
+        var dark_icon = new Gtk.Image.from_file (dark);
+        dark_icon.show ();
+        grid.attach (dark_icon, 1, 0, 1, 1);
 
         dark_score_label = new Gtk.Label ("00");
         dark_score_label.show ();
         grid.attach (dark_score_label, 2, 0, 1, 1);
 
-        light_label = new Gtk.Label (_("Light:"));
-        light_label.show ();
-        grid.attach (light_label, 1, 1, 1, 1);
+        var light = Path.build_filename (DATA_DIRECTORY, "images", "light.svg");
+        var light_icon = new Gtk.Image.from_file (light);
+        light_icon.show ();
+        grid.attach (light_icon, 1, 1, 1, 1);
 
         light_score_label = new Gtk.Label ("00");
         light_score_label.show ();
         grid.attach (light_score_label, 2, 1, 1, 1);
+
+        var mark = Path.build_filename (DATA_DIRECTORY, "images", "mark.svg");
+        mark_icon_dark = new Gtk.Image.from_file (mark);
+        mark_icon_light = new Gtk.Image.from_file (mark);
+        grid.attach (mark_icon_dark, 0, 0, 1, 1);
+        grid.attach (mark_icon_light, 0, 1, 1, 1);
 
         var new_game_button = new Gtk.Button ();
         new_game_button.label = _("_Start Over");
@@ -316,21 +326,19 @@ public class Iagno : Gtk.Application
         var new_game_action = (SimpleAction) lookup_action ("new-game");
         new_game_action.set_enabled (game.can_undo (1));
 
+        /* Translators: this is a 2 digit representation of the current score. */
+        dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
+        light_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
+
         if (game.current_color == Player.DARK)
         {
-            dark_label.set_markup ("<span font_weight='bold'>"+_("Dark:")+"</span>");
-            light_label.set_markup ("<span font_weight='normal'>"+_("Light:")+"</span>");
-            /* Translators: this is a 2 digit representation of the current score. */
-            dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
-            light_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
+            mark_icon_light.hide ();
+            mark_icon_dark.show ();
         }
         else if (game.current_color == Player.LIGHT)
         {
-            dark_label.set_markup ("<span font_weight='normal'>"+_("Dark:")+"</span>");
-            light_label.set_markup ("<span font_weight='bold'>"+_("Light:")+"</span>");
-            /* Translators: this is a 2 digit representation of the current score. */
-            dark_score_label.set_markup ("<span font_weight='normal'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
-            light_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
+            mark_icon_dark.hide ();
+            mark_icon_light.show ();
         }
     }
 

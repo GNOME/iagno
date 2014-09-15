@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24"
+   height="24"
+   id="svg4260"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="white.svg">
+  <defs
+     id="defs4262" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="9.92"
+     inkscape:cx="54.641504"
+     inkscape:cy="19.224407"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="702"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:snap-center="false"
+     showguides="false"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4455"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4265">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1028.3622)">
+    <g
+       id="g4157"
+       transform="matrix(1.3298443,0,0,1.3298443,1.35204,1029.7028)"
+       style="fill:#2e3436">
+      <g
+         transform="translate(-121.0002,-747)"
+         style="fill:#2e3436;display:inline"
+         inkscape:label="status"
+         id="layer9" />
+      <g
+         transform="translate(-121.0002,-747)"
+         inkscape:label="devices"
+         id="layer10"
+         style="fill:#2e3436" />
+      <g
+         transform="translate(-121.0002,-747)"
+         inkscape:label="apps"
+         id="layer11"
+         style="fill:#2e3436" />
+      <g
+         transform="translate(-121.0002,-747)"
+         inkscape:label="places"
+         id="layer13"
+         style="fill:#2e3436" />
+      <g
+         transform="translate(-121.0002,-747)"
+         inkscape:label="mimetypes"
+         id="layer14"
+         style="fill:#2e3436" />
+      <g
+         transform="translate(-121.0002,-747)"
+         style="fill:#2e3436;display:inline"
+         inkscape:label="emblems"
+         id="layer15" />
+      <g
+         transform="translate(-121.0002,-747)"
+         style="fill:#2e3436;display:inline"
+         inkscape:label="emotes"
+         id="g71291" />
+      <g
+         transform="translate(-121.0002,-747)"
+         style="fill:#2e3436;display:inline"
+         inkscape:label="categories"
+         id="g4953" />
+      <g
+         transform="translate(-121.0002,-747)"
+         style="fill:#2e3436;display:inline"
+         inkscape:label="actions"
+         id="layer12">
+        <path
+           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#bebebe;fill:#2e3436;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.78124988;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new;font-family:Andale Mono;-inkscape-font-specification:Andale Mono"
+           sodipodi:nodetypes="ccsccccccccccc"
+           id="path10839-9-9-5-9"
+           d="m 125.0004,749 1,0 c 0.0104,-1.2e-4 0.0208,-4.6e-4 0.0313,0 0.25495,0.0112 0.50987,0.12858 0.6875,0.3125 l 6.29767,5.71875 -6.29772,5.71875 c -0.18816,0.18819 -0.45346,0.28125 -0.71875,0.28125 l -1,0 0,-1 c 0,-0.26529 0.0931,-0.53058 0.28125,-0.71875 l 4.82897,-4.28125 -4.82897,-4.28125 c -0.21074,-0.19463 -0.30316,-0.46925 -0.28125,-0.75 z"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+</svg>

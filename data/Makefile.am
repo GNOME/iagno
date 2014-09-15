@@ -3,6 +3,12 @@ SUBDIRS = icons
 uidir = $(datadir)/iagno
 ui_DATA = iagno.ui
 
+imagedir = $(datadir)/iagno/images
+image_DATA = \
+	dark.svg \
+	light.svg \
+	mark.svg
+
 themedir = $(datadir)/iagno/themes
 theme_DATA = \
 	sun_and_star.svg \
@@ -30,6 +36,7 @@ man_MANS = iagno.6
 
 EXTRA_DIST = \
 	$(ui_DATA) \
+	$(image_DATA) \
 	$(theme_DATA) \
 	$(sounds_DATA) \
 	$(appdata_in_files) \
