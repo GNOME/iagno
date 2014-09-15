@@ -12,7 +12,7 @@
 public class GameView : Gtk.DrawingArea
 {
     /* Space between tiles in pixels */
-    private const int GRID_WIDTH = 1;
+    private const int GRID_WIDTH = 2;
 
     /* Delay in milliseconds between tile flip frames */
     private const int PIXMAP_FLIP_DELAY = 20;
@@ -151,14 +151,14 @@ public class GameView : Gtk.DrawingArea
         cr.set_line_width (GRID_WIDTH);
         for (var i = 1; i < 8; i++)
         {
-            cr.move_to (x_offset + i * board_size / 8 - 0.5, y_offset);
+            cr.move_to (x_offset + i * board_size / 8 - GRID_WIDTH / 2, y_offset);
             cr.rel_line_to (0, board_size);
 
-            cr.move_to (x_offset, y_offset + i * board_size / 8 - 0.5);
+            cr.move_to (x_offset, y_offset + i * board_size / 8 - GRID_WIDTH / 2);
             cr.rel_line_to (board_size, 0);
         }
 
-        cr.rectangle (x_offset + 0.5, y_offset + 0.5, board_size - 1, board_size - 1);
+        cr.rectangle (x_offset - GRID_WIDTH / 2, y_offset - GRID_WIDTH / 2, board_size, board_size);
 
         cr.stroke ();
 
