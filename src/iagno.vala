@@ -87,9 +87,11 @@ public class Iagno : Gtk.Application
             return;
         }
 
+        // TODO use GResource & Gtk.Builder.from_resource()
         var builder = new Gtk.Builder ();
         try
         {
+            builder.add_from_file (DATA_DIRECTORY + "/iagno-menus.ui");
             builder.add_from_file (DATA_DIRECTORY + "/iagno.ui");
         }
         catch (Error e)
@@ -97,106 +99,47 @@ public class Iagno : Gtk.Application
             stderr.printf ("Could not load UI: %s\n", e.message);
             return;
         }
-        set_app_menu (builder.get_object ("iagno-menu") as MenuModel);
-        window = new Gtk.ApplicationWindow (this);
-        window.set_border_width (25);
-        window.set_title (_("Iagno"));
-        window.icon_name = "iagno";
+        set_app_menu (builder.get_object ("app-menu") as MenuModel);
+        // end of TODO
+
+        window = builder.get_object ("iagno-window") as Gtk.ApplicationWindow;
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
-
-        var image = new Gtk.Image ();
-        image.icon_size = Gtk.IconSize.BUTTON;
-        if (Gtk.Widget.get_default_direction () == Gtk.TextDirection.RTL)
-            image.icon_name = "edit-undo-rtl-symbolic";
-        else
-            image.icon_name = "edit-undo-symbolic";
-
-        var undo_button = new Gtk.Button ();
-        undo_button.image = image;
-        undo_button.valign = Gtk.Align.CENTER;
-        undo_button.action_name = "app.undo-move";
-        undo_button.tooltip_text = _("Undo your most recent move");
-        undo_button.show ();
-
-        headerbar = new Gtk.HeaderBar ();
-        headerbar.show_close_button = true;
-        headerbar.set_title (_("Iagno"));
-        headerbar.pack_start (undo_button);
-        headerbar.show ();
-        window.set_titlebar (headerbar);
-
-        var frame = new Gtk.AspectFrame (null, (float) 0.5, (float) 0.5, (float) 1.4, false);
-        frame.shadow_type = Gtk.ShadowType.NONE;
-        frame.show ();
-        window.add (frame);
-
-        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 25);
-        hbox.halign = Gtk.Align.FILL;
-        hbox.show ();
-        frame.add (hbox);
+        add_window (window);
 
         view = new GameView ();
         view.game = game;
         view.move.connect (player_move_cb);
         var tile_set = settings.get_string ("tileset");
         view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
-        view.halign = Gtk.Align.END;
+        view.halign = Gtk.Align.CENTER;
         view.show ();
-        hbox.pack_start (view, true, true, 0);
 
-        var side_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
-        side_box.show ();
-        hbox.pack_end (side_box, false, true, 0);
+        var game_box = builder.get_object ("game-box") as Gtk.Box;
+        game_box.pack_start (view, true, true, 0);
 
-        var grid = new Gtk.Grid ();
-        grid.halign = Gtk.Align.CENTER;
-        grid.vexpand = true;
-        grid.hexpand = true;
-        grid.set_column_spacing (12);
-        grid.set_row_spacing (18);
-        grid.margin_end = 12;
-        grid.show ();
-        side_box.pack_start (grid, false, true, 6);
+        headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
+        light_score_label = builder.get_object ("light-score-label") as Gtk.Label;
+        dark_score_label = builder.get_object ("dark-score-label") as Gtk.Label;
 
+        // TODO use GResource
         var dark = Path.build_filename (DATA_DIRECTORY, "images", "dark.svg");
-        var dark_icon = new Gtk.Image.from_file (dark);
-        dark_icon.show ();
-        grid.attach (dark_icon, 1, 0, 1, 1);
-
-        dark_score_label = new Gtk.Label ("00");
-        dark_score_label.show ();
-        grid.attach (dark_score_label, 2, 0, 1, 1);
+        var dark_image = builder.get_object ("dark-image") as Gtk.Image;
+        dark_image.set_from_file (dark);
 
         var light = Path.build_filename (DATA_DIRECTORY, "images", "light.svg");
-        var light_icon = new Gtk.Image.from_file (light);
-        light_icon.show ();
-        grid.attach (light_icon, 1, 1, 1, 1);
-
-        light_score_label = new Gtk.Label ("00");
-        light_score_label.show ();
-        grid.attach (light_score_label, 2, 1, 1, 1);
+        var light_image = builder.get_object ("light-image") as Gtk.Image;
+        light_image.set_from_file (light);
 
         var mark = Path.build_filename (DATA_DIRECTORY, "images", "mark.svg");
-        mark_icon_dark = new Gtk.Image.from_file (mark);
-        mark_icon_light = new Gtk.Image.from_file (mark);
-        grid.attach (mark_icon_dark, 0, 0, 1, 1);
-        grid.attach (mark_icon_light, 0, 1, 1, 1);
-
-        var new_game_button = new Gtk.Button ();
-        new_game_button.label = _("_Start Over");
-        new_game_button.use_underline = true;
-        new_game_button.width_request = 120;
-        new_game_button.height_request = 60;
-        new_game_button.valign = Gtk.Align.END;
-        new_game_button.halign = Gtk.Align.END;
-        new_game_button.action_name = "app.new-game";
-        new_game_button.tooltip_text = _("Start a new game");
-        new_game_button.show_all ();
-        side_box.pack_end (new_game_button, false, false, 0);
+        mark_icon_dark = builder.get_object ("mark-icon-dark") as Gtk.Image;
+        mark_icon_dark.set_from_file (mark);
+        mark_icon_light = builder.get_object ("mark-icon-light") as Gtk.Image;
+        mark_icon_light.set_from_file (mark);
+        // end of TODO
 
         start_game ();
 

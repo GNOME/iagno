@@ -1,7 +1,9 @@
 SUBDIRS = icons
 
 uidir = $(datadir)/iagno
-ui_DATA = iagno.ui
+ui_DATA = \
+	iagno-menus.ui \
+	iagno.ui
 
 imagedir = $(datadir)/iagno/images
 image_DATA = \
