@@ -11,8 +11,15 @@
 
 public class GameView : Gtk.DrawingArea
 {
-    /* Space between tiles in pixels */
+    /* Theme */
+    private const int GRID_BORDER = 3;
     private const int GRID_WIDTH = 2;
+
+    /* Utilities, see calculate () */
+    private int tile_size;
+    private int board_size;
+    private int x_offset { get { return (get_allocated_width () - board_size) / 2; }}
+    private int y_offset { get { return (get_allocated_height () - board_size) / 2; }}
 
     /* Delay in milliseconds between tile flip frames */
     private const int PIXMAP_FLIP_DELAY = 20;
@@ -31,40 +38,6 @@ public class GameView : Gtk.DrawingArea
 
     /* Used for a delay between the last move and flipping the pieces */
     private bool flip_final_result_now = false;
-
-    private int tile_size
-    {
-        get
-        {
-            return int.min (get_allocated_width () / 8, get_allocated_height () / (int) 8) - GRID_WIDTH;
-        }
-    }
-
-    private int x_offset
-    {
-        get
-        {
-            return (get_allocated_width () - 8 * (tile_size + GRID_WIDTH)) / 2;
-        }
-    }
-
-    private int y_offset
-    {
-        get
-        {
-            return (get_allocated_height () - 8 * (tile_size + GRID_WIDTH)) / 2;
-        }
-    }
-
-    private int board_size { get { return (tile_size + GRID_WIDTH) * 8; } }
-
-    public GameView ()
-    {
-        set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK);
-        pixmaps = new int[8,8];
-
-        set_size_request (350, 350);
-    }
 
     private Game? _game = null;
     public Game? game
@@ -93,31 +66,28 @@ public class GameView : Gtk.DrawingArea
         set { _theme = value; tiles_pattern = null; queue_draw (); }
     }
 
-    public override Gtk.SizeRequestMode get_request_mode ()
+    public GameView ()
     {
-        return Gtk.SizeRequestMode.WIDTH_FOR_HEIGHT;
+        set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK);
+        pixmaps = new int[8,8];
+
+        set_size_request (350, 350);
     }
 
-    public override void get_preferred_width_for_height (int height, out int minimum_width, out int natural_width)
+    private void calculate ()
     {
-        /* Try and be square */
-        minimum_width = natural_width = height;
-    }
-
-    public override void get_preferred_width (out int minimum, out int natural)
-    {
-        minimum = natural = (int) (8 * (20 + GRID_WIDTH));
-    }
-
-    public override void get_preferred_height (out int minimum, out int natural)
-    {
-        minimum = natural = (int) (8 * (20 + GRID_WIDTH));
+        var size = int.min (get_allocated_width (), get_allocated_height ());
+        /* tile_size includes a grid spacing */
+        tile_size = (size - 2 * GRID_BORDER + GRID_WIDTH) / 8;
+        board_size = tile_size * 8 - GRID_WIDTH + 2 * GRID_BORDER;
     }
 
     public override bool draw (Cairo.Context cr)
     {
         if (game == null)
             return false;
+
+        calculate ();
 
         if (tiles_pattern == null || render_size != tile_size)
         {
@@ -128,12 +98,16 @@ public class GameView : Gtk.DrawingArea
             tiles_pattern = new Cairo.Pattern.for_surface (surface);
         }
 
+        cr.translate (x_offset, y_offset);
+        cr.save ();
+        cr.translate (GRID_BORDER - GRID_WIDTH, GRID_BORDER - GRID_WIDTH);
+
         for (var x = 0; x < 8; x++)
         {
             for (var y = 0; y < 8; y++)
             {
-                var tile_x = x_offset + x * (tile_size + GRID_WIDTH);
-                var tile_y = y_offset + y * (tile_size + GRID_WIDTH);
+                var tile_x = x * tile_size;
+                var tile_y = y * tile_size;
                 var texture_x = (pixmaps[x, y] % 8) * tile_size;
                 var texture_y = (pixmaps[x, y] / 8) * tile_size;
 
@@ -146,20 +120,22 @@ public class GameView : Gtk.DrawingArea
             }
         }
 
-        cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
-        cr.set_operator (Cairo.Operator.DIFFERENCE);
+        cr.restore ();
+
+        cr.set_source_rgba (0.0, 0.0, 0.0, 1.0);
         cr.set_line_width (GRID_WIDTH);
         for (var i = 1; i < 8; i++)
         {
-            cr.move_to (x_offset + i * board_size / 8 - GRID_WIDTH / 2, y_offset);
+            cr.move_to (i * tile_size + GRID_WIDTH / 2.0, 0);
             cr.rel_line_to (0, board_size);
 
-            cr.move_to (x_offset, y_offset + i * board_size / 8 - GRID_WIDTH / 2);
+            cr.move_to (0, i * tile_size + GRID_WIDTH / 2.0);
             cr.rel_line_to (board_size, 0);
         }
+        cr.stroke ();
 
-        cr.rectangle (x_offset - GRID_WIDTH / 2, y_offset - GRID_WIDTH / 2, board_size, board_size);
-
+        cr.set_line_width (GRID_BORDER);
+        cr.rectangle (GRID_BORDER / 2.0, GRID_BORDER / 2.0, board_size - GRID_BORDER, board_size - GRID_BORDER);
         cr.stroke ();
 
         return false;
@@ -270,7 +246,7 @@ public class GameView : Gtk.DrawingArea
             if (animate_timeout == 0)
                 animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, animate_cb);
         }
-        queue_draw_area (x_offset + x * (int) (tile_size + GRID_WIDTH), y_offset + y * (int) (tile_size + GRID_WIDTH), tile_size, tile_size);
+        queue_draw_area (x_offset + x * tile_size, y_offset + y * tile_size, tile_size, tile_size);
     }
 
     private bool animate_cb ()
@@ -315,8 +291,8 @@ public class GameView : Gtk.DrawingArea
     {
         if (event.button == 1)
         {
-            var x = (int) (event.x - x_offset) / (tile_size + GRID_WIDTH);
-            var y = (int) (event.y - y_offset) / (tile_size + GRID_WIDTH);
+            var x = (int) (event.x - x_offset) / tile_size;
+            var y = (int) (event.y - y_offset) / tile_size;
             if (x >= 0 && x < 8 && y >= 0 && y < 8)
                 move (x, y);
         }

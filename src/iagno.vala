@@ -147,7 +147,7 @@ public class Iagno : Gtk.Application
         view.move.connect (player_move_cb);
         var tile_set = settings.get_string ("tileset");
         view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
-        view.halign = Gtk.Align.CENTER;
+        view.halign = Gtk.Align.FILL;
         view.show ();
 
         var game_box = builder.get_object ("game-box") as Gtk.Box;
