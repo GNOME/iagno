@@ -62,7 +62,8 @@
                     <property name="row-spacing">18</property>
                     <property name="margin-end">12</property>
                     <child>
-                      <object class="GtkImage" id="mark-icon-dark"> <!-- TODO use GResource -->
+                      <object class="GtkImage" id="mark-icon-dark">
+                        <property name="resource">/org/gnome/iagno/images/mark.svg</property>
                         <property name="visible">True</property>
                       </object>
                       <packing>
@@ -71,7 +72,8 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkImage" id="dark-image"> <!-- TODO use GResource -->
+                      <object class="GtkImage">
+                        <property name="resource">/org/gnome/iagno/images/dark.svg</property>
                         <property name="visible">True</property>
                       </object>
                       <packing>
@@ -90,7 +92,8 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkImage" id="mark-icon-light"> <!-- TODO use GResource -->
+                      <object class="GtkImage" id="mark-icon-light">
+                        <property name="resource">/org/gnome/iagno/images/mark.svg</property>
                         <property name="visible">True</property>
                       </object>
                       <packing>
@@ -99,7 +102,8 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkImage" id="light-image"> <!-- TODO use GResource -->
+                      <object class="GtkImage">
+                        <property name="resource">/org/gnome/iagno/images/light.svg</property>
                         <property name="visible">True</property>
                       </object>
                       <packing>

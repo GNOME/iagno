@@ -87,19 +87,7 @@ public class Iagno : Gtk.Application
             return;
         }
 
-        // TODO use GResource & Gtk.Builder.from_resource()
-        var builder = new Gtk.Builder ();
-        try
-        {
-            builder.add_from_file (DATA_DIRECTORY + "/iagno-menus.ui");
-            builder.add_from_file (DATA_DIRECTORY + "/iagno.ui");
-        }
-        catch (Error e)
-        {
-            error ("Could not load UI: %s\n", e.message);
-        }
-        set_app_menu (builder.get_object ("app-menu") as MenuModel);
-        // end of TODO
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
 
         window = builder.get_object ("iagno-window") as Gtk.ApplicationWindow;
         window.configure_event.connect (window_configure_event_cb);
@@ -123,22 +111,8 @@ public class Iagno : Gtk.Application
         headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
         light_score_label = builder.get_object ("light-score-label") as Gtk.Label;
         dark_score_label = builder.get_object ("dark-score-label") as Gtk.Label;
-
-        // TODO use GResource
-        var dark = Path.build_filename (DATA_DIRECTORY, "images", "dark.svg");
-        var dark_image = builder.get_object ("dark-image") as Gtk.Image;
-        dark_image.set_from_file (dark);
-
-        var light = Path.build_filename (DATA_DIRECTORY, "images", "light.svg");
-        var light_image = builder.get_object ("light-image") as Gtk.Image;
-        light_image.set_from_file (light);
-
-        var mark = Path.build_filename (DATA_DIRECTORY, "images", "mark.svg");
         mark_icon_dark = builder.get_object ("mark-icon-dark") as Gtk.Image;
-        mark_icon_dark.set_from_file (mark);
         mark_icon_light = builder.get_object ("mark-icon-light") as Gtk.Image;
-        mark_icon_light.set_from_file (mark);
-        // end of TODO
 
         start_game ();
 
@@ -495,7 +469,7 @@ public class Iagno : Gtk.Application
 
     private void create_preferences_dialog ()
     {
-        var builder = new Gtk.Builder.from_file (DATA_DIRECTORY + "/iagno-preferences.ui");
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno-preferences.ui");
 
         /* the dialog is not in the ui file for the use-header-bar flag to be switchable */
         propbox = new Gtk.Dialog.with_buttons (_("Preferences"),

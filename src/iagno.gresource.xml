@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/iagno/images">
+    <file alias="dark.svg">../data/dark.svg</file>
+    <file alias="light.svg">../data/light.svg</file>
+    <file alias="mark.svg">../data/mark.svg</file>
+  </gresource>
+  <gresource prefix="/org/gnome/iagno/ui">
+    <file alias="iagno.ui" preprocess="xml-stripblanks">../data/iagno.ui</file>
+    <file alias="iagno-preferences.ui" preprocess="xml-stripblanks">../data/iagno-preferences.ui</file>
+  </gresource>
+  <gresource prefix="/org/gnome/iagno/gtk">
+    <file alias="menus.ui" preprocess="xml-stripblanks">../data/iagno-menus.ui</file>
+  </gresource>
+</gresources>

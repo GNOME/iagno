@@ -1,13 +1,16 @@
 bin_PROGRAMS = iagno
 check_PROGRAMS = test-iagno
 
+BUILT_SOURCES = iagno-resources.c
+
 iagno_SOURCES = \
 	config.vapi \
 	computer-player.vala \
 	game.vala \
 	game-view.vala \
 	iagno.vala \
-	player.vala
+	player.vala \
+	$(BUILT_SOURCES)
 
 iagno_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
@@ -41,8 +44,12 @@ test_iagno_LDADD = $(IAGNO_LIBS)
 check-local: $(check_PROGRAMS)
 	$(GTESTER) --keep-going --verbose $(check_PROGRAMS)
 
+iagno-resources.c: iagno.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies iagno.gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<
+
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
-	*_vala.stamp
+	*_vala.stamp \
+	iagno-resources.c
 
 -include $(top_srcdir)/git.mk
