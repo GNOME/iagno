@@ -65,11 +65,18 @@ public class Iagno : Gtk.Application
         {"quit", quit_cb}
     };
 
-    protected override void startup()
+    public static int main (string[] args)
     {
-        base.startup ();
-        add_action_entries (app_actions, this);
-        set_accels_for_action ("app.undo-move", {"<Primary>z"});
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+
+        Environment.set_application_name (_("Iagno"));
+
+        Gtk.Window.set_default_icon_name ("iagno");
+
+        return new Iagno ().run (args);
     }
 
     public Iagno ()
@@ -77,46 +84,6 @@ public class Iagno : Gtk.Application
         Object (application_id: "org.gnome.iagno", flags: ApplicationFlags.FLAGS_NONE);
 
         add_main_option_entries (option_entries);
-    }
-
-    protected override void activate ()
-    {
-        if (window != null)
-        {
-            window.show ();
-            return;
-        }
-
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
-
-        window = builder.get_object ("iagno-window") as Gtk.ApplicationWindow;
-        window.configure_event.connect (window_configure_event_cb);
-        window.window_state_event.connect (window_state_event_cb);
-        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
-        if (settings.get_boolean ("window-is-maximized"))
-            window.maximize ();
-        add_window (window);
-
-        view = new GameView ();
-        view.game = game;
-        view.move.connect (player_move_cb);
-        var tile_set = settings.get_string ("tileset");
-        view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
-        view.halign = Gtk.Align.CENTER;
-        view.show ();
-
-        var game_box = builder.get_object ("game-box") as Gtk.Box;
-        game_box.pack_start (view, true, true, 0);
-
-        headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
-        light_score_label = builder.get_object ("light-score-label") as Gtk.Label;
-        dark_score_label = builder.get_object ("dark-score-label") as Gtk.Label;
-        mark_icon_dark = builder.get_object ("mark-icon-dark") as Gtk.Image;
-        mark_icon_light = builder.get_object ("mark-icon-light") as Gtk.Image;
-
-        start_game ();
-
-        window.show ();
     }
 
     protected override int handle_local_options (GLib.VariantDict options)
@@ -157,6 +124,47 @@ public class Iagno : Gtk.Application
 
         /* Activate */
         return -1;
+    }
+
+    protected override void startup()
+    {
+        base.startup ();
+        add_action_entries (app_actions, this);
+        set_accels_for_action ("app.undo-move", {"<Primary>z"});
+
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
+
+        window = builder.get_object ("iagno-window") as Gtk.ApplicationWindow;
+        window.configure_event.connect (window_configure_event_cb);
+        window.window_state_event.connect (window_state_event_cb);
+        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
+        if (settings.get_boolean ("window-is-maximized"))
+            window.maximize ();
+        add_window (window);
+
+        view = new GameView ();
+        view.game = game;
+        view.move.connect (player_move_cb);
+        var tile_set = settings.get_string ("tileset");
+        view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
+        view.halign = Gtk.Align.CENTER;
+        view.show ();
+
+        var game_box = builder.get_object ("game-box") as Gtk.Box;
+        game_box.pack_start (view, true, true, 0);
+
+        headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
+        light_score_label = builder.get_object ("light-score-label") as Gtk.Label;
+        dark_score_label = builder.get_object ("dark-score-label") as Gtk.Label;
+        mark_icon_dark = builder.get_object ("mark-icon-dark") as Gtk.Image;
+        mark_icon_light = builder.get_object ("mark-icon-light") as Gtk.Image;
+
+        start_game ();
+    }
+
+    protected override void activate ()
+    {
+        window.present ();
     }
 
     protected override void shutdown ()
@@ -548,23 +556,5 @@ public class Iagno : Gtk.Application
         });
         enable_sounds_button.set_active (settings.get_boolean ("sound"));
         enable_sounds_button.toggled.connect (sound_select);
-    }
-
-    public static int main (string[] args)
-    {
-        Intl.setlocale (LocaleCategory.ALL, "");
-        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-        Intl.textdomain (GETTEXT_PACKAGE);
-
-        Environment.set_application_name (_("Iagno"));
-
-        Gtk.Window.set_default_icon_name ("iagno");
-
-        var app = new Iagno ();
-
-        var result = app.run (args);
-
-        return result;
     }
 }
