@@ -197,9 +197,14 @@ public class ComputerPlayer : Object
         foreach (var move in moves)
         {
             if (move.n_tiles == 0)
+            {
                 g.pass ();
+            }
             else if (g.place_tile (move.x, move.y) == 0)
+            {
                 critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking", depth, move.x, move.y, move.n_tiles);
+                assert_not_reached ();
+            }
 
             int next_x_move = 0, next_y_move = 0;
             var a_new = -1 * search (g, strategy, depth - 1, -b, -a, ref next_x_move, ref next_y_move);
