@@ -55,6 +55,9 @@ public class ComputerPlayer : Object
         65,  -3, 6, 4, 4, 6,  -3, 65
     };
 
+    /* Source ID of a pending move timeout */
+    private uint pending_move_id = 0;
+
     public ComputerPlayer (Game game, int level = 1)
     {
         this.game = game;
@@ -70,6 +73,37 @@ public class ComputerPlayer : Object
 
         if (game.place_tile (x, y) == 0)
             critical ("Computer chose an invalid move: %d,%d", x, y);
+    }
+
+    public async void move_async (double delay_seconds = 0.0)
+    {
+        var timer = new Timer ();
+        int x = 0;
+        int y = 0;
+
+        timer.start ();
+        run_search (ref x, ref y);
+        timer.stop ();
+
+        if (timer.elapsed () < delay_seconds)
+        {
+            pending_move_id = Timeout.add ((uint) ((delay_seconds - timer.elapsed ()) * 1000), move_async.callback);
+            yield;
+        }
+
+        pending_move_id = 0;
+
+        if (game.place_tile (x, y) == 0)
+            critical ("Computer chose an invalid move: %d,%d", x, y);
+    }
+
+    public void cancel_move ()
+    {
+        if (pending_move_id != 0)
+        {
+            Source.remove (pending_move_id);
+            pending_move_id = 0;
+        }
     }
 
     private void run_search (ref int x, ref int y)

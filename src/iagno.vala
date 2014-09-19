@@ -18,6 +18,11 @@ public class Iagno : Gtk.Application
     private static bool fast_mode;
     private static int computer_level = 0;
 
+    /* Seconds */
+    private static const double QUICK_MOVE_DELAY = 0.4;
+    private static const double MODERATE_MOVE_DELAY = 1.0;
+    private static const double SLOW_MOVE_DELAY = 2.0;
+
     /* Widgets */
     private Gtk.Window window;
     private int window_width;
@@ -35,9 +40,6 @@ public class Iagno : Gtk.Application
 
     /* Human player */
     private Player player_one;
-
-    /* Timer to delay computer moves */
-    private uint computer_timer = 0;
 
     /* The game being played */
     private Game? game = null;
@@ -209,10 +211,11 @@ public class Iagno : Gtk.Application
 
     private void start_game ()
     {
-        cancel_pending_computer_moves ();
-
         if (game != null)
             SignalHandler.disconnect_by_func (game, null, this);
+
+        if (computer != null)
+            computer.cancel_move ();
 
         game = new Game ();
         game.move.connect (game_move_cb);
@@ -229,12 +232,8 @@ public class Iagno : Gtk.Application
 
         update_ui ();
 
-        /*
-         * Get the computer to move after a delay (so it looks like it's
-         * thinking - but only a short delay for the first move)
-         */
         if (player_one != Player.DARK && computer != null)
-            computer_timer = Timeout.add_seconds (1, computer_move_cb);
+            computer.move_async.begin (MODERATE_MOVE_DELAY);
     }
 
     private void update_ui ()
@@ -268,8 +267,6 @@ public class Iagno : Gtk.Application
 
     private void undo_move_cb ()
     {
-        cancel_pending_computer_moves ();
-
         if (computer == null)
         {
             game.undo (1);
@@ -278,6 +275,8 @@ public class Iagno : Gtk.Application
         }
         else
         {
+            computer.cancel_move ();
+
             /* Undo once if the human player just moved, otherwise undo both moves */
             if (game.current_color != player_one)
                 game.undo (1);
@@ -361,26 +360,9 @@ public class Iagno : Gtk.Application
         if (game.current_color != player_one && computer != null)
         {
             if (game.n_tiles == 63 || fast_mode)
-                computer_timer = Timeout.add (400, computer_move_cb);
+                computer.move_async.begin (QUICK_MOVE_DELAY);
             else
-                computer_timer = Timeout.add_seconds (2, computer_move_cb);
-        }
-    }
-
-    private bool computer_move_cb ()
-    {
-        cancel_pending_computer_moves ();
-        if (game.current_color != player_one)
-            computer.move ();
-        return false;
-    }
-
-    private void cancel_pending_computer_moves ()
-    {
-        if (computer_timer != 0)
-        {
-            Source.remove (computer_timer);
-            computer_timer = 0;
+                computer.move_async.begin (SLOW_MOVE_DELAY);
         }
     }
 

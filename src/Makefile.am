@@ -23,6 +23,7 @@ iagno_CFLAGS = \
 
 iagno_VALAFLAGS = \
 	--pkg posix \
+	--pkg gio-2.0 \
 	--pkg gtk+-3.0 \
 	--pkg librsvg-2.0 \
 	--pkg libcanberra \
@@ -36,6 +37,10 @@ test_iagno_SOURCES = \
 	computer-player.vala \
 	game.vala \
 	player.vala
+
+test_iagno_VALAFLAGS = \
+	--pkg gio-2.0 \
+	--target-glib 2.40
 
 test_iagno_CFLAGS = $(IAGNO_CFLAGS)
 
