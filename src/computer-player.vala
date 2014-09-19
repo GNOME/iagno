@@ -15,7 +15,8 @@ public class ComputerPlayer : Object
     {
         PERFECT,
         VICTORY,
-        BEST
+        BEST,
+        WORST
     }
 
     private struct PossibleMove
@@ -80,14 +81,16 @@ public class ComputerPlayer : Object
          * At the end of the game try and maximise the number of tokens.
          * Near the end try and push for a win.
          * For the rest of the game try and maximise everything.
-         * Note, for level 1 we default to the "PERFECT" strategy, which is not as
-         * good as the "BEST" strategy, so as not to make the AI too difficult.
+         * Note, for level 1 we deliberately play badly.
          */
-        var strategy = (level == 1) ? Strategy.PERFECT : Strategy.BEST;
+        var strategy = Strategy.BEST;
         if (tiles_remaining <= depth + 10)
             strategy = Strategy.PERFECT;
         else if (tiles_remaining <= depth + 12)
             strategy = Strategy.VICTORY;
+
+        if (level == 1)
+            strategy = Strategy.WORST;
 
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
@@ -192,6 +195,10 @@ public class ComputerPlayer : Object
         /* Maximise a win over a loss */
         case Strategy.VICTORY:
             return tile_difference.clamp (-1, 1);
+
+        /* Try to lose */
+        case Strategy.WORST:
+            return -tile_difference;
 
         /* Try to maximise a number of values */
         default:
