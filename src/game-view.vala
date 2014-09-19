@@ -13,13 +13,13 @@ public class GameView : Gtk.DrawingArea
 {
     /* Theme */
     private const int GRID_BORDER = 3;
-    private const int GRID_WIDTH = 2;
+    private const int GRID_SPACING = 2;
 
     /* Utilities, see calculate () */
     private int tile_size;
     private int board_size;
-    private int x_offset { get { return (get_allocated_width () - board_size) / 2; }}
-    private int y_offset { get { return (get_allocated_height () - board_size) / 2; }}
+    private int x_offset { get { return (get_allocated_width () - board_size) / 2 + GRID_BORDER; }}
+    private int y_offset { get { return (get_allocated_height () - board_size) / 2 + GRID_BORDER; }}
 
     /* Delay in milliseconds between tile flip frames */
     private const int PIXMAP_FLIP_DELAY = 20;
@@ -69,17 +69,17 @@ public class GameView : Gtk.DrawingArea
     public GameView ()
     {
         set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK);
-        pixmaps = new int[8,8];
-
         set_size_request (350, 350);
+        pixmaps = new int[8,8];
     }
 
     private void calculate ()
     {
         var size = int.min (get_allocated_width (), get_allocated_height ());
         /* tile_size includes a grid spacing */
-        tile_size = (size - 2 * GRID_BORDER + GRID_WIDTH) / 8;
-        board_size = tile_size * 8 - GRID_WIDTH + 2 * GRID_BORDER;
+        tile_size = (size - 2 * GRID_BORDER + GRID_SPACING) / 8;
+        /* board_size includes its borders */
+        board_size = tile_size * 8 - GRID_SPACING + 2 * GRID_BORDER;
     }
 
     public override bool draw (Cairo.Context cr)
@@ -99,9 +99,29 @@ public class GameView : Gtk.DrawingArea
         }
 
         cr.translate (x_offset, y_offset);
-        cr.save ();
-        cr.translate (GRID_BORDER - GRID_WIDTH, GRID_BORDER - GRID_WIDTH);
 
+        /* draw border and background */
+        cr.set_source_rgba (0.3, 0.6, 0.4, 1.0);
+        cr.rectangle (-GRID_BORDER / 2.0, -GRID_BORDER / 2.0, board_size - GRID_BORDER, board_size - GRID_BORDER);
+        cr.fill_preserve ();
+        cr.set_source_rgba (0.0, 0.0, 0.0, 1.0);
+        cr.set_line_width (GRID_BORDER);
+        cr.stroke ();
+
+        /* draw lines */
+        cr.set_line_width (GRID_SPACING);
+        for (var i = 1; i < 8; i++)
+        {
+            cr.move_to (i * tile_size - GRID_SPACING / 2.0, 0);
+            cr.rel_line_to (0, board_size - GRID_BORDER);
+
+            cr.move_to (0, i * tile_size - GRID_SPACING / 2.0);
+            cr.rel_line_to (board_size - GRID_BORDER, 0);
+        }
+        cr.stroke ();
+
+        /* draw pieces */
+        cr.translate (-GRID_SPACING / 2, -GRID_SPACING / 2);
         for (var x = 0; x < 8; x++)
         {
             for (var y = 0; y < 8; y++)
@@ -119,25 +139,6 @@ public class GameView : Gtk.DrawingArea
                 cr.fill ();
             }
         }
-
-        cr.restore ();
-
-        cr.set_source_rgba (0.0, 0.0, 0.0, 1.0);
-        cr.set_line_width (GRID_WIDTH);
-        for (var i = 1; i < 8; i++)
-        {
-            cr.move_to (i * tile_size + GRID_WIDTH / 2.0, 0);
-            cr.rel_line_to (0, board_size);
-
-            cr.move_to (0, i * tile_size + GRID_WIDTH / 2.0);
-            cr.rel_line_to (board_size, 0);
-        }
-        cr.stroke ();
-
-        cr.set_line_width (GRID_BORDER);
-        cr.rectangle (GRID_BORDER / 2.0, GRID_BORDER / 2.0, board_size - GRID_BORDER, board_size - GRID_BORDER);
-        cr.stroke ();
-
         return false;
     }
 
