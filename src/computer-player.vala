@@ -82,7 +82,13 @@ public class ComputerPlayer : Object
         int y = 0;
 
         timer.start ();
-        run_search (ref x, ref y);
+        new Thread<void *> ("AI thread", () => {
+            run_search (ref x, ref y);
+            move_async.callback ();
+            return null;
+        });
+        yield;
+
         timer.stop ();
 
         if (timer.elapsed () < delay_seconds)
