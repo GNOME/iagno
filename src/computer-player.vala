@@ -62,14 +62,23 @@ public class ComputerPlayer : Object
     }
 
     public void move ()
+    {
+        int x = 0;
+        int y = 0;
+
+        run_search (ref x, ref y);
+
+        if (game.place_tile (x, y) == 0)
+            critical ("Computer chose an invalid move: %d,%d", x, y);
+    }
+
+    private void run_search (ref int x, ref int y)
         requires (game.can_move (game.current_color))
     {
         /* For the first two moves play randomly so the game is not always the same */
         if (game.n_tiles < 8)
         {
-            int x, y;
             random_select (game, out x, out y);
-            game.place_tile (x, y);
             return;
         }
 
@@ -85,10 +94,8 @@ public class ComputerPlayer : Object
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
-        int x = 0, y = 0;
         search (new Game.copy (game), strategy, depth, NEGATIVE_INFINITY, POSITIVE_INFINITY, ref x, ref y);
-        if (game.place_tile (x, y) == 0)
-            critical ("Computer chose an invalid move: %d,%d", x, y);
+
     }
 
     private static int search (Game g, Strategy strategy, int depth, int a, int b, ref int move_x, ref int move_y)
