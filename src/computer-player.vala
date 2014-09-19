@@ -13,10 +13,9 @@ public class ComputerPlayer : Object
 {
     private enum Strategy
     {
-        PERFECT,
-        VICTORY,
-        BEST,
-        WORST
+        IMPROVE_POSITION,
+        MAXIMIZE_TILES,
+        MINIMIZE_TILES
     }
 
     private struct PossibleMove
@@ -77,20 +76,11 @@ public class ComputerPlayer : Object
         var depth = level * 2 + 1;
         var tiles_remaining = 64 - game.n_tiles;
 
-        /* Choose a strategy based on how close to the end we are.
-         * At the end of the game try and maximise the number of tokens.
-         * Near the end try and push for a win.
-         * For the rest of the game try and maximise everything.
-         * Note, for level 1 we deliberately play badly.
-         */
-        var strategy = Strategy.BEST;
-        if (tiles_remaining <= depth + 10)
-            strategy = Strategy.PERFECT;
-        else if (tiles_remaining <= depth + 12)
-            strategy = Strategy.VICTORY;
-
+        var strategy = Strategy.IMPROVE_POSITION;
         if (level == 1)
-            strategy = Strategy.WORST;
+            strategy = Strategy.MINIMIZE_TILES;
+        else if (tiles_remaining <= depth + 10)
+            strategy = Strategy.MAXIMIZE_TILES;
 
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
@@ -189,20 +179,19 @@ public class ComputerPlayer : Object
         switch (strategy)
         {
         /* Maximise the number of tokens */
-        case Strategy.PERFECT:
+        case Strategy.MAXIMIZE_TILES:
             return tile_difference;
 
-        /* Maximise a win over a loss */
-        case Strategy.VICTORY:
-            return tile_difference.clamp (-1, 1);
-
         /* Try to lose */
-        case Strategy.WORST:
+        case Strategy.MINIMIZE_TILES:
             return -tile_difference;
 
         /* Try to maximise a number of values */
-        default:
+        case Strategy.IMPROVE_POSITION:
             return tile_difference + eval_heuristic (g) + around (g) ;
+
+        default:
+            assert_not_reached ();
         }
     }
 
