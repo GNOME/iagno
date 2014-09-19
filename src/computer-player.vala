@@ -67,7 +67,10 @@ public class ComputerPlayer : Object
     private void complete_move (int x, int y)
     {
         if (game.place_tile (x, y) == 0)
+        {
             critical ("Computer chose an invalid move: %d,%d", x, y);
+            assert_not_reached ();
+        }
     }
 
     public void move ()
