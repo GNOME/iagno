@@ -64,15 +64,19 @@ public class ComputerPlayer : Object
         this.level = level;
     }
 
+    private void complete_move (int x, int y)
+    {
+        if (game.place_tile (x, y) == 0)
+            critical ("Computer chose an invalid move: %d,%d", x, y);
+    }
+
     public void move ()
     {
         int x = 0;
         int y = 0;
 
         run_search (ref x, ref y);
-
-        if (game.place_tile (x, y) == 0)
-            critical ("Computer chose an invalid move: %d,%d", x, y);
+        complete_move (x, y);
     }
 
     public async void move_async (double delay_seconds = 0.0)
@@ -98,9 +102,7 @@ public class ComputerPlayer : Object
         }
 
         pending_move_id = 0;
-
-        if (game.place_tile (x, y) == 0)
-            critical ("Computer chose an invalid move: %d,%d", x, y);
+        complete_move (x, y);
     }
 
     public void cancel_move ()
