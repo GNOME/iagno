@@ -17,6 +17,7 @@ public class Iagno : Gtk.Application
     private bool is_maximized;
     private static bool fast_mode;
     private static int computer_level = 0;
+    private static int size = 8;
 
     /* Seconds */
     private static const double QUICK_MOVE_DELAY = 0.4;
@@ -51,6 +52,7 @@ public class Iagno : Gtk.Application
         { "level", 'l', 0, OptionArg.INT, ref computer_level, N_("Set the level of the computer's AI"), null},
         { "mute", 0, 0, OptionArg.NONE, null, N_("Turn off the sound"), null},
         { "second", 0, 0, OptionArg.NONE, null, N_("Play second"), null},
+        { "size", 's', 0, OptionArg.INT, ref size, N_("Size of the board (debug only)"), null},
         { "two-players", 0, 0, OptionArg.NONE, null, N_("Two-players mode"), null},
         { "unmute", 0, 0, OptionArg.NONE, null, N_("Turn on the sound"), null},
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null},
@@ -97,6 +99,13 @@ public class Iagno : Gtk.Application
             return Posix.EXIT_SUCCESS;
         }
 
+        if (size < 4 || size % 2 != 0)
+        {
+            /* Console message displayed for an incorrect size */
+            stderr.printf ("%s\n", _("Size must be even and at least 4."));
+            return Posix.EXIT_FAILURE;
+        }
+
         /* WARNING: Don't forget that changing at this moment settings
         could interfere badly with a running instance of the game. */
         settings = new Settings ("org.gnome.iagno");
@@ -113,7 +122,7 @@ public class Iagno : Gtk.Application
             if (computer_level <= 3)
                 settings.set_int ("computer-level", computer_level);
             else
-                stderr.printf ("%1$s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
+                stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
         }
 
         /* The game mode is set for the next game. */
@@ -143,9 +152,7 @@ public class Iagno : Gtk.Application
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
         add_window (window);
-
         view = new GameView ();
-        view.game = game;
         view.move.connect (player_move_cb);
         var tile_set = settings.get_string ("tileset");
         view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
@@ -217,7 +224,7 @@ public class Iagno : Gtk.Application
         if (computer != null)
             computer.cancel_move ();
 
-        game = new Game ();
+        game = new Game (size);
         game.move.connect (game_move_cb);
         game.complete.connect (game_complete_cb);
         view.game = game;

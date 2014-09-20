@@ -160,9 +160,9 @@ public class ComputerPlayer : Object
 
         /* Find all possible moves and sort from most new tiles to least new tiles */
         List<PossibleMove?> moves = null;
-        for (var x = 0; x < 8; x++)
+        for (var x = 0; x < g.size; x++)
         {
-            for (var y = 0; y < 8; y++)
+            for (var y = 0; y < g.size; y++)
             {
                 var n_tiles = g.place_tile (x, y);
                 if (n_tiles <= 0)
@@ -255,11 +255,15 @@ public class ComputerPlayer : Object
     private static int eval_heuristic (Game g)
     {
         var count = 0;
-        for (var x = 0; x < 8; x++)
+
+        if (g.size != 8)     // TODO
+            return 0;
+
+        for (var x = 0; x < g.size; x++)
         {
-            for (var y = 0; y < 8; y++)
+            for (var y = 0; y < g.size; y++)
             {
-                var h = heuristic[y * 8 + x];
+                var h = heuristic[y * g.size + x];
                 if (g.get_owner (x, y) != g.current_color)
                     h = -h;
                 count += h;
@@ -272,9 +276,9 @@ public class ComputerPlayer : Object
     private static int around (Game g)
     {
         var count = 0;
-        for (var x = 0; x < 8; x++)
+        for (var x = 0; x < g.size; x++)
         {
-            for (var y = 0; y < 8; y++)
+            for (var y = 0; y < g.size; y++)
             {
                 var a = 0;
                 a -= is_empty (g, x + 1, y);
@@ -299,7 +303,7 @@ public class ComputerPlayer : Object
 
     private static int is_empty (Game g, int x, int y)
     {
-        if (x < 0 || x >= 8 || y < 0 || y >= 8 || g.get_owner (x, y) != Player.NONE)
+        if (x < 0 || x >= g.size || y < 0 || y >= g.size || g.get_owner (x, y) != Player.NONE)
             return 0;
 
         return 1;
@@ -308,17 +312,17 @@ public class ComputerPlayer : Object
     private static void random_select (Game g, out int move_x, out int move_y)
     {
         List<int> moves = null;
-        for (var x = 0; x < 8; x++)
-            for (var y = 0; y < 8; y++)
+        for (var x = 0; x < g.size; x++)
+            for (var y = 0; y < g.size; y++)
                 if (g.can_place (x, y, g.current_color))
-                    moves.append (x * 8 + y);
+                    moves.append (x * g.size + y);
 
         if (moves == null)
             assert_not_reached ();
 
         var i = Random.int_range (0, (int) moves.length ());
         var xy = moves.nth_data (i);
-        move_x = xy / 8;
-        move_y = xy % 8;
+        move_x = xy / g.size;
+        move_y = xy % g.size;
     }
 }

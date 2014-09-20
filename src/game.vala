@@ -14,14 +14,11 @@ public class Game : Object
     /* Tiles on the board */
     private Player[,] tiles;
 
-    public int width
+    private int _size;
+    public int size
     {
-        get { return tiles.length[0]; }
-    }
-
-    public int height
-    {
-        get { return tiles.length[1]; }
+        get { return _size; }
+        private set { _size = value; }
     }
 
     /* undoing */
@@ -85,33 +82,39 @@ public class Game : Object
     * * Creation / exporting
     \*/
 
-    public Game (int width = 8, int height = 8)
+    public Game (int tmp_size = 8)
+        requires (tmp_size >= 4)
+        requires (tmp_size % 2 == 0)
     {
-        tiles = new Player[width, height];
-        for (var x = 0; x < width; x++)
-            for (var y = 0; y < height; y++)
+        size = tmp_size;
+        tiles = new Player[size, size];
+        for (var x = 0; x < size; x++)
+            for (var y = 0; y < size; y++)
                 tiles[x, y] = Player.NONE;
 
-        /* Black plays first */
+        /* Dark plays first */
         current_color = Player.DARK;
 
         /* Setup board with four tiles by default */
-        set_tile (3, 3, Player.LIGHT, false);
-        set_tile (4, 4, Player.LIGHT, false);
-        set_tile (3, 4, Player.DARK, false);
-        set_tile (4, 3, Player.DARK, false);
+        set_tile (size / 2 - 1, size / 2 - 1, Player.LIGHT, false);
+        set_tile (size / 2 - 1, size / 2, Player.DARK, false);
+        set_tile (size / 2, size / 2 - 1, Player.DARK, false);
+        set_tile (size / 2, size / 2, Player.LIGHT, false);
         n_current_tiles = 2;
         n_opponent_tiles = 2;
     }
 
-    public Game.from_strings (string[] setup, Player to_move, int width = 8, int height = 8)
-        requires (setup.length == height)
-        requires (setup[0].length == width)
+    public Game.from_strings (string[] setup, Player to_move, int tmp_size = 8)
+        requires (tmp_size >= 4)
+        requires (setup.length == tmp_size)
+        /* warning, only testing the first string */
+        requires (setup[0].length == tmp_size)
     {
-        tiles = new Player[width, height];
+        size = tmp_size;
+        tiles = new Player[size, size];
 
-        for (int y = 0; y < height; y++)
-            for (int x = 0; x < width; x++)
+        for (int y = 0; y < size; y++)
+            for (int x = 0; x < size; x++)
                 tiles[x, y] = Player.from_char (setup[y][x]);
 
         current_color = to_move;
@@ -121,9 +124,10 @@ public class Game : Object
 
     public Game.copy (Game game)
     {
-        tiles = new Player[game.width, game.height];
-        for (var x = 0; x < width; x++)
-            for (var y = 0; y < height; y++)
+        size = game.size;
+        tiles = new Player[size, size];
+        for (var x = 0; x < size; x++)
+            for (var y = 0; y < size; y++)
                 tiles[x, y] = game.tiles[x, y];
         number_of_moves = game.number_of_moves;
         current_color = game.current_color;
@@ -136,9 +140,9 @@ public class Game : Object
     {
         string s = "\n";
 
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y < size; y++)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < size; x++)
                 s += tiles[x, y].to_string ();
             s += "\n";
         }
@@ -157,15 +161,15 @@ public class Game : Object
     }
 
     public bool is_complete ()
-        ensures (result || n_tiles < width * height)
+        ensures (result || n_tiles < size * size)
     {
         return !can_move (Player.LIGHT) && !can_move (Player.DARK);
     }
 
     public bool can_move (Player color)
     {
-        for (var x = 0; x < width; x++)
-            for (var y = 0; y < height; y++)
+        for (var x = 0; x < size; x++)
+            for (var y = 0; y < size; y++)
                 if (can_place (x, y, color))
                     return true;
         return false;
@@ -211,7 +215,7 @@ public class Game : Object
 
     private bool is_valid_location (int x, int y)
     {
-        return x >= 0 && x < width && y >= 0 && y < height;
+        return x >= 0 && x < size && y >= 0 && y < size;
     }
 
     private int place (int x, int y, Player color, bool apply)
@@ -238,9 +242,7 @@ public class Game : Object
 
     private int flip_tiles (int x, int y, int x_step, int y_step, Player color, bool apply)
     {
-        var enemy = Player.LIGHT;
-        if (color == Player.LIGHT)
-            enemy = Player.DARK;
+        var enemy = Player.flip_color (color);
 
         /* Count number of enemy pieces we are beside */
         var enemy_count = 0;

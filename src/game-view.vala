@@ -48,11 +48,12 @@ public class GameView : Gtk.DrawingArea
             if (_game != null)
                 SignalHandler.disconnect_by_func (_game, null, this);
             _game = value;
+            pixmaps = new int[game.size,game.size];
             if (_game != null)
             {
                 _game.square_changed.connect (square_changed_cb);
-                for (var x = 0; x < 8; x++)
-                    for (var y = 0; y < 8; y++)
+                for (var x = 0; x < game.size; x++)
+                    for (var y = 0; y < game.size; y++)
                         pixmaps[x, y] = get_pixmap (_game.get_owner (x, y));
             }
             redraw ();
@@ -70,16 +71,15 @@ public class GameView : Gtk.DrawingArea
     {
         set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK);
         set_size_request (350, 350);
-        pixmaps = new int[8,8];
     }
 
     private void calculate ()
     {
         var size = int.min (get_allocated_width (), get_allocated_height ());
         /* tile_size includes a grid spacing */
-        tile_size = (size - 2 * GRID_BORDER + GRID_SPACING) / 8;
+        tile_size = (size - 2 * GRID_BORDER + GRID_SPACING) / game.size;
         /* board_size includes its borders */
-        board_size = tile_size * 8 - GRID_SPACING + 2 * GRID_BORDER;
+        board_size = tile_size * game.size - GRID_SPACING + 2 * GRID_BORDER;
     }
 
     public override bool draw (Cairo.Context cr)
@@ -110,7 +110,7 @@ public class GameView : Gtk.DrawingArea
 
         /* draw lines */
         cr.set_line_width (GRID_SPACING);
-        for (var i = 1; i < 8; i++)
+        for (var i = 1; i < game.size; i++)
         {
             cr.move_to (i * tile_size - GRID_SPACING / 2.0, 0);
             cr.rel_line_to (0, board_size - GRID_BORDER);
@@ -122,10 +122,13 @@ public class GameView : Gtk.DrawingArea
 
         /* draw pieces */
         cr.translate (-GRID_SPACING / 2, -GRID_SPACING / 2);
-        for (var x = 0; x < 8; x++)
+        for (var x = 0; x < game.size; x++)
         {
-            for (var y = 0; y < 8; y++)
+            for (var y = 0; y < game.size; y++)
             {
+                if (pixmaps[x, y] == 0)
+                    continue;
+
                 var tile_x = x * tile_size;
                 var tile_y = y * tile_size;
                 var texture_x = (pixmaps[x, y] % 8) * tile_size;
@@ -187,7 +190,7 @@ public class GameView : Gtk.DrawingArea
         /* Show the result by laying the tiles with winning color first */
         if (flip_final_result_now && game.is_complete ())
         {
-            var n = y * game.width + x;
+            var n = y * game.size + x;
             var winning_color = Player.LIGHT;
             var losing_color = Player.DARK;
             var n_winning_tiles = game.n_light_tiles;
@@ -254,9 +257,9 @@ public class GameView : Gtk.DrawingArea
     {
         var animating = false;
 
-        for (var x = 0; x < 8; x++)
+        for (var x = 0; x < game.size; x++)
         {
-            for (var y = 0; y < 8; y++)
+            for (var y = 0; y < game.size; y++)
             {
                 var old = pixmaps[x, y];
                 square_changed_cb (x, y);
@@ -294,7 +297,7 @@ public class GameView : Gtk.DrawingArea
         {
             var x = (int) (event.x - x_offset) / tile_size;
             var y = (int) (event.y - y_offset) / tile_size;
-            if (x >= 0 && x < 8 && y >= 0 && y < 8)
+            if (x >= 0 && x < game.size && y >= 0 && y < game.size)
                 move (x, y);
         }
 
