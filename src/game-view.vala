@@ -224,13 +224,11 @@ public class GameView : Gtk.DrawingArea
              * Show the actual final positions of the pieces before flipping the board.
              * Otherwise, it could seem like the final player placed the other's piece.
              */
-            Timeout.add_seconds (2, () =>
-                {
-                    flip_final_result_now = true;
-                    square_changed_cb (x, y);
-                    /* Disconnect from mainloop */
-                    return false;
-                });
+            Timeout.add_seconds (2, () =>  {
+                flip_final_result_now = true;
+                square_changed_cb (x, y);
+                return Source.REMOVE;
+            });
         }
     }
 
@@ -271,10 +269,10 @@ public class GameView : Gtk.DrawingArea
         if (!animating)
         {
             animate_timeout = 0;
-            return false;
+            return Source.REMOVE;
         }
 
-        return true;
+        return Source.CONTINUE;
     }
 
     private int get_pixmap (Player color)
