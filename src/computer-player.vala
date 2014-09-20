@@ -149,8 +149,8 @@ public class ComputerPlayer : Object
         /* End of the game, return a near-infinite evaluation */
         if (g.is_complete ())
         {
-            var n_current_tiles = g.count_tiles (g.current_color);
-            var n_enemy_tiles = g.count_tiles (Player.flip_color (g.current_color));
+            var n_current_tiles = g.n_current_tiles;
+            var n_enemy_tiles = g.n_opponent_tiles;
             return n_current_tiles > n_enemy_tiles ? POSITIVE_INFINITY - n_enemy_tiles : NEGATIVE_INFINITY + n_current_tiles;
         }
 

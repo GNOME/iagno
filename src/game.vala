@@ -39,38 +39,69 @@ public class Game : Object
     /* Indicate the game is complete */
     public signal void complete ();
 
-    /* The number of tiles on the board */
-    private int _n_tiles = 4;
+    /*\
+    * * Number of tiles on the board
+    \*/
+
     public int n_tiles
     {
-        get { return _n_tiles; }
-        private set { _n_tiles = value; }
+        get { return n_dark_tiles + n_light_tiles; }
     }
 
+    private int _n_light_tiles = 0;
     public int n_light_tiles
     {
-        get { return count_tiles (Player.LIGHT); }
+        get { return _n_light_tiles; }
     }
 
+    private int _n_dark_tiles = 0;
     public int n_dark_tiles
     {
-        get { return count_tiles (Player.DARK); }
+        get { return _n_dark_tiles; }
     }
+
+    public int n_current_tiles
+    {
+        get { return current_color == Player.LIGHT ? n_light_tiles : n_dark_tiles; }
+        private set {
+            if (current_color == Player.LIGHT)
+                _n_light_tiles = value;
+            else
+                _n_dark_tiles = value;
+        }
+    }
+    public int n_opponent_tiles
+    {
+        get { return current_color == Player.DARK ? n_light_tiles : n_dark_tiles; }
+        private set {
+            if (current_color == Player.DARK)
+                _n_light_tiles = value;
+            else
+                _n_dark_tiles = value;
+        }
+    }
+
+    /*\
+    * * Creation / exporting
+    \*/
 
     public Game (int width = 8, int height = 8)
     {
-        /* Setup board with four tiles by default */
         tiles = new Player[width, height];
         for (var x = 0; x < width; x++)
             for (var y = 0; y < height; y++)
                 tiles[x, y] = Player.NONE;
-        set_tile (3, 3, Player.LIGHT, false);
-        set_tile (3, 4, Player.DARK, false);
-        set_tile (4, 3, Player.DARK, false);
-        set_tile (4, 4, Player.LIGHT, false);
 
         /* Black plays first */
         current_color = Player.DARK;
+
+        /* Setup board with four tiles by default */
+        set_tile (3, 3, Player.LIGHT, false);
+        set_tile (4, 4, Player.LIGHT, false);
+        set_tile (3, 4, Player.DARK, false);
+        set_tile (4, 3, Player.DARK, false);
+        n_current_tiles = 2;
+        n_opponent_tiles = 2;
     }
 
     public Game.from_strings (string[] setup, Player to_move, int width = 8, int height = 8)
@@ -95,10 +126,29 @@ public class Game : Object
             for (var y = 0; y < height; y++)
                 tiles[x, y] = game.tiles[x, y];
         number_of_moves = game.number_of_moves;
-        n_tiles = game.n_tiles;
         current_color = game.current_color;
+        n_current_tiles = game.n_current_tiles;
+        n_opponent_tiles = game.n_opponent_tiles;
         /* don't copy history */
     }
+
+    public string to_string ()
+    {
+        string s = "\n";
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+                s += tiles[x, y].to_string ();
+            s += "\n";
+        }
+
+        return s;
+    }
+
+    /*\
+    * * Public information
+    \*/
 
     public Player get_owner (int x, int y)
         requires (is_valid_location (x, y))
@@ -126,6 +176,10 @@ public class Game : Object
         return place (x, y, color, false) > 0;
     }
 
+    /*\
+    * * Public actions (apart undo)
+    \*/
+
     public int place_tile (int x, int y)
     {
         var tiles_turned = place (x, y, current_color, true);
@@ -133,7 +187,6 @@ public class Game : Object
             return 0;
 
         number_of_moves++;
-        n_tiles++;
         current_color = Player.flip_color (current_color);
 
         if (is_complete ())
@@ -152,6 +205,15 @@ public class Game : Object
         move ();
     }
 
+    /*\
+    * * Placing tiles
+    \*/
+
+    private bool is_valid_location (int x, int y)
+    {
+        return x >= 0 && x < width && y >= 0 && y < height;
+    }
+
     private int place (int x, int y, Player color, bool apply)
     {
         /* Square needs to be empty */
@@ -168,22 +230,10 @@ public class Game : Object
         n_flips += flip_tiles (x, y, 0, -1, color, apply);
         n_flips += flip_tiles (x, y, 1, -1, color, apply);
 
+        if (apply && n_flips > 0)
+            set_tile (x, y, color, true);
+
         return n_flips;
-    }
-
-    public int count_tiles (Player color)
-    {
-        var count = 0;
-        for (var x = 0; x < width; x++)
-            for (var y = 0; y < height; y++)
-                if (tiles[x, y] == color)
-                    count++;
-        return count;
-    }
-
-    private bool is_valid_location (int x, int y)
-    {
-        return x >= 0 && x < width && y >= 0 && y < height;
     }
 
     private int flip_tiles (int x, int y, int x_step, int y_step, Player color, bool apply)
@@ -211,7 +261,7 @@ public class Game : Object
 
         /* Place this tile and flip the adjacent ones */
         if (apply)
-            for (var i = 0; i <= enemy_count; i++)
+            for (var i = 1; i <= enemy_count; i++)
                 set_tile (x + i * x_step, y + i * y_step, color, true);
 
         return enemy_count;
@@ -220,24 +270,21 @@ public class Game : Object
     private void set_tile (int x, int y, Player color, bool update_history)
     {
         if (update_history)
+        {
             add_move (x, y, tiles[x, y]);
+            n_current_tiles++;
+            if (tiles[x, y] != Player.NONE)
+                n_opponent_tiles--;
+        }
+        else
+        {
+            n_current_tiles--;
+            if (color != Player.NONE)
+                n_opponent_tiles++;
+        }
 
         tiles[x, y] = color;
         square_changed (x, y);
-    }
-
-    public string to_string ()
-    {
-        string s = "\n";
-
-        for (int y = 0; y < height; y++)
-        {
-            for (int x = 0; x < width; x++)
-                s += tiles[x, y].to_string ();
-            s += "\n";
-        }
-
-        return s;
     }
 
     /*\
@@ -264,6 +311,7 @@ public class Game : Object
         requires (count == 1 || count == 2)
         requires (number_of_moves >= count)
     {
+        current_color = Player.flip_color (current_color);
         while (state != null && state.number == number_of_moves - 1)
         {
             set_tile (state.x, state.y, state.color, false);
@@ -272,8 +320,6 @@ public class Game : Object
             previous_state = state == null ? null : state.previous;
         };
         number_of_moves--;
-        n_tiles--;
-        current_color = Player.flip_color (current_color);
 
         if (count == 2)
             undo (1);

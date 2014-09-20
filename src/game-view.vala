@@ -208,7 +208,7 @@ public class GameView : Gtk.DrawingArea
                 pixmap = get_pixmap (Player.NONE);
         }
         /* An undo occurred after the game was complete */
-        else if (flip_final_result_now && !game.is_complete ())
+        else if (flip_final_result_now)
         {
             flip_final_result_now = false;
         }
