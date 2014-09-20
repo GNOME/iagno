@@ -183,7 +183,12 @@ public class Game : Object
     }
 
     public bool can_place (int x, int y, Player color)
+        requires (is_valid_location (x, y))
+        requires (color != Player.NONE)
     {
+        if (tiles[x, y] != Player.NONE)
+            return false;
+
         return place (x, y, color, false) > 0;
     }
 
@@ -192,11 +197,16 @@ public class Game : Object
     \*/
 
     public int place_tile (int x, int y)
+        requires (is_valid_location (x, y))
     {
+        if (tiles[x, y] != Player.NONE)
+            return 0;
+
         var tiles_turned = place (x, y, current_color, true);
         if (tiles_turned == 0)
             return 0;
 
+        set_tile (x, y, current_color, true);
         number_of_moves++;
         current_color = Player.flip_color (current_color);
 
@@ -227,10 +237,6 @@ public class Game : Object
 
     private int place (int x, int y, Player color, bool apply)
     {
-        /* Square needs to be empty */
-        if (!is_valid_location (x, y) || tiles[x, y] != Player.NONE)
-            return 0;
-
         var n_flips = 0;
         n_flips += flip_tiles (x, y, 1, 0, color, apply);
         n_flips += flip_tiles (x, y, 1, 1, color, apply);
@@ -240,10 +246,6 @@ public class Game : Object
         n_flips += flip_tiles (x, y, -1, -1, color, apply);
         n_flips += flip_tiles (x, y, 0, -1, color, apply);
         n_flips += flip_tiles (x, y, 1, -1, color, apply);
-
-        if (apply && n_flips > 0)
-            set_tile (x, y, color, true);
-
         return n_flips;
     }
 
@@ -252,23 +254,20 @@ public class Game : Object
         var enemy = Player.flip_color (color);
 
         /* Count number of enemy pieces we are beside */
-        var enemy_count = 0;
-        var xt = x + x_step;
-        var yt = y + y_step;
-        while (is_valid_location (xt, yt))
-        {
-            if (tiles[xt, yt] != enemy)
-                break;
+        var enemy_count = -1;
+        var xt = x;
+        var yt = y;
+        do {
             enemy_count++;
             xt += x_step;
             yt += y_step;
-        }
+        } while (is_valid_location (xt, yt) && tiles[xt, yt] == enemy);
 
         /* Must be a line of enemy pieces then one of ours */
         if (enemy_count == 0 || !is_valid_location (xt, yt) || tiles[xt, yt] != color)
             return 0;
 
-        /* Place this tile and flip the adjacent ones */
+        /* Flip the enemy's tiles */
         if (apply)
             for (var i = 1; i <= enemy_count; i++)
                 set_tile (x + i * x_step, y + i * y_step, color, true);
