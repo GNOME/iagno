@@ -24,30 +24,27 @@ public class Game : Object
         get { return tiles.length[1]; }
     }
 
-    /* Undo stack.  This is a record of all the tile changes since the start of the game
-     * in the binary form ccxxxyyy where cc is the color (0-2), xxx is the x location (0-7)
-     * and yyy is the y location (0-7).  Each set of changes is followed by the number of changes
-     * preceeding.  This array is oversized, but big enough for the (impossible) worst case of
-     * each move flipping 20 tiles. */
-    private int undo_history[1344];
-    private int undo_index = 0;
+    /* undoing */
+    private UndoItem? state = null;
+    private UndoItem? previous_state = null;
+    private int number_of_moves = 0;
 
     /* Color to move next */
     public Player current_color { get; private set; }
 
     /* Indicate that a player should move */
     public signal void move ();
-
     /* Indicate a square has changed */
     public signal void square_changed (int x, int y);
-
     /* Indicate the game is complete */
     public signal void complete ();
 
     /* The number of tiles on the board */
+    private int _n_tiles = 4;
     public int n_tiles
     {
-        get { return n_light_tiles + n_dark_tiles; }
+        get { return _n_tiles; }
+        private set { _n_tiles = value; }
     }
 
     public int n_light_tiles
@@ -97,10 +94,10 @@ public class Game : Object
         for (var x = 0; x < width; x++)
             for (var y = 0; y < height; y++)
                 tiles[x, y] = game.tiles[x, y];
-        for (var i = 0; i < game.undo_index; i++)
-            undo_history[i] = game.undo_history[i];
-        undo_index = game.undo_index;
+        number_of_moves = game.number_of_moves;
+        n_tiles = game.n_tiles;
         current_color = game.current_color;
+        /* don't copy history */
     }
 
     public Player get_owner (int x, int y)
@@ -131,10 +128,12 @@ public class Game : Object
 
     public int place_tile (int x, int y)
     {
-        var n_tiles = place (x, y, current_color, true);
-        if (n_tiles == 0)
+        var tiles_turned = place (x, y, current_color, true);
+        if (tiles_turned == 0)
             return 0;
 
+        number_of_moves++;
+        n_tiles++;
         current_color = Player.flip_color (current_color);
 
         if (is_complete ())
@@ -142,14 +141,13 @@ public class Game : Object
         else
             move ();
 
-        return n_tiles;
+        return tiles_turned;
     }
 
     public void pass ()
         requires (!can_move (current_color))
     {
-        undo_history[undo_index] = 0;
-        undo_index++;
+        number_of_moves++;
         current_color = Player.flip_color (current_color);
         move ();
     }
@@ -169,13 +167,6 @@ public class Game : Object
         n_flips += flip_tiles (x, y, -1, -1, color, apply);
         n_flips += flip_tiles (x, y, 0, -1, color, apply);
         n_flips += flip_tiles (x, y, 1, -1, color, apply);
-
-        /* Store the number of entries in the undo history */
-        if (apply && n_flips > 0)
-        {
-            undo_history[undo_index] = n_flips + 1;
-            undo_index++;
-        }
 
         return n_flips;
     }
@@ -226,53 +217,10 @@ public class Game : Object
         return enemy_count;
     }
 
-    public bool can_undo (int count = 1)
-        requires (count == 1 || count == 2)
-    {
-        /* Can undo one move if a move has been played */
-        if (count == 1)
-            return undo_index > 0;
-        else /* Can undo two moves only after the second ply; after the first ply, undo_index == 3 */
-            return undo_index > 3;
-    }
-
-    public void undo (int count = 1)
-        requires (count == 1 || count == 2)
-    {
-        if (!can_undo (count))
-            return;
-
-        for (var i = 0; i < count; i++)
-        {
-            var n_changes = undo_history[undo_index - 1];
-            undo_index--;
-
-            /* Undo each tile change */
-            for (var j = 0; j < n_changes; j++)
-            {
-                var n = undo_history[undo_index - 1];
-                undo_index--;
-                var c = (Player) (n >> 6);
-                var xy = n & 0x3F;
-                set_tile (xy % width, xy / width, c, false);
-            }
-
-            /* Previous player to move again */
-            current_color = Player.flip_color (current_color);
-        }
-    }
-
     private void set_tile (int x, int y, Player color, bool update_history)
     {
-        if (tiles[x, y] == color)
-            return;
-
-        /* Store the old color in the history */
         if (update_history)
-        {
-            undo_history[undo_index] = ((int) tiles[x, y] << 6) | (y * width + x);
-            undo_index++;
-        }
+            add_move (x, y, tiles[x, y]);
 
         tiles[x, y] = color;
         square_changed (x, y);
@@ -292,4 +240,50 @@ public class Game : Object
         return s;
     }
 
+    /*\
+    * * Undo
+    \*/
+
+    private struct UndoItem
+    {
+        public int number;
+        public int x;
+        public int y;
+        public Player color;
+        public weak UndoItem? next;
+        public UndoItem? previous;
+    }
+
+    public bool can_undo (int count = 1)
+        requires (count == 1 || count == 2)
+    {
+        return number_of_moves >= count;
+    }
+
+    public void undo (int count = 1)
+        requires (count == 1 || count == 2)
+        requires (number_of_moves >= count)
+    {
+        while (state != null && state.number == number_of_moves - 1)
+        {
+            set_tile (state.x, state.y, state.color, false);
+
+            state = previous_state;
+            previous_state = state == null ? null : state.previous;
+        };
+        number_of_moves--;
+        n_tiles--;
+        current_color = Player.flip_color (current_color);
+
+        if (count == 2)
+            undo (1);
+    }
+
+    private void add_move (int x, int y, Player color)
+    {
+        previous_state = state == null ? null : state;
+        state = UndoItem () { number = number_of_moves, x = x, y = y, color = color, next = null, previous = previous_state };
+        if (previous_state != null)
+            previous_state.next = state;
+    }
 }
