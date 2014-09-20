@@ -314,7 +314,7 @@ public class ComputerPlayer : Object
                     moves.append (x * 8 + y);
 
         if (moves == null)
-            warn_if_reached ();
+            assert_not_reached ();
 
         var i = Random.int_range (0, (int) moves.length ());
         var xy = moves.nth_data (i);
