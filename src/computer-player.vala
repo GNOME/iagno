@@ -105,7 +105,12 @@ public class ComputerPlayer : Object
         }
 
         pending_move_id = 0;
-        complete_move (x, y);
+
+        /* complete_move() needs to be called on the UI thread. */
+        Idle.add (() => {
+            complete_move (x, y);
+            return Source.REMOVE;
+        });
     }
 
     public void cancel_move ()
