@@ -293,7 +293,8 @@ public class GameView : Gtk.DrawingArea
 
     public override bool button_press_event (Gdk.EventButton event)
     {
-        if (event.button == 1)
+        /* left button is first, right button is third */
+        if (event.button == 1 || event.button == 3)
         {
             var x = (int) (event.x - x_offset) / tile_size;
             var y = (int) (event.y - y_offset) / tile_size;
