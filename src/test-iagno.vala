@@ -22,14 +22,14 @@ public class TestIagno : Object
 {
     private static void test_undo_after_pass ()
     {
-        string[] board = {"    LLLL",
-                          "   LLLLD",
-                          "  LLLLD ",
-                          "  LLLDLL",
-                          " LLLDLLL",
-                          " LLDDLLL",
-                          "LLLLLLLL",
-                          "LLLLLLLL"};
+        string[] board = {" . . . . L L L L",
+                          " . . . L L L L D",
+                          " . . L L L L D .",
+                          " . . L L L D L L",
+                          " . L L L D L L L",
+                          " . L L D D L L L",
+                          " L L L L L L L L",
+                          " L L L L L L L L"};
         Game game = new Game.from_strings (board, Player.DARK);
         assert (game.place_tile (7, 2) > 0);
         assert (!game.can_move (Player.LIGHT));
@@ -60,14 +60,14 @@ public class TestIagno : Object
 
     private static void test_current_color_after_pass ()
     {
-        string[] board = {"L LLLLLL",
-                          "LLLLLLLL",
-                          "L LLLLLL",
-                          "LDLLLLLL",
-                          "LDDLDLLL",
-                          "LDLDLLLL",
-                          "DDDDDLLL",
-                          "DDDDDDDD"};
+        string[] board = {" L . L L L L L L",
+                          " L L L L L L L L",
+                          " L . L L L L L L",
+                          " L D L L L L L L",
+                          " L D D L D L L L",
+                          " L D L D L L L L",
+                          " D D D D D L L L",
+                          " D D D D D D D D"};
         Game game = new Game.from_strings (board, Player.DARK);
         assert (game.current_color == Player.DARK);
         assert (game.place_tile (1, 2) > 0);
@@ -79,14 +79,14 @@ public class TestIagno : Object
 
     private static void test_ai_search_1 ()
     {
-        string[] board = {"L  LLLLL",
-                          "LLDDDDDD",
-                          "DDDDDLDD",
-                          "LDLLLLLL",
-                          "LLDLDDLL",
-                          "LLDDLLLL",
-                          "LLLLLLLL",
-                          "LLLLLLLL"};
+        string[] board = {" L . . L L L L L",
+                          " L L D D D D D D",
+                          " D D D D D L D D",
+                          " L D L L L L L L",
+                          " L L D L D D L L",
+                          " L L D D L L L L",
+                          " L L L L L L L L",
+                          " L L L L L L L L"};
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
@@ -95,14 +95,14 @@ public class TestIagno : Object
 
     private static void test_ai_search_2 ()
     {
-        string[] board = {"        ",
-                          "        ",
-                          "   D    ",
-                          "   DD   ",
-                          "   DLL  ",
-                          "  DDD   ",
-                          "   D    ",
-                          "  D     "};
+        string[] board = {" . . . . . . . .",
+                          " . . . . . . . .",
+                          " . . . D . . . .",
+                          " . . . D D . . .",
+                          " . . . D L L . .",
+                          " . . D D D . . .",
+                          " . . . D . . . .",
+                          " . . D . . . . ."};
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
@@ -111,14 +111,14 @@ public class TestIagno : Object
 
     private static void test_ai_search_3 ()
     {
-        string[] board = {"DL DDDDD",
-                          "DLDDDDDD",
-                          "DDLDLDDD",
-                          "DLDDLDDD",
-                          "DDLDLLLD",
-                          "DLDDLDLD",
-                          "LLLLLDDD",
-                          "DDDDDDDD"};
+        string[] board = {" D L . D D D D D",
+                          " D L D D D D D D",
+                          " D D L D L D D D",
+                          " D L D D L D D D",
+                          " D D L D L L L D",
+                          " D L D D L D L D",
+                          " L L L L L D D D",
+                          " D D D D D D D D"};
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
@@ -127,14 +127,14 @@ public class TestIagno : Object
 
     private static void test_ai_search_4 ()
     {
-        string[] board = {"  LDDDDD",
-                          "DLDLDLDD",
-                          "DDDLLDLD",
-                          "DDLLDLDD",
-                          "DLLLDDDD",
-                          "DLDLDLDD",
-                          "DDDLLDDD",
-                          "DDDLDDDD"};
+        string[] board = {" . . L D D D D D",
+                          " D L D L D L D D",
+                          " D D D L L D L D",
+                          " D D L L D L D D",
+                          " D L L L D D D D",
+                          " D L D L D L D D",
+                          " D D D L L D D D",
+                          " D D D L D D D D"};
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
@@ -143,14 +143,14 @@ public class TestIagno : Object
 
     private static void test_ai_search_5 ()
     {
-        string[] board = {"     L  ",
-                          "    LL  ",
-                          "  LLLL  ",
-                          "  LLLL  ",
-                          " DDDLLLL",
-                          " L DLLLL",
-                          " LLLDLLL",
-                          "  LLLLLL"};
+        string[] board = {" . . . . . L . .",
+                          " . . . . L L . .",
+                          " . . L L L L . .",
+                          " . . L L L L . .",
+                          " . D D D L L L L",
+                          " . L . D L L L L",
+                          " . L L L D L L L",
+                          " . . L L L L L L"};
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();

@@ -34,12 +34,12 @@ public enum Player
             return "D";
         default:
             warn_if_fail (this == NONE);
-            return " ";
+            return ".";
         }
     }
 
     public static Player from_char (char c)
-        requires (c == 'L' || c == 'D' || c == ' ')
+        requires (c == 'L' || c == 'D' || c == '.')
     {
         switch (c)
         {
@@ -47,7 +47,7 @@ public enum Player
             return LIGHT;
         case 'D':
             return DARK;
-        case ' ':
+        case '.':
             return NONE;
         default:
             warn_if_reached ();
@@ -56,12 +56,9 @@ public enum Player
     }
 
     public static Player flip_color (Player p)
-        requires (p == Player.LIGHT || p == Player.DARK)
+        requires (p != Player.NONE)
     {
-        if (p == Player.LIGHT)
-            return Player.DARK;
-        else
-            return Player.LIGHT;
+        return p == Player.LIGHT ? Player.DARK : Player.LIGHT;
     }
 }
 

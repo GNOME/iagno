@@ -107,19 +107,35 @@ public class Game : Object
     public Game.from_strings (string[] setup, Player to_move, int tmp_size = 8)
         requires (tmp_size >= 4)
         requires (setup.length == tmp_size)
-        /* warning, only testing the first string */
-        requires (setup[0].length == tmp_size)
     {
         size = tmp_size;
         tiles = new Player[size, size];
 
         for (int y = 0; y < size; y++)
+        {
+            if (setup[y].length != size * 2)
+                warn_if_reached ();
             for (int x = 0; x < size; x++)
-                tiles[x, y] = Player.from_char (setup[y][x]);
+                tiles[x, y] = Player.from_char (setup[y][x * 2 + 1]);
+        }
 
         current_color = to_move;
 
         warn_if_fail (string.joinv ("\n", setup).strip () == to_string ().strip ());
+    }
+
+    public string to_string ()
+    {
+        string s = "\n";
+
+        for (int y = 0; y < size; y++)
+        {
+            for (int x = 0; x < size; x++)
+                s += " " + tiles[x, y].to_string ();
+            s += "\n";
+        }
+
+        return s;
     }
 
     public Game.copy (Game game)
@@ -134,20 +150,6 @@ public class Game : Object
         n_current_tiles = game.n_current_tiles;
         n_opponent_tiles = game.n_opponent_tiles;
         /* don't copy history */
-    }
-
-    public string to_string ()
-    {
-        string s = "\n";
-
-        for (int y = 0; y < size; y++)
-        {
-            for (int x = 0; x < size; x++)
-                s += tiles[x, y].to_string ();
-            s += "\n";
-        }
-
-        return s;
     }
 
     /*\
