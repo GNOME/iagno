@@ -163,15 +163,20 @@ public class Game : Object
     public bool is_complete ()
         ensures (result || n_tiles < size * size)
     {
-        return !can_move (Player.LIGHT) && !can_move (Player.DARK);
+        return !can_move (null);
     }
 
-    public bool can_move (Player color)
+    public bool can_move (Player? color)
+        requires (color != Player.NONE)
     {
         for (var x = 0; x < size; x++)
             for (var y = 0; y < size; y++)
-                if (can_place (x, y, color))
+            {
+                if (color != Player.DARK && can_place (x, y, Player.LIGHT))
                     return true;
+                if (color != Player.LIGHT && can_place (x, y, Player.DARK))
+                    return true;
+            }
         return false;
     }
 
