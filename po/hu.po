@@ -11,14 +11,14 @@
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
-# Balázs Úr <urbalazs@gmail.com>, 2014.
+# Balázs Úr <urbalazs at gmail dot com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-11 09:21+0000\n"
-"PO-Revision-Date: 2014-09-11 19:03+0200\n"
+"POT-Creation-Date: 2014-09-21 09:16+0000\n"
+"PO-Revision-Date: 2014-09-21 20:14+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -49,8 +49,8 @@ msgstr ""
 "színre, ezalatt megakadályozva őt ugyanebben. Ez az ellenfél köveinek két "
 "saját kő közti csapdába ejtésével érhető el."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:103 ../src/iagno.vala:127
-#: ../src/iagno.vala:369 ../src/iagno.vala:692
+#: ../data/iagno.desktop.in.h:1 ../data/iagno.ui.h:1 ../src/iagno.vala:79
+#: ../src/iagno.vala:307
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -62,38 +62,81 @@ msgstr "Uralja a táblát a Reversi klasszikus változatában"
 msgid "othello;"
 msgstr "othello;"
 
-#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:586
+#: ../data/iagno.desktop.in.h:4 ../data/iagno-preferences.ui.h:5
 msgid "Play first (Dark)"
-msgstr "Játszás elsőként (sötét)"
+msgstr "Első játékos (sötét)"
 
-#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:588
+#: ../data/iagno.desktop.in.h:5 ../data/iagno-preferences.ui.h:6
 msgid "Play second (Light)"
-msgstr "Játszás másodikként (világos)"
+msgstr "Második játékos (világos)"
 
 #: ../data/iagno.desktop.in.h:6
-#| msgid "Player Names"
 msgid "Two players game"
 msgstr "Kétszemélyes játék"
 
-#: ../data/iagno.ui.h:1
+#: ../data/iagno-menus.ui.h:1
 msgid "_New Game"
 msgstr "Ú_j játék"
 
-#: ../data/iagno.ui.h:2
+#: ../data/iagno-menus.ui.h:2
 msgid "_Preferences"
 msgstr "_Beállítások"
 
-#: ../data/iagno.ui.h:3
+#: ../data/iagno-menus.ui.h:3
 msgid "_Help"
 msgstr "_Súgó"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno-menus.ui.h:4
 msgid "_About"
 msgstr "_Névjegy"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno-menus.ui.h:5
 msgid "_Quit"
 msgstr "_Kilépés"
+
+#: ../data/iagno-preferences.ui.h:1
+msgid "Game mode:"
+msgstr "Játékmód:"
+
+#: ../data/iagno-preferences.ui.h:2
+msgid "Computer:"
+msgstr "Számítógép:"
+
+#: ../data/iagno-preferences.ui.h:3
+msgid "_Tile set:"
+msgstr "_Kőkészlet:"
+
+#: ../data/iagno-preferences.ui.h:4
+msgid "E_nable sounds"
+msgstr "Ha_ngok bekapcsolása"
+
+#: ../data/iagno-preferences.ui.h:7
+msgid "Two players"
+msgstr "Kétszemélyes"
+
+#: ../data/iagno-preferences.ui.h:8
+msgid "Level one"
+msgstr "Első szint"
+
+#: ../data/iagno-preferences.ui.h:9
+msgid "Level two"
+msgstr "Második szint"
+
+#: ../data/iagno-preferences.ui.h:10
+msgid "Level three"
+msgstr "Harmadik szint"
+
+#: ../data/iagno.ui.h:2
+msgid "Undo your most recent move"
+msgstr "A legutóbbi lépés visszavonása"
+
+#: ../data/iagno.ui.h:3
+msgid "_Start Over"
+msgstr "Újra_kezdés"
+
+#: ../data/iagno.ui.h:4
+msgid "Start a new game"
+msgstr "Új játék indítása"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -104,12 +147,10 @@ msgid "From 1, the easiest, to 3, the hardest."
 msgstr "A legkönnyebb 1-től a legnehezebb 3-ig."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
-#| msgid "Size of game tiles"
 msgid "Type of game"
 msgstr "A játék típusa"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-#| msgid "Changes will take effect for the next game."
 msgid "Choose the type of the next game."
 msgstr "Válassza ki a következő játék típusát."
 
@@ -133,79 +174,60 @@ msgstr "Az ablak magassága képpontokban"
 msgid "true if the window is maximized"
 msgstr "Az ablak teljes méretű-e"
 
-#: ../src/iagno.vala:47
+#: ../src/iagno.vala:50
 msgid "Reduce delay before AI moves"
 msgstr "Késleltetés csökkentése a gép lépése előtt"
 
-#: ../src/iagno.vala:48
-#| msgid "Player _List"
+#: ../src/iagno.vala:51
 msgid "Play first"
-msgstr "Játszás elsőként"
+msgstr "Első játékos"
 
-#: ../src/iagno.vala:49
+#: ../src/iagno.vala:52
 msgid "Set the level of the computer's AI"
 msgstr "A számítógép intelligencia szintjének beállítása"
 
-#: ../src/iagno.vala:50
-#| msgid "Turn off all the lights"
+#: ../src/iagno.vala:53
 msgid "Turn off the sound"
 msgstr "Hang kikapcsolása"
 
-#: ../src/iagno.vala:51
-#| msgid "Played for %d second"
-#| msgid_plural "Played for %d seconds"
+#: ../src/iagno.vala:54
 msgid "Play second"
-msgstr "Játszás másodikként"
+msgstr "Második játékos"
 
-#: ../src/iagno.vala:52
+#: ../src/iagno.vala:55
+msgid "Size of the board (debug only)"
+msgstr "A tábla mérete (csak hibakereséshez)"
+
+#: ../src/iagno.vala:56
 msgid "Two-players mode"
 msgstr "Kétszemélyes mód"
 
-#: ../src/iagno.vala:53
-#| msgid "Turn off all the lights"
+#: ../src/iagno.vala:57
 msgid "Turn on the sound"
 msgstr "Hang bekapcsolása"
 
-#: ../src/iagno.vala:54
-#| msgid "Show release version"
+#: ../src/iagno.vala:58
 msgid "Print release version and exit"
 msgstr "Kiadási verzió kiírása és kilépés"
 
-#: ../src/iagno.vala:122
-msgid "Undo your most recent move"
-msgstr "A legutóbbi lépés visszavonása"
+#. Console message displayed for an incorrect size
+#: ../src/iagno.vala:105
+msgid "Size must be even and at least 4."
+msgstr "A méret csak páros lehet és legalább 4."
 
-#: ../src/iagno.vala:163 ../src/iagno.vala:321 ../src/iagno.vala:329
-msgid "Dark:"
-msgstr "Sötét:"
-
-#: ../src/iagno.vala:171 ../src/iagno.vala:322 ../src/iagno.vala:330
-msgid "Light:"
-msgstr "Világos:"
-
-#: ../src/iagno.vala:180
-#| msgid "_Starting level:"
-msgid "_Start Over"
-msgstr "Újra_kezdés"
-
-#: ../src/iagno.vala:187
-msgid "Start a new game"
-msgstr "Új játék indítása"
-
-#: ../src/iagno.vala:221
+#: ../src/iagno.vala:125
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "A szintnek 1 (könnyű) és 3 (nehéz) között kell lennie. A beállítások nem "
 "változtak."
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:324 ../src/iagno.vala:325 ../src/iagno.vala:332
-#: ../src/iagno.vala:333
+#: ../src/iagno.vala:260 ../src/iagno.vala:261
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:374
+#: ../src/iagno.vala:312
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -215,7 +237,7 @@ msgstr ""
 "\n"
 "Az Iagno a GNOME játékok része."
 
-#: ../src/iagno.vala:377
+#: ../src/iagno.vala:315
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -227,72 +249,45 @@ msgstr ""
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:412
+#: ../src/iagno.vala:350
 msgid "Light must pass, Dark’s move"
 msgstr "A világos nem tud lépni, a sötét jön"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:417
+#: ../src/iagno.vala:355
 msgid "Dark must pass, Light’s move"
 msgstr "A sötét nem tud lépni, a világos jön"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:462
+#: ../src/iagno.vala:383
 msgid "Light wins!"
 msgstr "A világos nyert!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:467
+#: ../src/iagno.vala:388
 msgid "Dark wins!"
 msgstr "A sötét nyert!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:472
+#: ../src/iagno.vala:393
 msgid "The game is draw."
 msgstr "Az eredmény döntetlen."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:498
+#: ../src/iagno.vala:419
 msgid "You can’t move there!"
 msgstr "Nem léphet oda!"
 
-#: ../src/iagno.vala:553
+#. the dialog is not in the ui file for the use-header-bar flag to be switchable
+#: ../src/iagno.vala:472
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: ../src/iagno.vala:575
-#| msgid "Game score"
-msgid "Game mode:"
-msgstr "Játékmód:"
+#~ msgid "Dark:"
+#~ msgstr "Sötét:"
 
-#: ../src/iagno.vala:590
-#| msgid "_Number of players:"
-msgid "Two players"
-msgstr "Kétszemélyes"
-
-#: ../src/iagno.vala:602
-msgid "Computer:"
-msgstr "Számítógép:"
-
-#: ../src/iagno.vala:613
-msgid "Level one"
-msgstr "Első szint"
-
-#: ../src/iagno.vala:615
-msgid "Level two"
-msgstr "Második szint"
-
-#: ../src/iagno.vala:617
-msgid "Level three"
-msgstr "Harmadik szint"
-
-#: ../src/iagno.vala:624
-msgid "_Tile set:"
-msgstr "_Kőkészlet:"
-
-#: ../src/iagno.vala:676
-msgid "E_nable sounds"
-msgstr "Ha_ngok bekapcsolása"
+#~ msgid "Light:"
+#~ msgstr "Világos:"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "Az ablak teljes képernyős-e"
