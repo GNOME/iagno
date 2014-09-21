@@ -58,6 +58,28 @@ public class ComputerPlayer : Object
     /* Source ID of a pending move timeout */
     private uint pending_move_id = 0;
 
+    /* Indicates the results of the AI's search should be discarded.
+     * The mutex is only needed for its memory barrier. */
+    private bool _move_pending;
+    private RecMutex _move_pending_mutex;
+    private bool move_pending
+    {
+        get
+        {
+            _move_pending_mutex.lock ();
+            bool result = _move_pending;
+            _move_pending_mutex.unlock ();
+            return result;
+        }
+
+        set
+        {
+            _move_pending_mutex.lock ();
+            _move_pending = value;
+            _move_pending_mutex.unlock ();
+        }
+    }
+
     public ComputerPlayer (Game game, int level = 1)
     {
         this.game = game;
@@ -73,6 +95,7 @@ public class ComputerPlayer : Object
         }
     }
 
+    /* For tests only. */
     public void move ()
     {
         int x = 0;
@@ -88,8 +111,17 @@ public class ComputerPlayer : Object
         int x = 0;
         int y = 0;
 
+        while (move_pending)
+        {
+            /* We were called while a previous search was in progress.
+             * Wait for that to finish before continuing. */
+            Timeout.add (200, move_async.callback);
+            yield;
+        }
+
         timer.start ();
         new Thread<void *> ("AI thread", () => {
+            move_pending = true;
             run_search (ref x, ref y);
             move_async.callback ();
             return null;
@@ -98,6 +130,9 @@ public class ComputerPlayer : Object
 
         timer.stop ();
 
+        if (!move_pending)
+            return;
+
         if (timer.elapsed () < delay_seconds)
         {
             pending_move_id = Timeout.add ((uint) ((delay_seconds - timer.elapsed ()) * 1000), move_async.callback);
@@ -105,6 +140,7 @@ public class ComputerPlayer : Object
         }
 
         pending_move_id = 0;
+        move_pending = false;
 
         /* complete_move() needs to be called on the UI thread. */
         Idle.add (() => {
@@ -115,11 +151,19 @@ public class ComputerPlayer : Object
 
     public void cancel_move ()
     {
+        if (!move_pending)
+            return;
+
+        /* If AI thread has finished and its move is queued, unqueue it. */
         if (pending_move_id != 0)
         {
             Source.remove (pending_move_id);
             pending_move_id = 0;
         }
+
+        /* If AI thread is running, this tells move_async() to ignore its result.
+         * If not, it's harmless, so it's safe to call cancel_move() on the human's turn. */
+        move_pending = false;
     }
 
     private void run_search (ref int x, ref int y)
@@ -148,7 +192,7 @@ public class ComputerPlayer : Object
 
     }
 
-    private static int search (Game g, Strategy strategy, int depth, int a, int b, ref int move_x, ref int move_y)
+    private int search (Game g, Strategy strategy, int depth, int a, int b, ref int move_x, ref int move_y)
         requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
@@ -159,8 +203,10 @@ public class ComputerPlayer : Object
             return n_current_tiles > n_enemy_tiles ? POSITIVE_INFINITY - n_enemy_tiles : NEGATIVE_INFINITY + n_current_tiles;
         }
 
-        /* End of the search, calculate how good a result this is */
-        if (depth == 0)
+        /* End of the search, calculate how good a result this is.
+         * Checking move_pending here is optional. It helps avoid a long unnecessary search
+         * if the move has been cancelled, but is expensive because it requires taking a mutex. */
+        if (depth == 0 || !move_pending)
             return calculate_heuristic (g, strategy);
 
         /* Find all possible moves and sort from most new tiles to least new tiles */
