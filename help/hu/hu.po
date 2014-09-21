@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the iagno help.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2013, 2014.
+# Balázs Úr <urbalazs at gmail dot com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2014-03-24 15:11+0000\n"
-"PO-Revision-Date: 2014-03-24 20:07+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"POT-Creation-Date: 2014-09-20 21:23+0000\n"
+"PO-Revision-Date: 2014-09-21 10:36+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.2\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -28,7 +29,7 @@ msgid "Brian Grohe"
 msgstr "Brian Grohe"
 
 #. (itstool) path: credit/years
-#: C/2player.page:11 C/ai-game.page:11 C/play.page:11 C/rules.page:11
+#: C/2player.page:11 C/ai-game.page:11 C/play.page:12 C/rules.page:12
 #: C/shortcuts.page:11 C/sound.page:11
 msgid "2012"
 msgstr "2012"
@@ -36,7 +37,7 @@ msgstr "2012"
 #. (itstool) path: credit/name
 #: C/2player.page:14 C/ai-game.page:14 C/bug-filing.page:9
 #: C/change-color.page:9 C/develop.page:10 C/documentation.page:8
-#: C/index.page:11 C/play.page:9 C/rules.page:9 C/sound.page:9
+#: C/index.page:12 C/play.page:10 C/rules.page:10 C/sound.page:9
 #: C/translate.page:10
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
@@ -122,7 +123,7 @@ msgstr "2011"
 
 #. (itstool) path: license/p
 #: C/bug-filing.page:14 C/develop.page:15 C/documentation.page:13
-#: C/index.page:15 C/translate.page:19
+#: C/index.page:16 C/translate.page:19
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
@@ -305,49 +306,32 @@ msgstr ""
 "A projekt <link href=\"https://live.gnome.org/DocumentationProject/"
 "Contributing\">wiki</link> oldala tartalmazza a legfontosabb információkat."
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:6
-msgctxt "_"
-msgid "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
-msgstr "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:19
-msgctxt "_"
-msgid ""
-"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
-msgstr ""
-"external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
-
 #. (itstool) path: info/title
-#: C/index.page:7
+#: C/index.page:8
 msgctxt "link"
 msgid "Iagno"
 msgstr "Iagno"
 
 #. (itstool) path: info/title
-#: C/index.page:8
+#: C/index.page:9
 msgctxt "text"
 msgid "Iagno"
 msgstr "Iagno"
 
+#. (itstool) path: media/span
+#: C/index.page:20
+#| msgctxt "link"
+#| msgid "Iagno"
+msgid "Iagno logo"
+msgstr "Iagno logó"
+
 #. (itstool) path: page/title
-#: C/index.page:19
-msgid ""
-"<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media> Iagno"
-msgstr ""
-"<media type=\"image\" src=\"figures/logo32.png\">Iagno logó</media> Iagno"
+#: C/index.page:20
+msgid "<_:media-1/> Iagno"
+msgstr "<_:media-1/> Iagno"
 
 #. (itstool) path: page/p
-#: C/index.page:21
+#: C/index.page:22
 msgid ""
 "<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
 "on one side and light on the other. When a piece is captured it is turned "
@@ -360,22 +344,22 @@ msgstr ""
 "akinek több azonos színű figurája van a játék végén."
 
 #. (itstool) path: section/title
-#: C/index.page:25
+#: C/index.page:26
 msgid "Game Play"
 msgstr "Játékmenet"
 
 #. (itstool) path: section/title
-#: C/index.page:29
+#: C/index.page:30
 msgid "Useful tips"
 msgstr "Hasznos tippek"
 
 #. (itstool) path: section/title
-#: C/index.page:33
+#: C/index.page:34
 msgid "Advanced"
 msgstr "Speciális"
 
 #. (itstool) path: section/title
-#: C/index.page:37
+#: C/index.page:38
 msgid "Get Involved"
 msgstr "Közreműködés"
 
@@ -480,25 +464,13 @@ msgstr ""
 "teljes <link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons "
 "összefoglalót</link>."
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/play.page:41
-msgctxt "_"
-msgid ""
-"external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
-msgstr ""
-"external ref='figures/iagno-video.ogv' md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
-
 #. (itstool) path: page/title
-#: C/play.page:17
+#: C/play.page:18
 msgid "How to Play"
 msgstr "Hogyan kell játszani?"
 
 #. (itstool) path: page/p
-#: C/play.page:19
+#: C/play.page:20
 msgid ""
 "<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
 "play."
@@ -507,7 +479,7 @@ msgstr ""
 "rendelkezik, és egyszerű játszani."
 
 #. (itstool) path: page/p
-#: C/play.page:21
+#: C/play.page:22
 msgid ""
 "When the game first starts, you play <em>Dark</em> and the computer player "
 "plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
@@ -518,17 +490,17 @@ msgstr ""
 "alapesetben az <gui>Első</gui>."
 
 #. (itstool) path: page/p
-#: C/play.page:24
+#: C/play.page:25
 msgid "The game is played using the mouse. To make a move:"
 msgstr "A játékot az egérrel kell játszani. A lépéshez:"
 
 #. (itstool) path: item/p
-#: C/play.page:27
+#: C/play.page:28
 msgid "Click on the cell you would like to place your piece in."
 msgstr "Kattintson arra a cellára, amelybe a figuráját el szeretné helyezni."
 
 #. (itstool) path: note/p
-#: C/play.page:28
+#: C/play.page:29
 msgid ""
 "If the move is legal, the piece will be placed in the cell, and the opponent "
 "pieces will be flipped to match your color."
@@ -537,12 +509,12 @@ msgstr ""
 "ellenfél figurái megfordulnak, hogy az Ön színét erősítsék."
 
 #. (itstool) path: note/p
-#: C/play.page:30
+#: C/play.page:31
 msgid "If the move is not allowed, nothing will happen."
 msgstr "Ha a lépés nem engedélyezett, akkor semmi nem történik."
 
 #. (itstool) path: item/p
-#: C/play.page:34
+#: C/play.page:35
 msgid ""
 "You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
 "guiseq>."
@@ -551,69 +523,22 @@ msgstr ""
 "menüpont kiválasztásával vonhat vissza."
 
 #. (itstool) path: section/title
-#: C/play.page:40
+#: C/play.page:41
 msgid "Video demonstration"
 msgstr "Videobemutató"
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rules.page:43
-msgctxt "_"
-msgid "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
-msgstr ""
-"external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rules.page:48
-msgctxt "_"
-msgid "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
-msgstr ""
-"external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rules.page:53
-msgctxt "_"
-msgid "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
-msgstr ""
-"external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
-
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/rules.page:58
-msgctxt "_"
-msgid ""
-"external ref='figures/iagno-gameover.png' "
-"md5='b7792be5784722b905b78510452aee16'"
-msgstr ""
-"external ref='figures/iagno-gameover.png' "
-"md5='b7792be5784722b905b78510452aee16'"
-
 #. (itstool) path: credit/name
-#: C/rules.page:14 C/strategy.page:14 C/translate.page:15
+#: C/rules.page:15 C/strategy.page:14 C/translate.page:15
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
 #. (itstool) path: page/title
-#: C/rules.page:21
+#: C/rules.page:22
 msgid "Rules"
 msgstr "Szabályok"
 
 #. (itstool) path: page/p
-#: C/rules.page:23
+#: C/rules.page:24
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -626,7 +551,7 @@ msgstr ""
 "függőlegesen vagy átlósan."
 
 #. (itstool) path: item/p
-#: C/rules.page:25
+#: C/rules.page:26
 msgid ""
 "The game begins with four pieces, two light and two dark, placed in the "
 "center of the board."
@@ -635,12 +560,12 @@ msgstr ""
 "tábla közepén találhatók."
 
 #. (itstool) path: item/p
-#: C/rules.page:28
+#: C/rules.page:29
 msgid "Dark goes first."
 msgstr "Először a sötét lép."
 
 #. (itstool) path: item/p
-#: C/rules.page:29
+#: C/rules.page:30
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -649,12 +574,12 @@ msgstr ""
 "világosakat fogjon el."
 
 #. (itstool) path: note/p
-#: C/rules.page:30
+#: C/rules.page:31
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "Ez az elhelyezés lehet vízszintes, függőleges vagy átlós."
 
 #. (itstool) path: item/p
-#: C/rules.page:32
+#: C/rules.page:33
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
@@ -665,7 +590,7 @@ msgstr ""
 "részeivé válnak."
 
 #. (itstool) path: item/p
-#: C/rules.page:36
+#: C/rules.page:37
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over. The end of the game often results in "
@@ -675,49 +600,49 @@ msgstr ""
 "lépni, akkor vége a játéknak. A játék vége gyakran teli táblát is eredményez."
 
 #. (itstool) path: item/p
-#: C/rules.page:37
+#: C/rules.page:38
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr ""
 "Az a játékos nyer, aki a táblán több azonos színű figurával rendelkezik."
 
 #. (itstool) path: media/p
-#: C/rules.page:44
+#: C/rules.page:45
 msgid "Start position"
 msgstr "Kezdőpozíció"
 
 #. (itstool) path: media/p
-#: C/rules.page:49
+#: C/rules.page:50
 msgid "Example first move"
 msgstr "Példa első lépés"
 
 #. (itstool) path: media/p
-#: C/rules.page:54
+#: C/rules.page:55
 msgid "Blocking move"
 msgstr "Blokkoló lépés"
 
 #. (itstool) path: media/p
-#: C/rules.page:59
+#: C/rules.page:60
 msgid "<app>Iagno</app> game over position."
 msgstr "Vége az <app>Iagno</app> játéknak."
 
 #. (itstool) path: td/p
-#: C/rules.page:64
+#: C/rules.page:65
 msgid "<em>Start position</em>"
 msgstr "<em>Kezdőpozíció</em>"
 
 #. (itstool) path: td/p
-#: C/rules.page:65
+#: C/rules.page:66
 msgid "<em>Example first move</em>"
 msgstr "<em>Példa első lépés</em>"
 
 #. (itstool) path: td/p
-#: C/rules.page:66
+#: C/rules.page:67
 msgid "<em>A blocking move</em>"
 msgstr "<em>Egy blokkoló lépés</em>"
 
 #. (itstool) path: td/p
-#: C/rules.page:67
+#: C/rules.page:68
 msgid "<em>Game over position</em>"
 msgstr "<em>Állás a játék végén</em>"
 
@@ -936,6 +861,57 @@ msgstr ""
 "is. A magyar csapat <link href=\"http://l10n.gnome.org/languages/hu/"
 "\">kezdőoldalán</link> megtalálja a magyar levelezőlista címét és a "
 "fordítások megkezdéséhez szükséges információkat."
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
+#~ msgstr ""
+#~ "external ref='figures/logo.png' md5='34046001ffd88e9a366443f7a1b68f80'"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
+#~ msgstr ""
+#~ "external ref='figures/logo32.png' md5='db3dc503168aafbeb6a1d0428cc394ac'"
+
+#~ msgid ""
+#~ "<media type=\"image\" src=\"figures/logo32.png\">Iagno logo</media> Iagno"
+#~ msgstr ""
+#~ "<media type=\"image\" src=\"figures/logo32.png\">Iagno logó</media> Iagno"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/iagno-video.ogv' "
+#~ "md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
+#~ msgstr ""
+#~ "external ref='figures/iagno-video.ogv' "
+#~ "md5='2d3d9cff1283776b4c3bfc0dc7a810dc'"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
+#~ msgstr ""
+#~ "external ref='figures/start.png' md5='028c2d0483c551175706d77c2aea5759'"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
+#~ msgstr ""
+#~ "external ref='figures/first.png' md5='67263dc33adb94895a4598b564eacb7c'"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
+#~ msgstr ""
+#~ "external ref='figures/block.png' md5='cb75f62a176d1ba40a94f844833b3039'"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/iagno-gameover.png' "
+#~ "md5='b7792be5784722b905b78510452aee16'"
+#~ msgstr ""
+#~ "external ref='figures/iagno-gameover.png' "
+#~ "md5='b7792be5784722b905b78510452aee16'"
 
 #~ msgid "Flip final results"
 #~ msgstr "Végeredmény rendezése"
