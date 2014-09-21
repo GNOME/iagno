@@ -189,7 +189,15 @@ public class Game : Object
         if (tiles[x, y] != Player.NONE)
             return false;
 
-        return place (x, y, color, false) > 0;
+        if (flip_tiles (x, y, 1, 0, color, false) > 0) return true;
+        if (flip_tiles (x, y, 1, 1, color, false) > 0) return true;
+        if (flip_tiles (x, y, 0, 1, color, false) > 0) return true;
+        if (flip_tiles (x, y, -1, 1, color, false) > 0) return true;
+        if (flip_tiles (x, y, -1, 0, color, false) > 0) return true;
+        if (flip_tiles (x, y, -1, -1, color, false) > 0) return true;
+        if (flip_tiles (x, y, 0, -1, color, false) > 0) return true;
+        if (flip_tiles (x, y, 1, -1, color, false) > 0) return true;
+        return false;
     }
 
     /*\
@@ -202,7 +210,16 @@ public class Game : Object
         if (tiles[x, y] != Player.NONE)
             return 0;
 
-        var tiles_turned = place (x, y, current_color, true);
+        var tiles_turned = 0;
+        tiles_turned += flip_tiles (x, y, 1, 0, current_color, true);
+        tiles_turned += flip_tiles (x, y, 1, 1, current_color, true);
+        tiles_turned += flip_tiles (x, y, 0, 1, current_color, true);
+        tiles_turned += flip_tiles (x, y, -1, 1, current_color, true);
+        tiles_turned += flip_tiles (x, y, -1, 0, current_color, true);
+        tiles_turned += flip_tiles (x, y, -1, -1, current_color, true);
+        tiles_turned += flip_tiles (x, y, 0, -1, current_color, true);
+        tiles_turned += flip_tiles (x, y, 1, -1, current_color, true);
+
         if (tiles_turned == 0)
             return 0;
 
@@ -227,26 +244,12 @@ public class Game : Object
     }
 
     /*\
-    * * Placing tiles
+    * * Flipping tiles
     \*/
 
     private bool is_valid_location (int x, int y)
     {
         return x >= 0 && x < size && y >= 0 && y < size;
-    }
-
-    private int place (int x, int y, Player color, bool apply)
-    {
-        var n_flips = 0;
-        n_flips += flip_tiles (x, y, 1, 0, color, apply);
-        n_flips += flip_tiles (x, y, 1, 1, color, apply);
-        n_flips += flip_tiles (x, y, 0, 1, color, apply);
-        n_flips += flip_tiles (x, y, -1, 1, color, apply);
-        n_flips += flip_tiles (x, y, -1, 0, color, apply);
-        n_flips += flip_tiles (x, y, -1, -1, color, apply);
-        n_flips += flip_tiles (x, y, 0, -1, color, apply);
-        n_flips += flip_tiles (x, y, 1, -1, color, apply);
-        return n_flips;
     }
 
     private int flip_tiles (int x, int y, int x_step, int y_step, Player color, bool apply)
