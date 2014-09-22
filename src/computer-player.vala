@@ -68,7 +68,7 @@ public class ComputerPlayer : Object
     {
         if (game.place_tile (x, y) == 0)
         {
-            critical ("Computer chose an invalid move: %d,%d", x, y);
+            critical ("Computer chose an invalid move: %d,%d\n%s", x, y, game.to_string ());
             assert_not_reached ();
         }
     }
@@ -207,7 +207,7 @@ public class ComputerPlayer : Object
             }
             else if (g.place_tile (move.x, move.y) == 0)
             {
-                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking", depth, move.x, move.y, move.n_tiles);
+                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, move.x, move.y, move.n_tiles, g.to_string ());
                 assert_not_reached ();
             }
 
@@ -236,7 +236,7 @@ public class ComputerPlayer : Object
 
     private static int calculate_heuristic (Game g, Strategy strategy)
     {
-        var tile_difference = g.current_color == Player.DARK ? g.n_dark_tiles - g.n_light_tiles : g.n_light_tiles - g.n_dark_tiles;
+        var tile_difference = g.n_current_tiles - g.n_opponent_tiles;
 
         switch (strategy)
         {
@@ -308,10 +308,10 @@ public class ComputerPlayer : Object
 
     private static int is_empty (Game g, int x, int y)
     {
-        if (x < 0 || x >= g.size || y < 0 || y >= g.size || g.get_owner (x, y) != Player.NONE)
-            return 0;
+        if (g.is_valid_location (x, y) && g.get_owner (x, y) == Player.NONE)
+            return 1;
 
-        return 1;
+        return 0;
     }
 
     private static void random_select (Game g, out int move_x, out int move_y)

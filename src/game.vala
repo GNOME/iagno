@@ -67,6 +67,7 @@ public class Game : Object
                 _n_dark_tiles = value;
         }
     }
+
     public int n_opponent_tiles
     {
         get { return current_color == Player.DARK ? n_light_tiles : n_dark_tiles; }
@@ -155,6 +156,11 @@ public class Game : Object
     /*\
     * * Public information
     \*/
+
+    public bool is_valid_location (int x, int y)
+    {
+        return x >= 0 && x < size && y >= 0 && y < size;
+    }
 
     public Player get_owner (int x, int y)
         requires (is_valid_location (x, y))
@@ -246,11 +252,6 @@ public class Game : Object
     /*\
     * * Flipping tiles
     \*/
-
-    private bool is_valid_location (int x, int y)
-    {
-        return x >= 0 && x < size && y >= 0 && y < size;
-    }
 
     private int flip_tiles (int x, int y, int x_step, int y_step, Player color, bool apply)
     {
