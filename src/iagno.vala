@@ -35,6 +35,20 @@ public class Iagno : Gtk.Application
     private Gtk.Label dark_score_label;
     private Gtk.Label light_score_label;
     private Gtk.Dialog propbox;
+    private Gtk.Stack main_stack;
+    private Gtk.Box game_box;
+
+    private Gtk.Button back_button;
+    private Gtk.Button undo_button;
+    private Gtk.RadioButton play_dark_button;
+    private Gtk.RadioButton play_light_button;
+    private Gtk.RadioButton two_players_button;
+    private Gtk.RadioButton easy_button;
+    private Gtk.RadioButton medium_button;
+    private Gtk.RadioButton hard_button;
+
+    private SimpleAction back_action;
+
 
     /* Computer player (if there is one) */
     private ComputerPlayer? computer = null;
@@ -62,8 +76,10 @@ public class Iagno : Gtk.Application
     private const GLib.ActionEntry app_actions[] =
     {
         {"new-game", new_game_cb},
+        {"start-game", start_game_cb},
         {"undo-move", undo_move_cb},
         {"preferences", preferences_cb},
+        {"back", back_cb},
         {"help", help_cb},
         {"about", about_cb},
         {"quit", quit_cb}
@@ -159,16 +175,73 @@ public class Iagno : Gtk.Application
         view.halign = Gtk.Align.FILL;
         view.show ();
 
-        var game_box = builder.get_object ("game-box") as Gtk.Box;
-        game_box.pack_start (view, true, true, 0);
+        game_box = builder.get_object ("game-box") as Gtk.Box;
+        game_box.pack_start (view);
 
         headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
         light_score_label = builder.get_object ("light-score-label") as Gtk.Label;
         dark_score_label = builder.get_object ("dark-score-label") as Gtk.Label;
         mark_icon_dark = builder.get_object ("mark-icon-dark") as Gtk.Image;
         mark_icon_light = builder.get_object ("mark-icon-light") as Gtk.Image;
+        main_stack = builder.get_object ("main_stack") as Gtk.Stack;
+        back_button = builder.get_object ("back_button") as Gtk.Button;
+        undo_button = builder.get_object ("undo_button") as Gtk.Button;
+        play_dark_button = builder.get_object ("play_dark") as Gtk.RadioButton;
+        play_light_button = builder.get_object ("play_light") as Gtk.RadioButton;
+        two_players_button = builder.get_object ("two_players") as Gtk.RadioButton;
+        play_dark_button.toggled.connect (play_dark_button_toggled_cb);
+        play_light_button.toggled.connect (play_light_button_toggled_cb);
+        two_players_button.toggled.connect (two_players_button_toggled_cb);
+        easy_button = builder.get_object ("easy") as Gtk.RadioButton;
+        medium_button = builder.get_object ("medium") as Gtk.RadioButton;
+        hard_button = builder.get_object ("hard") as Gtk.RadioButton;
+        easy_button.toggled.connect (easy_button_toggled_cb);
+        medium_button.toggled.connect (medium_button_toggled_cb);
+        hard_button.toggled.connect (hard_button_toggled_cb);
 
-        start_game ();
+        play_dark_button.set_active (true);
+        easy_button.set_active (true);
+
+        back_action = (SimpleAction) lookup_action ("back");
+
+        var level_box = builder.get_object ("level-box") as Gtk.Box;
+
+        settings.changed["play-as"].connect (() => {
+            var mode = settings.get_string ("play-as");
+            level_box.sensitive = (mode == "two-players") ? false : true;
+        });
+
+        show_new_game_screen ();
+    }
+
+    private void play_light_button_toggled_cb ()
+    {
+        settings.set_string ("play-as", "second");
+    }
+
+    private void play_dark_button_toggled_cb ()
+    {
+        settings.set_string ("play-as", "first");
+    }
+
+    private void two_players_button_toggled_cb ()
+    {
+        settings.set_string ("play-as", "two-players");
+    }
+
+    private void easy_button_toggled_cb ()
+    {
+        settings.set_int ("computer-level", 1);
+    }
+
+    private void medium_button_toggled_cb ()
+    {
+        settings.set_int ("computer-level", 2);
+    }
+
+    private void hard_button_toggled_cb ()
+    {
+        settings.set_int ("computer-level", 3);
     }
 
     protected override void activate ()
@@ -211,9 +284,38 @@ public class Iagno : Gtk.Application
         window.destroy ();
     }
 
+    private void start_game_cb ()
+    {
+        back_button.visible = false;
+        start_game ();
+    }
+
+    private void back_cb ()
+    {
+        show_game_board ();
+        back_action.set_enabled (false);
+    }
+
+    private void show_game_board ()
+    {
+        main_stack.set_visible_child_name ("frame");
+        back_button.visible = false;
+        undo_button.visible = true;
+    }
+
+    private void show_new_game_screen ()
+    {
+        main_stack.set_visible_child_name ("start-box");
+        back_button.sensitive = game != null;
+        back_button.visible = true;
+        undo_button.visible = false;
+        back_action.set_enabled (true);
+    }
+
     private void new_game_cb ()
     {
-        start_game ();
+        show_new_game_screen ();
+        headerbar.set_subtitle (null);
     }
 
     private void start_game ()
@@ -224,10 +326,17 @@ public class Iagno : Gtk.Application
         if (computer != null)
             computer.cancel_move ();
 
+        if (view != null)
+            game_box.remove (view);
+
+        show_game_board ();
+
         game = new Game (size);
         game.move.connect (game_move_cb);
         game.complete.connect (game_complete_cb);
         view.game = game;
+        view.show ();
+        game_box.pack_start (view);
 
         var mode = settings.get_string ("play-as");
         if (mode == "two-players")
@@ -252,9 +361,6 @@ public class Iagno : Gtk.Application
             undo_action.set_enabled (game.number_of_moves >= 1);
         else
             undo_action.set_enabled (game.number_of_moves >= 2);
-
-        var new_game_action = (SimpleAction) lookup_action ("new-game");
-        new_game_action.set_enabled (game.number_of_moves >= 1);
 
         /* Translators: this is a 2 digit representation of the current score. */
         dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
@@ -420,25 +526,6 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void computer_level_changed_cb (Gtk.ComboBox combo)
-    {
-        Gtk.TreeIter iter;
-        combo.get_active_iter (out iter);
-        int level;
-        combo.model.get (iter, 1, out level);
-        settings.set_int ("computer-level", level);
-    }
-
-    private void mode_changed_cb (Gtk.ComboBox combo, Gtk.ComboBox level_combo)
-    {
-        Gtk.TreeIter iter;
-        combo.get_active_iter (out iter);
-        string mode;
-        combo.model.get (iter, 1, out mode);
-        settings.set_string ("play-as", mode);
-        level_combo.sensitive = (mode == "two-players") ? false : true;
-    }
-
     private void sound_select (Gtk.ToggleButton widget)
     {
         var play_sounds = widget.get_active ();
@@ -478,25 +565,6 @@ public class Iagno : Gtk.Application
         propbox.delete_event.connect (propbox_close_cb);
         var grid = builder.get_object ("main-grid") as Gtk.Grid;
         box.pack_start (grid, true, true, 0);
-
-        var combo = builder.get_object ("mode-combo") as Gtk.ComboBox;
-        var level_combo = builder.get_object ("level-combo") as Gtk.ComboBox;
-
-        combo.changed.connect (() => mode_changed_cb (combo, level_combo));
-        settings.changed["play-as"].connect (() => {
-            var mode = settings.get_string ("play-as");
-            combo.set_active_id (mode);
-            level_combo.sensitive = (mode == "two-players") ? false : true;
-        });
-        var mode = settings.get_string ("play-as");
-        combo.set_active_id (mode);
-        level_combo.sensitive = (mode == "two-players") ? false : true;
-
-        level_combo.changed.connect (computer_level_changed_cb);
-        settings.changed["computer-level"].connect (() => {
-            level_combo.set_active (settings.get_int ("computer-level") - 1);
-        });
-        level_combo.set_active (settings.get_int ("computer-level") - 1);
 
         var theme_combo = builder.get_object ("theme-combo") as Gtk.ComboBox;
         var model = builder.get_object ("liststore-theme") as Gtk.ListStore;
