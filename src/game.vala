@@ -21,13 +21,14 @@ public class Game : Object
         private set { _size = value; }
     }
 
-    /* undoing */
-    private UndoItem? state = null;
-    private UndoItem? previous_state = null;
-    private int number_of_moves = 0;
+    /* Undoing */
+    private int?[] undo_stack;
+    private int history_index = -1;
 
-    /* Color to move next */
-    public Player current_color { get; private set; }
+    /* Color to move next; Dark always plays first;
+     * should be dark if number_of_moves % 2 == 0 */
+    public Player current_color { get; private set; default = Player.DARK; }
+    private int number_of_moves = 0;
 
     /* Indicate that a player should move */
     public signal void move ();
@@ -45,13 +46,13 @@ public class Game : Object
         get { return n_dark_tiles + n_light_tiles; }
     }
 
-    private int _n_light_tiles = 0;
+    private int _n_light_tiles = 2;
     public int n_light_tiles
     {
         get { return _n_light_tiles; }
     }
 
-    private int _n_dark_tiles = 0;
+    private int _n_dark_tiles = 2;
     public int n_dark_tiles
     {
         get { return _n_dark_tiles; }
@@ -93,16 +94,16 @@ public class Game : Object
             for (var y = 0; y < size; y++)
                 tiles[x, y] = Player.NONE;
 
-        /* Dark plays first */
-        current_color = Player.DARK;
+        /* Stack is oversized: there is 60 turns, each adds one piece,
+         * there's place for the end of turn and the opponent passing,
+         * and you could flip max ((size - 2) * 3) tiles in one turn. */
+        undo_stack = new int?[180 * (size - 1)]; /* (3 + (size - 2) * 3) * 60 */
 
         /* Setup board with four tiles by default */
-        set_tile (size / 2 - 1, size / 2 - 1, Player.LIGHT, false);
-        set_tile (size / 2 - 1, size / 2, Player.DARK, false);
-        set_tile (size / 2, size / 2 - 1, Player.DARK, false);
-        set_tile (size / 2, size / 2, Player.LIGHT, false);
-        n_current_tiles = 2;
-        n_opponent_tiles = 2;
+        tiles [size / 2 - 1, size / 2 - 1] = Player.LIGHT;
+        tiles [size / 2 - 1, size / 2] = Player.DARK;
+        tiles [size / 2, size / 2 - 1] = Player.DARK;
+        tiles [size / 2, size / 2] = Player.LIGHT;
     }
 
     public Game.from_strings (string[] setup, Player to_move, int tmp_size = 8)
@@ -111,6 +112,7 @@ public class Game : Object
     {
         size = tmp_size;
         tiles = new Player[size, size];
+        undo_stack = new int?[180 * (size - 1)];
 
         for (int y = 0; y < size; y++)
         {
@@ -143,6 +145,7 @@ public class Game : Object
     {
         size = game.size;
         tiles = new Player[size, size];
+        undo_stack = new int?[180 * (size - 1)];
         for (var x = 0; x < size; x++)
             for (var y = 0; y < size; y++)
                 tiles[x, y] = game.tiles[x, y];
@@ -150,7 +153,7 @@ public class Game : Object
         current_color = game.current_color;
         n_current_tiles = game.n_current_tiles;
         n_opponent_tiles = game.n_opponent_tiles;
-        /* don't copy history */
+        /* warning: history not copied */
     }
 
     /*\
@@ -207,7 +210,7 @@ public class Game : Object
     }
 
     /*\
-    * * Public actions (apart undo)
+    * * Actions (apart undo)
     \*/
 
     public int place_tile (int x, int y)
@@ -229,9 +232,8 @@ public class Game : Object
         if (tiles_turned == 0)
             return 0;
 
-        set_tile (x, y, current_color, true);
-        number_of_moves++;
-        current_color = Player.flip_color (current_color);
+        set_tile (x, y, current_color);
+        end_of_turn ();
 
         if (is_complete ())
             complete ();
@@ -244,9 +246,18 @@ public class Game : Object
     public void pass ()
         requires (!can_move (current_color))
     {
-        number_of_moves++;
-        current_color = Player.flip_color (current_color);
+        end_of_turn ();
+
         move ();
+    }
+
+    private void end_of_turn ()
+        requires (history_index >= -1 && history_index < undo_stack.length - 2)
+    {
+        current_color = Player.flip_color (current_color);
+        number_of_moves++;
+        history_index++;
+        undo_stack[history_index] = null;
     }
 
     /*\
@@ -274,27 +285,21 @@ public class Game : Object
         /* Flip the enemy's tiles */
         if (apply)
             for (var i = 1; i <= enemy_count; i++)
-                set_tile (x + i * x_step, y + i * y_step, color, true);
+            {
+                n_opponent_tiles--;
+                /* TODO set_tile() always sets to current_color... */
+                set_tile (x + i * x_step, y + i * y_step, color);
+            }
 
         return enemy_count;
     }
 
-    private void set_tile (int x, int y, Player color, bool update_history)
+    private void set_tile (int x, int y, Player color)
+        requires (history_index >= -1 && history_index < undo_stack.length - 2)
     {
-        if (update_history)
-        {
-            add_move (x, y, tiles[x, y]);
-            n_current_tiles++;
-            if (tiles[x, y] != Player.NONE)
-                n_opponent_tiles--;
-        }
-        else
-        {
-            n_current_tiles--;
-            if (color != Player.NONE)
-                n_opponent_tiles++;
-        }
-
+        n_current_tiles++;
+        history_index++;
+        undo_stack[history_index] = x + y * size;
         tiles[x, y] = color;
         square_changed (x, y);
     }
@@ -302,16 +307,6 @@ public class Game : Object
     /*\
     * * Undo
     \*/
-
-    private struct UndoItem
-    {
-        public int number;
-        public int x;
-        public int y;
-        public Player color;
-        public weak UndoItem? next;
-        public UndoItem? previous;
-    }
 
     public bool can_undo (int count = 1)
         requires (count == 1 || count == 2)
@@ -322,26 +317,38 @@ public class Game : Object
     public void undo (int count = 1)
         requires (count == 1 || count == 2)
         requires (number_of_moves >= count)
+        requires (history_index < undo_stack.length)
     {
+        var enemy = current_color;
         current_color = Player.flip_color (current_color);
-        while (state != null && state.number == number_of_moves - 1)
-        {
-            set_tile (state.x, state.y, state.color, false);
-
-            state = previous_state;
-            previous_state = state == null ? null : state.previous;
-        };
         number_of_moves--;
+
+        /* pass the end of turn mark of the history */
+        history_index--;
+
+        /* if not pass */
+        if (undo_stack[history_index] != null)
+        {
+            /* last log entry is the placed tile, previous are flipped tiles */
+            unset_tile (undo_stack[history_index], Player.NONE);
+            while (history_index > -1 && undo_stack[history_index] != null)
+            {
+                n_opponent_tiles++;
+                unset_tile (undo_stack[history_index], enemy);
+            }
+        }
 
         if (count == 2)
             undo (1);
     }
 
-    private void add_move (int x, int y, Player color)
+    private void unset_tile (int tile_number, Player replacement_color)
     {
-        previous_state = state == null ? null : state;
-        state = UndoItem () { number = number_of_moves, x = x, y = y, color = color, next = null, previous = previous_state };
-        if (previous_state != null)
-            previous_state.next = state;
+        n_current_tiles--;
+        history_index--;
+        var x = tile_number % size;
+        var y = tile_number / size;
+        tiles [x, y] = replacement_color;
+        square_changed (x, y);
     }
 }
