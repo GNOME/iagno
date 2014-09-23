@@ -198,14 +198,14 @@ public class Game : Object
         if (tiles[x, y] != Player.NONE)
             return false;
 
-        if (flip_tiles (x, y, 1, 0, color, false) > 0) return true;
-        if (flip_tiles (x, y, 1, 1, color, false) > 0) return true;
-        if (flip_tiles (x, y, 0, 1, color, false) > 0) return true;
-        if (flip_tiles (x, y, -1, 1, color, false) > 0) return true;
-        if (flip_tiles (x, y, -1, 0, color, false) > 0) return true;
-        if (flip_tiles (x, y, -1, -1, color, false) > 0) return true;
-        if (flip_tiles (x, y, 0, -1, color, false) > 0) return true;
-        if (flip_tiles (x, y, 1, -1, color, false) > 0) return true;
+        if (can_flip_tiles (x, y, 1, 0, color) > 0) return true;
+        if (can_flip_tiles (x, y, 1, 1, color) > 0) return true;
+        if (can_flip_tiles (x, y, 0, 1, color) > 0) return true;
+        if (can_flip_tiles (x, y, -1, 1, color) > 0) return true;
+        if (can_flip_tiles (x, y, -1, 0, color) > 0) return true;
+        if (can_flip_tiles (x, y, -1, -1, color) > 0) return true;
+        if (can_flip_tiles (x, y, 0, -1, color) > 0) return true;
+        if (can_flip_tiles (x, y, 1, -1, color) > 0) return true;
         return false;
     }
 
@@ -220,19 +220,19 @@ public class Game : Object
             return 0;
 
         var tiles_turned = 0;
-        tiles_turned += flip_tiles (x, y, 1, 0, current_color, true);
-        tiles_turned += flip_tiles (x, y, 1, 1, current_color, true);
-        tiles_turned += flip_tiles (x, y, 0, 1, current_color, true);
-        tiles_turned += flip_tiles (x, y, -1, 1, current_color, true);
-        tiles_turned += flip_tiles (x, y, -1, 0, current_color, true);
-        tiles_turned += flip_tiles (x, y, -1, -1, current_color, true);
-        tiles_turned += flip_tiles (x, y, 0, -1, current_color, true);
-        tiles_turned += flip_tiles (x, y, 1, -1, current_color, true);
+        tiles_turned += flip_tiles (x, y, 1, 0);
+        tiles_turned += flip_tiles (x, y, 1, 1);
+        tiles_turned += flip_tiles (x, y, 0, 1);
+        tiles_turned += flip_tiles (x, y, -1, 1);
+        tiles_turned += flip_tiles (x, y, -1, 0);
+        tiles_turned += flip_tiles (x, y, -1, -1);
+        tiles_turned += flip_tiles (x, y, 0, -1);
+        tiles_turned += flip_tiles (x, y, 1, -1);
 
         if (tiles_turned == 0)
             return 0;
 
-        set_tile (x, y, current_color);
+        set_tile (x, y);
         end_of_turn ();
 
         if (is_complete ())
@@ -264,7 +264,21 @@ public class Game : Object
     * * Flipping tiles
     \*/
 
-    private int flip_tiles (int x, int y, int x_step, int y_step, Player color, bool apply)
+    private int flip_tiles (int x, int y, int x_step, int y_step)
+    {
+        var enemy_count = can_flip_tiles (x, y, x_step, y_step, current_color);
+        if (enemy_count == 0)
+            return 0;
+
+        for (var i = 1; i <= enemy_count; i++)
+        {
+            n_opponent_tiles--;
+            set_tile (x + i * x_step, y + i * y_step);
+        }
+        return enemy_count;
+    }
+
+    private int can_flip_tiles (int x, int y, int x_step, int y_step, Player color)
     {
         var enemy = Player.flip_color (color);
 
@@ -282,25 +296,16 @@ public class Game : Object
         if (enemy_count == 0 || !is_valid_location (xt, yt) || tiles[xt, yt] != color)
             return 0;
 
-        /* Flip the enemy's tiles */
-        if (apply)
-            for (var i = 1; i <= enemy_count; i++)
-            {
-                n_opponent_tiles--;
-                /* TODO set_tile() always sets to current_color... */
-                set_tile (x + i * x_step, y + i * y_step, color);
-            }
-
         return enemy_count;
     }
 
-    private void set_tile (int x, int y, Player color)
+    private void set_tile (int x, int y)
         requires (history_index >= -1 && history_index < undo_stack.length - 2)
     {
         n_current_tiles++;
         history_index++;
         undo_stack[history_index] = x + y * size;
-        tiles[x, y] = color;
+        tiles[x, y] = current_color;
         square_changed (x, y);
     }
 
