@@ -31,31 +31,31 @@ public class TestIagno : Object
                           " L L L L L L L L",
                           " L L L L L L L L"};
         Game game = new Game.from_strings (board, Player.DARK);
+        assert (game.number_of_moves == 0);
         assert (game.place_tile (7, 2) > 0);
+        assert (game.number_of_moves == 1);
         assert (!game.can_move (Player.LIGHT));
-        assert (game.can_undo ());
         game.pass ();
-        assert (game.can_undo ());
+        assert (game.number_of_moves == 2);
         game.undo (2);
+        assert (game.number_of_moves == 0);
         assert (game.to_string ().strip () == string.joinv ("\n", board).strip ());
         assert (game.place_tile (7, 2) > 0);
+        assert (game.number_of_moves == 1);
         assert (!game.can_move (Player.LIGHT));
-        assert (game.can_undo ());
         game.undo (1);
+        assert (game.number_of_moves == 0);
         assert (game.to_string ().strip () == string.joinv ("\n", board).strip ());
     }
 
     private static void test_undo_at_start ()
     {
         Game game = new Game ();
-        assert (!game.can_undo (1));
-        assert (!game.can_undo (2));
+        assert (game.number_of_moves == 0);
         game.place_tile (2, 3);
-        assert (game.can_undo (1));
-        assert (!game.can_undo (2));
+        assert (game.number_of_moves == 1);
         game.place_tile (2, 2);
-        assert (game.can_undo (1));
-        assert (game.can_undo (2));
+        assert (game.number_of_moves == 2);
     }
 
     private static void test_current_color_after_pass ()

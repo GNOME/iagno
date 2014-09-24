@@ -28,7 +28,7 @@ public class Game : Object
     /* Color to move next; Dark always plays first;
      * should be dark if number_of_moves % 2 == 0 */
     public Player current_color { get; private set; default = Player.DARK; }
-    private int number_of_moves = 0;
+    public int number_of_moves { get; private set; default = 0; }
 
     /* Indicate that a player should move */
     public signal void move ();
@@ -312,12 +312,6 @@ public class Game : Object
     /*\
     * * Undo
     \*/
-
-    public bool can_undo (int count = 1)
-        requires (count == 1 || count == 2)
-    {
-        return number_of_moves >= count;
-    }
 
     public void undo (int count = 1)
         requires (count == 1 || count == 2)

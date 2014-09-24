@@ -249,12 +249,12 @@ public class Iagno : Gtk.Application
 
         var undo_action = (SimpleAction) lookup_action ("undo-move");
         if (player_one == Player.DARK || computer == null)
-            undo_action.set_enabled (game.can_undo (1));
+            undo_action.set_enabled (game.number_of_moves >= 1);
         else
-            undo_action.set_enabled (game.can_undo (2));
+            undo_action.set_enabled (game.number_of_moves >= 2);
 
         var new_game_action = (SimpleAction) lookup_action ("new-game");
-        new_game_action.set_enabled (game.can_undo (1));
+        new_game_action.set_enabled (game.number_of_moves >= 1);
 
         /* Translators: this is a 2 digit representation of the current score. */
         dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
