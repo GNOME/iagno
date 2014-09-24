@@ -40,12 +40,6 @@ public class Iagno : Gtk.Application
 
     private Gtk.Button back_button;
     private Gtk.Button undo_button;
-    private Gtk.RadioButton play_dark_button;
-    private Gtk.RadioButton play_light_button;
-    private Gtk.RadioButton two_players_button;
-    private Gtk.RadioButton easy_button;
-    private Gtk.RadioButton medium_button;
-    private Gtk.RadioButton hard_button;
 
     private SimpleAction back_action;
 
@@ -75,11 +69,18 @@ public class Iagno : Gtk.Application
 
     private const GLib.ActionEntry app_actions[] =
     {
+        /* http://valadoc.org/#!api=gio-2.0/GLib.SimpleActionChangeStateCallback
+         * TODO SimpleActionChangeStateCallback is deprecated... */
+        {"change-mode", change_mode_cb, "s"},
+        {"change-difficulty", change_difficulty_cb, "s"},
+
         {"new-game", new_game_cb},
         {"start-game", start_game_cb},
+
         {"undo-move", undo_move_cb},
-        {"preferences", preferences_cb},
         {"back", back_cb},
+
+        {"preferences", preferences_cb},
         {"help", help_cb},
         {"about", about_cb},
         {"quit", quit_cb}
@@ -186,21 +187,6 @@ public class Iagno : Gtk.Application
         main_stack = builder.get_object ("main_stack") as Gtk.Stack;
         back_button = builder.get_object ("back_button") as Gtk.Button;
         undo_button = builder.get_object ("undo_button") as Gtk.Button;
-        play_dark_button = builder.get_object ("play_dark") as Gtk.RadioButton;
-        play_light_button = builder.get_object ("play_light") as Gtk.RadioButton;
-        two_players_button = builder.get_object ("two_players") as Gtk.RadioButton;
-        play_dark_button.toggled.connect (play_dark_button_toggled_cb);
-        play_light_button.toggled.connect (play_light_button_toggled_cb);
-        two_players_button.toggled.connect (two_players_button_toggled_cb);
-        easy_button = builder.get_object ("easy") as Gtk.RadioButton;
-        medium_button = builder.get_object ("medium") as Gtk.RadioButton;
-        hard_button = builder.get_object ("hard") as Gtk.RadioButton;
-        easy_button.toggled.connect (easy_button_toggled_cb);
-        medium_button.toggled.connect (medium_button_toggled_cb);
-        hard_button.toggled.connect (hard_button_toggled_cb);
-
-        play_dark_button.set_active (true);
-        easy_button.set_active (true);
 
         back_action = (SimpleAction) lookup_action ("back");
 
@@ -214,34 +200,15 @@ public class Iagno : Gtk.Application
         show_new_game_screen ();
     }
 
-    private void play_light_button_toggled_cb ()
+    private void change_mode_cb (SimpleAction action, Variant? variant)
     {
-        settings.set_string ("play-as", "second");
+        settings.set_string ("play-as", variant.get_string ());
     }
 
-    private void play_dark_button_toggled_cb ()
+    private void change_difficulty_cb (SimpleAction action, Variant? variant)
     {
-        settings.set_string ("play-as", "first");
-    }
-
-    private void two_players_button_toggled_cb ()
-    {
-        settings.set_string ("play-as", "two-players");
-    }
-
-    private void easy_button_toggled_cb ()
-    {
-        settings.set_int ("computer-level", 1);
-    }
-
-    private void medium_button_toggled_cb ()
-    {
-        settings.set_int ("computer-level", 2);
-    }
-
-    private void hard_button_toggled_cb ()
-    {
-        settings.set_int ("computer-level", 3);
+        var difficulty = int.parse (variant.get_string ());
+        settings.set_int ("computer-level", difficulty);
     }
 
     protected override void activate ()
