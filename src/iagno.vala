@@ -18,6 +18,7 @@ public class Iagno : Gtk.Application
     private static bool fast_mode;
     private static int computer_level = 0;
     private static int size = 8;
+    private static bool begin_with_new_game_screen = false;
 
     /* Seconds */
     private static const double QUICK_MOVE_DELAY = 0.4;
@@ -143,12 +144,14 @@ public class Iagno : Gtk.Application
         }
 
         /* The game mode is set for the next game. */
-        if (options.contains ("second"))
-            settings.set_string ("play-as", "second");
-        if (options.contains ("first"))
-            settings.set_string ("play-as", "first");
         if (options.contains ("two-players"))
             settings.set_string ("play-as", "two-players");
+        else if (options.contains ("first"))
+            settings.set_string ("play-as", "first");
+        else if (options.contains ("second"))
+            settings.set_string ("play-as", "second");
+        else
+            begin_with_new_game_screen = true;
 
         /* Activate */
         return -1;
@@ -197,7 +200,10 @@ public class Iagno : Gtk.Application
             level_box.sensitive = (mode == "two-players") ? false : true;
         });
 
-        show_new_game_screen ();
+        if (begin_with_new_game_screen)
+            show_new_game_screen ();
+        else
+            start_game ();
     }
 
     private void change_mode_cb (SimpleAction action, Variant? variant)
