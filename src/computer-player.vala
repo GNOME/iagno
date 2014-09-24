@@ -11,13 +11,6 @@
 
 public class ComputerPlayer : Object
 {
-    private enum Strategy
-    {
-        IMPROVE_POSITION,
-        MAXIMIZE_TILES,
-        MINIMIZE_TILES
-    }
-
     private struct PossibleMove
     {
         public int x;
@@ -40,7 +33,7 @@ public class ComputerPlayer : Object
     private Game game;
 
     /* Strength */
-    public int level { get; private set; }
+    private int difficulty_level;
 
     /* Value of owning each location */
     private static const int[] heuristic =
@@ -80,10 +73,10 @@ public class ComputerPlayer : Object
         }
     }
 
-    public ComputerPlayer (Game game, int level = 1)
+    public ComputerPlayer (Game game, int difficulty_level = 1)
     {
         this.game = game;
-        this.level = level;
+        this.difficulty_level = difficulty_level;
     }
 
     private void complete_move (int x, int y)
@@ -176,23 +169,14 @@ public class ComputerPlayer : Object
             return;
         }
 
-        var depth = level * 2 + 1;
-        var tiles_remaining = 64 - game.n_tiles;
-
-        var strategy = Strategy.IMPROVE_POSITION;
-        if (level == 1)
-            strategy = Strategy.MINIMIZE_TILES;
-        else if (tiles_remaining <= depth + 10)
-            strategy = Strategy.MAXIMIZE_TILES;
-
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
-        search (new Game.copy (game), strategy, depth, NEGATIVE_INFINITY, POSITIVE_INFINITY, ref x, ref y);
-
+        var depth = difficulty_level * 2 + 1;
+        search (new Game.copy (game), depth, NEGATIVE_INFINITY, POSITIVE_INFINITY, ref x, ref y);
     }
 
-    private int search (Game g, Strategy strategy, int depth, int a, int b, ref int move_x, ref int move_y)
+    private int search (Game g, int depth, int a, int b, ref int move_x, ref int move_y)
         requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
@@ -207,7 +191,7 @@ public class ComputerPlayer : Object
          * Checking move_pending here is optional. It helps avoid a long unnecessary search
          * if the move has been cancelled, but is expensive because it requires taking a mutex. */
         if (depth == 0 || !move_pending)
-            return calculate_heuristic (g, strategy);
+            return calculate_heuristic (g);
 
         /* Find all possible moves and sort from most new tiles to least new tiles */
         List<PossibleMove?> moves = null;
@@ -258,7 +242,7 @@ public class ComputerPlayer : Object
             }
 
             int next_x_move = 0, next_y_move = 0;
-            var a_new = -1 * search (g, strategy, depth - 1, -b, -a, ref next_x_move, ref next_y_move);
+            var a_new = -1 * search (g, depth - 1, -b, -a, ref next_x_move, ref next_y_move);
             if (a_new > a)
             {
                 a = a_new;
@@ -280,27 +264,20 @@ public class ComputerPlayer : Object
         return b.n_tiles - a.n_tiles;
     }
 
-    private static int calculate_heuristic (Game g, Strategy strategy)
+    private int calculate_heuristic (Game g)
     {
         var tile_difference = g.n_current_tiles - g.n_opponent_tiles;
 
-        switch (strategy)
-        {
-        /* Maximise the number of tokens */
-        case Strategy.MAXIMIZE_TILES:
-            return tile_difference;
-
         /* Try to lose */
-        case Strategy.MINIMIZE_TILES:
+        if (difficulty_level == 1)
             return -tile_difference;
 
-        /* Try to maximise a number of values */
-        case Strategy.IMPROVE_POSITION:
-            return tile_difference + eval_heuristic (g) + around (g) ;
+        /* End of the game: just maximize the number of tokens */
+        if (g.n_tiles >= 54)
+            return tile_difference;
 
-        default:
-            assert_not_reached ();
-        }
+        /* Normal strategy: try to evaluate the position */
+        return tile_difference + eval_heuristic (g) + around (g) ;
     }
 
     private static int eval_heuristic (Game g)
@@ -348,7 +325,6 @@ public class ComputerPlayer : Object
                 count += g.get_owner (x, y) == g.current_color ? a : -a;
             }
         }
-
         return count;
     }
 
