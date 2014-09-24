@@ -57,6 +57,7 @@
       <object class="GtkStack" id="main_stack">
         <property name="visible">True</property>
         <property name="homogeneous">True</property>
+        <property name="transition-duration">800</property>
         <child>
           <object class="GtkBox" id="start-box">
             <property name="orientation">vertical</property>

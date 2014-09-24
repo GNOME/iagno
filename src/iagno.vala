@@ -293,12 +293,14 @@ public class Iagno : Gtk.Application
 
     private void start_game_cb ()
     {
+        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_DOWN);
         back_button.visible = false;
         start_game ();
     }
 
     private void back_cb ()
     {
+        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_RIGHT);
         show_game_board ();
         back_action.set_enabled (false);
 
@@ -326,6 +328,7 @@ public class Iagno : Gtk.Application
 
     private void new_game_cb ()
     {
+        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT);
         show_new_game_screen ();
         headerbar.set_subtitle (null);
         back_button.visible = true;
