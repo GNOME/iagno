@@ -164,6 +164,7 @@ public class Iagno : Gtk.Application
         add_action_entries (app_actions, this);
         set_accels_for_action ("app.new-game", {"<Primary>n"});
         set_accels_for_action ("app.undo-move", {"<Primary>z"});
+        add_action (settings.create_action ("sound"));
         /* TODO bugs when changing manually the gsettings key (not for sound);
          * solving this bug may remove the need of the hack in three parts */
         add_action (settings.create_action ("play-as"));
@@ -510,12 +511,6 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void sound_select (Gtk.ToggleButton widget)
-    {
-        var play_sounds = widget.get_active ();
-        settings.set_boolean ("sound", play_sounds);
-    }
-
     private bool propbox_close_cb (Gtk.Widget widget, Gdk.EventAny event)
     {
         widget.hide ();
@@ -590,12 +585,5 @@ public class Iagno : Gtk.Application
                 theme_combo.set_active_iter (iter);
         }
         theme_combo.changed.connect (theme_changed_cb);
-
-        var enable_sounds_button = builder.get_object ("sound-button") as Gtk.CheckButton;
-        settings.changed["sound"].connect (() => {
-            enable_sounds_button.set_active (settings.get_boolean ("sound"));
-        });
-        enable_sounds_button.set_active (settings.get_boolean ("sound"));
-        enable_sounds_button.toggled.connect (sound_select);
     }
 }
