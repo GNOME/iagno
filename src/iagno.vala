@@ -267,6 +267,9 @@ public class Iagno : Gtk.Application
     {
         show_game_board ();
         back_action.set_enabled (false);
+
+        if (game.current_color != player_one && computer != null)
+            computer.move_async.begin (SLOW_MOVE_DELAY);
     }
 
     private void show_game_board ()
@@ -278,6 +281,9 @@ public class Iagno : Gtk.Application
 
     private void show_new_game_screen ()
     {
+        if (computer != null)
+            computer.cancel_move ();
+
         main_stack.set_visible_child_name ("start-box");
         back_button.sensitive = game != null;
         back_button.visible = true;
