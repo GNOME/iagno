@@ -161,6 +161,7 @@ public class Iagno : Gtk.Application
     {
         base.startup ();
         add_action_entries (app_actions, this);
+        set_accels_for_action ("app.new-game", {"<Primary>n"});
         set_accels_for_action ("app.undo-move", {"<Primary>z"});
 
         var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
