@@ -445,7 +445,7 @@ public class Iagno : Gtk.Application
          */
         if (game.current_color != player_one && computer != null)
         {
-            if (game.n_tiles == 63 || fast_mode)
+            if (fast_mode)
                 computer.move_async.begin (QUICK_MOVE_DELAY);
             else
                 computer.move_async.begin (SLOW_MOVE_DELAY);
