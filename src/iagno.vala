@@ -15,10 +15,14 @@ public class Iagno : Gtk.Application
     private Settings settings;
     private bool is_fullscreen;
     private bool is_maximized;
+    private int window_width;
+    private int window_height;
     private static bool fast_mode;
     private static int computer_level = 0;
     private static int size = 8;
     private static bool begin_with_new_game_screen = false;
+    private static string play_as;
+    private static bool? sound = null;
 
     /* Seconds */
     private static const double QUICK_MOVE_DELAY = 0.4;
@@ -27,8 +31,6 @@ public class Iagno : Gtk.Application
 
     /* Widgets */
     private Gtk.Window window;
-    private int window_width;
-    private int window_height;
     private Gtk.HeaderBar headerbar;
     private GameView view;
     private Gtk.Image mark_icon_dark;
@@ -44,7 +46,6 @@ public class Iagno : Gtk.Application
 
     private SimpleAction back_action;
 
-
     /* Computer player (if there is one) */
     private ComputerPlayer? computer = null;
 
@@ -58,10 +59,10 @@ public class Iagno : Gtk.Application
     {
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
         { "first", 0, 0, OptionArg.NONE, null, N_("Play first"), null},
-        { "level", 'l', 0, OptionArg.INT, ref computer_level, N_("Set the level of the computer's AI"), null},
+        { "level", 'l', 0, OptionArg.INT, ref computer_level, N_("Set the level of the computer's AI"), "LEVEL"},
         { "mute", 0, 0, OptionArg.NONE, null, N_("Turn off the sound"), null},
         { "second", 0, 0, OptionArg.NONE, null, N_("Play second"), null},
-        { "size", 's', 0, OptionArg.INT, ref size, N_("Size of the board (debug only)"), null},
+        { "size", 's', 0, OptionArg.INT, ref size, N_("Size of the board (debug only)"), "SIZE"},
         { "two-players", 0, 0, OptionArg.NONE, null, N_("Two-players mode"), null},
         { "unmute", 0, 0, OptionArg.NONE, null, N_("Turn on the sound"), null},
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null},
@@ -70,11 +71,6 @@ public class Iagno : Gtk.Application
 
     private const GLib.ActionEntry app_actions[] =
     {
-        /* http://valadoc.org/#!api=gio-2.0/GLib.SimpleActionChangeStateCallback
-         * TODO SimpleActionChangeStateCallback is deprecated... */
-        {"change-mode", change_mode_cb, "s"},
-        {"change-difficulty", change_difficulty_cb, "s"},
-
         {"new-game", new_game_cb},
         {"start-game", start_game_cb},
 
@@ -124,32 +120,21 @@ public class Iagno : Gtk.Application
             return Posix.EXIT_FAILURE;
         }
 
-        /* WARNING: Don't forget that changing at this moment settings
-        could interfere badly with a running instance of the game. */
-        settings = new Settings ("org.gnome.iagno");
-
-        /* Sound can be turned on/off via command-line while playing. */
         if (options.contains ("unmute"))
-            settings.set_boolean ("sound", true);
+            sound = true;
         if (options.contains ("mute"))
-            settings.set_boolean ("sound", false);
+            sound = false;
 
-        /* The computer's AI level is set for the next game. */
-        if (computer_level > 0)
-        {
-            if (computer_level <= 3)
-                settings.set_int ("computer-level", computer_level);
-            else
-                stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
-        }
+        /* TODO message should be displayed if "--level 0" */
+        if (computer_level < 0 || computer_level > 3)
+            stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
 
-        /* The game mode is set for the next game. */
         if (options.contains ("two-players"))
-            settings.set_string ("play-as", "two-players");
+            play_as = "two-players";
         else if (options.contains ("first"))
-            settings.set_string ("play-as", "first");
+            play_as = "first";
         else if (options.contains ("second"))
-            settings.set_string ("play-as", "second");
+            play_as = "second";
         else
             begin_with_new_game_screen = true;
 
@@ -160,12 +145,37 @@ public class Iagno : Gtk.Application
     protected override void startup()
     {
         base.startup ();
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
+
+        /* Settings */
+        settings = new Settings ("org.gnome.iagno");
+        if (sound != null)
+            settings.set_boolean ("sound", sound);
+        if (!begin_with_new_game_screen)
+            settings.set_string ("play-as", play_as);
+        else /* hack, part 1 on 3 */
+            play_as = settings.get_string ("play-as");
+        if (computer_level > 0 && computer_level <= 3)
+            settings.set_int ("computer-level", computer_level);
+        else /* hack, part 2 on 3 */
+            computer_level = settings.get_int ("computer-level");
+
+        /* Actions and preferences */
         add_action_entries (app_actions, this);
         set_accels_for_action ("app.new-game", {"<Primary>n"});
         set_accels_for_action ("app.undo-move", {"<Primary>z"});
+        /* TODO bugs when changing manually the gsettings key (not for sound);
+         * solving this bug may remove the need of the hack in three parts */
+        add_action (settings.create_action ("play-as"));
+        add_action (settings.create_action ("computer-level"));
 
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
+        var level_box = builder.get_object ("level-box") as Gtk.Box;
+        settings.changed["play-as"].connect (() => {
+            level_box.sensitive = settings.get_string ("play-as") != "two-players";
+        });
+        level_box.sensitive = play_as != "two-players";
 
+        /* Window construction */
         window = builder.get_object ("iagno-window") as Gtk.ApplicationWindow;
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
@@ -173,6 +183,15 @@ public class Iagno : Gtk.Application
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
         add_window (window);
+
+        /* Hack for restoring radiobuttons settings, part 3 on 3.
+         * When you add_window(), settings are initialized with the value
+         * of the first radiobutton of the group found in the UI file. */
+        Settings.sync ();
+        settings.set_string ("play-as", play_as);
+        settings.set_int ("computer-level", computer_level);
+
+        /* View construction */
         view = new GameView ();
         view.move.connect (player_move_cb);
         var tile_set = settings.get_string ("tileset");
@@ -183,39 +202,24 @@ public class Iagno : Gtk.Application
         game_box = builder.get_object ("game-box") as Gtk.Box;
         game_box.pack_start (view);
 
+        /* Information widgets */
         headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
         light_score_label = builder.get_object ("light-score-label") as Gtk.Label;
         dark_score_label = builder.get_object ("dark-score-label") as Gtk.Label;
         mark_icon_dark = builder.get_object ("mark-icon-dark") as Gtk.Image;
         mark_icon_light = builder.get_object ("mark-icon-light") as Gtk.Image;
+
+        /* Changing screen */
         main_stack = builder.get_object ("main_stack") as Gtk.Stack;
         back_button = builder.get_object ("back_button") as Gtk.Button;
         undo_button = builder.get_object ("undo_button") as Gtk.Button;
 
         back_action = (SimpleAction) lookup_action ("back");
 
-        var level_box = builder.get_object ("level-box") as Gtk.Box;
-
-        settings.changed["play-as"].connect (() => {
-            var mode = settings.get_string ("play-as");
-            level_box.sensitive = (mode == "two-players") ? false : true;
-        });
-
         if (begin_with_new_game_screen)
             show_new_game_screen ();
         else
             start_game ();
-    }
-
-    private void change_mode_cb (SimpleAction action, Variant? variant)
-    {
-        settings.set_string ("play-as", variant.get_string ());
-    }
-
-    private void change_difficulty_cb (SimpleAction action, Variant? variant)
-    {
-        var difficulty = int.parse (variant.get_string ());
-        settings.set_int ("computer-level", difficulty);
     }
 
     protected override void activate ()

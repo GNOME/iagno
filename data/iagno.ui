@@ -87,7 +87,7 @@
                     <property name="valign">center</property>
                      <property name="width-request">120</property>
                     <property name="height-request">60</property>
-                    <property name="action-name">app.change-mode</property>
+                    <property name="action-name">app.play-as</property>
                     <property name="action-target">'first'</property>
                     <property name="draw-indicator">False</property>
                     <style>
@@ -110,7 +110,7 @@
                     <property name="valign">center</property>
                     <property name="width-request">120</property>
                     <property name="height-request">60</property>
-                    <property name="action-name">app.change-mode</property>
+                    <property name="action-name">app.play-as</property>
                     <property name="action-target">'second'</property>
                     <property name="group">play_dark</property>
                     <property name="draw-indicator">False</property>
@@ -134,7 +134,7 @@
                     <property name="valign">center</property>
                     <property name="width-request">120</property>
                     <property name="height-request">60</property>
-                    <property name="action-name">app.change-mode</property>
+                    <property name="action-name">app.play-as</property>
                     <property name="action-target">'two-players'</property>
                     <property name="group">play_dark</property>
                     <property name="draw-indicator">False</property>
@@ -171,8 +171,8 @@
                     <property name="valign">center</property>
                     <property name="width-request">120</property>
                     <property name="height-request">60</property>
-                    <property name="action-name">app.change-difficulty</property>
-                    <property name="action-target">'1'</property>
+                    <property name="action-name">app.computer-level</property>
+                    <property name="action-target">1</property>
                     <property name="draw-indicator">False</property>
                     <style>
                       <class name="button"/>
@@ -194,8 +194,8 @@
                     <property name="valign">center</property>
                     <property name="width-request">120</property>
                     <property name="height-request">60</property>
-                    <property name="action-name">app.change-difficulty</property>
-                    <property name="action-target">'2'</property>
+                    <property name="action-name">app.computer-level</property>
+                    <property name="action-target">2</property>
                     <property name="group">easy</property>
                     <property name="draw-indicator">False</property>
                     <style>
@@ -218,8 +218,8 @@
                     <property name="valign">center</property>
                     <property name="width-request">120</property>
                     <property name="height-request">60</property>
-                    <property name="action-name">app.change-difficulty</property>
-                    <property name="action-target">'3'</property>
+                    <property name="action-name">app.computer-level</property>
+                    <property name="action-target">3</property>
                     <property name="group">easy</property>
                     <property name="draw-indicator">False</property>
                     <style>
