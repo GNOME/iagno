@@ -1,19 +1,19 @@
 # Serbian translation of gnome-games
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2003 — 2014.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2014.
 # This file is distributed under the same license as the gnome-games package.
 # Maintainer: Душан Марјановић <madafaka@bsd.org.yu>
 # Reviewed on 2005-08-03 by: Игор Несторовић <igor@prevod.org>
 # Translated by: Милош Поповић <gpopac@gmail.com>
 # Translated on 2010-08-25 by: Бранко Кокановић <branko.kokanovic@gmail.com>
 # Милош Поповић <gpopac@gmai, 2010.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011 — 2014.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: Гномове игре\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&"
 "keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-16 16:08+0000\n"
-"PO-Revision-Date: 2014-03-21 04:17+0200\n"
+"POT-Creation-Date: 2014-09-25 21:26+0000\n"
+"PO-Revision-Date: 2014-09-26 08:36+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -45,8 +45,8 @@ msgstr ""
 "спречавајући вашег противника да окрене ваше плочице на његову боју. Ово "
 "остварујете заробљавањем противничких плочица између две плочице ваше боје."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
-#: ../src/iagno.vala:304 ../src/iagno.vala:671
+#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:103 ../src/iagno.vala:127
+#: ../src/iagno.vala:369 ../src/iagno.vala:692
 msgid "Iagno"
 msgstr "Јагно"
 
@@ -57,6 +57,18 @@ msgstr "Освојите већи део табле у класичном изд
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "отело;јагно;реверси;"
+
+#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:586
+msgid "Play first (Dark)"
+msgstr "Игра први (црни)"
+
+#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:588
+msgid "Play second (Light)"
+msgstr "Игра други (бели)"
+
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "Игра за два играча"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
@@ -79,58 +91,112 @@ msgid "_Quit"
 msgstr "_Изађи"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Ниво интелигенције рачунара"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Од 1, најлакше, до 3, најтеже."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+#| msgid "Size of game tiles"
+msgid "Type of game"
+msgstr "Врста игре"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+#| msgid "Changes will take effect for the next game."
+msgid "Choose the type of the next game."
+msgstr "Изаберите врсту следеће игре."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Sound"
 msgstr "Звук"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Whether or not to play event sounds."
 msgstr "Да ли пуштати звуке при догађајима."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Width of the window in pixels"
 msgstr "Ширина прозора у тачкама"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Height of the window in pixels"
 msgstr "Висина прозора у тачкама"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "true if the window is maximized"
 msgstr "изабрано ако је прозор увећан"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "true if the window is fullscren"
-msgstr "изабрано ако је прозор преко целог екрана"
+#: ../src/iagno.vala:47
+msgid "Reduce delay before AI moves"
+msgstr "Смањује застој пре потеза вештачке интелигенције"
 
-#: ../src/iagno.vala:110
-#| msgid "The users's most recent level."
+#: ../src/iagno.vala:48
+#| msgid "Player _List"
+msgid "Play first"
+msgstr "Игра први"
+
+#: ../src/iagno.vala:49
+msgid "Set the level of the computer's AI"
+msgstr "Подешава ниво интелигенције рачунара"
+
+#: ../src/iagno.vala:50
+msgid "Turn off the sound"
+msgstr "Искључује звук"
+
+#: ../src/iagno.vala:51
+#| msgid "second"
+#| msgid_plural "seconds"
+msgid "Play second"
+msgstr "Игра други"
+
+#: ../src/iagno.vala:52
+msgid "Two-players mode"
+msgstr "Режим два играча"
+
+#: ../src/iagno.vala:53
+msgid "Turn on the sound"
+msgstr "Укључује звук"
+
+#: ../src/iagno.vala:54
+#| msgid "Show release version"
+msgid "Print release version and exit"
+msgstr "Исписује издање и излази"
+
+#: ../src/iagno.vala:122
 msgid "Undo your most recent move"
 msgstr "Поништите ваш последњи потез"
 
-#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
+#: ../src/iagno.vala:163 ../src/iagno.vala:321 ../src/iagno.vala:329
 msgid "Dark:"
 msgstr "Црни:"
 
-#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
+#: ../src/iagno.vala:171 ../src/iagno.vala:322 ../src/iagno.vala:330
 msgid "Light:"
 msgstr "Бели:"
 
-#: ../src/iagno.vala:164
+#: ../src/iagno.vala:180
+#| msgid "_Starting level:"
+msgid "_Start Over"
+msgstr "_Почни"
+
+#: ../src/iagno.vala:187
 msgid "Start a new game"
 msgstr "Започните нову игру"
 
+#: ../src/iagno.vala:221
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr "Ниво треба бити између 1 (лако) и 3 (тешко). Подешавања нису измењена."
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
-#: ../src/iagno.vala:273
+#: ../src/iagno.vala:324 ../src/iagno.vala:325 ../src/iagno.vala:332
+#: ../src/iagno.vala:333
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:309
-#| msgid ""
-#| "A disk flipping game derived from Reversi.\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
+#: ../src/iagno.vala:374
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -140,7 +206,7 @@ msgstr ""
 "\n"
 "Јагно је део Гномових игара."
 
-#: ../src/iagno.vala:312
+#: ../src/iagno.vala:377
 msgid "translator-credits"
 msgstr ""
 "Душан Марјановић <madafaka@root.co.yu>\n"
@@ -151,90 +217,90 @@ msgstr ""
 "http://prevod.org — превод на српски језик"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:348
-#| msgid "Light must pass, Dark's move"
+#: ../src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "Бели прескаче потез, Црни је на потезу"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:353
-#| msgid "Dark must pass, Light's move"
+#: ../src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "Црни прескаче потез, Бели је на потезу"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:401
-#| msgid "Light player wins!"
+#: ../src/iagno.vala:462
 msgid "Light wins!"
 msgstr "Бели је победио!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:406
-#| msgid "Dark player wins!"
+#: ../src/iagno.vala:467
 msgid "Dark wins!"
 msgstr "Црни је победио!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:411
-#| msgid "The game is a draw!"
+#: ../src/iagno.vala:472
 msgid "The game is draw."
 msgstr "Игра је нерешена."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:440
-#| msgid "You can't move there!"
+#: ../src/iagno.vala:498
 msgid "You can’t move there!"
 msgstr "То је немогућ потез!"
 
-#: ../src/iagno.vala:494
-msgid "Iagno Preferences"
-msgstr "Поставке Јагноа"
+#: ../src/iagno.vala:553
+msgid "Preferences"
+msgstr "Поставке"
 
-#: ../src/iagno.vala:497
-msgid "_Close"
-msgstr "_Затвори"
+#: ../src/iagno.vala:575
+#| msgid "Game score"
+msgid "Game mode:"
+msgstr "Режими игре:"
 
-#: ../src/iagno.vala:513
-msgid "Dark Player:"
-msgstr "Црни играч:"
+#: ../src/iagno.vala:590
+#| msgid "The opponent player"
+msgid "Two players"
+msgstr "Два играча"
 
-#: ../src/iagno.vala:526 ../src/iagno.vala:555
-msgid "Human"
-msgstr "Човек"
+#: ../src/iagno.vala:602
+msgid "Computer:"
+msgstr "Рачунар:"
 
-#: ../src/iagno.vala:530 ../src/iagno.vala:559
+#: ../src/iagno.vala:613
 msgid "Level one"
 msgstr "Први ниво"
 
-#: ../src/iagno.vala:534 ../src/iagno.vala:563
+#: ../src/iagno.vala:615
 msgid "Level two"
 msgstr "Други ниво"
 
-#: ../src/iagno.vala:538 ../src/iagno.vala:567
+#: ../src/iagno.vala:617
 msgid "Level three"
 msgstr "Трећи ниво"
 
-#: ../src/iagno.vala:543
-msgid "Light Player:"
-msgstr "Бели играч:"
-
-#: ../src/iagno.vala:572
+#: ../src/iagno.vala:624
 msgid "_Tile set:"
 msgstr "Скуп _плочица:"
 
-#: ../src/iagno.vala:624
+#: ../src/iagno.vala:676
 msgid "E_nable sounds"
 msgstr "Укључи _звуке"
 
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:636
-msgid "Reduce delay before AI moves"
-msgstr "Смањује застој пре потеза вештачке интелигенције"
+#~ msgid "true if the window is fullscren"
+#~ msgstr "изабрано ако је прозор преко целог екрана"
 
-#. Help string for command line --version flag
-#: ../src/iagno.vala:639
-msgid "Show release version"
-msgstr "Приказује издање програма"
+#~ msgid "Iagno Preferences"
+#~ msgstr "Поставке Јагноа"
+
+#~ msgid "_Close"
+#~ msgstr "_Затвори"
+
+#~ msgid "Dark Player:"
+#~ msgstr "Црни играч:"
+
+#~ msgid "Human"
+#~ msgstr "Човек"
+
+#~ msgid "Light Player:"
+#~ msgstr "Бели играч:"
 
 #~ msgid "Chess"
 #~ msgstr "Шах"
@@ -347,9 +413,6 @@ msgstr "Приказује издање програма"
 #~ msgid "true if the human player is playing white"
 #~ msgstr "означено ако људски играч игра белим"
 
-#~ msgid "The opponent player"
-#~ msgstr "Противнички играч"
-
 #~ msgid ""
 #~ "Can be 'human' (play against another human player), '' (use the first "
 #~ "available chess engine) or the name of a specific engine to play against"
@@ -360,9 +423,6 @@ msgstr "Приказује издање програма"
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Тежина противничке шаховске машине"
-
-#~ msgid "Preferences"
-#~ msgstr "Поставке"
 
 #~ msgid "Play as:"
 #~ msgstr "Играм као:"
@@ -378,9 +438,6 @@ msgstr "Приказује издање програма"
 
 #~ msgid "Promotion Type:"
 #~ msgstr "Врста замене:"
-
-#~ msgid "Changes will take effect for the next game."
-#~ msgstr "Измене ће ступити на снагу приликом следеће игре."
 
 #~ msgid "Game"
 #~ msgstr "Игра"
@@ -786,13 +843,6 @@ msgstr "Приказује издање програма"
 #~ msgid "_Save game for later"
 #~ msgstr "_Сачувај игру за касније"
 
-#~ msgid "second"
-#~ msgid_plural "seconds"
-#~ msgstr[0] "секунда"
-#~ msgstr[1] "секунде"
-#~ msgstr[2] "секунди"
-#~ msgstr[3] "секунда"
-
 #~ msgid "minute"
 #~ msgid_plural "minutes"
 #~ msgstr[0] "минут"
@@ -925,9 +975,6 @@ msgstr "Приказује издање програма"
 #~ msgid "Time between moves in milliseconds."
 #~ msgstr "Време између потеза у милисекундама."
 
-#~ msgid "Game score"
-#~ msgstr "Резултат игре"
-
 #~ msgid "Game score from last saved session."
 #~ msgstr "Резултат из последње сачуване игре."
 
@@ -1026,9 +1073,6 @@ msgstr "Приказује издање програма"
 
 #~ msgid "L_eave Game"
 #~ msgstr "_Напусти игру"
-
-#~ msgid "Player _List"
-#~ msgstr "Списак _играча"
 
 #~ msgid "_Pause"
 #~ msgstr "_Пауза"
@@ -1348,9 +1392,6 @@ msgstr "Приказује издање програма"
 #~ msgid "Enable sounds."
 #~ msgstr "Укључује звукове."
 
-#~ msgid "Size of game tiles"
-#~ msgstr "Величина поља"
-
 #~ msgid "Size of game tiles."
 #~ msgstr "Величина поља."
 
@@ -1505,9 +1546,6 @@ msgstr "Приказује издање програма"
 
 #~ msgid "_Enable fake bonuses"
 #~ msgstr "_Укључи лажне бонусе"
-
-#~ msgid "_Starting level:"
-#~ msgstr "_Почетни ниво:"
 
 #~ msgid "Number of _human players:"
 #~ msgstr "Број _људских играча:"
