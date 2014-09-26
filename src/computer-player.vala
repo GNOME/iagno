@@ -196,10 +196,10 @@ public class ComputerPlayer : Object
         if (depth == 0)
             return calculate_heuristic (g);
 
-        List<PossibleMove?> moves = null;
         if (g.current_player_can_move)
         {
             /* Find all possible moves and sort from most new tiles to least new tiles */
+            List<PossibleMove?> moves = null;
             for (var x = 0; x < g.size; x++)
             {
                 for (var y = 0; y < g.size; y++)
@@ -217,48 +217,51 @@ public class ComputerPlayer : Object
             /* We use (0, 0) as our default move; if we don't change that,
              * a search could select it even if invalid at the end of the game.
              */
-            var move = moves.nth_data (0);
-            move_x = move.x;
-            move_y = move.y;
+            var default_move = moves.nth_data (0);
+            move_x = default_move.x;
+            move_y = default_move.y;
+
+            /* Try each move using alpha-beta pruning to optimise finding the best branch */
+            foreach (var move in moves)
+            {
+                if (g.place_tile (move.x, move.y) == 0)
+                {
+                    critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, move.x, move.y, move.n_tiles, g.to_string ());
+                    assert_not_reached ();
+                }
+
+                int next_x_move = 0, next_y_move = 0;
+                var a_new = -1 * search (g, depth - 1, -b, -a, ref next_x_move, ref next_y_move);
+                if (a_new > a)
+                {
+                    a = a_new;
+                    move_x = move.x;
+                    move_y = move.y;
+                }
+
+                g.undo ();
+
+                /* This branch has worse values, so ignore it */
+                if (b <= a)
+                    break;
+            }
         }
         else
         {
-            /* The move.ntiles = 0 is used next to know we have to pass.
-             * The move.x = move.y = 0 is never used: move.x, move.y, move_x & move_y
-             * are only used at first iteration… and the game passes if there's no move.
+            /* The move.x & move.y work is in fact not necessary here:
+             * move.x, move.y, move_x & move_y are only used at first
+             * iteration… and the game passes if there's no move.
              */
-            var move = PossibleMove (0, 0, 0);
-            moves.append (move);
-        }
-
-        /* Try each move using alpha-beta pruning to optimise finding the best branch */
-        foreach (var move in moves)
-        {
-            if (move.n_tiles == 0)
-            {
-                g.pass ();
-            }
-            else if (g.place_tile (move.x, move.y) == 0)
-            {
-                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, move.x, move.y, move.n_tiles, g.to_string ());
-                assert_not_reached ();
-            }
+            g.pass ();
 
             int next_x_move = 0, next_y_move = 0;
             var a_new = -1 * search (g, depth - 1, -b, -a, ref next_x_move, ref next_y_move);
             if (a_new > a)
-            {
                 a = a_new;
-                move_x = move.x;
-                move_y = move.y;
-            }
 
             g.undo ();
-
-            /* This branch has worse values, so ignore it */
-            if (b <= a)
-                break;
         }
+
         return a;
     }
 
