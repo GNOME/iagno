@@ -291,16 +291,15 @@ public class Iagno : Gtk.Application
             computer.cancel_move ();
 
         main_stack.set_visible_child_name ("start-box");
-        back_button.sensitive = game != null;
-        back_button.visible = true;
         undo_button.visible = false;
-        back_action.set_enabled (true);
     }
 
     private void new_game_cb ()
     {
         show_new_game_screen ();
         headerbar.set_subtitle (null);
+        back_button.visible = true;
+        back_action.set_enabled (true);
     }
 
     private void start_game ()
