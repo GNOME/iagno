@@ -159,6 +159,10 @@ public class ComputerPlayer : Object
         move_pending = false;
     }
 
+    /*\
+    * * Minimax / Negamax / alpha-beta pruning
+    \*/
+
     private void run_search (ref int x, ref int y)
         requires (game.current_player_can_move)
     {
@@ -172,20 +176,47 @@ public class ComputerPlayer : Object
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
-        var depth = difficulty_level * 2 + 1;
-        search (new Game.copy (game), depth, NEGATIVE_INFINITY, POSITIVE_INFINITY, ref x, ref y);
+        var g = new Game.copy (game);
+        var depth = difficulty_level * 2;
+        var a = NEGATIVE_INFINITY;
+
+        var moves = new List<PossibleMove?> ();
+        get_possible_moves_sorted (g, ref moves);
+
+        /* We use (0, 0) as our default move; if we don't change that,
+         * a search could select it even if invalid at the end of the game.
+         */
+        var default_move = moves.nth_data (0);
+        x = default_move.x;
+        y = default_move.y;
+
+        /* Try each move using alpha-beta pruning to optimise finding the best branch */
+        foreach (var move in moves)
+        {
+            if (g.place_tile (move.x, move.y, true) == 0)
+            {
+                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, move.x, move.y, move.n_tiles, g.to_string ());
+                assert_not_reached ();
+            }
+
+            var a_new = -1 * search (g, depth, NEGATIVE_INFINITY, -a);
+            if (a_new > a)
+            {
+                a = a_new;
+                x = move.x;
+                y = move.y;
+            }
+
+            g.undo ();
+        }
     }
 
-    private int search (Game g, int depth, int a, int b, ref int move_x, ref int move_y)
+    private int search (Game g, int depth, int a, int b)
         requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
         if (g.is_complete)
-        {
-            var n_current_tiles = g.n_current_tiles;
-            var n_enemy_tiles = g.n_opponent_tiles;
-            return n_current_tiles > n_enemy_tiles ? POSITIVE_INFINITY - n_enemy_tiles : NEGATIVE_INFINITY + n_current_tiles;
-        }
+            return g.n_current_tiles > g.n_opponent_tiles ? POSITIVE_INFINITY - g.n_opponent_tiles : NEGATIVE_INFINITY + g.n_current_tiles;
 
         /* Checking move_pending here is optional. It helps avoid a long unnecessary search
          * if the move has been cancelled, but is expensive because it requires taking a mutex. */
@@ -198,27 +229,8 @@ public class ComputerPlayer : Object
 
         if (g.current_player_can_move)
         {
-            /* Find all possible moves and sort from most new tiles to least new tiles */
-            List<PossibleMove?> moves = null;
-            for (var x = 0; x < g.size; x++)
-            {
-                for (var y = 0; y < g.size; y++)
-                {
-                    var n_tiles = g.place_tile (x, y, false);
-                    if (n_tiles <= 0)
-                        continue;
-
-                    var move = PossibleMove (x, y, n_tiles);
-                    moves.insert_sorted (move, compare_move);
-                }
-            }
-
-            /* We use (0, 0) as our default move; if we don't change that,
-             * a search could select it even if invalid at the end of the game.
-             */
-            var default_move = moves.nth_data (0);
-            move_x = default_move.x;
-            move_y = default_move.y;
+            var moves = new List<PossibleMove?> ();
+            get_possible_moves_sorted (g, ref moves);
 
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
             foreach (var move in moves)
@@ -229,14 +241,9 @@ public class ComputerPlayer : Object
                     assert_not_reached ();
                 }
 
-                int next_x_move = 0, next_y_move = 0;
-                var a_new = -1 * search (g, depth - 1, -b, -a, ref next_x_move, ref next_y_move);
+                var a_new = -1 * search (g, depth - 1, -b, -a);
                 if (a_new > a)
-                {
                     a = a_new;
-                    move_x = move.x;
-                    move_y = move.y;
-                }
 
                 g.undo ();
 
@@ -247,14 +254,9 @@ public class ComputerPlayer : Object
         }
         else
         {
-            /* The move.x & move.y work is in fact not necessary here:
-             * move.x, move.y, move_x & move_y are only used at first
-             * iteration… and the game passes if there's no move.
-             */
             g.pass ();
 
-            int next_x_move = 0, next_y_move = 0;
-            var a_new = -1 * search (g, depth - 1, -b, -a, ref next_x_move, ref next_y_move);
+            var a_new = -1 * search (g, depth - 1, -b, -a);
             if (a_new > a)
                 a = a_new;
 
@@ -264,10 +266,30 @@ public class ComputerPlayer : Object
         return a;
     }
 
+    private void get_possible_moves_sorted (Game g, ref List<PossibleMove?> moves)
+    {
+        for (var x = 0; x < g.size; x++)
+        {
+            for (var y = 0; y < g.size; y++)
+            {
+                var n_tiles = g.place_tile (x, y, false);
+                if (n_tiles <= 0)
+                    continue;
+
+                var move = PossibleMove (x, y, n_tiles);
+                moves.insert_sorted (move, compare_move);
+            }
+        }
+    }
+
     private static int compare_move (PossibleMove? a, PossibleMove? b)
     {
         return b.n_tiles - a.n_tiles;
     }
+
+    /*\
+    * * AI
+    \*/
 
     private int calculate_heuristic (Game g)
     {
@@ -340,6 +362,10 @@ public class ComputerPlayer : Object
 
         return 0;
     }
+
+    /*\
+    * * First random moves
+    \*/
 
     private static void random_select (Game g, out int move_x, out int move_y)
     {
