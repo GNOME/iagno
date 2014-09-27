@@ -178,17 +178,11 @@ public class ComputerPlayer : Object
          * strategy. */
         var g = new Game.copy (game);
         var depth = difficulty_level * 2;
-        var a = NEGATIVE_INFINITY;
+        /* The -1 is because the search sometimes returns NEGATIVE_INFINITY. */
+        var a = NEGATIVE_INFINITY - 1;
 
         var moves = new List<PossibleMove?> ();
         get_possible_moves_sorted (g, ref moves);
-
-        /* We use (0, 0) as our default move; if we don't change that,
-         * a search could select it even if invalid at the end of the game.
-         */
-        var default_move = moves.nth_data (0);
-        x = default_move.x;
-        y = default_move.y;
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
         foreach (var move in moves)
