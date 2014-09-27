@@ -195,27 +195,30 @@ public class Game : Object
     * * Actions (apart undo)
     \*/
 
-    public int place_tile (int x, int y)
+    public int place_tile (int x, int y, bool apply = true)
         requires (is_valid_location (x, y))
     {
         if (tiles[x, y] != Player.NONE)
             return 0;
 
         var tiles_turned = 0;
-        tiles_turned += flip_tiles (x, y, 1, 0);
-        tiles_turned += flip_tiles (x, y, 1, 1);
-        tiles_turned += flip_tiles (x, y, 0, 1);
-        tiles_turned += flip_tiles (x, y, -1, 1);
-        tiles_turned += flip_tiles (x, y, -1, 0);
-        tiles_turned += flip_tiles (x, y, -1, -1);
-        tiles_turned += flip_tiles (x, y, 0, -1);
-        tiles_turned += flip_tiles (x, y, 1, -1);
+        tiles_turned += flip_tiles (x, y, 1, 0, apply);
+        tiles_turned += flip_tiles (x, y, 1, 1, apply);
+        tiles_turned += flip_tiles (x, y, 0, 1, apply);
+        tiles_turned += flip_tiles (x, y, -1, 1, apply);
+        tiles_turned += flip_tiles (x, y, -1, 0, apply);
+        tiles_turned += flip_tiles (x, y, -1, -1, apply);
+        tiles_turned += flip_tiles (x, y, 0, -1, apply);
+        tiles_turned += flip_tiles (x, y, 1, -1, apply);
 
         if (tiles_turned == 0)
             return 0;
 
-        set_tile (x, y);
-        end_of_turn ();
+        if (apply)
+        {
+            set_tile (x, y);
+            end_of_turn ();
+        }
 
         return tiles_turned;
     }
@@ -263,16 +266,19 @@ public class Game : Object
     * * Flipping tiles
     \*/
 
-    private int flip_tiles (int x, int y, int x_step, int y_step)
+    private int flip_tiles (int x, int y, int x_step, int y_step, bool apply)
     {
         var enemy_count = can_flip_tiles (x, y, x_step, y_step, current_color);
         if (enemy_count == 0)
             return 0;
 
-        for (var i = 1; i <= enemy_count; i++)
+        if (apply)
         {
-            n_opponent_tiles--;
-            set_tile (x + i * x_step, y + i * y_step);
+            for (var i = 1; i <= enemy_count; i++)
+            {
+                n_opponent_tiles--;
+                set_tile (x + i * x_step, y + i * y_step);
+            }
         }
         return enemy_count;
     }

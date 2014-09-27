@@ -204,13 +204,12 @@ public class ComputerPlayer : Object
             {
                 for (var y = 0; y < g.size; y++)
                 {
-                    var n_tiles = g.place_tile (x, y);
+                    var n_tiles = g.place_tile (x, y, false);
                     if (n_tiles <= 0)
                         continue;
 
                     var move = PossibleMove (x, y, n_tiles);
                     moves.insert_sorted (move, compare_move);
-                    g.undo ();
                 }
             }
 
