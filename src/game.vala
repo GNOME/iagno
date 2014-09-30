@@ -30,12 +30,14 @@ public class Game : Object
     public Player current_color { get; private set; default = Player.DARK; }
     public int number_of_moves { get; private set; default = 0; }
 
+    /* Indicate who's the next player who can move */
+    public bool current_player_can_move { get; private set; default = true; }
+    public bool is_complete { get; private set; default = false; }
+
     /* Indicate that a player should move */
-    public signal void move ();
+    public signal void turn_ended ();
     /* Indicate a square has changed */
     public signal void square_changed (int x, int y);
-    /* Indicate the game is complete */
-    public signal void complete ();
 
     /*\
     * * Number of tiles on the board
@@ -171,26 +173,6 @@ public class Game : Object
         return tiles[x, y];
     }
 
-    public bool is_complete ()
-        ensures (result || n_tiles < size * size)
-    {
-        return !can_move (null);
-    }
-
-    public bool can_move (Player? color)
-        requires (color != Player.NONE)
-    {
-        for (var x = 0; x < size; x++)
-            for (var y = 0; y < size; y++)
-            {
-                if (color != Player.DARK && can_place (x, y, Player.LIGHT))
-                    return true;
-                if (color != Player.LIGHT && can_place (x, y, Player.DARK))
-                    return true;
-            }
-        return false;
-    }
-
     public bool can_place (int x, int y, Player color)
         requires (is_valid_location (x, y))
         requires (color != Player.NONE)
@@ -235,20 +217,13 @@ public class Game : Object
         set_tile (x, y);
         end_of_turn ();
 
-        if (is_complete ())
-            complete ();
-        else
-            move ();
-
         return tiles_turned;
     }
 
     public void pass ()
-        requires (!can_move (current_color))
+        requires (!current_player_can_move)
     {
         end_of_turn ();
-
-        move ();
     }
 
     private void end_of_turn ()
@@ -258,6 +233,30 @@ public class Game : Object
         number_of_moves++;
         history_index++;
         undo_stack[history_index] = null;
+        update_who_can_move ();
+        turn_ended ();
+    }
+
+    private void update_who_can_move ()
+    {
+        var enemy = Player.flip_color (current_color);
+        var opponent_can_move = false;
+        for (var x = 0; x < size; x++)
+        {
+            for (var y = 0; y < size; y++)
+            {
+                if (can_place (x, y, current_color))
+                {
+                    current_player_can_move = true;
+                    return;
+                }
+                if (can_place (x, y, enemy))
+                    opponent_can_move = true;
+            }
+        }
+        current_player_can_move = false;
+        if (!opponent_can_move)
+            is_complete = true;
     }
 
     /*\
@@ -337,8 +336,15 @@ public class Game : Object
             }
         }
 
-        if (count == 2)
-            undo (1);
+        if (count == 1)
+        {
+            is_complete = false;
+            update_who_can_move ();
+        }
+        else
+        {
+            undo (count - 1);
+        }
     }
 
     private void unset_tile (int tile_number, Player replacement_color)

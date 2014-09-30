@@ -34,7 +34,7 @@ public class TestIagno : Object
         assert (game.number_of_moves == 0);
         assert (game.place_tile (7, 2) > 0);
         assert (game.number_of_moves == 1);
-        assert (!game.can_move (Player.LIGHT));
+        assert (!game.current_player_can_move);
         game.pass ();
         assert (game.number_of_moves == 2);
         game.undo (2);
@@ -42,7 +42,7 @@ public class TestIagno : Object
         assert (game.to_string ().strip () == string.joinv ("\n", board).strip ());
         assert (game.place_tile (7, 2) > 0);
         assert (game.number_of_moves == 1);
-        assert (!game.can_move (Player.LIGHT));
+        assert (!game.current_player_can_move);
         game.undo (1);
         assert (game.number_of_moves == 0);
         assert (game.to_string ().strip () == string.joinv ("\n", board).strip ());
@@ -72,7 +72,7 @@ public class TestIagno : Object
         assert (game.current_color == Player.DARK);
         assert (game.place_tile (1, 2) > 0);
         assert (game.current_color == Player.LIGHT);
-        assert (!game.can_move (Player.LIGHT));
+        assert (!game.current_player_can_move);
         game.pass ();
         assert (game.current_color == Player.DARK);
     }

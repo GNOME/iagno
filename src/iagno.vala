@@ -316,8 +316,7 @@ public class Iagno : Gtk.Application
         show_game_board ();
 
         game = new Game (size);
-        game.move.connect (game_move_cb);
-        game.complete.connect (game_complete_cb);
+        game.turn_ended.connect (turn_ended_cb);
         view.game = game;
         view.show ();
         game_box.pack_start (view);
@@ -367,7 +366,7 @@ public class Iagno : Gtk.Application
         if (computer == null)
         {
             game.undo (1);
-            if (!game.can_move (game.current_color))
+            if (!game.current_player_can_move)
                 game.undo (1);
         }
         else
@@ -381,11 +380,12 @@ public class Iagno : Gtk.Application
                 game.undo (2);
 
             /* If forced to pass, undo to last chosen move so the computer doesn't play next */
-            while (!game.can_move (game.current_color))
+            while (!game.current_player_can_move)
                 game.undo (2);
         }
 
-        game_move_cb ();
+        update_ui ();
+        play_sound ("flip-piece");
     }
 
     private void about_cb ()
@@ -427,27 +427,21 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void game_move_cb ()
+    private void turn_ended_cb ()
     {
-        play_sound ("flip-piece");
-
-        if (!game.can_move (game.current_color))
-        {
-            game.pass ();
-            if (game.current_color == Player.DARK)
-            {
-                /* Message to display when Light has no possible moves */
-                headerbar.set_subtitle (_("Light must pass, Dark’s move"));
-            }
-            else
-            {
-                /* Message to display when Dark has no possible moves */
-                headerbar.set_subtitle (_("Dark must pass, Light’s move"));
-            }
-            return;
-        }
-
         update_ui ();
+        if (game.current_player_can_move)
+            prepare_move ();
+        else if (game.is_complete)
+            game_complete ();
+        else
+            pass ();
+    }
+
+    private void prepare_move ()
+    {
+        /* for the move that just ended */
+        play_sound ("flip-piece");
 
         /*
          * Get the computer to move after a delay, so it looks like it's
@@ -463,10 +457,26 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void game_complete_cb ()
+    private void pass ()
     {
-        update_ui ();
+        /* for the move that just ended */
+        play_sound ("flip-piece");
 
+        game.pass ();
+        if (game.current_color == Player.DARK)
+        {
+            /* Message to display when Light has no possible moves */
+            headerbar.set_subtitle (_("Light must pass, Dark’s move"));
+        }
+        else
+        {
+            /* Message to display when Dark has no possible moves */
+            headerbar.set_subtitle (_("Dark must pass, Light’s move"));
+        }
+    }
+
+    private void game_complete ()
+    {
         if (game.n_light_tiles > game.n_dark_tiles)
         {
             /* Message to display when Light has won the game */
@@ -477,12 +487,11 @@ public class Iagno : Gtk.Application
             /* Message to display when Dark has won the game */
             headerbar.set_subtitle (_("Dark wins!"));
         }
-        else if (game.n_light_tiles == game.n_dark_tiles)
+        else
         {
             /* Message to display when the game is a draw */
             headerbar.set_subtitle (_("The game is draw."));
         }
-        else assert_not_reached ();
 
         play_sound ("gameover");
     }

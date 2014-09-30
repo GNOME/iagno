@@ -188,7 +188,7 @@ public class GameView : Gtk.DrawingArea
         var pixmap = get_pixmap (game.get_owner (x, y));
 
         /* Show the result by laying the tiles with winning color first */
-        if (flip_final_result_now && game.is_complete ())
+        if (flip_final_result_now && game.is_complete)
         {
             var n = y * game.size + x;
             var winning_color = Player.LIGHT;
@@ -218,7 +218,7 @@ public class GameView : Gtk.DrawingArea
 
         set_square (x, y, pixmap);
 
-        if (game.is_complete () && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
+        if (game.is_complete && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
         {
             /*
              * Show the actual final positions of the pieces before flipping the board.

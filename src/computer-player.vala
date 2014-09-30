@@ -160,7 +160,7 @@ public class ComputerPlayer : Object
     }
 
     private void run_search (ref int x, ref int y)
-        requires (game.can_move (game.current_color))
+        requires (game.current_player_can_move)
     {
         /* For the first two moves play randomly so the game is not always the same */
         if (game.n_tiles < 8)
@@ -180,52 +180,55 @@ public class ComputerPlayer : Object
         requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
-        if (g.is_complete ())
+        if (g.is_complete)
         {
             var n_current_tiles = g.n_current_tiles;
             var n_enemy_tiles = g.n_opponent_tiles;
             return n_current_tiles > n_enemy_tiles ? POSITIVE_INFINITY - n_enemy_tiles : NEGATIVE_INFINITY + n_current_tiles;
         }
 
-        /* End of the search, calculate how good a result this is.
-         * Checking move_pending here is optional. It helps avoid a long unnecessary search
+        /* Checking move_pending here is optional. It helps avoid a long unnecessary search
          * if the move has been cancelled, but is expensive because it requires taking a mutex. */
-        if (depth == 0 || !move_pending)
+        if (!move_pending)
+            return 0;
+
+        /* End of the search, calculate how good a result this is. */
+        if (depth == 0)
             return calculate_heuristic (g);
 
-        /* Find all possible moves and sort from most new tiles to least new tiles */
         List<PossibleMove?> moves = null;
-        for (var x = 0; x < g.size; x++)
+        if (g.current_player_can_move)
         {
-            for (var y = 0; y < g.size; y++)
+            /* Find all possible moves and sort from most new tiles to least new tiles */
+            for (var x = 0; x < g.size; x++)
             {
-                var n_tiles = g.place_tile (x, y);
-                if (n_tiles <= 0)
-                    continue;
+                for (var y = 0; y < g.size; y++)
+                {
+                    var n_tiles = g.place_tile (x, y);
+                    if (n_tiles <= 0)
+                        continue;
 
-                var move = PossibleMove (x, y, n_tiles);
-                moves.insert_sorted (move, compare_move);
-                g.undo ();
+                    var move = PossibleMove (x, y, n_tiles);
+                    moves.insert_sorted (move, compare_move);
+                    g.undo ();
+                }
             }
-        }
 
-        if (moves == null)
-        {
-            /* The move.ntiles = 0 is used next to know we have to pass.
-             * The move.x = move.y = 0 is never used: move.x, move.y, move_x & move_y
-             * are only used at first iteration… and the game passes if there’s no move.
-             */
-            var move = PossibleMove (0, 0, 0);
-            moves.append (move);
-        }
-        else
-        {
             /* We use (0, 0) as our default move; if we don't change that,
              * a search could select it even if invalid at the end of the game.
              */
             var move = moves.nth_data (0);
             move_x = move.x;
             move_y = move.y;
+        }
+        else
+        {
+            /* The move.ntiles = 0 is used next to know we have to pass.
+             * The move.x = move.y = 0 is never used: move.x, move.y, move_x & move_y
+             * are only used at first iteration… and the game passes if there's no move.
+             */
+            var move = PossibleMove (0, 0, 0);
+            moves.append (move);
         }
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
