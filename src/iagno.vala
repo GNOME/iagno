@@ -535,7 +535,6 @@ public class Iagno : Gtk.Application
         model.get (iter, 1, out tile_set);
         settings.set_string ("tileset", tile_set);
         view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
-        view.redraw ();
     }
 
     private void create_preferences_dialog ()

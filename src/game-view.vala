@@ -56,7 +56,7 @@ public class GameView : Gtk.DrawingArea
                     for (var y = 0; y < game.size; y++)
                         pixmaps[x, y] = get_pixmap (_game.get_owner (x, y));
             }
-            redraw ();
+            queue_draw ();
         }
     }
 
@@ -176,11 +176,6 @@ public class GameView : Gtk.DrawingArea
         {
             warning ("Failed to load theme %s: %s", theme, e.message);
         }
-    }
-
-    public void redraw ()
-    {
-        queue_draw ();
     }
 
     private void square_changed_cb (int x, int y)
