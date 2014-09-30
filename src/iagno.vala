@@ -276,8 +276,10 @@ public class Iagno : Gtk.Application
         show_game_board ();
         back_action.set_enabled (false);
 
-        if (game.current_color != player_one && computer != null)
+        if (game.current_color != player_one && computer != null && !game.is_complete)
             computer.move_async.begin (SLOW_MOVE_DELAY);
+        else if (game.is_complete)
+            game_complete (false);
     }
 
     private void show_game_board ()
@@ -477,7 +479,7 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void game_complete ()
+    private void game_complete (bool play_gameover_sound = true)
     {
         if (game.n_light_tiles > game.n_dark_tiles)
         {
@@ -495,7 +497,8 @@ public class Iagno : Gtk.Application
             headerbar.set_subtitle (_("The game is draw."));
         }
 
-        play_sound ("gameover");
+        if (play_gameover_sound)
+            play_sound ("gameover");
     }
 
     private void play_sound (string name)
@@ -510,8 +513,8 @@ public class Iagno : Gtk.Application
 
     private void player_move_cb (int x, int y)
     {
-        /* Ignore if we are waiting for the AI to move */
-        if (game.current_color != player_one && computer != null)
+        /* Ignore if we are waiting for the AI to move or if game is finished */
+        if ((game.current_color != player_one && computer != null) || !game.current_player_can_move)
             return;
 
         if (game.place_tile (x, y) == 0)
