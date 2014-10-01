@@ -18,6 +18,7 @@ public class Iagno : Gtk.Application
     private int window_width;
     private int window_height;
     private static bool fast_mode;
+    private static bool alternative_start;
     private static int computer_level = 0;
     private static int size = 8;
     private static bool begin_with_new_game_screen = false;
@@ -57,6 +58,7 @@ public class Iagno : Gtk.Application
 
     private static const OptionEntry[] option_entries =
     {
+        { "alternative-start", 0, 0, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
         { "first", 0, 0, OptionArg.NONE, null, N_("Play first"), null},
         { "level", 'l', 0, OptionArg.INT, ref computer_level, N_("Set the level of the computer's AI"), "LEVEL"},
@@ -315,7 +317,7 @@ public class Iagno : Gtk.Application
 
         show_game_board ();
 
-        game = new Game (size);
+        game = new Game (alternative_start, size);
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
         view.show ();

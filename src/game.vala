@@ -87,7 +87,7 @@ public class Game : Object
     * * Creation / exporting
     \*/
 
-    public Game (int tmp_size = 8)
+    public Game (bool alternative_start = false, int tmp_size = 8)
         requires (tmp_size >= 4)
     {
         size = tmp_size;
@@ -105,9 +105,9 @@ public class Game : Object
         {
             /* Setup board with four tiles by default */
             initial_number_of_tiles = 4;
-            tiles [size / 2 - 1, size / 2 - 1] = Player.LIGHT;
+            tiles [size / 2 - 1, size / 2 - 1] = alternative_start ? Player.DARK : Player.LIGHT;
             tiles [size / 2 - 1, size / 2] = Player.DARK;
-            tiles [size / 2, size / 2 - 1] = Player.DARK;
+            tiles [size / 2, size / 2 - 1] = alternative_start ? Player.LIGHT : Player.DARK;
             tiles [size / 2, size / 2] = Player.LIGHT;
             n_current_tiles = 2;
             n_opponent_tiles = 2;
@@ -117,11 +117,11 @@ public class Game : Object
             /* Logical starting position for odd board */
             initial_number_of_tiles = 7;
             tiles [(size - 1) / 2, (size - 1) / 2] = Player.DARK;
-            tiles [(size + 1) / 2, (size - 3) / 2] = Player.DARK;
-            tiles [(size - 3) / 2, (size + 1) / 2] = Player.DARK;
+            tiles [(size + 1) / 2, (size - 3) / 2] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [(size - 3) / 2, (size + 1) / 2] = alternative_start ? Player.LIGHT : Player.DARK;
             tiles [(size - 1) / 2, (size - 3) / 2] = Player.LIGHT;
-            tiles [(size - 3) / 2, (size - 1) / 2] = Player.LIGHT;
-            tiles [(size + 1) / 2, (size - 1) / 2] = Player.LIGHT;
+            tiles [(size - 3) / 2, (size - 1) / 2] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [(size + 1) / 2, (size - 1) / 2] = alternative_start ? Player.DARK : Player.LIGHT;
             tiles [(size - 1) / 2, (size + 1) / 2] = Player.LIGHT;
             n_current_tiles = 3;
             n_opponent_tiles = 4;
