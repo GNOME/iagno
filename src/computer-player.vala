@@ -166,8 +166,8 @@ public class ComputerPlayer : Object
     private void run_search (ref int x, ref int y)
         requires (game.current_player_can_move)
     {
-        /* For the first two moves play randomly so the game is not always the same */
-        if (game.n_tiles < 8)
+        /* For the first/first two moves play randomly so the game is not always the same */
+        if (game.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
         {
             random_select (game, out x, out y);
             return;

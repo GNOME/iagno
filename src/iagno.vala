@@ -113,10 +113,10 @@ public class Iagno : Gtk.Application
             return Posix.EXIT_SUCCESS;
         }
 
-        if (size < 4 || size % 2 != 0)
+        if (size < 4)
         {
             /* Console message displayed for an incorrect size */
-            stderr.printf ("%s\n", _("Size must be even and at least 4."));
+            stderr.printf ("%s\n", _("Size must be at least 4."));
             return Posix.EXIT_FAILURE;
         }
 

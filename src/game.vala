@@ -43,6 +43,7 @@ public class Game : Object
     * * Number of tiles on the board
     \*/
 
+    public int initial_number_of_tiles { get; private set; }
     public int n_tiles
     {
         get { return n_dark_tiles + n_light_tiles; }
@@ -88,7 +89,6 @@ public class Game : Object
 
     public Game (int tmp_size = 8)
         requires (tmp_size >= 4)
-        requires (tmp_size % 2 == 0)
     {
         size = tmp_size;
         tiles = new Player[size, size];
@@ -101,15 +101,34 @@ public class Game : Object
          * and you could flip max ((size - 2) * 3) tiles in one turn. */
         undo_stack = new int?[180 * (size - 1)]; /* (3 + (size - 2) * 3) * 60 */
 
-        /* Setup board with four tiles by default */
-        tiles [size / 2 - 1, size / 2 - 1] = Player.LIGHT;
-        tiles [size / 2 - 1, size / 2] = Player.DARK;
-        tiles [size / 2, size / 2 - 1] = Player.DARK;
-        tiles [size / 2, size / 2] = Player.LIGHT;
+        if (size % 2 == 0)
+        {
+            /* Setup board with four tiles by default */
+            initial_number_of_tiles = 4;
+            tiles [size / 2 - 1, size / 2 - 1] = Player.LIGHT;
+            tiles [size / 2 - 1, size / 2] = Player.DARK;
+            tiles [size / 2, size / 2 - 1] = Player.DARK;
+            tiles [size / 2, size / 2] = Player.LIGHT;
+            n_current_tiles = 2;
+            n_opponent_tiles = 2;
+        }
+        else
+        {
+            /* Logical starting position for odd board */
+            initial_number_of_tiles = 7;
+            tiles [(size - 1) / 2, (size - 1) / 2] = Player.DARK;
+            tiles [(size + 1) / 2, (size - 3) / 2] = Player.DARK;
+            tiles [(size - 3) / 2, (size + 1) / 2] = Player.DARK;
+            tiles [(size - 1) / 2, (size - 3) / 2] = Player.LIGHT;
+            tiles [(size - 3) / 2, (size - 1) / 2] = Player.LIGHT;
+            tiles [(size + 1) / 2, (size - 1) / 2] = Player.LIGHT;
+            tiles [(size - 1) / 2, (size + 1) / 2] = Player.LIGHT;
+            n_current_tiles = 3;
+            n_opponent_tiles = 4;
+        }
     }
 
     public Game.from_strings (string[] setup, Player to_move, int tmp_size = 8)
-        requires (tmp_size >= 4)
         requires (setup.length == tmp_size)
     {
         size = tmp_size;
