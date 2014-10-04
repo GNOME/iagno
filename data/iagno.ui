@@ -62,176 +62,153 @@
             <property name="orientation">vertical</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <property name="homogeneous">True</property>
-            <property name="margin">0</property>
+            <property name="spacing">18</property>
             <property name="visible">True</property>
-            <property name="width-request">350</property>
-            <property name="height-request">350</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Game mode:</property>
-                <property name="valign">center</property>
-                <property name="halign">start</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="game-mode-box">
-                <property name="visible">True</property>
+                <property name="spacing">6</property>
                 <child>
-                  <object class="GtkRadioButton" id="play_dark">
+                  <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="use_underline">True</property>
-                    <property name="label" translatable="yes">Play _Dark</property>
-                    <property name="halign">center</property>
+                    <property name="label" translatable="yes">Game Mode</property>
                     <property name="valign">center</property>
-                    <property name="width-request">120</property>
-                    <property name="height-request">60</property>
-                    <property name="action-name">app.play-as</property>
-                    <property name="action-target">'first'</property>
-                    <property name="draw-indicator">False</property>
-                    <style>
-                      <class name="button"/>
-                    </style>
+                    <property name="halign">start</property>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="padding">5</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton">
+                  <object class="GtkBox" id="game-mode-box">
                     <property name="visible">True</property>
-                    <property name="use_underline">True</property>
-                    <property name="label" translatable="yes">Play _Light</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                    <property name="width-request">120</property>
-                    <property name="height-request">60</property>
-                    <property name="action-name">app.play-as</property>
-                    <property name="action-target">'second'</property>
-                    <property name="group">play_dark</property>
-                    <property name="draw-indicator">False</property>
-                    <style>
-                      <class name="button"/>
-                    </style>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkRadioButton" id="play_dark">
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="label" translatable="yes">Play _Dark</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">120</property>
+                        <property name="height-request">60</property>
+                        <property name="action-name">app.play-as</property>
+                        <property name="action-target">'first'</property>
+                        <property name="draw-indicator">False</property>
+                        <style>
+                          <class name="button"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="label" translatable="yes">Play _Light</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">120</property>
+                        <property name="height-request">60</property>
+                        <property name="action-name">app.play-as</property>
+                        <property name="action-target">'second'</property>
+                        <property name="group">play_dark</property>
+                        <property name="draw-indicator">False</property>
+                        <style>
+                          <class name="button"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="label" translatable="yes">_Two Players</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">120</property>
+                        <property name="height-request">60</property>
+                        <property name="action-name">app.play-as</property>
+                        <property name="action-target">'two-players'</property>
+                        <property name="group">play_dark</property>
+                        <property name="draw-indicator">False</property>
+                        <style>
+                          <class name="button"/>
+                        </style>
+                      </object>
+                    </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="padding">5</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkRadioButton">
-                    <property name="visible">True</property>
-                    <property name="use_underline">True</property>
-                    <property name="label" translatable="yes">_Two Players</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                    <property name="width-request">120</property>
-                    <property name="height-request">60</property>
-                    <property name="action-name">app.play-as</property>
-                    <property name="action-target">'two-players'</property>
-                    <property name="group">play_dark</property>
-                    <property name="draw-indicator">False</property>
-                    <style>
-                      <class name="button"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="padding">5</property>
-                    <property name="position">3</property>
-                  </packing>
                 </child>
               </object>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Computer Player:</property>
-                <property name="valign">center</property>
-                <property name="halign">start</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="level-box">
-                <property name="visible">True</property>
+                <property name="spacing">6</property>
                 <child>
-                  <object class="GtkRadioButton" id="easy">
+                  <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="use_underline">True</property>
-                    <property name="label" translatable="yes">_Easy</property>
-                    <property name="halign">center</property>
+                    <property name="label" translatable="yes">Computer Player</property>
                     <property name="valign">center</property>
-                    <property name="width-request">120</property>
-                    <property name="height-request">60</property>
-                    <property name="action-name">app.computer-level</property>
-                    <property name="action-target">1</property>
-                    <property name="draw-indicator">False</property>
-                    <style>
-                      <class name="button"/>
-                    </style>
+                    <property name="halign">start</property>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="padding">5</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton">
+                  <object class="GtkBox" id="level-box">
                     <property name="visible">True</property>
-                    <property name="use_underline">True</property>
-                    <property name="label" translatable="yes">_Medium</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                    <property name="width-request">120</property>
-                    <property name="height-request">60</property>
-                    <property name="action-name">app.computer-level</property>
-                    <property name="action-target">2</property>
-                    <property name="group">easy</property>
-                    <property name="draw-indicator">False</property>
-                    <style>
-                      <class name="button"/>
-                    </style>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkRadioButton" id="easy">
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="label" translatable="yes">_Easy</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">120</property>
+                        <property name="height-request">60</property>
+                        <property name="action-name">app.computer-level</property>
+                        <property name="action-target">1</property>
+                        <property name="draw-indicator">False</property>
+                        <style>
+                          <class name="button"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="label" translatable="yes">_Medium</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">120</property>
+                        <property name="height-request">60</property>
+                        <property name="action-name">app.computer-level</property>
+                        <property name="action-target">2</property>
+                        <property name="group">easy</property>
+                        <property name="draw-indicator">False</property>
+                        <style>
+                          <class name="button"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkRadioButton">
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="label" translatable="yes">_Hard</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">120</property>
+                        <property name="height-request">60</property>
+                        <property name="action-name">app.computer-level</property>
+                        <property name="action-target">3</property>
+                        <property name="group">easy</property>
+                        <property name="draw-indicator">False</property>
+                        <style>
+                          <class name="button"/>
+                        </style>
+                      </object>
+                    </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="padding">5</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkRadioButton">
-                    <property name="visible">True</property>
-                    <property name="use_underline">True</property>
-                    <property name="label" translatable="yes">_Hard</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                    <property name="width-request">120</property>
-                    <property name="height-request">60</property>
-                    <property name="action-name">app.computer-level</property>
-                    <property name="action-target">3</property>
-                    <property name="group">easy</property>
-                    <property name="draw-indicator">False</property>
-                    <style>
-                      <class name="button"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="padding">5</property>
-                    <property name="position">3</property>
-                  </packing>
                 </child>
               </object>
             </child>
@@ -254,7 +231,7 @@
                 <property name="pack-type">end</property>
                 <property name="expand">False</property>
                 <property name="fill">False</property>
-                <property name="padding">0</property>
+                <property name="padding">6</property>
                 <property name="position">1</property>
               </packing>
             </child>
