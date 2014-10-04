@@ -85,7 +85,7 @@
                     <property name="label" translatable="yes">Play _Dark</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
-                     <property name="width-request">120</property>
+                    <property name="width-request">120</property>
                     <property name="height-request">60</property>
                     <property name="action-name">app.play-as</property>
                     <property name="action-target">'first'</property>
