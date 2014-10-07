@@ -40,7 +40,6 @@ public class Iagno : Gtk.Application
     private Gtk.Label light_score_label;
     private Gtk.Dialog propbox;
     private Gtk.Stack main_stack;
-    private Gtk.Box game_box;
 
     private Gtk.Button back_button;
     private Gtk.Button undo_button;
@@ -202,7 +201,7 @@ public class Iagno : Gtk.Application
         view.halign = Gtk.Align.FILL;
         view.show ();
 
-        game_box = builder.get_object ("game-box") as Gtk.Box;
+        var game_box = builder.get_object ("game-box") as Gtk.Box;
         game_box.pack_start (view);
 
         /* Information widgets */
@@ -314,16 +313,11 @@ public class Iagno : Gtk.Application
         if (computer != null)
             computer.cancel_move ();
 
-        if (view != null)
-            game_box.remove (view);
-
         show_game_board ();
 
         game = new Game (alternative_start, size);
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
-        view.show ();
-        game_box.pack_start (view);
 
         var mode = settings.get_string ("play-as");
         if (mode == "two-players")
