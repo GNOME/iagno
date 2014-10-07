@@ -81,7 +81,7 @@ public class Iagno : Gtk.Application
         {"preferences", preferences_cb},
         {"help", help_cb},
         {"about", about_cb},
-        {"quit", quit_cb}
+        {"quit", quit}
     };
 
     public static int main (string[] args)
@@ -259,11 +259,6 @@ public class Iagno : Gtk.Application
         return false;
     }
 
-    private void quit_cb ()
-    {
-        window.destroy ();
-    }
-
     private void start_game_cb ()
     {
         back_button.visible = false;
@@ -386,45 +381,6 @@ public class Iagno : Gtk.Application
         play_sound ("flip-piece");
     }
 
-    private void about_cb ()
-    {
-        string[] authors = { "Ian Peters", "Robert Ancell", null };
-        string[] documenters = { "Tiffany Antopolski", null };
-
-        Gtk.show_about_dialog (window,
-                               "name", _("Iagno"),
-                               "version", VERSION,
-                               "copyright",
-                               "Copyright © 1998–2008 Ian Peters\nCopyright © 2013–2014 Michael Catanzaro",
-                               "license-type", Gtk.License.GPL_2_0,
-                               "comments", _("A disk flipping game derived from Reversi\n\nIagno is a part of GNOME Games."),
-                               "authors", authors,
-                               "documenters", documenters,
-                               "translator-credits", _("translator-credits"),
-                               "logo-icon-name", "iagno",
-                               "website", "https://wiki.gnome.org/Apps/Iagno",
-                               null);
-    }
-
-    private void preferences_cb ()
-    {
-        if (propbox == null)
-            create_preferences_dialog ();
-        propbox.show_all ();
-    }
-
-    private void help_cb ()
-    {
-        try
-        {
-            Gtk.show_uri (window.get_screen (), "help:iagno", Gtk.get_current_event_time ());
-        }
-        catch (Error e)
-        {
-            warning ("Failed to show help: %s", e.message);
-        }
-    }
-
     private void turn_ended_cb ()
     {
         update_ui ();
@@ -518,6 +474,10 @@ public class Iagno : Gtk.Application
         }
     }
 
+    /*\
+    * * Preferences dialog
+    \*/
+
     private bool propbox_close_cb (Gtk.Widget widget, Gdk.EventAny event)
     {
         widget.hide ();
@@ -591,5 +551,48 @@ public class Iagno : Gtk.Application
                 theme_combo.set_active_iter (iter);
         }
         theme_combo.changed.connect (theme_changed_cb);
+    }
+
+    /*\
+    * * App-menu callbacks
+    \*/
+
+    private void preferences_cb ()
+    {
+        if (propbox == null)
+            create_preferences_dialog ();
+        propbox.show_all ();
+    }
+
+    private void help_cb ()
+    {
+        try
+        {
+            Gtk.show_uri (window.get_screen (), "help:iagno", Gtk.get_current_event_time ());
+        }
+        catch (Error e)
+        {
+            warning ("Failed to show help: %s", e.message);
+        }
+    }
+
+    private void about_cb ()
+    {
+        string[] authors = { "Ian Peters", "Robert Ancell", null };
+        string[] documenters = { "Tiffany Antopolski", null };
+
+        Gtk.show_about_dialog (window,
+                               "name", _("Iagno"),
+                               "version", VERSION,
+                               "copyright",
+                               "Copyright © 1998–2008 Ian Peters\nCopyright © 2013–2014 Michael Catanzaro",
+                               "license-type", Gtk.License.GPL_2_0,
+                               "comments", _("A disk flipping game derived from Reversi\n\nIagno is a part of GNOME Games."),
+                               "authors", authors,
+                               "documenters", documenters,
+                               "translator-credits", _("translator-credits"),
+                               "logo-icon-name", "iagno",
+                               "website", "https://wiki.gnome.org/Apps/Iagno",
+                               null);
     }
 }
