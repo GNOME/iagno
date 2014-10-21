@@ -143,7 +143,7 @@ public class Iagno : Gtk.Application
         return -1;
     }
 
-    protected override void startup()
+    protected override void startup ()
     {
         base.startup ();
         var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
