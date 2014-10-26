@@ -1,3 +1,25 @@
+3.15.1 - October 26, 2014
+=========================
+
+Dependencies: GTK+ 3.13.4
+
+The release removes support for custom themes. Please complain before 3.15.90
+if you were using these and want this reconsidered.
+
+* Make the background green and thicken the grid (Iulian Radu)
+* Use piece images instead of text in the scoreboard (Iulian Radu)
+* Add a new game screen (Amisha Singla)
+* The AI is now much weaker on level one (Michael Catanzaro)
+* The AI no longer blocks the UI thread to think (Michael Catanzaro)
+* The AI takes more time to move when only one spot remains (Michael Catanzaro)
+* Move sound preference to the app menu (Arnaud Bonatti)
+* Add ability to change board size with command line (Arnaud Bonatti)
+* Add alternative starting position command line switch (Arnaud Bonatti)
+* Accept right clicks as input, since why not? (Arnaud Bonatti)
+* Code cleanups (Michael Catanzaro, Iulian Radu, Sahil Sareen)
+* Very many internal changes (Arnaud Bonatti)
+* Updated translations
+
 3.13.91 - September 1, 2014
 ===========================
 
