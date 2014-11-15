@@ -1,5 +1,5 @@
 # gnome-games Finnish Translation
-# Suomennos: http://www.gnome.fi/
+# Suomennos: https://l10n.gnome.org/teams/fi/
 # Copyright (C) 2002-2009 Free Software Foundation, Inc.
 #
 #
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-12 09:21+0000\n"
+"POT-Creation-Date: 2014-11-07 10:23+0000\n"
 "PO-Revision-Date: 2014-09-12 22:05+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -70,7 +70,6 @@ msgid "Play second (Light)"
 msgstr "Pelaa toisena (valkoinen)"
 
 #: ../data/iagno.desktop.in.h:6
-#| msgid "Player Names"
 msgid "Two players game"
 msgstr "Kahden pelaajan peli"
 
@@ -103,12 +102,10 @@ msgid "From 1, the easiest, to 3, the hardest."
 msgstr "1 on helpoin, 3 vaikein."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
-#| msgid "Size of game tiles"
 msgid "Type of game"
 msgstr "Pelin tyyppi"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-#| msgid "Changes will take effect for the next game."
 msgid "Choose the type of the next game."
 msgstr "Valitse seuraavan pelin tyyppi."
 
@@ -137,7 +134,6 @@ msgid "Reduce delay before AI moves"
 msgstr "Vähennä viivettä ennen tekoälyn siirtoa"
 
 #: ../src/iagno.vala:48
-#| msgid "Player _List"
 msgid "Play first"
 msgstr "Pelaa ensin"
 
@@ -146,13 +142,10 @@ msgid "Set the level of the computer's AI"
 msgstr "Aseta tietokoneen tekoälyn taso"
 
 #: ../src/iagno.vala:50
-#| msgid "Turn off all the lights"
 msgid "Turn off the sound"
 msgstr "Kytke äänet pois"
 
 #: ../src/iagno.vala:51
-#| msgid "Played for %d second"
-#| msgid_plural "Played for %d seconds"
 msgid "Play second"
 msgstr "Pelaa toisena"
 
@@ -161,12 +154,10 @@ msgid "Two-players mode"
 msgstr "Kahden pelaajan tila"
 
 #: ../src/iagno.vala:53
-#| msgid "Turn off all the lights"
 msgid "Turn on the sound"
 msgstr "Kytke äänet päälle"
 
 #: ../src/iagno.vala:54
-#| msgid "Show release version"
 msgid "Print release version and exit"
 msgstr "Näytä julkaisuversio ja sulkeudu"
 
@@ -183,7 +174,6 @@ msgid "Light:"
 msgstr "Valkoinen:"
 
 #: ../src/iagno.vala:180
-#| msgid "_Starting level:"
 msgid "_Start Over"
 msgstr "_Aloita alusta"
 
@@ -204,10 +194,6 @@ msgid "%.2d"
 msgstr "%.2d"
 
 #: ../src/iagno.vala:374
-#| msgid ""
-#| "A disk flipping game derived from Reversi.\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
 msgid ""
 "A disk flipping game derived from Reversi\n"
 "\n"
@@ -225,7 +211,7 @@ msgstr ""
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
 "\n"
-"http://www.gnome.fi/\n"
+"https://l10n.gnome.org/teams/fi/\n"
 "\n"
 "Launchpad Contributions:\n"
 "  Heikki Kulhia https://launchpad.net/~hessuk\n"
@@ -273,12 +259,10 @@ msgid "Preferences"
 msgstr "Asetukset"
 
 #: ../src/iagno.vala:575
-#| msgid "Game score"
 msgid "Game mode:"
 msgstr "Pelitila:"
 
 #: ../src/iagno.vala:590
-#| msgid "_Number of players:"
 msgid "Two players"
 msgstr "Kaksi pelaajaa"
 
