@@ -54,8 +54,9 @@ iagno-resources.c: $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies iag
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
-	*_vala.stamp \
-	iagno-resources.c
+	*_vala.stamp
+
+MAINTAINERCLEANFILES = iagno-resources.c
 
 EXTRA_DIST = iagno.gresource.xml
 
