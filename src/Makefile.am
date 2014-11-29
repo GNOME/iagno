@@ -49,12 +49,14 @@ test_iagno_LDADD = $(IAGNO_LIBS)
 check-local: $(check_PROGRAMS)
 	$(GTESTER) --keep-going --verbose $(check_PROGRAMS)
 
-iagno-resources.c: $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies iagno.gresource.xml)
+iagno-resources.c: iagno.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies iagno.gresource.xml)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
 	*_vala.stamp \
 	iagno-resources.c
+
+EXTRA_DIST = iagno.gresource.xml
 
 -include $(top_srcdir)/git.mk
