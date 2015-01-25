@@ -587,7 +587,7 @@ public class Iagno : Gtk.Application
                                "copyright",
                                "Copyright © 1998–2008 Ian Peters\nCopyright © 2013–2014 Michael Catanzaro",
                                "license-type", Gtk.License.GPL_2_0,
-                               "comments", _("A disk flipping game derived from Reversi\n\nIagno is a part of GNOME Games."),
+                               "comments", _("A disk flipping game derived from Reversi"),
                                "authors", authors,
                                "documenters", documenters,
                                "translator-credits", _("translator-credits"),
