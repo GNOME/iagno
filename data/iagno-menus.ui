@@ -4,10 +4,6 @@
   <menu id="app-menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">_Preferences</attribute>
-        <attribute name="action">app.preferences</attribute>
-      </item>
-      <item>
         <attribute name="label" translatable="yes">_Sound</attribute>
         <attribute name="action">app.sound</attribute>
       </item>

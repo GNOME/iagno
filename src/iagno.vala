@@ -38,7 +38,6 @@ public class Iagno : Gtk.Application
     private Gtk.Image mark_icon_light;
     private Gtk.Label dark_score_label;
     private Gtk.Label light_score_label;
-    private Gtk.Dialog propbox;
     private Gtk.Stack main_stack;
 
     private Gtk.Button back_button;
@@ -78,7 +77,6 @@ public class Iagno : Gtk.Application
         {"undo-move", undo_move_cb},
         {"back", back_cb},
 
-        {"preferences", preferences_cb},
         {"help", help_cb},
         {"about", about_cb},
         {"quit", quit}
@@ -472,96 +470,6 @@ public class Iagno : Gtk.Application
             /* Message to display when the player tries to make an illegal move */
             headerbar.set_subtitle (_("You can’t move there!"));
         }
-    }
-
-    /*\
-    * * Preferences dialog
-    \*/
-
-    private bool propbox_close_cb (Gtk.Widget widget, Gdk.EventAny event)
-    {
-        widget.hide ();
-        return true;
-    }
-
-    private void theme_changed_cb (Gtk.ComboBox widget)
-    {
-        var model = widget.get_model ();
-        Gtk.TreeIter iter;
-        if (!widget.get_active_iter (out iter))
-            return;
-        string tile_set;
-        model.get (iter, 1, out tile_set);
-        settings.set_string ("tileset", tile_set);
-        view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
-    }
-
-    private void create_preferences_dialog ()
-    {
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno-preferences.ui");
-
-        /* the dialog is not in the ui file for the use-header-bar flag to be switchable */
-        propbox = new Gtk.Dialog.with_buttons (_("Preferences"),
-                                               window,
-                                               Gtk.DialogFlags.USE_HEADER_BAR,
-                                               null);
-        var box = (Gtk.Box) propbox.get_content_area ();
-        propbox.resizable = false;
-        propbox.delete_event.connect (propbox_close_cb);
-        var grid = builder.get_object ("main-grid") as Gtk.Grid;
-        box.pack_start (grid, true, true, 0);
-
-        var theme_combo = builder.get_object ("theme-combo") as Gtk.ComboBox;
-        var model = builder.get_object ("liststore-theme") as Gtk.ListStore;
-        Dir dir;
-        List<string> dirlist = new List<string> ();
-
-        /* get sorted list of filenames in the themes directory */
-        try
-        {
-            dir = Dir.open (Path.build_filename (DATA_DIRECTORY, "themes"));
-            while (true)
-            {
-                var filename = dir.read_name ();
-                if (filename == null)
-                    break;
-                dirlist.insert_sorted (filename, strcmp);
-            }
-        }
-        catch (FileError e)
-        {
-            warning ("Failed to load themes: %s", e.message);
-        }
-
-        Gtk.TreeIter iter;
-        foreach (string filename in dirlist)
-        {
-            model.append (out iter);
-
-            /* Create label by replacing underscores with space and stripping extension */
-            var label_text = filename;
-
-            label_text = label_text.replace ("_", " ");
-            var extension_index = label_text.last_index_of_char ('.');
-            if (extension_index > 0)
-                label_text = label_text.substring (0, extension_index);
-
-            model.set (iter, 0, label_text, 1, filename);
-            if (filename == settings.get_string ("tileset"))
-                theme_combo.set_active_iter (iter);
-        }
-        theme_combo.changed.connect (theme_changed_cb);
-    }
-
-    /*\
-    * * App-menu callbacks
-    \*/
-
-    private void preferences_cb ()
-    {
-        if (propbox == null)
-            create_preferences_dialog ();
-        propbox.show_all ();
     }
 
     private void help_cb ()
