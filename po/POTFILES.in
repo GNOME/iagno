@@ -4,7 +4,6 @@
 data/iagno.appdata.xml.in
 data/iagno.desktop.in
 [type: gettext/glade]data/iagno-menus.ui
-[type: gettext/glade]data/iagno-preferences.ui
 [type: gettext/glade]data/iagno.ui
 data/org.gnome.iagno.gschema.xml
 src/computer-player.vala
