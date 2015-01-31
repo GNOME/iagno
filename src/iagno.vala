@@ -177,7 +177,7 @@ public class Iagno : Gtk.Application
 
         /* Window construction */
         window = builder.get_object ("iagno-window") as Gtk.ApplicationWindow;
-        window.configure_event.connect (window_configure_event_cb);
+        window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
@@ -237,15 +237,12 @@ public class Iagno : Gtk.Application
         settings.set_boolean ("window-is-maximized", is_maximized);
     }
 
-    private bool window_configure_event_cb (Gdk.EventConfigure event)
+    private void size_allocate_cb (Gtk.Allocation allocation)
     {
-        if (!is_maximized && !is_fullscreen)
-        {
-            window_width = event.width;
-            window_height = event.height;
-        }
-
-        return false;
+        if (is_maximized || is_fullscreen)
+            return;
+        window_width = allocation.width;
+        window_height = allocation.height;
     }
 
     private bool window_state_event_cb (Gdk.EventWindowState event)
