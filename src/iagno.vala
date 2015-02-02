@@ -13,7 +13,7 @@ public class Iagno : Gtk.Application
 {
     /* Application settings */
     private Settings settings;
-    private bool is_fullscreen_or_tiled;
+    private bool is_tiled;
     private bool is_maximized;
     private int window_width;
     private int window_height;
@@ -239,7 +239,7 @@ public class Iagno : Gtk.Application
 
     private void size_allocate_cb (Gtk.Allocation allocation)
     {
-        if (is_maximized || is_fullscreen_or_tiled)
+        if (is_maximized || is_tiled)
             return;
         window_width = allocation.width;
         window_height = allocation.height;
@@ -249,9 +249,9 @@ public class Iagno : Gtk.Application
     {
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
             is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
-        /* We don’t save these states, but track them for saving size allocation */
-        if ((event.changed_mask & (Gdk.WindowState.FULLSCREEN | Gdk.WindowState.TILED)) != 0)
-            is_fullscreen_or_tiled = (event.new_window_state & (Gdk.WindowState.FULLSCREEN | Gdk.WindowState.TILED)) != 0;
+        /* We don’t save this state, but track it for saving size allocation */
+        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
+            is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
         return false;
     }
 
