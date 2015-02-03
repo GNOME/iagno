@@ -16,15 +16,15 @@
 # Petr Pulc <petrpulc@gmail.com>, 2009.
 # Andre Klapper <ak-47@gmx.net>, 2009.
 # Petr Kovar <pknbe@volny.cz>, 2008, 2012.
-# Marek Černocký <marek@manet.cz>, 2010, 2011, 2012, 2014.
+# Marek Černocký <marek@manet.cz>, 2010, 2011, 2012, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-11-25 10:22+0000\n"
-"PO-Revision-Date: 2014-11-25 20:01+0100\n"
+"POT-Creation-Date: 2015-02-02 22:27+0000\n"
+"PO-Revision-Date: 2015-02-03 10:26+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -36,7 +36,7 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../data/iagno.ui.h:1 ../src/iagno.vala:94 ../src/iagno.vala:585
+#: ../data/iagno.ui.h:1 ../src/iagno.vala:92 ../src/iagno.vala:491
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -82,28 +82,20 @@ msgid "Two players game"
 msgstr "Hra pro dva hráče"
 
 #: ../data/iagno-menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Předvolby"
-
-#: ../data/iagno-menus.ui.h:2
 msgid "_Sound"
 msgstr "Zv_uk"
 
-#: ../data/iagno-menus.ui.h:3
+#: ../data/iagno-menus.ui.h:2
 msgid "_Help"
 msgstr "_Nápověda"
 
-#: ../data/iagno-menus.ui.h:4
+#: ../data/iagno-menus.ui.h:3
 msgid "_About"
 msgstr "O _aplikaci"
 
-#: ../data/iagno-menus.ui.h:5
+#: ../data/iagno-menus.ui.h:4
 msgid "_Quit"
 msgstr "U_končit"
-
-#: ../data/iagno-preferences.ui.h:1
-msgid "_Tile set:"
-msgstr "_Sada kamenů:"
 
 #: ../data/iagno.ui.h:2
 msgid "Undo your most recent move"
@@ -197,109 +189,98 @@ msgstr "Výška okna v pixelech."
 msgid "true if the window is maximized"
 msgstr "Zapnuto, pokud je okno maximalizováno"
 
-#: ../src/iagno.vala:60
+#: ../src/iagno.vala:59
 msgid "Start with an alternative position"
 msgstr "Začít na alternativní pozici"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:60
 msgid "Reduce delay before AI moves"
 msgstr "Omezit prodlevu před tahem UI"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:61
 msgid "Play first"
 msgstr "Hrát jako první"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:62
 msgid "Set the level of the computer's AI"
 msgstr "Nastavit úroveň počítačové UI"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:63
 msgid "Turn off the sound"
 msgstr "Vypnout zvuk"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:64
 msgid "Play second"
 msgstr "Hrát jako druhý"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:65
 msgid "Size of the board (debug only)"
 msgstr "Velikost herní desky (jen pro ladění)"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:66
 msgid "Two-players mode"
 msgstr "Režim pro dva hráče"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:67
 msgid "Turn on the sound"
 msgstr "Zapnout zvuk"
 
-#: ../src/iagno.vala:69
+#: ../src/iagno.vala:68
 msgid "Print release version and exit"
 msgstr "Vypsat verzi vydání a skončit"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:120
+#: ../src/iagno.vala:118
 msgid "Size must be at least 4."
 msgstr "Velikost musí být nejméně 4."
 
-#: ../src/iagno.vala:131
+#: ../src/iagno.vala:129
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Úroveň musí být v rozmězí 1 (jednoduchá) až 3 (těžká). Nastavení zůstává "
 "nezměněno."
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:342 ../src/iagno.vala:343
+#: ../src/iagno.vala:338 ../src/iagno.vala:339
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:423
+#: ../src/iagno.vala:419
 msgid "Light must pass, Dark’s move"
 msgstr "Bílý musí vynechat, černý táhne"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:428
+#: ../src/iagno.vala:424
 msgid "Dark must pass, Light’s move"
 msgstr "Černý musí vynechat, bílý táhne"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:437
+#: ../src/iagno.vala:433
 msgid "Light wins!"
 msgstr "Bílý vyhrává!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:442
+#: ../src/iagno.vala:438
 msgid "Dark wins!"
 msgstr "Černý vyhrává!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:447
+#: ../src/iagno.vala:443
 msgid "The game is draw."
 msgstr "Hra skončila nerozhodně."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:473
+#: ../src/iagno.vala:469
 msgid "You can’t move there!"
 msgstr "Sem nemůžete táhnout!"
 
-#. the dialog is not in the ui file for the use-header-bar flag to be switchable
-#: ../src/iagno.vala:504
-msgid "Preferences"
-msgstr "Předvolby"
+#: ../src/iagno.vala:496
+msgid "A disk flipping game derived from Reversi"
+msgstr "Hra s převracením kamenů odvozená z Reversi"
 
-#: ../src/iagno.vala:590
-msgid ""
-"A disk flipping game derived from Reversi\n"
-"\n"
-"Iagno is a part of GNOME Games."
-msgstr ""
-"Hra s převracením kamenů odvozená z Reversi\n"
-"\n"
-"Iagno je součástí her GNOME."
-
-#: ../src/iagno.vala:593
+#: ../src/iagno.vala:499
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
