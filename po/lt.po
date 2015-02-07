@@ -8,15 +8,15 @@
 # Vytautas Povilaitis <punktyras@nkm.lt>, 2007.
 # Gintautas Miliauskas <gintas@akl.lt>, 2006, 2007, 2008, 2010.
 # Algimantas Margevičius <gymka@mail.ru>, 2011.
-# Aurimas Černius <aurisc4@gmail.com>, 2010, 2014.
+# Aurimas Černius <aurisc4@gmail.com>, 2010, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-26 21:21+0000\n"
-"PO-Revision-Date: 2014-07-27 00:43+0300\n"
+"POT-Creation-Date: 2015-02-07 10:32+0000\n"
+"PO-Revision-Date: 2015-02-07 14:51+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: lt\n"
@@ -27,7 +27,16 @@ msgstr ""
 "%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/iagno.appdata.xml.in.h:1
+#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
+#: ../data/iagno.ui.h:1 ../src/iagno.vala:92 ../src/iagno.vala:491
+msgid "Iagno"
+msgstr "Iagno"
+
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Užimkite lentą klasikiniame Reversi variante"
+
+#: ../data/iagno.appdata.xml.in.h:3
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -37,7 +46,7 @@ msgstr ""
 "žaidimas. Žaidimas yra žaidžiamas kokliais, kurie yra šviesūs vienoje pusėje "
 "ir tamsūs kitoje."
 
-#: ../data/iagno.appdata.xml.in.h:2
+#: ../data/iagno.appdata.xml.in.h:4
 msgid ""
 "The object of Iagno is to flip as many of your opponent's tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
@@ -48,24 +57,15 @@ msgstr ""
 "spalvą sutrukdant priešininkui padaryti tą patį. Tai daroma pagaunant "
 "priešininko koklius tarp dviejų savų."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:101 ../src/iagno.vala:125
-#: ../src/iagno.vala:355 ../src/iagno.vala:678
-msgid "Iagno"
-msgstr "Iagno"
-
-#: ../data/iagno.desktop.in.h:2
-msgid "Dominate the board in a classic version of Reversi"
-msgstr "Užimkite lentą klasikiniame Reversi variante"
-
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "othello;"
 
-#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:570
+#: ../data/iagno.desktop.in.h:4
 msgid "Play first (Dark)"
 msgstr "Žaisti pirmam (tamsiais)"
 
-#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:572
+#: ../data/iagno.desktop.in.h:5
 msgid "Play second (Light)"
 msgstr "Žaisti antram (šviesiais)"
 
@@ -73,25 +73,85 @@ msgstr "Žaisti antram (šviesiais)"
 msgid "Two players game"
 msgstr "Dviejų žaidėjų žaidimas"
 
-#: ../data/iagno.ui.h:1
-msgid "_New Game"
-msgstr "_Naujas žaidimas"
+#: ../data/iagno-menus.ui.h:1
+#| msgid "Sound"
+msgid "_Sound"
+msgstr "_Garsas"
 
-#: ../data/iagno.ui.h:2
-msgid "_Preferences"
-msgstr "_Nustatymai"
-
-#: ../data/iagno.ui.h:3
+#: ../data/iagno-menus.ui.h:2
 msgid "_Help"
 msgstr "_Žinynas"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno-menus.ui.h:3
 msgid "_About"
 msgstr "_Apie"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno-menus.ui.h:4
 msgid "_Quit"
 msgstr "_Išeiti"
+
+#: ../data/iagno.ui.h:2
+msgid "Undo your most recent move"
+msgstr "Atšaukti paskutinį ėjimą"
+
+#: ../data/iagno.ui.h:3
+msgid "Go back to the current game"
+msgstr "Grįžti į dabartinį žaidimą"
+
+#: ../data/iagno.ui.h:4
+#| msgid "Game mode:"
+msgid "Game Mode"
+msgstr "Žaidimo veiksena"
+
+#: ../data/iagno.ui.h:5
+#| msgid "Play first (Dark)"
+msgid "Play _Dark"
+msgstr "Žaisti _tamsiais"
+
+#: ../data/iagno.ui.h:6
+#| msgid "Play second (Light)"
+msgid "Play _Light"
+msgstr "Žaisti _šviesiais"
+
+#: ../data/iagno.ui.h:7
+#| msgid "Two players"
+msgid "_Two Players"
+msgstr "_Du žaidėjai"
+
+#: ../data/iagno.ui.h:8
+#| msgid "Computer:"
+msgid "Computer Player"
+msgstr "Kompiuteris"
+
+#: ../data/iagno.ui.h:9
+msgid "_Easy"
+msgstr "_Lengvas"
+
+#: ../data/iagno.ui.h:10
+msgid "_Medium"
+msgstr "_Vidutinis"
+
+#: ../data/iagno.ui.h:11
+msgid "_Hard"
+msgstr "_Sunkus"
+
+#: ../data/iagno.ui.h:12
+#| msgid "_Start Over"
+msgid "_Start Game"
+msgstr "_Pradėti žaidimą"
+
+#: ../data/iagno.ui.h:13
+#| msgid "Start a new game"
+msgid "Start a game"
+msgstr "Pradėti žaidimą"
+
+#: ../data/iagno.ui.h:14
+msgid "_New Game"
+msgstr "_Naujas žaidimas"
+
+#: ../data/iagno.ui.h:15
+msgid "Start a new game"
+msgstr "Pradėti naują žaidimą"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -129,83 +189,100 @@ msgstr "Lango aukštis pikseliais"
 msgid "true if the window is maximized"
 msgstr "teigiama, jei langas yra išdidintas"
 
-#: ../src/iagno.vala:46
+#: ../src/iagno.vala:59
+msgid "Start with an alternative position"
+msgstr "Pradėti su alternatyvia padėtimi"
+
+#: ../src/iagno.vala:60
 msgid "Reduce delay before AI moves"
 msgstr "Sumažinti delsą tarp DĮ ėjimų"
 
-#: ../src/iagno.vala:47
-#| msgid "Play as:"
+#: ../src/iagno.vala:61
 msgid "Play first"
 msgstr "Žaisti pirmam"
 
-#: ../src/iagno.vala:48
+#: ../src/iagno.vala:62
 msgid "Set the level of the computer's AI"
 msgstr "Nustatyti kompiuterio DI lygį"
 
-#: ../src/iagno.vala:49
+#: ../src/iagno.vala:63
 msgid "Turn off the sound"
 msgstr "Išjungti garsą"
 
-#: ../src/iagno.vala:50
-#| msgid "Play as:"
+#: ../src/iagno.vala:64
 msgid "Play second"
 msgstr "Žaisti antram"
 
-#: ../src/iagno.vala:51
+#: ../src/iagno.vala:65
+msgid "Size of the board (debug only)"
+msgstr "Lentos dydis (tik derinimui)"
+
+#: ../src/iagno.vala:66
 msgid "Two-players mode"
 msgstr "Dviejų žaidėjų veiksena"
 
-#: ../src/iagno.vala:52
+#: ../src/iagno.vala:67
 msgid "Turn on the sound"
 msgstr "Įjungti garsą"
 
-#: ../src/iagno.vala:53
-#| msgid "Show release version"
+#: ../src/iagno.vala:68
 msgid "Print release version and exit"
 msgstr "Atspausdinti leidimo versiją ir išeiti"
 
-#: ../src/iagno.vala:120
-msgid "Undo your most recent move"
-msgstr "Atšaukti paskutinį ėjimą"
+#. Console message displayed for an incorrect size
+#: ../src/iagno.vala:118
+msgid "Size must be at least 4."
+msgstr "Dydis turi būti bent 4."
 
-#: ../src/iagno.vala:161 ../src/iagno.vala:316 ../src/iagno.vala:324
-msgid "Dark:"
-msgstr "Tamsusis:"
-
-#: ../src/iagno.vala:169 ../src/iagno.vala:317 ../src/iagno.vala:325
-msgid "Light:"
-msgstr "Šviesusis:"
-
-#: ../src/iagno.vala:178
-msgid "_Start Over"
-msgstr "_Pradėti iš naujo"
-
-#: ../src/iagno.vala:185
-msgid "Start a new game"
-msgstr "Pradėti naują žaidimą"
-
-#: ../src/iagno.vala:219
+#: ../src/iagno.vala:129
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "Lygis turi būti nuo 1 (lengvas) iki 3 (sunkus). Nustatymai nepakeisti."
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:319 ../src/iagno.vala:320 ../src/iagno.vala:327
-#: ../src/iagno.vala:328
+#: ../src/iagno.vala:338 ../src/iagno.vala:339
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:360
-msgid ""
-"A disk flipping game derived from Reversi\n"
-"\n"
-"Iagno is a part of GNOME Games."
-msgstr ""
-"Diskų vartymo žaidimo Reversi atmaina.\n"
-"\n"
-"Iagno yra GNOME žaidimų dalis."
+#. Message to display when Light has no possible moves
+#: ../src/iagno.vala:419
+msgid "Light must pass, Dark’s move"
+msgstr "Šviesusis turi praleisti, Tamsiojo ėjimas"
 
-#: ../src/iagno.vala:363
+#. Message to display when Dark has no possible moves
+#: ../src/iagno.vala:424
+msgid "Dark must pass, Light’s move"
+msgstr "Tamsusis turi praleisti, Šviesiojo ėjimas"
+
+#. Message to display when Light has won the game
+#: ../src/iagno.vala:433
+msgid "Light wins!"
+msgstr "Šviesusis laimi!"
+
+#. Message to display when Dark has won the game
+#: ../src/iagno.vala:438
+msgid "Dark wins!"
+msgstr "Tamsusis laimi!"
+
+#. Message to display when the game is a draw
+#: ../src/iagno.vala:443
+msgid "The game is draw."
+msgstr "Žaidimas baigėsi lygiosiomis!"
+
+#. Message to display when the player tries to make an illegal move
+#: ../src/iagno.vala:469
+msgid "You can’t move there!"
+msgstr "Negalima ten padėti!"
+
+#: ../src/iagno.vala:496
+#| msgid ""
+#| "A disk flipping game derived from Reversi\n"
+#| "\n"
+#| "Iagno is a part of GNOME Games."
+msgid "A disk flipping game derived from Reversi"
+msgstr "Diskų vartymo žaidimo Reversi atmaina"
+
+#: ../src/iagno.vala:499
 msgid "translator-credits"
 msgstr ""
 "Paskutinieji vertėjai:\n"
@@ -216,69 +293,29 @@ msgstr ""
 "Tomas Kuliavas <tokul@users.sf.net>,\n"
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
-#. Message to display when Light has no possible moves
-#: ../src/iagno.vala:396
-msgid "Light must pass, Dark’s move"
-msgstr "Šviesusis turi praleisti, Tamsiojo ėjimas"
+#~ msgid "_Preferences"
+#~ msgstr "_Nustatymai"
 
-#. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:401
-msgid "Dark must pass, Light’s move"
-msgstr "Tamsusis turi praleisti, Šviesiojo ėjimas"
+#~ msgid "Dark:"
+#~ msgstr "Tamsusis:"
 
-#. Message to display when Light has won the game
-#: ../src/iagno.vala:446
-msgid "Light wins!"
-msgstr "Šviesusis laimi!"
+#~ msgid "Light:"
+#~ msgstr "Šviesusis:"
 
-#. Message to display when Dark has won the game
-#: ../src/iagno.vala:451
-msgid "Dark wins!"
-msgstr "Tamsusis laimi!"
+#~ msgid "Preferences"
+#~ msgstr "Nustatymai"
 
-#. Message to display when the game is a draw
-#: ../src/iagno.vala:456
-msgid "The game is draw."
-msgstr "Žaidimas baigėsi lygiosiomis!"
+#~ msgid "Level one"
+#~ msgstr "Pirmas lygis"
 
-#. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:482
-msgid "You can’t move there!"
-msgstr "Negalima ten padėti!"
+#~ msgid "Level two"
+#~ msgstr "Antras lygis"
 
-#: ../src/iagno.vala:537
-msgid "Preferences"
-msgstr "Nustatymai"
+#~ msgid "Level three"
+#~ msgstr "Trečias lygis"
 
-#: ../src/iagno.vala:559
-msgid "Game mode:"
-msgstr "Žaidimo veiksena:"
+#~ msgid "_Tile set:"
+#~ msgstr "_Skridinėlių rūšis:"
 
-#: ../src/iagno.vala:574
-msgid "Two players"
-msgstr "Du žaidėjai"
-
-#: ../src/iagno.vala:586
-msgid "Computer:"
-msgstr "Kompiuteris:"
-
-#: ../src/iagno.vala:597
-msgid "Level one"
-msgstr "Pirmas lygis"
-
-#: ../src/iagno.vala:599
-msgid "Level two"
-msgstr "Antras lygis"
-
-#: ../src/iagno.vala:601
-msgid "Level three"
-msgstr "Trečias lygis"
-
-#: ../src/iagno.vala:608
-msgid "_Tile set:"
-msgstr "_Skridinėlių rūšis:"
-
-#: ../src/iagno.vala:660
-msgid "E_nable sounds"
-msgstr "Įj_ungti garsus"
-
+#~ msgid "E_nable sounds"
+#~ msgstr "Įj_ungti garsus"
