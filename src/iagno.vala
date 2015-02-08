@@ -22,8 +22,9 @@ public class Iagno : Gtk.Application
     private static int computer_level = 0;
     private static int size = 8;
     private static bool begin_with_new_game_screen = false;
-    private static string play_as;
+    private static string color;
     private static bool? sound = null;
+    private static bool? two_players = null;
 
     /* Seconds */
     private static const double QUICK_MOVE_DELAY = 0.4;
@@ -128,14 +129,17 @@ public class Iagno : Gtk.Application
         if (computer_level < 0 || computer_level > 3)
             stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
 
-        if (options.contains ("two-players"))
-            play_as = "two-players";
-        else if (options.contains ("first"))
-            play_as = "first";
-        else if (options.contains ("second"))
-            play_as = "second";
-        else
+        if (options.contains ("two-players")) {
+            two_players = true;
+        } else if (options.contains ("first")) {
+            color = "dark";
+            two_players = false;
+        } else if (options.contains ("second")) {
+            color = "light";
+            two_players = false;
+        } else {
             begin_with_new_game_screen = true;
+        }
 
         /* Activate */
         return -1;
@@ -144,19 +148,28 @@ public class Iagno : Gtk.Application
     protected override void startup ()
     {
         base.startup ();
+
         var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
 
         /* Settings */
         settings = new Settings ("org.gnome.iagno");
+
         if (sound != null)
             settings.set_boolean ("sound", sound);
-        if (!begin_with_new_game_screen)
-            settings.set_string ("play-as", play_as);
-        else /* hack, part 1 on 3 */
-            play_as = settings.get_string ("play-as");
+
+        if (two_players != null)
+            settings.set_int ("num-players", two_players ? 2 : 1);
+        else /* hack, part 1 of 4 */
+            two_players = (settings.get_int ("num-players") == 2);
+
+        if (color != null)
+            settings.set_string ("color", color);
+        else /* hack, part 2 of 4 */
+            color = settings.get_string ("color");
+
         if (computer_level > 0 && computer_level <= 3)
             settings.set_int ("computer-level", computer_level);
-        else /* hack, part 2 on 3 */
+        else /* hack, part 3 of 4 */
             computer_level = settings.get_int ("computer-level");
 
         /* Actions and preferences */
@@ -166,14 +179,21 @@ public class Iagno : Gtk.Application
         add_action (settings.create_action ("sound"));
         /* TODO bugs when changing manually the gsettings key (not for sound);
          * solving this bug may remove the need of the hack in three parts */
-        add_action (settings.create_action ("play-as"));
+        add_action (settings.create_action ("color"));
+        add_action (settings.create_action ("num-players"));
         add_action (settings.create_action ("computer-level"));
 
-        var level_box = builder.get_object ("level-box") as Gtk.Box;
-        settings.changed["play-as"].connect (() => {
-            level_box.sensitive = settings.get_string ("play-as") != "two-players";
+        var level_box = builder.get_object ("difficulty-box") as Gtk.Box;
+        settings.changed["num-players"].connect (() => {
+            level_box.sensitive = settings.get_int ("num-players") == 1;
         });
-        level_box.sensitive = play_as != "two-players";
+        level_box.sensitive = settings.get_int ("num-players") == 1;
+
+        var color_box = builder.get_object ("color-box") as Gtk.Box;
+        settings.changed["num-players"].connect (() => {
+            color_box.sensitive = settings.get_int ("num-players") == 1;
+        });
+        color_box.sensitive = settings.get_int ("num-players") == 1;
 
         /* Window construction */
         window = builder.get_object ("iagno-window") as Gtk.ApplicationWindow;
@@ -184,12 +204,28 @@ public class Iagno : Gtk.Application
             window.maximize ();
         add_window (window);
 
-        /* Hack for restoring radiobuttons settings, part 3 on 3.
+        /* Hack for restoring radiobuttons settings, part 4 of 4.
          * When you add_window(), settings are initialized with the value
          * of the first radiobutton of the group found in the UI file. */
         Settings.sync ();
-        settings.set_string ("play-as", play_as);
+        settings.set_string ("color", color);
         settings.set_int ("computer-level", computer_level);
+        settings.set_int ("num-players", two_players ? 2 : 1);
+
+        var label = builder.get_object ("players-label") as Gtk.Label;
+        label.use_markup = true;
+        /* Label on new game screen */
+        label.label = "<b>%s</b>".printf (_("Players"));
+
+        label = builder.get_object ("difficulty-label") as Gtk.Label;
+        label.use_markup = true;
+        /* Label on new game screen */
+        label.label = "<b>%s</b>".printf (_("Difficulty"));
+
+        label = builder.get_object ("color-label") as Gtk.Label;
+        label.use_markup = true;
+        /* Label on new game screen */
+        label.label = "<b>%s</b>".printf (_("Color"));
 
         /* View construction */
         view = new GameView ();
@@ -310,13 +346,15 @@ public class Iagno : Gtk.Application
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
 
-        var mode = settings.get_string ("play-as");
-        if (mode == "two-players")
+        if (settings.get_int ("num-players") == 2)
             computer = null;
         else
             computer = new ComputerPlayer (game, settings.get_int ("computer-level"));
 
-        player_one = (mode == "first") ? Player.DARK : Player.LIGHT;
+        if (settings.get_enum ("color") == 1)
+            player_one = Player.LIGHT;
+        else
+            player_one = Player.DARK;
 
         update_ui ();
 
@@ -491,7 +529,7 @@ public class Iagno : Gtk.Application
                                "name", _("Iagno"),
                                "version", VERSION,
                                "copyright",
-                               "Copyright © 1998–2008 Ian Peters\nCopyright © 2013–2014 Michael Catanzaro",
+                               "Copyright © 1998–2008 Ian Peters\nCopyright © 2013–2015 Michael Catanzaro",
                                "license-type", Gtk.License.GPL_2_0,
                                "comments", _("A disk flipping game derived from Reversi"),
                                "authors", authors,

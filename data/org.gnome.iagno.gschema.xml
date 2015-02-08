@@ -1,8 +1,7 @@
 <schemalist>
-  <enum id="org.gnome.iagno.PlayAs">
-    <value value="0" nick="two-players"/>
-    <value value="1" nick="first"/>
-    <value value="2" nick="second"/>
+  <enum id="org.gnome.iagno.Color">
+    <value value="0" nick="dark"/>
+    <value value="1" nick="light"/>
   </enum>
 
   <schema id="org.gnome.iagno" path="/org/gnome/iagno/" gettext-domain="iagno">
@@ -12,10 +11,15 @@
       <summary>Computer's AI level</summary>
       <description>From 1, the easiest, to 3, the hardest.</description>
     </key>
-    <key name="play-as" enum="org.gnome.iagno.PlayAs">
-      <default>'first'</default>
-      <summary>Type of game</summary>
-      <description>Choose the type of the next game.</description>
+    <key name="num-players" type="i">
+      <default>1</default>
+      <range min="1" max="2" />
+      <summary>Whether to play against the computer or another human.</summary>
+    </key>
+    <key name="color" enum="org.gnome.iagno.Color">
+      <default>'dark'</default>
+      <summary>Color to play as</summary>
+      <description>Whether to play as Dark or Light. Ignored for two-player games.</description>
     </key>
     <key name="tileset" type="s">
       <default>'black_and_white.svg'</default>
@@ -26,11 +30,11 @@
       <description>Whether or not to play event sounds.</description>
     </key>
     <key name="window-width" type="i">
-      <default>540</default>
+      <default>675</default>
       <summary>Width of the window in pixels</summary>
     </key>
     <key name="window-height" type="i">
-      <default>500</default>
+      <default>550</default>
       <summary>Height of the window in pixels</summary>
     </key>
     <key name="window-is-maximized" type="b">
