@@ -1,12 +1,8 @@
 SUBDIRS = icons
 
-uidir = $(datadir)/iagno
-ui_DATA = \
+dist_noinst_DATA = \
 	iagno-menus.ui \
-	iagno.ui
-
-imagedir = $(datadir)/iagno/images
-image_DATA = \
+	iagno.ui \
 	dark.svg \
 	light.svg \
 	mark.svg
@@ -37,8 +33,6 @@ gsettings_SCHEMAS = org.gnome.iagno.gschema.xml
 man_MANS = iagno.6
 
 EXTRA_DIST = \
-	$(ui_DATA) \
-	$(image_DATA) \
 	$(theme_DATA) \
 	$(sounds_DATA) \
 	$(appstream_in_files) \
