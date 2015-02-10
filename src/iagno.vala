@@ -149,6 +149,10 @@ public class Iagno : Gtk.Application
     {
         base.startup ();
 
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("/org/gnome/iagno/ui/iagno.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
 
         /* Settings */
@@ -211,21 +215,6 @@ public class Iagno : Gtk.Application
         settings.set_string ("color", color);
         settings.set_int ("computer-level", computer_level);
         settings.set_int ("num-players", two_players ? 2 : 1);
-
-        var label = builder.get_object ("players-label") as Gtk.Label;
-        label.use_markup = true;
-        /* Label on new game screen */
-        label.label = "<b>%s</b>".printf (_("Players"));
-
-        label = builder.get_object ("difficulty-label") as Gtk.Label;
-        label.use_markup = true;
-        /* Label on new game screen */
-        label.label = "<b>%s</b>".printf (_("Difficulty"));
-
-        label = builder.get_object ("color-label") as Gtk.Label;
-        label.use_markup = true;
-        /* Label on new game screen */
-        label.label = "<b>%s</b>".printf (_("Color"));
 
         /* View construction */
         view = new GameView ();
@@ -376,19 +365,11 @@ public class Iagno : Gtk.Application
             undo_action.set_enabled (game.number_of_moves >= 2);
 
         /* Translators: this is a 2 digit representation of the current score. */
-        dark_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_dark_tiles))+"</span>");
-        light_score_label.set_markup ("<span font_weight='bold'>"+(_("%.2d").printf (game.n_light_tiles))+"</span>");
+        dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
+        light_score_label.set_text (_("%.2d").printf (game.n_light_tiles));
 
-        if (game.current_color == Player.DARK)
-        {
-            mark_icon_light.hide ();
-            mark_icon_dark.show ();
-        }
-        else if (game.current_color == Player.LIGHT)
-        {
-            mark_icon_dark.hide ();
-            mark_icon_light.show ();
-        }
+        mark_icon_dark.visible = (game.current_color == Player.DARK);
+        mark_icon_light.visible = (game.current_color == Player.LIGHT);
     }
 
     private void undo_move_cb ()

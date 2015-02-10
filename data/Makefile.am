@@ -3,6 +3,7 @@ SUBDIRS = icons
 dist_noinst_DATA = \
 	iagno-menus.ui \
 	iagno.ui \
+	iagno.css \
 	dark.svg \
 	light.svg \
 	mark.svg
