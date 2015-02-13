@@ -49,6 +49,7 @@ public class Iagno : Gtk.Application
     private Gtk.Label dark_score_label;
     private Gtk.Label light_score_label;
     private Gtk.Stack main_stack;
+    private ThemesDialog themes_dialog;
 
     private Gtk.Button back_button;
     private Gtk.Button undo_button;
@@ -87,6 +88,7 @@ public class Iagno : Gtk.Application
         {"undo-move", undo_move_cb},
         {"back", back_cb},
 
+        {"theme", theme_cb},
         {"help", help_cb},
         {"about", about_cb},
         {"quit", quit}
@@ -209,7 +211,7 @@ public class Iagno : Gtk.Application
         color_box.sensitive = settings.get_int ("num-players") == 1;
 
         /* Window construction */
-        window = builder.get_object ("iagno-window") as Gtk.ApplicationWindow;
+        window = builder.get_object ("window") as Gtk.ApplicationWindow;
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
@@ -228,8 +230,7 @@ public class Iagno : Gtk.Application
         /* View construction */
         view = new GameView ();
         view.move.connect (player_move_cb);
-        var tile_set = settings.get_string ("tileset");
-        view.theme = Path.build_filename (DATA_DIRECTORY, "themes", tile_set);
+        view.theme = settings.get_string ("theme");
         view.halign = Gtk.Align.FILL;
         view.show ();
 
@@ -271,6 +272,10 @@ public class Iagno : Gtk.Application
         settings.set_boolean ("window-is-maximized", is_maximized);
     }
 
+    /*\
+    * * Window events
+    \*/
+
     private void size_allocate_cb (Gtk.Allocation allocation)
     {
         if (is_maximized || is_tiled)
@@ -288,6 +293,60 @@ public class Iagno : Gtk.Application
             is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
         return false;
     }
+
+    /*\
+    * * App-menu callbacks
+    \*/
+
+    private void theme_cb ()
+    {
+        /* Don’t permit to open more than one dialog */
+        if (themes_dialog == null)
+        {
+            themes_dialog = new ThemesDialog (settings, view);
+            themes_dialog.set_transient_for (window);
+        }
+        themes_dialog.present ();
+    }
+
+    private void help_cb ()
+    {
+        try
+        {
+            Gtk.show_uri (window.get_screen (), "help:iagno", Gtk.get_current_event_time ());
+        }
+        catch (Error e)
+        {
+            warning ("Failed to show help: %s", e.message);
+        }
+    }
+
+    private void about_cb ()
+    {
+        string[] authors = { "Ian Peters", "Robert Ancell", null };
+        string[] documenters = { "Tiffany Antopolski", null };
+
+        Gtk.show_about_dialog (window,
+                               "name", _("Iagno"),
+                               "version", VERSION,
+                               "copyright",
+                                 "Copyright © 1998–2008 Ian Peters\n"+
+                                 "Copyright © 2013–2015 Michael Catanzaro\n"+
+                                 "Copyright © 2014–2015 Arnaud Bonatti",
+                               "license-type", Gtk.License.GPL_3_0,
+                               "comments",
+                                 _("A disk flipping game derived from Reversi"),
+                               "authors", authors,
+                               "documenters", documenters,
+                               "translator-credits", _("translator-credits"),
+                               "logo-icon-name", "iagno",
+                               "website", "https://wiki.gnome.org/Apps/Iagno",
+                               null);
+    }
+
+    /*\
+    * * Internal calls
+    \*/
 
     private void start_game_cb ()
     {
@@ -405,7 +464,7 @@ public class Iagno : Gtk.Application
         }
 
         update_ui ();
-        play_sound ("flip-piece");
+        play_sound (Sound.FLIP);
     }
 
     private void turn_ended_cb ()
@@ -422,7 +481,7 @@ public class Iagno : Gtk.Application
     private void prepare_move ()
     {
         /* for the move that just ended */
-        play_sound ("flip-piece");
+        play_sound (Sound.FLIP);
 
         /*
          * Get the computer to move after a delay, so it looks like it's
@@ -441,7 +500,7 @@ public class Iagno : Gtk.Application
     private void pass ()
     {
         /* for the move that just ended */
-        play_sound ("flip-piece");
+        play_sound (Sound.FLIP);
 
         game.pass ();
         if (game.current_color == Player.DARK)
@@ -475,17 +534,7 @@ public class Iagno : Gtk.Application
         }
 
         if (play_gameover_sound)
-            play_sound ("gameover");
-    }
-
-    private void play_sound (string name)
-    {
-        if (!settings.get_boolean ("sound"))
-            return;
-
-        CanberraGtk.play_for_widget (view, 0,
-                                     Canberra.PROP_MEDIA_NAME, name,
-                                     Canberra.PROP_MEDIA_FILENAME, Path.build_filename (SOUND_DIRECTORY, "%s.ogg".printf (name)));
+            play_sound (Sound.GAMEOVER);
     }
 
     private void player_move_cb (int x, int y)
@@ -501,35 +550,38 @@ public class Iagno : Gtk.Application
         }
     }
 
-    private void help_cb ()
+    /*\
+    * * Sound
+    \*/
+
+    private enum Sound
     {
-        try
-        {
-            Gtk.show_uri (window.get_screen (), "help:iagno", Gtk.get_current_event_time ());
-        }
-        catch (Error e)
-        {
-            warning ("Failed to show help: %s", e.message);
-        }
+        FLIP,
+        GAMEOVER;
     }
 
-    private void about_cb ()
+    private void play_sound (Sound sound)
     {
-        string[] authors = { "Ian Peters", "Robert Ancell", null };
-        string[] documenters = { "Tiffany Antopolski", null };
+        if (!settings.get_boolean ("sound"))
+            return;
 
-        Gtk.show_about_dialog (window,
-                               "name", _("Iagno"),
-                               "version", VERSION,
-                               "copyright",
-                               "Copyright © 1998–2008 Ian Peters\nCopyright © 2013–2015 Michael Catanzaro",
-                               "license-type", Gtk.License.GPL_3_0,
-                               "comments", _("A disk flipping game derived from Reversi"),
-                               "authors", authors,
-                               "documenters", documenters,
-                               "translator-credits", _("translator-credits"),
-                               "logo-icon-name", "iagno",
-                               "website", "https://wiki.gnome.org/Apps/Iagno",
-                               null);
+        string name;
+        switch (sound)
+        {
+            case Sound.FLIP:
+                name = view.sound_flip;
+                break;
+            case Sound.GAMEOVER:
+                name = view.sound_gameover;
+                break;
+            default:
+                return;
+        }
+        string path = Path.build_filename (SOUND_DIRECTORY, name);
+        int r = CanberraGtk.play_for_widget (view, 0,
+                                             Canberra.PROP_MEDIA_NAME, name,
+                                             Canberra.PROP_MEDIA_FILENAME, path);
+        if (r != 0)
+            warning ("Error playing file: %s\nfilepath should be:%s", name, path);
     }
 }

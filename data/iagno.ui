@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.12"/>
-  <object class="GtkApplicationWindow" id="iagno-window">
+  <object class="GtkApplicationWindow" id="window">
     <property name="title" translatable="yes">Iagno</property>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="headerbar">

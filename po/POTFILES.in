@@ -4,10 +4,15 @@
 data/iagno.appdata.xml.in
 data/iagno.desktop.in
 [type: gettext/glade]data/iagno-menus.ui
+[type: gettext/glade]data/iagno-themes.ui
 [type: gettext/glade]data/iagno.ui
+[type: gettext/ini]data/themes/adwaita.theme.in
+[type: gettext/ini]data/themes/high_contrast.theme.in
+[type: gettext/ini]data/themes/sun_and_star.theme.in
 data/org.gnome.iagno.gschema.xml
 src/computer-player.vala
 src/game.vala
 src/game-view.vala
 src/iagno.vala
 src/player.vala
+src/themes.vala

@@ -21,14 +21,32 @@
 public class GameView : Gtk.DrawingArea
 {
     /* Theme */
-    private const int GRID_BORDER = 3;
-    private const int GRID_SPACING = 2;
+    private string pieces_file;
+
+    private double background_red;
+    private double background_green;
+    private double background_blue;
+
+    private double border_red;
+    private double border_green;
+    private double border_blue;
+    private int border_width;
+
+    private double spacing_red;
+    private double spacing_green;
+    private double spacing_blue;
+    private int spacing_width;
+
+    // private int margin_width;
+
+    public string sound_flip     { get; private set; }
+    public string sound_gameover { get; private set; }
 
     /* Utilities, see calculate () */
     private int tile_size;
     private int board_size;
-    private int x_offset { get { return (get_allocated_width () - board_size) / 2 + GRID_BORDER; }}
-    private int y_offset { get { return (get_allocated_height () - board_size) / 2 + GRID_BORDER; }}
+    private int x_offset { get { return (get_allocated_width () - board_size) / 2 + border_width; }}
+    private int y_offset { get { return (get_allocated_height () - board_size) / 2 + border_width; }}
 
     /* Delay in milliseconds between tile flip frames */
     private const int PIXMAP_FLIP_DELAY = 20;
@@ -73,7 +91,69 @@ public class GameView : Gtk.DrawingArea
     public string? theme
     {
         get { return _theme; }
-        set { _theme = value; tiles_pattern = null; queue_draw (); }
+        set {
+            if (value == "default")
+            {
+                set_default_theme ();
+                _theme = "default";
+            }
+            else
+            {
+                var key = new GLib.KeyFile ();
+                key.load_from_file (Path.build_filename (DATA_DIRECTORY, "themes", "key", value), GLib.KeyFileFlags.NONE);
+
+                // TODO try ... catch { set_default_theme (); _theme="default"; }
+                load_theme (key);
+                _theme = value;
+            }
+
+            // redraw all
+            tiles_pattern = null;
+            queue_draw ();
+        }
+    }
+
+    private void set_default_theme ()
+    {
+        var defaults = Gtk.Settings.get_default ();
+        var key = new GLib.KeyFile ();
+        string filename;
+        if (defaults.gtk_theme_name == "HighContrast")
+            filename = "high_contrast.theme";
+        /* else if (defaults.gtk_application_prefer_dark_theme == true)     // TODO
+            filename = "adwaita_dark.theme"; */
+        else
+            filename = "adwaita.theme";
+        key.load_from_file (Path.build_filename (DATA_DIRECTORY, "themes", "key", filename), GLib.KeyFileFlags.NONE);
+        load_theme (key);
+    }
+
+    private void load_theme (GLib.KeyFile key)
+    {
+        string path = Path.build_filename (DATA_DIRECTORY, "themes", "svg");
+
+        pieces_file = Path.build_filename (path, key.get_string ("Pieces", "File"));
+        if (Path.get_dirname (pieces_file) != path)     // security
+            pieces_file = Path.build_filename (path, "black_and_white.svg");
+
+        background_red   = key.get_double  ("Background", "Red");
+        background_green = key.get_double  ("Background", "Green");
+        background_blue  = key.get_double  ("Background", "Blue");
+
+        border_red       = key.get_double  ("Border", "Red");
+        border_green     = key.get_double  ("Border", "Green");
+        border_blue      = key.get_double  ("Border", "Blue");
+        border_width     = key.get_integer ("Border", "Width");
+
+        spacing_red      = key.get_double  ("Spacing", "Red");
+        spacing_green    = key.get_double  ("Spacing", "Green");
+        spacing_blue     = key.get_double  ("Spacing", "Blue");
+        spacing_width    = key.get_integer ("Spacing", "Width");
+
+        // margin_width = key.get_integer  ("Margin", "Width");
+
+        sound_flip       = key.get_string  ("Sound", "Flip");
+        sound_gameover   = key.get_string  ("Sound", "GameOver");
     }
 
     public GameView ()
@@ -86,9 +166,9 @@ public class GameView : Gtk.DrawingArea
     {
         var size = int.min (get_allocated_width (), get_allocated_height ());
         /* tile_size includes a grid spacing */
-        tile_size = (size - 2 * GRID_BORDER + GRID_SPACING) / game.size;
+        tile_size = (size - 2 * border_width + spacing_width) / game.size;
         /* board_size includes its borders */
-        board_size = tile_size * game.size - GRID_SPACING + 2 * GRID_BORDER;
+        board_size = tile_size * game.size - spacing_width + 2 * border_width;
     }
 
     public override bool draw (Cairo.Context cr)
@@ -103,34 +183,38 @@ public class GameView : Gtk.DrawingArea
             render_size = tile_size;
             var surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8, tile_size * 4);
             var c = new Cairo.Context (surface);
-            load_theme (c);
+            load_image (c);
             tiles_pattern = new Cairo.Pattern.for_surface (surface);
         }
 
         cr.translate (x_offset, y_offset);
 
-        /* draw border and background */
-        cr.set_source_rgba (0.3, 0.6, 0.4, 1.0);
-        cr.rectangle (-GRID_BORDER / 2.0, -GRID_BORDER / 2.0, board_size - GRID_BORDER, board_size - GRID_BORDER);
-        cr.fill_preserve ();
-        cr.set_source_rgba (0.0, 0.0, 0.0, 1.0);
-        cr.set_line_width (GRID_BORDER);
-        cr.stroke ();
+        /* draw background; TODO save for border */
+        cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
+        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size - border_width, board_size - border_width);
+        cr.fill ();
 
         /* draw lines */
-        cr.set_line_width (GRID_SPACING);
+        cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
+        cr.set_line_width (spacing_width);
         for (var i = 1; i < game.size; i++)
         {
-            cr.move_to (i * tile_size - GRID_SPACING / 2.0, 0);
-            cr.rel_line_to (0, board_size - GRID_BORDER);
+            cr.move_to (i * tile_size - spacing_width / 2.0, 0);
+            cr.rel_line_to (0, board_size - border_width);
 
-            cr.move_to (0, i * tile_size - GRID_SPACING / 2.0);
-            cr.rel_line_to (board_size - GRID_BORDER, 0);
+            cr.move_to (0, i * tile_size - spacing_width / 2.0);
+            cr.rel_line_to (board_size - border_width, 0);
         }
         cr.stroke ();
 
+        /* draw border */
+        cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
+        cr.set_line_width (border_width);
+        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size - border_width, board_size - border_width);
+        cr.stroke ();
+
         /* draw pieces */
-        cr.translate (-GRID_SPACING / 2, -GRID_SPACING / 2);
+        cr.translate (-spacing_width / 2, -spacing_width / 2);
         for (var x = 0; x < game.size; x++)
         {
             for (var y = 0; y < game.size; y++)
@@ -154,14 +238,14 @@ public class GameView : Gtk.DrawingArea
         return false;
     }
 
-    private void load_theme (Cairo.Context c)
+    private void load_image (Cairo.Context c)
     {
         var width = tile_size * 8;
         var height = tile_size * 4;
 
         try
         {
-            var h = new Rsvg.Handle.from_file (theme);
+            var h = new Rsvg.Handle.from_file (pieces_file);
 
             var m = Cairo.Matrix.identity ();
             m.scale ((double) width / h.width, (double) height / h.height);
@@ -177,13 +261,13 @@ public class GameView : Gtk.DrawingArea
 
         try
         {
-            var p = new Gdk.Pixbuf.from_file_at_scale (theme, width, height, false);
+            var p = new Gdk.Pixbuf.from_file_at_scale (pieces_file, width, height, false);
             Gdk.cairo_set_source_pixbuf (c, p, 0, 0);
             c.paint ();
         }
         catch (Error e)
         {
-            warning ("Failed to load theme %s: %s", theme, e.message);
+            warning ("Failed to load theme image %s: %s", pieces_file, e.message);
         }
     }
 

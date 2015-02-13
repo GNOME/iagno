@@ -8,6 +8,7 @@ iagno_SOURCES = \
 	computer-player.vala \
 	game.vala \
 	game-view.vala \
+	themes.vala \
 	iagno.vala \
 	player.vala \
 	$(BUILT_SOURCES)
@@ -28,6 +29,7 @@ iagno_VALAFLAGS = \
 	--pkg librsvg-2.0 \
 	--pkg libcanberra \
 	--pkg libcanberra-gtk \
+	--gresources=$(builddir)/iagno.gresource.xml \
 	--target-glib 2.40
 
 iagno_LDADD = $(IAGNO_LIBS)

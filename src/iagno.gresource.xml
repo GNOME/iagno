@@ -7,6 +7,7 @@
   </gresource>
   <gresource prefix="/org/gnome/iagno/ui">
     <file preprocess="xml-stripblanks" alias="iagno.ui">../data/iagno.ui</file>
+    <file preprocess="xml-stripblanks" alias="themes.ui">../data/iagno-themes.ui</file>
     <file alias="iagno.css">../data/iagno.css</file>
   </gresource>
   <gresource prefix="/org/gnome/iagno/gtk">

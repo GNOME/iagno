@@ -1,6 +1,9 @@
-SUBDIRS = icons
+SUBDIRS = \
+	icons \
+	themes
 
 dist_noinst_DATA = \
+	iagno-themes.ui \
 	iagno-menus.ui \
 	iagno.ui \
 	iagno.css \
@@ -8,7 +11,7 @@ dist_noinst_DATA = \
 	light.svg \
 	mark.svg
 
-themedir = $(datadir)/iagno/themes
+themedir = $(datadir)/iagno/themes/svg
 theme_DATA = \
 	sun_and_star.svg \
 	black_and_white.svg

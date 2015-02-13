@@ -21,8 +21,10 @@
       <summary>Color to play as</summary>
       <description>Whether to play as Dark or Light. Ignored for two-player games.</description>
     </key>
-    <key name="tileset" type="s">
-      <default>'black_and_white.svg'</default>
+    <key name="theme" type="s">
+      <default>'default'</default>
+      <summary>Theme</summary>
+      <description>Filename of the theme used, or "default". Are provided "adwaita.theme", "high_contrast.theme" and "sun_and_star.theme".</description>
     </key>
     <key name="sound" type="b">
       <default>true</default>
