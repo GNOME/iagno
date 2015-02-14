@@ -66,6 +66,8 @@
             <property name="valign">center</property>
             <property name="spacing">18</property>
             <property name="margin">25</property>
+            <property name="height-request">370</property>
+            <property name="width-request">410</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
@@ -89,7 +91,6 @@
                     <child>
                       <object class="GtkRadioButton" id="one">
                         <property name="visible">True</property>
-                        <property name="height-request">50</property>
                         <property name="use_underline">True</property>
                         <property name="label" translatable="yes">_One</property>
                         <property name="action-name">app.num-players</property>
@@ -103,7 +104,6 @@
                     <child>
                       <object class="GtkRadioButton">
                         <property name="visible">True</property>
-                        <property name="height-request">50</property>
                         <property name="use_underline">True</property>
                         <property name="label" translatable="yes">_Two</property>
                         <property name="action-name">app.num-players</property>
@@ -145,7 +145,6 @@
                     <child>
                       <object class="GtkRadioButton" id="easy">
                         <property name="visible">True</property>
-                        <property name="height-request">50</property>
                         <property name="use_underline">True</property>
                         <property name="label" translatable="yes">_Easy</property>
                         <property name="action-name">app.computer-level</property>
@@ -159,7 +158,6 @@
                     <child>
                       <object class="GtkRadioButton">
                         <property name="visible">True</property>
-                        <property name="height-request">50</property>
                         <property name="use_underline">True</property>
                         <property name="label" translatable="yes">_Medium</property>
                         <property name="action-name">app.computer-level</property>
@@ -174,7 +172,6 @@
                     <child>
                       <object class="GtkRadioButton">
                         <property name="visible">True</property>
-                        <property name="height-request">50</property>
                         <property name="use_underline">True</property>
                         <property name="label" translatable="yes">_Hard</property>
                         <property name="action-name">app.computer-level</property>
@@ -187,6 +184,9 @@
                       </object>
                     </child>
                   </object>
+                  <packing>
+                    <property name="expand">True</property>
+                  </packing>
                 </child>
               </object>
             </child>
@@ -213,7 +213,6 @@
                     <child>
                       <object class="GtkRadioButton" id="play_dark">
                         <property name="visible">True</property>
-                        <property name="height-request">50</property>
                         <property name="use_underline">True</property>
                         <property name="label" translatable="yes">_Dark</property>
                         <property name="action-name">app.color</property>
@@ -227,7 +226,6 @@
                     <child>
                       <object class="GtkRadioButton">
                         <property name="visible">True</property>
-                        <property name="height-request">50</property>
                         <property name="use_underline">True</property>
                         <property name="label" translatable="yes">_Light</property>
                         <property name="action-name">app.color</property>
@@ -249,23 +247,18 @@
             <child>
               <object class="GtkButton">
                 <property name="visible">True</property>
+                <property name="height-request">60</property>
+                <property name="width-request">222</property>
+                <property name="halign">center</property>
+                <property name="valign">end</property>
                 <property name="use_underline">True</property>
                 <property name="label" translatable="yes">_Start Game</property>
                 <property name="action-name">app.start-game</property>
                 <property name="tooltip-text" translatable="yes">Start a game</property>
-                <property name="height-request">50</property>
-                <property name="width-request">450</property>
                 <style>
                   <class name="suggested-action"/>
                 </style>
               </object>
-              <packing>
-                <property name="pack-type">end</property>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="padding">6</property>
-                <property name="position">1</property>
-              </packing>
             </child>
           </object>
           <packing>
@@ -381,11 +374,11 @@
                         <property name="use_underline">True</property>
                         <property name="label" translatable="yes">_New Game</property>
                         <property name="halign">center</property>
-                        <property name="valign">center</property>
+                        <property name="valign">end</property>
                         <property name="action-name">app.new-game</property>
                         <property name="tooltip-text" translatable="yes">Start a new game</property>
                         <property name="width-request">120</property>
-                        <property name="height-request">50</property>
+                        <property name="height-request">60</property>
                       </object>
                       <packing>
                         <property name="pack-type">end</property>
