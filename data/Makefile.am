@@ -13,6 +13,7 @@ dist_noinst_DATA = \
 
 themedir = $(datadir)/iagno/themes/svg
 theme_DATA = \
+	high_contrast.svg \
 	sun_and_star.svg \
 	black_and_white.svg
 

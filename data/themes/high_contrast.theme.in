@@ -1,10 +1,10 @@
 [Theme]
 Id=high_contrast
-_Name=High Contrast
+_Name=Black and White
 
 [Pieces]
 #Animated=True
-File=black_and_white.svg
+File=high_contrast.svg
 
 [Background]
 #Image=
@@ -16,13 +16,13 @@ Blue=1.0
 Red=0.0
 Green=0.0
 Blue=0.0
-Width=3
+Width=4
 
 [Spacing]
 Red=0.0
 Green=0.0
 Blue=0.0
-Width=2
+Width=3
 
 [Margin]
 #Width=0
