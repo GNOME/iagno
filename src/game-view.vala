@@ -120,10 +120,10 @@ public class GameView : Gtk.DrawingArea
         string filename;
         if (defaults.gtk_theme_name == "HighContrast")
             filename = "high_contrast.theme";
-        /* else if (defaults.gtk_application_prefer_dark_theme == true)     // TODO
-            filename = "adwaita_dark.theme"; */
-        else
+        else if (defaults.gtk_application_prefer_dark_theme == true)
             filename = "adwaita.theme";
+        else
+            filename = "classic.theme";
         key.load_from_file (Path.build_filename (DATA_DIRECTORY, "themes", "key", filename), GLib.KeyFileFlags.NONE);
         load_theme (key);
     }

@@ -38,7 +38,6 @@ public class ThemesDialog : Dialog
 
         /* load themes key files */
         Dir dir;
-        string theme = settings.get_string ("theme");
         try
         {
             dir = Dir.open (Path.build_filename (DATA_DIRECTORY, "themes", "key"));
@@ -88,6 +87,7 @@ public class ThemesDialog : Dialog
                     view.theme = ((Label) (((Box) row.get_child ()).get_children ().nth_data (2))).label;
                     // TODO BETTER view.theme may have fall back to "default"
                     settings.set_string ("theme", view.theme);
+                    queue_draw ();      // try to redraw because there’re sometimes bugs
                 });
         }
         catch (FileError e)

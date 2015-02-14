@@ -1,10 +1,10 @@
 [Theme]
-Id=sun_and_star
-_Name=Sun and Star
+Id=classic
+_Name=Classic
 
 [Pieces]
 #Animated=True
-File=sun_and_star.svg
+File=black_and_white.svg
 
 [Background]
 #Image=

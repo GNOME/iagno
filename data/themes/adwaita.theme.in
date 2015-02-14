@@ -8,20 +8,20 @@ File=black_and_white.svg
 
 [Background]
 #Image=
-Red=0.3
-Green=0.6
-Blue=0.4
+Red=0.2
+Green=0.4
+Blue=0.6
 
 [Border]
-Red=0.0
-Green=0.0
-Blue=0.0
+Red=0.1
+Green=0.1
+Blue=0.1
 Width=3
 
 [Spacing]
 Red=0.1
-Green=0.3
-Blue=0.2
+Green=0.2
+Blue=0.3
 Width=2
 
 [Margin]

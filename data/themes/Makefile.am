@@ -1,6 +1,7 @@
 themes_keydir = $(datadir)/iagno/themes/key
 themes_key_files = \
 	adwaita.theme.in \
+	classic.theme.in \
 	high_contrast.theme.in \
 	sun_and_star.theme.in
 themes_key_DATA = $(themes_key_files:.theme.in=.theme)
