@@ -11,26 +11,36 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2010.
 # Valek Filippov <frob@df.ru> 2000-2002
 # Nickolay V. Shmyrev <nshmyrev@yandex.ru>
-# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2014.
+# Ivan Komaritsyn <vantu5z@mail.ru>, 2015.
+# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-09 09:22+0000\n"
-"PO-Revision-Date: 2014-09-09 15:15+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"POT-Creation-Date: 2015-02-14 02:38+0000\n"
+"PO-Revision-Date: 2015-02-14 16:17+0300\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/iagno.appdata.xml.in.h:1
+#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
+#: ../data/iagno.ui.h:1 ../src/iagno.vala:104 ../src/iagno.vala:330
+msgid "Iagno"
+msgstr "Ягно"
+
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Захватите доску в классическом варианте Реверси"
+
+#: ../data/iagno.appdata.xml.in.h:3
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -39,7 +49,7 @@ msgstr ""
 "Ягно — это компьютерная версия игры в реверси, стратегическую настольную "
 "игру. Игра ведётся чёрными и белыми фишками."
 
-#: ../data/iagno.appdata.xml.in.h:2
+#: ../data/iagno.appdata.xml.in.h:4
 msgid ""
 "The object of Iagno is to flip as many of your opponent's tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
@@ -51,24 +61,15 @@ msgstr ""
 "фишку противника, необходимо, чтобы фишка соперника оказалась между двумя "
 "вашими фишками."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:103 ../src/iagno.vala:127
-#: ../src/iagno.vala:369 ../src/iagno.vala:692
-msgid "Iagno"
-msgstr "Ягно"
-
-#: ../data/iagno.desktop.in.h:2
-msgid "Dominate the board in a classic version of Reversi"
-msgstr "Захватите доску в классическом варианте Реверси"
-
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "отелло;"
 
-#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:586
+#: ../data/iagno.desktop.in.h:4
 msgid "Play first (Dark)"
 msgstr "Играть за первого (чёрные)"
 
-#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:588
+#: ../data/iagno.desktop.in.h:5
 msgid "Play second (Light)"
 msgstr "Играть за второго (белые)"
 
@@ -76,25 +77,113 @@ msgstr "Играть за второго (белые)"
 msgid "Two players game"
 msgstr "Игра с двумя участниками"
 
-#: ../data/iagno.ui.h:1
-msgid "_New Game"
-msgstr "_Новая игра"
+#: ../data/iagno-menus.ui.h:1
+msgid "_Theme"
+msgstr "_Тема"
 
-#: ../data/iagno.ui.h:2
-msgid "_Preferences"
-msgstr "_Параметры"
+#: ../data/iagno-menus.ui.h:2
+msgid "_Sound"
+msgstr "З_вук"
 
-#: ../data/iagno.ui.h:3
+#: ../data/iagno-menus.ui.h:3
 msgid "_Help"
 msgstr "_Справка"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno-menus.ui.h:4
 msgid "_About"
 msgstr "_О приложении"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno-menus.ui.h:5
 msgid "_Quit"
 msgstr "_Завершить"
+
+#: ../data/iagno-themes.ui.h:1 ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Тема"
+
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "По умолчанию"
+
+#: ../data/iagno.ui.h:2
+msgid "Undo your most recent move"
+msgstr "Отменить последний ход"
+
+#: ../data/iagno.ui.h:3
+msgid "Go back to the current game"
+msgstr "Вернуться к текущей игре"
+
+#: ../data/iagno.ui.h:4
+msgid "Players"
+msgstr "Игроки"
+
+#: ../data/iagno.ui.h:5
+msgid "_One"
+msgstr "_Один"
+
+#: ../data/iagno.ui.h:6
+msgid "_Two"
+msgstr "_Два"
+
+#: ../data/iagno.ui.h:7
+msgid "Difficulty"
+msgstr "Сложность"
+
+#: ../data/iagno.ui.h:8
+msgid "_Easy"
+msgstr "_Легко"
+
+#: ../data/iagno.ui.h:9
+msgid "_Medium"
+msgstr "_Средне"
+
+#: ../data/iagno.ui.h:10
+msgid "_Hard"
+msgstr "_Трудно"
+
+#: ../data/iagno.ui.h:11
+msgid "Color"
+msgstr "Цвет"
+
+#: ../data/iagno.ui.h:12
+msgid "_Dark"
+msgstr "_Чёрные"
+
+#: ../data/iagno.ui.h:13
+msgid "_Light"
+msgstr "_Белые"
+
+#: ../data/iagno.ui.h:14
+msgid "_Start Game"
+msgstr "_Начать игру"
+
+#: ../data/iagno.ui.h:15
+msgid "Start a game"
+msgstr "Начать игру"
+
+#: ../data/iagno.ui.h:16
+msgid "_New Game"
+msgstr "Новая _игра"
+
+#: ../data/iagno.ui.h:17
+msgid "Start a new game"
+msgstr "Начать новую игру"
+
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "Классическая"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+msgid "High Contrast"
+msgstr "Высококонтрастная"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "Солнце и звезда"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -105,113 +194,100 @@ msgid "From 1, the easiest, to 3, the hardest."
 msgstr "От 1 (простой) до 3 (сложный)."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
-msgid "Type of game"
-msgstr "Тип игры"
+msgid "Whether to play against the computer or another human."
+msgstr "Играть против компьютера или с другим человеком."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-#| msgid "Changes will take effect for the next game."
-msgid "Choose the type of the next game."
-msgstr "Выберите тип следующей игры."
+msgid "Color to play as"
+msgstr "Цвет за который играть"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr "Играть за чёрных или белых. Игнорируется при игре вдвоём."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+"Имя файла используемой темы (или «default»). Доступные темы: «adwaita."
+"theme», «high_contrast.theme» и «sun_and_star.theme»."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
 msgstr "Звук"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "Whether or not to play event sounds."
 msgstr "Воспроизводить ли звуковые события."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: ../data/org.gnome.iagno.gschema.xml.h:10
 msgid "Width of the window in pixels"
 msgstr "Ширина окна в пикселах"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: ../data/org.gnome.iagno.gschema.xml.h:11
 msgid "Height of the window in pixels"
 msgstr "Высота окна в пикселах"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
 msgstr "истинно, если окно имеет максимальный размер"
 
-#: ../src/iagno.vala:47
+#: ../src/iagno.vala:70
+msgid "Start with an alternative position"
+msgstr "Начать с другой позиции"
+
+#: ../src/iagno.vala:71
 msgid "Reduce delay before AI moves"
 msgstr "Сократить задержку ИИ на обдумывание ходов"
 
-#: ../src/iagno.vala:48
-#| msgid "Player _List"
+#: ../src/iagno.vala:72
 msgid "Play first"
 msgstr "Играть за первого игрока"
 
-#: ../src/iagno.vala:49
+#: ../src/iagno.vala:73
 msgid "Set the level of the computer's AI"
 msgstr "Установить уровень компьютерного ИИ"
 
-#: ../src/iagno.vala:50
+#: ../src/iagno.vala:74
 msgid "Turn off the sound"
 msgstr "Выключить звук"
 
-#: ../src/iagno.vala:51
-#| msgid "second"
-#| msgid_plural "seconds"
+#: ../src/iagno.vala:75
 msgid "Play second"
 msgstr "Играть за второго игрока"
 
-#: ../src/iagno.vala:52
+#: ../src/iagno.vala:76
+msgid "Size of the board (debug only)"
+msgstr "Размер доски (только отладка)"
+
+#: ../src/iagno.vala:77
 msgid "Two-players mode"
 msgstr "Режим для двух игроков"
 
-#: ../src/iagno.vala:53
+#: ../src/iagno.vala:78
 msgid "Turn on the sound"
 msgstr "Включить звук"
 
-#: ../src/iagno.vala:54
-#| msgid "Show release version"
+#: ../src/iagno.vala:79
 msgid "Print release version and exit"
 msgstr "Показать номер версии и выйти"
 
-#: ../src/iagno.vala:122
-msgid "Undo your most recent move"
-msgstr "Отменить последний ход"
+#. Console message displayed for an incorrect size
+#: ../src/iagno.vala:130
+msgid "Size must be at least 4."
+msgstr "Размер должен быть по крайней мере 4."
 
-#: ../src/iagno.vala:163 ../src/iagno.vala:321 ../src/iagno.vala:329
-msgid "Dark:"
-msgstr "Чёрные:"
-
-#: ../src/iagno.vala:171 ../src/iagno.vala:322 ../src/iagno.vala:330
-msgid "Light:"
-msgstr "Белые:"
-
-#: ../src/iagno.vala:180
-msgid "_Start Over"
-msgstr "_Начать"
-
-#: ../src/iagno.vala:187
-msgid "Start a new game"
-msgstr "Начать новую игру"
-
-#: ../src/iagno.vala:221
+#: ../src/iagno.vala:141
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Уровень должен быть между 1 (простой) и 3 (сложный). Параметры не изменились."
 
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:324 ../src/iagno.vala:325 ../src/iagno.vala:332
-#: ../src/iagno.vala:333
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
+#: ../src/iagno.vala:338
+msgid "A disk flipping game derived from Reversi"
+msgstr "Игра по переворачиванию дисков по мотивам Реверси"
 
-#: ../src/iagno.vala:374
-msgid ""
-"A disk flipping game derived from Reversi\n"
-"\n"
-"Iagno is a part of GNOME Games."
-msgstr ""
-"Игра по переворачиванию дисков по мотивам реверси\n"
-"\n"
-"Ягно является частью GNOME Games."
-
-#: ../src/iagno.vala:377
+#: ../src/iagno.vala:341
 msgid "translator-credits"
 msgstr ""
 "Валек Филиппов aka frob\n"
@@ -220,70 +296,77 @@ msgstr ""
 "Михаил Яхонтов\n"
 "Леонид Кантер"
 
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:436 ../src/iagno.vala:437
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:412
+#: ../src/iagno.vala:509
 msgid "Light must pass, Dark’s move"
 msgstr "Белые должны пропустить ход, ход чёрных"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:417
+#: ../src/iagno.vala:514
 msgid "Dark must pass, Light’s move"
 msgstr "Чёрные должны пропустить ход, ход белых"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:462
+#: ../src/iagno.vala:523
 msgid "Light wins!"
 msgstr "Белые победили!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:467
+#: ../src/iagno.vala:528
 msgid "Dark wins!"
 msgstr "Чёрные победили!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:472
+#: ../src/iagno.vala:533
 msgid "The game is draw."
 msgstr "Игра закончилась ничьёй."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:498
+#: ../src/iagno.vala:549
 msgid "You can’t move there!"
 msgstr "Сюда нельзя сделать ход!"
 
-#: ../src/iagno.vala:553
-msgid "Preferences"
-msgstr "Параметры"
+#~ msgid "_Preferences"
+#~ msgstr "_Параметры"
 
-#: ../src/iagno.vala:575
-#| msgid "Game score"
-msgid "Game mode:"
-msgstr "Режим игры:"
+#~ msgid "Type of game"
+#~ msgstr "Тип игры"
 
-#: ../src/iagno.vala:590
-#| msgid "The opponent player"
-msgid "Two players"
-msgstr "Два игрока"
+#~| msgid "Changes will take effect for the next game."
+#~ msgid "Choose the type of the next game."
+#~ msgstr "Выберите тип следующей игры."
 
-#: ../src/iagno.vala:602
-msgid "Computer:"
-msgstr "Компьютер:"
+#~ msgid "Preferences"
+#~ msgstr "Параметры"
 
-#: ../src/iagno.vala:613
-msgid "Level one"
-msgstr "Первый уровень"
+#~| msgid "Game score"
+#~ msgid "Game mode:"
+#~ msgstr "Режим игры:"
 
-#: ../src/iagno.vala:615
-msgid "Level two"
-msgstr "Второй уровень"
+#~| msgid "The opponent player"
+#~ msgid "Two players"
+#~ msgstr "Два игрока"
 
-#: ../src/iagno.vala:617
-msgid "Level three"
-msgstr "Третий уровень"
+#~ msgid "Computer:"
+#~ msgstr "Компьютер:"
 
-#: ../src/iagno.vala:624
-msgid "_Tile set:"
-msgstr "Набор _фишек:"
+#~ msgid "Level one"
+#~ msgstr "Первый уровень"
 
-#: ../src/iagno.vala:676
-msgid "E_nable sounds"
-msgstr "Включить _звуки"
+#~ msgid "Level two"
+#~ msgstr "Второй уровень"
+
+#~ msgid "Level three"
+#~ msgstr "Третий уровень"
+
+#~ msgid "_Tile set:"
+#~ msgstr "Набор _фишек:"
+
+#~ msgid "E_nable sounds"
+#~ msgstr "Включить _звуки"
