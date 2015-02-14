@@ -8,9 +8,9 @@ iagno_SOURCES = \
 	computer-player.vala \
 	game.vala \
 	game-view.vala \
-	themes.vala \
 	iagno.vala \
 	player.vala \
+	themes-dialog.vala \
 	$(BUILT_SOURCES)
 
 iagno_CFLAGS = \
