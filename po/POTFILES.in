@@ -16,4 +16,4 @@ src/game.vala
 src/game-view.vala
 src/iagno.vala
 src/player.vala
-src/themes.vala
+src/themes-dialog.vala
