@@ -23,21 +23,21 @@ public class GameView : Gtk.DrawingArea
     /* Theme */
     private string pieces_file;
 
-    private double background_red;
-    private double background_green;
-    private double background_blue;
+    private double background_red = 0.2;
+    private double background_green = 0.6;
+    private double background_blue = 0.4;
 
-    private double border_red;
-    private double border_green;
-    private double border_blue;
-    private int border_width;
+    private double border_red = 0.1;
+    private double border_green = 0.1;
+    private double border_blue = 0.1;
+    private int border_width = 3;
 
-    private double spacing_red;
-    private double spacing_green;
-    private double spacing_blue;
-    private int spacing_width;
+    private double spacing_red = 0.1;
+    private double spacing_green = 0.3;
+    private double spacing_blue = 0.2;
+    private int spacing_width = 2;
 
-    // private int margin_width;
+    // private int margin_width = 0;
 
     public string sound_flip     { get; private set; }
     public string sound_gameover { get; private set; }
@@ -92,20 +92,28 @@ public class GameView : Gtk.DrawingArea
     {
         get { return _theme; }
         set {
+            var key = new KeyFile ();
             if (value == "default")
-            {
-                set_default_theme ();
-                _theme = "default";
-            }
+                set_default_theme (ref key);
             else
-            {
-                var key = new GLib.KeyFile ();
-                key.load_from_file (Path.build_filename (DATA_DIRECTORY, "themes", "key", value), GLib.KeyFileFlags.NONE);
+                try
+                {
+                    string key_path = Path.build_filename (DATA_DIRECTORY, "themes", "key");
+                    string filepath = Path.build_filename (key_path, value);
+                    if (Path.get_dirname (filepath) != key_path)
+                        throw new FileError.FAILED ("Theme file is not in the \"key\" directory.");
 
-                // TODO try ... catch { set_default_theme (); _theme="default"; }
-                load_theme (key);
-                _theme = value;
-            }
+                    key.load_from_file (filepath, GLib.KeyFileFlags.NONE);
+                }
+                catch (Error e)
+                {
+                    warning ("Failed to load theme: %s", e.message);
+                    set_default_theme (ref key);
+                    value = "default";
+                }
+
+            load_theme (key);
+            _theme = value;
 
             // redraw all
             tiles_pattern = null;
@@ -113,10 +121,10 @@ public class GameView : Gtk.DrawingArea
         }
     }
 
-    private void set_default_theme ()
+    private void set_default_theme (ref KeyFile key)
     {
         var defaults = Gtk.Settings.get_default ();
-        var key = new GLib.KeyFile ();
+
         string filename;
         if (defaults.gtk_theme_name == "HighContrast")
             filename = "high_contrast.theme";
@@ -124,36 +132,47 @@ public class GameView : Gtk.DrawingArea
             filename = "adwaita.theme";
         else
             filename = "classic.theme";
-        key.load_from_file (Path.build_filename (DATA_DIRECTORY, "themes", "key", filename), GLib.KeyFileFlags.NONE);
-        load_theme (key);
+
+        string filepath = Path.build_filename (DATA_DIRECTORY, "themes", "key", filename);
+        try
+        {
+            key.load_from_file (filepath, GLib.KeyFileFlags.NONE);
+        }
+        catch { assert_not_reached (); }
     }
 
     private void load_theme (GLib.KeyFile key)
     {
-        string path = Path.build_filename (DATA_DIRECTORY, "themes", "svg");
+        try
+        {
+            string svg_path = Path.build_filename (DATA_DIRECTORY, "themes", "svg");
+            pieces_file = Path.build_filename (svg_path, key.get_string ("Pieces", "File"));
+            if (Path.get_dirname (pieces_file) != svg_path)
+                pieces_file = Path.build_filename (svg_path, "black_and_white.svg");
 
-        pieces_file = Path.build_filename (path, key.get_string ("Pieces", "File"));
-        if (Path.get_dirname (pieces_file) != path)     // security
-            pieces_file = Path.build_filename (path, "black_and_white.svg");
+            background_red   = key.get_double  ("Background", "Red");
+            background_green = key.get_double  ("Background", "Green");
+            background_blue  = key.get_double  ("Background", "Blue");
 
-        background_red   = key.get_double  ("Background", "Red");
-        background_green = key.get_double  ("Background", "Green");
-        background_blue  = key.get_double  ("Background", "Blue");
+            border_red       = key.get_double  ("Border", "Red");
+            border_green     = key.get_double  ("Border", "Green");
+            border_blue      = key.get_double  ("Border", "Blue");
+            border_width     = key.get_integer ("Border", "Width");
 
-        border_red       = key.get_double  ("Border", "Red");
-        border_green     = key.get_double  ("Border", "Green");
-        border_blue      = key.get_double  ("Border", "Blue");
-        border_width     = key.get_integer ("Border", "Width");
+            spacing_red      = key.get_double  ("Spacing", "Red");
+            spacing_green    = key.get_double  ("Spacing", "Green");
+            spacing_blue     = key.get_double  ("Spacing", "Blue");
+            spacing_width    = key.get_integer ("Spacing", "Width");
 
-        spacing_red      = key.get_double  ("Spacing", "Red");
-        spacing_green    = key.get_double  ("Spacing", "Green");
-        spacing_blue     = key.get_double  ("Spacing", "Blue");
-        spacing_width    = key.get_integer ("Spacing", "Width");
+            // margin_width = key.get_integer  ("Margin", "Width");
 
-        // margin_width = key.get_integer  ("Margin", "Width");
-
-        sound_flip       = key.get_string  ("Sound", "Flip");
-        sound_gameover   = key.get_string  ("Sound", "GameOver");
+            sound_flip       = key.get_string  ("Sound", "Flip");
+            sound_gameover   = key.get_string  ("Sound", "GameOver");
+        }
+        catch (KeyFileError e)      // TODO better
+        {
+            warning ("Errors when loading theme: %s", e.message);
+        }
     }
 
     public GameView ()
@@ -379,8 +398,7 @@ public class GameView : Gtk.DrawingArea
 
     public override bool button_press_event (Gdk.EventButton event)
     {
-        /* left button is first, right button is third */
-        if (event.button == 1 || event.button == 3)
+        if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
         {
             var x = (int) (event.x - x_offset) / tile_size;
             var y = (int) (event.y - y_offset) / tile_size;
