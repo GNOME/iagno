@@ -12,6 +12,12 @@ Red=0.2
 Green=0.6
 Blue=0.4
 
+[Mark]
+Red=0.2
+Green=0.6
+Blue=0.4
+Width=2
+
 [Border]
 Red=0.1
 Green=0.1

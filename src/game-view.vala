@@ -37,6 +37,11 @@ public class GameView : Gtk.DrawingArea
     private double background_green = 0.6;
     private double background_blue = 0.4;
 
+    private double mark_red = 0.2;
+    private double mark_green = 0.6;
+    private double mark_blue = 0.4;
+    private int mark_width = 2;
+
     private double border_red = 0.1;
     private double border_green = 0.1;
     private double border_blue = 0.1;
@@ -169,6 +174,11 @@ public class GameView : Gtk.DrawingArea
             background_red   = key.get_double  ("Background", "Red");
             background_green = key.get_double  ("Background", "Green");
             background_blue  = key.get_double  ("Background", "Blue");
+
+            mark_red         = key.get_double  ("Mark", "Red");
+            mark_green       = key.get_double  ("Mark", "Green");
+            mark_blue        = key.get_double  ("Mark", "Blue");
+            mark_width       = key.get_integer ("Mark", "Width");
 
             border_red       = key.get_double  ("Border", "Red");
             border_green     = key.get_double  ("Border", "Green");
@@ -436,8 +446,8 @@ public class GameView : Gtk.DrawingArea
 
         cr.save ();
 
-        cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
-        cr.set_line_width (spacing_width);
+        cr.set_source_rgba (mark_red, mark_green, mark_blue, 1.0);
+        cr.set_line_width (mark_width);
 
         cr.translate (0, current_player_number * height / 2.0);
         cr.move_to (height / 4.0, height / 8.0);
