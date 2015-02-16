@@ -49,13 +49,16 @@ public class ThemesDialog : Dialog
 
                 string path = Path.build_filename (DATA_DIRECTORY, "themes", "key", filename);
                 var key = new GLib.KeyFile ();
+                string name;
                 try
                 {
                     key.load_from_file (path, GLib.KeyFileFlags.NONE);
+                    name = key.get_locale_string ("Theme", "Name");
                 }
                 catch (GLib.KeyFileError e)
                 {
                     warning ("oops: %s", e.message);
+                    continue;
                 }
 
                 var row = new ListBoxRow ();
@@ -67,7 +70,7 @@ public class ThemesDialog : Dialog
                 img.visible = true;
                 img.width_request = 50;
                 img.icon_name = "object-select-symbolic";
-                var lbl = new Label (key.get_locale_string ("Theme", "Name"));
+                var lbl = new Label (name);
                 lbl.visible = true;
                 lbl.xalign = 0;
                 var data = new Label (filename);

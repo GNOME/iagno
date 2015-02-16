@@ -77,7 +77,7 @@ public class GameView : Gtk.DrawingArea
     /* Animation timer */
     private uint animate_timeout = 0;
 
-    private double cursor = 0;
+    // private double cursor = 0;
     private int current_player_number = 0;
 
     public signal void move (int x, int y);
@@ -134,7 +134,7 @@ public class GameView : Gtk.DrawingArea
             load_theme (key);
             _theme = value;
 
-            // redraw all
+            /* redraw all */
             tiles_pattern = null;
             // scoreboard_tiles_pattern = null;
             scoreboard.queue_draw ();

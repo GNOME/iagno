@@ -432,9 +432,6 @@ public class Iagno : Gtk.Application
         /* Translators: this is a 2 digit representation of the current score. */
         dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
         light_score_label.set_text (_("%.2d").printf (game.n_light_tiles));
-
-        // mark_icon_dark.visible = (game.current_color == Player.DARK);
-        // mark_icon_light.visible = (game.current_color == Player.LIGHT);
     }
 
     private void undo_move_cb ()
