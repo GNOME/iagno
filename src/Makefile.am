@@ -30,7 +30,7 @@ iagno_VALAFLAGS = \
 	--pkg libcanberra \
 	--pkg libcanberra-gtk \
 	--gresources=$(builddir)/iagno.gresource.xml \
-	--target-glib 2.40
+	--target-glib $(GLIB_REQUIRED)
 
 iagno_LDADD = $(IAGNO_LIBS)
 
