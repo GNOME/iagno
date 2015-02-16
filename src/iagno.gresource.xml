@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/gnome/iagno/images">
-    <file preprocess="xml-stripblanks" alias="dark.svg">../data/dark.svg</file>
-    <file preprocess="xml-stripblanks" alias="light.svg">../data/light.svg</file>
-    <file preprocess="xml-stripblanks" alias="mark.svg">../data/mark.svg</file>
-  </gresource>
   <gresource prefix="/org/gnome/iagno/ui">
     <file preprocess="xml-stripblanks" alias="iagno.ui">../data/iagno.ui</file>
     <file preprocess="xml-stripblanks" alias="themes.ui">../data/iagno-themes.ui</file>

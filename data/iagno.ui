@@ -289,29 +289,23 @@
                     <property name="spacing">6</property>
                     <child>
                       <object class="GtkGrid">
+                        <property name="name">scoreboard</property>
                         <property name="visible">True</property>
                         <property name="halign">center</property>
                         <property name="column-spacing">12</property>
-                        <property name="row-spacing">18</property>
+                        <property name="row-spacing">0</property>
+                        <property name="column-homogeneous">True</property>
+                        <property name="row-homogeneous">True</property>
                         <property name="margin-end">12</property>
                         <child>
-                          <object class="GtkImage" id="mark-icon-dark">
-                            <property name="resource">/org/gnome/iagno/images/mark.svg</property>
+                          <object class="GtkDrawingArea" id="scoreboard">
                             <property name="visible">True</property>
                           </object>
                           <packing>
                             <property name="left-attach">0</property>
                             <property name="top-attach">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="resource">/org/gnome/iagno/images/dark.svg</property>
-                            <property name="visible">True</property>
-                          </object>
-                          <packing>
-                            <property name="left-attach">1</property>
-                            <property name="top-attach">0</property>
+                            <property name="width">2</property><!-- yeah, this sounds stupid, but... -->
+                            <property name="height">2</property>
                           </packing>
                         </child>
                         <child>
@@ -325,26 +319,6 @@
                           <packing>
                             <property name="left-attach">2</property>
                             <property name="top-attach">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkImage" id="mark-icon-light">
-                            <property name="resource">/org/gnome/iagno/images/mark.svg</property>
-                            <property name="visible">True</property>
-                          </object>
-                          <packing>
-                            <property name="left-attach">0</property>
-                            <property name="top-attach">1</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="resource">/org/gnome/iagno/images/light.svg</property>
-                            <property name="visible">True</property>
-                          </object>
-                          <packing>
-                            <property name="left-attach">1</property>
-                            <property name="top-attach">1</property>
                           </packing>
                         </child>
                         <child>

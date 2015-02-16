@@ -44,8 +44,6 @@ public class Iagno : Gtk.Application
     private Gtk.Window window;
     private Gtk.HeaderBar headerbar;
     private GameView view;
-    private Gtk.Image mark_icon_dark;
-    private Gtk.Image mark_icon_light;
     private Gtk.Label dark_score_label;
     private Gtk.Label light_score_label;
     private Gtk.Stack main_stack;
@@ -229,6 +227,7 @@ public class Iagno : Gtk.Application
 
         /* View construction */
         view = new GameView ();
+        view.scoreboard = builder.get_object ("scoreboard") as Gtk.DrawingArea;
         view.move.connect (player_move_cb);
         view.theme = settings.get_string ("theme");
         view.halign = Gtk.Align.FILL;
@@ -241,8 +240,6 @@ public class Iagno : Gtk.Application
         headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
         light_score_label = builder.get_object ("light-score-label") as Gtk.Label;
         dark_score_label = builder.get_object ("dark-score-label") as Gtk.Label;
-        mark_icon_dark = builder.get_object ("mark-icon-dark") as Gtk.Image;
-        mark_icon_light = builder.get_object ("mark-icon-light") as Gtk.Image;
 
         /* Changing screen */
         main_stack = builder.get_object ("main_stack") as Gtk.Stack;
@@ -436,8 +433,8 @@ public class Iagno : Gtk.Application
         dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
         light_score_label.set_text (_("%.2d").printf (game.n_light_tiles));
 
-        mark_icon_dark.visible = (game.current_color == Player.DARK);
-        mark_icon_light.visible = (game.current_color == Player.LIGHT);
+        // mark_icon_dark.visible = (game.current_color == Player.DARK);
+        // mark_icon_light.visible = (game.current_color == Player.LIGHT);
     }
 
     private void undo_move_cb ()
@@ -465,6 +462,7 @@ public class Iagno : Gtk.Application
 
         update_ui ();
         play_sound (Sound.FLIP);
+        view.update_scoreboard ();
     }
 
     private void turn_ended_cb ()
@@ -482,6 +480,7 @@ public class Iagno : Gtk.Application
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
+        view.update_scoreboard ();
 
         /*
          * Get the computer to move after a delay, so it looks like it's
@@ -501,6 +500,7 @@ public class Iagno : Gtk.Application
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
+        view.update_scoreboard ();
 
         game.pass ();
         if (game.current_color == Player.DARK)

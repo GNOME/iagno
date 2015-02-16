@@ -67,7 +67,7 @@ public class ThemesDialog : Dialog
                 img.visible = true;
                 img.width_request = 50;
                 img.icon_name = "object-select-symbolic";
-                var lbl = new Label (key.get_locale_string ("Theme", "Name"));      // TODO test translation
+                var lbl = new Label (key.get_locale_string ("Theme", "Name"));
                 lbl.visible = true;
                 lbl.xalign = 0;
                 var data = new Label (filename);

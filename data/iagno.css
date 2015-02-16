@@ -18,12 +18,15 @@
  * with this application. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* Labels' fonts */
+/* Labels' tweaks */
 GtkLabel.bold-label {
   font-weight: bold;
 }
 GtkLabel.italic-label {
   font-style: italic;
+}
+GtkGrid#scoreboard GtkLabel {
+  padding: 5px 2px;
 }
 
 /* Themes' dialog listbox */

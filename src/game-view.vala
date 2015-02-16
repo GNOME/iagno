@@ -20,6 +20,16 @@
 
 public class GameView : Gtk.DrawingArea
 {
+    private Gtk.DrawingArea _scoreboard;
+    public Gtk.DrawingArea scoreboard {
+        private get { return _scoreboard; }
+        set
+        {
+            _scoreboard = value;
+            _scoreboard.draw.connect (draw_scoreboard);
+        }
+    }
+
     /* Theme */
     private string pieces_file;
 
@@ -54,12 +64,16 @@ public class GameView : Gtk.DrawingArea
     /* Pre-rendered image */
     private uint render_size = 0;
     private Cairo.Pattern? tiles_pattern = null;
+    private Cairo.Pattern? scoreboard_tiles_pattern = null;
 
     /* The images being showed on each location */
     private int[,] pixmaps;
 
     /* Animation timer */
     private uint animate_timeout = 0;
+
+    private double cursor = 0;
+    private int current_player_number = 0;
 
     public signal void move (int x, int y);
 
@@ -79,8 +93,8 @@ public class GameView : Gtk.DrawingArea
             if (_game != null)
             {
                 _game.square_changed.connect (square_changed_cb);
-                for (var x = 0; x < game.size; x++)
-                    for (var y = 0; y < game.size; y++)
+                for (int x = 0; x < game.size; x++)
+                    for (int y = 0; y < game.size; y++)
                         pixmaps[x, y] = get_pixmap (_game.get_owner (x, y));
             }
             queue_draw ();
@@ -117,6 +131,8 @@ public class GameView : Gtk.DrawingArea
 
             // redraw all
             tiles_pattern = null;
+            // scoreboard_tiles_pattern = null;
+            scoreboard.queue_draw ();
             queue_draw ();
         }
     }
@@ -183,7 +199,7 @@ public class GameView : Gtk.DrawingArea
 
     private void calculate ()
     {
-        var size = int.min (get_allocated_width (), get_allocated_height ());
+        int size = int.min (get_allocated_width (), get_allocated_height ());
         /* tile_size includes a grid spacing */
         tile_size = (size - 2 * border_width + spacing_width) / game.size;
         /* board_size includes its borders */
@@ -202,7 +218,7 @@ public class GameView : Gtk.DrawingArea
             render_size = tile_size;
             var surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8, tile_size * 4);
             var c = new Cairo.Context (surface);
-            load_image (c);
+            load_image (c, tile_size * 8, tile_size * 4);
             tiles_pattern = new Cairo.Pattern.for_surface (surface);
         }
 
@@ -241,10 +257,10 @@ public class GameView : Gtk.DrawingArea
                 if (pixmaps[x, y] == 0)
                     continue;
 
-                var tile_x = x * tile_size;
-                var tile_y = y * tile_size;
-                var texture_x = (pixmaps[x, y] % 8) * tile_size;
-                var texture_y = (pixmaps[x, y] / 8) * tile_size;
+                int tile_x = x * tile_size;
+                int tile_y = y * tile_size;
+                int texture_x = (pixmaps[x, y] % 8) * tile_size;
+                int texture_y = (pixmaps[x, y] / 8) * tile_size;
 
                 var matrix = Cairo.Matrix.identity ();
                 matrix.translate (texture_x - tile_x, texture_y - tile_y);
@@ -257,11 +273,8 @@ public class GameView : Gtk.DrawingArea
         return false;
     }
 
-    private void load_image (Cairo.Context c)
+    private void load_image (Cairo.Context c, int width, int height)
     {
-        var width = tile_size * 8;
-        var height = tile_size * 4;
-
         try
         {
             var h = new Rsvg.Handle.from_file (pieces_file);
@@ -297,16 +310,16 @@ public class GameView : Gtk.DrawingArea
         /* Show the result by laying the tiles with winning color first */
         if (flip_final_result_now && game.is_complete)
         {
-            var n = y * game.size + x;
-            var winning_color = Player.LIGHT;
-            var losing_color = Player.DARK;
-            var n_winning_tiles = game.n_light_tiles;
-            var n_losing_tiles = game.n_dark_tiles;
+            int n = y * game.size + x;
+            Player winning_color = Player.LIGHT;
+            Player losing_color = Player.DARK;
+            int n_winning_tiles = game.n_light_tiles;
+            int n_losing_tiles = game.n_dark_tiles;
             if (n_losing_tiles > n_winning_tiles)
             {
                 winning_color = Player.DARK;
                 losing_color = Player.LIGHT;
-                var t = n_winning_tiles;
+                int t = n_winning_tiles;
                 n_winning_tiles = n_losing_tiles;
                 n_losing_tiles = t;
             }
@@ -360,11 +373,11 @@ public class GameView : Gtk.DrawingArea
 
     private bool animate_cb ()
     {
-        var animating = false;
+        bool animating = false;
 
-        for (var x = 0; x < game.size; x++)
+        for (int x = 0; x < game.size; x++)
         {
-            for (var y = 0; y < game.size; y++)
+            for (int y = 0; y < game.size; y++)
             {
                 var old = pixmaps[x, y];
                 square_changed_cb (x, y);
@@ -407,5 +420,81 @@ public class GameView : Gtk.DrawingArea
         }
 
         return true;
+    }
+
+    /*\
+    * * Scoreboard
+    \*/
+
+    private bool draw_scoreboard (Cairo.Context cr)
+    {
+        int height = scoreboard.get_allocated_height ();
+        int width = scoreboard.get_allocated_width ();
+
+        cr.set_line_cap (Cairo.LineCap.ROUND);
+        cr.set_line_join (Cairo.LineJoin.ROUND);
+
+        cr.save ();
+
+        cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
+        cr.set_line_width (spacing_width);
+
+        cr.translate (0, current_player_number * height / 2.0);
+        cr.move_to (height / 4.0, height / 8.0);
+        cr.line_to (width - 5.0 * height / 8.0, height / 4.0);
+        cr.line_to (height / 4.0, 3.0 * height / 8.0);
+        cr.stroke ();
+
+        cr.restore ();
+
+        // if (scoreboard_tiles_pattern == null)
+        // {
+            /* prepare drawing of pieces */
+            var surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, height * 4, height * 2);
+            var c = new Cairo.Context (surface);
+            load_image (c, height * 4, height * 2);
+            scoreboard_tiles_pattern = new Cairo.Pattern.for_surface (surface);
+
+            cr.translate (width - height / 2.0, 0);
+            var matrix = Cairo.Matrix.identity ();
+
+            /* draw dark piece */
+            matrix.translate (height / 2.0, 0);
+            scoreboard_tiles_pattern.set_matrix (matrix);
+            cr.set_source (scoreboard_tiles_pattern);
+            cr.rectangle (0, 0, height / 2.0, height / 2.0);
+            cr.fill ();
+
+            /* draw white piece */
+            matrix.translate (3 * height, height);
+            scoreboard_tiles_pattern.set_matrix (matrix);
+            cr.set_source (scoreboard_tiles_pattern);
+            cr.rectangle (0, height / 2.0, height / 2.0, height / 2.0);
+            cr.fill ();
+        // }
+
+        // TODO
+        /* if (cursor > current_player_number)
+        {
+            cursor -= 0.14;
+            if (cursor < 0)
+                cursor = 0;
+            scoreboard.queue_draw ();
+        }
+        else if (cursor < current_player_number)
+        {
+            cursor += 0.14;
+            if (cursor > 1)
+                cursor = 1;
+            scoreboard.queue_draw ();
+        } */
+
+        return true;
+    }
+
+    public void update_scoreboard ()
+    {
+        current_player_number = (game.current_color == Player.DARK) ? 0 : 1;
+        scoreboard.queue_draw ();  // TODO queue_draw_area (…), or only refresh part of the DrawingArea, or both
     }
 }

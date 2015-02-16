@@ -6,10 +6,7 @@ dist_noinst_DATA = \
 	iagno-themes.ui \
 	iagno-menus.ui \
 	iagno.ui \
-	iagno.css \
-	dark.svg \
-	light.svg \
-	mark.svg
+	iagno.css
 
 themedir = $(datadir)/iagno/themes/svg
 theme_DATA = \
