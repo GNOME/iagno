@@ -4,7 +4,7 @@
   <menu id="app-menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">_Theme</attribute>
+        <attribute name="label" translatable="yes">A_ppearance</attribute>
         <attribute name="action">app.theme</attribute>
       </item>
       <item>
