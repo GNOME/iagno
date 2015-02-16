@@ -4,15 +4,15 @@
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # Gil 'Dolfin' Osher <dolfin@rpg.org.il>, 2002,2003
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
-# Yosef Or Boczko <yoseforb@gnome.org>, 2014.
+# Yosef Or Boczko <yoseforb@gnome.org>, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-27 20:38+0200\n"
-"PO-Revision-Date: 2014-09-27 20:44+0200\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2015-02-17 00:53+0200\n"
+"PO-Revision-Date: 2015-02-17 00:56+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,16 @@ msgstr ""
 "X-Launchpad-Export-Date: 2008-01-13 04:36+0000\n"
 "X-Poedit-Language: Hebrew\n"
 
-#: ../data/iagno.appdata.xml.in.h:1
+#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
+#: ../data/iagno.ui.h:1 ../src/iagno.vala:102 ../src/iagno.vala:327
+msgid "Iagno"
+msgstr "יאגנו"
+
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "נסו לשלוט על כל הלוח במשחק ריברסי קלסי"
+
+#: ../data/iagno.appdata.xml.in.h:3
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -32,7 +41,7 @@ msgstr ""
 "יאגנו הוא גרסת מחשב של המשחק רברסי, משחק לוח אסטרטגי לשני שחקנים. המשחק "
 "משוחק עם אריחים כהים בצד אחד ובהירים בצד השני."
 
-#: ../data/iagno.appdata.xml.in.h:2
+#: ../data/iagno.appdata.xml.in.h:4
 msgid ""
 "The object of Iagno is to flip as many of your opponent's tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
@@ -42,15 +51,6 @@ msgstr ""
 "העצם של יאגנו הוא להפוך אריחים רבים ככל האפשר של היריב שלך לצבע שלך תוך "
 "מניעה מהיריב שלך להפוך את האריחים שלך לצבע שלו. הדבר נעשה על ידי לכידת "
 "האריחים  של הריב שלך בין שני אריחים מהצבע שלך."
-
-#: ../data/iagno.desktop.in.h:1 ../data/iagno.ui.h:1 ../src/iagno.vala:93
-#: ../src/iagno.vala:397
-msgid "Iagno"
-msgstr "יאגנו"
-
-#: ../data/iagno.desktop.in.h:2
-msgid "Dominate the board in a classic version of Reversi"
-msgstr "נסו לשלוט על כל הלוח במשחק ריברסי קלסי"
 
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
@@ -69,8 +69,8 @@ msgid "Two players game"
 msgstr "משחק לשני שחקנים"
 
 #: ../data/iagno-menus.ui.h:1
-msgid "_Preferences"
-msgstr "ה_עדפות"
+msgid "A_ppearance"
+msgstr "_מראה"
 
 #: ../data/iagno-menus.ui.h:2
 msgid "_Sound"
@@ -88,9 +88,13 @@ msgstr "על _אודות"
 msgid "_Quit"
 msgstr "י_ציאה"
 
-#: ../data/iagno-preferences.ui.h:1
-msgid "_Tile set:"
-msgstr "_ערכת אריחים:"
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "בחירת ערכת נושא"
+
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "בררת מחדל"
 
 #: ../data/iagno.ui.h:2
 msgid "Undo your most recent move"
@@ -101,52 +105,76 @@ msgid "Go back to the current game"
 msgstr "לחזור למשחק הנוכחי"
 
 #: ../data/iagno.ui.h:4
-msgid "Game mode:"
-msgstr "מצב משחק:"
+msgid "Players"
+msgstr "שחקנים"
 
 #: ../data/iagno.ui.h:5
-msgid "Play _Dark"
-msgstr "שחקן _כהה"
+msgid "_One"
+msgstr "_אחד"
 
 #: ../data/iagno.ui.h:6
-msgid "Play _Light"
-msgstr "שחקן _בהיר"
+msgid "_Two"
+msgstr "_שניים"
 
 #: ../data/iagno.ui.h:7
-msgid "_Two Players"
-msgstr "_שני שחקנים"
+msgid "Difficulty"
+msgstr "רמת קושי"
 
 #: ../data/iagno.ui.h:8
-msgid "Computer Player:"
-msgstr "שחקן המחשב:"
-
-#: ../data/iagno.ui.h:9
 msgid "_Easy"
 msgstr "_קל"
 
-#: ../data/iagno.ui.h:10
+#: ../data/iagno.ui.h:9
 msgid "_Medium"
 msgstr "_בינוני"
 
-#: ../data/iagno.ui.h:11
+#: ../data/iagno.ui.h:10
 msgid "_Hard"
 msgstr "ק_שה"
 
+#: ../data/iagno.ui.h:11
+msgid "Color"
+msgstr "צבע"
+
 #: ../data/iagno.ui.h:12
+msgid "_Dark"
+msgstr "_כהה"
+
+#: ../data/iagno.ui.h:13
+msgid "_Light"
+msgstr "_בהיר"
+
+#: ../data/iagno.ui.h:14
 msgid "_Start Game"
 msgstr "ה_תחלת משחק"
 
-#: ../data/iagno.ui.h:13
+#: ../data/iagno.ui.h:15
 msgid "Start a game"
 msgstr "התחלת משחק"
 
-#: ../data/iagno.ui.h:14
+#: ../data/iagno.ui.h:16
 msgid "_New Game"
 msgstr "_משחק חדש"
 
-#: ../data/iagno.ui.h:15
+#: ../data/iagno.ui.h:17
 msgid "Start a new game"
 msgstr "התחלת משחק חדש"
+
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "קלאסי"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+msgid "Black and White"
+msgstr "שחור ולבן"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "שמש וכוכב"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -157,95 +185,103 @@ msgid "From 1, the easiest, to 3, the hardest."
 msgstr "From 1, the easiest, to 3, the hardest."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
-msgid "Type of game"
-msgstr "Type of game"
+msgid "Whether to play against the computer or another human."
+msgstr "Whether to play against the computer or another human."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-msgid "Choose the type of the next game."
-msgstr "Choose the type of the next game."
+msgid "Color to play as"
+msgstr "Color to play as"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr "Whether to play as Dark or Light. Ignored for two-player games."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Theme"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
 msgstr "Sound"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "Whether or not to play event sounds."
 msgstr "Whether or not to play event sounds."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: ../data/org.gnome.iagno.gschema.xml.h:10
 msgid "Width of the window in pixels"
 msgstr "Width of the window in pixels"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: ../data/org.gnome.iagno.gschema.xml.h:11
 msgid "Height of the window in pixels"
 msgstr "Height of the window in pixels"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
 msgstr "true if the window is maximized"
 
-#: ../src/iagno.vala:60
+#: ../src/iagno.vala:68
+msgid "Start with an alternative position"
+msgstr "Start with an alternative position"
+
+#: ../src/iagno.vala:69
 msgid "Reduce delay before AI moves"
 msgstr "Reduce delay before AI moves"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:70
 msgid "Play first"
 msgstr "Play first"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:71
 msgid "Set the level of the computer's AI"
 msgstr "Set the level of the computer's AI"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:72
 msgid "Turn off the sound"
 msgstr "Turn off the sound"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:73
 msgid "Play second"
 msgstr "Play second"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:74
 msgid "Size of the board (debug only)"
 msgstr "Size of the board (debug only)"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:75
 msgid "Two-players mode"
 msgstr "Two-players mode"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:76
 msgid "Turn on the sound"
 msgstr "Turn on the sound"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:77
 msgid "Print release version and exit"
 msgstr "Print release version and exit"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:119
-msgid "Size must be even and at least 4."
-msgstr "Size must be even and at least 4."
+#: ../src/iagno.vala:128
+msgid "Size must be at least 4."
+msgstr "Size must be at least 4."
 
-#: ../src/iagno.vala:130
+#: ../src/iagno.vala:139
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:350 ../src/iagno.vala:351
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
+#: ../src/iagno.vala:335
+msgid "A disk flipping game derived from Reversi"
+msgstr "משחק היפוך דסקיות שנגזר מרברסי"
 
-#: ../src/iagno.vala:402
-msgid ""
-"A disk flipping game derived from Reversi\n"
-"\n"
-"Iagno is a part of GNOME Games."
-msgstr ""
-"משחק היפוך דסקיות שנגזר מרברסי.\n"
-"\n"
-"יאגנו הוא חלק ממשחקי GNOME."
-
-#: ../src/iagno.vala:405
+#: ../src/iagno.vala:338
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -260,40 +296,71 @@ msgstr ""
 "פרויקט תרגום GNOME לעברית:\n"
 "‏http://gnome-il.berlios.de"
 
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:433 ../src/iagno.vala:434
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:440
+#: ../src/iagno.vala:506
 msgid "Light must pass, Dark’s move"
 msgstr "הבהיר חייב לחכות, תור הכהה"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:445
+#: ../src/iagno.vala:511
 msgid "Dark must pass, Light’s move"
 msgstr "הכהה חייב לחכות, תור הבהיר"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:473
+#: ../src/iagno.vala:520
 msgid "Light wins!"
 msgstr "השחקן הבהיר ניצח!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:478
+#: ../src/iagno.vala:525
 msgid "Dark wins!"
 msgstr "השחקן הכהה ניצח!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:483
+#: ../src/iagno.vala:530
 msgid "The game is draw."
 msgstr "המשחק הסתיים בתיקו."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:509
+#: ../src/iagno.vala:546
 msgid "You can’t move there!"
 msgstr "לא ניתן לזוז לשם!"
 
-#. the dialog is not in the ui file for the use-header-bar flag to be switchable
-#: ../src/iagno.vala:537
-msgid "Preferences"
-msgstr "העדפות"
+#~ msgid "_Preferences"
+#~ msgstr "ה_עדפות"
+
+#~ msgid "_Tile set:"
+#~ msgstr "_ערכת אריחים:"
+
+#~ msgid "Game mode:"
+#~ msgstr "מצב משחק:"
+
+#~ msgid "Play _Dark"
+#~ msgstr "שחקן _כהה"
+
+#~ msgid "Play _Light"
+#~ msgstr "שחקן _בהיר"
+
+#~ msgid "_Two Players"
+#~ msgstr "_שני שחקנים"
+
+#~ msgid "Computer Player:"
+#~ msgstr "שחקן המחשב:"
+
+#~ msgid "Type of game"
+#~ msgstr "Type of game"
+
+#~ msgid "Choose the type of the next game."
+#~ msgstr "Choose the type of the next game."
+
+#~ msgid "Preferences"
+#~ msgstr "העדפות"
 
 #~ msgid "Dark:"
 #~ msgstr "כהה:"
@@ -466,9 +533,6 @@ msgstr "העדפות"
 #~ msgid "Opposing Player:"
 #~ msgstr "המתמודד מולך:"
 
-#~ msgid "Difficulty:"
-#~ msgstr "רמת קושי:"
-
 #~ msgid "Game Duration:"
 #~ msgstr "משך המשחק:"
 
@@ -559,10 +623,6 @@ msgstr "העדפות"
 #~ msgctxt "chess-side"
 #~ msgid "White Side"
 #~ msgstr "צד לבן"
-
-#~ msgctxt "chess-side"
-#~ msgid "Black Side"
-#~ msgstr "צד שחור"
 
 #~ msgctxt "chess-side"
 #~ msgid "Human Side"
@@ -939,9 +999,6 @@ msgstr "העדפות"
 
 #~ msgid "Five or More Preferences"
 #~ msgstr "העדפות ׳חמש או יותר׳"
-
-#~ msgid "Appearance"
-#~ msgstr "מראה"
 
 #~ msgid "_Image:"
 #~ msgstr "_תמונה:"
@@ -1342,9 +1399,6 @@ msgstr "העדפות"
 
 #~ msgid "Keyboard Controls"
 #~ msgstr "שליטת מקלדת"
-
-#~ msgid "Classic"
-#~ msgstr "קלאסי"
 
 #~ msgid "Red"
 #~ msgstr "אדום"
@@ -3131,9 +3185,6 @@ msgstr "העדפות"
 #~ msgid "Controls"
 #~ msgstr "שליטה"
 
-#~ msgid "Theme"
-#~ msgstr "ערכת נושא"
-
 #~ msgid "Plain"
 #~ msgstr "רגיל"
 
@@ -3214,9 +3265,6 @@ msgstr "העדפות"
 #~ msgid "Score: %4u "
 #~ msgstr "ניקוד: %4u "
 
-#~ msgid "Colors"
-#~ msgstr "צבעוני"
-
 #~ msgid "Shapes and Colors"
 #~ msgstr "צורות וצבעים"
 
@@ -3263,12 +3311,6 @@ msgstr "העדפות"
 
 #~ msgid "Flags"
 #~ msgstr "דגלים"
-
-#~ msgid "Dark"
-#~ msgstr "כהה"
-
-#~ msgid "Light"
-#~ msgstr "בהיר"
 
 #~ msgid "Tiles"
 #~ msgstr "אריחים"
@@ -3834,9 +3876,6 @@ msgstr "העדפות"
 
 #~ msgid "Whether or not to show the toolbar"
 #~ msgstr "Whether or not to show the toolbar"
-
-#~ msgid "Select Game"
-#~ msgstr "בחר משחק"
 
 #~ msgid "_Select"
 #~ msgstr "_בחר"
@@ -5545,9 +5584,6 @@ msgstr "העדפות"
 
 #~ msgid "Seat"
 #~ msgstr "מושב"
-
-#~ msgid "Player"
-#~ msgstr "שחקן"
 
 #~ msgid "Spectator"
 #~ msgstr "צופה"
