@@ -1,3 +1,16 @@
+3.15.90 - February 16, 2015
+===========================
+
+Licensed under GPLv3.
+
+Dependencies: GTK+ 3.15.0, Valac 0.27.1
+
+* Scoreboard that changes with the theme (Arnaud Bonatti, Iulian Radu)
+* New themes' dialog, new themes (Arnaud Bonatti)
+* Implement new design for new game screen (Michael Catanzaro)
+* Switch from appdata-tools to appstream-utils (Michael Catanzaro)
+* Updated translations
+
 Correction for 3.15.1
 =====================
 
