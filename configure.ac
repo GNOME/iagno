@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([Iagno], [3.15.90.1], [https://bugzilla.gnome.org/],
+AC_INIT([Iagno], [3.15.90], [https://bugzilla.gnome.org/],
         [iagno], [https://wiki.gnome.org/Apps/Iagno])
 AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz foreign])
 AM_SILENT_RULES([yes])
@@ -68,10 +68,6 @@ data/icons/Makefile
 data/icons/hicolor/Makefile
 data/icons/HighContrast/Makefile
 data/themes/Makefile
-data/themes/adwaita.theme
-data/themes/classic.theme
-data/themes/high_contrast.theme
-data/themes/sun_and_star.theme
 help/Makefile
 src/Makefile
 ])
