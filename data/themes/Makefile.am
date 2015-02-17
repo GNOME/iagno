@@ -11,4 +11,6 @@ themes_key_DATA = $(themes_key_in_files:.theme.in=.theme)
 
 EXTRA_DIST = $(themes_key_in_files)
 
+CLEANFILES = $(themes_key_DATA)
+
 -include $(top_srcdir)/git.mk
