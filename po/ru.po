@@ -11,18 +11,19 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2010.
 # Valek Filippov <frob@df.ru> 2000-2002
 # Nickolay V. Shmyrev <nshmyrev@yandex.ru>
-# Ivan Komaritsyn <vantu5z@mail.ru>, 2015.
 # Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2014, 2015.
+# Ivan Komaritsyn <vantu5z@mail.ru>, 2015.
+# Stas Solovey <whats_up@tut.by>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-14 02:38+0000\n"
-"PO-Revision-Date: 2015-02-14 16:17+0300\n"
-"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
-"Language-Team: русский <gnome-cyr@gnome.org>\n"
+"POT-Creation-Date: 2015-02-17 10:32+0000\n"
+"PO-Revision-Date: 2015-02-18 22:00+0300\n"
+"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
+"Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../data/iagno.ui.h:1 ../src/iagno.vala:104 ../src/iagno.vala:330
+#: ../data/iagno.ui.h:1 ../src/iagno.vala:102 ../src/iagno.vala:327
 msgid "Iagno"
 msgstr "Ягно"
 
@@ -78,8 +79,8 @@ msgid "Two players game"
 msgstr "Игра с двумя участниками"
 
 #: ../data/iagno-menus.ui.h:1
-msgid "_Theme"
-msgstr "_Тема"
+msgid "A_ppearance"
+msgstr "_Внешний вид"
 
 #: ../data/iagno-menus.ui.h:2
 msgid "_Sound"
@@ -97,9 +98,9 @@ msgstr "_О приложении"
 msgid "_Quit"
 msgstr "_Завершить"
 
-#: ../data/iagno-themes.ui.h:1 ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "Theme"
-msgstr "Тема"
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "Выбрать тему"
 
 #: ../data/iagno-themes.ui.h:2
 msgid "Default"
@@ -178,8 +179,8 @@ msgid "Classic"
 msgstr "Классическая"
 
 #: ../data/themes/high_contrast.theme.in.h:1
-msgid "High Contrast"
-msgstr "Высококонтрастная"
+msgid "Black and White"
+msgstr "Чёрный и белый"
 
 #: ../data/themes/sun_and_star.theme.in.h:1
 msgid "Sun and Star"
@@ -204,6 +205,10 @@ msgstr "Цвет за который играть"
 #: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr "Играть за чёрных или белых. Игнорируется при игре вдвоём."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Тема"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid ""
@@ -233,104 +238,108 @@ msgstr "Высота окна в пикселах"
 msgid "true if the window is maximized"
 msgstr "истинно, если окно имеет максимальный размер"
 
-#: ../src/iagno.vala:70
+#: ../src/iagno.vala:68
 msgid "Start with an alternative position"
 msgstr "Начать с другой позиции"
 
-#: ../src/iagno.vala:71
+#: ../src/iagno.vala:69
 msgid "Reduce delay before AI moves"
 msgstr "Сократить задержку ИИ на обдумывание ходов"
 
-#: ../src/iagno.vala:72
+#: ../src/iagno.vala:70
 msgid "Play first"
 msgstr "Играть за первого игрока"
 
-#: ../src/iagno.vala:73
+#: ../src/iagno.vala:71
 msgid "Set the level of the computer's AI"
 msgstr "Установить уровень компьютерного ИИ"
 
-#: ../src/iagno.vala:74
+#: ../src/iagno.vala:72
 msgid "Turn off the sound"
 msgstr "Выключить звук"
 
-#: ../src/iagno.vala:75
+#: ../src/iagno.vala:73
 msgid "Play second"
 msgstr "Играть за второго игрока"
 
-#: ../src/iagno.vala:76
+#: ../src/iagno.vala:74
 msgid "Size of the board (debug only)"
 msgstr "Размер доски (только отладка)"
 
-#: ../src/iagno.vala:77
+#: ../src/iagno.vala:75
 msgid "Two-players mode"
 msgstr "Режим для двух игроков"
 
-#: ../src/iagno.vala:78
+#: ../src/iagno.vala:76
 msgid "Turn on the sound"
 msgstr "Включить звук"
 
-#: ../src/iagno.vala:79
+#: ../src/iagno.vala:77
 msgid "Print release version and exit"
 msgstr "Показать номер версии и выйти"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:130
+#: ../src/iagno.vala:128
 msgid "Size must be at least 4."
 msgstr "Размер должен быть по крайней мере 4."
 
-#: ../src/iagno.vala:141
+#: ../src/iagno.vala:139
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Уровень должен быть между 1 (простой) и 3 (сложный). Параметры не изменились."
 
-#: ../src/iagno.vala:338
+#: ../src/iagno.vala:335
 msgid "A disk flipping game derived from Reversi"
 msgstr "Игра по переворачиванию дисков по мотивам Реверси"
 
-#: ../src/iagno.vala:341
+#: ../src/iagno.vala:338
 msgid "translator-credits"
 msgstr ""
-"Валек Филиппов aka frob\n"
-"Дмитрий Мастрюков\n"
-"Вячеслав Диконов\n"
-"Михаил Яхонтов\n"
-"Леонид Кантер"
+"Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2015.\n"
+"Ivan Komaritsyn <vantu5z@mail.ru>, 2015.\n"
+"Stas Solovey <whats_up@tut.by>, 2015."
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:436 ../src/iagno.vala:437
+#: ../src/iagno.vala:433 ../src/iagno.vala:434
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:509
+#: ../src/iagno.vala:506
 msgid "Light must pass, Dark’s move"
 msgstr "Белые должны пропустить ход, ход чёрных"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:514
+#: ../src/iagno.vala:511
 msgid "Dark must pass, Light’s move"
 msgstr "Чёрные должны пропустить ход, ход белых"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:523
+#: ../src/iagno.vala:520
 msgid "Light wins!"
 msgstr "Белые победили!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:528
+#: ../src/iagno.vala:525
 msgid "Dark wins!"
 msgstr "Чёрные победили!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:533
+#: ../src/iagno.vala:530
 msgid "The game is draw."
 msgstr "Игра закончилась ничьёй."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:549
+#: ../src/iagno.vala:546
 msgid "You can’t move there!"
 msgstr "Сюда нельзя сделать ход!"
+
+#~ msgid "_Theme"
+#~ msgstr "_Тема"
+
+#~ msgid "High Contrast"
+#~ msgstr "Высококонтрастная"
 
 #~ msgid "_Preferences"
 #~ msgstr "_Параметры"
