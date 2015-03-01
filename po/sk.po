@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-22 10:33+0000\n"
-"PO-Revision-Date: 2015-02-22 16:18+0100\n"
+"POT-Creation-Date: 2015-03-01 04:45+0000\n"
+"PO-Revision-Date: 2015-03-01 11:33+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -22,8 +22,9 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
 "X-Generator: Poedit 1.7.4\n"
 
-#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1 ../data/iagno.ui.h:1
-#: ../src/iagno.vala:102 ../src/iagno.vala:327
+#. Window
+#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1 ../src/iagno.vala:87
+#: ../src/iagno.vala:182 ../src/iagno.vala:287
 msgid "Iagno"
 msgstr "Naruby"
 
@@ -85,6 +86,46 @@ msgstr "_O programe"
 msgid "_Quit"
 msgstr "_Ukončiť"
 
+#: ../data/iagno-screens.ui.h:1
+msgid "Players"
+msgstr "Hráči"
+
+#: ../data/iagno-screens.ui.h:2
+msgid "_One"
+msgstr "_Jeden"
+
+#: ../data/iagno-screens.ui.h:3
+msgid "_Two"
+msgstr "_Dvaja"
+
+#: ../data/iagno-screens.ui.h:4
+msgid "Difficulty"
+msgstr "Obtiažnosť"
+
+#: ../data/iagno-screens.ui.h:5
+msgid "_Easy"
+msgstr "Ľa_hká"
+
+#: ../data/iagno-screens.ui.h:6
+msgid "_Medium"
+msgstr "_Stredná"
+
+#: ../data/iagno-screens.ui.h:7
+msgid "_Hard"
+msgstr "Ťaž_ká"
+
+#: ../data/iagno-screens.ui.h:8
+msgid "Color"
+msgstr "Farba"
+
+#: ../data/iagno-screens.ui.h:9
+msgid "_Dark"
+msgstr "_Tmavá"
+
+#: ../data/iagno-screens.ui.h:10
+msgid "_Light"
+msgstr "S_vetlá"
+
 #: ../data/iagno-themes.ui.h:1
 msgid "Select Theme"
 msgstr "Výber témy"
@@ -93,68 +134,30 @@ msgstr "Výber témy"
 msgid "Default"
 msgstr "Predvolená"
 
-#: ../data/iagno.ui.h:2
-msgid "Undo your most recent move"
-msgstr "Vráti váš posledný ťah"
-
 # tooltip
-#: ../data/iagno.ui.h:3
+#: ../data/iagno.ui.h:1
 msgid "Go back to the current game"
 msgstr "Prejde späť na aktuálnu hru"
 
-#: ../data/iagno.ui.h:4
-msgid "Players"
-msgstr "Hráči"
-
-#: ../data/iagno.ui.h:5
-msgid "_One"
-msgstr "_Jeden"
-
-#: ../data/iagno.ui.h:6
-msgid "_Two"
-msgstr "_Dvaja"
-
-#: ../data/iagno.ui.h:7
-msgid "Difficulty"
-msgstr "Obtiažnosť"
-
-#: ../data/iagno.ui.h:8
-msgid "_Easy"
-msgstr "Ľa_hká"
-
-#: ../data/iagno.ui.h:9
-msgid "_Medium"
-msgstr "_Stredná"
-
-#: ../data/iagno.ui.h:10
-msgid "_Hard"
-msgstr "Ťaž_ká"
-
-#: ../data/iagno.ui.h:11
-msgid "Color"
-msgstr "Farba"
-
-#: ../data/iagno.ui.h:12
-msgid "_Dark"
-msgstr "_Tmavá"
-
-#: ../data/iagno.ui.h:13
-msgid "_Light"
-msgstr "S_vetlá"
-
-#: ../data/iagno.ui.h:14
+#: ../data/iagno.ui.h:2
 msgid "_Start Game"
 msgstr "_Začať hru"
 
-#: ../data/iagno.ui.h:15
-msgid "Start a game"
-msgstr "Začne hru"
+# tooltip
+#: ../data/iagno.ui.h:3
+msgid "Start a new game as configured"
+msgstr "Začne novú hru s danými nastaveniami"
 
-#: ../data/iagno.ui.h:16
+#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Nová hra"
 
-#: ../data/iagno.ui.h:17
+# tooltip
+#: ../data/iagno.ui.h:5
+msgid "Configure a new game"
+msgstr "Nastaví novú hru"
+
+#: ../data/iagno.ui.h:6
 msgid "Start a new game"
 msgstr "Začať novú hru"
 
@@ -228,65 +231,69 @@ msgstr "Výška okna v pixeloch"
 msgid "true if the window is maximized"
 msgstr "true, ak je okno maximalizované"
 
-#: ../src/iagno.vala:68
+#: ../src/game-window.vala:134
+msgid "Undo your most recent move"
+msgstr "Vráti váš posledný ťah"
+
+#: ../src/iagno.vala:59
 msgid "Start with an alternative position"
 msgstr "Spustí s alternatívnou pozíciou"
 
-#: ../src/iagno.vala:69
+#: ../src/iagno.vala:60
 msgid "Reduce delay before AI moves"
 msgstr "Zmenší oneskorenie pred ťahmi UI"
 
-#: ../src/iagno.vala:70
+#: ../src/iagno.vala:61
 msgid "Play first"
 msgstr "Budete hrať ako prvý"
 
 # cmd desc
-#: ../src/iagno.vala:71
+#: ../src/iagno.vala:62
 msgid "Set the level of the computer's AI"
 msgstr "Nastaví úroveň umelej inteligencie počítača"
 
 # cmd desc
-#: ../src/iagno.vala:72
+#: ../src/iagno.vala:63
 msgid "Turn off the sound"
 msgstr "Vypne zvuk"
 
-#: ../src/iagno.vala:73
+#: ../src/iagno.vala:64
 msgid "Play second"
 msgstr "Budete hrať ako druhý"
 
-#: ../src/iagno.vala:74
+#: ../src/iagno.vala:65
 msgid "Size of the board (debug only)"
 msgstr "Veľkosť hracej plochy (iba pre ladenie)"
 
 # cmd desc
-#: ../src/iagno.vala:75
+#: ../src/iagno.vala:66
 msgid "Two-players mode"
 msgstr "Režim dvoch hráčov"
 
 # cmd desc
-#: ../src/iagno.vala:76
+#: ../src/iagno.vala:67
 msgid "Turn on the sound"
 msgstr "Zapne zvuk"
 
 # cmd desc
-#: ../src/iagno.vala:77
+#: ../src/iagno.vala:68
 msgid "Print release version and exit"
 msgstr "Vypíše verziu vydania a skončí"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:128
+#: ../src/iagno.vala:112
 msgid "Size must be at least 4."
 msgstr "Veľkosť musí byť aspoň 4."
 
-#: ../src/iagno.vala:139
+#: ../src/iagno.vala:123
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "Úroveň musí byť v rozpätí 1 (ľahká) a 3 (ťažká). Nastavenia neboli zmenené."
 
-#: ../src/iagno.vala:335
+#: ../src/iagno.vala:295
 msgid "A disk flipping game derived from Reversi"
 msgstr "Hra, v ktorej sa prevracajú disky, odvodená od Reversi"
 
-#: ../src/iagno.vala:338
+#: ../src/iagno.vala:298
 msgid "translator-credits"
 msgstr ""
 "Stanislav Višňovský (visnovsky@nenya.ms.mff.cuni.cz)\n"
@@ -296,40 +303,43 @@ msgstr ""
 "Dušan Kazik <prescott66@gmail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:433 ../src/iagno.vala:434
+#: ../src/iagno.vala:360 ../src/iagno.vala:361
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:506
+#: ../src/iagno.vala:433
 msgid "Light must pass, Dark’s move"
 msgstr "Svetlé musia vynechať, ťahajú tmavé"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:511
+#: ../src/iagno.vala:438
 msgid "Dark must pass, Light’s move"
 msgstr "Tmavé musia vynechať, ťahajú svetlé"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:520
+#: ../src/iagno.vala:449
 msgid "Light wins!"
 msgstr "Svetlé vyhrali!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:525
+#: ../src/iagno.vala:454
 msgid "Dark wins!"
 msgstr "Tmavé vyhrali!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:530
+#: ../src/iagno.vala:459
 msgid "The game is draw."
 msgstr "Hra skončila remízou."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:546
+#: ../src/iagno.vala:475
 msgid "You can’t move there!"
 msgstr "Sem nemôžete ťahať!"
+
+#~ msgid "Start a game"
+#~ msgstr "Začne hru"
 
 #~ msgid "_Preferences"
 #~ msgstr "Na_stavenia"
