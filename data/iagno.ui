@@ -52,7 +52,7 @@
                 <property name="visible">True</property>
                 <property name="use-underline">True</property>
                 <property name="label" translatable="yes">_Start Game</property>
-                <property name="tooltip-text" translatable="yes">Start a new game as configured</property>
+                <!-- <property name="tooltip-text" translatable="yes">Start a new game as configured</property> TODO -->
                 <property name="action-name">win.start-game</property>
                 <property name="width-request">222</property>
                 <property name="height-request">60</property>
