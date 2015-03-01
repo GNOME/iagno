@@ -3,6 +3,7 @@ SUBDIRS = \
 	themes
 
 dist_noinst_DATA = \
+	iagno-screens.ui \
 	iagno-themes.ui \
 	iagno-menus.ui \
 	iagno.ui \

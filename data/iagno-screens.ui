@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <object class="GtkBox" id="new-game-screen">
+    <property name="orientation">vertical</property>
+    <property name="visible">True</property>
+    <property name="homogeneous">True</property>
+    <property name="valign">fill</property>
+    <property name="spacing">18</property>
+    <property name="margin-bottom">25</property><!-- TODO better -->
+    <property name="height-request">263</property>
+    <property name="width-request">400</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="halign">start</property>
+            <property name="label" translatable="yes">Players</property>
+            <style>
+              <class name="bold-label"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <property name="spacing">12</property>
+            <child>
+              <object class="GtkRadioButton" id="one">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <property name="label" translatable="yes">_One</property>
+                <property name="action-name">app.num-players</property>
+                <property name="action-target">1</property>
+                <property name="draw-indicator">False</property>
+                <style>
+                  <class name="button"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <property name="label" translatable="yes">_Two</property>
+                <property name="action-name">app.num-players</property>
+                <property name="action-target">2</property>
+                <property name="group">one</property>
+                <property name="draw-indicator">False</property>
+                <style>
+                  <class name="button"/>
+                </style>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="halign">start</property>
+            <property name="label" translatable="yes">Difficulty</property>
+            <style>
+              <class name="bold-label"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="difficulty-box">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <property name="spacing">12</property>
+            <child>
+              <object class="GtkRadioButton" id="easy">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <property name="label" translatable="yes">_Easy</property>
+                <property name="action-name">app.computer-level</property>
+                <property name="action-target">1</property>
+                <property name="draw-indicator">False</property>
+                <style>
+                  <class name="button"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <property name="label" translatable="yes">_Medium</property>
+                <property name="action-name">app.computer-level</property>
+                <property name="action-target">2</property>
+                <property name="group">easy</property>
+                <property name="draw-indicator">False</property>
+                <style>
+                  <class name="button"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <property name="label" translatable="yes">_Hard</property>
+                <property name="action-name">app.computer-level</property>
+                <property name="action-target">3</property>
+                <property name="group">easy</property>
+                <property name="draw-indicator">False</property>
+                <style>
+                  <class name="button"/>
+                </style>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="halign">start</property>
+            <property name="label" translatable="yes">Color</property>
+            <style>
+              <class name="bold-label"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="color-box">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <property name="spacing">12</property>
+            <child>
+              <object class="GtkRadioButton" id="play_dark">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <property name="label" translatable="yes">_Dark</property>
+                <property name="action-name">app.color</property>
+                <property name="action-target">'dark'</property>
+                <property name="draw-indicator">False</property>
+                <style>
+                  <class name="button"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkRadioButton">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <property name="label" translatable="yes">_Light</property>
+                <property name="action-name">app.color</property>
+                <property name="action-target">'light'</property>
+                <property name="group">play_dark</property>
+                <property name="draw-indicator">False</property>
+                <style>
+                  <class name="button"/>
+                </style>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkGrid" id="scoregrid">
+    <property name="name">scoreboard</property>
+    <property name="visible">True</property>
+    <property name="halign">center</property>
+    <property name="column-spacing">12</property>
+    <property name="row-spacing">0</property>
+    <property name="column-homogeneous">True</property>
+    <property name="row-homogeneous">True</property>
+    <property name="margin-end">12</property>
+    <child>
+      <object class="GtkDrawingArea" id="scoredrawing">
+        <property name="visible">True</property>
+      </object>
+      <packing>
+        <property name="left-attach">0</property>
+        <property name="top-attach">0</property>
+        <property name="width">2</property><!-- yeah, this sounds stupid, but... -->
+        <property name="height">2</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkLabel" id="dark-score-label">
+        <property name="visible">True</property>
+        <property name="label">00</property>
+        <style>
+          <class name="bold-label"/>
+        </style>
+      </object>
+      <packing>
+        <property name="left-attach">2</property>
+        <property name="top-attach">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkLabel" id="light-score-label">
+        <property name="visible">True</property>
+        <property name="label">00</property>
+        <style>
+          <class name="bold-label"/>
+        </style>
+      </object>
+      <packing>
+        <property name="left-attach">2</property>
+        <property name="top-attach">1</property>
+      </packing>
+    </child>
+  </object>
+</interface>

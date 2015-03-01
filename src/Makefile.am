@@ -8,6 +8,7 @@ iagno_SOURCES = \
 	computer-player.vala \
 	game.vala \
 	game-view.vala \
+	game-window.vala \
 	iagno.vala \
 	player.vala \
 	themes-dialog.vala \
@@ -42,7 +43,7 @@ test_iagno_SOURCES = \
 
 test_iagno_VALAFLAGS = \
 	--pkg gio-2.0 \
-	--target-glib 2.40
+	--target-glib $(GLIB_REQUIRED)
 
 test_iagno_CFLAGS = $(IAGNO_CFLAGS)
 
@@ -51,8 +52,8 @@ test_iagno_LDADD = $(IAGNO_LIBS)
 check-local: $(check_PROGRAMS)
 	$(GTESTER) --keep-going --verbose $(check_PROGRAMS)
 
-iagno-resources.c: $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies iagno.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source iagno.gresource.xml
+iagno-resources.c: iagno.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies iagno.gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \

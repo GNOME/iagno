@@ -4,6 +4,7 @@
 data/iagno.appdata.xml.in
 data/iagno.desktop.in
 [type: gettext/glade]data/iagno-menus.ui
+[type: gettext/glade]data/iagno-screens.ui
 [type: gettext/glade]data/iagno-themes.ui
 [type: gettext/glade]data/iagno.ui
 [type: gettext/ini]data/themes/adwaita.theme.in
@@ -14,6 +15,7 @@ data/org.gnome.iagno.gschema.xml
 src/computer-player.vala
 src/game.vala
 src/game-view.vala
+src/game-window.vala
 src/iagno.vala
 src/player.vala
 src/themes-dialog.vala

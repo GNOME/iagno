@@ -18,20 +18,18 @@
  * along with Iagno. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Gtk;
+
 public class Iagno : Gtk.Application
 {
     /* Application settings */
-    private Settings settings;
-    private bool is_tiled;
-    private bool is_maximized;
-    private int window_width;
-    private int window_height;
+    private GLib.Settings settings;
     private static bool fast_mode;
     private static bool alternative_start;
     private static int computer_level = 0;
     private static int size = 8;
-    private static bool begin_with_new_game_screen = false;
-    private static string color;
+    private static bool start_now = false;  // could be replaced one day with (two_players != null)
+    private static string color;            // TODO Player
     private static bool? sound = null;
     private static bool? two_players = null;
 
@@ -41,18 +39,11 @@ public class Iagno : Gtk.Application
     private static const double SLOW_MOVE_DELAY = 2.0;
 
     /* Widgets */
-    private Gtk.Window window;
-    private Gtk.HeaderBar headerbar;
+    private GameWindow window;
     private GameView view;
-    private Gtk.Label dark_score_label;
-    private Gtk.Label light_score_label;
-    private Gtk.Stack main_stack;
+    private Label dark_score_label;
+    private Label light_score_label;
     private ThemesDialog themes_dialog;
-
-    private Gtk.Button back_button;
-    private Gtk.Button undo_button;
-
-    private SimpleAction back_action;
 
     /* Computer player (if there is one) */
     private ComputerPlayer? computer = null;
@@ -80,12 +71,6 @@ public class Iagno : Gtk.Application
 
     private const GLib.ActionEntry app_actions[] =
     {
-        {"new-game", new_game_cb},
-        {"start-game", start_game_cb},
-
-        {"undo-move", undo_move_cb},
-        {"back", back_cb},
-
         {"theme", theme_cb},
         {"help", help_cb},
         {"about", about_cb},
@@ -100,8 +85,7 @@ public class Iagno : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (_("Iagno"));
-
-        Gtk.Window.set_default_icon_name ("iagno");
+        Window.set_default_icon_name ("iagno");
 
         return new Iagno ().run (args);
     }
@@ -129,10 +113,10 @@ public class Iagno : Gtk.Application
             return Posix.EXIT_FAILURE;
         }
 
-        if (options.contains ("unmute"))
-            sound = true;
         if (options.contains ("mute"))
             sound = false;
+        else if (options.contains ("unmute"))
+            sound = true;
 
         /* TODO message should be displayed if "--level 0" */
         if (computer_level < 0 || computer_level > 3)
@@ -140,14 +124,15 @@ public class Iagno : Gtk.Application
 
         if (options.contains ("two-players")) {
             two_players = true;
+            start_now = true;
         } else if (options.contains ("first")) {
             color = "dark";
             two_players = false;
+            start_now = true;
         } else if (options.contains ("second")) {
             color = "light";
             two_players = false;
-        } else {
-            begin_with_new_game_screen = true;
+            start_now = true;
         }
 
         /* Activate */
@@ -158,14 +143,12 @@ public class Iagno : Gtk.Application
     {
         base.startup ();
 
-        var css_provider = new Gtk.CssProvider ();
+        CssProvider css_provider = new CssProvider ();
         css_provider.load_from_resource ("/org/gnome/iagno/ui/iagno.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/iagno/ui/iagno.ui");
+        StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         /* Settings */
-        settings = new Settings ("org.gnome.iagno");
+        settings = new GLib.Settings ("org.gnome.iagno");
 
         if (sound != null)
             settings.set_boolean ("sound", sound);
@@ -185,10 +168,41 @@ public class Iagno : Gtk.Application
         else /* hack, part 3 of 4 */
             computer_level = settings.get_int ("computer-level");
 
+        /* UI parts */
+        Builder builder = new Builder.from_resource ("/org/gnome/iagno/ui/iagno-screens.ui");
+
+        view = new GameView ();
+        view.move.connect (player_move_cb);
+
+        DrawingArea scoredrawing = (DrawingArea) builder.get_object ("scoredrawing");
+        view.scoreboard = scoredrawing;
+        view.theme = settings.get_string ("theme");
+
+        /* Window */
+        window = new GameWindow (_("Iagno"),
+                                 settings.get_int ("window-width"),
+                                 settings.get_int ("window-height"),
+                                 settings.get_boolean ("window-is-maximized"),
+                                 start_now,
+                                 GameWindowFlags.SHOW_UNDO,
+                                 (Box) builder.get_object ("new-game-screen"),
+                                 view);
+
+        Widget scoregrid = (Widget) builder.get_object ("scoregrid");
+        window.add_to_sidebox (scoregrid);
+
+        window.play.connect (start_game);
+        window.wait.connect (wait_cb);
+        window.back.connect (back_cb);
+        window.undo.connect (undo_cb);
+
         /* Actions and preferences */
         add_action_entries (app_actions, this);
-        set_accels_for_action ("app.new-game", {"<Primary>n"});
-        set_accels_for_action ("app.undo-move", {"<Primary>z"});
+        set_accels_for_action ("win.new-game", {"<Primary>n"});
+        set_accels_for_action ("win.start-game", {"<Primary><Shift>n"});
+        set_accels_for_action ("win.undo", {"<Primary>z"});
+        set_accels_for_action ("win.redo", {"<Primary><Shift>z"});
+        set_accels_for_action ("win.back", {"Escape"});
         add_action (settings.create_action ("sound"));
         /* TODO bugs when changing manually the gsettings key (not for sound);
          * solving this bug may remove the need of the hack in three parts */
@@ -196,62 +210,34 @@ public class Iagno : Gtk.Application
         add_action (settings.create_action ("num-players"));
         add_action (settings.create_action ("computer-level"));
 
-        var level_box = builder.get_object ("difficulty-box") as Gtk.Box;
+        var level_box = (Box) builder.get_object ("difficulty-box");
         settings.changed["num-players"].connect (() => {
             level_box.sensitive = settings.get_int ("num-players") == 1;
         });
         level_box.sensitive = settings.get_int ("num-players") == 1;
 
-        var color_box = builder.get_object ("color-box") as Gtk.Box;
+        var color_box = (Box) builder.get_object ("color-box");
         settings.changed["num-players"].connect (() => {
             color_box.sensitive = settings.get_int ("num-players") == 1;
         });
         color_box.sensitive = settings.get_int ("num-players") == 1;
 
-        /* Window construction */
-        window = builder.get_object ("window") as Gtk.ApplicationWindow;
-        window.size_allocate.connect (size_allocate_cb);
-        window.window_state_event.connect (window_state_event_cb);
-        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
-        if (settings.get_boolean ("window-is-maximized"))
-            window.maximize ();
-        add_window (window);
-
         /* Hack for restoring radiobuttons settings, part 4 of 4.
          * When you add_window(), settings are initialized with the value
          * of the first radiobutton of the group found in the UI file. */
-        Settings.sync ();
+        GLib.Settings.sync ();
         settings.set_string ("color", color);
         settings.set_int ("computer-level", computer_level);
         settings.set_int ("num-players", two_players ? 2 : 1);
 
-        /* View construction */
-        view = new GameView ();
-        view.scoreboard = builder.get_object ("scoreboard") as Gtk.DrawingArea;
-        view.move.connect (player_move_cb);
-        view.theme = settings.get_string ("theme");
-        view.halign = Gtk.Align.FILL;
-        view.show ();
-
-        var game_box = builder.get_object ("game-box") as Gtk.Box;
-        game_box.pack_start (view);
-
         /* Information widgets */
-        headerbar = builder.get_object ("headerbar") as Gtk.HeaderBar;
-        light_score_label = builder.get_object ("light-score-label") as Gtk.Label;
-        dark_score_label = builder.get_object ("dark-score-label") as Gtk.Label;
+        light_score_label = (Label) builder.get_object ("light-score-label");
+        dark_score_label = (Label) builder.get_object ("dark-score-label");
 
-        /* Changing screen */
-        main_stack = builder.get_object ("main_stack") as Gtk.Stack;
-        back_button = builder.get_object ("back_button") as Gtk.Button;
-        undo_button = builder.get_object ("undo_button") as Gtk.Button;
-
-        back_action = (SimpleAction) lookup_action ("back");
-
-        if (begin_with_new_game_screen)
-            show_new_game_screen ();
-        else
+        if (start_now)
             start_game ();
+
+        add_window (window);
     }
 
     protected override void activate ()
@@ -262,33 +248,7 @@ public class Iagno : Gtk.Application
     protected override void shutdown ()
     {
         base.shutdown ();
-
-        /* Save window state */
-        settings.set_int ("window-width", window_width);
-        settings.set_int ("window-height", window_height);
-        settings.set_boolean ("window-is-maximized", is_maximized);
-    }
-
-    /*\
-    * * Window events
-    \*/
-
-    private void size_allocate_cb (Gtk.Allocation allocation)
-    {
-        if (is_maximized || is_tiled)
-            return;
-        window_width = allocation.width;
-        window_height = allocation.height;
-    }
-
-    private bool window_state_event_cb (Gdk.EventWindowState event)
-    {
-        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
-        /* We don’t save this state, but track it for saving size allocation */
-        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
-            is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
-        return false;
+        window.save_state (settings);
     }
 
     /*\
@@ -310,7 +270,7 @@ public class Iagno : Gtk.Application
     {
         try
         {
-            Gtk.show_uri (window.get_screen (), "help:iagno", Gtk.get_current_event_time ());
+            show_uri (window.get_screen (), "help:iagno", get_current_event_time ());
         }
         catch (Error e)
         {
@@ -323,70 +283,40 @@ public class Iagno : Gtk.Application
         string[] authors = { "Ian Peters", "Robert Ancell", null };
         string[] documenters = { "Tiffany Antopolski", null };
 
-        Gtk.show_about_dialog (window,
-                               "name", _("Iagno"),
-                               "version", VERSION,
-                               "copyright",
-                                 "Copyright © 1998–2008 Ian Peters\n"+
-                                 "Copyright © 2013–2015 Michael Catanzaro\n"+
-                                 "Copyright © 2014–2015 Arnaud Bonatti",
-                               "license-type", Gtk.License.GPL_3_0,
-                               "comments",
-                                 _("A disk flipping game derived from Reversi"),
-                               "authors", authors,
-                               "documenters", documenters,
-                               "translator-credits", _("translator-credits"),
-                               "logo-icon-name", "iagno",
-                               "website", "https://wiki.gnome.org/Apps/Iagno",
-                               null);
+        show_about_dialog (window,
+                           "name", _("Iagno"),
+                           "version", VERSION,
+                           "copyright",
+                             "Copyright © 1998–2008 Ian Peters\n"+
+                             "Copyright © 2013–2015 Michael Catanzaro\n"+
+                             "Copyright © 2014–2015 Arnaud Bonatti",
+                           "license-type", License.GPL_3_0,
+                           "comments",
+                             _("A disk flipping game derived from Reversi"),
+                           "authors", authors,
+                           "documenters", documenters,
+                           "translator-credits", _("translator-credits"),
+                           "logo-icon-name", "iagno",
+                           "website", "https://wiki.gnome.org/Apps/Iagno",
+                           null);
     }
 
     /*\
     * * Internal calls
     \*/
 
-    private void start_game_cb ()
-    {
-        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_DOWN);
-        back_button.visible = false;
-        start_game ();
-    }
-
     private void back_cb ()
     {
-        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_RIGHT);
-        show_game_board ();
-        back_action.set_enabled (false);
-
         if (game.current_color != player_one && computer != null && !game.is_complete)
             computer.move_async.begin (SLOW_MOVE_DELAY);
         else if (game.is_complete)
             game_complete (false);
     }
 
-    private void show_game_board ()
-    {
-        main_stack.set_visible_child_name ("frame");
-        back_button.visible = false;
-        undo_button.visible = true;
-    }
-
-    private void show_new_game_screen ()
+    private void wait_cb ()
     {
         if (computer != null)
             computer.cancel_move ();
-
-        main_stack.set_visible_child_name ("start-box");
-        undo_button.visible = false;
-    }
-
-    private void new_game_cb ()
-    {
-        main_stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT);
-        show_new_game_screen ();
-        headerbar.set_subtitle (null);
-        back_button.visible = true;
-        back_action.set_enabled (true);
     }
 
     private void start_game ()
@@ -396,8 +326,6 @@ public class Iagno : Gtk.Application
 
         if (computer != null)
             computer.cancel_move ();
-
-        show_game_board ();
 
         game = new Game (alternative_start, size);
         game.turn_ended.connect (turn_ended_cb);
@@ -421,20 +349,19 @@ public class Iagno : Gtk.Application
 
     private void update_ui ()
     {
-        headerbar.set_subtitle (null);
+        window.set_subtitle (null);
 
-        var undo_action = (SimpleAction) lookup_action ("undo-move");
         if (player_one == Player.DARK || computer == null)
-            undo_action.set_enabled (game.number_of_moves >= 1);
+            window.undo_action.set_enabled (game.number_of_moves >= 1);
         else
-            undo_action.set_enabled (game.number_of_moves >= 2);
+            window.undo_action.set_enabled (game.number_of_moves >= 2);
 
         /* Translators: this is a 2 digit representation of the current score. */
         dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
         light_score_label.set_text (_("%.2d").printf (game.n_light_tiles));
     }
 
-    private void undo_move_cb ()
+    private void undo_cb ()
     {
         if (computer == null)
         {
@@ -503,31 +430,33 @@ public class Iagno : Gtk.Application
         if (game.current_color == Player.DARK)
         {
             /* Message to display when Light has no possible moves */
-            headerbar.set_subtitle (_("Light must pass, Dark’s move"));
+            window.set_subtitle (_("Light must pass, Dark’s move"));
         }
         else
         {
             /* Message to display when Dark has no possible moves */
-            headerbar.set_subtitle (_("Dark must pass, Light’s move"));
+            window.set_subtitle (_("Dark must pass, Light’s move"));
         }
     }
 
     private void game_complete (bool play_gameover_sound = true)
     {
+        window.finish_game ();
+
         if (game.n_light_tiles > game.n_dark_tiles)
         {
             /* Message to display when Light has won the game */
-            headerbar.set_subtitle (_("Light wins!"));
+            window.set_subtitle (_("Light wins!"));
         }
         else if (game.n_dark_tiles > game.n_light_tiles)
         {
             /* Message to display when Dark has won the game */
-            headerbar.set_subtitle (_("Dark wins!"));
+            window.set_subtitle (_("Dark wins!"));
         }
         else
         {
             /* Message to display when the game is a draw */
-            headerbar.set_subtitle (_("The game is draw."));
+            window.set_subtitle (_("The game is draw."));
         }
 
         if (play_gameover_sound)
@@ -543,7 +472,7 @@ public class Iagno : Gtk.Application
         if (game.place_tile (x, y) == 0)
         {
             /* Message to display when the player tries to make an illegal move */
-            headerbar.set_subtitle (_("You can’t move there!"));
+            window.set_subtitle (_("You can’t move there!"));
         }
     }
 
@@ -579,6 +508,6 @@ public class Iagno : Gtk.Application
                                              Canberra.PROP_MEDIA_NAME, name,
                                              Canberra.PROP_MEDIA_FILENAME, path);
         if (r != 0)
-            warning ("Error playing file: %s\nfilepath should be:%s", name, path);
+            warning ("Error playing file: %s\nfilepath should be:%s\n", name, path);
     }
 }
