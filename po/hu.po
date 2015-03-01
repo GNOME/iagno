@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-01-30 10:28+0000\n"
-"PO-Revision-Date: 2015-01-30 22:14+0100\n"
+"POT-Creation-Date: 2015-03-01 10:45+0000\n"
+"PO-Revision-Date: 2015-03-01 16:29+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -28,8 +28,9 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.2\n"
 
+#. Window
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../data/iagno.ui.h:1 ../src/iagno.vala:92 ../src/iagno.vala:493
+#: ../src/iagno.vala:87 ../src/iagno.vala:182 ../src/iagno.vala:287
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -75,76 +76,122 @@ msgid "Two players game"
 msgstr "Kétszemélyes játék"
 
 #: ../data/iagno-menus.ui.h:1
+#| msgid "Appearance"
+msgid "A_ppearance"
+msgstr "_Megjelenés"
+
+#: ../data/iagno-menus.ui.h:2
 msgid "_Sound"
 msgstr "_Hang"
 
-#: ../data/iagno-menus.ui.h:2
+#: ../data/iagno-menus.ui.h:3
 msgid "_Help"
 msgstr "_Súgó"
 
-#: ../data/iagno-menus.ui.h:3
+#: ../data/iagno-menus.ui.h:4
 msgid "_About"
 msgstr "_Névjegy"
 
-#: ../data/iagno-menus.ui.h:4
+#: ../data/iagno-menus.ui.h:5
 msgid "_Quit"
 msgstr "_Kilépés"
 
-#: ../data/iagno.ui.h:2
-msgid "Undo your most recent move"
-msgstr "A legutóbbi lépés visszavonása"
+#: ../data/iagno-screens.ui.h:1
+#| msgid "_Two Players"
+msgid "Players"
+msgstr "Játékosok"
 
-#: ../data/iagno.ui.h:3
-msgid "Go back to the current game"
-msgstr "Vissza a jelenlegi játékhoz"
+#: ../data/iagno-screens.ui.h:2
+msgid "_One"
+msgstr "_Egy"
 
-#: ../data/iagno.ui.h:4
-msgid "Game Mode"
-msgstr "Játékmód"
+#: ../data/iagno-screens.ui.h:3
+msgid "_Two"
+msgstr "_Kettő"
 
-#: ../data/iagno.ui.h:5
-msgid "Play _Dark"
-msgstr "_Sötét"
+#: ../data/iagno-screens.ui.h:4
+#| msgid "Difficulty:"
+msgid "Difficulty"
+msgstr "Nehézség"
 
-#: ../data/iagno.ui.h:6
-msgid "Play _Light"
-msgstr "_Világos"
-
-#: ../data/iagno.ui.h:7
-msgid "_Two Players"
-msgstr "_Kétszemélyes"
-
-#: ../data/iagno.ui.h:8
-msgid "Computer Player"
-msgstr "Számítógépes játékos"
-
-#: ../data/iagno.ui.h:9
+#: ../data/iagno-screens.ui.h:5
 msgid "_Easy"
 msgstr "Kö_nnyű"
 
-#: ../data/iagno.ui.h:10
+#: ../data/iagno-screens.ui.h:6
 msgid "_Medium"
 msgstr "Kö_zepes"
 
-#: ../data/iagno.ui.h:11
+#: ../data/iagno-screens.ui.h:7
 msgid "_Hard"
 msgstr "Ne_héz"
 
-#: ../data/iagno.ui.h:12
+#: ../data/iagno-screens.ui.h:8
+#| msgid "Colors"
+msgid "Color"
+msgstr "Szín"
+
+#: ../data/iagno-screens.ui.h:9
+#| msgid "Dark:"
+msgid "_Dark"
+msgstr "_Sötét"
+
+#: ../data/iagno-screens.ui.h:10
+#| msgid "Light:"
+msgid "_Light"
+msgstr "_Világos"
+
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "Téma kiválasztása"
+
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: ../data/iagno.ui.h:1
+msgid "Go back to the current game"
+msgstr "Vissza a jelenlegi játékhoz"
+
+#: ../data/iagno.ui.h:2
 msgid "_Start Game"
 msgstr "Játék _indítása"
 
-#: ../data/iagno.ui.h:13
-msgid "Start a game"
-msgstr "Játék indítása"
+#: ../data/iagno.ui.h:3
+#| msgid "Start a new game"
+msgid "Start a new game as configured"
+msgstr "Új játék indítása a beállítás szerint"
 
-#: ../data/iagno.ui.h:14
+#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "Ú_j játék"
 
-#: ../data/iagno.ui.h:15
+#: ../data/iagno.ui.h:5
+#| msgid "Configure the game"
+msgid "Configure a new game"
+msgstr "Új játék beállítása"
+
+#: ../data/iagno.ui.h:6
 msgid "Start a new game"
 msgstr "Új játék indítása"
+
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "Klasszikus"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+#| msgctxt "chess-side"
+#| msgid "Black Side"
+msgid "Black and White"
+msgstr "Fekete-fehér"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "Nap és csillag"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -155,32 +202,53 @@ msgid "From 1, the easiest, to 3, the hardest."
 msgstr "A legkönnyebb 1-től a legnehezebb 3-ig."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
-msgid "Type of game"
-msgstr "A játék típusa"
+msgid "Whether to play against the computer or another human."
+msgstr "A számítógép vagy egy másik ember ellen játsszon-e."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-msgid "Choose the type of the next game."
-msgstr "Válassza ki a következő játék típusát."
+msgid "Color to play as"
+msgstr "A szín, amellyel játszik"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr ""
+"Sötétként vagy világosként játszik-e. Kétszemélyes játékoknál mellőzve van."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Téma"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+"A használandó téma fájlneve vagy „default”. A következő témák érhetők el: "
+"„adwaita.theme”, „high_contrast.theme” és „sun_and_star.theme”."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
 msgstr "Hang"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "Whether or not to play event sounds."
 msgstr "Legyen-e az eseményeknek hangjuk."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: ../data/org.gnome.iagno.gschema.xml.h:10
 msgid "Width of the window in pixels"
 msgstr "Az ablak szélessége képpontokban"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: ../data/org.gnome.iagno.gschema.xml.h:11
 msgid "Height of the window in pixels"
 msgstr "Az ablak magassága képpontokban"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
 msgstr "Az ablak teljes méretű-e"
+
+#: ../src/game-window.vala:134
+msgid "Undo your most recent move"
+msgstr "A legutóbbi lépés visszavonása"
 
 #: ../src/iagno.vala:59
 msgid "Start with an alternative position"
@@ -223,61 +291,21 @@ msgid "Print release version and exit"
 msgstr "Kiadási verzió kiírása és kilépés"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:118
+#: ../src/iagno.vala:112
 msgid "Size must be at least 4."
 msgstr "A méretnek legalább 4-nek kell lennie."
 
-#: ../src/iagno.vala:129
+#: ../src/iagno.vala:123
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "A szintnek 1 (könnyű) és 3 (nehéz) között kell lennie. A beállítások nem "
 "változtak."
 
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:340 ../src/iagno.vala:341
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
-
-#. Message to display when Light has no possible moves
-#: ../src/iagno.vala:421
-msgid "Light must pass, Dark’s move"
-msgstr "A világos nem tud lépni, a sötét jön"
-
-#. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:426
-msgid "Dark must pass, Light’s move"
-msgstr "A sötét nem tud lépni, a világos jön"
-
-#. Message to display when Light has won the game
-#: ../src/iagno.vala:435
-msgid "Light wins!"
-msgstr "A világos nyert!"
-
-#. Message to display when Dark has won the game
-#: ../src/iagno.vala:440
-msgid "Dark wins!"
-msgstr "A sötét nyert!"
-
-#. Message to display when the game is a draw
-#: ../src/iagno.vala:445
-msgid "The game is draw."
-msgstr "Az eredmény döntetlen."
-
-#. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:471
-msgid "You can’t move there!"
-msgstr "Nem léphet oda!"
-
-#: ../src/iagno.vala:498
-#| msgid ""
-#| "A disk flipping game derived from Reversi\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
+#: ../src/iagno.vala:295
 msgid "A disk flipping game derived from Reversi"
 msgstr "A Reversiből származtatott korongfordítgatós játék"
 
-#: ../src/iagno.vala:501
+#: ../src/iagno.vala:298
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -287,6 +315,63 @@ msgstr ""
 "Nagy Gergely <greg at gnome dot hu>\n"
 "Tímár András <timar at gnome dot hu>\n"
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:360 ../src/iagno.vala:361
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#. Message to display when Light has no possible moves
+#: ../src/iagno.vala:433
+msgid "Light must pass, Dark’s move"
+msgstr "A világos nem tud lépni, a sötét jön"
+
+#. Message to display when Dark has no possible moves
+#: ../src/iagno.vala:438
+msgid "Dark must pass, Light’s move"
+msgstr "A sötét nem tud lépni, a világos jön"
+
+#. Message to display when Light has won the game
+#: ../src/iagno.vala:449
+msgid "Light wins!"
+msgstr "A világos nyert!"
+
+#. Message to display when Dark has won the game
+#: ../src/iagno.vala:454
+msgid "Dark wins!"
+msgstr "A sötét nyert!"
+
+#. Message to display when the game is a draw
+#: ../src/iagno.vala:459
+msgid "The game is draw."
+msgstr "Az eredmény döntetlen."
+
+#. Message to display when the player tries to make an illegal move
+#: ../src/iagno.vala:475
+msgid "You can’t move there!"
+msgstr "Nem léphet oda!"
+
+#~ msgid "Game Mode"
+#~ msgstr "Játékmód"
+
+#~ msgid "Play _Dark"
+#~ msgstr "_Sötét"
+
+#~ msgid "Play _Light"
+#~ msgstr "_Világos"
+
+#~ msgid "Computer Player"
+#~ msgstr "Számítógépes játékos"
+
+#~ msgid "Start a game"
+#~ msgstr "Játék indítása"
+
+#~ msgid "Type of game"
+#~ msgstr "A játék típusa"
+
+#~ msgid "Choose the type of the next game."
+#~ msgstr "Válassza ki a következő játék típusát."
 
 #~ msgid "_Preferences"
 #~ msgstr "_Beállítások"
@@ -314,12 +399,6 @@ msgstr ""
 
 #~ msgid "_Start Over"
 #~ msgstr "Újra_kezdés"
-
-#~ msgid "Dark:"
-#~ msgstr "Sötét:"
-
-#~ msgid "Light:"
-#~ msgstr "Világos:"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "Az ablak teljes képernyős-e"
@@ -470,9 +549,6 @@ msgstr ""
 #~ msgid "Opposing Player:"
 #~ msgstr "Ellenfél:"
 
-#~ msgid "Difficulty:"
-#~ msgstr "Nehézség:"
-
 #~ msgid "Game Duration:"
 #~ msgstr "A játék hossza:"
 
@@ -563,10 +639,6 @@ msgstr ""
 #~ msgctxt "chess-side"
 #~ msgid "White Side"
 #~ msgstr "Világos oldal"
-
-#~ msgctxt "chess-side"
-#~ msgid "Black Side"
-#~ msgstr "Sötét oldal"
 
 #~ msgctxt "chess-side"
 #~ msgid "Human Side"
@@ -941,9 +1013,6 @@ msgstr ""
 #~ msgid "Five or More Preferences"
 #~ msgstr "Öt vagy több beállításai"
 
-#~ msgid "Appearance"
-#~ msgstr "Megjelenés"
-
 #~ msgid "_Image:"
 #~ msgstr "Ké_p:"
 
@@ -1070,9 +1139,6 @@ msgstr ""
 
 #~ msgid "Close this window"
 #~ msgstr "A jelenlegi ablak bezárása"
-
-#~ msgid "Configure the game"
-#~ msgstr "A játék beállítása"
 
 #~ msgid "Quit this game"
 #~ msgstr "Kilépés a játékból"
@@ -1342,9 +1408,6 @@ msgstr ""
 
 #~ msgid "Keyboard Controls"
 #~ msgstr "Billentyűzetes vezérlés"
-
-#~ msgid "Classic"
-#~ msgstr "Klasszikus"
 
 #~ msgid "Red"
 #~ msgstr "Vörös"
@@ -3139,9 +3202,6 @@ msgstr ""
 #~ msgid "Controls"
 #~ msgstr "Vezérlés"
 
-#~ msgid "Theme"
-#~ msgstr "Téma"
-
 #~ msgid "Plain"
 #~ msgstr "Egyszerű"
 
@@ -3223,9 +3283,6 @@ msgstr ""
 
 #~ msgid "Score: %4u "
 #~ msgstr "Pontszám: %4u"
-
-#~ msgid "Colors"
-#~ msgstr "Színek"
 
 #~ msgid "Shapes and Colors"
 #~ msgstr "Alakzatok és színek"
