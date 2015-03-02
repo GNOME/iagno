@@ -1,3 +1,10 @@
+3.15.91 - March 2, 2015
+=============================
+
+* Big code reorganisation, correcting some weird bugs, including a crasher
+* Many translation updates (spanish, russian, turkish, chinese (Taiwan), greek,
+  slovak, french, lithuanian, galician, hungarian, hebrew; thanks everyone!)
+
 3.15.90.2 - February 16, 2015
 =============================
 
