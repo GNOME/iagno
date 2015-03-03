@@ -41,7 +41,7 @@ dnl ###########################################################################
 dnl GResources
 dnl ###########################################################################
 
-AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
+AC_PATH_PROG([GLIB_COMPILE_RESOURCES],[glib-compile-resources])
 
 dnl ###########################################################################
 dnl Internationalization

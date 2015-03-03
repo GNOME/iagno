@@ -90,7 +90,7 @@ public class Iagno : Gtk.Application
         return new Iagno ().run (args);
     }
 
-    public Iagno ()
+    private Iagno ()
     {
         Object (application_id: "org.gnome.iagno", flags: ApplicationFlags.FLAGS_NONE);
 
@@ -247,8 +247,8 @@ public class Iagno : Gtk.Application
 
     protected override void shutdown ()
     {
+        window.shutdown (settings);
         base.shutdown ();
-        window.save_state (settings);
     }
 
     /*\
