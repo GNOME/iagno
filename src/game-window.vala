@@ -88,8 +88,15 @@ public class GameWindow : ApplicationWindow
     public SimpleAction undo_action;
     public SimpleAction redo_action;
 
-    public GameWindow (string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view)
+    public GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view)
     {
+        if (css_resource != null)
+        {
+            CssProvider css_provider = new CssProvider ();
+            css_provider.load_from_resource (css_resource);
+            StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
+        }
+
         view = _view;
 
         /* window actions */

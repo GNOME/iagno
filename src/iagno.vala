@@ -143,10 +143,6 @@ public class Iagno : Gtk.Application
     {
         base.startup ();
 
-        CssProvider css_provider = new CssProvider ();
-        css_provider.load_from_resource ("/org/gnome/iagno/ui/iagno.css");
-        StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
-
         /* Settings */
         settings = new GLib.Settings ("org.gnome.iagno");
 
@@ -179,7 +175,8 @@ public class Iagno : Gtk.Application
         view.theme = settings.get_string ("theme");
 
         /* Window */
-        window = new GameWindow (_("Iagno"),
+        window = new GameWindow ("/org/gnome/iagno/ui/iagno.css",
+                                 _("Iagno"),
                                  settings.get_int ("window-width"),
                                  settings.get_int ("window-height"),
                                  settings.get_boolean ("window-is-maximized"),
