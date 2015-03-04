@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-02 22:27+0000\n"
-"PO-Revision-Date: 2015-02-03 10:26+0100\n"
+"POT-Creation-Date: 2015-03-04 10:37+0000\n"
+"PO-Revision-Date: 2015-03-04 18:10+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -36,7 +36,7 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../data/iagno.ui.h:1 ../src/iagno.vala:92 ../src/iagno.vala:491
+#: ../src/iagno.vala:87 ../src/iagno.vala:179 ../src/iagno.vala:284
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -82,76 +82,117 @@ msgid "Two players game"
 msgstr "Hra pro dva hráče"
 
 #: ../data/iagno-menus.ui.h:1
+msgid "A_ppearance"
+msgstr "Vzhl_ed"
+
+#: ../data/iagno-menus.ui.h:2
 msgid "_Sound"
 msgstr "Zv_uk"
 
-#: ../data/iagno-menus.ui.h:2
+#: ../data/iagno-menus.ui.h:3
 msgid "_Help"
 msgstr "_Nápověda"
 
-#: ../data/iagno-menus.ui.h:3
+#: ../data/iagno-menus.ui.h:4
 msgid "_About"
 msgstr "O _aplikaci"
 
-#: ../data/iagno-menus.ui.h:4
+#: ../data/iagno-menus.ui.h:5
 msgid "_Quit"
 msgstr "U_končit"
 
-#: ../data/iagno.ui.h:2
-msgid "Undo your most recent move"
-msgstr "Vrátit zpět váš poslední tah"
+#: ../data/iagno-screens.ui.h:1
+#| msgid "_Two Players"
+msgid "Players"
+msgstr "Hráči"
 
-#: ../data/iagno.ui.h:3
-msgid "Go back to the current game"
-msgstr "Vrátit se do současné hry"
+#: ../data/iagno-screens.ui.h:2
+msgid "_One"
+msgstr "P_rvní"
 
-#: ../data/iagno.ui.h:4
-msgid "Game Mode"
-msgstr "Režim hry"
+#: ../data/iagno-screens.ui.h:3
+msgid "_Two"
+msgstr "_Druhý"
 
-#: ../data/iagno.ui.h:5
-msgid "Play _Dark"
-msgstr "Hrát jako če_rný"
+#: ../data/iagno-screens.ui.h:4
+msgid "Difficulty"
+msgstr "Obtížnost"
 
-#: ../data/iagno.ui.h:6
-msgid "Play _Light"
-msgstr "Hrát jako bí_lý"
-
-#: ../data/iagno.ui.h:7
-msgid "_Two Players"
-msgstr "_Dva hráči"
-
-#: ../data/iagno.ui.h:8
-msgid "Computer Player"
-msgstr "Počítač"
-
-#: ../data/iagno.ui.h:9
+#: ../data/iagno-screens.ui.h:5
 msgid "_Easy"
 msgstr "Sn_adná"
 
-#: ../data/iagno.ui.h:10
+#: ../data/iagno-screens.ui.h:6
 msgid "_Medium"
 msgstr "_Střední"
 
-#: ../data/iagno.ui.h:11
+#: ../data/iagno-screens.ui.h:7
 msgid "_Hard"
 msgstr "Ob_tížná"
 
-#: ../data/iagno.ui.h:12
+#: ../data/iagno-screens.ui.h:8
+msgid "Color"
+msgstr "Barva"
+
+#: ../data/iagno-screens.ui.h:9
+#| msgid "Play _Dark"
+msgid "_Dark"
+msgstr "Če_rná"
+
+#: ../data/iagno-screens.ui.h:10
+#| msgid "Play _Light"
+msgid "_Light"
+msgstr "Bí_lá"
+
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "Výběr motivu"
+
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "Výchozí"
+
+#: ../data/iagno.ui.h:1
+msgid "Go back to the current game"
+msgstr "Vrátit se do současné hry"
+
+#: ../data/iagno.ui.h:2
 msgid "_Start Game"
 msgstr "_Začít hru"
 
-#: ../data/iagno.ui.h:13
-msgid "Start a game"
-msgstr "Začít hru"
+#: ../data/iagno.ui.h:3
+#| msgid "Start a new game"
+msgid "Start a new game as configured"
+msgstr "Začít novou hru tak, jak je nastavená"
 
-#: ../data/iagno.ui.h:14
+#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Nová hra"
 
-#: ../data/iagno.ui.h:15
+#: ../data/iagno.ui.h:5
+#| msgid "Start a new game"
+msgid "Configure a new game"
+msgstr "Nastavit novou hru"
+
+#: ../data/iagno.ui.h:6
 msgid "Start a new game"
 msgstr "Začít novou hru"
+
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "Klasický"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+msgid "Black and White"
+msgstr "Černá a bílá"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "Slunce a hvězdy"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -162,32 +203,53 @@ msgid "From 1, the easiest, to 3, the hardest."
 msgstr "Od 1 pro nejjednoduší umělou inteligenci, do 3 pro nejnáročnější."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
-msgid "Type of game"
-msgstr "Typ hry"
+msgid "Whether to play against the computer or another human."
+msgstr "Zda se hraje proti počítači nebo jinému lidskému hráči."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-msgid "Choose the type of the next game."
-msgstr "Zvolte typ následující hry."
+msgid "Color to play as"
+msgstr "S jakou hrát barvou"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr "Zda hrát jako černý nebo bílý. Ignorováno u her se dvěma hráči."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Motiv"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+"Název souboru s použitým motivem nebo „default“ pro výchozí motiv. "
+"Poskytovány jsou motivy „adwaita.theme“ (Adwaita), „high_contrast.theme“ (S "
+"vysokým kontrastem) a „sun_and_star.theme“ (Slunce a hvězdy)."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
 msgstr "Zvuk"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "Whether or not to play event sounds."
 msgstr "Zda přehrávat nebo nepřehrávat zvuky k událostem."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: ../data/org.gnome.iagno.gschema.xml.h:10
 msgid "Width of the window in pixels"
 msgstr "Šířka okna v pixelech."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: ../data/org.gnome.iagno.gschema.xml.h:11
 msgid "Height of the window in pixels"
 msgstr "Výška okna v pixelech."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
 msgstr "Zapnuto, pokud je okno maximalizováno"
+
+#: ../src/game-window.vala:141
+msgid "Undo your most recent move"
+msgstr "Vrátit zpět váš poslední tah"
 
 #: ../src/iagno.vala:59
 msgid "Start with an alternative position"
@@ -230,57 +292,21 @@ msgid "Print release version and exit"
 msgstr "Vypsat verzi vydání a skončit"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:118
+#: ../src/iagno.vala:112
 msgid "Size must be at least 4."
 msgstr "Velikost musí být nejméně 4."
 
-#: ../src/iagno.vala:129
+#: ../src/iagno.vala:123
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Úroveň musí být v rozmězí 1 (jednoduchá) až 3 (těžká). Nastavení zůstává "
 "nezměněno."
 
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:338 ../src/iagno.vala:339
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
-
-#. Message to display when Light has no possible moves
-#: ../src/iagno.vala:419
-msgid "Light must pass, Dark’s move"
-msgstr "Bílý musí vynechat, černý táhne"
-
-#. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:424
-msgid "Dark must pass, Light’s move"
-msgstr "Černý musí vynechat, bílý táhne"
-
-#. Message to display when Light has won the game
-#: ../src/iagno.vala:433
-msgid "Light wins!"
-msgstr "Bílý vyhrává!"
-
-#. Message to display when Dark has won the game
-#: ../src/iagno.vala:438
-msgid "Dark wins!"
-msgstr "Černý vyhrává!"
-
-#. Message to display when the game is a draw
-#: ../src/iagno.vala:443
-msgid "The game is draw."
-msgstr "Hra skončila nerozhodně."
-
-#. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:469
-msgid "You can’t move there!"
-msgstr "Sem nemůžete táhnout!"
-
-#: ../src/iagno.vala:496
+#: ../src/iagno.vala:292
 msgid "A disk flipping game derived from Reversi"
 msgstr "Hra s převracením kamenů odvozená z Reversi"
 
-#: ../src/iagno.vala:499
+#: ../src/iagno.vala:295
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -296,3 +322,54 @@ msgstr ""
 "Marek Lisý <marek.lisy@centrum.cz>\n"
 "Petr Pulc <petrpulc@gmail.com>\n"
 "Marek Černocký <marek@manet.cz>"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:357 ../src/iagno.vala:358
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#. Message to display when Light has no possible moves
+#: ../src/iagno.vala:430
+msgid "Light must pass, Dark’s move"
+msgstr "Bílý musí vynechat, černý táhne"
+
+#. Message to display when Dark has no possible moves
+#: ../src/iagno.vala:435
+msgid "Dark must pass, Light’s move"
+msgstr "Černý musí vynechat, bílý táhne"
+
+#. Message to display when Light has won the game
+#: ../src/iagno.vala:446
+msgid "Light wins!"
+msgstr "Bílý vyhrává!"
+
+#. Message to display when Dark has won the game
+#: ../src/iagno.vala:451
+msgid "Dark wins!"
+msgstr "Černý vyhrává!"
+
+#. Message to display when the game is a draw
+#: ../src/iagno.vala:456
+msgid "The game is draw."
+msgstr "Hra skončila nerozhodně."
+
+#. Message to display when the player tries to make an illegal move
+#: ../src/iagno.vala:472
+msgid "You can’t move there!"
+msgstr "Sem nemůžete táhnout!"
+
+#~ msgid "Game Mode"
+#~ msgstr "Režim hry"
+
+#~ msgid "Computer Player"
+#~ msgstr "Počítač"
+
+#~ msgid "Start a game"
+#~ msgstr "Začít hru"
+
+#~ msgid "Type of game"
+#~ msgstr "Typ hry"
+
+#~ msgid "Choose the type of the next game."
+#~ msgstr "Zvolte typ následující hry."
