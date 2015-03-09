@@ -5,15 +5,15 @@
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006-2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007-2014.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-12-26 10:23+0000\n"
-"PO-Revision-Date: 2014-12-26 18:35+0100\n"
+"POT-Creation-Date: 2015-03-09 10:38+0000\n"
+"PO-Revision-Date: 2015-03-09 21:17+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -25,7 +25,16 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/iagno.appdata.xml.in.h:1
+#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
+#: ../src/iagno.vala:87 ../src/iagno.vala:179 ../src/iagno.vala:284
+msgid "Iagno"
+msgstr "Iagno"
+
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Nadzor nad igralno ploščo pri znani igri Reversi."
+
+#: ../data/iagno.appdata.xml.in.h:3
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -34,7 +43,7 @@ msgstr ""
 "Igra Iagno je strateška računalniška različica tabelne igre reversi. Igro se "
 "igra na igralni deski s polji, kot pri šahovnici."
 
-#: ../data/iagno.appdata.xml.in.h:2
+#: ../data/iagno.appdata.xml.in.h:4
 msgid ""
 "The object of Iagno is to flip as many of your opponent's tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
@@ -44,24 +53,15 @@ msgstr ""
 "CIlj igre je preobrniti čim več nasprotnikovih ploščic v lastno barvo in pri "
 "tem onemogočiti nasprotniku narediti enako."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:103 ../src/iagno.vala:127
-#: ../src/iagno.vala:369 ../src/iagno.vala:692
-msgid "Iagno"
-msgstr "Iagno"
-
-#: ../data/iagno.desktop.in.h:2
-msgid "Dominate the board in a classic version of Reversi"
-msgstr "Nadzor nad igralno ploščo pri znani igri Reversi."
-
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "otelo;"
 
-#: ../data/iagno.desktop.in.h:4 ../src/iagno.vala:586
+#: ../data/iagno.desktop.in.h:4
 msgid "Play first (Dark)"
 msgstr "Igraj prvega (temni)"
 
-#: ../data/iagno.desktop.in.h:5 ../src/iagno.vala:588
+#: ../data/iagno.desktop.in.h:5
 msgid "Play second (Light)"
 msgstr "Igraj drugega (svetli)"
 
@@ -69,25 +69,117 @@ msgstr "Igraj drugega (svetli)"
 msgid "Two players game"
 msgstr "Igra za dva igralca"
 
-#: ../data/iagno.ui.h:1
-msgid "_New Game"
-msgstr "_Nova Igra"
+#: ../data/iagno-menus.ui.h:1
+msgid "A_ppearance"
+msgstr "_Videz"
 
-#: ../data/iagno.ui.h:2
-msgid "_Preferences"
-msgstr "_Možnosti"
+#: ../data/iagno-menus.ui.h:2
+msgid "_Sound"
+msgstr "_Zvok"
 
-#: ../data/iagno.ui.h:3
+#: ../data/iagno-menus.ui.h:3
 msgid "_Help"
 msgstr "Pomo_č"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno-menus.ui.h:4
 msgid "_About"
 msgstr "_O Programu"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno-menus.ui.h:5
 msgid "_Quit"
 msgstr "_Končaj"
+
+#: ../data/iagno-screens.ui.h:1
+msgid "Players"
+msgstr "Igralci"
+
+#: ../data/iagno-screens.ui.h:2
+msgid "_One"
+msgstr "_En"
+
+#: ../data/iagno-screens.ui.h:3
+msgid "_Two"
+msgstr "_Dva"
+
+#: ../data/iagno-screens.ui.h:4
+msgid "Difficulty"
+msgstr "Zahtevnost"
+
+#: ../data/iagno-screens.ui.h:5
+msgid "_Easy"
+msgstr "_Enostavno"
+
+#: ../data/iagno-screens.ui.h:6
+msgid "_Medium"
+msgstr "_Srednje"
+
+#: ../data/iagno-screens.ui.h:7
+msgid "_Hard"
+msgstr "_Zahtevno"
+
+#: ../data/iagno-screens.ui.h:8
+msgid "Color"
+msgstr "Barva"
+
+#: ../data/iagno-screens.ui.h:9
+msgid "_Dark"
+msgstr "_Temno"
+
+#: ../data/iagno-screens.ui.h:10
+msgid "_Light"
+msgstr "_Svetlo"
+
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "Izbor teme"
+
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "Privzeto"
+
+#: ../data/iagno.ui.h:1
+#, fuzzy
+msgid "Go back to the current game"
+msgstr "Skoči na začetek trenutnega bloka"
+
+#: ../data/iagno.ui.h:2
+msgid "_Start Game"
+msgstr "_Začni igro"
+
+#: ../data/iagno.ui.h:3
+#, fuzzy
+msgid "Start a new game as configured"
+msgstr "Začni novo omrežno igro"
+
+#: ../data/iagno.ui.h:4
+msgid "_New Game"
+msgstr "_Nova Igra"
+
+#: ../data/iagno.ui.h:5
+#, fuzzy
+msgid "Configure a new game"
+msgstr "Začni novo igro"
+
+#: ../data/iagno.ui.h:6
+msgid "Start a new game"
+msgstr "Začni novo igro"
+
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "Običajno"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+msgid "Black and White"
+msgstr "Črno-belo"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+#, fuzzy
+msgid "Sun and Star"
+msgstr "Streets And Alleys"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -98,109 +190,115 @@ msgid "From 1, the easiest, to 3, the hardest."
 msgstr "Od 1; najlažje, do 3; najtežje"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
-msgid "Type of game"
-msgstr "Vrsta igre"
+msgid "Whether to play against the computer or another human."
+msgstr ""
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-msgid "Choose the type of the next game."
-msgstr "Izbor vrste naslednje igre"
+#, fuzzy
+msgid "Color to play as"
+msgstr "Igraj karto na osnovni talon"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr ""
+
+#: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Tema"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
 msgstr "Zvok"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "Whether or not to play event sounds."
 msgstr "Ali naj se ob dogodkih predvajajo zvoki."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: ../data/org.gnome.iagno.gschema.xml.h:10
 msgid "Width of the window in pixels"
 msgstr "Širina okna v točkah"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: ../data/org.gnome.iagno.gschema.xml.h:11
 msgid "Height of the window in pixels"
 msgstr "Višina okna v točkah"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
 msgstr "prav, če je okno razpeto."
 
-#: ../src/iagno.vala:47
-msgid "Reduce delay before AI moves"
-msgstr "Zmanjšaj čas pred potezo računalnika"
-
-#: ../src/iagno.vala:48
-msgid "Play first"
-msgstr "Igraj prvega"
-
-#: ../src/iagno.vala:49
-msgid "Set the level of the computer's AI"
-msgstr "Določi raven inteligence računalnika"
-
-#: ../src/iagno.vala:50
-msgid "Turn off the sound"
-msgstr "Izklopi zvok"
-
-#: ../src/iagno.vala:51
-msgid "Play second"
-msgstr "Igraj drugega"
-
-#: ../src/iagno.vala:52
-msgid "Two-players mode"
-msgstr "Dva igralca"
-
-#: ../src/iagno.vala:53
-msgid "Turn on the sound"
-msgstr "Vklopi zvok"
-
-#: ../src/iagno.vala:54
-msgid "Print release version and exit"
-msgstr "Izpiši različico programa in končaj"
-
-#: ../src/iagno.vala:122
+#: ../src/game-window.vala:141
 msgid "Undo your most recent move"
 msgstr "Razveljavi zadnjo potezo"
 
-#: ../src/iagno.vala:163 ../src/iagno.vala:321 ../src/iagno.vala:329
-msgid "Dark:"
-msgstr "Temni:"
+#: ../src/iagno.vala:59
+#, fuzzy
+msgid "Start with an alternative position"
+msgstr "Začni, ko bo miška v položaju:"
 
-#: ../src/iagno.vala:171 ../src/iagno.vala:322 ../src/iagno.vala:330
-msgid "Light:"
-msgstr "Svetli:"
+#: ../src/iagno.vala:60
+msgid "Reduce delay before AI moves"
+msgstr "Zmanjšaj čas pred potezo računalnika"
 
-#: ../src/iagno.vala:180
-msgid "_Start Over"
-msgstr "_Začni znova"
+#: ../src/iagno.vala:61
+msgid "Play first"
+msgstr "Igraj prvega"
 
-#: ../src/iagno.vala:187
-msgid "Start a new game"
-msgstr "Začni novo igro"
+#: ../src/iagno.vala:62
+msgid "Set the level of the computer's AI"
+msgstr "Določi raven inteligence računalnika"
 
-#: ../src/iagno.vala:221
+#: ../src/iagno.vala:63
+msgid "Turn off the sound"
+msgstr "Izklopi zvok"
+
+#: ../src/iagno.vala:64
+msgid "Play second"
+msgstr "Igraj drugega"
+
+#: ../src/iagno.vala:65
+#, fuzzy
+msgid "Size of the board (debug only)"
+msgstr "%s <span size=\"smaller\">(le za branje)</span>"
+
+#: ../src/iagno.vala:66
+msgid "Two-players mode"
+msgstr "Dva igralca"
+
+#: ../src/iagno.vala:67
+msgid "Turn on the sound"
+msgstr "Vklopi zvok"
+
+#: ../src/iagno.vala:68
+msgid "Print release version and exit"
+msgstr "Izpiši različico programa in končaj"
+
+#. Console message displayed for an incorrect size
+#: ../src/iagno.vala:112
+#, fuzzy
+msgid "Size must be at least 4."
+msgstr "Na voljo morata biti vsaj 2 izbiri."
+
+#: ../src/iagno.vala:123
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Raven zahtevnosti mora biti med 1 (najlažje) do 3 (najtežje). Nastavitve "
 "niso spremenjene."
 
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:324 ../src/iagno.vala:325 ../src/iagno.vala:332
-#: ../src/iagno.vala:333
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
-
-#: ../src/iagno.vala:374
-msgid ""
-"A disk flipping game derived from Reversi\n"
-"\n"
-"Iagno is a part of GNOME Games."
+#: ../src/iagno.vala:292
+#, fuzzy
+msgid "A disk flipping game derived from Reversi"
 msgstr ""
 "Igra preobračanja ploščic po predlogi igre Reversi.\n"
 "\n"
 "igra Iagno je del iger GNOME."
 
-#: ../src/iagno.vala:377
+#: ../src/iagno.vala:295
 msgid "translator-credits"
 msgstr ""
 "Matic Žgur <mr.zgur@gmail.com>\n"
@@ -208,71 +306,86 @@ msgstr ""
 "Tadej Janež <tadej_janez@email.si>\n"
 "Matej Urbančič <mateju@svn.gnome.org>"
 
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:357 ../src/iagno.vala:358
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:412
+#: ../src/iagno.vala:430
 msgid "Light must pass, Dark’s move"
 msgstr "Svetli mora počakati, temni je na potezi"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:417
+#: ../src/iagno.vala:435
 msgid "Dark must pass, Light’s move"
 msgstr "Temni mora počakati, svetli je na potezi"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:462
+#: ../src/iagno.vala:446
 msgid "Light wins!"
 msgstr "Zmagal je svetli igralec!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:467
+#: ../src/iagno.vala:451
 msgid "Dark wins!"
 msgstr "Zmagal je temni igralec!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:472
+#: ../src/iagno.vala:456
 msgid "The game is draw."
 msgstr "Igra je neodločena!"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:498
+#: ../src/iagno.vala:472
 msgid "You can’t move there!"
 msgstr "Ta premik ni dovoljen!"
 
-#: ../src/iagno.vala:553
-msgid "Preferences"
-msgstr "Možnosti"
+#~ msgid "_Preferences"
+#~ msgstr "_Možnosti"
 
-#: ../src/iagno.vala:575
-msgid "Game mode:"
-msgstr "Igralni način: "
+#~ msgid "Type of game"
+#~ msgstr "Vrsta igre"
 
-#: ../src/iagno.vala:590
-msgid "Two players"
-msgstr "Dva igralca"
+#~ msgid "Choose the type of the next game."
+#~ msgstr "Izbor vrste naslednje igre"
 
-#: ../src/iagno.vala:602
-msgid "Computer:"
-msgstr "Računalnik:"
+#~ msgid "Dark:"
+#~ msgstr "Temni:"
 
-#: ../src/iagno.vala:613
-msgid "Level one"
-msgstr "Prva reven"
+#~ msgid "Light:"
+#~ msgstr "Svetli:"
 
-#: ../src/iagno.vala:615
-msgid "Level two"
-msgstr "Druga reven"
+#~ msgid "_Start Over"
+#~ msgstr "_Začni znova"
 
-#: ../src/iagno.vala:617
-msgid "Level three"
-msgstr "Tretja reven"
+#~ msgid "Preferences"
+#~ msgstr "Možnosti"
 
-#: ../src/iagno.vala:624
-msgid "_Tile set:"
-msgstr "_Vrsta ploščic:"
+#~ msgid "Game mode:"
+#~ msgstr "Igralni način: "
 
-#: ../src/iagno.vala:676
-msgid "E_nable sounds"
-msgstr "Omogoči _zvoke"
+#~ msgid "Two players"
+#~ msgstr "Dva igralca"
+
+#~ msgid "Computer:"
+#~ msgstr "Računalnik:"
+
+#~ msgid "Level one"
+#~ msgstr "Prva reven"
+
+#~ msgid "Level two"
+#~ msgstr "Druga reven"
+
+#~ msgid "Level three"
+#~ msgstr "Tretja reven"
+
+#~ msgid "_Tile set:"
+#~ msgstr "_Vrsta ploščic:"
+
+#~ msgid "E_nable sounds"
+#~ msgstr "Omogoči _zvoke"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "prav, če je okno razpeto čez celoten zaslon"
@@ -441,9 +554,6 @@ msgstr "Omogoči _zvoke"
 #~ msgid "Opposing Player:"
 #~ msgstr "Nasprotni igralec:"
 
-#~ msgid "Difficulty:"
-#~ msgstr "Težavnost:"
-
 #~ msgid "Game Duration:"
 #~ msgstr "Trajanje igre:"
 
@@ -534,10 +644,6 @@ msgstr "Omogoči _zvoke"
 #~ msgctxt "chess-side"
 #~ msgid "White Side"
 #~ msgstr "Bela stran"
-
-#~ msgctxt "chess-side"
-#~ msgid "Black Side"
-#~ msgstr "Črna stran"
 
 #~ msgctxt "chess-side"
 #~ msgid "Human Side"
@@ -924,9 +1030,6 @@ msgstr "Omogoči _zvoke"
 #~ msgid "Five or More Preferences"
 #~ msgstr "Nastavitve igre Pet ali več"
 
-#~ msgid "Appearance"
-#~ msgstr "Videz"
-
 #~ msgid "_Image:"
 #~ msgstr "_Slika:"
 
@@ -938,9 +1041,6 @@ msgstr "Omogoči _zvoke"
 
 #~ msgid "_Small"
 #~ msgstr "_Majhna"
-
-#~ msgid "_Medium"
-#~ msgstr "_Srednje"
 
 #~ msgid "_Large"
 #~ msgstr "_Velika"
@@ -1056,9 +1156,6 @@ msgstr "Omogoči _zvoke"
 
 #~ msgid "Close this window"
 #~ msgstr "Zapri trenutno okno"
-
-#~ msgid "Configure the game"
-#~ msgstr "Nastavi igro"
 
 #~ msgid "Quit this game"
 #~ msgstr "Končaj igro"
@@ -1328,9 +1425,6 @@ msgstr "Omogoči _zvoke"
 #~ msgid "Keyboard Controls"
 #~ msgstr "Tipkovne bližnjice"
 
-#~ msgid "Classic"
-#~ msgstr "Običajno"
-
 #~ msgid "Red"
 #~ msgstr "Rdeča"
 
@@ -1414,9 +1508,6 @@ msgstr "Omogoči _zvoke"
 
 #~ msgid "Enable sounds."
 #~ msgstr "Omogoči zvok."
-
-#~ msgid "Size of game tiles."
-#~ msgstr "Velikost igralnih ploščic."
 
 #~ msgid "Color to use for worm"
 #~ msgstr "Barva črva"
@@ -1968,9 +2059,6 @@ msgstr "Omogoči _zvoke"
 #~ msgid "Moves Left:"
 #~ msgstr "Preostalih premikov:"
 
-#~ msgid "_Restart Game"
-#~ msgstr "_Začni igro znova"
-
 #~ msgid "Hint"
 #~ msgstr "Namig"
 
@@ -2066,12 +2154,6 @@ msgstr "Omogoči _zvoke"
 
 #~ msgid "Levels of difficulty to print"
 #~ msgstr "Ravni zahtevnosti za tiskanje"
-
-#~ msgid "_Easy"
-#~ msgstr "_Enostavno"
-
-#~ msgid "_Hard"
-#~ msgstr "_Zahtevno"
 
 #~ msgid "_Very Hard"
 #~ msgstr "_Zelo težko"
@@ -3144,9 +3226,6 @@ msgstr "Omogoči _zvoke"
 #~ msgid "Controls"
 #~ msgstr "Tipke"
 
-#~ msgid "Theme"
-#~ msgstr "Tema"
-
 #~ msgid "Plain"
 #~ msgstr "Običajno"
 
@@ -3229,9 +3308,6 @@ msgstr "Omogoči _zvoke"
 #~ msgid "Score: %4u "
 #~ msgstr "Rezultat: %4u "
 
-#~ msgid "Colors"
-#~ msgstr "Barve"
-
 #~ msgid "Shapes and Colors"
 #~ msgstr "Oblike in barve"
 
@@ -3279,20 +3355,11 @@ msgstr "Omogoči _zvoke"
 #~ msgid "Flags"
 #~ msgstr "Zastavice"
 
-#~ msgid "Dark"
-#~ msgstr "Temni"
-
-#~ msgid "Light"
-#~ msgstr "Svetli"
-
 #~ msgid "Tiles"
 #~ msgstr "Ploščice"
 
 #~ msgid "Maps"
 #~ msgstr "Zemljevidi"
-
-#~ msgid "_Select map:"
-#~ msgstr "_Izberite zemljevid:"
 
 #~ msgid "Block Style"
 #~ msgstr "Slog blokov"
@@ -3341,6 +3408,3 @@ msgstr "Omogoči _zvoke"
 
 #~ msgid "boo"
 #~ msgstr "boo"
-
-#~ msgid "Restart the current game"
-#~ msgstr "Znova začni trenutno igro"
