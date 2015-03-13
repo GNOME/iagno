@@ -26,7 +26,7 @@ public class Iagno : Gtk.Application
     private GLib.Settings settings;
     private static bool fast_mode;
     private static bool alternative_start;
-    private static int computer_level = 0;
+    private static string? level = null;
     private static int size = 8;
     private static bool start_now = false;  // could be replaced one day with (two_players != null)
     private static string color;            // TODO Player
@@ -59,7 +59,7 @@ public class Iagno : Gtk.Application
         { "alternative-start", 0, 0, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
         { "first", 0, 0, OptionArg.NONE, null, N_("Play first"), null},
-        { "level", 'l', 0, OptionArg.INT, ref computer_level, N_("Set the level of the computer's AI"), "LEVEL"},
+        { "level", 'l', 0, OptionArg.STRING, ref level, N_("Set the level of the computer's AI"), "LEVEL"},
         { "mute", 0, 0, OptionArg.NONE, null, N_("Turn off the sound"), null},
         { "second", 0, 0, OptionArg.NONE, null, N_("Play second"), null},
         { "size", 's', 0, OptionArg.INT, ref size, N_("Size of the board (debug only)"), "SIZE"},
@@ -118,8 +118,7 @@ public class Iagno : Gtk.Application
         else if (options.contains ("unmute"))
             sound = true;
 
-        /* TODO message should be displayed if "--level 0" */
-        if (computer_level < 0 || computer_level > 3)
+        if (level != null && level != "1" && level != "2" && level != "3")  // TODO support spellings?
             stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
 
         if (options.contains ("two-players")) {
@@ -159,8 +158,12 @@ public class Iagno : Gtk.Application
         else /* hack, part 2 of 4 */
             color = settings.get_string ("color");
 
-        if (computer_level > 0 && computer_level <= 3)
+        int computer_level;
+        if (level == "1" || level == "2" || level == "3")
+        {
+            computer_level = int.parse (level);
             settings.set_int ("computer-level", computer_level);
+        }
         else /* hack, part 3 of 4 */
             computer_level = settings.get_int ("computer-level");
 
