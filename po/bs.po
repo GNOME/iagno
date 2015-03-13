@@ -1,0 +1,321 @@
+# Bosnian translation for bosnianuniversetranslation
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the bosnianuniversetranslation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bosnianuniversetranslation\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-02-26 22:40+0000\n"
+"PO-Revision-Date: 2015-03-02 09:29+0100\n"
+"Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Launchpad-Export-Date: 2015-02-15 06:13+0000\n"
+
+#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
+#: ../data/iagno.ui.h:1 ../src/iagno.vala:102 ../src/iagno.vala:327
+msgid "Iagno"
+msgstr "Jagno"
+
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Kontrolišite ploču u klasičnoj verziji igre Reversi"
+
+#: ../data/iagno.appdata.xml.in.h:3
+msgid ""
+"Iagno is a computer version of the game Reversi, a two-player strategy board "
+"game. The game is played with tiles that are dark on one side and light on "
+"the other."
+msgstr ""
+"Jagno je računarska verzija igre Reversi, strategija na ploči za dva igrača. "
+"Igra se igra sa pločicama koje su tamne sa jedne a svijetle sa druge strane."
+
+#: ../data/iagno.appdata.xml.in.h:4
+msgid ""
+"The object of Iagno is to flip as many of your opponent's tiles to your "
+"color as possible while preventing your opponent from flipping your tiles to "
+"his color. This is done by trapping your opponent's tiles between two tiles "
+"of your own color."
+msgstr ""
+"Cilj Jagno-a je da se preokrene što je moguće više protivničkih pločica na "
+"svoju boju ako je moguće dok se istovremeno spriječava protivnik da okrene "
+"tvoje pločice na njegovu boju. Ovo se radi tako što se zarobe protivničke "
+"pločice između dvije pločice svoje boje."
+
+#: ../data/iagno.desktop.in.h:3
+msgid "othello;"
+msgstr "otelo;"
+
+#: ../data/iagno.desktop.in.h:4
+msgid "Play first (Dark)"
+msgstr "Igraj prvi (Tamno)"
+
+#: ../data/iagno.desktop.in.h:5
+msgid "Play second (Light)"
+msgstr "Igraj drugi (svijetlo)"
+
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "Igra sa dva igrača"
+
+#: ../data/iagno-menus.ui.h:1
+msgid "A_ppearance"
+msgstr "_Izgled"
+
+#: ../data/iagno-menus.ui.h:2
+msgid "_Sound"
+msgstr "_Zvuk"
+
+#: ../data/iagno-menus.ui.h:3
+msgid "_Help"
+msgstr "_Pomoć"
+
+#: ../data/iagno-menus.ui.h:4
+msgid "_About"
+msgstr "_O Programu"
+
+#: ../data/iagno-menus.ui.h:5
+msgid "_Quit"
+msgstr "_Izlaz"
+
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "Izaberi temu"
+
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "Podrazumijevano"
+
+#: ../data/iagno.ui.h:2
+msgid "Undo your most recent move"
+msgstr "Poništi posljednji potez"
+
+#: ../data/iagno.ui.h:3
+msgid "Go back to the current game"
+msgstr "Vrati se na trenutnu igu"
+
+#: ../data/iagno.ui.h:4
+msgid "Players"
+msgstr "Igrači"
+
+#: ../data/iagno.ui.h:5
+msgid "_One"
+msgstr "_Jedan"
+
+#: ../data/iagno.ui.h:6
+msgid "_Two"
+msgstr "_Dva"
+
+#: ../data/iagno.ui.h:7
+msgid "Difficulty"
+msgstr "Težina"
+
+#: ../data/iagno.ui.h:8
+msgid "_Easy"
+msgstr "_Lako"
+
+#: ../data/iagno.ui.h:9
+msgid "_Medium"
+msgstr "_Srednje"
+
+#: ../data/iagno.ui.h:10
+msgid "_Hard"
+msgstr "_Teško"
+
+#: ../data/iagno.ui.h:11
+msgid "Color"
+msgstr "Boja"
+
+#: ../data/iagno.ui.h:12
+msgid "_Dark"
+msgstr "_Tamno"
+
+#: ../data/iagno.ui.h:13
+msgid "_Light"
+msgstr "_Svijetlo"
+
+#: ../data/iagno.ui.h:14
+msgid "_Start Game"
+msgstr "_Počni igru"
+
+#: ../data/iagno.ui.h:15
+msgid "Start a game"
+msgstr "Počni igru"
+
+#: ../data/iagno.ui.h:16
+msgid "_New Game"
+msgstr "_Nova igra"
+
+#: ../data/iagno.ui.h:17
+msgid "Start a new game"
+msgstr "Počni novu igru"
+
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "Klasični"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+msgid "Black and White"
+msgstr "Crno-bijelo"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "Sunce i zvijezda"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Nivo vještačke inteligencije računara"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Od 1, najlakši, do 3, najteži."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+msgid "Whether to play against the computer or another human."
+msgstr "Da li igrati protiv računara ili drugog čovjeka."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+msgid "Color to play as"
+msgstr "Boja za igrati kao"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr "Da li igrati kao tamni i ili svijetli. Ignorisano za igru dva igrača"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Tema"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+"Ime datoteke za korištenu temu ili \"default\". Date su \"adwaita.theme\", "
+"\"high_contrast.theme\" i \"sun_and_star.theme\"."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
+msgid "Sound"
+msgstr "Zvuk"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:9
+msgid "Whether or not to play event sounds."
+msgstr "Da li puštati zvukove pri događajima."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:10
+msgid "Width of the window in pixels"
+msgstr "Širina prozora u tačkama"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:11
+msgid "Height of the window in pixels"
+msgstr "Visina prozora u tačkama"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:12
+msgid "true if the window is maximized"
+msgstr "izabrano ako je prozor uvećan"
+
+#: ../src/iagno.vala:68
+msgid "Start with an alternative position"
+msgstr "Počni sa alternativne pozicije"
+
+#: ../src/iagno.vala:69
+msgid "Reduce delay before AI moves"
+msgstr "Smanji odgodu prije UI napravi potez"
+
+#: ../src/iagno.vala:70
+msgid "Play first"
+msgstr "Igraj prvi"
+
+#: ../src/iagno.vala:71
+msgid "Set the level of the computer's AI"
+msgstr "Podesi nivo UI računara"
+
+#: ../src/iagno.vala:72
+msgid "Turn off the sound"
+msgstr "Isključi zvuk"
+
+#: ../src/iagno.vala:73
+msgid "Play second"
+msgstr "Igraj drugi"
+
+#: ../src/iagno.vala:74
+msgid "Size of the board (debug only)"
+msgstr "Veličina table (samo ispravljanje)"
+
+#: ../src/iagno.vala:75
+msgid "Two-players mode"
+msgstr "Način igranja sa dva igrača"
+
+#: ../src/iagno.vala:76
+msgid "Turn on the sound"
+msgstr "Uključi zvuk"
+
+#: ../src/iagno.vala:77
+msgid "Print release version and exit"
+msgstr "Ispiši verziju i izađi"
+
+#. Console message displayed for an incorrect size
+#: ../src/iagno.vala:128
+msgid "Size must be at least 4."
+msgstr "Veličina mora biti najmanje 4."
+
+#: ../src/iagno.vala:139
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr "Nivo treba biti između 1 (lako) i 3 (teško). Postavke nepromjenjene."
+
+#: ../src/iagno.vala:335
+msgid "A disk flipping game derived from Reversi"
+msgstr "Igra prevrtanja diska proizašla iz Reversi"
+
+#: ../src/iagno.vala:338
+msgid "translator-credits"
+msgstr ""
+"   Adem Jevric https://launchpad.net/~ajevric1\n"
+"  Omar Dervisevic https://launchpad.net/~omardervisevic"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:433 ../src/iagno.vala:434
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#. Message to display when Light has no possible moves
+#: ../src/iagno.vala:506
+msgid "Light must pass, Dark’s move"
+msgstr "Svijetli mora propustiti potez, Tamni je na potezu"
+
+#. Message to display when Dark has no possible moves
+#: ../src/iagno.vala:511
+msgid "Dark must pass, Light’s move"
+msgstr "Tamni mora propustiti potez, Svijetli je na potezu"
+
+#. Message to display when Light has won the game
+#: ../src/iagno.vala:520
+msgid "Light wins!"
+msgstr "Svijetli pobjeđuje!"
+
+#. Message to display when Dark has won the game
+#: ../src/iagno.vala:525
+msgid "Dark wins!"
+msgstr "Tamni pobjeđuje!"
+
+#. Message to display when the game is a draw
+#: ../src/iagno.vala:530
+msgid "The game is draw."
+msgstr "Igra je neriješena."
+
+#. Message to display when the player trijes to makije an illegal move
+#: ../src/iagno.vala:546
+msgid "You can’t move there!"
+msgstr "Ne možeš se pomjeriti tamo!"
