@@ -28,9 +28,9 @@ public class Iagno : Gtk.Application
     private static bool alternative_start;
     private static string? level = null;
     private static int size = 8;
-    private static string color;            // TODO Player
     private static bool? sound = null;
-    private static bool? two_players = null;
+    private static bool two_players = false;
+    private static bool? play_first = null;
 
     /* Seconds */
     private static const double QUICK_MOVE_DELAY = 0.4;
@@ -120,15 +120,12 @@ public class Iagno : Gtk.Application
         if (level != null && level != "1" && level != "2" && level != "3")  // TODO support spellings?
             stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
 
-        if (options.contains ("two-players")) {
+        if (options.contains ("two-players"))
             two_players = true;
-        } else if (options.contains ("first")) {
-            color = "dark";
-            two_players = false;
-        } else if (options.contains ("second")) {
-            color = "light";
-            two_players = false;
-        }
+        else if (options.contains ("first"))
+            play_first = true;
+        else if (options.contains ("second"))
+            play_first = false;
 
         /* Activate */
         return -1;
@@ -144,14 +141,18 @@ public class Iagno : Gtk.Application
         if (sound != null)
             settings.set_boolean ("sound", sound);
 
-        bool start_now = two_players != null;
+        bool start_now = (two_players == true) || (play_first != null);
         if (start_now)
             settings.set_int ("num-players", two_players ? 2 : 1);
         else /* hack, part 1 of 4 */
             two_players = (settings.get_int ("num-players") == 2);
 
-        if (color != null)
+        string color;
+        if (play_first != null)
+        {
+            color = play_first ? "dark" : "light";
             settings.set_string ("color", color);
+        }
         else /* hack, part 2 of 4 */
             color = settings.get_string ("color");
 
