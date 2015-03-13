@@ -28,7 +28,6 @@ public class Iagno : Gtk.Application
     private static bool alternative_start;
     private static string? level = null;
     private static int size = 8;
-    private static bool start_now = false;  // could be replaced one day with (two_players != null)
     private static string color;            // TODO Player
     private static bool? sound = null;
     private static bool? two_players = null;
@@ -123,15 +122,12 @@ public class Iagno : Gtk.Application
 
         if (options.contains ("two-players")) {
             two_players = true;
-            start_now = true;
         } else if (options.contains ("first")) {
             color = "dark";
             two_players = false;
-            start_now = true;
         } else if (options.contains ("second")) {
             color = "light";
             two_players = false;
-            start_now = true;
         }
 
         /* Activate */
@@ -148,7 +144,8 @@ public class Iagno : Gtk.Application
         if (sound != null)
             settings.set_boolean ("sound", sound);
 
-        if (two_players != null)
+        bool start_now = two_players != null;
+        if (start_now)
             settings.set_int ("num-players", two_players ? 2 : 1);
         else /* hack, part 1 of 4 */
             two_players = (settings.get_int ("num-players") == 2);
