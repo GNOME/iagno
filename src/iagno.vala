@@ -117,9 +117,6 @@ public class Iagno : Gtk.Application
         else if (options.contains ("unmute"))
             sound = true;
 
-        if (level != null && level != "1" && level != "2" && level != "3")  // TODO support spellings?
-            stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
-
         if (options.contains ("two-players"))
             two_players = true;
         else if (options.contains ("first"))
@@ -162,8 +159,13 @@ public class Iagno : Gtk.Application
             computer_level = int.parse (level);
             settings.set_int ("computer-level", computer_level);
         }
-        else /* hack, part 3 of 4 */
+        else
+        {
+            if (level != null)
+                stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
+            /* hack, part 3 of 4 */
             computer_level = settings.get_int ("computer-level");
+        }
 
         /* UI parts */
         Builder builder = new Builder.from_resource ("/org/gnome/iagno/ui/iagno-screens.ui");
