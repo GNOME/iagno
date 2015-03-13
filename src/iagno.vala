@@ -202,30 +202,21 @@ public class Iagno : Gtk.Application
         set_accels_for_action ("win.back", {"Escape"});
         add_action (settings.create_action ("sound"));
         /* TODO bugs when changing manually the gsettings key (not for sound);
-         * solving this bug may remove the need of the hack in three parts */
+         * solving this bug may remove the need of the hack in four parts */
         add_action (settings.create_action ("color"));
         add_action (settings.create_action ("num-players"));
         add_action (settings.create_action ("computer-level"));
 
         var level_box = (Box) builder.get_object ("difficulty-box");
-        settings.changed["num-players"].connect (() => {
-            level_box.sensitive = settings.get_int ("num-players") == 1;
-        });
-        level_box.sensitive = settings.get_int ("num-players") == 1;
-
         var color_box = (Box) builder.get_object ("color-box");
         settings.changed["num-players"].connect (() => {
-            color_box.sensitive = settings.get_int ("num-players") == 1;
+            bool solo = settings.get_int ("num-players") == 1;
+            level_box.sensitive = solo;
+            color_box.sensitive = solo;
         });
-        color_box.sensitive = settings.get_int ("num-players") == 1;
-
-        /* Hack for restoring radiobuttons settings, part 4 of 4.
-         * When you add_window(), settings are initialized with the value
-         * of the first radiobutton of the group found in the UI file. */
-        GLib.Settings.sync ();
-        settings.set_string ("color", color);
-        settings.set_int ("computer-level", computer_level);
-        settings.set_int ("num-players", two_players ? 2 : 1);
+        bool solo = settings.get_int ("num-players") == 1;
+        level_box.sensitive = solo;
+        color_box.sensitive = solo;
 
         /* Information widgets */
         light_score_label = (Label) builder.get_object ("light-score-label");
@@ -235,6 +226,14 @@ public class Iagno : Gtk.Application
             start_game ();
 
         add_window (window);
+
+        /* Hack for restoring radiobuttons settings, part 4 of 4.
+         * When you add_window(), settings are initialized with the value
+         * of the first radiobutton of the group found in the UI file. */
+        GLib.Settings.sync ();
+        settings.set_string ("color", color);
+        settings.set_int ("computer-level", computer_level);
+        settings.set_int ("num-players", two_players ? 2 : 1);
     }
 
     protected override void activate ()
