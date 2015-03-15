@@ -34,7 +34,10 @@ GtkListBox#themes-listbox GtkImage {
   transition-duration: 200ms;
   opacity: 0;
 }
-GtkListBox#themes-listbox GtkListBoxRow:selected GtkImage {
+
+/* if you removed the fix at the bottom of the CSS file,
+   replacing "*" by "GtkImage" makes bug #746210 appear */
+GtkListBox#themes-listbox GtkListBoxRow:selected * {
   opacity: 1;
   color:@theme_selected_fg_color;
 }
