@@ -41,3 +41,7 @@ GtkListBox#themes-listbox GtkListBoxRow:selected GtkImage {
 GtkListBox#themes-listbox GtkListBoxRow:selected GtkImage:backdrop {
   color:@theme_unfocused_selected_fg_color;
 }
+
+/* bug #746210: HighContrast doesn't update correctly on ListBoxRow selection
+   hicolor is preserved because of a "*:selected *:link:visited" declaration */
+#fake-example *:selected *:visited { opacity: 1; }
