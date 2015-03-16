@@ -1,3 +1,14 @@
+3.15.92 - March 16, 2015
+=============================
+
+* Add symbolic icon
+* Don't crash when closing
+* Restore the hack that makes the new-game screen work correctly
+* Better code for command-line options
+* Introduce one (two) CSS hack(s) for a weird HighContrast (non-)behaviour
+* New translation: bosnian, and many updates again, thanks (polish, galician,
+  czech, korean, lithuanian, slovenian, swedish, danish)
+
 3.15.91 - March 2, 2015
 =============================
 
