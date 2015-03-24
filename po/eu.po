@@ -2,16 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-#
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-01-08 15:22+0100\n"
-"PO-Revision-Date: 2014-12-06 17:25+0100\n"
+"POT-Creation-Date: 2015-03-24 15:28+0100\n"
+"PO-Revision-Date: 2015-03-24 15:32+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../data/iagno.ui.h:1 ../src/iagno.vala:94 ../src/iagno.vala:585
+#: ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -68,8 +68,8 @@ msgid "Two players game"
 msgstr "Bi jokalarientzako jokoa"
 
 #: ../data/iagno-menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Hobespenak"
+msgid "A_ppearance"
+msgstr "_Itxura"
 
 #: ../data/iagno-menus.ui.h:2
 msgid "_Sound"
@@ -87,65 +87,93 @@ msgstr "Honi _buruz"
 msgid "_Quit"
 msgstr "_Irten"
 
-#: ../data/iagno-preferences.ui.h:1
-msgid "_Tile set:"
-msgstr "_Fitxa-jokoa:"
+#: ../data/iagno-screens.ui.h:1
+msgid "Players"
+msgstr "Jokalariak"
 
-#: ../data/iagno.ui.h:2
-msgid "Undo your most recent move"
-msgstr "Desegin zure azken mugimendua"
+#: ../data/iagno-screens.ui.h:2
+msgid "_One"
+msgstr "B_at"
 
-#: ../data/iagno.ui.h:3
-msgid "Go back to the current game"
-msgstr "Joan atzera uneko jokoan"
+#: ../data/iagno-screens.ui.h:3
+msgid "_Two"
+msgstr "_Bi"
 
-#: ../data/iagno.ui.h:4
-msgid "Game Mode"
-msgstr "Jokoaren modua"
+#: ../data/iagno-screens.ui.h:4
+msgid "Difficulty"
+msgstr "Zailtasuna"
 
-#: ../data/iagno.ui.h:5
-msgid "Play _Dark"
-msgstr "Jokatu _beltza"
-
-#: ../data/iagno.ui.h:6
-msgid "Play _Light"
-msgstr "Jokatu _Zuria"
-
-#: ../data/iagno.ui.h:7
-msgid "_Two Players"
-msgstr "_Bi jokalari"
-
-#: ../data/iagno.ui.h:8
-msgid "Computer Player"
-msgstr "Ordenagailu-jokalaria"
-
-#: ../data/iagno.ui.h:9
+#: ../data/iagno-screens.ui.h:5
 msgid "_Easy"
 msgstr "_Erraza"
 
-#: ../data/iagno.ui.h:10
+#: ../data/iagno-screens.ui.h:6
 msgid "_Medium"
 msgstr "_Tartekoa"
 
-#: ../data/iagno.ui.h:11
+#: ../data/iagno-screens.ui.h:7
 msgid "_Hard"
 msgstr "_Zaila"
 
-#: ../data/iagno.ui.h:12
+#: ../data/iagno-screens.ui.h:8
+msgid "Color"
+msgstr "Kolorea"
+
+#: ../data/iagno-screens.ui.h:9
+msgid "_Dark"
+msgstr "_Iluna"
+
+#: ../data/iagno-screens.ui.h:10
+msgid "_Light"
+msgstr "_Argia"
+
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "Hautatu gaia"
+
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "Lehenetsia"
+
+#: ../data/iagno.ui.h:1
+msgid "Go back to the current game"
+msgstr "Joan atzera uneko jokoan"
+
+#: ../data/iagno.ui.h:2
 msgid "_Start Game"
 msgstr "_Hasi jokoa"
 
-#: ../data/iagno.ui.h:13
-msgid "Start a game"
-msgstr "Hasi jokoa"
+#: ../data/iagno.ui.h:3
+msgid "Start a new game as configured"
+msgstr "Hasi joko berria (konfiguratuta dagoen bezala)"
 
-#: ../data/iagno.ui.h:14
+#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Joko berria"
 
-#: ../data/iagno.ui.h:15
+#: ../data/iagno.ui.h:5
+msgid "Configure a new game"
+msgstr "Konfiguratu joko berria"
+
+#: ../data/iagno.ui.h:6
 msgid "Start a new game"
 msgstr "Hasi joko berria"
+
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "Klasikoa"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+msgid "Black and White"
+msgstr "Zuri-beltza"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "Eguzkia eta izarra"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -156,137 +184,181 @@ msgid "From 1, the easiest, to 3, the hardest."
 msgstr "1-etik (errazena) 3-ra (zailena)."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
-msgid "Type of game"
-msgstr "Joko mota"
+msgid "Whether to play against the computer or another human."
+msgstr "Jokatu ordenagailuaren edo beste gizaki baten aurka."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-msgid "Choose the type of the next game."
-msgstr "Aukeratu hurrengo joko mota"
+msgid "Color to play as"
+msgstr "Kolorea (jokatzean erabiltzeko)"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr ""
+"Iluna edo Argia gisa jokatuko den adierazten du. Ez ikusi egingo zaio bi "
+"jokalariko jokoetan."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Gaia"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+"Erabiliko den gaiaren fitxategi-izena, edo 'default' (lehenetsia). Hauek "
+"eskaintzen dira: "
+"\"adwaita.theme\" (Adwaita), \"high_contrast.theme\" (Kontraste altua) eta "
+"\"sun_and_star.theme\" "
+"(Eguzkia eta izarra)."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
 msgstr "Soinua"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "Whether or not to play event sounds."
 msgstr "Gertaera-soinuak erreproduzituko diren ala ez adierazten du."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: ../data/org.gnome.iagno.gschema.xml.h:10
 msgid "Width of the window in pixels"
 msgstr "Leihoaren zabalera (pixeletan)"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: ../data/org.gnome.iagno.gschema.xml.h:11
 msgid "Height of the window in pixels"
 msgstr "Leihoaren altuera (pixeletan)"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
 msgstr "'true' (egia) leihoa maximizatuta badago"
 
-#: ../src/iagno.vala:60
+#: ../src/game-window.vala:141
+msgid "Undo your most recent move"
+msgstr "Desegin zure azken mugimendua"
+
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Hasi bestelako posizio batean"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Gutxiagotu atzerapena AAren mugimenduaren aurretik"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "Jokatu aurrenik"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "Ezarri ordenagailuaren AA maila"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Desaktibatu soinua"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "Jokatu bigarren"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Taularen tamaina (arazketarako soilik)"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Bi jokalarientzako jokoa"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Aktibatu soinua"
 
-#: ../src/iagno.vala:69
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Erakutsi bertsioaren informazioa eta irten"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:120
+#: ../src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "Tamaina gutxienez 4 izan behar du."
 
-#: ../src/iagno.vala:131
+#: ../src/iagno.vala:165
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Maila 1 (erreza) eta 3 (zaila) artekoa izan behar du. Ezarpenak aldatu gabe."
 
+#: ../src/iagno.vala:294
+msgid "A disk flipping game derived from Reversi"
+msgstr "Fitxak irauliz jolasten da, eta Reversi-n oinarritua dago"
+
+#: ../src/iagno.vala:297
+msgid "translator-credits"
+msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
+
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:342 ../src/iagno.vala:343
+#: ../src/iagno.vala:359 ../src/iagno.vala:360
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:423
+#: ../src/iagno.vala:432
 msgid "Light must pass, Dark’s move"
 msgstr "Zuriak paso egin behar du. Beltzaren txanda da"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:428
+#: ../src/iagno.vala:437
 msgid "Dark must pass, Light’s move"
 msgstr "Beltzak paso egin behar du. Zuriaren txanda da"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:437
+#: ../src/iagno.vala:448
 msgid "Light wins!"
 msgstr "Zuriak irabazi du!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:442
+#: ../src/iagno.vala:453
 msgid "Dark wins!"
 msgstr "Beltzak irabazi du!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:447
+#: ../src/iagno.vala:458
 msgid "The game is draw."
 msgstr "Berdinketa izan da."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:473
+#: ../src/iagno.vala:474
 msgid "You can’t move there!"
 msgstr "Ezin duzu horra eraman."
 
-#. the dialog is not in the ui file for the use-header-bar flag to be switchable
-#: ../src/iagno.vala:504
-msgid "Preferences"
-msgstr "Hobespenak"
+#~ msgid "_Preferences"
+#~ msgstr "_Hobespenak"
 
-#: ../src/iagno.vala:590
-msgid ""
-"A disk flipping game derived from Reversi\n"
-"\n"
-"Iagno is a part of GNOME Games."
-msgstr ""
-"Fitxak irauliz jolasten da, eta Reversi-n oinarritua dago.\n"
-"\n"
-"GNOME Games-ekoa da GNOME Iagno."
+#~ msgid "_Tile set:"
+#~ msgstr "_Fitxa-jokoa:"
 
-#: ../src/iagno.vala:593
-msgid "translator-credits"
-msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
+#~ msgid "Game Mode"
+#~ msgstr "Jokoaren modua"
+
+#~ msgid "Play _Dark"
+#~ msgstr "Jokatu _beltza"
+
+#~ msgid "Play _Light"
+#~ msgstr "Jokatu _Zuria"
+
+#~ msgid "Computer Player"
+#~ msgstr "Ordenagailu-jokalaria"
+
+#~ msgid "Start a game"
+#~ msgstr "Hasi jokoa"
+
+#~ msgid "Type of game"
+#~ msgstr "Joko mota"
+
+#~ msgid "Choose the type of the next game."
+#~ msgstr "Aukeratu hurrengo joko mota"
+
+#~ msgid "Preferences"
+#~ msgstr "Hobespenak"
 
 #~ msgid "Dark:"
 #~ msgstr "Beltzak:"
@@ -473,9 +545,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 #~ msgid "Opposing Player:"
 #~ msgstr "Jokalari aurkaria:"
 
-#~ msgid "Difficulty:"
-#~ msgstr "Zailtasuna:"
-
 #~ msgid "Game Duration:"
 #~ msgstr "Jokoaren iraupena:"
 
@@ -566,10 +635,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 #~ msgctxt "chess-side"
 #~ msgid "White Side"
 #~ msgstr "Zurien aldea"
-
-#~ msgctxt "chess-side"
-#~ msgid "Black Side"
-#~ msgstr "Beltzen aldea"
 
 #~ msgctxt "chess-side"
 #~ msgid "Human Side"
@@ -945,9 +1010,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 #~ msgid "Five or More Preferences"
 #~ msgstr "'Bost edo gehiago'ren hobespenak"
 
-#~ msgid "Appearance"
-#~ msgstr "Itxura"
-
 #~ msgid "_Image:"
 #~ msgstr "_Irudia:"
 
@@ -1215,9 +1277,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
 #~ msgid "Keyboard Controls"
 #~ msgstr "Teklatuko kontrolak"
-
-#~ msgid "Classic"
-#~ msgstr "Klasikoa"
 
 #~ msgid "Red"
 #~ msgstr "Gorria"
@@ -2756,12 +2815,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 #~ msgid "5 of a Kind [total]"
 #~ msgstr "5 mota berdinekoak [guztira]"
 
-#~ msgid "Dark"
-#~ msgstr "Iluna"
-
-#~ msgid "Light"
-#~ msgstr "Argia"
-
 #~ msgid "Unknown Command"
 #~ msgstr "Komando ezezaguna"
 
@@ -2828,9 +2881,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
 #~ msgid "Close this window"
 #~ msgstr "Leiho hau ixten du"
-
-#~ msgid "Configure the game"
-#~ msgstr "Jokoa konfiguratzen du"
 
 #~ msgid "Quit this game"
 #~ msgstr "Jokotik irteten da"
@@ -3005,9 +3055,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 #~ msgid "_Select map:"
 #~ msgstr "_Hautatu mapa:"
 
-#~ msgid "Colors"
-#~ msgstr "Koloreak"
-
 #~ msgid "Maps:"
 #~ msgstr "Mapak:"
 
@@ -3161,9 +3208,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
 #~ msgid "Show _where the block will land"
 #~ msgstr "Erakutsi _blokea nora helduko den"
-
-#~ msgid "Theme"
-#~ msgstr "Gaia"
 
 #~ msgid "Controls"
 #~ msgstr "Kontrolak"
@@ -3728,9 +3772,6 @@ msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
 #~ msgid "Whether or not to show the toolbar"
 #~ msgstr "Tresna-barra erakutsiko den ala ez adierazten du."
-
-#~ msgid "Select Game"
-#~ msgstr "Hautatu jokoa"
 
 #~ msgid "_Select"
 #~ msgstr "_Hautatu"
