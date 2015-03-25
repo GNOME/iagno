@@ -47,24 +47,6 @@
             <property name="width-request">350</property>
             <property name="height-request">350</property>
             <property name="spacing">6</property>
-            <child>
-              <object class="GtkButton" id="start_game_button">
-                <property name="visible">True</property>
-                <property name="use-underline">True</property>
-                <property name="label" translatable="yes">_Start Game</property>
-                <!-- <property name="tooltip-text" translatable="yes">Start a new game as configured</property> TODO -->
-                <property name="action-name">win.start-game</property>
-                <property name="width-request">222</property>
-                <property name="height-request">60</property>
-                <property name="halign">center</property>
-                <style><class name="suggested-action"/></style>
-              </object>
-              <packing>
-                <property name="pack-type">end</property>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-              </packing>
-            </child>
           </object>
           <packing>
             <property name="name">start-box</property>

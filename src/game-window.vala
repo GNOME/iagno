@@ -24,7 +24,8 @@ using Gtk;
 public enum GameWindowFlags {
     SHOW_UNDO,
     SHOW_REDO,
-    SHOW_HINT;
+    SHOW_HINT,
+    SHOW_START_BUTTON;
 }
 
 [GtkTemplate (ui = "/org/gnome/iagno/ui/game-window.ui")]
@@ -44,10 +45,9 @@ public class GameWindow : ApplicationWindow
     [GtkChild]
     private Stack stack;
 
+    private Button? start_game_button = null;
     [GtkChild]
     private Button new_game_button;
-    [GtkChild]
-    private Button start_game_button;
     [GtkChild]
     private Button back_button;
 
@@ -123,6 +123,18 @@ public class GameWindow : ApplicationWindow
 
         /* add widgets */
         new_game_box.pack_start (new_game_screen, true, true, 0);
+        if (GameWindowFlags.SHOW_START_BUTTON in flags)
+        {
+            start_game_button = new Button.with_mnemonic (_("_Start Game"));
+            // start_game_button.set_tooltip_text (_("Start a new game as configured"));
+            start_game_button.width_request = 222;
+            start_game_button.height_request = 60;
+            start_game_button.halign = Align.CENTER;
+            start_game_button.set_action_name ("win.start-game");
+            ((StyleContext) start_game_button.get_style_context ()).add_class ("suggested-action");
+            start_game_button.show ();
+            new_game_box.pack_end (start_game_button, false, false, 0);
+        }
 
         game_box.pack_start (view, true, true, 0);
         game_box.set_focus_child (view);            // TODO test if necessary; note: view could grab focus from application
@@ -244,7 +256,7 @@ public class GameWindow : ApplicationWindow
 
         if (!game_finished && back_button.visible)
             back_button.grab_focus ();
-        else
+        else if (start_game_button != null)
             start_game_button.grab_focus ();
     }
 
