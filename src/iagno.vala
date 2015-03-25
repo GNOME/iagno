@@ -141,31 +141,14 @@ public class Iagno : Gtk.Application
         bool start_now = (two_players == true) || (play_first != null);
         if (start_now)
             settings.set_int ("num-players", two_players ? 2 : 1);
-        else /* hack, part 1 of 4 */
-            two_players = (settings.get_int ("num-players") == 2);
 
-        string color;
         if (play_first != null)
-        {
-            color = play_first ? "dark" : "light";
-            settings.set_string ("color", color);
-        }
-        else /* hack, part 2 of 4 */
-            color = settings.get_string ("color");
+            settings.set_string ("color", play_first ? "dark" : "light");
 
-        int computer_level;
         if (level == "1" || level == "2" || level == "3")
-        {
-            computer_level = int.parse (level);
-            settings.set_int ("computer-level", computer_level);
-        }
-        else
-        {
-            if (level != null)
-                stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
-            /* hack, part 3 of 4 */
-            computer_level = settings.get_int ("computer-level");
-        }
+            settings.set_int ("computer-level", int.parse (level));
+        else if (level != null)
+            stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
 
         /* UI parts */
         Builder builder = new Builder.from_resource ("/org/gnome/iagno/ui/iagno-screens.ui");
@@ -204,8 +187,6 @@ public class Iagno : Gtk.Application
         set_accels_for_action ("win.redo", {"<Primary><Shift>z"});
         set_accels_for_action ("win.back", {"Escape"});
         add_action (settings.create_action ("sound"));
-        /* TODO bugs when changing manually the gsettings key (not for sound);
-         * solving this bug may remove the need of the hack in four parts */
         add_action (settings.create_action ("color"));
         add_action (settings.create_action ("num-players"));
         add_action (settings.create_action ("computer-level"));
@@ -229,14 +210,6 @@ public class Iagno : Gtk.Application
             start_game ();
 
         add_window (window);
-
-        /* Hack for restoring radiobuttons settings, part 4 of 4.
-         * When you add_window(), settings are initialized with the value
-         * of the first radiobutton of the group found in the UI file. */
-        GLib.Settings.sync ();
-        settings.set_string ("color", color);
-        settings.set_int ("computer-level", computer_level);
-        settings.set_int ("num-players", two_players ? 2 : 1);
     }
 
     protected override void activate ()
