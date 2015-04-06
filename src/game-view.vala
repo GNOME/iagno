@@ -52,6 +52,11 @@ public class GameView : Gtk.DrawingArea
     private double spacing_blue = 0.2;
     private int spacing_width = 2;
 
+    private double highlight_red = 0.1;
+    private double highlight_green = 0.3;
+    private double highlight_blue = 0.2;
+    private double highlight_alpha = 0.4;
+
     // private int margin_width = 0;
 
     public string sound_flip     { get; private set; }
@@ -60,8 +65,15 @@ public class GameView : Gtk.DrawingArea
     /* Utilities, see calculate () */
     private int tile_size;
     private int board_size;
-    private int x_offset { get { return (get_allocated_width () - board_size) / 2 + border_width; }}
-    private int y_offset { get { return (get_allocated_height () - board_size) / 2 + border_width; }}
+    private int board_x { get { return (get_allocated_width () - board_size) / 2; }}
+    private int board_y { get { return (get_allocated_height () - board_size) / 2; }}
+
+    /* Keyboard */
+    private bool show_highlight;
+    private int highlight_x;
+    private int highlight_y;
+    private int highlight_state;
+    private const int HIGHLIGHT_MAX = 5;
 
     /* Delay in milliseconds between tile flip frames */
     private const int PIXMAP_FLIP_DELAY = 20;
@@ -102,6 +114,12 @@ public class GameView : Gtk.DrawingArea
                     for (int y = 0; y < game.size; y++)
                         pixmaps[x, y] = get_pixmap (_game.get_owner (x, y));
             }
+
+            show_highlight = false;
+            highlight_x = 3;    // TODO default on 3 3 / 4 4 (on 8×8 board) when dark and
+            highlight_y = 3;    // 3 4 / 4 3 when light, depending on first key pressed
+            highlight_state = 0;
+
             queue_draw ();
         }
     }
@@ -190,6 +208,11 @@ public class GameView : Gtk.DrawingArea
             spacing_blue     = key.get_double  ("Spacing", "Blue");
             spacing_width    = key.get_integer ("Spacing", "Width");
 
+            highlight_red    = key.get_double  ("Highlight", "Red");
+            highlight_green  = key.get_double  ("Highlight", "Green");
+            highlight_blue   = key.get_double  ("Highlight", "Blue");
+            highlight_alpha  = key.get_double  ("Highlight", "Alpha");
+
             // margin_width = key.get_integer  ("Margin", "Width");
 
             sound_flip       = key.get_string  ("Sound", "Flip");
@@ -212,8 +235,8 @@ public class GameView : Gtk.DrawingArea
         int size = int.min (get_allocated_width (), get_allocated_height ());
         /* tile_size includes a grid spacing */
         tile_size = (size - 2 * border_width + spacing_width) / game.size;
-        /* board_size includes its borders */
-        board_size = tile_size * game.size - spacing_width + 2 * border_width;
+        /* board_size excludes its borders */
+        board_size = tile_size * game.size - spacing_width;
     }
 
     public override bool draw (Cairo.Context cr)
@@ -232,11 +255,11 @@ public class GameView : Gtk.DrawingArea
             tiles_pattern = new Cairo.Pattern.for_surface (surface);
         }
 
-        cr.translate (x_offset, y_offset);
+        cr.translate (board_x, board_y);
 
-        /* draw background; TODO save for border */
+        /* draw background */
         cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
-        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size - border_width, board_size - border_width);
+        cr.rectangle (0, 0, board_size, board_size);
         cr.fill ();
 
         /* draw lines */
@@ -245,18 +268,37 @@ public class GameView : Gtk.DrawingArea
         for (var i = 1; i < game.size; i++)
         {
             cr.move_to (i * tile_size - spacing_width / 2.0, 0);
-            cr.rel_line_to (0, board_size - border_width);
+            cr.rel_line_to (0, board_size);
 
             cr.move_to (0, i * tile_size - spacing_width / 2.0);
-            cr.rel_line_to (board_size - border_width, 0);
+            cr.rel_line_to (board_size, 0);
         }
         cr.stroke ();
 
         /* draw border */
         cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
         cr.set_line_width (border_width);
-        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size - border_width, board_size - border_width);
+        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size + border_width, board_size + border_width);
         cr.stroke ();
+
+        /* draw highlight */
+        if ((show_highlight || highlight_state != 0) && !game.is_complete)
+        {
+            if (show_highlight && highlight_state != HIGHLIGHT_MAX)
+            {
+                highlight_state ++;
+                queue_draw_area (board_x + highlight_x * tile_size, board_y + highlight_y * tile_size, tile_size, tile_size);
+            }
+            else if (!show_highlight && highlight_state != 0)
+                highlight_state = 0;    // TODO highlight_state--; when mouse clicking, conflict updating coords & showing the anim on previous place
+
+            cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
+            cr.rectangle (highlight_x * tile_size + (tile_size - spacing_width) * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
+                          highlight_y * tile_size + (tile_size - spacing_width) * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
+                          (tile_size - spacing_width) * highlight_state / HIGHLIGHT_MAX,
+                          (tile_size - spacing_width) * highlight_state / HIGHLIGHT_MAX);
+            cr.fill ();
+        }
 
         /* draw pieces */
         cr.translate (-spacing_width / 2, -spacing_width / 2);
@@ -315,7 +357,7 @@ public class GameView : Gtk.DrawingArea
 
     private void square_changed_cb (int x, int y)
     {
-        var pixmap = get_pixmap (game.get_owner (x, y));
+        int pixmap = get_pixmap (game.get_owner (x, y));
 
         /* Show the result by laying the tiles with winning color first */
         if (flip_final_result_now && game.is_complete)
@@ -378,7 +420,7 @@ public class GameView : Gtk.DrawingArea
             if (animate_timeout == 0)
                 animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, animate_cb);
         }
-        queue_draw_area (x_offset + x * tile_size, y_offset + y * tile_size, tile_size, tile_size);
+        queue_draw_area (board_x + x * tile_size, board_y + y * tile_size, tile_size, tile_size);
     }
 
     private bool animate_cb ()
@@ -389,7 +431,7 @@ public class GameView : Gtk.DrawingArea
         {
             for (int y = 0; y < game.size; y++)
             {
-                var old = pixmaps[x, y];
+                int old = pixmaps[x, y];
                 square_changed_cb (x, y);
                 if (pixmaps[x, y] != old)
                     animating = true;
@@ -423,12 +465,116 @@ public class GameView : Gtk.DrawingArea
     {
         if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
         {
-            var x = (int) (event.x - x_offset) / tile_size;
-            var y = (int) (event.y - y_offset) / tile_size;
+            int x = (int) (event.x - board_x) / tile_size;
+            int y = (int) (event.y - board_y) / tile_size;
             if (x >= 0 && x < game.size && y >= 0 && y < game.size)
+            {
+                show_highlight = false;
+                queue_draw ();
+                highlight_x = x;
+                highlight_y = y;
                 move (x, y);
+            }
         }
 
+        return true;
+    }
+
+    public override bool key_press_event (Gdk.EventKey event)
+    {
+        string key = Gdk.keyval_name (event.keyval);
+
+        if (show_highlight && (key == "space" || key == "Return" || key == "KP_Enter"))
+        {
+            move (highlight_x, highlight_y);
+            return true;
+        }
+
+        if ((game.size <= 4 && (key == "e" || key == "5" || key == "KP_5")) ||
+            (game.size <= 5 && (key == "f" || key == "6" || key == "KP_6")) ||
+            (game.size <= 6 && (key == "g" || key == "7" || key == "KP_7")) ||
+            (game.size <= 7 && (key == "h" || key == "8" || key == "KP_8")) ||
+            (game.size <= 8 && (key == "i" || key == "9" || key == "KP_9")) ||
+            (game.size <= 9 && (key == "j" || key == "0" || key == "KP_0")))
+            return false;
+
+        switch (key)
+        {
+            case "Left":
+            case "KP_Left":
+                if (highlight_x > 0) highlight_x --;
+                break;
+            case "Right":
+            case "KP_Right":
+                if (highlight_x < game.size - 1) highlight_x ++;
+                break;
+            case "Up":
+            case "KP_Up":
+                if (highlight_y > 0) highlight_y --;
+                break;
+            case "Down":
+            case "KP_Down":
+                if (highlight_y < game.size - 1) highlight_y ++;
+                break;
+
+            case "space":
+            case "Return":
+            case "KP_Enter":
+
+            case "Escape": break;
+
+            case "a": highlight_x = 0; break;
+            case "b": highlight_x = 1; break;
+            case "c": highlight_x = 2; break;
+            case "d": highlight_x = 3; break;
+            case "e": highlight_x = 4; break;
+            case "f": highlight_x = 5; break;
+            case "g": highlight_x = 6; break;
+            case "h": highlight_x = 7; break;
+            case "i": highlight_x = 8; break;
+            case "j": highlight_x = 9; break;
+
+            case "1": case "KP_1": highlight_y = 0; break;
+            case "2": case "KP_2": highlight_y = 1; break;
+            case "3": case "KP_3": highlight_y = 2; break;
+            case "4": case "KP_4": highlight_y = 3; break;
+            case "5": case "KP_5": highlight_y = 4; break;
+            case "6": case "KP_6": highlight_y = 5; break;
+            case "7": case "KP_7": highlight_y = 6; break;
+            case "8": case "KP_8": highlight_y = 7; break;
+            case "9": case "KP_9": highlight_y = 8; break;
+            case "0": case "KP_0": highlight_y = 9; break;
+
+            case "Home":
+            case "KP_Home":
+                highlight_x = 0;
+                break;
+            case "End":
+            case "KP_End":
+                highlight_x = game.size - 1;
+                break;
+            case "Page_Up":
+            case "KP_Page_Up":
+                highlight_y = 0;
+                break;
+            case "Page_Down":
+            case "KP_Next":     // TODO use KP_Page_Down instead of KP_Next, probably a gtk+ or vala bug; check also KP_Prior
+                highlight_y = game.size - 1;
+                break;
+
+            // allow <Tab> and <Shift><Tab> to change focus
+            default:
+                return false;
+        }
+
+        if (key == "Escape")
+            show_highlight = false;
+        else if (show_highlight)
+            highlight_state = HIGHLIGHT_MAX;
+        else
+            show_highlight = true;
+
+        queue_draw ();      // TODO is a queue_draw_area usable somehow here?
         return true;
     }
 

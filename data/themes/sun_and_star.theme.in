@@ -30,6 +30,12 @@ Green=0.3
 Blue=0.2
 Width=2
 
+[Highlight]
+Red=0.1
+Green=0.3
+Blue=0.2
+Alpha=0.4
+
 [Margin]
 #Width=0
 
