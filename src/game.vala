@@ -46,7 +46,7 @@ public class Game : Object
     /* Indicate that a player should move */
     public signal void turn_ended ();
     /* Indicate a square has changed */
-    public signal void square_changed (int x, int y);
+    public signal void square_changed (int x, int y, Player new_color);
 
     /*\
     * * Number of tiles on the board
@@ -339,7 +339,7 @@ public class Game : Object
         history_index++;
         undo_stack[history_index] = x + y * size;
         tiles[x, y] = current_color;
-        square_changed (x, y);
+        square_changed (x, y, current_color);
     }
 
     /*\
@@ -388,6 +388,6 @@ public class Game : Object
         var x = tile_number % size;
         var y = tile_number / size;
         tiles [x, y] = replacement_color;
-        square_changed (x, y);
+        square_changed (x, y, replacement_color);
     }
 }

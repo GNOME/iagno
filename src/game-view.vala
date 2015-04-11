@@ -355,7 +355,17 @@ public class GameView : Gtk.DrawingArea
         }
     }
 
-    private void square_changed_cb (int x, int y)
+    private void square_changed_cb (int x, int y, Player replacement)
+    {
+        if (replacement == Player.NONE)
+        {
+            highlight_x = x;
+            highlight_y = y;
+        }
+        update_square (x, y);
+    }
+
+    private void update_square (int x, int y)
     {
         int pixmap = get_pixmap (game.get_owner (x, y));
 
@@ -398,7 +408,7 @@ public class GameView : Gtk.DrawingArea
              */
             Timeout.add_seconds (2, () =>  {
                 flip_final_result_now = true;
-                square_changed_cb (x, y);
+                update_square (x, y);
                 return Source.REMOVE;
             });
         }
@@ -432,7 +442,7 @@ public class GameView : Gtk.DrawingArea
             for (int y = 0; y < game.size; y++)
             {
                 int old = pixmaps[x, y];
-                square_changed_cb (x, y);
+                update_square (x, y);
                 if (pixmaps[x, y] != old)
                     animating = true;
             }
