@@ -1,6 +1,7 @@
 3.16.1 - April 13, 2015
 =============================
 
+* Temporarily remove Sun and Star theme, that causes a memory leak
 * HighContrast icons removed (as the symbolic one is now used)
 * Translations updates: basque, ukrainian and brazilian portuguese
 

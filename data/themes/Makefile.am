@@ -2,8 +2,7 @@ themes_keydir = $(datadir)/iagno/themes/key
 themes_key_in_files = \
 	adwaita.theme.in \
 	classic.theme.in \
-	high_contrast.theme.in \
-	sun_and_star.theme.in
+	high_contrast.theme.in
 themes_key_DATA = $(themes_key_in_files:.theme.in=.theme)
 
 %.theme: %.theme.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po)
