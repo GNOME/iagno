@@ -63,6 +63,7 @@ public class GameView : Gtk.DrawingArea
     public string sound_gameover { get; private set; }
 
     /* Utilities, see calculate () */
+    private int paving_size;
     private int tile_size;
     private int board_size;
     private int board_x { get { return (get_allocated_width () - board_size) / 2; }}
@@ -233,10 +234,10 @@ public class GameView : Gtk.DrawingArea
     private void calculate ()
     {
         int size = int.min (get_allocated_width (), get_allocated_height ());
-        /* tile_size includes a grid spacing */
-        tile_size = (size - 2 * border_width + spacing_width) / game.size;
+        paving_size = (size - 2 * border_width + spacing_width) / game.size;
+        tile_size = paving_size - spacing_width;
         /* board_size excludes its borders */
-        board_size = tile_size * game.size - spacing_width;
+        board_size = paving_size * game.size - spacing_width;
     }
 
     public override bool draw (Cairo.Context cr)
@@ -257,60 +258,51 @@ public class GameView : Gtk.DrawingArea
 
         cr.translate (board_x, board_y);
 
-        /* draw background */
-        cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
-        cr.rectangle (0, 0, board_size, board_size);
-        cr.fill ();
-
-        /* draw lines */
+        /* draw board */
         cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
-        cr.set_line_width (spacing_width);
-        for (var i = 1; i < game.size; i++)
-        {
-            cr.move_to (i * tile_size - spacing_width / 2.0, 0);
-            cr.rel_line_to (0, board_size);
-
-            cr.move_to (0, i * tile_size - spacing_width / 2.0);
-            cr.rel_line_to (board_size, 0);
-        }
-        cr.stroke ();
-
-        /* draw border */
+        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size + border_width, board_size + border_width);
+        cr.fill_preserve ();
         cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
         cr.set_line_width (border_width);
-        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size + border_width, board_size + border_width);
         cr.stroke ();
 
-        /* draw highlight */
-        if ((show_highlight || highlight_state != 0) && !game.is_complete)
-        {
-            if (show_highlight && highlight_state != HIGHLIGHT_MAX)
-            {
-                highlight_state ++;
-                queue_draw_area (board_x + highlight_x * tile_size, board_y + highlight_y * tile_size, tile_size, tile_size);
-            }
-            else if (!show_highlight && highlight_state != 0)
-                highlight_state = 0;    // TODO highlight_state--; when mouse clicking, conflict updating coords & showing the anim on previous place
-
-            cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
-            cr.rectangle (highlight_x * tile_size + (tile_size - spacing_width) * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
-                          highlight_y * tile_size + (tile_size - spacing_width) * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
-                          (tile_size - spacing_width) * highlight_state / HIGHLIGHT_MAX,
-                          (tile_size - spacing_width) * highlight_state / HIGHLIGHT_MAX);
-            cr.fill ();
-        }
-
-        /* draw pieces */
-        cr.translate (-spacing_width / 2, -spacing_width / 2);
+        /* draw tiles */
         for (var x = 0; x < game.size; x++)
         {
             for (var y = 0; y < game.size; y++)
             {
+                int tile_x = x * paving_size;
+                int tile_y = y * paving_size;
+
+                /* draw background */
+                cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
+                cr.rectangle (tile_x, tile_y, tile_size, tile_size);
+                cr.fill ();
+
+                if (highlight_x == x && highlight_y == y && (show_highlight || highlight_state != 0) && !game.is_complete)  // TODO on game.is_complete…
+                {
+                    /* manage animated highlight */
+                    if (show_highlight && highlight_state != HIGHLIGHT_MAX)
+                    {
+                        highlight_state ++;
+                        queue_draw_area (board_x + tile_x, board_y + tile_y, tile_size, tile_size);
+                    }
+                    else if (!show_highlight && highlight_state != 0)
+                        highlight_state = 0;    // TODO highlight_state--; on mouse click, conflict updating coords & showing the anim on previous place
+
+                    /* draw animated highlight */
+                    cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
+                    cr.rectangle (tile_x + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),     // TODO odd/even sizes problem
+                                  tile_y + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
+                                  tile_size * highlight_state / HIGHLIGHT_MAX,
+                                  tile_size * highlight_state / HIGHLIGHT_MAX);
+                    cr.fill ();
+                }
+
+                /* draw pieces */
                 if (pixmaps[x, y] == 0)
                     continue;
 
-                int tile_x = x * tile_size;
-                int tile_y = y * tile_size;
                 int texture_x = (pixmaps[x, y] % 8) * tile_size;
                 int texture_y = (pixmaps[x, y] / 8) * tile_size;
 
@@ -430,7 +422,7 @@ public class GameView : Gtk.DrawingArea
             if (animate_timeout == 0)
                 animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, animate_cb);
         }
-        queue_draw_area (board_x + x * tile_size, board_y + y * tile_size, tile_size, tile_size);
+        queue_draw_area (board_x + x * paving_size, board_y + y * paving_size, tile_size, tile_size);
     }
 
     private bool animate_cb ()
@@ -475,8 +467,8 @@ public class GameView : Gtk.DrawingArea
     {
         if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
         {
-            int x = (int) (event.x - board_x) / tile_size;
-            int y = (int) (event.y - board_y) / tile_size;
+            int x = (int) (event.x - board_x) / paving_size;
+            int y = (int) (event.y - board_y) / paving_size;
             if (x >= 0 && x < game.size && y >= 0 && y < game.size)
             {
                 show_highlight = false;
