@@ -34,7 +34,7 @@ public class Iagno : Gtk.Application
 
     /* Seconds */
     private static const double QUICK_MOVE_DELAY = 0.4;
-    private static const double MODERATE_MOVE_DELAY = 1.0;
+    private static const double MODERATE_MOVE_DELAY = 1.7;
     private static const double SLOW_MOVE_DELAY = 2.0;
 
     /* Widgets */
@@ -316,7 +316,7 @@ public class Iagno : Gtk.Application
         update_ui ();
 
         if (player_one != Player.DARK && computer != null)
-            computer.move_async.begin (MODERATE_MOVE_DELAY);
+            computer.move_async.begin (MODERATE_MOVE_DELAY);     // TODO MODERATE_MOVE_DELAY = 1.0, but after the sliding animation…
     }
 
     private void update_ui ()
@@ -384,12 +384,7 @@ public class Iagno : Gtk.Application
          * but not so long as to become boring.
          */
         if (game.current_color != player_one && computer != null)
-        {
-            if (fast_mode)
-                computer.move_async.begin (QUICK_MOVE_DELAY);
-            else
-                computer.move_async.begin (SLOW_MOVE_DELAY);
-        }
+            computer.move_async.begin (fast_mode ? QUICK_MOVE_DELAY : SLOW_MOVE_DELAY);
     }
 
     private void pass ()
