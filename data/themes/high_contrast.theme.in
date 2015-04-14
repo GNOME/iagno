@@ -11,6 +11,8 @@ File=high_contrast.svg
 Red=1.0
 Green=1.0
 Blue=1.0
+# Radius=9
+Radius=0
 
 [Mark]
 Red=0.0

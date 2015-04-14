@@ -36,6 +36,7 @@ public class GameView : Gtk.DrawingArea
     private double background_red = 0.2;
     private double background_green = 0.6;
     private double background_blue = 0.4;
+    private int background_radius = 0;
 
     private double mark_red = 0.2;
     private double mark_green = 0.6;
@@ -190,34 +191,35 @@ public class GameView : Gtk.DrawingArea
             if (Path.get_dirname (pieces_file) != svg_path)
                 pieces_file = Path.build_filename (svg_path, "black_and_white.svg");
 
-            background_red   = key.get_double  ("Background", "Red");
-            background_green = key.get_double  ("Background", "Green");
-            background_blue  = key.get_double  ("Background", "Blue");
+            background_red    = key.get_double  ("Background", "Red");
+            background_green  = key.get_double  ("Background", "Green");
+            background_blue   = key.get_double  ("Background", "Blue");
+            background_radius = key.get_integer ("Background", "Radius");
 
-            mark_red         = key.get_double  ("Mark", "Red");
-            mark_green       = key.get_double  ("Mark", "Green");
-            mark_blue        = key.get_double  ("Mark", "Blue");
-            mark_width       = key.get_integer ("Mark", "Width");
+            mark_red          = key.get_double  ("Mark", "Red");
+            mark_green        = key.get_double  ("Mark", "Green");
+            mark_blue         = key.get_double  ("Mark", "Blue");
+            mark_width        = key.get_integer ("Mark", "Width");
 
-            border_red       = key.get_double  ("Border", "Red");
-            border_green     = key.get_double  ("Border", "Green");
-            border_blue      = key.get_double  ("Border", "Blue");
-            border_width     = key.get_integer ("Border", "Width");
+            border_red        = key.get_double  ("Border", "Red");
+            border_green      = key.get_double  ("Border", "Green");
+            border_blue       = key.get_double  ("Border", "Blue");
+            border_width      = key.get_integer ("Border", "Width");
 
-            spacing_red      = key.get_double  ("Spacing", "Red");
-            spacing_green    = key.get_double  ("Spacing", "Green");
-            spacing_blue     = key.get_double  ("Spacing", "Blue");
-            spacing_width    = key.get_integer ("Spacing", "Width");
+            spacing_red       = key.get_double  ("Spacing", "Red");
+            spacing_green     = key.get_double  ("Spacing", "Green");
+            spacing_blue      = key.get_double  ("Spacing", "Blue");
+            spacing_width     = key.get_integer ("Spacing", "Width");
 
-            highlight_red    = key.get_double  ("Highlight", "Red");
-            highlight_green  = key.get_double  ("Highlight", "Green");
-            highlight_blue   = key.get_double  ("Highlight", "Blue");
-            highlight_alpha  = key.get_double  ("Highlight", "Alpha");
+            highlight_red     = key.get_double  ("Highlight", "Red");
+            highlight_green   = key.get_double  ("Highlight", "Green");
+            highlight_blue    = key.get_double  ("Highlight", "Blue");
+            highlight_alpha   = key.get_double  ("Highlight", "Alpha");
 
-            // margin_width = key.get_integer  ("Margin", "Width");
+            // margin_width     = key.get_integer  ("Margin", "Width");
 
-            sound_flip       = key.get_string  ("Sound", "Flip");
-            sound_gameover   = key.get_string  ("Sound", "GameOver");
+            sound_flip          = key.get_string  ("Sound", "Flip");
+            sound_gameover      = key.get_string  ("Sound", "GameOver");
         }
         catch (KeyFileError e)      // TODO better
         {
@@ -276,7 +278,7 @@ public class GameView : Gtk.DrawingArea
 
                 /* draw background */
                 cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
-                cr.rectangle (tile_x, tile_y, tile_size, tile_size);
+                rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
                 cr.fill ();
 
                 if (highlight_x == x && highlight_y == y && (show_highlight || highlight_state != 0) && !game.is_complete)  // TODO on game.is_complete…
@@ -292,10 +294,12 @@ public class GameView : Gtk.DrawingArea
 
                     /* draw animated highlight */
                     cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
-                    cr.rectangle (tile_x + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),     // TODO odd/even sizes problem
-                                  tile_y + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
-                                  tile_size * highlight_state / HIGHLIGHT_MAX,
-                                  tile_size * highlight_state / HIGHLIGHT_MAX);
+                    rounded_square (cr,
+                                    tile_x + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),     // TODO odd/even sizes problem
+                                    tile_y + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
+                                    tile_size * highlight_state / HIGHLIGHT_MAX,
+                                    0,
+                                    background_radius);
                     cr.fill ();
                 }
 
@@ -315,6 +319,30 @@ public class GameView : Gtk.DrawingArea
             }
         }
         return false;
+    }
+
+    private void rounded_square (Cairo.Context cr, double x, double y, int size, double width, double radius_percent)
+    {
+        if (radius_percent <= 0)
+        {
+            cr.rectangle (x + width / 2.0, y + width / 2.0, size + width, size + width);
+            return;
+        }
+
+        if (radius_percent > 50)
+            radius_percent = 50;
+        double radius_border = radius_percent * size / 100.0;
+        double radius_arc = radius_border - width / 2.0;
+        double x1 = x + radius_border;
+        double y1 = y + radius_border;
+        double x2 = x + size - radius_border;
+        double y2 = y + size - radius_border;
+
+        cr.arc (x1, y1, radius_arc, Math.PI, Math.PI * 3 / 2.0);
+        cr.arc (x2, y1, radius_arc, Math.PI * 3 / 2.0, 0);
+        cr.arc (x2, y2, radius_arc, 0, Math.PI / 2.0);
+        cr.arc (x1, y2, radius_arc, Math.PI / 2.0, Math.PI);
+        cr.arc (x1, y1, radius_arc, Math.PI, Math.PI * 3 / 2.0);
     }
 
     private void load_image (Cairo.Context c, int width, int height)

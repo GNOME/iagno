@@ -11,6 +11,8 @@ File=black_and_white.svg
 Red=0.2
 Green=0.4
 Blue=0.6
+# Radius=9
+Radius=2
 
 [Mark]
 Red=0.2
