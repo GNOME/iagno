@@ -1,3 +1,11 @@
+3.17.1 - April 28, 2015
+=============================
+
+* Add keyboard support
+* Update drawing function
+* HighContrast icons removed (as the symbolic one is now used)
+* Translations updates: basque, ukrainian and brazilian portuguese
+
 3.16.0 - March 23, 2015
 =============================
 
