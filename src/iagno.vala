@@ -145,10 +145,18 @@ public class Iagno : Gtk.Application
         if (play_first != null)
             settings.set_string ("color", play_first ? "dark" : "light");
 
-        if (level == "1" || level == "2" || level == "3")
+        // TODO start one-player game immediately, if two_players == false
+        if (level == "1" || level == "2" || level == "3")   // TODO add a localized text option?
             settings.set_int ("computer-level", int.parse (level));
+        else if (level == "one")    /*  || level == "easy" */
+            settings.set_int ("computer-level", 1);
+        else if (level == "two")    /*  || level == "medium" */
+            settings.set_int ("computer-level", 2);
+        else if (level == "three")  /*  || level == "hard" */
+            settings.set_int ("computer-level", 3);
         else if (level != null)
             stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
+        //  stderr.printf ("%s\n", _("Level should be 1 (easy), 2 (medium) or 3 (hard). Settings unchanged."));     // TODO better?
 
         /* UI parts */
         Builder builder = new Builder.from_resource ("/org/gnome/iagno/ui/iagno-screens.ui");
@@ -191,8 +199,8 @@ public class Iagno : Gtk.Application
         add_action (settings.create_action ("num-players"));
         add_action (settings.create_action ("computer-level"));
 
-        var level_box = (Box) builder.get_object ("difficulty-box");
-        var color_box = (Box) builder.get_object ("color-box");
+        Box level_box = (Box) builder.get_object ("difficulty-box");
+        Box color_box = (Box) builder.get_object ("color-box");
         settings.changed["num-players"].connect (() => {
             bool solo = settings.get_int ("num-players") == 1;
             level_box.sensitive = solo;
