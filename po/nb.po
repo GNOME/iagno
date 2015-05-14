@@ -5,10 +5,10 @@
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: iagno 3.15.x\n"
+"Project-Id-Version: iagno 3.17.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 17:55+0100\n"
-"PO-Revision-Date: 2015-02-10 17:56+0100\n"
+"POT-Creation-Date: 2015-05-14 16:44+0200\n"
+"PO-Revision-Date: 2015-05-14 16:46+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../data/iagno.ui.h:1 ../src/iagno.vala:93 ../src/iagno.vala:532
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -58,72 +58,104 @@ msgid "Two players game"
 msgstr "Spill med to spillere"
 
 #: ../data/iagno-menus.ui.h:1
+msgid "A_ppearance"
+msgstr "Ut_seende"
+
+#: ../data/iagno-menus.ui.h:2
 msgid "_Sound"
 msgstr "_Lyd"
 
-#: ../data/iagno-menus.ui.h:2
+#: ../data/iagno-menus.ui.h:3
 msgid "_Help"
 msgstr "_Hjelp"
 
-#: ../data/iagno-menus.ui.h:3
+#: ../data/iagno-menus.ui.h:4
 msgid "_About"
 msgstr "_Om"
 
-#: ../data/iagno-menus.ui.h:4
+#: ../data/iagno-menus.ui.h:5
 msgid "_Quit"
 msgstr "A_vslutt"
 
-#: ../data/iagno.ui.h:2
-msgid "Undo your most recent move"
-msgstr "Angre siste trekk"
+#: ../data/iagno-screens.ui.h:1
+msgid "Players"
+msgstr "Spillere"
 
-#: ../data/iagno.ui.h:3
-msgid "Go back to the current game"
-msgstr "Gå tilbake til aktivt spill"
-
-#: ../data/iagno.ui.h:4
+#: ../data/iagno-screens.ui.h:2
 msgid "_One"
 msgstr "_En"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno-screens.ui.h:3
 msgid "_Two"
 msgstr "_To"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno-screens.ui.h:4
+msgid "Difficulty"
+msgstr "Vanskelighet"
+
+#: ../data/iagno-screens.ui.h:5
 msgid "_Easy"
 msgstr "L_ett"
 
-#: ../data/iagno.ui.h:7
+#: ../data/iagno-screens.ui.h:6
 msgid "_Medium"
 msgstr "_Middels"
 
-#: ../data/iagno.ui.h:8
+#: ../data/iagno-screens.ui.h:7
 msgid "_Hard"
 msgstr "_Vanskelig"
 
-#: ../data/iagno.ui.h:9
+#: ../data/iagno-screens.ui.h:8
+msgid "Color"
+msgstr "Farge"
+
+#: ../data/iagno-screens.ui.h:9
 msgid "_Dark"
 msgstr "_Mørk"
 
-#: ../data/iagno.ui.h:10
+#: ../data/iagno-screens.ui.h:10
 msgid "_Light"
 msgstr "_Lys"
 
-#: ../data/iagno.ui.h:11
-msgid "_Start Game"
-msgstr "_Start spill"
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "Velg tema"
 
-#: ../data/iagno.ui.h:12
-msgid "Start a game"
-msgstr "Start et spill"
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "Forvalgt"
 
-#: ../data/iagno.ui.h:13
+#: ../data/iagno.ui.h:1
+msgid "Go back to the current game"
+msgstr "Gå tilbake til aktivt spill"
+
+#: ../data/iagno.ui.h:2
 msgid "_New Game"
 msgstr "_Nytt spill"
 
-#: ../data/iagno.ui.h:14
+#: ../data/iagno.ui.h:3
+msgid "Configure a new game"
+msgstr "Konfigurer et nytt spill"
+
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Start et nytt spill"
+
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Adwaita"
+
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "Klassisk"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+msgid "Black and White"
+msgstr "Sort og hvit"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "Sol og stjerne"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -135,7 +167,7 @@ msgstr "Fra 1, lettest, til 3, vanskeligst."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
 msgid "Whether to play against the computer or another human."
-msgstr ""
+msgstr "Hvorvidt man skal spille mot datamaskinen eller en annen person."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
 msgid "Color to play as"
@@ -146,138 +178,137 @@ msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 
 #: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Tema"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
 msgstr "Lyd"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: ../data/org.gnome.iagno.gschema.xml.h:9
 msgid "Whether or not to play event sounds."
 msgstr "Om lyder skal spilles av for hendelser."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: ../data/org.gnome.iagno.gschema.xml.h:10
 msgid "Width of the window in pixels"
 msgstr "Bredden på vinduet i piksler"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: ../data/org.gnome.iagno.gschema.xml.h:11
 msgid "Height of the window in pixels"
 msgstr "Høyden på vinduet i piksler"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:10
+#: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
 msgstr "«true» hvis vinduet er maksimert"
 
-#: ../src/iagno.vala:60
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Start spill"
+
+#: ../src/game-window.vala:153
+msgid "Undo your most recent move"
+msgstr "Angre siste trekk"
+
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Start med en alternativ plassering"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Reduser pause før AI-bevegelser"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "Spill første"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "Sett nivået for datamaskinens kunstige intelligens"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Slå av lyd"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "Spill andre"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Størrelse på brettet (kun feilsøking)"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "To-spiller modus"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Slå på lyd"
 
-#: ../src/iagno.vala:69
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Skriv ut versjonsinformasjon og avslutt"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:119
+#: ../src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "Størrelsen må være minst 4."
 
-#: ../src/iagno.vala:130
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Nivå må være mellom 1 (lett) og 3 (vanskelig). Innstillingene ble ikke "
 "endret."
 
-#. Label on new game screen
-#: ../src/iagno.vala:218
-msgid "Players"
-msgstr "Spillere"
-
-#. Label on new game screen
-#: ../src/iagno.vala:223
-msgid "Difficulty"
-msgstr "Vanskelighet"
-
-#. Label on new game screen
-#: ../src/iagno.vala:228
-msgid "Color"
-msgstr "Farge"
-
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:379 ../src/iagno.vala:380
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
-
-#. Message to display when Light has no possible moves
-#: ../src/iagno.vala:460
-msgid "Light must pass, Dark’s move"
-msgstr "Lys må stå over. Mørk sitt trekk"
-
-#. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:465
-msgid "Dark must pass, Light’s move"
-msgstr "Mørk må stå over. Lys sitt trekk"
-
-#. Message to display when Light has won the game
-#: ../src/iagno.vala:474
-msgid "Light wins!"
-msgstr "Lys spiller vinner!"
-
-#. Message to display when Dark has won the game
-#: ../src/iagno.vala:479
-msgid "Dark wins!"
-msgstr "Mørk spiller vinner!"
-
-#. Message to display when the game is a draw
-#: ../src/iagno.vala:484
-msgid "The game is draw."
-msgstr "Spillet er uavgjort."
-
-#. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:510
-msgid "You can’t move there!"
-msgstr "Du kan ikke flytte dit!"
-
-#: ../src/iagno.vala:537
-#, fuzzy
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
-msgstr ""
-"Et spill basert på Reversi\n"
-"\n"
-"Iagno er en del av GNOME-spillene."
+msgstr "Et spill hvor man vender plater – basert på Reversi"
 
-#: ../src/iagno.vala:540
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
 "Espen Stefansen <espens@svn.gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
+#. Message to display when Light has no possible moves
+#: ../src/iagno.vala:408
+msgid "Light must pass, Dark’s move"
+msgstr "Lys må stå over. Mørk sitt trekk"
+
+#. Message to display when Dark has no possible moves
+#: ../src/iagno.vala:413
+msgid "Dark must pass, Light’s move"
+msgstr "Mørk må stå over. Lys sitt trekk"
+
+#. Message to display when Light has won the game
+#: ../src/iagno.vala:424
+msgid "Light wins!"
+msgstr "Lys spiller vinner!"
+
+#. Message to display when Dark has won the game
+#: ../src/iagno.vala:429
+msgid "Dark wins!"
+msgstr "Mørk spiller vinner!"
+
+#. Message to display when the game is a draw
+#: ../src/iagno.vala:434
+msgid "The game is draw."
+msgstr "Spillet er uavgjort."
+
+#. Message to display when the player tries to make an illegal move
+#: ../src/iagno.vala:450
+msgid "You can’t move there!"
+msgstr "Du kan ikke flytte dit!"
