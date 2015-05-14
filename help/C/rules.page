@@ -8,12 +8,17 @@
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
-      <email>tiffany.antpolski@gmail.com</email>
+      <email its:translate="no">tiffany.antpolski@gmail.com</email>
       <years>2012</years>
     </credit>
     <credit type="editor">
       <name>Michael Hill</name>
-      <email>mdhillca@gmail.com</email>
+      <email its:translate="no">mdhillca@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Stephen Pearce</name>
+      <email its:translate="no">me@stevepdp.org</email>
+      <years>2015</years>
     </credit>
 
     <desc></desc>
@@ -55,17 +60,11 @@
     <p its:translate="yes">Blocking move</p>
   </media>
    </td>
-   <td>
-  <media type="image" src="figures/iagno-gameover.png" width="200" its:translate="no">
-    <p its:translate="yes"><app>Iagno</app> game over position.</p>
-  </media>
-    </td>
    </tr>
    <tr>
      <td><p><em>Start position</em></p></td>
      <td><p><em>Example first move</em></p></td>
      <td><p><em>A blocking move</em></p></td>
-     <td><p><em>Game over position</em></p></td>
    </tr>
 </table>
 
