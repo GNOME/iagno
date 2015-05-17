@@ -1,13 +1,13 @@
 # Czech translation of iagno help.
 # Copyright (C) 2009 the author(s) of gnome-games.
 # This file is distributed under the same license as the iagno help.
-# Marek Černocký <marek@manet.cz>, 2009, 2013.
+# Marek Černocký <marek@manet.cz>, 2009, 2013, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-2-28\n"
-"POT-Creation-Date: 2014-04-22 21:07+0000\n"
-"PO-Revision-Date: 2014-04-23 10:29+0100\n"
+"POT-Creation-Date: 2015-05-16 22:05+0000\n"
+"PO-Revision-Date: 2015-05-17 10:59+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -528,13 +528,23 @@ msgstr "Videoukázka"
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
+#. (itstool) path: credit/name
+#: C/rules.page:19
+msgid "Stephen Pearce"
+msgstr "Stephen Pearce"
+
+#. (itstool) path: credit/years
+#: C/rules.page:21
+msgid "2015"
+msgstr "2015"
+
 #. (itstool) path: page/title
-#: C/rules.page:22
+#: C/rules.page:27
 msgid "Rules"
 msgstr "Pravidla"
 
 #. (itstool) path: page/p
-#: C/rules.page:24
+#: C/rules.page:29
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -546,7 +556,7 @@ msgstr ""
 "uzavřete mezi své dva kameny, ať už vodorovně, svisle nebo úhlopříčně."
 
 #. (itstool) path: item/p
-#: C/rules.page:26
+#: C/rules.page:31
 msgid ""
 "The game begins with four pieces, two light and two dark, placed in the "
 "center of the board."
@@ -555,12 +565,12 @@ msgstr ""
 "umístěnými ve středu hrací desky."
 
 #. (itstool) path: item/p
-#: C/rules.page:29
+#: C/rules.page:34
 msgid "Dark goes first."
 msgstr "Černý táhne první."
 
 #. (itstool) path: item/p
-#: C/rules.page:30
+#: C/rules.page:35
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -569,12 +579,12 @@ msgstr ""
 "mezi dva černé kameny."
 
 #. (itstool) path: note/p
-#: C/rules.page:31
+#: C/rules.page:36
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "Pro umístění lze volit vodorovný, svislý nebo úhlopříčný směr."
 
 #. (itstool) path: item/p
-#: C/rules.page:33
+#: C/rules.page:38
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
@@ -584,7 +594,7 @@ msgstr ""
 "nějakým jiným černým kamenem se převrátí a stanou se černými."
 
 #. (itstool) path: item/p
-#: C/rules.page:37
+#: C/rules.page:42
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over. The end of the game often results in "
@@ -595,30 +605,25 @@ msgstr ""
 "hrací deska."
 
 #. (itstool) path: item/p
-#: C/rules.page:38
+#: C/rules.page:43
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr "Vyhrává hráč, který má na hrací desce většinu kamenů své barvy."
 
 #. (itstool) path: media/p
-#: C/rules.page:45
+#: C/rules.page:50
 msgid "Start position"
 msgstr "Počáteční rozložení"
 
 #. (itstool) path: media/p
-#: C/rules.page:50
+#: C/rules.page:55
 msgid "Example first move"
 msgstr "Příklad prvního tahu"
 
 #. (itstool) path: media/p
-#: C/rules.page:55
+#: C/rules.page:60
 msgid "Blocking move"
 msgstr "Blokující tah"
-
-#. (itstool) path: media/p
-#: C/rules.page:60
-msgid "<app>Iagno</app> game over position."
-msgstr "Rozložení na konci hry <app>Iagno</app>"
 
 #. (itstool) path: td/p
 #: C/rules.page:65
@@ -634,11 +639,6 @@ msgstr "<em>Příklad prvního tahu</em>"
 #: C/rules.page:67
 msgid "<em>A blocking move</em>"
 msgstr "<em>Blokující tah</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:68
-msgid "<em>Game over position</em>"
-msgstr "<em>Rozložení na konci hry</em>"
 
 #. (itstool) path: page/title
 #: C/shortcuts.page:17
@@ -855,3 +855,9 @@ msgstr ""
 "Případně můžete kontaktovat Internacionalizační tým přes jeho <link href="
 "\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">poštovní konferenci</"
 "link>."
+
+#~ msgid "<app>Iagno</app> game over position."
+#~ msgstr "Rozložení na konci hry <app>Iagno</app>"
+
+#~ msgid "<em>Game over position</em>"
+#~ msgstr "<em>Rozložení na konci hry</em>"
