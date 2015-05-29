@@ -1,12 +1,12 @@
 # translation of iagno.HEAD.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014.
 #
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013, 2014, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2014-05-08 09:08+0000\n"
-"PO-Revision-Date: 2014-05-10 19:15+0200\n"
+"POT-Creation-Date: 2015-05-28 22:02+0000\n"
+"PO-Revision-Date: 2015-05-29 \n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -20,7 +20,7 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2014\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2015\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2008"
 
 #. (itstool) path: credit/name
@@ -290,8 +290,8 @@ msgid ""
 "mailman/listinfo/gnome-doc-list\">mailing list</link>."
 msgstr ""
 "Para colaborar con el Proyecto de documentación, póngase en contacto usando "
-"<link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org"
-"%2Fdocs\">irc</link>, o mediante la <link href=\"http://mail.gnome.org/"
+"<link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%"
+"2Fdocs\">irc</link>, o mediante la <link href=\"http://mail.gnome.org/"
 "mailman/listinfo/gnome-doc-list\">lista de correo</link>."
 
 #. (itstool) path: page/p
@@ -317,8 +317,6 @@ msgstr "Iagno"
 
 #. (itstool) path: media/span
 #: C/index.page:20
-#| msgctxt "link"
-#| msgid "Iagno"
 msgid "Iagno logo"
 msgstr "Logo de Iagno"
 
@@ -531,13 +529,23 @@ msgstr "Vídeo de demostración"
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
+#. (itstool) path: credit/name
+#: C/rules.page:19
+msgid "Stephen Pearce"
+msgstr "Stephen Pearce"
+
+#. (itstool) path: credit/years
+#: C/rules.page:21
+msgid "2015"
+msgstr "2015"
+
 #. (itstool) path: page/title
-#: C/rules.page:22
+#: C/rules.page:27
 msgid "Rules"
 msgstr "Reglas"
 
 #. (itstool) path: page/p
-#: C/rules.page:24
+#: C/rules.page:29
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -549,7 +557,7 @@ msgstr ""
 "debe atraparla entre dos de sus fichas, horizontal, vertical o diagonalmente."
 
 #. (itstool) path: item/p
-#: C/rules.page:26
+#: C/rules.page:31
 msgid ""
 "The game begins with four pieces, two light and two dark, placed in the "
 "center of the board."
@@ -558,12 +566,12 @@ msgstr ""
 "centro del tablero."
 
 #. (itstool) path: item/p
-#: C/rules.page:29
+#: C/rules.page:34
 msgid "Dark goes first."
 msgstr "Las negras mueven primero."
 
 #. (itstool) path: item/p
-#: C/rules.page:30
+#: C/rules.page:35
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -572,12 +580,12 @@ msgstr ""
 "blancas entre dos negras."
 
 #. (itstool) path: note/p
-#: C/rules.page:31
+#: C/rules.page:36
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "La colocación puede ser horizontal, vertical o diagonal."
 
 #. (itstool) path: item/p
-#: C/rules.page:33
+#: C/rules.page:38
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
@@ -588,7 +596,7 @@ msgstr ""
 "oscuras."
 
 #. (itstool) path: item/p
-#: C/rules.page:37
+#: C/rules.page:42
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over. The end of the game often results in "
@@ -599,30 +607,25 @@ msgstr ""
 "menudo, el final del juego termina con un tablero completo."
 
 #. (itstool) path: item/p
-#: C/rules.page:38
+#: C/rules.page:43
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr "El ganador es el jugador con más fichas de su color en el tablero."
 
 #. (itstool) path: media/p
-#: C/rules.page:45
+#: C/rules.page:50
 msgid "Start position"
 msgstr "Posición inicial"
 
 #. (itstool) path: media/p
-#: C/rules.page:50
+#: C/rules.page:55
 msgid "Example first move"
 msgstr "Ejemplo de primer movimiento"
 
 #. (itstool) path: media/p
-#: C/rules.page:55
+#: C/rules.page:60
 msgid "Blocking move"
 msgstr "Movimiento de bloqueo"
-
-#. (itstool) path: media/p
-#: C/rules.page:60
-msgid "<app>Iagno</app> game over position."
-msgstr "Posición de juego terminado en <app>Iagno</app>."
 
 #. (itstool) path: td/p
 #: C/rules.page:65
@@ -638,11 +641,6 @@ msgstr "<em>Ejemplo de primer movimiento</em>"
 #: C/rules.page:67
 msgid "<em>A blocking move</em>"
 msgstr "<em>Un movimiento de bloqueo</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:68
-msgid "<em>Game over position</em>"
-msgstr "<em>Posición de juego terminado</em>"
 
 #. (itstool) path: page/title
 #: C/shortcuts.page:17
@@ -858,6 +856,12 @@ msgstr ""
 "Alternativamente, puede contactar con el equipo de internacionalización "
 "usando su <link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n"
 "\">lista de correo</link>."
+
+#~ msgid "<app>Iagno</app> game over position."
+#~ msgstr "Posición de juego terminado en <app>Iagno</app>."
+
+#~ msgid "<em>Game over position</em>"
+#~ msgstr "<em>Posición de juego terminado</em>"
 
 #~ msgctxt "_"
 #~ msgid ""
