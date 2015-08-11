@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno 3.17.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:44+0200\n"
-"PO-Revision-Date: 2015-05-14 16:46+0200\n"
+"POT-Creation-Date: 2015-08-11 20:04+0200\n"
+"PO-Revision-Date: 2015-08-11 20:07+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -31,7 +31,7 @@ msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
 "the other."
-msgstr ""
+msgstr "Iagno er en datamaskinversjon av spillet Reversi, som er et to-spiller strategibrettspill. Spillet spilles med fliser som er mørke på en side og lyse på den andre."
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
@@ -39,7 +39,7 @@ msgid ""
 "color as possible while preventing your opponent from flipping your tiles to "
 "his color. This is done by trapping your opponent's tiles between two tiles "
 "of your own color."
-msgstr ""
+msgstr "Målet i Iagno er å snu så mange av motstanderens fliser som mulig til din farge mens du hindrer motstanderen i å gjøre det samme. Dette gjøres ved å fange motstanderens fliser mellom to fliser med din egen farge."
 
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
@@ -175,7 +175,7 @@ msgstr "Farge du skal spille som"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
-msgstr ""
+msgstr "Spille som Mørk eller Lys. Ignoreres for to-spillere."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Theme"
@@ -185,7 +185,7 @@ msgstr "Tema"
 msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
-msgstr ""
+msgstr "Filnavn på tema som brukes eller «default». Andre valg er «adwaita.theme», «high_contrast.theme» og «sun_and_star.theme»."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
