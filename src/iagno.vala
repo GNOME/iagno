@@ -101,7 +101,7 @@ public class Iagno : Gtk.Application
         if (options.contains ("version"))
         {
             /* NOTE: Is not translated so can be easily parsed */
-            stderr.printf ("%1$s %2$s\n", "iagno", VERSION);
+            stdout.printf ("%1$s %2$s\n", "iagno", VERSION);
             return Posix.EXIT_SUCCESS;
         }
 
