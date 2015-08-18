@@ -1,3 +1,11 @@
+3.17.90 - August 18, 2015
+=============================
+
+* Add support for rounded-squared tiles in themes
+* Update screenshots in help
+* Print --version output on stdout
+* Translations updates: norwegian bokmål, czech, spanish, swedish, portuguese and german
+
 3.17.1 - April 28, 2015
 =============================
 
