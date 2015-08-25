@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 21:58+0100\n"
-"PO-Revision-Date: 2015-03-02 21:59+0100\n"
+"POT-Creation-Date: 2015-08-25 14:33+0200\n"
+"PO-Revision-Date: 2015-08-25 14:34+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -34,9 +34,8 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#. Window
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:87 ../src/iagno.vala:182 ../src/iagno.vala:287
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -155,22 +154,14 @@ msgid "Go back to the current game"
 msgstr "Wraca do bieżącej gry"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "_Rozpocznij grę"
-
-#: ../data/iagno.ui.h:3
-msgid "Start a new game as configured"
-msgstr "Rozpoczyna nową grę tak, jak skonfigurowano"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Nowa gra"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Konfiguruje nową grę"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Rozpoczyna nową grę"
 
@@ -184,7 +175,7 @@ msgstr "Klasyczny"
 
 #: ../data/themes/high_contrast.theme.in.h:1
 msgid "Black and White"
-msgstr "Czarnobiały"
+msgstr "Czarno-biały"
 
 #: ../data/themes/sun_and_star.theme.in.h:1
 msgid "Sun and Star"
@@ -220,9 +211,9 @@ msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
-"Nazwa pliku używane motywu lub \"default\" (motyw domyślny). Dostarczane są "
-"\"adwaita.theme\", \"high_contrast.theme\" (motyw o wysokim kontraście) i "
-"\"sun_and_star.theme\" (motyw ze słońcem i gwiazdami)."
+"Nazwa pliku używane motywu lub „default” (motyw domyślny). Dostarczane są "
+"„adwaita.theme”, „high_contrast.theme” (motyw o wysokim kontraście) i "
+"„sun_and_star.theme” (motyw ze słońcem i gwiazdami)."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -242,68 +233,72 @@ msgstr "Wysokość okna w pikselach"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
-msgstr "Wartość \"true\" oznacza, że okno jest zmaksymalizowane"
+msgstr "Wartość „true” oznacza, że okno jest zmaksymalizowane"
 
-#: ../src/game-window.vala:134
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Rozpocznij grę"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Cofa ostatni ruch"
 
-#: ../src/iagno.vala:59
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Rozpoczyna w alternatywnym położeniu"
 
-#: ../src/iagno.vala:60
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Zmniejsza opóźnienie przed ruchami komputera"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "Zaczyna jako pierwszy"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "Ustawia poziom sztucznej inteligencji komputera"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Wyłącza dźwięk"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "Zaczyna jako drugi"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Rozmiar planszy (tylko do debugowania)"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Tryb dla dwóch graczy"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Włącza dźwięk"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Wyświetla wersję wydania i kończy działanie"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:112
+#: ../src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "Rozmiar musi wynosić co najmniej 4."
 
-#: ../src/iagno.vala:123
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Poziom powinien wynosić między 1 (łatwy) a 3 (trudny). Ustawienia nie "
 "zostały zmienione."
 
-#: ../src/iagno.vala:295
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Gra polegająca na odwracaniu krążków podobna do Reversi"
 
-#: ../src/iagno.vala:298
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -321,37 +316,37 @@ msgstr ""
 "Aviary.pl <gnomepl@aviary.pl>, 2007-2015"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:360 ../src/iagno.vala:361
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:433
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Jasne nie mogą wykonać ruchu, ruch ciemnych"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:438
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Ciemne nie mogą wykonać ruchu, ruch jasnych"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:449
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Jasne zwyciężają!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:454
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Ciemne zwyciężają!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:459
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Remis."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:475
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Nie można tu się ruszyć."
