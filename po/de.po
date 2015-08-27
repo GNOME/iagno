@@ -33,8 +33,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-05-20 10:05+0000\n"
-"PO-Revision-Date: 2015-05-20 23:45+0100\n"
+"POT-Creation-Date: 2015-07-28 22:08+0000\n"
+"PO-Revision-Date: 2015-07-29 15:00+0100\n"
 "Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
@@ -42,11 +42,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.1\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1 ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
 msgid "Iagno"
-msgstr "Iagno (Reversi)"
+msgstr "Iagno"
 
 #: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
 msgid "Dominate the board in a classic version of Reversi"
@@ -55,6 +55,7 @@ msgstr "Einen Wettstreit um die Brettherrschaft in einer klassischen Variante vo
 #: ../data/iagno.appdata.xml.in.h:3
 msgid "Iagno is a computer version of the game Reversi, a two-player strategy board game. The game is played with tiles that are dark on one side and light on the other."
 msgstr ""
+"Iagno ist die Rechnerversion des Spiels »Reversi«, einem Strategie-Brettspiel für zwei Spieler. Das Spiel wird mit Spielsteinen gespielt, die auf einer Seite weiß und auf der anderen schwarz sind."
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
@@ -186,7 +187,7 @@ msgstr "Schwarz und Weiß"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
-msgstr ""
+msgstr "Spielstärke des Rechners"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:2
 msgid "From 1, the easiest, to 3, the hardest."
@@ -194,15 +195,15 @@ msgstr "Von 1 (am einfachsten) bis 3 (am schwierigsten)"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
 msgid "Whether to play against the computer or another human."
-msgstr ""
+msgstr "Legt fest, ob gegen den Rechner oder einen menschlichen Gegner gespielt wird."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
 msgid "Color to play as"
-msgstr ""
+msgstr "Die Farbe zum Spielen"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
-msgstr ""
+msgstr "Legt fest, ob als schwarze oder weiße Partei gespielt wird. Hat keine Bedeutung für ein Spiel mit zwei Spielern."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Theme"
@@ -210,7 +211,7 @@ msgstr "Thema"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", \"high_contrast.theme\" and \"sun_and_star.theme\"."
-msgstr ""
+msgstr "Dateiname des zu verwendenden Themas, oder »Vorgabe«. Mitgelieferte Themen sind »adwaita.theme«, »high_contrast.theme« und »sun_and_star.theme«."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
