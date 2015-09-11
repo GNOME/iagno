@@ -229,7 +229,7 @@ public class GameView : Gtk.DrawingArea
 
     public GameView ()
     {
-        set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK);
+        set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK);
         set_size_request (350, 350);
     }
 
