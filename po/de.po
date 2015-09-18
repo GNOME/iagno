@@ -28,25 +28,26 @@
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2010-2012.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009-2012.
 # Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012.
+# Bernd Homuth <dev@hmt.im>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-07-29 10:12+0000\n"
-"PO-Revision-Date: 2015-07-29 15:00+0100\n"
-"Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
+"POT-Creation-Date: 2015-09-18 10:31+0000\n"
+"PO-Revision-Date: 2015-09-18 20:33+0200\n"
+"Last-Translator: Bernd Homuth <dev@hmt.im>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -167,22 +168,14 @@ msgid "Go back to the current game"
 msgstr "Zum aktuellen Spiel zurückkehren"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "Spiel _beginnen"
-
-#: ../data/iagno.ui.h:3
-msgid "Start a new game as configured"
-msgstr "Eine neue Spielpartie wie eingestellt beginnen"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Neues Spiel"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Ein neues Spiel einstellen"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Eine neue Spielpartie beginnen"
 
@@ -197,6 +190,10 @@ msgstr "Klassisch"
 #: ../data/themes/high_contrast.theme.in.h:1
 msgid "Black and White"
 msgstr "Schwarz und Weiß"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "Sonne und Stern"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
 msgid "Computer's AI level"
@@ -253,7 +250,11 @@ msgstr "Fensterhöhe in Pixeln"
 msgid "true if the window is maximized"
 msgstr "Wahr, falls das Fenster maximiert ist"
 
-#: ../src/game-window.vala:141
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "Spiel _beginnen"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Ihren letzten Spielzug zurücknehmen"
 
@@ -302,17 +303,17 @@ msgstr "Versionsnummer ausgeben und beenden"
 msgid "Size must be at least 4."
 msgstr "Größe muss mindestens 4 sein."
 
-#: ../src/iagno.vala:165
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Schwierigkeitsstufe sollte zwischen 1 (leicht) und 3 (schwer) sein. Die "
 "Einstellungen bleiben unverändert."
 
-#: ../src/iagno.vala:294
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Ein Umdrehspiel, abgeleitet von Reversi"
 
-#: ../src/iagno.vala:297
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -332,40 +333,43 @@ msgstr ""
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:359 ../src/iagno.vala:360
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:432
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Weiß muss passen, Schwarz ist am Zug"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:437
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Schwarz muss passen, Weiß ist am Zug"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:448
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Weiß gewinnt!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:453
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Schwarz gewinnt!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:458
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Das Spiel ist unentschieden."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:474
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Zug dorthin ist nicht möglich!"
+
+#~ msgid "Start a new game as configured"
+#~ msgstr "Eine neue Spielpartie wie eingestellt beginnen"
 
 #~ msgid "Chess"
 #~ msgstr "Schach"
