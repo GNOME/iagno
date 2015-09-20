@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-17 10:32+0000\n"
-"PO-Revision-Date: 2015-02-18 22:00+0300\n"
+"POT-Creation-Date: 2015-09-20 10:29+0000\n"
+"PO-Revision-Date: 2015-09-21 00:02+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -30,10 +30,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../data/iagno.ui.h:1 ../src/iagno.vala:102 ../src/iagno.vala:327
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Ягно"
 
@@ -98,6 +98,46 @@ msgstr "_О приложении"
 msgid "_Quit"
 msgstr "_Завершить"
 
+#: ../data/iagno-screens.ui.h:1
+msgid "Players"
+msgstr "Игроки"
+
+#: ../data/iagno-screens.ui.h:2
+msgid "_One"
+msgstr "_Один"
+
+#: ../data/iagno-screens.ui.h:3
+msgid "_Two"
+msgstr "_Два"
+
+#: ../data/iagno-screens.ui.h:4
+msgid "Difficulty"
+msgstr "Сложность"
+
+#: ../data/iagno-screens.ui.h:5
+msgid "_Easy"
+msgstr "_Легко"
+
+#: ../data/iagno-screens.ui.h:6
+msgid "_Medium"
+msgstr "_Средне"
+
+#: ../data/iagno-screens.ui.h:7
+msgid "_Hard"
+msgstr "_Трудно"
+
+#: ../data/iagno-screens.ui.h:8
+msgid "Color"
+msgstr "Цвет"
+
+#: ../data/iagno-screens.ui.h:9
+msgid "_Dark"
+msgstr "_Чёрные"
+
+#: ../data/iagno-screens.ui.h:10
+msgid "_Light"
+msgstr "_Белые"
+
 #: ../data/iagno-themes.ui.h:1
 msgid "Select Theme"
 msgstr "Выбрать тему"
@@ -106,67 +146,20 @@ msgstr "Выбрать тему"
 msgid "Default"
 msgstr "По умолчанию"
 
-#: ../data/iagno.ui.h:2
-msgid "Undo your most recent move"
-msgstr "Отменить последний ход"
-
-#: ../data/iagno.ui.h:3
+#: ../data/iagno.ui.h:1
 msgid "Go back to the current game"
 msgstr "Вернуться к текущей игре"
 
-#: ../data/iagno.ui.h:4
-msgid "Players"
-msgstr "Игроки"
-
-#: ../data/iagno.ui.h:5
-msgid "_One"
-msgstr "_Один"
-
-#: ../data/iagno.ui.h:6
-msgid "_Two"
-msgstr "_Два"
-
-#: ../data/iagno.ui.h:7
-msgid "Difficulty"
-msgstr "Сложность"
-
-#: ../data/iagno.ui.h:8
-msgid "_Easy"
-msgstr "_Легко"
-
-#: ../data/iagno.ui.h:9
-msgid "_Medium"
-msgstr "_Средне"
-
-#: ../data/iagno.ui.h:10
-msgid "_Hard"
-msgstr "_Трудно"
-
-#: ../data/iagno.ui.h:11
-msgid "Color"
-msgstr "Цвет"
-
-#: ../data/iagno.ui.h:12
-msgid "_Dark"
-msgstr "_Чёрные"
-
-#: ../data/iagno.ui.h:13
-msgid "_Light"
-msgstr "_Белые"
-
-#: ../data/iagno.ui.h:14
-msgid "_Start Game"
-msgstr "_Начать игру"
-
-#: ../data/iagno.ui.h:15
-msgid "Start a game"
-msgstr "Начать игру"
-
-#: ../data/iagno.ui.h:16
+#: ../data/iagno.ui.h:2
 msgid "_New Game"
 msgstr "Новая _игра"
 
-#: ../data/iagno.ui.h:17
+#: ../data/iagno.ui.h:3
+#| msgid "Start a new game"
+msgid "Configure a new game"
+msgstr "Настроить новую игру"
+
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Начать новую игру"
 
@@ -238,61 +231,69 @@ msgstr "Высота окна в пикселах"
 msgid "true if the window is maximized"
 msgstr "истинно, если окно имеет максимальный размер"
 
-#: ../src/iagno.vala:68
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Начать игру"
+
+#: ../src/game-window.vala:153
+msgid "Undo your most recent move"
+msgstr "Отменить последний ход"
+
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Начать с другой позиции"
 
-#: ../src/iagno.vala:69
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Сократить задержку ИИ на обдумывание ходов"
 
-#: ../src/iagno.vala:70
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "Играть за первого игрока"
 
-#: ../src/iagno.vala:71
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "Установить уровень компьютерного ИИ"
 
-#: ../src/iagno.vala:72
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Выключить звук"
 
-#: ../src/iagno.vala:73
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "Играть за второго игрока"
 
-#: ../src/iagno.vala:74
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Размер доски (только отладка)"
 
-#: ../src/iagno.vala:75
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Режим для двух игроков"
 
-#: ../src/iagno.vala:76
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Включить звук"
 
-#: ../src/iagno.vala:77
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Показать номер версии и выйти"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:128
+#: ../src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "Размер должен быть по крайней мере 4."
 
-#: ../src/iagno.vala:139
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Уровень должен быть между 1 (простой) и 3 (сложный). Параметры не изменились."
 
-#: ../src/iagno.vala:335
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Игра по переворачиванию дисков по мотивам Реверси"
 
-#: ../src/iagno.vala:338
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2015.\n"
@@ -300,40 +301,43 @@ msgstr ""
 "Stas Solovey <whats_up@tut.by>, 2015."
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:433 ../src/iagno.vala:434
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:506
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Белые должны пропустить ход, ход чёрных"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:511
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Чёрные должны пропустить ход, ход белых"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:520
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Белые победили!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:525
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Чёрные победили!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:530
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Игра закончилась ничьёй."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:546
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Сюда нельзя сделать ход!"
+
+#~ msgid "Start a game"
+#~ msgstr "Начать игру"
 
 #~ msgid "_Theme"
 #~ msgstr "_Тема"
