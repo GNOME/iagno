@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD.el\n"
-"POT-Creation-Date: 2014-04-24 09:06+0000\n"
-"PO-Revision-Date: 2014-04-24 13:35+0200\n"
+"POT-Creation-Date: 2015-09-20 10:29+0000\n"
+"PO-Revision-Date: 2015-09-20 13:35+0300\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@lists.gnome.gr\n"
 "Language: el\n"
@@ -14,12 +14,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
+"Ελληνική μεταφραστική ομάδα GNOME <team@gnome.gr>, 2009-2014  \n"
 "Δημήτρης Σπίγγος <dmtrs32@gmail.com>, 2014\n"
 "Μάριος Ζηντίλης <m.zindilis@dmajor.org>, 2009 \n"
 "Θάνος Τρυφωνίδης <tomtryf@gmail.com>, 2012"
@@ -318,8 +319,6 @@ msgstr "Ιάγνος"
 
 #. (itstool) path: media/span
 #: C/index.page:20
-#| msgctxt "link"
-#| msgid "Iagno"
 msgid "Iagno logo"
 msgstr "Ιάγνος λογότυπο"
 
@@ -533,13 +532,23 @@ msgstr "Βίντεο επίδειξης"
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
+#. (itstool) path: credit/name
+#: C/rules.page:19
+msgid "Stephen Pearce"
+msgstr "Stephen Pearce"
+
+#. (itstool) path: credit/years
+#: C/rules.page:21
+msgid "2015"
+msgstr "2015"
+
 #. (itstool) path: page/title
-#: C/rules.page:22
+#: C/rules.page:27
 msgid "Rules"
 msgstr "Κανόνες"
 
 #. (itstool) path: page/p
-#: C/rules.page:24
+#: C/rules.page:29
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -553,7 +562,7 @@ msgstr ""
 "διαγώνια."
 
 #. (itstool) path: item/p
-#: C/rules.page:26
+#: C/rules.page:31
 msgid ""
 "The game begins with four pieces, two light and two dark, placed in the "
 "center of the board."
@@ -562,12 +571,12 @@ msgstr ""
 "τοποθετημένα στο κέντρο του ταμπλό."
 
 #. (itstool) path: item/p
-#: C/rules.page:29
+#: C/rules.page:34
 msgid "Dark goes first."
 msgstr "Τα μαύρα ξεκινούν πρώτα."
 
 #. (itstool) path: item/p
-#: C/rules.page:30
+#: C/rules.page:35
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -576,12 +585,12 @@ msgstr ""
 "παγιδεύσουν λευκά πλακίδια ανάμεσα σε δύο μαύρα."
 
 #. (itstool) path: note/p
-#: C/rules.page:31
+#: C/rules.page:36
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "Η τοποθέτηση αυτή μπορεί να είναι οριζόντια, κατακόρυφη ή διαγώνια."
 
 #. (itstool) path: item/p
-#: C/rules.page:33
+#: C/rules.page:38
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
@@ -592,7 +601,7 @@ msgstr ""
 "τα μαύρα. "
 
 #. (itstool) path: item/p
-#: C/rules.page:37
+#: C/rules.page:42
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over. The end of the game often results in "
@@ -603,7 +612,7 @@ msgstr ""
 "παιχνιδιού συνήθως τελειώνει με ένα γεμάτο πίνακα."
 
 #. (itstool) path: item/p
-#: C/rules.page:38
+#: C/rules.page:43
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr ""
@@ -611,24 +620,19 @@ msgstr ""
 "στον πίνακα."
 
 #. (itstool) path: media/p
-#: C/rules.page:45
+#: C/rules.page:50
 msgid "Start position"
 msgstr "Θέση εκκίνησης"
 
 #. (itstool) path: media/p
-#: C/rules.page:50
+#: C/rules.page:55
 msgid "Example first move"
 msgstr "Παράδειγμα πρώτης κίνησης"
 
 #. (itstool) path: media/p
-#: C/rules.page:55
+#: C/rules.page:60
 msgid "Blocking move"
 msgstr "Κίνηση μπλοκαρίσματος"
-
-#. (itstool) path: media/p
-#: C/rules.page:60
-msgid "<app>Iagno</app> game over position."
-msgstr "Θέση τερματισμού του <app>Ιάγνος</app>"
 
 #. (itstool) path: td/p
 #: C/rules.page:65
@@ -644,11 +648,6 @@ msgstr "<em>Παράδειγμα πρώτης κίνησης</em>"
 #: C/rules.page:67
 msgid "<em>A blocking move</em>"
 msgstr "<em>Μια κίνηση μπλοκαρίσματος</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:68
-msgid "<em>Game over position</em>"
-msgstr "<em>Θέση τερματισμού</em>"
 
 #. (itstool) path: page/title
 #: C/shortcuts.page:17
@@ -864,6 +863,12 @@ msgstr ""
 "Εναλλακτικά, μπορείτε να επικοινωνήσετε με την ομάδα διεθνοποίησης "
 "χρησιμοποιώντας τη <link href=\"http://mail.gnome.org/mailman/listinfo/gnome-"
 "i18n\">λίστα αλληλογραφίας</link> τους."
+
+#~ msgid "<app>Iagno</app> game over position."
+#~ msgstr "Θέση τερματισμού του <app>Ιάγνος</app>"
+
+#~ msgid "<em>Game over position</em>"
+#~ msgstr "<em>Θέση τερματισμού</em>"
 
 #~ msgctxt "_"
 #~ msgid ""
