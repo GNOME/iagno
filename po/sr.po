@@ -10,21 +10,32 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Гномове игре\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&"
-"keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-16 16:08+0000\n"
-"PO-Revision-Date: 2014-03-21 04:17+0200\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-22 10:48+0000\n"
+"PO-Revision-Date: 2015-09-22 16:45+0200\n"
+"Last-Translator: Марко М. Костић (Marko M. Kostić) <marko.m.kostic@gmail."
+"com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
-"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
+"X-Generator: Poedit 1.8.4\n"
 
-#: ../data/iagno.appdata.xml.in.h:1
+#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
+msgid "Iagno"
+msgstr "Јагно"
+
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Освојите већи део табле у класичном издању игре Реверси"
+
+#: ../data/iagno.appdata.xml.in.h:3
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -34,7 +45,7 @@ msgstr ""
 "играча. Игра се игра плочицама које су тамне са једне стране а светле са "
 "друге."
 
-#: ../data/iagno.appdata.xml.in.h:2
+#: ../data/iagno.appdata.xml.in.h:4
 msgid ""
 "The object of Iagno is to flip as many of your opponent's tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
@@ -45,196 +56,319 @@ msgstr ""
 "спречавајући вашег противника да окрене ваше плочице на његову боју. Ово "
 "остварујете заробљавањем противничких плочица између две плочице ваше боје."
 
-#: ../data/iagno.desktop.in.h:1 ../src/iagno.vala:89 ../src/iagno.vala:115
-#: ../src/iagno.vala:304 ../src/iagno.vala:671
-msgid "Iagno"
-msgstr "Јагно"
-
-#: ../data/iagno.desktop.in.h:2
-msgid "Dominate the board in a classic version of Reversi"
-msgstr "Освојите већи део табле у класичном издању игре Реверси"
-
 #: ../data/iagno.desktop.in.h:3
 msgid "othello;"
 msgstr "отело;јагно;реверси;"
 
-#: ../data/iagno.ui.h:1
-msgid "_New Game"
-msgstr "_Нова игра"
+#: ../data/iagno.desktop.in.h:4
+msgid "Play first (Dark)"
+msgstr "Играј први (црни)"
 
-#: ../data/iagno.ui.h:2
-msgid "_Preferences"
-msgstr "_Поставке"
+#: ../data/iagno.desktop.in.h:5
+msgid "Play second (Light)"
+msgstr "Играј други (бели)"
 
-#: ../data/iagno.ui.h:3
+#: ../data/iagno.desktop.in.h:6
+msgid "Two players game"
+msgstr "Игра са два играча"
+
+#: ../data/iagno-menus.ui.h:1
+msgid "A_ppearance"
+msgstr "_Изглед"
+
+#: ../data/iagno-menus.ui.h:2
+msgid "_Sound"
+msgstr "_Звук"
+
+#: ../data/iagno-menus.ui.h:3
 msgid "_Help"
 msgstr "По_моћ"
 
-#: ../data/iagno.ui.h:4
+#: ../data/iagno-menus.ui.h:4
 msgid "_About"
 msgstr "_О програму"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno-menus.ui.h:5
 msgid "_Quit"
 msgstr "_Изађи"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Sound"
-msgstr "Звук"
+#: ../data/iagno-screens.ui.h:1
+msgid "Players"
+msgstr "Играчи"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
-msgid "Whether or not to play event sounds."
-msgstr "Да ли пуштати звуке при догађајима."
+#: ../data/iagno-screens.ui.h:2
+msgid "_One"
+msgstr "_Један"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
-msgid "Width of the window in pixels"
-msgstr "Ширина прозора у тачкама"
+#: ../data/iagno-screens.ui.h:3
+msgid "_Two"
+msgstr "_Два"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
-msgid "Height of the window in pixels"
-msgstr "Висина прозора у тачкама"
+#: ../data/iagno-screens.ui.h:4
+msgid "Difficulty"
+msgstr "Тежина"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
-msgid "true if the window is maximized"
-msgstr "изабрано ако је прозор увећан"
+#: ../data/iagno-screens.ui.h:5
+msgid "_Easy"
+msgstr "_Лако"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "true if the window is fullscren"
-msgstr "изабрано ако је прозор преко целог екрана"
+#: ../data/iagno-screens.ui.h:6
+msgid "_Medium"
+msgstr "_Средња"
 
-#: ../src/iagno.vala:110
-#| msgid "The users's most recent level."
-msgid "Undo your most recent move"
-msgstr "Поништите ваш последњи потез"
+#: ../data/iagno-screens.ui.h:7
+msgid "_Hard"
+msgstr "_Тешко"
 
-#: ../src/iagno.vala:143 ../src/iagno.vala:261 ../src/iagno.vala:269
-msgid "Dark:"
-msgstr "Црни:"
+#: ../data/iagno-screens.ui.h:8
+msgid "Color"
+msgstr "Боја"
 
-#: ../src/iagno.vala:151 ../src/iagno.vala:262 ../src/iagno.vala:270
-msgid "Light:"
-msgstr "Бели:"
+#: ../data/iagno-screens.ui.h:9
+msgid "_Dark"
+msgstr "_Црни"
 
-#: ../src/iagno.vala:164
+#: ../data/iagno-screens.ui.h:10
+msgid "_Light"
+msgstr "_Бели"
+
+#: ../data/iagno-themes.ui.h:1
+msgid "Select Theme"
+msgstr "Изаберите тему"
+
+#: ../data/iagno-themes.ui.h:2
+msgid "Default"
+msgstr "Подразумевана"
+
+#: ../data/iagno.ui.h:1
+msgid "Go back to the current game"
+msgstr "Врати се на тренутну игру"
+
+#: ../data/iagno.ui.h:2
+msgid "_New Game"
+msgstr "_Нова игра"
+
+#: ../data/iagno.ui.h:3
+msgid "Configure a new game"
+msgstr "Подеси нову игру"
+
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Започните нову игру"
 
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
-#: ../src/iagno.vala:273
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
+#: ../data/themes/adwaita.theme.in.h:1
+msgid "Adwaita"
+msgstr "Адвајта"
 
-#: ../src/iagno.vala:309
-#| msgid ""
-#| "A disk flipping game derived from Reversi.\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
-msgid ""
-"A disk flipping game derived from Reversi\n"
-"\n"
-"Iagno is a part of GNOME Games."
+#: ../data/themes/classic.theme.in.h:1
+msgid "Classic"
+msgstr "Класични"
+
+#: ../data/themes/high_contrast.theme.in.h:1
+msgid "Black and White"
+msgstr "Црни и бели"
+
+#: ../data/themes/sun_and_star.theme.in.h:1
+msgid "Sun and Star"
+msgstr "Сунце и звезде"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:1
+msgid "Computer's AI level"
+msgstr "Интелигенција рачунара"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:2
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Од 1 (најлакше) до 3 (најтеже)."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:3
+msgid "Whether to play against the computer or another human."
+msgstr "Да ли се игра против рачунара или људског играча."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:4
+msgid "Color to play as"
+msgstr "Ваша боја"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:5
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
-"Игра извртања дискова произашла из игре Реверси\n"
-"\n"
-"Јагно је део Гномових игара."
+"Да ли ћете играти као црни или бели. Занемарује се ако је игра са два играча."
 
-#: ../src/iagno.vala:312
+#: ../data/org.gnome.iagno.gschema.xml.h:6
+msgid "Theme"
+msgstr "Тема"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:7
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+"Име датотеке која садржи тему која се користи, или „подразумевано“. Доступне "
+"су „adwaita.theme“, „high_contrast.theme“ и „sun_and_star.theme“."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:8
+msgid "Sound"
+msgstr "Звук"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:9
+msgid "Whether or not to play event sounds."
+msgstr "Да ли пуштати звуке при догађајима."
+
+#: ../data/org.gnome.iagno.gschema.xml.h:10
+msgid "Width of the window in pixels"
+msgstr "Ширина прозора у тачкама"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:11
+msgid "Height of the window in pixels"
+msgstr "Висина прозора у тачкама"
+
+#: ../data/org.gnome.iagno.gschema.xml.h:12
+msgid "true if the window is maximized"
+msgstr "изабрано ако је прозор увећан"
+
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "Почни _игру"
+
+#: ../src/game-window.vala:153
+msgid "Undo your most recent move"
+msgstr "Поништите ваш последњи потез"
+
+#: ../src/iagno.vala:58
+msgid "Start with an alternative position"
+msgstr "Почни игру са наизменичним положајем"
+
+#: ../src/iagno.vala:59
+msgid "Reduce delay before AI moves"
+msgstr "Смањује застој пре потеза вештачке интелигенције"
+
+#: ../src/iagno.vala:60
+msgid "Play first"
+msgstr "Играј први"
+
+#: ../src/iagno.vala:61
+msgid "Set the level of the computer's AI"
+msgstr "Постави интелигенцију рачунара"
+
+#: ../src/iagno.vala:62
+msgid "Turn off the sound"
+msgstr "Искључи звук"
+
+#: ../src/iagno.vala:63
+msgid "Play second"
+msgstr "Играј други"
+
+#: ../src/iagno.vala:64
+msgid "Size of the board (debug only)"
+msgstr "Величина табле (само за решавање проблема)"
+
+#: ../src/iagno.vala:65
+msgid "Two-players mode"
+msgstr "Режим игре са два играча"
+
+#: ../src/iagno.vala:66
+msgid "Turn on the sound"
+msgstr "Укључи звук"
+
+#: ../src/iagno.vala:67
+msgid "Print release version and exit"
+msgstr "Прикажи издање програма и изаши"
+
+#. Console message displayed for an incorrect size
+#: ../src/iagno.vala:111
+msgid "Size must be at least 4."
+msgstr "Величина мора бити барем 4."
+
+#: ../src/iagno.vala:158
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr ""
+"Ниво треба бити између 1 (лако) и 3 (тешко). Подешавања нису промењена."
+
+#: ../src/iagno.vala:275
+msgid "A disk flipping game derived from Reversi"
+msgstr "Игра извртања дискова произашла из игре Реверси"
+
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Душан Марјановић <madafaka@root.co.yu>\n"
 "Милош Поповић    <gpopac@gmail.com>\n"
 "Бранко Кокановић <branko.kokanovic@gmail.com>\n"
 "Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Марко М. Костић (Marko M. Kostić) <marko.m.kostic@gmail.com>\n"
 "\n"
 "http://prevod.org — превод на српски језик"
 
+#. Translators: this is a 2 digit representation of the current score.
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
+#, c-format
+msgid "%.2d"
+msgstr "%.2d"
+
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:348
-#| msgid "Light must pass, Dark's move"
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Бели прескаче потез, Црни је на потезу"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:353
-#| msgid "Dark must pass, Light's move"
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Црни прескаче потез, Бели је на потезу"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:401
-#| msgid "Light player wins!"
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Бели је победио!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:406
-#| msgid "Dark player wins!"
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Црни је победио!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:411
-#| msgid "The game is a draw!"
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Игра је нерешена."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:440
-#| msgid "You can't move there!"
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "То је немогућ потез!"
 
-#: ../src/iagno.vala:494
-msgid "Iagno Preferences"
-msgstr "Поставке Јагноа"
+#~ msgid "_Preferences"
+#~ msgstr "_Поставке"
 
-#: ../src/iagno.vala:497
-msgid "_Close"
-msgstr "_Затвори"
+#~ msgid "true if the window is fullscren"
+#~ msgstr "изабрано ако је прозор преко целог екрана"
 
-#: ../src/iagno.vala:513
-msgid "Dark Player:"
-msgstr "Црни играч:"
+#~ msgid "Iagno Preferences"
+#~ msgstr "Поставке Јагноа"
 
-#: ../src/iagno.vala:526 ../src/iagno.vala:555
-msgid "Human"
-msgstr "Човек"
+#~ msgid "_Close"
+#~ msgstr "_Затвори"
 
-#: ../src/iagno.vala:530 ../src/iagno.vala:559
-msgid "Level one"
-msgstr "Први ниво"
+#~ msgid "Dark Player:"
+#~ msgstr "Црни играч:"
 
-#: ../src/iagno.vala:534 ../src/iagno.vala:563
-msgid "Level two"
-msgstr "Други ниво"
+#~ msgid "Human"
+#~ msgstr "Човек"
 
-#: ../src/iagno.vala:538 ../src/iagno.vala:567
-msgid "Level three"
-msgstr "Трећи ниво"
+#~ msgid "Level one"
+#~ msgstr "Први ниво"
 
-#: ../src/iagno.vala:543
-msgid "Light Player:"
-msgstr "Бели играч:"
+#~ msgid "Level two"
+#~ msgstr "Други ниво"
 
-#: ../src/iagno.vala:572
-msgid "_Tile set:"
-msgstr "Скуп _плочица:"
+#~ msgid "Level three"
+#~ msgstr "Трећи ниво"
 
-#: ../src/iagno.vala:624
-msgid "E_nable sounds"
-msgstr "Укључи _звуке"
+#~ msgid "Light Player:"
+#~ msgstr "Бели играч:"
 
-#. Help string for command line --fast-mode flag
-#: ../src/iagno.vala:636
-msgid "Reduce delay before AI moves"
-msgstr "Смањује застој пре потеза вештачке интелигенције"
+#~ msgid "_Tile set:"
+#~ msgstr "Скуп _плочица:"
 
-#. Help string for command line --version flag
-#: ../src/iagno.vala:639
-msgid "Show release version"
-msgstr "Приказује издање програма"
+#~ msgid "E_nable sounds"
+#~ msgstr "Укључи _звуке"
 
 #~ msgid "Chess"
 #~ msgstr "Шах"
@@ -370,9 +504,6 @@ msgstr "Приказује издање програма"
 #~ msgid "Opposing Player:"
 #~ msgstr "Противнички играч:"
 
-#~ msgid "Difficulty:"
-#~ msgstr "Тежина:"
-
 #~ msgid "Game Duration:"
 #~ msgstr "Трајање игре:"
 
@@ -416,16 +547,8 @@ msgstr "Приказује издање програма"
 #~ msgstr "_Изглед"
 
 #~ msgctxt "difficulty"
-#~ msgid "Easy"
-#~ msgstr "Лако"
-
-#~ msgctxt "difficulty"
 #~ msgid "Normal"
 #~ msgstr "Нормално"
-
-#~ msgctxt "difficulty"
-#~ msgid "Hard"
-#~ msgstr "Тешко"
 
 #~ msgctxt "chess-opponent"
 #~ msgid "Human"
@@ -466,10 +589,6 @@ msgstr "Приказује издање програма"
 #~ msgctxt "chess-side"
 #~ msgid "White Side"
 #~ msgstr "Бела страна"
-
-#~ msgctxt "chess-side"
-#~ msgid "Black Side"
-#~ msgstr "Црна страна"
 
 #~ msgctxt "chess-side"
 #~ msgid "Human Side"
@@ -786,13 +905,6 @@ msgstr "Приказује издање програма"
 #~ msgid "_Save game for later"
 #~ msgstr "_Сачувај игру за касније"
 
-#~ msgid "second"
-#~ msgid_plural "seconds"
-#~ msgstr[0] "секунда"
-#~ msgstr[1] "секунде"
-#~ msgstr[2] "секунди"
-#~ msgstr[3] "секунда"
-
 #~ msgid "minute"
 #~ msgid_plural "minutes"
 #~ msgstr[0] "минут"
@@ -855,9 +967,6 @@ msgstr "Приказује издање програма"
 #~ msgid "Five or More Preferences"
 #~ msgstr "Поставке за Пет или више"
 
-#~ msgid "Appearance"
-#~ msgstr "Изглед"
-
 #~ msgid "_Image:"
 #~ msgstr "_Слика:"
 
@@ -869,9 +978,6 @@ msgstr "Приказује издање програма"
 
 #~ msgid "_Small"
 #~ msgstr "_Мала"
-
-#~ msgid "_Medium"
-#~ msgstr "_Средња"
 
 #~ msgid "_Large"
 #~ msgstr "_Велика"
@@ -946,9 +1052,6 @@ msgstr "Приказује издање програма"
 #~ msgid "View help for this game"
 #~ msgstr "Прикажи помоћ за ову игру"
 
-#~ msgid "End the current game"
-#~ msgstr "Заврши игру у току"
-
 #~ msgid "Toggle fullscreen mode"
 #~ msgstr "Искључује/укључује приказ преко целог екрана"
 
@@ -991,9 +1094,6 @@ msgstr "Приказује издање програма"
 #~ msgid "Close this window"
 #~ msgstr "Затворите овај прозор"
 
-#~ msgid "Configure the game"
-#~ msgstr "Подеси игру"
-
 #~ msgid "Quit this game"
 #~ msgstr "Изађи из ове игре"
 
@@ -1026,9 +1126,6 @@ msgstr "Приказује издање програма"
 
 #~ msgid "L_eave Game"
 #~ msgstr "_Напусти игру"
-
-#~ msgid "Player _List"
-#~ msgstr "Списак _играча"
 
 #~ msgid "_Pause"
 #~ msgstr "_Пауза"
@@ -1252,17 +1349,11 @@ msgstr "Приказује издање програма"
 #~ msgid "Player Two:"
 #~ msgstr "Други играч:"
 
-#~ msgid "_Theme:"
-#~ msgstr "_Тема:"
-
 #~ msgid "Enable _animation"
 #~ msgstr "Укључи _анимације"
 
 #~ msgid "Keyboard Controls"
 #~ msgstr "Контрола тастатуром"
-
-#~ msgid "Classic"
-#~ msgstr "Класични"
 
 #~ msgid "Red"
 #~ msgstr "Црвени"
@@ -1350,9 +1441,6 @@ msgstr "Приказује издање програма"
 
 #~ msgid "Size of game tiles"
 #~ msgstr "Величина поља"
-
-#~ msgid "Size of game tiles."
-#~ msgstr "Величина поља."
 
 #~ msgid "Color to use for worm"
 #~ msgstr "Боја црва"
@@ -1902,6 +1990,3 @@ msgstr "Приказује издање програма"
 
 #~ msgid "Moves Left:"
 #~ msgstr "Преосталих потеза:"
-
-#~ msgid "_Restart Game"
-#~ msgstr "Поново пок_рени игру"
