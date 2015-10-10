@@ -483,6 +483,6 @@ public class Iagno : Gtk.Application
                                              Canberra.PROP_MEDIA_NAME, name,
                                              Canberra.PROP_MEDIA_FILENAME, path);
         if (r != 0)
-            warning ("Error playing %s: %s\n", path, Canberra.strerror (r));
+            warning ("Error playing %s: %s", path, Canberra.strerror (r));
     }
 }
