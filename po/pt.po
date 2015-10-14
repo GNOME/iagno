@@ -2,14 +2,16 @@
 # Copyright © 1998, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013 gnome-games
 # Distributed under the same licence as the gnome-games package
 # Nuno Ferreira <nmrf@rnl.ist.utl.pt>, 1998.
-# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013.
-# 
+# Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
+# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2015.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.8\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-17 00:16+0000\n"
-"PO-Revision-Date: 2013-03-17 00:20+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-28 23:07+0000\n"
+"PO-Revision-Date: 2015-10-14 07:13+0100\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "Language: pt\n"
@@ -17,9 +19,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/iagno.desktop.in.in.h:1 ../src/iagno.vala:82 ../src/iagno.vala:295
-#: ../src/iagno.vala:620
+#: ../data/iagno.desktop.in.in.h:1 ../src/iagno.vala:93 ../src/iagno.vala:303
+#: ../src/iagno.vala:660
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -33,7 +36,7 @@ msgstr "othello;"
 
 #: ../data/iagno.ui.h:1
 msgid "_New Game"
-msgstr "_Novo Jogo"
+msgstr "_Novo jogo"
 
 #: ../data/iagno.ui.h:2
 msgid "_Undo"
@@ -45,7 +48,7 @@ msgstr "_Preferências"
 
 #: ../data/iagno.ui.h:4
 msgid "_Help"
-msgstr "_Ajuda"
+msgstr "A_Juda"
 
 #: ../data/iagno.ui.h:5
 msgid "_About"
@@ -79,30 +82,30 @@ msgstr "verdadeiro se a janela estiver maximizada"
 msgid "true if the window is fullscren"
 msgstr "verdadeiro se a janela estiver em modo de ecrã completo"
 
-#: ../src/iagno.vala:137 ../src/iagno.vala:254 ../src/iagno.vala:262
+#: ../src/iagno.vala:147 ../src/iagno.vala:261 ../src/iagno.vala:269
 msgid "Dark:"
 msgstr "Preto:"
 
-#: ../src/iagno.vala:145 ../src/iagno.vala:255 ../src/iagno.vala:263
+#: ../src/iagno.vala:155 ../src/iagno.vala:262 ../src/iagno.vala:270
 msgid "Light:"
 msgstr "Branco:"
 
-#: ../src/iagno.vala:246
+#: ../src/iagno.vala:253
 msgid "Light must pass, Dark's move"
 msgstr "Brancos têm de passar. Jogada dos pretos"
 
-#: ../src/iagno.vala:248
+#: ../src/iagno.vala:255
 msgid "Dark must pass, Light's move"
 msgstr "Pretos têm de passar. Jogada dos brancos"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:257 ../src/iagno.vala:258 ../src/iagno.vala:265
-#: ../src/iagno.vala:266
+#: ../src/iagno.vala:264 ../src/iagno.vala:265 ../src/iagno.vala:272
+#: ../src/iagno.vala:273
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#: ../src/iagno.vala:300
+#: ../src/iagno.vala:308
 msgid ""
 "A disk flipping game derived from Reversi.\n"
 "\n"
@@ -112,71 +115,73 @@ msgstr ""
 "\n"
 "Iagno faz parte dos Jogos GNOME."
 
-#: ../src/iagno.vala:303
+#: ../src/iagno.vala:311
 msgid "translator-credits"
-msgstr "Duarte Loreto <happyguy_pt@hotmail.com>"
+msgstr ""
+"Duarte Loreto <happyguy_pt@hotmail.com>\n"
+"Pedro Albuquerque <palbuquerque73@gmail.com>"
 
-#: ../src/iagno.vala:305
+#: ../src/iagno.vala:313
 msgid "GNOME Games web site"
 msgstr "Página dos jogos GNOME"
 
-#: ../src/iagno.vala:368
+#: ../src/iagno.vala:398
 msgid "Light player wins!"
 msgstr "Jogador branco é o vencedor!"
 
-#: ../src/iagno.vala:370
+#: ../src/iagno.vala:400
 msgid "Dark player wins!"
 msgstr "Jogador preto é o vencedor!"
 
-#: ../src/iagno.vala:372
+#: ../src/iagno.vala:402
 msgid "The game was a draw."
 msgstr "O jogo ficou empatado."
 
-#: ../src/iagno.vala:396
+#: ../src/iagno.vala:426
 msgid "Invalid move."
 msgstr "Jogada inválida."
 
-#: ../src/iagno.vala:461
+#: ../src/iagno.vala:491
 msgid "Iagno Preferences"
 msgstr "Preferências do Iagno"
 
-#: ../src/iagno.vala:480
+#: ../src/iagno.vala:510
 msgid "Dark Player:"
-msgstr "Jogador Preto:"
+msgstr "Jogador preto:"
 
-#: ../src/iagno.vala:493 ../src/iagno.vala:522
+#: ../src/iagno.vala:523 ../src/iagno.vala:552
 msgid "Human"
 msgstr "Humano"
 
-#: ../src/iagno.vala:497 ../src/iagno.vala:526
+#: ../src/iagno.vala:527 ../src/iagno.vala:556
 msgid "Level one"
 msgstr "Nível um"
 
-#: ../src/iagno.vala:501 ../src/iagno.vala:530
+#: ../src/iagno.vala:531 ../src/iagno.vala:560
 msgid "Level two"
 msgstr "Nível dois"
 
-#: ../src/iagno.vala:505 ../src/iagno.vala:534
+#: ../src/iagno.vala:535 ../src/iagno.vala:564
 msgid "Level three"
 msgstr "Nível três"
 
-#: ../src/iagno.vala:510
+#: ../src/iagno.vala:540
 msgid "Light Player:"
-msgstr "Jogador Branco:"
+msgstr "Jogador branco:"
 
-#: ../src/iagno.vala:539
+#: ../src/iagno.vala:569
 msgid "E_nable sounds"
-msgstr "Ativar _sons"
+msgstr "Ativar _Sons"
 
-#: ../src/iagno.vala:544
+#: ../src/iagno.vala:574
 msgid "S_how grid"
-msgstr "_Apresentar grelha"
+msgstr "_Mostrar grelha"
 
-#: ../src/iagno.vala:549
+#: ../src/iagno.vala:579
 msgid "_Flip final results"
 msgstr "_Trocar os resultados finais"
 
-#: ../src/iagno.vala:554
+#: ../src/iagno.vala:584
 msgid "_Tile set:"
 msgstr "_Conjunto de peças:"
 
@@ -7391,15 +7396,15 @@ msgstr "_Conjunto de peças:"
 #~ "%(move)s White %(piece)s at %1$s takes the black %(victim_piece)s at %2$s "
 #~ "(%(result)s)"
 #~ msgstr ""
-#~ "%(move)s %(piece)s Branco em %1$s toma o %(victim_piece)s Preto em %(end)"
-#~ "s (%(result)s)"
+#~ "%(move)s %(piece)s Branco em %1$s toma o %(victim_piece)s Preto em "
+#~ "%(end)s (%(result)s)"
 
 #~ msgid ""
 #~ "%(move)s Black %(piece)s at %1$s takes the white %(victim_piece)s at %2$s "
 #~ "(%(result)s)"
 #~ msgstr ""
-#~ "%(move)s %(piece)s Preto em %1$s toma o %(victim_piece)s Branco em %(end)"
-#~ "s (%(result)s)"
+#~ "%(move)s %(piece)s Preto em %1$s toma o %(victim_piece)s Branco em "
+#~ "%(end)s (%(result)s)"
 
 #~ msgid "%(move)s White %(piece)s moves from %1$s to %2$s (%(result)s)"
 #~ msgstr "%(move)s %(piece)s Branco é movido de %1$s para %2$s (%(result)s)"
