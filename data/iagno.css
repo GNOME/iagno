@@ -19,18 +19,18 @@
  */
 
 /* Labels' tweaks */
-GtkLabel.bold-label {
+label.bold-label {
   font-weight: bold;
 }
-GtkLabel.italic-label {
+label.italic-label {
   font-style: italic;
 }
-GtkGrid#scoreboard GtkLabel {
+GtkGrid#scoreboard label {
   padding: 5px 2px;
 }
 
 /* Themes' dialog listbox */
-GtkListBox#themes-listbox GtkImage {
+GtkListBox#themes-listbox image {
   transition-duration: 200ms;
   opacity: 0;
 }
@@ -41,7 +41,7 @@ GtkListBox#themes-listbox GtkListBoxRow:selected * {
   opacity: 1;
   color:@theme_selected_fg_color;
 }
-GtkListBox#themes-listbox GtkListBoxRow:selected GtkImage:backdrop {
+GtkListBox#themes-listbox GtkListBoxRow:selected image:backdrop {
   color:@theme_unfocused_selected_fg_color;
 }
 
