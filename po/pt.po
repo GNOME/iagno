@@ -4,22 +4,22 @@
 # Nuno Ferreira <nmrf@rnl.ist.utl.pt>, 1998.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013.
 # Tiago S. <almosthumane@portugalmail.pt>, 2014.
-# Pedro Albuquerque <palbuquerque73@openmailbox.com>, 2015.
+# Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.12\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-06-07 22:09+0000\n"
-"PO-Revision-Date: 2015-06-26 09:27+0100\n"
-"Last-Translator: Pedro Albuquerque <palbuquerque73@openmailbox.com>\n"
-"Language-Team: Português <palbuquerque73@openmailbox.com>\n"
+"POT-Creation-Date: 2015-10-24 11:35+0000\n"
+"PO-Revision-Date: 2015-11-05 06:39+0000\n"
+"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
+"Language-Team: Português <palbuquerque73@gmail.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\\n\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Domine o tabuleiro numa versão clássica do Reversi"
 
@@ -52,19 +52,23 @@ msgstr ""
 "enquanto tenta evitar que o adversário vire as suas peças para a cor dele. "
 "Isto é feito aprisionando as peças do adversário entre duas peças da sua cor."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "reversi;othello;otelo;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Jogar primeiro (escuras)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Jogar em segundo (claras)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Jogo para dois"
 
@@ -73,7 +77,6 @@ msgid "A_ppearance"
 msgstr "A_Parência"
 
 #: ../data/iagno-menus.ui.h:2
-#| msgid "Sound"
 msgid "_Sound"
 msgstr "_Som"
 
@@ -90,7 +93,6 @@ msgid "_Quit"
 msgstr "_Sair"
 
 #: ../data/iagno-screens.ui.h:1
-#| msgid "Dark Player:"
 msgid "Players"
 msgstr "Jogadores"
 
@@ -123,12 +125,10 @@ msgid "Color"
 msgstr "Cor"
 
 #: ../data/iagno-screens.ui.h:9
-#| msgid "Dark:"
 msgid "_Dark"
 msgstr "_Escura"
 
 #: ../data/iagno-screens.ui.h:10
-#| msgid "Light:"
 msgid "_Light"
 msgstr "_Clara"
 
@@ -149,7 +149,6 @@ msgid "_New Game"
 msgstr "_Novo jogo"
 
 #: ../data/iagno.ui.h:3
-#| msgid "Start a new game"
 msgid "Configure a new game"
 msgstr "Configurar um novo jogo"
 
@@ -226,7 +225,6 @@ msgid "true if the window is maximized"
 msgstr "verdadeiro se a janela estiver maximizada"
 
 #: ../src/game-window.vala:128
-#| msgid "Start a new game"
 msgid "_Start Game"
 msgstr "_Iniciar jogo"
 
@@ -271,7 +269,6 @@ msgid "Turn on the sound"
 msgstr "Ligar o som"
 
 #: ../src/iagno.vala:67
-#| msgid "Show release version"
 msgid "Print release version and exit"
 msgstr "Imprimir a versão de lançamento e sair"
 
@@ -286,10 +283,6 @@ msgstr ""
 "O nível deve estar entre 1 (fácil) e 3 (difícil). Definições inalteradas."
 
 #: ../src/iagno.vala:275
-#| msgid ""
-#| "A disk flipping game derived from Reversi\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
 msgid "A disk flipping game derived from Reversi"
 msgstr ""
 "Um jogo de virar peças derivado do Reversi\n"
@@ -300,6 +293,7 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Duarte Loreto <happyguy_pt@hotmail.com>\n"
+"Tiago S. <almosthumane@portugalmail.pt>\n"
 "Pedro Albuquerque <palbuquerque73@gmail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
