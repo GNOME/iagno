@@ -15,68 +15,64 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-01 10:45+0000\n"
-"PO-Revision-Date: 2015-03-01 16:29+0100\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-10-25 12:38+0000\n"
+"PO-Revision-Date: 2015-10-25 19:02+0100\n"
+"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.5\n"
 
-#. Window
-#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:87 ../src/iagno.vala:182 ../src/iagno.vala:287
+#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1 ../src/iagno.vala:86 ../src/iagno.vala:173
+#: ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Uralja a táblát a Reversi klasszikus változatában"
 
 #: ../data/iagno.appdata.xml.in.h:3
 msgid ""
-"Iagno is a computer version of the game Reversi, a two-player strategy board "
-"game. The game is played with tiles that are dark on one side and light on "
-"the other."
+"Iagno is a computer version of the game Reversi, a two-player strategy board game. The game is played with tiles that are dark "
+"on one side and light on the other."
 msgstr ""
-"Az Iagno a Reversi nevű kétszemélyes, stratégiai táblajáték számítógépes "
-"változata. A játékot egyik oldalukon sötét, másikon világos kövekkel "
-"játsszák."
+"Az Iagno a Reversi nevű kétszemélyes, stratégiai táblajáték számítógépes változata. A játékot egyik oldalukon sötét, másikon "
+"világos kövekkel játsszák."
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
-"color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
-"of your own color."
+"The object of Iagno is to flip as many of your opponent's tiles to your color as possible while preventing your opponent from "
+"flipping your tiles to his color. This is done by trapping your opponent's tiles between two tiles of your own color."
 msgstr ""
-"Az Iagno célja az ellenfél lehető legtöbb kövének megfordítása a saját "
-"színre, ezalatt megakadályozva őt ugyanebben. Ez az ellenfél köveinek két "
-"saját kő közti csapdába ejtésével érhető el."
+"Az Iagno célja az ellenfél lehető legtöbb kövének megfordítása a saját színre, ezalatt megakadályozva őt ugyanebben. Ez az "
+"ellenfél köveinek két saját kő közti csapdába ejtésével érhető el."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "reversi;othello;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Első játékos (sötét)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Második játékos (világos)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Kétszemélyes játék"
 
 #: ../data/iagno-menus.ui.h:1
-#| msgid "Appearance"
 msgid "A_ppearance"
 msgstr "_Megjelenés"
 
@@ -97,7 +93,6 @@ msgid "_Quit"
 msgstr "_Kilépés"
 
 #: ../data/iagno-screens.ui.h:1
-#| msgid "_Two Players"
 msgid "Players"
 msgstr "Játékosok"
 
@@ -110,7 +105,6 @@ msgid "_Two"
 msgstr "_Kettő"
 
 #: ../data/iagno-screens.ui.h:4
-#| msgid "Difficulty:"
 msgid "Difficulty"
 msgstr "Nehézség"
 
@@ -127,17 +121,14 @@ msgid "_Hard"
 msgstr "Ne_héz"
 
 #: ../data/iagno-screens.ui.h:8
-#| msgid "Colors"
 msgid "Color"
 msgstr "Szín"
 
 #: ../data/iagno-screens.ui.h:9
-#| msgid "Dark:"
 msgid "_Dark"
 msgstr "_Sötét"
 
 #: ../data/iagno-screens.ui.h:10
-#| msgid "Light:"
 msgid "_Light"
 msgstr "_Világos"
 
@@ -154,24 +145,14 @@ msgid "Go back to the current game"
 msgstr "Vissza a jelenlegi játékhoz"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "Játék _indítása"
-
-#: ../data/iagno.ui.h:3
-#| msgid "Start a new game"
-msgid "Start a new game as configured"
-msgstr "Új játék indítása a beállítás szerint"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "Ú_j játék"
 
-#: ../data/iagno.ui.h:5
-#| msgid "Configure the game"
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Új játék beállítása"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Új játék indítása"
 
@@ -184,8 +165,6 @@ msgid "Classic"
 msgstr "Klasszikus"
 
 #: ../data/themes/high_contrast.theme.in.h:1
-#| msgctxt "chess-side"
-#| msgid "Black Side"
 msgid "Black and White"
 msgstr "Fekete-fehér"
 
@@ -211,8 +190,7 @@ msgstr "A szín, amellyel játszik"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
-msgstr ""
-"Sötétként vagy világosként játszik-e. Kétszemélyes játékoknál mellőzve van."
+msgstr "Sötétként vagy világosként játszik-e. Kétszemélyes játékoknál mellőzve van."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Theme"
@@ -220,11 +198,10 @@ msgstr "Téma"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:7
 msgid ""
-"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
-"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", \"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
-"A használandó téma fájlneve vagy „default”. A következő témák érhetők el: "
-"„adwaita.theme”, „high_contrast.theme” és „sun_and_star.theme”."
+"A használandó téma fájlneve vagy „default”. A következő témák érhetők el: „adwaita.theme”, „high_contrast.theme” és "
+"„sun_and_star.theme”."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -246,66 +223,68 @@ msgstr "Az ablak magassága képpontokban"
 msgid "true if the window is maximized"
 msgstr "Az ablak teljes méretű-e"
 
-#: ../src/game-window.vala:134
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "Játék _indítása"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "A legutóbbi lépés visszavonása"
 
-#: ../src/iagno.vala:59
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Indítás egy alternatív pozícióval"
 
-#: ../src/iagno.vala:60
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Késleltetés csökkentése a gép lépése előtt"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "Első játékos"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "A számítógép intelligencia szintjének beállítása"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Hang kikapcsolása"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "Második játékos"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "A tábla mérete (csak hibakereséshez)"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Kétszemélyes mód"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Hang bekapcsolása"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Kiadási verzió kiírása és kilépés"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:112
+#: ../src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "A méretnek legalább 4-nek kell lennie."
 
-#: ../src/iagno.vala:123
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
-msgstr ""
-"A szintnek 1 (könnyű) és 3 (nehéz) között kell lennie. A beállítások nem "
-"változtak."
+msgstr "A szintnek 1 (könnyű) és 3 (nehéz) között kell lennie. A beállítások nem változtak."
 
-#: ../src/iagno.vala:295
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "A Reversiből származtatott korongfordítgatós játék"
 
-#: ../src/iagno.vala:298
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -317,40 +296,44 @@ msgstr ""
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:360 ../src/iagno.vala:361
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:433
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "A világos nem tud lépni, a sötét jön"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:438
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "A sötét nem tud lépni, a világos jön"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:449
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "A világos nyert!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:454
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "A sötét nyert!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:459
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Az eredmény döntetlen."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:475
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Nem léphet oda!"
+
+#~| msgid "Start a new game"
+#~ msgid "Start a new game as configured"
+#~ msgstr "Új játék indítása a beállítás szerint"
 
 #~ msgid "Game Mode"
 #~ msgstr "Játékmód"
@@ -484,11 +467,8 @@ msgstr "Nem léphet oda!"
 #~ msgid "The piece to promote pawns to"
 #~ msgstr "A gyalogok előléptetése"
 
-#~ msgid ""
-#~ "The piece to promote to when a human player moves a pawn to the far rank"
-#~ msgstr ""
-#~ "Az a bábu, amellyé az emberi játékos gyalogja a legtávolabbi sorba "
-#~ "lépésekor előléptetésre kerül."
+#~ msgid "The piece to promote to when a human player moves a pawn to the far rank"
+#~ msgstr "Az a bábu, amellyé az emberi játékos gyalogja a legtávolabbi sorba lépésekor előléptetésre kerül."
 
 #~ msgid "A flag to enable 3D mode"
 #~ msgstr "3D mód engedélyezése"
@@ -533,12 +513,11 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Az ellenfél játékos"
 
 #~ msgid ""
-#~ "Can be 'human' (play against another human player), '' (use the first "
-#~ "available chess engine) or the name of a specific engine to play against"
+#~ "Can be 'human' (play against another human player), '' (use the first available chess engine) or the name of a specific "
+#~ "engine to play against"
 #~ msgstr ""
-#~ "Lehetséges értékek: „human” (játék másik ember ellen), „” (az első "
-#~ "elérhető sakkmotor használata), vagy egy adott sakkmotor neve, amely "
-#~ "ellen játszani kíván."
+#~ "Lehetséges értékek: „human” (játék másik ember ellen), „” (az első elérhető sakkmotor használata), vagy egy adott sakkmotor "
+#~ "neve, amely ellen játszani kíván."
 
 #~ msgid "Difficulty of the opponent chess engine"
 #~ msgstr "Az ellenfél sakkmotor nehézsége"
@@ -923,8 +902,7 @@ msgstr "Nem léphet oda!"
 #~ msgid "Opponent has run out of time"
 #~ msgstr "Az ellenfél ideje elfogyott"
 
-#~ msgid ""
-#~ "The same board state has occurred three times (three fold repetition)"
+#~ msgid "The same board state has occurred three times (three fold repetition)"
 #~ msgstr "Ugyanaz a táblaállapot háromszor előfordult (háromszoros ismétlés)"
 
 #~ msgid "Neither player can cause checkmate (insufficient material)"
@@ -999,10 +977,8 @@ msgstr "Nem léphet oda!"
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FÁJL] – Sakk"
 
-#~ msgid ""
-#~ "Run '%s --help' to see a full list of available command line options."
-#~ msgstr ""
-#~ "Futtassa a(z) „%s --help” parancsot a parancssori kapcsolók listájáért."
+#~ msgid "Run '%s --help' to see a full list of available command line options."
+#~ msgstr "Futtassa a(z) „%s --help” parancsot a parancssori kapcsolók listájáért."
 
 #~ msgid "Five or More"
 #~ msgstr "Öt vagy több"
@@ -1052,12 +1028,8 @@ msgstr "Nem léphet oda!"
 #~ msgid "Playing field size"
 #~ msgstr "Játékmező mérete"
 
-#~ msgid ""
-#~ "Playing field size. 1=Small, 2=Medium, 3=Large. Any other value is "
-#~ "invalid."
-#~ msgstr ""
-#~ "Játékmező mérete. 1=Kicsi, 2=Közepes, 3=Nagy. Bármely más érték "
-#~ "érvénytelen."
+#~ msgid "Playing field size. 1=Small, 2=Medium, 3=Large. Any other value is invalid."
+#~ msgstr "Játékmező mérete. 1=Kicsi, 2=Közepes, 3=Nagy. Bármely más érték érvénytelen."
 
 #~ msgid "Ball style"
 #~ msgstr "Labdastílus"
@@ -1109,9 +1081,7 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Új többjátékosos hálózati játék indítása"
 
 #~ msgid "End the current network game and return to network server"
-#~ msgstr ""
-#~ "A jelenlegi hálózati játék befejezése és visszatérés a hálózati "
-#~ "kiszolgálóhoz"
+#~ msgstr "A jelenlegi hálózati játék befejezése és visszatérés a hálózati kiszolgálóhoz"
 
 #~ msgid "Pause the game"
 #~ msgstr "A játék szüneteltetése"
@@ -1188,41 +1158,33 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Játék be_fejezése"
 
 #~ msgid ""
-#~ "%s is free software; you can redistribute it and/or modify it under the "
-#~ "terms of the GNU General Public License as published by the Free Software "
-#~ "Foundation; either version %d of the License, or (at your option) any "
-#~ "later version."
+#~ "%s is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as "
+#~ "published by the Free Software Foundation; either version %d of the License, or (at your option) any later version."
 #~ msgstr ""
-#~ "A(z) %s szabad szoftver, terjesztheti és/vagy módosíthatja a Free "
-#~ "Software Foundation által kiadott GNU General Public License %d. (vagy "
-#~ "bármely későbbi) változatában foglaltak alapján."
+#~ "A(z) %s szabad szoftver, terjesztheti és/vagy módosíthatja a Free Software Foundation által kiadott GNU General Public "
+#~ "License %d. (vagy bármely későbbi) változatában foglaltak alapján."
 
 #~ msgid ""
-#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY "
-#~ "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
-#~ "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
-#~ "details."
+#~ "%s is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of "
+#~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details."
 #~ msgstr ""
-#~ "A(z) %s programot abban a reményben terjesztjük, hogy hasznos lesz, de "
-#~ "nem vállalunk SEMMIFÉLE GARANCIÁT, még olyan értelemben sem, hogy a "
-#~ "program alkalmas-e a KÖZREADÁSRA vagy EGY BIZONYOS FELADAT ELVÉGZÉSÉRE. "
-#~ "További részletekért tanulmányozza a GNU GPL licencet."
+#~ "A(z) %s programot abban a reményben terjesztjük, hogy hasznos lesz, de nem vállalunk SEMMIFÉLE GARANCIÁT, még olyan "
+#~ "értelemben sem, hogy a program alkalmas-e a KÖZREADÁSRA vagy EGY BIZONYOS FELADAT ELVÉGZÉSÉRE. További részletekért "
+#~ "tanulmányozza a GNU GPL licencet."
 
 #~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with %s; if not, write to the Free Software Foundation, Inc., 51 Franklin "
-#~ "Street, Fifth Floor, Boston, MA  02110-1301  USA"
+#~ "You should have received a copy of the GNU General Public License along with %s; if not, write to the Free Software "
+#~ "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA"
 #~ msgstr ""
-#~ "A(z) %s programhoz a GNU General Public License egy példánya is jár, ha "
-#~ "nem kapta meg, írjon a Free Software Foundation Inc.-nek. Levélcímük: 51 "
-#~ "Franklin St, Fifth Floor, Boston, MA 02110-1301, USA"
+#~ "A(z) %s programhoz a GNU General Public License egy példánya is jár, ha nem kapta meg, írjon a Free Software Foundation "
+#~ "Inc.-nek. Levélcímük: 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA"
 
 #~ msgid ""
-#~ "You should have received a copy of the GNU General Public License along "
-#~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
+#~ "You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/"
+#~ "licenses/>."
 #~ msgstr ""
-#~ "A(z) %s programhoz a GNU General Public License egy példánya is jár, ha "
-#~ "nem kapta meg, a <http://www.gnu.org/licenses/> oldalon elolvashatja."
+#~ "A(z) %s programhoz a GNU General Public License egy példánya is jár, ha nem kapta meg, a <http://www.gnu.org/licenses/> "
+#~ "oldalon elolvashatja."
 
 #~ msgctxt "board size"
 #~ msgid "Small"
@@ -1291,12 +1253,8 @@ msgstr "Nem léphet oda!"
 #~ msgid "Level of Player One"
 #~ msgstr "Első játékos szintje"
 
-#~ msgid ""
-#~ "Zero is human; one through three correspond to the level of the computer "
-#~ "player."
-#~ msgstr ""
-#~ "A nulla az ember, az egytől háromig terjedő értékek a számítógépes "
-#~ "játékos szintjét jelentik."
+#~ msgid "Zero is human; one through three correspond to the level of the computer player."
+#~ msgstr "A nulla az ember, az egytől háromig terjedő értékek a számítógépes játékos szintjét jelentik."
 
 #~ msgid "Level of Player Two"
 #~ msgstr "Második játékos szintje"
@@ -1375,13 +1333,12 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Döntetlen:"
 
 #~ msgid ""
-#~ "\"Four in a Row\" for GNOME, with a computer player driven by Giuliano "
-#~ "Bertoletti's Velena Engine.\n"
+#~ "\"Four in a Row\" for GNOME, with a computer player driven by Giuliano Bertoletti's Velena Engine.\n"
 #~ "\n"
 #~ "\"Four in a Row\" is a part of GNOME Games."
 #~ msgstr ""
-#~ "„Négyet egy sorba” játék a GNOME-hoz. A számítógép által vezérelt "
-#~ "játékost Giuliano Bertoletti Velena alrendszere működteti.\n"
+#~ "„Négyet egy sorba” játék a GNOME-hoz. A számítógép által vezérelt játékost Giuliano Bertoletti Velena alrendszere "
+#~ "működteti.\n"
 #~ "\n"
 #~ "A „négyet egy sorba” a GNOME játékok része."
 
@@ -1709,32 +1666,26 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Biztonságos lépések használata"
 
 #~ msgid ""
-#~ "Use safe moves. The safe moves option will help you to avoid being killed "
-#~ "due to a mistake. If you try to make a move that would lead to your death "
-#~ "when there is a safe move available you will not be allowed to proceed."
+#~ "Use safe moves. The safe moves option will help you to avoid being killed due to a mistake. If you try to make a move that "
+#~ "would lead to your death when there is a safe move available you will not be allowed to proceed."
 #~ msgstr ""
-#~ "Használjon biztonságos lépéseket. A biztonságos lépések használata segít "
-#~ "abban, hogy ne haljon meg egy hiba következtében. Ha olyan lépést próbál "
-#~ "tenni, amely a halálához vezetne, amikor van biztonságos lépés, akkor a "
-#~ "rendszer ezt nem fogja engedni."
+#~ "Használjon biztonságos lépéseket. A biztonságos lépések használata segít abban, hogy ne haljon meg egy hiba következtében. "
+#~ "Ha olyan lépést próbál tenni, amely a halálához vezetne, amikor van biztonságos lépés, akkor a rendszer ezt nem fogja "
+#~ "engedni."
 
 #~ msgid "Use super safe moves"
 #~ msgstr "Tutibiztos lépések használata"
 
-#~ msgid ""
-#~ "Use super safe moves. The player is alerted when there is no safe move "
-#~ "and the only option is to teleport out."
+#~ msgid "Use super safe moves. The player is alerted when there is no safe move and the only option is to teleport out."
 #~ msgstr ""
-#~ "Használja a tutibiztos lépéseket. A rendszer figyelmeztetést küld, ha "
-#~ "nincs biztonságos lépés, és az egyetlen lehetőség kiteleportálni."
+#~ "Használja a tutibiztos lépéseket. A rendszer figyelmeztetést küld, ha nincs biztonságos lépés, és az egyetlen lehetőség "
+#~ "kiteleportálni."
 
 #~ msgid "Enable game sounds"
 #~ msgstr "Hang bekapcsolása"
 
-#~ msgid ""
-#~ "Enable game sounds. Play sounds for various events throughout the game."
-#~ msgstr ""
-#~ "Hang bekapcsolása. Hangok lejátszása különböző eseményekhez a játék alatt."
+#~ msgid "Enable game sounds. Play sounds for various events throughout the game."
+#~ msgstr "Hang bekapcsolása. Hangok lejátszása különböző eseményekhez a játék alatt."
 
 #~ msgid "Key to move NW"
 #~ msgstr "Billentyű az északnyugati irányba mozgáshoz"
@@ -1900,21 +1851,19 @@ msgstr "Nem léphet oda!"
 #~ msgstr "A játékadatok nem találhatók meg."
 
 #~ msgid ""
-#~ "The program Robots was unable to find any valid game configuration files. "
-#~ "Please check that the program is installed correctly."
-#~ msgstr ""
-#~ "A Robotok program nem talált érvényes játékbeállítás-fájlt. Ellenőrizze, "
-#~ "hogy a program megfelelően van-e telepítve."
+#~ "The program Robots was unable to find any valid game configuration files. Please check that the program is installed "
+#~ "correctly."
+#~ msgstr "A Robotok program nem talált érvényes játékbeállítás-fájlt. Ellenőrizze, hogy a program megfelelően van-e telepítve."
 
 #~ msgid "Some graphics files are missing or corrupt."
 #~ msgstr "Néhány grafikus fájl hiányzik vagy sérült."
 
 #~ msgid ""
-#~ "The program Robots was unable to load all the necessary graphics files. "
-#~ "Please check that the program is installed correctly."
+#~ "The program Robots was unable to load all the necessary graphics files. Please check that the program is installed "
+#~ "correctly."
 #~ msgstr ""
-#~ "A Robotok program nem tudta betölteni az összes szükséges grafikus fájlt. "
-#~ "Ellenőrizze, hogy a program megfelelően van-e telepítve."
+#~ "A Robotok program nem tudta betölteni az összes szükséges grafikus fájlt. Ellenőrizze, hogy a program megfelelően van-e "
+#~ "telepítve."
 
 #~ msgid "Could not find '%s' pixmap file\n"
 #~ msgstr "A(z) „%s” pixmap fájl nem található\n"
@@ -2051,9 +2000,7 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Új játékot kíván indítani ezzel a térképpel?"
 
 #~ msgid "If you continue playing the next game will use the new map."
-#~ msgstr ""
-#~ "Ha folytatja a játékot, akkor a következő játék az új térképet fogja "
-#~ "használni."
+#~ msgstr "Ha folytatja a játékot, akkor a következő játék az új térképet fogja használni."
 
 #~ msgid "_Continue playing"
 #~ msgstr "Játék f_olytatása"
@@ -2077,13 +2024,11 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Nincs több lépés."
 
 #~ msgid ""
-#~ "Each puzzle has at least one solution.  You can undo your moves and try "
-#~ "and find the solution for a time penalty, restart this game or start an "
-#~ "new one."
+#~ "Each puzzle has at least one solution.  You can undo your moves and try and find the solution for a time penalty, restart "
+#~ "this game or start an new one."
 #~ msgstr ""
-#~ "Minden kirakónak van legalább egy megoldása. Visszavonhatja lépéseit, és "
-#~ "megpróbálhatja megtalálni a megoldást időbüntetés ellenében, "
-#~ "újraindíthatja a játékot vagy újat indíthat."
+#~ "Minden kirakónak van legalább egy megoldása. Visszavonhatja lépéseit, és megpróbálhatja megtalálni a megoldást időbüntetés "
+#~ "ellenében, újraindíthatja a játékot vagy újat indíthat."
 
 #~ msgid "_New game"
 #~ msgstr "Ú_j játék"
@@ -2173,13 +2118,11 @@ msgstr "Nem léphet oda!"
 #~ msgstr "GNOME Sudoku"
 
 #~ msgid ""
-#~ "GNOME Sudoku is a simple Sudoku generator and player. Sudoku is a "
-#~ "Japanese logic puzzle.\n"
+#~ "GNOME Sudoku is a simple Sudoku generator and player. Sudoku is a Japanese logic puzzle.\n"
 #~ "\n"
 #~ "GNOME Sudoku is a part of GNOME Games."
 #~ msgstr ""
-#~ "A GNOME Sudoku egy egyszerű Sudoku játék és fejtörő-előállító. A Sudoku "
-#~ "egy népszerű ál-japán logikai fejtörő.\n"
+#~ "A GNOME Sudoku egy egyszerű Sudoku játék és fejtörő-előállító. A Sudoku egy népszerű ál-japán logikai fejtörő.\n"
 #~ "\n"
 #~ "A GNOME Sudoku a GNOME játékok része."
 
@@ -2296,8 +2239,7 @@ msgstr "Nem léphet oda!"
 #~ msgid "_Track Additions"
 #~ msgstr "_Módosítások követése"
 
-#~ msgid ""
-#~ "Mark new additions in a separate color so you can keep track of them."
+#~ msgid "Mark new additions in a separate color so you can keep track of them."
 #~ msgstr "Új elemek követése eltérő színnel, így követheti azokat."
 
 #~ msgid "_Highlighter"
@@ -2439,27 +2381,19 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Ismeretlen zászló használata"
 
 #~ msgid "Set to true to be able to mark squares as unknown."
-#~ msgstr ""
-#~ "Állítsa igaz értékre, hogy képes legyen a négyzeteket ismeretlenként "
-#~ "megjelölni."
+#~ msgstr "Állítsa igaz értékre, hogy képes legyen a négyzeteket ismeretlenként megjelölni."
 
 #~ msgid "Warning about too many flags"
 #~ msgstr "Figyelmeztetés a túl sok zászlóról"
 
 #~ msgid "Set to true to enable warning icons when too many flags are placed."
-#~ msgstr ""
-#~ "Állítsa igazra a figyelmeztető ikonok engedélyezéséhez, ha túl sok "
-#~ "zászlót helyezett el."
+#~ msgstr "Állítsa igazra a figyelmeztető ikonok engedélyezéséhez, ha túl sok zászlót helyezett el."
 
 #~ msgid "Enable automatic placing of flags"
 #~ msgstr "Zászlók automatikus elhelyezésének engedélyezése"
 
-#~ msgid ""
-#~ "Set to true to have gnomine automatically flag squares as mined when "
-#~ "enough squares are revealed"
-#~ msgstr ""
-#~ "Igazra állítva a gnomine automatikusan aknaként jelöli a négyzeteket, ha "
-#~ "elég négyzet van felfedve"
+#~ msgid "Set to true to have gnomine automatically flag squares as mined when enough squares are revealed"
+#~ msgstr "Igazra állítva a gnomine automatikusan aknaként jelöli a négyzeteket, ha elég négyzet van felfedve"
 
 #~ msgid "Number of columns in a custom game"
 #~ msgstr "Oszlopok száma egyéni játékban"
@@ -2537,13 +2471,11 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Grafika:"
 
 #~ msgid ""
-#~ "The popular logic puzzle minesweeper. Clear mines from a board using "
-#~ "hints from squares you have already uncovered.\n"
+#~ "The popular logic puzzle minesweeper. Clear mines from a board using hints from squares you have already uncovered.\n"
 #~ "\n"
 #~ "Mines is a part of GNOME Games."
 #~ msgstr ""
-#~ "A népszerű aknakereső játék. Tisztítsa meg a táblát az aknáktól a már "
-#~ "felderített négyzetek tippjei alapján.\n"
+#~ "A népszerű aknakereső játék. Tisztítsa meg a táblát az aknáktól a már felderített négyzetek tippjei alapján.\n"
 #~ "\n"
 #~ "Az Aknakereső a GNOME játékok része."
 
@@ -2598,8 +2530,7 @@ msgstr "Nem léphet oda!"
 #~ msgid "The size of the playing grid"
 #~ msgstr "A játékrács mérete"
 
-#~ msgid ""
-#~ "The value of this key is used to decide the size of the playing grid."
+#~ msgid "The value of this key is used to decide the size of the playing grid."
 #~ msgstr "Ezen kulcs értéke határozza meg a játékrács méretét."
 
 #~ msgid "2×2"
@@ -2624,13 +2555,11 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Tetravex pontszámok"
 
 #~ msgid ""
-#~ "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-#~ "the same numbers are touching each other.\n"
+#~ "GNOME Tetravex is a simple puzzle where pieces must be positioned so that the same numbers are touching each other.\n"
 #~ "\n"
 #~ "Tetravex is a part of GNOME Games."
 #~ msgstr ""
-#~ "A GNOME Tetravex egy egyszerű fejtörő, amelyben a darabokat úgy kell "
-#~ "összeilleszteni, hogy az azonos számok összeérjenek.\n"
+#~ "A GNOME Tetravex egy egyszerű fejtörő, amelyben a darabokat úgy kell összeilleszteni, hogy az azonos számok összeérjenek.\n"
 #~ "\n"
 #~ "A Tetravex a GNOME játékok része."
 
@@ -2813,22 +2742,14 @@ msgstr "Nem léphet oda!"
 #~ msgid "Delay between rolls"
 #~ msgstr "Dobások közötti késleltetés"
 
-#~ msgid ""
-#~ "Choose whether or not to insert a delay between the computer's dice rolls "
-#~ "so the player can follow what it is doing."
-#~ msgstr ""
-#~ "Válassza ki, hogy legyen-e késleltetés a számítógép kockadobásai előtt "
-#~ "(így a játékos követheti, mi történik)."
+#~ msgid "Choose whether or not to insert a delay between the computer's dice rolls so the player can follow what it is doing."
+#~ msgstr "Válassza ki, hogy legyen-e késleltetés a számítógép kockadobásai előtt (így a játékos követheti, mi történik)."
 
 #~ msgid "Display the computer's thoughts"
 #~ msgstr "A számítógép gondolatainak megjelenítése"
 
-#~ msgid ""
-#~ "If set to true, a dump of the AI's working will be done to standard "
-#~ "output."
-#~ msgstr ""
-#~ "Ha igaz értékre van állítva, az AI működése kiírásra kerül a standard "
-#~ "kimenetre."
+#~ msgid "If set to true, a dump of the AI's working will be done to standard output."
+#~ msgstr "Ha igaz értékre van állítva, az AI működése kiírásra kerül a standard kimenetre."
 
 #~ msgid "Already used! Where do you want to put that?"
 #~ msgstr "Már fel van használva. Hova szeretné tenni?"
@@ -3076,8 +2997,7 @@ msgstr "Nem léphet oda!"
 #~ msgid "The theme used for rendering the blocks"
 #~ msgstr "A blokkok rajzolásához használt kép"
 
-#~ msgid ""
-#~ "The name of the theme used for rendering the blocks and the background."
+#~ msgid "The name of the theme used for rendering the blocks and the background."
 #~ msgstr "A blokkok és a háttér rajzolására használt téma neve."
 
 #~ msgid "Level to start with"
@@ -3113,22 +3033,18 @@ msgstr "Nem léphet oda!"
 #~ msgid "The number of rows to fill"
 #~ msgstr "A feltöltendő sorok száma"
 
-#~ msgid ""
-#~ "The number of rows that are filled with random blocks at the start of the "
-#~ "game."
-#~ msgstr ""
-#~ "A sorok száma, amelyek a játék indításakor véletlenszerű blokkokkal "
-#~ "kerülnek feltöltésre."
+#~ msgid "The number of rows that are filled with random blocks at the start of the game."
+#~ msgstr "A sorok száma, amelyek a játék indításakor véletlenszerű blokkokkal kerülnek feltöltésre."
 
 #~ msgid "The density of filled rows"
 #~ msgstr "A feltöltött sorok sűrűsége"
 
 #~ msgid ""
-#~ "The density of blocks in rows filled at the start of the game. The value "
-#~ "is between 0 (for no blocks) and 10 (for a completely filled row)."
+#~ "The density of blocks in rows filled at the start of the game. The value is between 0 (for no blocks) and 10 (for a "
+#~ "completely filled row)."
 #~ msgstr ""
-#~ "A blokkok sűrűsége a feltöltött sorokban a játék indításakor. Az érték 0 "
-#~ "(nincs blokk) és 10 (teljesen feltöltött sor) között változhat."
+#~ "A blokkok sűrűsége a feltöltött sorokban a játék indításakor. Az érték 0 (nincs blokk) és 10 (teljesen feltöltött sor) "
+#~ "között változhat."
 
 #~ msgid "Whether to play sounds"
 #~ msgstr "Hangok lejátszása"
@@ -3263,9 +3179,7 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Működés"
 
 #~ msgid "Clear the screen by removing groups of colored and shaped tiles"
-#~ msgstr ""
-#~ "Tisztítsa meg a képernyőt az egyező színű és formájú csempecsoportok "
-#~ "eltávolításával"
+#~ msgstr "Tisztítsa meg a képernyőt az egyező színű és formájú csempecsoportok eltávolításával"
 
 #~ msgid "%u point"
 #~ msgid_plural "%u points"
@@ -3291,8 +3205,7 @@ msgstr "Nem léphet oda!"
 #~ msgstr "Swell Foop pontok"
 
 #~ msgid ""
-#~ "I want to play that game! You know, they all light-up and you click on "
-#~ "them and they vanish!\n"
+#~ "I want to play that game! You know, they all light-up and you click on them and they vanish!\n"
 #~ "\n"
 #~ "Swell Foop is a part of GNOME Games."
 #~ msgstr ""
