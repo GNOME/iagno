@@ -19,17 +19,22 @@
  */
 
 /* Labels' tweaks */
+label.bold-label,
 GtkLabel.bold-label {
   font-weight: bold;
 }
+label.italic-label,
 GtkLabel.italic-label {
   font-style: italic;
 }
+grid#scoreboard label,
+GtkGrid#scoreboard label,
 GtkGrid#scoreboard GtkLabel {
   padding: 5px 2px;
 }
 
 /* Themes' dialog listbox */
+list#themes-listbox image,
 GtkListBox#themes-listbox GtkImage {
   transition-duration: 200ms;
   opacity: 0;
@@ -37,10 +42,12 @@ GtkListBox#themes-listbox GtkImage {
 
 /* if you removed the fix at the bottom of the CSS file,
    replacing "*" by "GtkImage" makes bug #746210 appear */
+list#themes-listbox row:selected *,
 GtkListBox#themes-listbox GtkListBoxRow:selected * {
   opacity: 1;
   color:@theme_selected_fg_color;
 }
+list#themes-listbox row:selected image:backdrop,
 GtkListBox#themes-listbox GtkListBoxRow:selected GtkImage:backdrop {
   color:@theme_unfocused_selected_fg_color;
 }
