@@ -5,10 +5,10 @@
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: iagno 3.17.x\n"
+"Project-Id-Version: iagno 3.19.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-11 20:04+0200\n"
-"PO-Revision-Date: 2015-08-11 20:07+0200\n"
+"POT-Creation-Date: 2015-11-16 00:23+0100\n"
+"PO-Revision-Date: 2015-11-16 00:24+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Dominer brettet i den klassiske versjonen av Reversi"
 
@@ -31,7 +31,10 @@ msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
 "the other."
-msgstr "Iagno er en datamaskinversjon av spillet Reversi, som er et to-spiller strategibrettspill. Spillet spilles med fliser som er mørke på en side og lyse på den andre."
+msgstr ""
+"Iagno er en datamaskinversjon av spillet Reversi, som er et to-spiller "
+"strategibrettspill. Spillet spilles med fliser som er mørke på en side og "
+"lyse på den andre."
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
@@ -39,21 +42,28 @@ msgid ""
 "color as possible while preventing your opponent from flipping your tiles to "
 "his color. This is done by trapping your opponent's tiles between two tiles "
 "of your own color."
-msgstr "Målet i Iagno er å snu så mange av motstanderens fliser som mulig til din farge mens du hindrer motstanderen i å gjøre det samme. Dette gjøres ved å fange motstanderens fliser mellom to fliser med din egen farge."
+msgstr ""
+"Målet i Iagno er å snu så mange av motstanderens fliser som mulig til din "
+"farge mens du hindrer motstanderen i å gjøre det samme. Dette gjøres ved å "
+"fange motstanderens fliser mellom to fliser med din egen farge."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "reversi;othello;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Spill første (mørk)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Spill andre (lys)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Spill med to spillere"
 
@@ -185,7 +195,9 @@ msgstr "Tema"
 msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
-msgstr "Filnavn på tema som brukes eller «default». Andre valg er «adwaita.theme», «high_contrast.theme» og «sun_and_star.theme»."
+msgstr ""
+"Filnavn på tema som brukes eller «default». Andre valg er «adwaita.theme», "
+"«high_contrast.theme» og «sun_and_star.theme»."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
