@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-08 10:36+0000\n"
-"PO-Revision-Date: 2015-03-08 20:08+0200\n"
+"POT-Creation-Date: 2015-11-13 00:42+0000\n"
+"PO-Revision-Date: 2015-11-13 13:01+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: lt\n"
@@ -24,15 +24,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:87 ../src/iagno.vala:179 ../src/iagno.vala:284
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Užimkite lentą klasikiniame Reversi variante"
 
@@ -57,19 +57,23 @@ msgstr ""
 "spalvą sutrukdant priešininkui padaryti tą patį. Tai daroma pagaunant "
 "priešininko koklius tarp dviejų savų."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "reversi;othello;otelas"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Žaisti pirmam (tamsiais)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Žaisti antram (šviesiais)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Dviejų žaidėjų žaidimas"
 
@@ -146,24 +150,14 @@ msgid "Go back to the current game"
 msgstr "Grįžti į dabartinį žaidimą"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "_Pradėti žaidimą"
-
-#: ../data/iagno.ui.h:3
-#| msgid "Start a new game"
-msgid "Start a new game as configured"
-msgstr "Pradėti naują žaidimą kaip sukonfigūruota"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Naujas žaidimas"
 
-#: ../data/iagno.ui.h:5
-#| msgid "Start a new game"
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Konfigūruoti naują žaidimą"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Pradėti naują žaidimą"
 
@@ -235,64 +229,68 @@ msgstr "Lango aukštis pikseliais"
 msgid "true if the window is maximized"
 msgstr "teigiama, jei langas yra išdidintas"
 
-#: ../src/game-window.vala:141
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Pradėti žaidimą"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Atšaukti paskutinį ėjimą"
 
-#: ../src/iagno.vala:59
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Pradėti su alternatyvia padėtimi"
 
-#: ../src/iagno.vala:60
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Sumažinti delsą tarp DĮ ėjimų"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "Žaisti pirmam"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "Nustatyti kompiuterio DI lygį"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Išjungti garsą"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "Žaisti antram"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Lentos dydis (tik derinimui)"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Dviejų žaidėjų veiksena"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Įjungti garsą"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Atspausdinti leidimo versiją ir išeiti"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:112
+#: ../src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "Dydis turi būti bent 4."
 
-#: ../src/iagno.vala:123
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "Lygis turi būti nuo 1 (lengvas) iki 3 (sunkus). Nustatymai nepakeisti."
 
-#: ../src/iagno.vala:292
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Diskų vartymo žaidimo Reversi atmaina"
 
-#: ../src/iagno.vala:295
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Paskutinis vertėjas:\n"
@@ -305,40 +303,44 @@ msgstr ""
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:357 ../src/iagno.vala:358
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:430
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Šviesusis turi praleisti, Tamsiojo ėjimas"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:435
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Tamsusis turi praleisti, Šviesiojo ėjimas"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:446
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Šviesusis laimi!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:451
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Tamsusis laimi!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:456
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Žaidimas baigėsi lygiosiomis!"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:472
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Negalima ten padėti!"
+
+#~| msgid "Start a new game"
+#~ msgid "Start a new game as configured"
+#~ msgstr "Pradėti naują žaidimą kaip sukonfigūruota"
 
 #~ msgid "Start a game"
 #~ msgstr "Pradėti žaidimą"
