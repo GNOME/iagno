@@ -16,9 +16,9 @@
 
   <maintainer>
     <foaf:Person>
-      <foaf:name>Thomas H.P. Andersen</foaf:name>
-      <foaf:mbox rdf:resource="mailto:phomes@gmail.com" />
-      <gnome:userid>thomashpa</gnome:userid>
+      <foaf:name>Arnaud Bonatti</foaf:name>
+      <foaf:mbox rdf:resource="mailto:arnaud.bonatti@gmail.com" />
+      <gnome:userid>arnaudb</gnome:userid>
     </foaf:Person>
   </maintainer>
   <maintainer>
