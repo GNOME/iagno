@@ -7,12 +7,12 @@
 # Dirgita <dirgitadevina@yahoo.co.id>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: iagno master\n"
+"Project-Id-Version: iagno gnome-3-16\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-05-06 21:53+0000\n"
-"PO-Revision-Date: 2015-05-11 01:29+0700\n"
-"Last-Translator: Cahaya Maulidian <winluxhuman@gmail.com>\n"
+"POT-Creation-Date: 2015-11-29 12:41+0000\n"
+"PO-Revision-Date: 2015-11-29 21:34+0700\n"
+"Last-Translator: Andika Triwidada <atriwidada@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Rosetta-Export-Date: 2007-04-23 05:58:10+0000\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.6.10\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
@@ -74,10 +74,8 @@ msgid "A_ppearance"
 msgstr "_Penampilan"
 
 #: ../data/iagno-menus.ui.h:2
-#, fuzzy
-#| msgid "Sound"
 msgid "_Sound"
-msgstr "Suara"
+msgstr "_Suara"
 
 #: ../data/iagno-menus.ui.h:3
 msgid "_Help"
@@ -92,10 +90,8 @@ msgid "_Quit"
 msgstr "_Keluar"
 
 #: ../data/iagno-screens.ui.h:1
-#, fuzzy
-#| msgid "Play first"
 msgid "Players"
-msgstr "Giliran pertama"
+msgstr "Pemain"
 
 #: ../data/iagno-screens.ui.h:2
 msgid "_One"
@@ -126,16 +122,12 @@ msgid "Color"
 msgstr "Warna"
 
 #: ../data/iagno-screens.ui.h:9
-#, fuzzy
-#| msgid "Dark:"
 msgid "_Dark"
-msgstr "Gelap:"
+msgstr "_Gelap"
 
 #: ../data/iagno-screens.ui.h:10
-#, fuzzy
-#| msgid "Light:"
 msgid "_Light"
-msgstr "Terang:"
+msgstr "_Terang"
 
 #: ../data/iagno-themes.ui.h:1
 msgid "Select Theme"
@@ -150,22 +142,18 @@ msgid "Go back to the current game"
 msgstr "Kembali ke permainan saat ini"
 
 #: ../data/iagno.ui.h:2
-#| msgid "_Start Over"
 msgid "_Start Game"
 msgstr "Mu_lai Permainan"
 
 #: ../data/iagno.ui.h:3
-#, fuzzy
-#| msgid "Start a new game"
 msgid "Start a new game as configured"
-msgstr "Mulai permainan baru"
+msgstr "Mulai permainan baru sesuai konfigurasi"
 
 #: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "Mai_nkan Permainan Baru"
 
 #: ../data/iagno.ui.h:5
-#| msgid "Start a new game"
 msgid "Configure a new game"
 msgstr "Mengkonfigurasi permainan baru"
 
@@ -294,16 +282,8 @@ msgstr ""
 "Tingkat mesti di antara 1 (mudah) dan 3 (sulit). Pengaturan tak berubah."
 
 #: ../src/iagno.vala:294
-#, fuzzy
-#| msgid ""
-#| "A disk flipping game derived from Reversi\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
 msgid "A disk flipping game derived from Reversi"
-msgstr ""
-"Permainan membalikkan disk yang diturunkan dari Reversi\n"
-"\n"
-"Iagno merupakan bagian dari GNOME Permainan."
+msgstr "Permainan membalikkan disk yang diturunkan dari Reversi"
 
 #: ../src/iagno.vala:297
 msgid "translator-credits"
@@ -349,39 +329,3 @@ msgstr "Permainan seri."
 #: ../src/iagno.vala:474
 msgid "You can’t move there!"
 msgstr "Anda tidak bisa bergerak ke sana!"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Preferensi"
-
-#~ msgid "Type of game"
-#~ msgstr "Tipe permainan"
-
-#~ msgid "Choose the type of the next game."
-#~ msgstr "Pilih tipe permainan selanjutnya."
-
-#~ msgid "Preferences"
-#~ msgstr "Preferensi"
-
-#~ msgid "Game mode:"
-#~ msgstr "Mode permainan:"
-
-#~ msgid "Two players"
-#~ msgstr "Dua pemain"
-
-#~ msgid "Computer:"
-#~ msgstr "Komputer:"
-
-#~ msgid "Level one"
-#~ msgstr "Tingkat satu"
-
-#~ msgid "Level two"
-#~ msgstr "Tingkat dua"
-
-#~ msgid "Level three"
-#~ msgstr "Tingkat tiga"
-
-#~ msgid "_Tile set:"
-#~ msgstr "Se_t kotak:"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "Aktifka_n suara"
