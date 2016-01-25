@@ -25,10 +25,11 @@
   <url type="homepage">https://wiki.gnome.org/Apps/Iagno</url>
   <updatecontact>mcatanzaro_at_gnome.org</updatecontact>
   <project_group>GNOME</project_group>
- <kudos>
-   <kudo>AppMenu</kudo>
-   <kudo>HiDpiIcon</kudo>
-   <kudo>ModernToolkit</kudo>
-   <kudo>UserDocs</kudo>
- </kudos>
+  <kudos>
+    <kudo>AppMenu</kudo>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>ModernToolkit</kudo>
+    <kudo>UserDocs</kudo>
+  </kudos>
+  <translation type="gettext">iagno</translation>
 </application>
