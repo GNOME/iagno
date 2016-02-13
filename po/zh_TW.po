@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-games 3.3.91\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-07-21 22:10+0000\n"
-"PO-Revision-Date: 2015-03-17 20:57+0800\n"
+"POT-Creation-Date: 2016-02-12 12:49+0000\n"
+"PO-Revision-Date: 2016-02-13 08:37+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional)\n"
 "Language: zh_TW\n"
@@ -20,14 +20,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno 黑白棋"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "經典版本的黑白棋"
 
@@ -50,19 +50,24 @@ msgstr ""
 "Iagno 的目的是盡可能把您的對手的棋翻成您的顏色，同時避免您的對手將您的棋翻成"
 "他的顏色。要達成這個目標可以讓對手的棋被您自己的顏色夾住即可困住他。"
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;黑白棋;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "黑白棋"
 
 #: ../data/iagno.desktop.in.h:4
+#| msgid "othello;"
+msgid "reversi;othello;"
+msgstr "reversi;othello;黑白棋;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "先玩 (黑子)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "後玩 (白子)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "兩人玩遊戲"
 
