@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-03 20:33+0000\n"
-"PO-Revision-Date: 2015-03-03 23:42+0100\n"
+"POT-Creation-Date: 2016-01-29 12:48+0000\n"
+"PO-Revision-Date: 2016-01-30 00:38+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,52 +21,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:87 ../src/iagno.vala:179 ../src/iagno.vala:284
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Dominera brädet i en klassisk version av Othello"
 
 #: ../data/iagno.appdata.xml.in.h:3
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
-"game. The game is played with tiles that are dark on one side and light on the "
-"other."
+"game. The game is played with tiles that are dark on one side and light on "
+"the other."
 msgstr ""
 "Iagno är en datorversion av spelet Othello, ett strategiskt brädspel för två "
-"spelare. Spelet spelas med brickor som är svarta på ena sidan och vita på den "
-"andra."
+"spelare. Spelet spelas med brickor som är svarta på ena sidan och vita på "
+"den andra."
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your color as "
-"possible while preventing your opponent from flipping your tiles to his color. "
-"This is done by trapping your opponent's tiles between two tiles of your own "
-"color."
+"The object of Iagno is to flip as many of your opponent's tiles to your "
+"color as possible while preventing your opponent from flipping your tiles to "
+"his color. This is done by trapping your opponent's tiles between two tiles "
+"of your own color."
 msgstr ""
 "Målet i Iagno är att vända så många som möjligt av din motståndares brickor "
-"medan du hindrar motståndaren från att vända dina brickor till sin färg. Detta "
-"görs genom att stänga in din motståndares brickor mellan två brickor av din egen "
-"färg."
+"medan du hindrar motståndaren från att vända dina brickor till sin färg. "
+"Detta görs genom att stänga in din motståndares brickor mellan två brickor "
+"av din egen färg."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Othello"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "reversi;othello;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Spela först (Svart)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Spela tvåa (Vit)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Spel för två spelare"
 
@@ -143,22 +147,14 @@ msgid "Go back to the current game"
 msgstr "Gå tillbaka till aktuellt spel"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "S_tarta spel"
-
-#: ../data/iagno.ui.h:3
-msgid "Start a new game as configured"
-msgstr "Starta ett nytt spel enligt konfiguration"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Nytt spel"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Konfigurera ett nytt spel"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Starta ett nytt spel"
 
@@ -207,8 +203,8 @@ msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
-"Filnamn för temat som används eller \"default\" (standard). \"adwaita.theme\", "
-"\"high_contrast.theme\" och \"sun_and_star.theme\" tillhandahålls."
+"Filnamn för temat som används eller \"default\" (standard). \"adwaita.theme"
+"\", \"high_contrast.theme\" och \"sun_and_star.theme\" tillhandahålls."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -230,64 +226,69 @@ msgstr "Höjden på fönstret i bildpunkter"
 msgid "true if the window is maximized"
 msgstr "sant om fönstret är maximerat"
 
-#: ../src/game-window.vala:141
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "S_tarta spel"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Ångra ditt senaste drag"
 
-#: ../src/iagno.vala:59
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Börja med en alternativ position"
 
-#: ../src/iagno.vala:60
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Minska fördröjning innan AI:n lägger"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "Spela först"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "Ställ in nivån på datorns AI"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Slå av ljudet"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "Spela tvåa"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Storlek på brädet (endast felsökning)"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Tvåspelarläge"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Slå på ljudet"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Visa utgåvans version och avsluta"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:112
+#: ../src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "Storlek måste vara minst 4."
 
-#: ../src/iagno.vala:123
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
-msgstr "Nivå ska vara mellan 1 (lätt) och 3 (svårt). Inställningar oförändrade."
+msgstr ""
+"Nivå ska vara mellan 1 (lätt) och 3 (svårt). Inställningar oförändrade."
 
-#: ../src/iagno.vala:292
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Ett brickvändningsspel som utvecklats från Othello"
 
-#: ../src/iagno.vala:295
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -301,40 +302,43 @@ msgstr ""
 "<tp-sv@listor.tp-sv.se>."
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:357 ../src/iagno.vala:358
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:430
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Vit måste stå över, svart drag"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:435
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Svart måste stå över, vitt drag"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:446
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Vit vinner!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:451
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Svart vinner!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:456
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Spelet är oavgjort."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:472
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Du kan inte lägga där!"
+
+#~ msgid "Start a new game as configured"
+#~ msgstr "Starta ett nytt spel enligt konfiguration"
 
 #~ msgid "Start a game"
 #~ msgstr "Starta ett spel"
