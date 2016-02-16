@@ -63,7 +63,7 @@ msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
 msgid "reversi;othello;"
-msgstr "reversi;othello;otelas"
+msgstr "reversi;othello;otelas;"
 
 #: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
