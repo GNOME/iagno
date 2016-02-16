@@ -1,3 +1,27 @@
+3.19.90 - February 16, 2016
+=============================
+
+The “Black and White” (high_contrast) theme has evolved to look good when used
+with the new GTK+ theme “HighContrastInverse”, and is set as the default for it.
+Other changes include some updates of the metadata files (AppData and Doap) and
+the add of a code style checker (by Sahil Sareen).
+
+Translations updated:
+ Bulgarian: Alexander Shopov
+ Chinese (Taiwan): Chao-Hsiung Liao
+ Friulian: Fabio Tomat (new)
+ German: Christian Kirbach and Mario Blättermann
+ Hungarian: Balázs Meskó
+ Latvian: Rūdolfs Mazurs
+ Lithuanian: Aurimas Černius
+ Norwegian bokmål: Kjartan Maraas
+ Polish: Piotr Drąg
+ Portuguese: Pedro Albuquerque
+ Slovak: Dušan Kazik
+ Slovenian: Matej Urbančič
+ Spanish: Daniel Mustieles
+ Swedish: Anders Jonsson
+
 3.19.1 - October 27, 2015
 =============================
 
