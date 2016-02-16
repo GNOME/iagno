@@ -18,7 +18,7 @@
  * with this application. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* GtkXyz is pre-3.19.1 */
+/* GtkXyz is pre-3.19.n */
 
 /* Labels' tweaks */
 GtkLabel.bold-label,
@@ -29,26 +29,29 @@ GtkLabel.italic-label,
 label.italic-label {
   font-style: italic;
 }
-GtkGrid#scoreboard GtkLabel,
-GtkGrid#scoreboard label {
+GtkGrid#scoreboard GtkLabel {
   padding: 5px 2px;
+}
+grid#scoreboard label {
+  padding: 4px 7px 4px 0;
 }
 
 /* Themes' dialog listbox */
 GtkListBox#themes-listbox GtkImage,
-GtkListBox#themes-listbox image {
+list#themes-listbox image {
   transition-duration: 200ms;
   opacity: 0;
 }
 
 /* if you removed the fix at the bottom of the CSS file,
    replacing "*" by "GtkImage" makes bug #746210 appear */
-GtkListBox#themes-listbox GtkListBoxRow:selected * {
+GtkListBox#themes-listbox GtkListBoxRow:selected *,
+list#themes-listbox row:selected * {
   opacity: 1;
   color:@theme_selected_fg_color;
 }
 GtkListBox#themes-listbox GtkListBoxRow:selected GtkImage:backdrop,
-GtkListBox#themes-listbox GtkListBoxRow:selected image:backdrop {
+list#themes-listbox row:selected image:backdrop {
   color:@theme_unfocused_selected_fg_color;
 }
 
