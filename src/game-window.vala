@@ -186,12 +186,11 @@ public class GameWindow : ApplicationWindow
     * * Window events
     \*/
 
-    private void size_allocate_cb (Allocation allocation)
+    private void size_allocate_cb ()
     {
         if (maximized_state || tiled_state)
             return;
-        window_width = allocation.width;
-        window_height = allocation.height;
+        get_size (out window_width, out window_height);
     }
 
     private bool window_state_event_cb (Gdk.EventWindowState event)
