@@ -15,9 +15,9 @@ Blue=1.0
 Radius=0
 
 [Mark]
-Red=0.0
-Green=0.0
-Blue=0.0
+Red=0.4
+Green=0.4
+Blue=0.4
 Width=3
 
 [Border]

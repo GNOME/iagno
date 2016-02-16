@@ -167,7 +167,7 @@ public class GameView : Gtk.DrawingArea
         var defaults = Gtk.Settings.get_default ();
 
         string filename;
-        if (defaults.gtk_theme_name == "HighContrast")
+        if ("HighContrast" in defaults.gtk_theme_name)
             filename = "high_contrast.theme";
         else if (defaults.gtk_application_prefer_dark_theme == true)
             filename = "adwaita.theme";
