@@ -1,10 +1,9 @@
 # Serbian translation of gnome-games
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2003 — 2014.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2016.
 # This file is distributed under the same license as the gnome-games package.
-# Maintainer: Душан Марјановић <madafaka@bsd.org.yu>
-# Reviewed on 2005-08-03 by: Игор Несторовић <igor@prevod.org>
-# Translated by: Милош Поповић <gpopac@gmail.com>
-# Translated on 2010-08-25 by: Бранко Кокановић <branko.kokanovic@gmail.com>
+# Душан Марјановић <madafaka@bsd.org.yu>
+# Игор Несторовић <igor@prevod.org>, 2005.
+# Бранко Кокановић <branko.kokanovic@gmail.com>, 2010.
 # Милош Поповић <gpopac@gmai, 2010.
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2016.
 msgid ""
@@ -12,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Гномове игре\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&k"
 "eywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-17 12:48+0000\n"
-"PO-Revision-Date: 2016-02-17 21:26+0200\n"
+"POT-Creation-Date: 2016-02-19 15:05+0000\n"
+"PO-Revision-Date: 2016-02-19 21:34+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -59,7 +58,6 @@ msgid "Reversi"
 msgstr "Реверси"
 
 #: ../data/iagno.desktop.in.h:4
-#, fuzzy
 #| msgid "othello;"
 msgid "reversi;othello;"
 msgstr "реверси;отело;"
