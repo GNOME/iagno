@@ -8,15 +8,15 @@
 # Sami Pesonen <sampeson@iki.fi>, 2002-2005.
 # Ilkka Tuohela <hile@iki.fi>, 2005-2009.
 # Timo Jyrinki <timo.jyrinki@iki.fi>, 2008.
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2014, 2015.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-13 22:36+0000\n"
-"PO-Revision-Date: 2015-03-14 12:47+0200\n"
+"POT-Creation-Date: 2016-03-05 12:49+0000\n"
+"PO-Revision-Date: 2016-03-05 19:33+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -25,15 +25,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Launchpad-Export-Date: 2010-09-13 15:09+0000\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Hallitse pöytää Reversin klassisessa muodossa"
 
@@ -57,29 +57,32 @@ msgstr ""
 "muuttavat väriä, mutta samalla estää vastustajaa kääntämästä sinun laattoja. "
 "Kääntäminen onnistuu, kun saat vastustajan laatat kahden oman laatan väliin."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
+#| msgid "othello;"
+msgid "reversi;othello;"
+msgstr "reversi;othello;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Pelaa ensin (musta)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Pelaa toisena (valkoinen)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Kahden pelaajan peli"
 
 #: ../data/iagno-menus.ui.h:1
-#| msgid "Appearance"
 msgid "A_ppearance"
 msgstr "_Ulkoasu"
 
 #: ../data/iagno-menus.ui.h:2
-#| msgid "Sound"
 msgid "_Sound"
 msgstr "_Ääni"
 
@@ -96,7 +99,6 @@ msgid "_Quit"
 msgstr "_Lopeta"
 
 #: ../data/iagno-screens.ui.h:1
-#| msgid "Play first"
 msgid "Players"
 msgstr "Pelaajat"
 
@@ -109,7 +111,6 @@ msgid "_Two"
 msgstr "_Kaksi"
 
 #: ../data/iagno-screens.ui.h:4
-#| msgid "Difficulty:"
 msgid "Difficulty"
 msgstr "Vaikeusaste"
 
@@ -126,22 +127,18 @@ msgid "_Hard"
 msgstr "V_aikea"
 
 #: ../data/iagno-screens.ui.h:8
-#| msgid "Colors"
 msgid "Color"
 msgstr "Väri"
 
 #: ../data/iagno-screens.ui.h:9
-#| msgid "Dark"
 msgid "_Dark"
 msgstr "_Tumma"
 
 #: ../data/iagno-screens.ui.h:10
-#| msgid "Light"
 msgid "_Light"
 msgstr "_Vaalea"
 
 #: ../data/iagno-themes.ui.h:1
-#| msgid "_Select map:"
 msgid "Select Theme"
 msgstr "Valitse teema"
 
@@ -150,30 +147,18 @@ msgid "Default"
 msgstr "Oletus"
 
 #: ../data/iagno.ui.h:1
-#| msgid "Restart the current game"
 msgid "Go back to the current game"
 msgstr "Siirry takaisin nykyiseen peliin"
 
 #: ../data/iagno.ui.h:2
-#| msgid "_Restart Game"
-msgid "_Start Game"
-msgstr "_Käynnistä peli"
-
-#: ../data/iagno.ui.h:3
-#| msgid "Start a new game"
-msgid "Start a new game as configured"
-msgstr "Aloita uusi peli kuten määritelty"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Uusi peli"
 
-#: ../data/iagno.ui.h:5
-#| msgid "Configure the game"
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Määritä uuden pelin asetukset"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Aloita uusi peli"
 
@@ -186,8 +171,6 @@ msgid "Classic"
 msgstr "Perinteinen"
 
 #: ../data/themes/high_contrast.theme.in.h:1
-#| msgctxt "chess-side"
-#| msgid "Black Side"
 msgid "Black and White"
 msgstr "Musta ja valkoinen"
 
@@ -248,7 +231,11 @@ msgstr "Ikkunan korkeus kuvapisteinä"
 msgid "true if the window is maximized"
 msgstr "tosi jos ikkuna on suurennettu"
 
-#: ../src/game-window.vala:141
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Käynnistä peli"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Kumoa viimeisin siirtosi"
 
@@ -294,24 +281,19 @@ msgstr "Näytä julkaisuversio ja sulkeudu"
 
 #. Console message displayed for an incorrect size
 #: ../src/iagno.vala:111
-#| msgid "Size of game tiles."
 msgid "Size must be at least 4."
 msgstr "Koon tulee olle vähintään 4."
 
-#: ../src/iagno.vala:165
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Tason tulee olla välillä 1 (helppo) ja 3 (vaikea). Asetuksia ei muutettu."
 
-#: ../src/iagno.vala:294
-#| msgid ""
-#| "A disk flipping game derived from Reversi\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Laatankääntelypeli, joka perustuu Reversiin"
 
-#: ../src/iagno.vala:297
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Jiri Grönroos, 2013-2015\n"
@@ -333,40 +315,44 @@ msgstr ""
 "  eGetin https://launchpad.net/~egetin"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:359 ../src/iagno.vala:360
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:432
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Valkoisen täytyy passata, mustan siirto"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:437
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Mustan täytyy passata, valkoisen siirto"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:448
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Valkoinen voitti!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:453
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Musta voitti!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:458
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Tasapeli!"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:474
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Ei voi siirtää sinne!"
+
+#~| msgid "Start a new game"
+#~ msgid "Start a new game as configured"
+#~ msgstr "Aloita uusi peli kuten määritelty"
 
 #~ msgid "_Preferences"
 #~ msgstr "_Asetukset"
