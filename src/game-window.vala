@@ -151,6 +151,7 @@ public class GameWindow : ApplicationWindow
             Button undo_button = new Button.from_icon_name ("edit-undo-symbolic", Gtk.IconSize.BUTTON);
             undo_button.action_name = "win.undo";
             undo_button.set_tooltip_text (_("Undo your most recent move"));
+            undo_button.valign = Align.CENTER;
             undo_button.show ();
             history_box.pack_start (undo_button, true, true, 0);
 
@@ -159,6 +160,7 @@ public class GameWindow : ApplicationWindow
                 Button redo_button = new Button.from_icon_name ("edit-redo-symbolic", Gtk.IconSize.BUTTON);
                 redo_button.action_name = "app.redo";
                 redo_button.set_tooltip_text (_("Redo your most recent undone move"));
+                redo_button.valign = Align.CENTER;
                 redo_button.show ();
                 history_box.pack_start (redo_button, true, true, 0);
             } */
@@ -171,6 +173,7 @@ public class GameWindow : ApplicationWindow
             Button hint_button = new Button.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.BUTTON);
             hint_button.action_name = "app.hint";
             hint_button.set_tooltip_text (_("Receive a hint for your next move"));
+            hint_button.valign = Align.CENTER;
             hint_button.show ();
             controls_box.pack_start (hint_button, true, true, 0);
         } */
