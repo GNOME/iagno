@@ -13,15 +13,15 @@
 # Nickolay V. Shmyrev <nshmyrev@yandex.ru>
 # Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2014, 2015.
 # Ivan Komaritsyn <vantu5z@mail.ru>, 2015.
-# Stas Solovey <whats_up@tut.by>, 2015.
+# Stas Solovey <whats_up@tut.by>, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-20 10:29+0000\n"
-"PO-Revision-Date: 2015-09-21 00:02+0300\n"
+"POT-Creation-Date: 2016-03-15 00:48+0000\n"
+"PO-Revision-Date: 2016-03-15 15:40+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Iagno"
 msgstr "Ягно"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Захватите доску в классическом варианте Реверси"
 
@@ -62,19 +62,24 @@ msgstr ""
 "фишку противника, необходимо, чтобы фишка соперника оказалась между двумя "
 "вашими фишками."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "отелло;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Реверси"
 
 #: ../data/iagno.desktop.in.h:4
+#| msgid "othello;"
+msgid "reversi;othello;"
+msgstr "реверси;отелло;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Играть за первого (чёрные)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Играть за второго (белые)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Игра с двумя участниками"
 
@@ -155,7 +160,6 @@ msgid "_New Game"
 msgstr "Новая _игра"
 
 #: ../data/iagno.ui.h:3
-#| msgid "Start a new game"
 msgid "Configure a new game"
 msgstr "Настроить новую игру"
 
@@ -298,7 +302,7 @@ msgid "translator-credits"
 msgstr ""
 "Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2015.\n"
 "Ivan Komaritsyn <vantu5z@mail.ru>, 2015.\n"
-"Stas Solovey <whats_up@tut.by>, 2015."
+"Stas Solovey <whats_up@tut.by>, 2015-2016."
 
 #. Translators: this is a 2 digit representation of the current score.
 #: ../src/iagno.vala:340 ../src/iagno.vala:341
@@ -329,7 +333,7 @@ msgstr "Чёрные победили!"
 #. Message to display when the game is a draw
 #: ../src/iagno.vala:434
 msgid "The game is draw."
-msgstr "Игра закончилась ничьёй."
+msgstr "Игра закончилась ничьей."
 
 #. Message to display when the player tries to make an illegal move
 #: ../src/iagno.vala:450
