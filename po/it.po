@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-20 10:39+0000\n"
-"PO-Revision-Date: 2015-03-20 13:46+0100\n"
+"POT-Creation-Date: 2016-03-18 00:48+0000\n"
+"PO-Revision-Date: 2016-03-18 09:51+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -22,14 +22,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.7\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Domina la tavola in una versione classica di Reversi"
 
@@ -55,19 +55,23 @@ msgstr ""
 "faccia altrettanto capovolgendole nel suo colore. Questo avviene "
 "intrappolando le pedine dell'avversario tra due del proprio colore."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;iagno;otello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "riversi;othello;otello;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Gioca per primo (Nero)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Gioca per secondo (Bianco)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Partita a due giocatori"
 
@@ -144,22 +148,14 @@ msgid "Go back to the current game"
 msgstr "Torna alla partita in corso"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "_Avvia partita"
-
-#: ../data/iagno.ui.h:3
-msgid "Start a new game as configured"
-msgstr "Inizia una nuova partita"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Nuova partita"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Configura una nuova partita"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Inizia una nuova partita"
 
@@ -232,7 +228,11 @@ msgstr "Altezza della finestra in pixel."
 msgid "true if the window is maximized"
 msgstr "VERO se la finestra è massimizzata"
 
-#: ../src/game-window.vala:141
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Avvia partita"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Annulla la mossa più recente"
 
@@ -281,17 +281,17 @@ msgstr "Stampa la versione ed esce"
 msgid "Size must be at least 4."
 msgstr "La dimensione deve essere almeno 4."
 
-#: ../src/iagno.vala:165
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Il livello deve essere tra 1 (facile) e 3 (difficile). Impostazioni non "
 "modificate."
 
-#: ../src/iagno.vala:294
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Un gioco di capovolgimento pedine derivato da Reversi"
 
-#: ../src/iagno.vala:297
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Claudio Arseni <claudio.arseni@ubuntu.com>\n"
@@ -301,37 +301,40 @@ msgstr ""
 "Fabrizio Stefani <f.stef@it.gnome.org>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:359 ../src/iagno.vala:360
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:432
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Il Bianco deve passare, muove il Nero"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:437
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Il Nero deve passare, muove il Bianco"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:448
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Ha vinto il Bianco!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:453
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Ha vinto il Nero!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:458
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Partita patta!"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:474
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Irraggiungibile!"
+
+#~ msgid "Start a new game as configured"
+#~ msgstr "Inizia una nuova partita"
