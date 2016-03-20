@@ -1,5 +1,5 @@
-# Danish translation of gnome-games.
-# Copyright (C) 1998-2015 Free Software Foundation, Inc.
+# Danish translation of iagno.
+# Copyright (C) 1998-2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 # Anders Wegge Jakobsen <wegge@wegge.dk>, 1998.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998-2001
@@ -7,7 +7,7 @@
 # Ole Laursen <olau@hardworking.dk>, 2001, 02, 03, 04.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2004, 05.
 # flemming christensen <fc@stromata.dk>, 2011.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007-15.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007-16.
 #
 # Husk at tilføje dig i credit-listen (besked id "translator-credits")
 #
@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-15 16:18+0100\n"
-"PO-Revision-Date: 2015-03-15 15:52+0100\n"
+"POT-Creation-Date: 2016-03-20 23:33+0100\n"
+"PO-Revision-Date: 2016-03-20 03:10+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -26,11 +26,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Overtag spillebrættet i en klassisk version af Reversi"
 
@@ -56,19 +56,23 @@ msgstr ""
 "Dette gøres ved at fange din modstanders felter mellem to felter af din egen "
 "farve."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "reversi;othello;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Første spiller (mørk)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Anden spiller (lys)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "To spillere"
 
@@ -145,22 +149,14 @@ msgid "Go back to the current game"
 msgstr "Tilbage til nuværende spil"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "_Start spil"
-
-#: ../data/iagno.ui.h:3
-msgid "Start a new game as configured"
-msgstr "Start et nyt spil som indstillet"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Nyt spil"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Indstil et nyt spil"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Start et nyt spil"
 
@@ -232,7 +228,11 @@ msgstr "Højden af vinduet i billedpunkter"
 msgid "true if the window is maximized"
 msgstr "sand hvis vinduet er maksimeret"
 
-#: ../src/game-window.vala:141
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Start spil"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Fortryd dit seneste træk"
 
@@ -281,19 +281,19 @@ msgstr "Vis udgivelsesversion og afslut"
 msgid "Size must be at least 4."
 msgstr "Størrelsen skal være mindst 4."
 
-#: ../src/iagno.vala:165
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Sværhedsgraden skal være mellem 1 (let) og 3 (svær). Indstillinger ikke "
 "ændret."
 
-#: ../src/iagno.vala:294
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr ""
 "Et spil afledt af Reversi, hvor man forsøger at dominere brættet ved at "
 "vende brikker"
 
-#: ../src/iagno.vala:297
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Anders Wegge Jakobsen\n"
@@ -307,40 +307,43 @@ msgstr ""
 "Mere info: http://www.dansk-gruppen.dk"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:359 ../src/iagno.vala:360
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:432
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Lys må sidde over, mørk trækker"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:437
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Mørk må sidde over, lys trækker"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:448
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Lys vandt!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:453
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Mørk vandt!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:458
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Spillet blev uafgjort."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:474
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Du kan ikke flytte dertil!"
+
+#~ msgid "Start a new game as configured"
+#~ msgstr "Start et nyt spil som indstillet"
 
 #~ msgid "_Preferences"
 #~ msgstr "_Indstillinger"
