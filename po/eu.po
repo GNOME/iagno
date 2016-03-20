@@ -2,31 +2,30 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013.
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2014, 2015.
 #
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2014, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-24 15:28+0100\n"
-"PO-Revision-Date: 2015-03-24 15:32+0100\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-20 19:56+0100\n"
+"PO-Revision-Date: 2016-03-20 19:57+0100\n"
+"Last-Translator: dooteo <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Menderatu taula Reversi-ren bertsio klasikoan"
 
@@ -51,19 +50,23 @@ msgstr ""
 "aurkariak zureak diren fitxak iraultzea saihesten saiatzen zaren bitartean. "
 "Aurkariaren fitxak zure koloreko bi fitxen artean atrapatuz lortzen da."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "reversi;othello;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "Jokatu aurrenik (Beltza)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "Jokatu bigarren (Zuria)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "Bi jokalarientzako jokoa"
 
@@ -140,22 +143,14 @@ msgid "Go back to the current game"
 msgstr "Joan atzera uneko jokoan"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "_Hasi jokoa"
-
-#: ../data/iagno.ui.h:3
-msgid "Start a new game as configured"
-msgstr "Hasi joko berria (konfiguratuta dagoen bezala)"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_Joko berria"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "Konfiguratu joko berria"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Hasi joko berria"
 
@@ -207,10 +202,8 @@ msgid ""
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
 "Erabiliko den gaiaren fitxategi-izena, edo 'default' (lehenetsia). Hauek "
-"eskaintzen dira: "
-"\"adwaita.theme\" (Adwaita), \"high_contrast.theme\" (Kontraste altua) eta "
-"\"sun_and_star.theme\" "
-"(Eguzkia eta izarra)."
+"eskaintzen dira: \"adwaita.theme\" (Adwaita), \"high_contrast.theme"
+"\" (Kontraste altua) eta \"sun_and_star.theme\" (Eguzkia eta izarra)."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -232,7 +225,11 @@ msgstr "Leihoaren altuera (pixeletan)"
 msgid "true if the window is maximized"
 msgstr "'true' (egia) leihoa maximizatuta badago"
 
-#: ../src/game-window.vala:141
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Hasi jokoa"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Desegin zure azken mugimendua"
 
@@ -281,54 +278,57 @@ msgstr "Erakutsi bertsioaren informazioa eta irten"
 msgid "Size must be at least 4."
 msgstr "Tamaina gutxienez 4 izan behar du."
 
-#: ../src/iagno.vala:165
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Maila 1 (erreza) eta 3 (zaila) artekoa izan behar du. Ezarpenak aldatu gabe."
 
-#: ../src/iagno.vala:294
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Fitxak irauliz jolasten da, eta Reversi-n oinarritua dago"
 
-#: ../src/iagno.vala:297
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:359 ../src/iagno.vala:360
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:432
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Zuriak paso egin behar du. Beltzaren txanda da"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:437
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Beltzak paso egin behar du. Zuriaren txanda da"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:448
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Zuriak irabazi du!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:453
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Beltzak irabazi du!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:458
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Berdinketa izan da."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:474
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Ezin duzu horra eraman."
+
+#~ msgid "Start a new game as configured"
+#~ msgstr "Hasi joko berria (konfiguratuta dagoen bezala)"
 
 #~ msgid "_Preferences"
 #~ msgstr "_Hobespenak"
