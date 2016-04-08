@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-28 07:05+0000\n"
-"PO-Revision-Date: 2015-10-28 15:42+0100\n"
+"POT-Creation-Date: 2016-04-08 00:22+0000\n"
+"PO-Revision-Date: 2016-04-08 10:17+0200\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "X-Generator: Poedit 1.8.5\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
@@ -273,12 +273,12 @@ msgstr "Stampe la version e jes"
 #. Console message displayed for an incorrect size
 #: ../src/iagno.vala:111
 msgid "Size must be at least 4."
-msgstr "La dimension a scugne sedi di almancul 4."
+msgstr "La dimension e scugne jessi di almancul 4."
 
 #: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
-"Il nivel al scugne sedi tra 1 (facil) e 3 (dificil). Impostazions no "
+"Il nivel al scugne jessi tra 1 (facil) e 3 (dificil). Impostazions no "
 "modificadis."
 
 #: ../src/iagno.vala:275
