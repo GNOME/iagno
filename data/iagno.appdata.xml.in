@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Michael Catanzaro and contributors -->
-<application>
-  <id type="desktop">iagno.desktop</id>
+<component type="desktop">
+  <id>iagno.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0+ and CC-BY-SA-3.0</project_license>
+  <project_license>GPL-3.0+</project_license>
   <_name>Iagno</_name>
   <_summary>Dominate the board in a classic version of Reversi</_summary>
   <description>
@@ -20,10 +20,17 @@
     </_p>
   </description>
   <screenshots>
-    <screenshot type="default" width="700" height="447">https://people.gnome.org/~mcatanzaro/iagno.png</screenshot>
+    <screenshot height="447" width="700" type="default">
+      <image>https://people.gnome.org/~mcatanzaro/iagno.png</image>
+      <_caption>A GNOME iagno game preview</_caption>
+    </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/Iagno</url>
-  <updatecontact>mcatanzaro_at_gnome.org</updatecontact>
+  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=iagno</url>
+  <url type="donation">http://www.gnome.org/friends/</url>
+  <url type="help">https://help.gnome.org/users/FIXME/stable/</url>
+  <url type="translate">https://wiki.gnome.org/TranslationProject</url>
+  <update_contact>mcatanzaro_at_gnome.org</update_contact>
   <project_group>GNOME</project_group>
   <kudos>
     <kudo>AppMenu</kudo>
@@ -32,4 +39,5 @@
     <kudo>UserDocs</kudo>
   </kudos>
   <translation type="gettext">iagno</translation>
-</application>
+  <_developer_name>The GNOME Project</_developer_name>
+</component>
