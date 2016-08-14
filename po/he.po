@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 16:27+0200\n"
-"PO-Revision-Date: 2015-03-02 16:27+0200\n"
+"POT-Creation-Date: 2016-08-14 17:10+0300\n"
+"PO-Revision-Date: 2016-08-14 17:12+0300\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
@@ -23,13 +23,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2008-01-13 04:36+0000\n"
 "X-Poedit-Language: Hebrew\n"
 
-#. Window
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:87 ../src/iagno.vala:182 ../src/iagno.vala:287
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "יאגנו"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "נסו לשלוט על כל הלוח במשחק ריברסי קלסי"
 
@@ -53,19 +52,31 @@ msgstr ""
 "מניעה מהיריב שלך להפוך את האריחים שלך לצבע שלו. הדבר נעשה על ידי לכידת "
 "האריחים  של הריב שלך בין שני אריחים מהצבע שלך."
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "הפוך אותי;"
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME iagno game preview"
+msgstr "תצוגה של משחק GNOME יאגנו"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "מיזם GNOME"
+
+#: ../data/iagno.desktop.in.h:2
+msgid "Reversi"
+msgstr "הפוך אותי"
 
 #: ../data/iagno.desktop.in.h:4
+msgid "reversi;othello;"
+msgstr "הפוך אותי;רברסי;אותלו;"
+
+#: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
 msgstr "לשחק ראשון (כהה)"
 
-#: ../data/iagno.desktop.in.h:5
+#: ../data/iagno.desktop.in.h:6
 msgid "Play second (Light)"
 msgstr "לשחק שני (בהיר)"
 
-#: ../data/iagno.desktop.in.h:6
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "משחק לשני שחקנים"
 
@@ -142,22 +153,14 @@ msgid "Go back to the current game"
 msgstr "לחזור למשחק הנוכחי"
 
 #: ../data/iagno.ui.h:2
-msgid "_Start Game"
-msgstr "ה_תחלת משחק"
-
-#: ../data/iagno.ui.h:3
-msgid "Start a new game as configured"
-msgstr "התחלת משחק חדש כפי שהוגדר"
-
-#: ../data/iagno.ui.h:4
 msgid "_New Game"
 msgstr "_משחק חדש"
 
-#: ../data/iagno.ui.h:5
+#: ../data/iagno.ui.h:3
 msgid "Configure a new game"
 msgstr "הגדרת משחק חדש"
 
-#: ../data/iagno.ui.h:6
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "התחלת משחק חדש"
 
@@ -229,64 +232,68 @@ msgstr "Height of the window in pixels"
 msgid "true if the window is maximized"
 msgstr "true if the window is maximized"
 
-#: ../src/game-window.vala:134
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "ה_תחלת משחק"
+
+#: ../src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "ביטול המהלך האחרון שלך"
 
-#: ../src/iagno.vala:59
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Start with an alternative position"
 
-#: ../src/iagno.vala:60
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Reduce delay before AI moves"
 
-#: ../src/iagno.vala:61
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "Play first"
 
-#: ../src/iagno.vala:62
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "Set the level of the computer's AI"
 
-#: ../src/iagno.vala:63
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Turn off the sound"
 
-#: ../src/iagno.vala:64
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "Play second"
 
-#: ../src/iagno.vala:65
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Size of the board (debug only)"
 
-#: ../src/iagno.vala:66
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Two-players mode"
 
-#: ../src/iagno.vala:67
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Turn on the sound"
 
-#: ../src/iagno.vala:68
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Print release version and exit"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:112
+#: ../src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "Size must be at least 4."
 
-#: ../src/iagno.vala:123
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 
-#: ../src/iagno.vala:295
+#: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "משחק היפוך דסקיות שנגזר מרברסי"
 
-#: ../src/iagno.vala:298
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -302,40 +309,43 @@ msgstr ""
 "‏http://gnome-il.berlios.de"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:360 ../src/iagno.vala:361
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:433
+#: ../src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "הבהיר חייב לחכות, תור הכהה"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:438
+#: ../src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "הכהה חייב לחכות, תור הבהיר"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:449
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "השחקן הבהיר ניצח!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:454
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "השחקן הכהה ניצח!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:459
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "המשחק הסתיים בתיקו."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:475
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "לא ניתן לזוז לשם!"
+
+#~ msgid "Start a new game as configured"
+#~ msgstr "התחלת משחק חדש כפי שהוגדר"
 
 #~ msgid "Start a game"
 #~ msgstr "התחלת משחק"
@@ -1083,9 +1093,6 @@ msgstr "לא ניתן לזוז לשם!"
 
 #~ msgid "Game field from last saved session."
 #~ msgstr "Game field from last saved session."
-
-#~ msgid "Game preview"
-#~ msgstr "Game preview"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Game preview from last saved session."
