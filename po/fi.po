@@ -15,10 +15,10 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-05 12:49+0000\n"
-"PO-Revision-Date: 2016-03-05 19:33+0200\n"
+"POT-Creation-Date: 2016-08-13 20:16+0000\n"
+"PO-Revision-Date: 2016-08-14 15:38+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
-"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,12 +57,20 @@ msgstr ""
 "muuttavat väriä, mutta samalla estää vastustajaa kääntämästä sinun laattoja. "
 "Kääntäminen onnistuu, kun saat vastustajan laatat kahden oman laatan väliin."
 
+#: ../data/iagno.appdata.xml.in.h:5
+#| msgid "Game preview"
+msgid "A GNOME iagno game preview"
+msgstr "Gnome Iagno -pelin esikatselu"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Gnome-projekti"
+
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
 msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
-#| msgid "othello;"
 msgid "reversi;othello;"
 msgstr "reversi;othello;"
 
@@ -296,7 +304,7 @@ msgstr "Laatankääntelypeli, joka perustuu Reversiin"
 #: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
-"Jiri Grönroos, 2013-2015\n"
+"Jiri Grönroos, 2013-2016\n"
 "Timo Jyrinki, 2008\n"
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
@@ -1092,9 +1100,6 @@ msgstr "Ei voi siirtää sinne!"
 
 #~ msgid "Game field from last saved session."
 #~ msgstr "Pelikenttä edellisestä tallennetusta kerrasta."
-
-#~ msgid "Game preview"
-#~ msgstr "Pelin esikatselu"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Pelin esikatselu edellisestä tallennetusta kerrasta."
