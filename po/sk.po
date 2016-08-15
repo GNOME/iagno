@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-06 12:47+0000\n"
-"PO-Revision-Date: 2016-02-06 15:21+0100\n"
+"POT-Creation-Date: 2016-08-13 20:16+0000\n"
+"PO-Revision-Date: 2016-08-15 09:59+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -51,12 +51,19 @@ msgstr ""
 "zároveň zabrániť súperovi prevrátiť vaše kamene na jeho farbu. Prevracanie "
 "kameňov sa robí zajatím súperových kameňov medzi dva kamene vašej farby."
 
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME iagno game preview"
+msgstr "Náhľad hry Naruby prostredia GNOME"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
+
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
 msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
-#| msgid "othello;"
 msgid "reversi;othello;"
 msgstr "reversi;othello;"
 
