@@ -5,15 +5,15 @@
 # Lucas Vieites <lucas@codexion.com>, 2007, 2008.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
 # Chris Leonard <cjl@laptop.org>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-11-16 00:35+0000\n"
-"PO-Revision-Date: 2015-11-16 16:52+0100\n"
+"POT-Creation-Date: 2016-08-16 08:43+0000\n"
+"PO-Revision-Date: 2016-08-16 12:21+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -54,13 +54,20 @@ msgstr ""
 "evitando que su oponente haga lo mismo con las suyas. Esto se consigue "
 "atrapando las fichas del oponente entre dos fichas de su color."
 
+#: ../data/iagno.appdata.xml.in.h:5
+#| msgid "Game preview"
+msgid "A GNOME Iagno game preview"
+msgstr "Una vista previa del juego Iagno de GNOME"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "El proyecto GNOME"
+
 #: ../data/iagno.desktop.in.h:2
-#| msgid "Servers"
 msgid "Reversi"
 msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
-#| msgid "othello;"
 msgid "reversi;othello;"
 msgstr "reversi;othello;"
 
@@ -296,7 +303,7 @@ msgstr "Un juego de voltear fichas derivado de Reversi"
 #: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2014\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2016\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2008\n"
 "Lucas Vieites <lucas@asixinformatica.com>, 2002-2008\n"
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
@@ -1119,9 +1126,6 @@ msgstr "No puede mover ahí"
 
 #~ msgid "Game field from last saved session."
 #~ msgstr "Campo de juego de la última sesión guardada."
-
-#~ msgid "Game preview"
-#~ msgstr "Previsualización del juego"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Previsualización de la última sesión guardada."
