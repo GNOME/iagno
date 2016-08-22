@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-08 00:22+0000\n"
-"PO-Revision-Date: 2016-04-08 10:17+0200\n"
+"POT-Creation-Date: 2016-08-16 08:43+0000\n"
+"PO-Revision-Date: 2016-08-22 22:41+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -48,6 +48,14 @@ msgstr ""
 "aversari tal propri colôr, cirint di evitâ che l'aversari al fasedi "
 "altretant ribaltant lis tôs tal sô colôr. Chest al sucêt brincant lis "
 "pedinis dal aversari tra dôs dal propri colôr."
+
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "Une anteprime dal zûc Iagno di GNOME"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Il progjet GNOME"
 
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
