@@ -29,8 +29,8 @@ msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-28 12:45+0000\n"
-"PO-Revision-Date: 2016-02-28 22:43+0100\n"
+"POT-Creation-Date: 2016-08-16 08:43+0000\n"
+"PO-Revision-Date: 2016-08-28 19:29+0200\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -68,6 +68,14 @@ msgstr ""
 "Le principe d'Iagno est de retourner le plus de pions adverses possible tout "
 "en empêchant votre adversaire de retourner vos pions. Cela se fait en "
 "emprisonnant les pions de votre adversaire entre deux pions de votre couleur."
+
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "Un aperçu d'une partie de Iagno GNOME"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Le projet GNOME"
 
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
