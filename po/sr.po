@@ -11,10 +11,10 @@ msgstr ""
 "Project-Id-Version: Гномове игре\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&k"
 "eywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-19 15:05+0000\n"
-"PO-Revision-Date: 2016-02-19 21:34+0200\n"
+"POT-Creation-Date: 2016-08-16 08:43+0000\n"
+"PO-Revision-Date: 2016-08-28 11:06+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <gnom@prevod.org>\n"
+"Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,12 +53,20 @@ msgstr ""
 "спречавајући вашег противника да окрене ваше плочице на његову боју. Ово "
 "остварујете заробљавањем противничких плочица између две плочице ваше боје."
 
+#: ../data/iagno.appdata.xml.in.h:5
+#| msgid "Game preview"
+msgid "A GNOME Iagno game preview"
+msgstr "Преглед игре Гноме Јагно"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Гномов пројекат"
+
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
 msgstr "Реверси"
 
 #: ../data/iagno.desktop.in.h:4
-#| msgid "othello;"
 msgid "reversi;othello;"
 msgstr "реверси;отело;"
 
@@ -1044,9 +1052,6 @@ msgstr "То је немогућ потез!"
 
 #~ msgid "Game field from last saved session."
 #~ msgstr "Поље за игру из последње сачуване игре."
-
-#~ msgid "Game preview"
-#~ msgstr "Преглед игре"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Преглед игре из последње сачуване игре."
