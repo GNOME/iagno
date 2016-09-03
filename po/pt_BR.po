@@ -1,5 +1,5 @@
 # Brazilian Portuguese translation of gnome-games.
-# Copyright (C) 1999-2015 Free Software Foundation, Inc.
+# Copyright (C) 1999-2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 # Sandro Nunes Henrique <sandro@conectiva.com.br>, 1999.
 # Cândida Nunes da Silva <candida@zaz.com.br>, 2000-2001.
@@ -21,26 +21,26 @@
 # Rodrigo Padula de Oliveira <contato@rodrigopadula.com>, 2011.
 # Flamarion Jorge <jorge.flamarion@gmail.com>, 2011.
 # Djavan Fagundes <djavan@comum.org>, 2012.
-# Enrico Nicoletto <liverig@gmail.com>, 2013, 2015.
 # Fábio Nogueira <fnogueira@gnome.org>, 2014.
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014.
 # Artur de Aquino Morais <artur.morais93@outlook.com>, 2016.
+# Enrico Nicoletto <liverig@gmail.com>, 2013, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-19 15:05+0000\n"
-"PO-Revision-Date: 2016-02-19 13:52-0300\n"
-"Last-Translator: Artur de Aquino Morais <artur.morais93@outlook.com>\n"
+"POT-Creation-Date: 2016-08-16 08:43+0000\n"
+"PO-Revision-Date: 2016-09-02 21:37-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
@@ -74,6 +74,15 @@ msgstr ""
 "adversário vire as suas peças para que não fiquem da cor dele. Isto é feito "
 "ao interceptar as peças do seu adversário entre duas peças da sua própria "
 "cor."
+
+#: ../data/iagno.appdata.xml.in.h:5
+#| msgid "Game preview"
+msgid "A GNOME Iagno game preview"
+msgstr "Uma prévia do GNOME para o jogo Iagno"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "O projeto GNOME"
 
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
@@ -1127,9 +1136,6 @@ msgstr "Você não pode mover para lá!"
 
 #~ msgid "Game field from last saved session."
 #~ msgstr "Campo do jogo da última sessão salva."
-
-#~ msgid "Game preview"
-#~ msgstr "Visualização do jogo"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Visualização do jogo da última sessão salva."
