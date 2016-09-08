@@ -15,10 +15,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-23 19:58+0100\n"
-"PO-Revision-Date: 2016-02-23 19:59+0200\n"
+"POT-Creation-Date: 2016-09-09 00:42+0200\n"
+"PO-Revision-Date: 2016-09-09 00:42+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
-"Language-Team: gnome-l10n-gl@gnome.org\n"
+"Language-Team: Galician\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,6 +56,14 @@ msgstr ""
 "O obxectivo de Iagno é voltear todas as fichas do seu opoñente que poida, "
 "evitando que o seu opoñente faga o mesmo coas suas. Isto conséguese "
 "atrapando as fichas do opoñente entre dúas fichas da súa cor."
+
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "Previsualización do xogo GNOME Iagno"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "O Proxecto GNOME"
 
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
@@ -1116,9 +1124,6 @@ msgstr "Non pode moverse aí!"
 
 #~ msgid "Game field from last saved session."
 #~ msgstr "Zona de xogo da última partida gardada."
-
-#~ msgid "Game preview"
-#~ msgstr "Previsualización da partida"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Previsualización da partida da última sesión."
