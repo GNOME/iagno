@@ -9,18 +9,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&"
-"keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-04 12:48+0000\n"
-"PO-Revision-Date: 2016-02-06 19:05+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno"
+"&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-08-16 08:43+0000\n"
+"PO-Revision-Date: 2016-09-08 20:39+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 :"
+" 2);\n"
 "X-Generator: Lokalize 2.0\n"
 "X-Poedit-Language: Latvian\n"
 "X-Poedit-Country: LATVIA\n"
@@ -56,12 +56,19 @@ msgstr ""
 "tavus kauliņus uz viņa krāsu. To var paveikt, ielencot pretinieka kauliņus "
 "starp diviem savas krāsas kauliņiem."
 
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "GNOME Iagno spēles priekšskatījums"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "GNOME projekts"
+
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
 msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
-#| msgid "othello;"
 msgid "reversi;othello;"
 msgstr "reversi;othello;"
 
@@ -78,7 +85,6 @@ msgid "Two players game"
 msgstr "Divu spēlētāju spēle"
 
 #: ../data/iagno-menus.ui.h:1
-#| msgid "Appearance"
 msgid "A_ppearance"
 msgstr "_Izskats"
 
@@ -99,7 +105,6 @@ msgid "_Quit"
 msgstr "_Iziet"
 
 #: ../data/iagno-screens.ui.h:1
-#| msgid "Play first"
 msgid "Players"
 msgstr "Spēlētāji"
 
@@ -112,7 +117,6 @@ msgid "_Two"
 msgstr "_Divi"
 
 #: ../data/iagno-screens.ui.h:4
-#| msgid "Difficulty:"
 msgid "Difficulty"
 msgstr "Grūtība"
 
@@ -129,22 +133,18 @@ msgid "_Hard"
 msgstr "_Grūti"
 
 #: ../data/iagno-screens.ui.h:8
-#| msgid "Colors"
 msgid "Color"
 msgstr "Krāsa"
 
 #: ../data/iagno-screens.ui.h:9
-#| msgid "Dark"
 msgid "_Dark"
 msgstr "_Tumšs"
 
 #: ../data/iagno-screens.ui.h:10
-#| msgid "Light"
 msgid "_Light"
 msgstr "_Gaišs"
 
 #: ../data/iagno-themes.ui.h:1
-#| msgid "Select Game"
 msgid "Select Theme"
 msgstr "Izvēlieties motīvu"
 
@@ -153,7 +153,6 @@ msgid "Default"
 msgstr "Noklusējuma"
 
 #: ../data/iagno.ui.h:1
-#| msgid "Restart the current game"
 msgid "Go back to the current game"
 msgstr "Iet uz pašreizējo spēli"
 
@@ -162,7 +161,6 @@ msgid "_New Game"
 msgstr "Jau_na spēle"
 
 #: ../data/iagno.ui.h:3
-#| msgid "Configure the game"
 msgid "Configure a new game"
 msgstr "Konfigurēt jaunu spēli"
 
@@ -179,8 +177,6 @@ msgid "Classic"
 msgstr "Klasiska"
 
 #: ../data/themes/high_contrast.theme.in.h:1
-#| msgctxt "chess-side"
-#| msgid "Black Side"
 msgid "Black and White"
 msgstr "Melns un balts"
 
@@ -218,8 +214,7 @@ msgid ""
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
 "Izmantotā motīva datnes nosaukums, vai “noklusējuma“. Tiek piedāvāti "
-"“adwaita.theme”, "
-"“high_contrast.theme” un “sun_and_star.theme”."
+"“adwaita.theme”, “high_contrast.theme” un “sun_and_star.theme”."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -242,7 +237,6 @@ msgid "true if the window is maximized"
 msgstr "patiess, ja logs ir maksimizēts"
 
 #: ../src/game-window.vala:128
-#| msgid "_Restart Game"
 msgid "_Start Game"
 msgstr "_Sākt spēli"
 
@@ -275,7 +269,6 @@ msgid "Play second"
 msgstr "Spēlēt otrajam"
 
 #: ../src/iagno.vala:64
-#| msgid "Size of board (2-6)"
 msgid "Size of the board (debug only)"
 msgstr "Laukuma izmērs (tikai atkļūdošanai)"
 
@@ -293,7 +286,6 @@ msgstr "Parādīt informāciju par laidienu un iziet"
 
 #. Console message displayed for an incorrect size
 #: ../src/iagno.vala:111
-#| msgid "Size of game tiles."
 msgid "Size must be at least 4."
 msgstr "Izmērs ne mazāks par 4."
 
@@ -303,10 +295,6 @@ msgstr ""
 "Līmenim ir jābūt no 1 (viegls) līdz 3 (grūts). Iestatījumi nav mainīti."
 
 #: ../src/iagno.vala:275
-#| msgid ""
-#| "A disk flipping game derived from Reversi\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
 msgid "A disk flipping game derived from Reversi"
 msgstr "Disku apgriešanas spēle, kas atvasināta no Reversi"
 
@@ -352,3 +340,4 @@ msgstr "Spēle beidzās ar neizšķirtu."
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Šeit nevar iet!"
+
