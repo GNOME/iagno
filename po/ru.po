@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-15 00:48+0000\n"
-"PO-Revision-Date: 2016-03-15 15:40+0300\n"
+"POT-Creation-Date: 2016-08-16 08:43+0000\n"
+"PO-Revision-Date: 2016-09-16 13:05+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -62,12 +62,19 @@ msgstr ""
 "фишку противника, необходимо, чтобы фишка соперника оказалась между двумя "
 "вашими фишками."
 
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "Предпросмотр игры Ягно GNOME"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Проект GNOME"
+
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
 msgstr "Реверси"
 
 #: ../data/iagno.desktop.in.h:4
-#| msgid "othello;"
 msgid "reversi;othello;"
 msgstr "реверси;отелло;"
 
