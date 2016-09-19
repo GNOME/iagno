@@ -8,9 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-20 19:56+0100\n"
-"PO-Revision-Date: 2016-03-20 19:57+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno"
+"&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-08-16 08:43+0000\n"
+"PO-Revision-Date: 2016-09-20 12:17+0100\n"
 "Last-Translator: dooteo <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
@@ -49,6 +50,15 @@ msgstr ""
 "Iagno jokoaren helburua zure aurkariaren fitxak zure kolorera iraultzea da, "
 "aurkariak zureak diren fitxak iraultzea saihesten saiatzen zaren bitartean. "
 "Aurkariaren fitxak zure koloreko bi fitxen artean atrapatuz lortzen da."
+
+#: ../data/iagno.appdata.xml.in.h:5
+#| msgid "Game preview"
+msgid "A GNOME Iagno game preview"
+msgstr "GNOME Iagno jokoaren aurrebista"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "GNOME proiektua"
 
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
@@ -1082,9 +1092,6 @@ msgstr "Ezin duzu horra eraman."
 
 #~ msgid "Game field from last saved session."
 #~ msgstr "Azkena gordetako saioko joko-eremua."
-
-#~ msgid "Game preview"
-#~ msgstr "Jokoaren aurrebista"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Azkena gordetako saioko jokoaren aurrebista."
