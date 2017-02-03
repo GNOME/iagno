@@ -5,18 +5,21 @@
 #
 # Claude Paroz <claude@2xlibre.net>, 2007-2008.
 # Bruno Brouard <annoa.b@gmail.com>, 2012.
+# Charles Monzat <superboa@hotmail.fr>, 2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno doc fr\n"
-"POT-Creation-Date: 2014-09-06 21:24+0000\n"
-"PO-Revision-Date: 2014-09-07 00:18+0200\n"
-"Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
-"Language-Team: French <gnomefr@traduc.org>\n"
+"POT-Creation-Date: 2016-08-13 20:17+0000\n"
+"PO-Revision-Date: 2016-11-01 10:39+0100\n"
+"Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
+"Language-Team: français <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -541,13 +544,23 @@ msgstr "Démonstration vidéo"
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
+#. (itstool) path: credit/name
+#: C/rules.page:19
+msgid "Stephen Pearce"
+msgstr "Stephen Pearce"
+
+#. (itstool) path: credit/years
+#: C/rules.page:21
+msgid "2015"
+msgstr "2015"
+
 #. (itstool) path: page/title
-#: C/rules.page:22
+#: C/rules.page:27
 msgid "Rules"
 msgstr "Règles"
 
 #. (itstool) path: page/p
-#: C/rules.page:24
+#: C/rules.page:29
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -560,7 +573,7 @@ msgstr ""
 "horizontalement, verticalement ou en diagonale."
 
 #. (itstool) path: item/p
-#: C/rules.page:26
+#: C/rules.page:31
 msgid ""
 "The game begins with four pieces, two light and two dark, placed in the "
 "center of the board."
@@ -569,12 +582,12 @@ msgstr ""
 "au centre du plateau."
 
 #. (itstool) path: item/p
-#: C/rules.page:29
+#: C/rules.page:34
 msgid "Dark goes first."
 msgstr "Les noirs commencent."
 
 #. (itstool) path: item/p
-#: C/rules.page:30
+#: C/rules.page:35
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -583,12 +596,12 @@ msgstr ""
 "pièces blanches entre deux des pièces noires."
 
 #. (itstool) path: note/p
-#: C/rules.page:31
+#: C/rules.page:36
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "Ce placement peut être horizontal, vertical ou en diagonal."
 
 #. (itstool) path: item/p
-#: C/rules.page:33
+#: C/rules.page:38
 msgid ""
 "When the dark tile is placed, the light tiles between the newly placed dark "
 "tile and another dark tile are flipped over and become part of the dark "
@@ -599,7 +612,7 @@ msgstr ""
 "rejoignent les forces noires."
 
 #. (itstool) path: item/p
-#: C/rules.page:37
+#: C/rules.page:42
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over. The end of the game often results in "
@@ -610,7 +623,7 @@ msgstr ""
 "fin du jeu, le plateau est souvent plein."
 
 #. (itstool) path: item/p
-#: C/rules.page:38
+#: C/rules.page:43
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr ""
@@ -618,24 +631,19 @@ msgstr ""
 "plateau."
 
 #. (itstool) path: media/p
-#: C/rules.page:45
+#: C/rules.page:50
 msgid "Start position"
 msgstr "Position de départ"
 
 #. (itstool) path: media/p
-#: C/rules.page:50
+#: C/rules.page:55
 msgid "Example first move"
 msgstr "Exemple de premier mouvement"
 
 #. (itstool) path: media/p
-#: C/rules.page:55
+#: C/rules.page:60
 msgid "Blocking move"
 msgstr "Mouvement bloquant"
-
-#. (itstool) path: media/p
-#: C/rules.page:60
-msgid "<app>Iagno</app> game over position."
-msgstr "Position de fin de partie de <app>Iagno</app>."
 
 #. (itstool) path: td/p
 #: C/rules.page:65
@@ -651,11 +659,6 @@ msgstr "<em>Exemple de premier mouvement</em>"
 #: C/rules.page:67
 msgid "<em>A blocking move</em>"
 msgstr "<em>Un mouvement bloquant</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:68
-msgid "<em>Game over position</em>"
-msgstr "<em>Position de fin de partie</em>"
 
 #. (itstool) path: page/title
 #: C/shortcuts.page:17
@@ -874,6 +877,12 @@ msgstr ""
 "Vous pouvez aussi joindre par courriel l'équipe d'internationalisation en "
 "utilisant leur <link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n"
 "\">liste de diffusion</link>."
+
+#~ msgid "<app>Iagno</app> game over position."
+#~ msgstr "Position de fin de partie de <app>Iagno</app>."
+
+#~ msgid "<em>Game over position</em>"
+#~ msgstr "<em>Position de fin de partie</em>"
 
 #~ msgctxt "_"
 #~ msgid ""
