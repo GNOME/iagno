@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2017-02-28 09:22+0000\n"
-"PO-Revision-Date: 2017-03-02 13:16+0000\n"
+"PO-Revision-Date: 2017-03-02 17:40+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.org>\n"
 "Language: is\n"
@@ -29,7 +29,7 @@ msgstr "Iagno"
 
 #: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
-msgstr ""
+msgstr "Gerast konungur borðsins í klassískri útgáfu af Reversi"
 
 #: ../data/iagno.appdata.xml.in.h:3
 msgid ""
@@ -37,6 +37,9 @@ msgid ""
 "game. The game is played with tiles that are dark on one side and light on "
 "the other."
 msgstr ""
+"Iagno er tölvuútgáfa af Reversi, tveggja spilara herkænskuborðspili. Leikið "
+"er með því að setja og velta flísum sem eru dökkar á annari hliðinni en "
+"ljósar á hinni."
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
@@ -186,19 +189,20 @@ msgstr "Gervigreindarstig tölvunnar"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:2
 msgid "From 1, the easiest, to 3, the hardest."
-msgstr ""
+msgstr "Frá 1 - auðveldast, til 3 - erfiðast."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
 msgid "Whether to play against the computer or another human."
-msgstr ""
+msgstr "Hvort spila eigi við tölvuna eða annan leikmann."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
 msgid "Color to play as"
-msgstr ""
+msgstr "Með hvaða lit á að spila"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
+"Hvort eigi að spila sem dökkur eða ljós. Hunsað í tveggja spilara leikjum."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Theme"
@@ -209,6 +213,9 @@ msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
+"Skráarheiti þema sem er notað, eða \"sjálfgefið\". Með fylgja "
+"\"adwaita.theme\", "
+"\"high_contrast.theme\" og \"sun_and_star.theme\"."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -236,15 +243,15 @@ msgstr "Hefja _leik"
 
 #: ../src/game-window.vala:153
 msgid "Undo your most recent move"
-msgstr ""
+msgstr "Afturkalla síðasta leikinn þinn"
 
 #: ../src/iagno.vala:58
 msgid "Start with an alternative position"
-msgstr ""
+msgstr "Byrja í hinni stöðunni"
 
 #: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
-msgstr ""
+msgstr "Minnka bið áður en tölvan leikur"
 
 #: ../src/iagno.vala:60
 msgid "Play first"
@@ -252,7 +259,7 @@ msgstr "Leika fyrst"
 
 #: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
-msgstr ""
+msgstr "Veldu gervigreindarstig tölvunnar"
 
 #: ../src/iagno.vala:62
 msgid "Turn off the sound"
@@ -287,12 +294,11 @@ msgstr "Stærðin verður að vera amk. 4."
 
 #: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
-msgstr ""
+msgstr "Stig ætti að vera frá 1 (auðvelt) og 3 (erfitt). Stillingar óbreyttar."
 
 #: ../src/iagno.vala:275
-#, fuzzy
 msgid "A disk flipping game derived from Reversi"
-msgstr "Leikur með töflur þar sem þú reynir að ná borðinu."
+msgstr "Leikur með mislitar töflur þar sem þú reynir að ná borðinu."
 
 #: ../src/iagno.vala:278
 msgid "translator-credits"
