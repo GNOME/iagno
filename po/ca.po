@@ -14,15 +14,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-19 16:22+0100\n"
-"PO-Revision-Date: 2014-09-05 00:14+0200\n"
+"POT-Creation-Date: 2017-03-12 23:41+0100\n"
+"PO-Revision-Date: 2017-03-12 23:42+0100\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -54,6 +55,14 @@ msgstr ""
 "com pugueu mentre eviteu que el vostre oponent volti les vostres. Això "
 "s'aconsegueix atrapant les peces de l'oponent entre dos peces del vostre "
 "color."
+
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "Vista prèvia del GNOME Iagno"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "El projecte GNOME"
 
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
