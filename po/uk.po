@@ -3,13 +3,13 @@
 # Yuri Syrota <rasta@renome.rovno.ua>, 1999-2000.
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2004-2010
 # Wanderlust <wanderlust@ukr.net>, 2009.
-# Daniel Korostil <ted.korostiled@gmail.com>, 2015, 2016.
+# Daniel Korostil <ted.korostiled@gmail.com>, 2015, 2016, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-06 20:47+0200\n"
-"PO-Revision-Date: 2016-03-06 20:48+0300\n"
+"POT-Creation-Date: 2017-03-20 14:10+0200\n"
+"PO-Revision-Date: 2017-03-20 14:11+0300\n"
 "Last-Translator: Daniel Korostil <ted.korostiled@gmail.com>\n"
 "Language-Team: linux.org.ua\n"
 "Language: uk\n"
@@ -50,6 +50,14 @@ msgstr ""
 "в той же час запобігати вашого супротивника від перевертання ваших плиточок "
 "до його кольору. Це можна зробити поставивши плиточки супротивника між двома "
 "вашими."
+
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "Перегляд гри Яґно"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Проект GNOME"
 
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
