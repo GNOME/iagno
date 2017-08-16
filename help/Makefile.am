@@ -4,7 +4,6 @@ HELP_ID = iagno
 HELP_MEDIA = \
 	figures/block.png		\
 	figures/first.png		\
-	figures/iagno-gameover.png	\
 	figures/iagno-video.ogv		\
 	figures/logo32.png		\
 	figures/logo.png		\
