@@ -14,8 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-12 02:12+0200\n"
+"Report-Msgid-Bugs-To: "
+"https://bugzilla.gnome.org/enter_bug.cgi?product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-02-28 09:22+0000\n"
 "PO-Revision-Date: 2016-09-08 02:49+0200\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -213,8 +214,8 @@ msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
-"Filnavn til temaet, eller \"default\". \"adwaita.theme\", \"high_contrast."
-"theme\" og \"sun_and_star.theme\" er inkluderet."
+"Filnavn til temaet, eller “default”. “adwaita.theme”, “high_contrast.theme” "
+"og “sun_and_star.theme” er inkluderet."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -388,3 +389,5 @@ msgstr "Du kan ikke flytte dertil!"
 
 #~ msgid "Preferences"
 #~ msgstr "Indstillinger"
+
+
