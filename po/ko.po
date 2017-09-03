@@ -9,7 +9,7 @@
 # Updated for iagno:
 #
 # Changwoo Ryu <cwryu@debian.org>, 2013-2016.
-#
+# DaeHyun Sung <sungdh86@gmail.com>, 2017
 #
 # 새로 번역하신 분은 아래 "translator-credits"에 추가하세요.
 #
@@ -19,17 +19,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-16 12:48+0000\n"
-"PO-Revision-Date: 2016-03-17 05:22+0900\n"
-"Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
+"POT-Creation-Date: 2017-09-02 06:16+0000\n"
+"PO-Revision-Date: 2017-09-03 20:04+0900\n"
+"Last-Translator: DaeHyun Sung <sungdh86@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -59,6 +60,14 @@ msgstr ""
 "이아그노의 목표는 상대편의 타일을 내 색으로 뒤집으면서, 상대편이 내 타일을 상"
 "대편 색으로 뒤집는 걸 막는 것입니다. 상대편 타일을 내 색깔 타일 사이로 집어 "
 "넣으면 됩니다."
+
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "그놈 이아그노 게임 미리보기"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "그놈 프로젝트"
 
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
@@ -295,7 +304,9 @@ msgstr "리버시에 기반한 게임으로 원판을 뒤집는 게임."
 
 #: ../src/iagno.vala:278
 msgid "translator-credits"
-msgstr "류창우 <cwryu@debian.org>"
+msgstr ""
+"류창우 <cwryu@debian.org>\n"
+"성대현 <sungdh86@gmail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
 #: ../src/iagno.vala:340 ../src/iagno.vala:341
