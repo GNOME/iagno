@@ -11,29 +11,30 @@
 # Hakan Bekdas <hakanbekdas@yahoo.com>, 2006.
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009.
 # Muhammet Kara <muhammetk@gmail.com>, 2011, 2014, 2015.
+# Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-20 22:44+0000\n"
-"PO-Revision-Date: 2015-02-21 09:23+0200\n"
-"Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
-"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"POT-Creation-Date: 2017-02-28 09:22+0000\n"
+"PO-Revision-Date: 2017-09-07 19:26+0300\n"
+"Last-Translator: Çağatay Yiğit Şahin <cyigitsahin@outlook.com>\n"
+"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../data/iagno.ui.h:1 ../src/iagno.vala:102 ../src/iagno.vala:327
+#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Tahtayı Reversi'nin klasik bir sürümü şeklinde gör"
 
@@ -53,27 +54,44 @@ msgid ""
 "his color. This is done by trapping your opponent's tiles between two tiles "
 "of your own color."
 msgstr ""
+"Iagno’nun amacı rakibinizin sizin taşlarınızı kendi rengine çevirmesini "
+"engellerken rakibinizin taşlarının çevirebildiğiniz kadarını kendi renginize "
+"çevirmenizdir. Bu, rakibinizin taşını kendi renginizden iki taşın arasında "
+"kapana kıstırarak yapılır. "
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#: ../data/iagno.appdata.xml.in.h:5
+#| msgid "Game preview"
+msgid "A GNOME Iagno game preview"
+msgstr "Bir GNOME Iagno oyunu önizlemesi"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "GNOME Projesi"
+
+#: ../data/iagno.desktop.in.h:2
+#| msgid "Servers"
+msgid "Reversi"
+msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
-msgid "Play first (Dark)"
-msgstr ""
+#| msgid "othello;"
+msgid "reversi;othello;"
+msgstr "reversi;othello;"
 
 #: ../data/iagno.desktop.in.h:5
-#, fuzzy
-#| msgid "Player List"
-msgid "Play second (Light)"
-msgstr "Oyuncu Listesi"
+msgid "Play first (Dark)"
+msgstr "İlk oyna (Siyah)"
 
 #: ../data/iagno.desktop.in.h:6
+#| msgid "Player List"
+msgid "Play second (Light)"
+msgstr "İkinci oyna (Beyaz)"
+
+#: ../data/iagno.desktop.in.h:7
 msgid "Two players game"
 msgstr "İki kişilik oyun"
 
 #: ../data/iagno-menus.ui.h:1
-#| msgid "Appearance"
 msgid "A_ppearance"
 msgstr "G_örünüm"
 
@@ -93,8 +111,47 @@ msgstr "H_akkında"
 msgid "_Quit"
 msgstr "_Çıkış"
 
+#: ../data/iagno-screens.ui.h:1
+msgid "Players"
+msgstr "Oyuncular"
+
+#: ../data/iagno-screens.ui.h:2
+msgid "_One"
+msgstr "_Bir"
+
+#: ../data/iagno-screens.ui.h:3
+msgid "_Two"
+msgstr "_İki"
+
+#: ../data/iagno-screens.ui.h:4
+msgid "Difficulty"
+msgstr "Zorluk"
+
+#: ../data/iagno-screens.ui.h:5
+msgid "_Easy"
+msgstr "_Kolay"
+
+#: ../data/iagno-screens.ui.h:6
+msgid "_Medium"
+msgstr "_Orta"
+
+#: ../data/iagno-screens.ui.h:7
+msgid "_Hard"
+msgstr "_Zor"
+
+#: ../data/iagno-screens.ui.h:8
+msgid "Color"
+msgstr "Renk"
+
+#: ../data/iagno-screens.ui.h:9
+msgid "_Dark"
+msgstr "_Siyah"
+
+#: ../data/iagno-screens.ui.h:10
+msgid "_Light"
+msgstr "_Beyaz"
+
 #: ../data/iagno-themes.ui.h:1
-#| msgid "Select Game"
 msgid "Select Theme"
 msgstr "Tema Seç"
 
@@ -102,76 +159,20 @@ msgstr "Tema Seç"
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: ../data/iagno.ui.h:2
-#| msgid "The users's most recent level."
-msgid "Undo your most recent move"
-msgstr "Son hareketinizi geri alın"
-
-#: ../data/iagno.ui.h:3
-#| msgid "Restart the current game"
+#: ../data/iagno.ui.h:1
 msgid "Go back to the current game"
 msgstr "Geçerli oyuna geri dön"
 
-#: ../data/iagno.ui.h:4
-#| msgid "_Two Players"
-msgid "Players"
-msgstr "Oyuncular"
-
-#: ../data/iagno.ui.h:5
-msgid "_One"
-msgstr "_Bir"
-
-#: ../data/iagno.ui.h:6
-msgid "_Two"
-msgstr "_İki"
-
-#: ../data/iagno.ui.h:7
-#| msgid "Difficulty:"
-msgid "Difficulty"
-msgstr "Zorluk"
-
-#: ../data/iagno.ui.h:8
-msgid "_Easy"
-msgstr "_Kolay"
-
-#: ../data/iagno.ui.h:9
-msgid "_Medium"
-msgstr "_Orta"
-
-#: ../data/iagno.ui.h:10
-msgid "_Hard"
-msgstr "_Zor"
-
-#: ../data/iagno.ui.h:11
-#| msgid "Colors"
-msgid "Color"
-msgstr "Renk"
-
-#: ../data/iagno.ui.h:12
-#| msgid "Dark"
-msgid "_Dark"
-msgstr "_Siyah"
-
-#: ../data/iagno.ui.h:13
-#| msgid "Light"
-msgid "_Light"
-msgstr "_Beyaz"
-
-#: ../data/iagno.ui.h:14
-#| msgid "Start New Game"
-msgid "_Start Game"
-msgstr "_Oynu Başlat"
-
-#: ../data/iagno.ui.h:15
-#| msgid "Start a new game"
-msgid "Start a game"
-msgstr "Yeni bir oyun başlat"
-
-#: ../data/iagno.ui.h:16
+#: ../data/iagno.ui.h:2
 msgid "_New Game"
 msgstr "Yeni _Oyun"
 
-#: ../data/iagno.ui.h:17
+#: ../data/iagno.ui.h:3
+#| msgid "Configure the game"
+msgid "Configure a new game"
+msgstr "Yeni bir oyun yapılandır"
+
+#: ../data/iagno.ui.h:4
 msgid "Start a new game"
 msgstr "Yeni bir oyun başlat"
 
@@ -184,8 +185,6 @@ msgid "Classic"
 msgstr "Klasik"
 
 #: ../data/themes/high_contrast.theme.in.h:1
-#| msgctxt "chess-side"
-#| msgid "Black Side"
 msgid "Black and White"
 msgstr "Siyah-Beyaz"
 
@@ -224,6 +223,8 @@ msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
+"Kullanılan temanın dosya adı veya “default” (öntanımlı). Sağlananlar "
+"“adwaita.theme”, “high_contrast.theme” ve “sun_and_star.theme”."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -243,123 +244,121 @@ msgstr "Pencerenin piksel olarak yüksekliği"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:12
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "Pencere ekranı kaplıyorsa true"
 
-#: ../src/iagno.vala:68
+#: ../src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Oynu Başlat"
+
+#: ../src/game-window.vala:153
+msgid "Undo your most recent move"
+msgstr "Son hareketinizi geri alın"
+
+#: ../src/iagno.vala:58
 msgid "Start with an alternative position"
-msgstr ""
+msgstr "Alternatif bir pozisyonda başlat"
 
-#: ../src/iagno.vala:69
+#: ../src/iagno.vala:59
 msgid "Reduce delay before AI moves"
-msgstr ""
+msgstr "YZ (yapay zeka) hareket etmeden önceki gecikmeyi azalt"
 
-#: ../src/iagno.vala:70
-#| msgid "Player List"
+#: ../src/iagno.vala:60
 msgid "Play first"
 msgstr "İlk oyna"
 
-#: ../src/iagno.vala:71
+#: ../src/iagno.vala:61
 msgid "Set the level of the computer's AI"
 msgstr "Bilgisayarın YZ (yapay zeka) düzeyini belirleyin"
 
-#: ../src/iagno.vala:72
+#: ../src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Sesi kapat"
 
-#: ../src/iagno.vala:73
-#| msgid "Play Sounds"
+#: ../src/iagno.vala:63
 msgid "Play second"
 msgstr "İkinci oyna"
 
-#: ../src/iagno.vala:74
-#| msgid "Size of board (2-6)"
+#: ../src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Tahta boyutu (sadece hata ayıklama)"
 
-#: ../src/iagno.vala:75
+#: ../src/iagno.vala:65
 msgid "Two-players mode"
-msgstr ""
+msgstr "İki oyunculu kip"
 
-#: ../src/iagno.vala:76
+#: ../src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Sesi aç"
 
-#: ../src/iagno.vala:77
+#: ../src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Yayım sürümünü yazdır ve çık"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:128
-#, fuzzy
+#: ../src/iagno.vala:111
 #| msgid "Size of game tiles."
 msgid "Size must be at least 4."
-msgstr "Oyundaki döşemelerin boyutu."
+msgstr "Boyut en az 4 olmalı."
 
-#: ../src/iagno.vala:139
+#: ../src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
-msgstr ""
+msgstr "Seviye 1 (kolay) ile 3 (zor) arasında olmalı. Ayarlar değişmedi."
 
-#: ../src/iagno.vala:335
-#, fuzzy
+#: ../src/iagno.vala:275
 #| msgid ""
 #| "A disk flipping game derived from Reversi.\n"
 #| "\n"
 #| "Iagno is a part of GNOME Games."
 msgid "A disk flipping game derived from Reversi"
-msgstr ""
-"Reversi'den türemiş bir disk çevirme oyunu.\n"
-"\n"
-"Iagno GNOME Oyunları'nın bir parçasıdır."
+msgstr "Reversi'den türemiş bir disk çevirme oyunu."
 
-#: ../src/iagno.vala:338
+#: ../src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr> \n"
 "Muhammet Kara <muhammetk@gmail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:433 ../src/iagno.vala:434
+#: ../src/iagno.vala:340 ../src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:506
-#, fuzzy
+#: ../src/iagno.vala:408
 #| msgid "Light must pass, Dark's move"
 msgid "Light must pass, Dark’s move"
-msgstr "Beyaz pas geçmeli, Siyah'ın sırası"
+msgstr "Beyaz pas geçmeli, Siyah’ın sırası"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:511
-#, fuzzy
+#: ../src/iagno.vala:413
 #| msgid "Dark must pass, Light's move"
 msgid "Dark must pass, Light’s move"
-msgstr "Siyah pas geçmeli, Beyaz'ın sırası"
+msgstr "Siyah pas geçmeli, Beyaz’ın sırası"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:520
-#| msgid "Light player wins!"
+#: ../src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Beyaz kazandı!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:525
-#| msgid "Dark player wins!"
+#: ../src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Siyah kazandı!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:530
-#| msgid "The game is a draw!"
+#: ../src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Oyun berabere bitti!"
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:546
-#| msgid "You can't move there!"
+#: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Oraya taşınamaz!"
+
+#~| msgid "Start a new game"
+#~ msgid "Start a game"
+#~ msgstr "Yeni bir oyun başlat"
 
 #~| msgid "Preferences"
 #~ msgid "_Preferences"
@@ -1015,9 +1014,6 @@ msgstr "Oraya taşınamaz!"
 
 #~ msgid "Game field from last saved session."
 #~ msgstr "Son kaydedilen oturumdan kalan oyun alanı."
-
-#~ msgid "Game preview"
-#~ msgstr "Oyun önizleme"
 
 #~ msgid "Game preview from last saved session."
 #~ msgstr "Son kaydedilen oturumdan oyun önizleme."
@@ -2888,9 +2884,6 @@ msgstr "Oraya taşınamaz!"
 
 #~ msgid "Close this window"
 #~ msgstr "Bu pencereyi kapat"
-
-#~ msgid "Configure the game"
-#~ msgstr "Oyunu yapılandır"
 
 #~ msgid "Quit this game"
 #~ msgstr "Bu oyundan çık"
@@ -5612,9 +5605,6 @@ msgstr "Oraya taşınamaz!"
 
 #~ msgid "Modify"
 #~ msgstr "Değiştir"
-
-#~ msgid "Servers"
-#~ msgstr "Sunucular"
 
 #~ msgid "Chat Font:"
 #~ msgstr "Sohbet Yazıtipi:"
