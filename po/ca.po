@@ -8,13 +8,14 @@
 # Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
 # Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2014.
 # Carles Ferrando <carles.ferrando@gmail.com>, 2010.
-# Jordi Serratosa <jordis@softcatala.cat>, 2012.
+# Jordi Serratosa <jordis@softcatala.cat>, 2012, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-12 23:41+0100\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-03-12 22:43+0000\n"
 "PO-Revision-Date: 2017-03-12 23:42+0100\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -53,7 +54,7 @@ msgid ""
 msgstr ""
 "La finalitat del Iagno és donar la volta a tantes peces del vostre oponent "
 "com pugueu mentre eviteu que el vostre oponent volti les vostres. Això "
-"s'aconsegueix atrapant les peces de l'oponent entre dos peces del vostre "
+"s'aconsegueix atrapant les peces de l'oponent entre dues peces del vostre "
 "color."
 
 #: ../data/iagno.appdata.xml.in.h:5
@@ -194,7 +195,7 @@ msgstr "Des d'1, el més senzill, fins a 3, el més difícil."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
 msgid "Whether to play against the computer or another human."
-msgstr "Si jugueu contra l'ordinador o un altre humà"
+msgstr "Si jugueu contra l'ordinador o un altre humà."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
 msgid "Color to play as"
