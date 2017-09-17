@@ -1,5 +1,5 @@
 # Polish translation for iagno.
-# Copyright © 1998-2016 the iagno authors.
+# Copyright © 1998-2017 the iagno authors.
 # This file is distributed under the same license as the iagno package.
 # Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002.
 # Marcin Gorycki <mgo@olicom.dk>, 1999.
@@ -12,15 +12,15 @@
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008.
 # Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010.
 # Wojciech Kapusta <wkapusta@aviary.pl>, 2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2016.
-# Aviary.pl <community-poland@mozilla.org>, 2007-2016.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2017.
+# Aviary.pl <community-poland@mozilla.org>, 2007-2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-16 10:41+0200\n"
-"PO-Revision-Date: 2016-08-16 10:42+0200\n"
+"POT-Creation-Date: 2017-09-17 02:00+0200\n"
+"PO-Revision-Date: 2017-09-17 02:01+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -46,7 +46,7 @@ msgid ""
 "the other."
 msgstr ""
 "Iagno jest komputerową wersją strategicznej gry planszowej Reversi dla dwóch "
-"osób. Gra się za pomocą płytek, które są ciemne po jednej stronie, a jasne "
+"osób. Gra się za pomocą pionów, które są ciemne po jednej stronie, a jasne "
 "po drugiej."
 
 #: ../data/iagno.appdata.xml.in.h:4
@@ -56,10 +56,9 @@ msgid ""
 "his color. This is done by trapping your opponent's tiles between two tiles "
 "of your own color."
 msgstr ""
-"Celem gry Iagno jest obrócenie jak największej liczby płytek przeciwnika na "
-"swój kolor, jednocześnie uniemożliwiając przeciwnikowi zrobienie tego "
-"samego. Można to osiągnąć umieszczając płytki przeciwnika między dwiema "
-"płytkami własnego koloru."
+"Celem gry Iagno jest odwrócenie jak największej liczby pionów przeciwnika na "
+"swój kolor, jednocześnie uniemożliwiając mu zrobienie tego samego. Można to "
+"osiągnąć umieszczając piony przeciwnika między dwoma pionami własnego koloru."
 
 #: ../data/iagno.appdata.xml.in.h:5
 msgid "A GNOME Iagno game preview"
@@ -304,7 +303,7 @@ msgstr ""
 
 #: ../src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
-msgstr "Gra polegająca na odwracaniu krążków podobna do Reversi"
+msgstr "Gra polegająca na odwracaniu pionów podobna do Reversi"
 
 #: ../src/iagno.vala:278
 msgid "translator-credits"
@@ -320,8 +319,8 @@ msgstr ""
 "Tomasz Dominikowski <dominikowski@gmail.com>, 2008\n"
 "Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010\n"
 "Wojciech Kapusta <wkapusta@aviary.pl>, 2009\n"
-"Piotr Drąg <piotrdrag@gmail.com>, 2010-2016\n"
-"Aviary.pl <community-poland@mozilla.org>, 2007-2016"
+"Piotr Drąg <piotrdrag@gmail.com>, 2010-2017\n"
+"Aviary.pl <community-poland@mozilla.org>, 2007-2017"
 
 #. Translators: this is a 2 digit representation of the current score.
 #: ../src/iagno.vala:340 ../src/iagno.vala:341

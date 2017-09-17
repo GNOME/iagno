@@ -1,0 +1,849 @@
+# Polish translation for iagno help.
+# Copyright © 2017 the iagno authors.
+# This file is distributed under the same license as the iagno package.
+# Piotr Drąg <piotrdrag@gmail.com>, 2017.
+# Aviary.pl <community-poland@mozilla.org>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: iagno-help\n"
+"POT-Creation-Date: 2017-09-15 15:15+0000\n"
+"PO-Revision-Date: 2017-09-17 01:57+0200\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr ""
+"Piotr Drąg <piotrdrag@gmail.com>, 2017\n"
+"Aviary.pl <community-poland@mozilla.org>, 2017"
+
+#. (itstool) path: credit/name
+#: C/2player.page:9 C/ai-game.page:9 C/shortcuts.page:9
+msgid "Brian Grohe"
+msgstr "Brian Grohe"
+
+#. (itstool) path: credit/years
+#: C/2player.page:11 C/ai-game.page:11 C/play.page:12 C/rules.page:12
+#: C/shortcuts.page:11 C/sound.page:11
+msgid "2012"
+msgstr "2012"
+
+#. (itstool) path: credit/name
+#: C/2player.page:14 C/ai-game.page:14 C/bug-filing.page:9
+#: C/change-color.page:9 C/develop.page:10 C/documentation.page:8
+#: C/index.page:12 C/play.page:10 C/rules.page:10 C/sound.page:9
+#: C/translate.page:10
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
+
+#. (itstool) path: page/title
+#: C/2player.page:19
+msgid "Two-player mode"
+msgstr "Tryb dla dwóch graczy"
+
+#. (itstool) path: page/p
+#: C/2player.page:20
+msgid ""
+"Two player mode allows you to play against another human rather than a "
+"computer. To enable this:"
+msgstr ""
+"Tryb dla dwóch graczy umożliwia grę przeciwko drugiej osobie, zamiast "
+"komputera. Aby to włączyć:"
+
+#. (itstool) path: item/p
+#: C/2player.page:23
+msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
+msgstr "Kliknij <guiseq><gui>Ustawienia</gui><gui>Preferencje</gui></guiseq>"
+
+#. (itstool) path: item/p
+#: C/2player.page:24 C/ai-game.page:25 C/sound.page:21
+msgid "Select the <gui>Game</gui> tab."
+msgstr "Wybierz kartę <gui>Gra</gui>."
+
+#. (itstool) path: item/p
+#: C/2player.page:25
+msgid "Check <gui>human</gui> in both player columns."
+msgstr "Zaznacz <gui>gracz</gui> w obu kolumnach."
+
+#. (itstool) path: item/p
+#: C/2player.page:26 C/change-color.page:31
+msgid "Click <gui>Close</gui>"
+msgstr "Kliknij przycisk <gui>Zamknij</gui>."
+
+#. (itstool) path: note/p
+#: C/2player.page:27
+msgid "Your changes will apply when a new game is started."
+msgstr "Zmiany zostaną uwzględnione po rozpoczęciu nowej gry."
+
+#. (itstool) path: page/title
+#: C/ai-game.page:20
+msgid "Play against the computer"
+msgstr "Gra przeciwko komputerowi"
+
+#. (itstool) path: page/p
+#: C/ai-game.page:21
+msgid ""
+"The computer has different levels of difficulty: Level One, Level Two, and "
+"Level Three. To change this setting:"
+msgstr "Komputer ma trzy różne poziomy trudności. Aby zmienić to ustawienie:"
+
+#. (itstool) path: item/p
+#: C/ai-game.page:24 C/change-color.page:24
+msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+msgstr "Kliknij <guiseq><gui>Ustawienia</gui><gui>Preferencje</gui></guiseq>."
+
+#. (itstool) path: item/p
+#: C/ai-game.page:26
+msgid "Select the difficulty level for your computer opponent."
+msgstr "Wybierz poziom trudności dla komputera."
+
+#. (itstool) path: item/p
+#: C/ai-game.page:27 C/sound.page:23
+msgid "Click <gui>Close</gui>."
+msgstr "Kliknij przycisk <gui>Zamknij</gui>."
+
+#. (itstool) path: credit/years
+#: C/bug-filing.page:11 C/change-color.page:11 C/develop.page:12
+#: C/documentation.page:10 C/strategy.page:11 C/translate.page:12
+msgid "2011"
+msgstr "2011"
+
+#. (itstool) path: license/p
+#: C/bug-filing.page:14 C/develop.page:15 C/documentation.page:13
+#: C/index.page:16 C/translate.page:19
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: page/title
+#: C/bug-filing.page:18
+msgid "Help make <app>Iagno</app> better"
+msgstr "Pomoc w ulepszaniu gry <app>Iagno</app>"
+
+#. (itstool) path: section/title
+#: C/bug-filing.page:21
+msgid "Report a bug or suggest an improvement"
+msgstr "Zgłaszanie błędów i sugerowanie ulepszeń"
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:22
+msgid ""
+"<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
+"participate. If you notice a problem you can file a <em>bug report</em>. To "
+"file a bug, go to <link href=\"https://bugzilla.gnome.org/\"/>."
+msgstr ""
+"Gra <app>Iagno</app> jest tworzona przez społeczność ochotników. Zapraszamy "
+"do współpracy. Jeśli wystąpił jakiś błąd, to można go zgłosić na stronie "
+"<link href=\"https://bugzilla.gnome.org/\"/> (w języku angielskim)."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:25
+msgid ""
+"This is a bug tracking system where users and developers can file details "
+"about bugs, crashes and request enhancements."
+msgstr ""
+"To system śledzenia błędów, w którym użytkownicy i programiści mogą zgłaszać "
+"informacje o błędach, awariach i prośby o ulepszenia."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:28
+msgid ""
+"To participate you need an account which will give you the ability to gain "
+"access, file bugs, and make comments. Also, you need to register so you can "
+"receive updates by e-mail about the status of your bug. If you don't already "
+"have an account, just click on the <gui>New Account</gui> link to create one."
+msgstr ""
+"Do wzięcia udziału potrzebne jest konto, dające dostęp, możliwość zgłaszania "
+"błędów i pisania komentarzy. Rejestracja umożliwia także otrzymywanie "
+"powiadomień pocztą e-mail o stanie błędu. Jeśli nie masz jeszcze konta, to "
+"kliknij odnośnik <gui>New Account</gui> (Nowe konto)."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:32
+msgid ""
+"Once you have an account, log in, click on <guiseq><gui>File a Bug</"
+"gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
+"bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?id=bug-"
+"writing.html\">bug writing guidelines</link>, and please <link href="
+"\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">browse</link> for "
+"the bug to see if it already exists."
+msgstr ""
+"Po utworzeniu konta zaloguj się i kliknij <guiseq><gui>File a Bug</"
+"gui><gui>Applications</gui><gui>iagno</gui></guiseq> (<guiseq><gui>Zgłoś "
+"błąd</gui><gui>Programy</gui><gui>iagno</gui></guiseq>). Przed zgłoszeniem "
+"błędu prosimy przeczytać <link href=\"https://bugzilla.gnome.org/page.cgi?"
+"id=bug-writing.html\">wytyczne opisywania błędów</link> i <link href="
+"\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">poszukać</link>, czy "
+"błąd został już zgłoszony."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:40
+msgid ""
+"If you are requesting a new feature, choose <gui>enhancement</gui> in the "
+"<gui>Severity</gui> menu. Fill in the Summary and Description sections and "
+"click <gui>Submit Bug</gui>."
+msgstr ""
+"W przypadku prośby o nową funkcję wybierz <gui>enhancement</gui> "
+"(ulepszenie) w menu <gui>Severity</gui> (Ciężkość). Wypełnij sekcje "
+"„Summary” (Podsumowanie) i „Description” (Opis) w języku angielskim "
+"i kliknij przycisk <gui>Submit Bug</gui> (Wyślij)."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:44
+msgid ""
+"Your report will be given an ID number, and its status will be updated as it "
+"is being dealt with. Thanks for helping make <app>Iagno</app> better!"
+msgstr ""
+"Zgłoszenie otrzyma numer identyfikujący, a jego stan będzie zmieniany razem "
+"z postępem jego rozwiązywania. Dziękujemy za pomoc w ulepszaniu gry "
+"<app>Iagno</app>!"
+
+#. (itstool) path: page/title
+#: C/change-color.page:17
+msgid "Change player color and difficulty"
+msgstr "Zmiana koloru gracza i trudności"
+
+#. (itstool) path: page/p
+#: C/change-color.page:19
+msgid "To change the player for each color:"
+msgstr "Aby zmienić gracza przypisanego do koloru:"
+
+#. (itstool) path: item/p
+#: C/change-color.page:25
+msgid "Select the <gui>Game</gui> tab"
+msgstr "Wybierz kartę <gui>Gra</gui>."
+
+#. (itstool) path: item/p
+#: C/change-color.page:26
+msgid ""
+"Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
+"gui>."
+msgstr ""
+"Wybierz typ gracza/trudność w menu <gui>Ciemne</gui> i <gui>Jasne</gui>."
+
+#. (itstool) path: note/p
+#: C/change-color.page:27
+msgid "Your choice is effective immediately."
+msgstr "Zmiana zostanie uwzględniona natychmiast."
+
+#. (itstool) path: page/title
+#: C/develop.page:19
+msgid "Help develop"
+msgstr "Pomoc w programowaniu"
+
+#. (itstool) path: page/p
+#: C/develop.page:20
+msgid ""
+"The <app>GNOME Games</app> are developed and maintained by a volunteer "
+"community. You are welcome to participate."
+msgstr ""
+"<app>Gry GNOME</app> są tworzone przez społeczność ochotników. Zapraszamy do "
+"współpracy."
+
+#. (itstool) path: page/p
+#: C/develop.page:23
+msgid ""
+"If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
+"Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
+"touch with the developers using <link href=\"https://cbe005.chat.mibbit.com/?"
+"url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our <link "
+"href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
+"link>."
+msgstr ""
+"Jeśli chcesz <link href=\"https://wiki.gnome.org/Apps/Games/Contributing"
+"\">pomóc rozwijać <app>Gry GNOME</app></link>, to możesz skontaktować się "
+"z programistami za pomocą sieci <link href=\"https://cbe005.chat.mibbit.com/?"
+"url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">IRC</link> lub przez <link "
+"href=\"http://mail.gnome.org/mailman/listinfo/games-list\">listę pocztową</"
+"link> (w języku angielskim)."
+
+#. (itstool) path: page/title
+#: C/documentation.page:17
+msgid "Help write documentation"
+msgstr "Pomoc w pisaniu dokumentacji"
+
+#. (itstool) path: page/p
+#: C/documentation.page:19
+msgid ""
+"The <app>GNOME Games</app> documentation is maintained by a volunteer "
+"community. You are welcome to participate."
+msgstr ""
+"Dokumentacja <app>Gier GNOME</app> jest tworzona przez społeczność "
+"ochotników. Zapraszamy do współpracy."
+
+#. (itstool) path: page/p
+#: C/documentation.page:22
+msgid ""
+"To contribute to the Documentation Project, feel free to get in touch with "
+"us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
+"gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail.gnome.org/"
+"mailman/listinfo/gnome-doc-list\">mailing list</link>."
+msgstr ""
+"Jeśli chcesz wziąć udział w projekcie dokumentacji, to skontaktuj się z nami "
+"za pomocą sieci <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F"
+"%2Firc.gnome.org%2Fdocs\">IRC</link> lub przez <link href=\"http://mail."
+"gnome.org/mailman/listinfo/gnome-doc-list\">listę pocztową</link> (w języku "
+"angielskim)."
+
+#. (itstool) path: page/p
+#: C/documentation.page:24
+msgid ""
+"Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+"\">wiki</link> page contains useful information."
+msgstr ""
+"Nasza <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+"\">wiki</link> zawiera przydatne informacje (w języku angielskim)."
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "link"
+msgid "Iagno"
+msgstr "Iagno"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "text"
+msgid "Iagno"
+msgstr "Iagno"
+
+#. (itstool) path: media/span
+#: C/index.page:20
+msgid "Iagno logo"
+msgstr "Logo gry Iagno"
+
+#. (itstool) path: page/title
+#: C/index.page:20
+msgid "<_:media-1/> Iagno"
+msgstr "<_:media-1/> Iagno"
+
+#. (itstool) path: page/p
+#: C/index.page:22
+msgid ""
+"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
+"on one side and light on the other. When a piece is captured it is turned "
+"over to join the capturing player's forces; the winner is the player with "
+"the most pieces of their color at the end of the game."
+msgstr ""
+"<app>Iagno</app> to gra rozgrywana na planszy o rozmiarze 8×8 z 64 pionami "
+"podzielonymi na ciemne po jednej stronie i jasne po drugiej. Po zdobyciu "
+"pionu przechodzi on na stronę gracza. Zwycięża gracz z największą liczbą "
+"pionów w swoim kolorze na końcu gry."
+
+#. (itstool) path: section/title
+#: C/index.page:26
+msgid "Game Play"
+msgstr "Rozgrywka"
+
+#. (itstool) path: section/title
+#: C/index.page:30
+msgid "Useful tips"
+msgstr "Wskazówki"
+
+#. (itstool) path: section/title
+#: C/index.page:34
+msgid "Advanced"
+msgstr "Zaawansowane"
+
+#. (itstool) path: section/title
+#: C/index.page:38
+msgid "Get Involved"
+msgstr "Dołącz do nas"
+
+#. (itstool) path: p/link
+#: C/legal.xml:3
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Na warunkach licencji <_:link-1/>."
+
+#. (itstool) path: info/desc
+#: C/license.page:8
+msgid "Legal information."
+msgstr "Informacje prawne."
+
+#. (itstool) path: page/title
+#: C/license.page:11
+msgid "License"
+msgstr "Licencja"
+
+#. (itstool) path: page/p
+#: C/license.page:12
+msgid ""
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
+msgstr ""
+"Na warunkach licencji Creative Commons Attribution-Share Alike 3.0 Unported."
+
+#. (itstool) path: page/p
+#: C/license.page:20
+msgid "You are free:"
+msgstr "Można:"
+
+#. (itstool) path: item/title
+#: C/license.page:25
+msgid "<em>To share</em>"
+msgstr "<em>dzielić się</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:26
+msgid "To copy, distribute and transmit the work."
+msgstr ", czyli kopiować, rozpowszechniać, odtwarzać i wykonywać utwór."
+
+#. (itstool) path: item/title
+#: C/license.page:29
+msgid "<em>To remix</em>"
+msgstr "<em>remiksować</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:30
+msgid "To adapt the work."
+msgstr ", czyli tworzyć utwory zależne."
+
+#. (itstool) path: page/p
+#: C/license.page:33
+msgid "Under the following conditions:"
+msgstr "Na następujących warunkach:"
+
+#. (itstool) path: item/title
+#: C/license.page:38
+msgid "<em>Attribution</em>"
+msgstr "<em>Uznanie autorstwa</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:39
+msgid ""
+"You must attribute the work in the manner specified by the author or "
+"licensor (but not in any way that suggests that they endorse you or your use "
+"of the work)."
+msgstr ""
+"Utwór należy oznaczyć w sposób określony przez Twórcę lub Licencjodawcę."
+
+#. (itstool) path: item/title
+#: C/license.page:46
+msgid "<em>Share Alike</em>"
+msgstr "<em>Na tych samych warunkach</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:47
+msgid ""
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
+msgstr ""
+"Zmieniając utwór, przekształcając go lub tworząc na jego podstawie, wolno "
+"rozpowszechniać powstały utwór zależny jedynie na tej samej, podobnej lub "
+"zgodnej licencji."
+
+#. (itstool) path: page/p
+#: C/license.page:53
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
+msgstr ""
+"Pełny tekst licencji dostępny jest na stronie <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">Creative Commons</link>; "
+"można również przeczytać <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">podsumowanie</link>."
+
+#. (itstool) path: page/title
+#: C/play.page:18
+msgid "How to Play"
+msgstr "Jak grać"
+
+#. (itstool) path: page/p
+#: C/play.page:20
+msgid ""
+"<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
+"play."
+msgstr ""
+"Gra <app>Iagno</app> ma proste <link xref=\"rules\">zasady</link> i jest "
+"łatwa do zrozumienia."
+
+#. (itstool) path: page/p
+#: C/play.page:22
+msgid ""
+"When the game first starts, you play <em>Dark</em> and the computer player "
+"plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
+"<gui>Level one</gui> by default."
+msgstr ""
+"Gracz zaczyna jako <em>Ciemny</em>, a komputer jako <em>Jasny</em>. Domyślny "
+"<link xref=\"ai-game\">poziom trudności</link> to <gui>pierwszy</gui>."
+
+#. (itstool) path: page/p
+#: C/play.page:25
+msgid "The game is played using the mouse. To make a move:"
+msgstr "Gra się za pomocą myszy. Aby wykonać ruch:"
+
+#. (itstool) path: item/p
+#: C/play.page:28
+msgid "Click on the cell you would like to place your piece in."
+msgstr "Kliknij komórkę, w której umieścić pion."
+
+#. (itstool) path: note/p
+#: C/play.page:29
+msgid ""
+"If the move is legal, the piece will be placed in the cell, and the opponent "
+"pieces will be flipped to match your color."
+msgstr ""
+"Jeśli ruch jest dozwolony, to pion zostanie umieszczony w tej komórce, "
+"a piony przeciwnika zostaną odwrócone na kolor gracza."
+
+#. (itstool) path: note/p
+#: C/play.page:31
+msgid "If the move is not allowed, nothing will happen."
+msgstr "Jeśli ruch jest niedozwolony, to nic się nie stanie."
+
+#. (itstool) path: item/p
+#: C/play.page:35
+msgid ""
+"You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
+"guiseq>."
+msgstr ""
+"Można cofnąć ruch klikając <guiseq><gui>Gra</gui><gui>Cofnij ruch</gui></"
+"guiseq>."
+
+#. (itstool) path: section/title
+#: C/play.page:41
+msgid "Video demonstration"
+msgstr "Demonstracja wideo"
+
+#. (itstool) path: credit/name
+#: C/rules.page:15 C/strategy.page:14 C/translate.page:15
+msgid "Michael Hill"
+msgstr "Michael Hill"
+
+#. (itstool) path: credit/name
+#: C/rules.page:19
+msgid "Stephen Pearce"
+msgstr "Stephen Pearce"
+
+#. (itstool) path: credit/years
+#: C/rules.page:21
+msgid "2015"
+msgstr "2015"
+
+#. (itstool) path: page/title
+#: C/rules.page:27
+msgid "Rules"
+msgstr "Zasady"
+
+#. (itstool) path: page/p
+#: C/rules.page:29
+msgid ""
+"The object of the game is to flip as many of the opponent tiles while "
+"blocking your opponent from flipping your tiles. In order to flip a tile, "
+"you must first trap it between two of your tiles, horizontally, vertically "
+"or diagonally."
+msgstr ""
+"Celem gry jest odwrócenie jak największej liczby pionów przeciwnika, "
+"jednocześnie uniemożliwiając mu zrobienie tego samego. Aby odwrócić pion, "
+"należy umieścić go między swoimi pionami (poziomo, pionowo lub ukośnie)."
+
+#. (itstool) path: item/p
+#: C/rules.page:31
+msgid ""
+"The game begins with four pieces, two light and two dark, placed in the "
+"center of the board."
+msgstr ""
+"Gra zaczyna się z czterema pionami, dwoma jasnymi i dwoma ciemnymi, "
+"umieszczonymi na środku planszy."
+
+#. (itstool) path: item/p
+#: C/rules.page:34
+msgid "Dark goes first."
+msgstr "Ciemne zaczynają."
+
+#. (itstool) path: item/p
+#: C/rules.page:35
+msgid ""
+"Dark places a tile on the board in such a way that it traps white tiles "
+"between two of the dark tiles."
+msgstr ""
+"Ciemne umieszczają pion na planszy w taki sposób, aby jasny pion znalazł się "
+"między dwoma ciemnymi."
+
+#. (itstool) path: note/p
+#: C/rules.page:36
+msgid "This placement can be horizontal, vertical or diagonal."
+msgstr "Może to być poziome, pionowe lub ukośne."
+
+#. (itstool) path: item/p
+#: C/rules.page:38
+msgid ""
+"When the dark tile is placed, the light tiles between the newly placed dark "
+"tile and another dark tile are flipped over and become part of the dark "
+"forces."
+msgstr ""
+"Po umieszczeniu ciemnego pionu jasne piony między nowo umieszczonym a innym "
+"ciemnym pionem są odwracane i stają się ciemne."
+
+#. (itstool) path: item/p
+#: C/rules.page:42
+msgid ""
+"The players alternate turns until no more legal moves can be made by either "
+"player. At this point the game is over. The end of the game often results in "
+"a full board."
+msgstr ""
+"Gracze rozgrywają po turze, dopóki nie mogą już wykonać żadnych dozwolonych "
+"ruchów, co kończy grę. Plansza na końcu gry często jest całkowicie "
+"wypełniona."
+
+#. (itstool) path: item/p
+#: C/rules.page:43
+msgid ""
+"The winner is the the player with the most pieces of his color on the board."
+msgstr ""
+"Zwycięzcą jest gracz z największą liczbą pionów w swoim kolorze na planszy."
+
+#. (itstool) path: media/p
+#: C/rules.page:50
+msgid "Start position"
+msgstr "Pozycja początkowa"
+
+#. (itstool) path: media/p
+#: C/rules.page:55
+msgid "Example first move"
+msgstr "Przykładowy pierwszy ruch"
+
+#. (itstool) path: media/p
+#: C/rules.page:60
+msgid "Blocking move"
+msgstr "Ruch blokujący"
+
+#. (itstool) path: td/p
+#: C/rules.page:65
+msgid "<em>Start position</em>"
+msgstr "<em>Pozycja początkowa</em>"
+
+#. (itstool) path: td/p
+#: C/rules.page:66
+msgid "<em>Example first move</em>"
+msgstr "<em>Przykładowy pierwszy ruch</em>"
+
+#. (itstool) path: td/p
+#: C/rules.page:67
+msgid "<em>A blocking move</em>"
+msgstr "<em>Ruch blokujący</em>"
+
+#. (itstool) path: page/title
+#: C/shortcuts.page:17
+msgid "Keyboard shortcuts"
+msgstr "Skróty klawiszowe"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:20
+msgid "New game"
+msgstr "Nowa gra"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:21
+msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:25
+msgid "Undo Move"
+msgstr "Cofnięcie ruchu"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:26
+msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:29
+msgid "Help"
+msgstr "Pomoc"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:30
+msgid "<key>F1</key>"
+msgstr "<key>F1</key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:33
+msgid "Quit"
+msgstr "Zakończenie programu"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:34
+msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
+
+#. (itstool) path: page/title
+#: C/sound.page:17
+msgid "Enable and disable sound"
+msgstr "Włączanie i wyłączanie dźwięku"
+
+#. (itstool) path: page/p
+#: C/sound.page:18
+msgid "To enable or disable the sound:"
+msgstr "Aby włączyć lub wyłączyć dźwięk:"
+
+#. (itstool) path: item/p
+#: C/sound.page:20
+msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+msgstr "Kliknij <guiseq><gui>Ustawienia</gui><gui>Preferencje</gui></guiseq>."
+
+#. (itstool) path: item/p
+#: C/sound.page:22
+msgid "Click the <gui>Enable sounds</gui> checkbox."
+msgstr "Kliknij pole wyboru <gui>Dźwięki</gui>."
+
+#. (itstool) path: note/p
+#: C/sound.page:24
+msgid "The change will be available immediately."
+msgstr "Zmiana zostanie uwzględniona natychmiast."
+
+#. (itstool) path: page/title
+#: C/strategy.page:21
+msgid "Strategy"
+msgstr "Strategia"
+
+#. (itstool) path: page/p
+#: C/strategy.page:23
+msgid ""
+"<app>Iagno</app> doesn't have one particular winning strategy. Rather it has "
+"strategic elements which can be used to help one gain advantage. Some "
+"strategies, such as trying to flip as many of your opponent's pieces early "
+"on in the game, should be avoided."
+msgstr ""
+"Gra <app>Iagno</app> nie ma jednej strategii na wygraną. Zamiast tego ma "
+"strategiczne elementy, których można użyć na własną korzyść. Niektóre "
+"strategie, takie jak odwracanie jak największej liczby pionów przeciwnika na "
+"początku gry, powinny być unikane."
+
+#. (itstool) path: page/p
+#: C/strategy.page:28
+msgid ""
+"Much has been written on the topic of strategy for the games <em>Othello</"
+"em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
+msgstr ""
+"Na temat strategii gier <em>Othello</em> i <em>Reversi</em>, na których "
+"oparta jest gra <app>Iagno</app>, napisano już wiele."
+
+#. (itstool) path: note/p
+#: C/strategy.page:31
+msgid ""
+"Some sources state that Reversi does not have a predefined starting "
+"position, whereas Othello and <app>Iagno</app> do."
+msgstr ""
+"Niektóre źródła sugerują, że gra Reversi nie ma ustalonej pozycji "
+"początkowej, podczas gdy gry Othello i <app>Iagno</app> mają."
+
+#. (itstool) path: page/p
+#: C/strategy.page:35
+msgid ""
+"If you are interested in learning about specific strategies for the game, "
+"the following links may be of interest:"
+msgstr ""
+"Poniższe odnośniki mogą być przydatne do poznania konkretnych strategii gry "
+"(w języku angielskim):"
+
+#. (itstool) path: item/p
+#: C/strategy.page:40
+msgid ""
+"<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
+"beginner's guide to strategy of the game</link>"
+msgstr ""
+"<link href=\"http://othello.dk/book/index.php/From_Scratch\">Świetny "
+"podręcznik dla początkujących graczy</link>"
+
+#. (itstool) path: item/p
+#: C/strategy.page:44
+msgid ""
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
+"to strategy and tactics</link>"
+msgstr ""
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">Wprowadzenie do "
+"strategii i taktyki</link>"
+
+#. (itstool) path: item/p
+#: C/strategy.page:48
+msgid ""
+"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
+"\">Wikipedia: Strategic elements</link>"
+msgstr ""
+"<link href=\"https://pl.wikipedia.org/wiki/Reversi#Strategie_i_porady"
+"\">Wikipedia: Strategie i porady</link> (w języku polskim)"
+
+#. (itstool) path: item/p
+#: C/strategy.page:52
+msgid ""
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
+"guide</link>"
+msgstr ""
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">Podręcznik "
+"strategii</link>"
+
+#. (itstool) path: page/title
+#: C/translate.page:23
+msgid "Help translate"
+msgstr "Pomoc w tłumaczeniu"
+
+#. (itstool) path: page/p
+#: C/translate.page:24
+msgid ""
+"The <app>GNOME Games</app> user interface and documentation is being "
+"translated by a world-wide volunteer community. You are welcome to "
+"participate."
+msgstr ""
+"Interfejs i dokumentacja <app>Gier GNOME</app> jest tłumaczona przez "
+"ogólnoświatową społeczność ochotników. Zapraszamy do współpracy."
+
+#. (itstool) path: page/p
+#: C/translate.page:27
+msgid ""
+"There are <link href=\"http://l10n.gnome.org/module/iagno/\">many languages</"
+"link> for which translations are still needed."
+msgstr ""
+"<link href=\"http://l10n.gnome.org/module/iagno/\">Wiele języków</link> "
+"nadal potrzebuje tłumaczeń."
+
+#. (itstool) path: page/p
+#: C/translate.page:30
+msgid ""
+"To start translating you will need to <link href=\"http://l10n.gnome.org"
+"\">create an account</link> and join the <link href=\"http://l10n.gnome.org/"
+"teams/\">translation team</link> for your language. This will give you the "
+"ability to upload new translations."
+msgstr ""
+"Do rozpoczęcia tłumaczenia potrzebne jest <link href=\"http://l10n.gnome.org"
+"\">utworzenie konta</link> i dołączenie do <link href=\"http://l10n.gnome."
+"org/teams/\">zespołu tłumaczy</link> dla danego języka. Umożliwi to "
+"wysyłanie nowych tłumaczeń."
+
+#. (itstool) path: page/p
+#: C/translate.page:34
+msgid ""
+"You can chat with GNOME translators using <link href=\"https://cbe003.chat."
+"mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. People on the "
+"channel are located worldwide, so you may not get an immediate response as a "
+"result of timezone differences."
+msgstr ""
+"Można skontaktować się z tłumaczami GNOME za pomocą sieci <link href="
+"\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n"
+"\">IRC</link> (w języku angielskim). Z powodu różnic stref czasowych "
+"odpowiedź może nie przyjść od razu."
+
+#. (itstool) path: page/p
+#: C/translate.page:37
+msgid ""
+"Alternatively, you can contact the Internationalization Team using their "
+"<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+"list</link>."
+msgstr ""
+"Można także skontaktować się z zespołem tłumaczeń za pomocą <link href="
+"\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">listy pocztowej</link> "
+"(w języku angielskim)."
