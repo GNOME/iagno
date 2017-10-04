@@ -8,11 +8,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-30 12:24+0000\n"
-"PO-Revision-Date: 2016-04-30 22:29+0700\n"
-"Last-Translator: Cahaya Maulidian <winluxhuman@gmail.com>\n"
+"POT-Creation-Date: 2017-10-01 20:54+0000\n"
+"PO-Revision-Date: 2017-10-04 15:31+0700\n"
+"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Rosetta-Export-Date: 2007-04-23 05:58:10+0000\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -53,15 +53,21 @@ msgstr ""
 "Ini dilakukan dengan menjebak butir musuh Anda antara dua butir warna milik "
 "Anda."
 
+#: ../data/iagno.appdata.xml.in.h:5
+msgid "A GNOME Iagno game preview"
+msgstr "Pratinjau permainan GNOME Iagno"
+
+#: ../data/iagno.appdata.xml.in.h:6
+msgid "The GNOME Project"
+msgstr "Proyek GNOME"
+
 #: ../data/iagno.desktop.in.h:2
 msgid "Reversi"
 msgstr "Reversi"
 
 #: ../data/iagno.desktop.in.h:4
-#, fuzzy
-#| msgid "othello;"
 msgid "reversi;othello;"
-msgstr "othello;"
+msgstr "reversi;othello;"
 
 #: ../data/iagno.desktop.in.h:5
 msgid "Play first (Dark)"
@@ -80,10 +86,8 @@ msgid "A_ppearance"
 msgstr "_Penampilan"
 
 #: ../data/iagno-menus.ui.h:2
-#, fuzzy
-#| msgid "Sound"
 msgid "_Sound"
-msgstr "Suara"
+msgstr "_Suara"
 
 #: ../data/iagno-menus.ui.h:3
 msgid "_Help"
@@ -98,10 +102,8 @@ msgid "_Quit"
 msgstr "_Keluar"
 
 #: ../data/iagno-screens.ui.h:1
-#, fuzzy
-#| msgid "Play first"
 msgid "Players"
-msgstr "Giliran pertama"
+msgstr "Pemain"
 
 #: ../data/iagno-screens.ui.h:2
 msgid "_One"
@@ -132,25 +134,20 @@ msgid "Color"
 msgstr "Warna"
 
 #: ../data/iagno-screens.ui.h:9
-#, fuzzy
-#| msgid "Dark:"
 msgid "_Dark"
-msgstr "Gelap:"
+msgstr "_Gelap"
 
 #: ../data/iagno-screens.ui.h:10
-#, fuzzy
-#| msgid "Light:"
 msgid "_Light"
-msgstr "Terang:"
+msgstr "_Terang"
 
 #: ../data/iagno-themes.ui.h:1
 msgid "Select Theme"
 msgstr "Pilih tema"
 
 #: ../data/iagno-themes.ui.h:2
-#, fuzzy
 msgid "Default"
-msgstr "Baku"
+msgstr "Bawaan"
 
 #: ../data/iagno.ui.h:1
 msgid "Go back to the current game"
@@ -161,9 +158,8 @@ msgid "_New Game"
 msgstr "Mai_nkan Permainan Baru"
 
 #: ../data/iagno.ui.h:3
-#, fuzzy
 msgid "Configure a new game"
-msgstr "Konfigurasi permainan baru"
+msgstr "Atur permainan baru"
 
 #: ../data/iagno.ui.h:4
 msgid "Start a new game"
@@ -195,16 +191,16 @@ msgstr "Dari 1, paling mudah, ke 3, paling sulit."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:3
 msgid "Whether to play against the computer or another human."
-msgstr ""
+msgstr "Apakah akan bermain melawan komputer atau manusia lain."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:4
-#, fuzzy
 msgid "Color to play as"
 msgstr "Warna yang dimainkan sebagai"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:5
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
+"Apakah akan bermain sebagai Gelap atau Terang. Abaikan untuk dua pemain."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:6
 msgid "Theme"
@@ -215,6 +211,8 @@ msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
+"Nama berkas dari tema yang digunakan, atau \"bawaan\". Disediakan \"adwaita."
+"theme\", \"high_contrast.theme\" dan \"sun_and_star.theme\"."
 
 #: ../data/org.gnome.iagno.gschema.xml.h:8
 msgid "Sound"
@@ -237,10 +235,8 @@ msgid "true if the window is maximized"
 msgstr "bernilai \"true\" bila jendela dimaksimalkan"
 
 #: ../src/game-window.vala:128
-#, fuzzy
-#| msgid "_Start Over"
 msgid "_Start Game"
-msgstr "_Ulangi Lagi"
+msgstr "M_ulai Permainan"
 
 #: ../src/game-window.vala:153
 msgid "Undo your most recent move"
@@ -297,16 +293,8 @@ msgstr ""
 "Tingkat mesti di antara 1 (mudah) dan 3 (sulit). Pengaturan tak berubah."
 
 #: ../src/iagno.vala:275
-#, fuzzy
-#| msgid ""
-#| "A disk flipping game derived from Reversi\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
 msgid "A disk flipping game derived from Reversi"
-msgstr ""
-"Permainan membalikkan disk yang diturunkan dari Reversi\n"
-"\n"
-"Iagno merupakan bagian dari GNOME Permainan."
+msgstr "Permainan membalikkan disk yang diturunkan dari Reversi"
 
 #: ../src/iagno.vala:278
 msgid "translator-credits"
@@ -315,7 +303,8 @@ msgstr ""
 "Ahmad Riza H Nst  <rizahnst@gnome.org>\n"
 "Vincent Sebastian The <vincent.s.the@gmail.com>, 2011, 2012.\n"
 "Dirgita <dirgitadevina@yahoo.co.id>, 2012.\n"
-"Andika Triwidada <andika@gmail.com>, 2010, 2012, 2014"
+"Andika Triwidada <andika@gmail.com>, 2010, 2012, 2014.\n"
+"Kukuh Syafaat <syafaatkukuh@gmail.com>, 2017."
 
 #. Translators: this is a 2 digit representation of the current score.
 #: ../src/iagno.vala:340 ../src/iagno.vala:341
