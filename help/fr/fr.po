@@ -5,13 +5,13 @@
 #
 # Claude Paroz <claude@2xlibre.net>, 2007-2008.
 # Bruno Brouard <annoa.b@gmail.com>, 2012.
-# Charles Monzat <superboa@hotmail.fr>, 2016.
+# Charles Monzat <superboa@hotmail.fr>, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno doc fr\n"
-"POT-Creation-Date: 2016-08-13 20:17+0000\n"
-"PO-Revision-Date: 2016-11-01 10:39+0100\n"
+"POT-Creation-Date: 2017-10-05 12:15+0000\n"
+"PO-Revision-Date: 2017-10-21 21:05+0200\n"
 "Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
 "Language-Team: français <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -198,15 +198,19 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:40
+#| msgid ""
+#| "If you are requesting a new feature, choose <gui>enhancement</gui> in the "
+#| "<gui>Severity</gui> menu. Fill in the Summary and Description sections "
+#| "and click <gui>Commit</gui>."
 msgid ""
 "If you are requesting a new feature, choose <gui>enhancement</gui> in the "
 "<gui>Severity</gui> menu. Fill in the Summary and Description sections and "
-"click <gui>Commit</gui>."
+"click <gui>Submit Bug</gui>."
 msgstr ""
 "Si vous demandez une nouvelle fonctionnalité, choisissez <gui>enhancement</"
 "gui> (amélioration) dans le menu <gui>Severity</gui> (sévérité). Remplissez "
 "les rubriques « Summary » (résumé) et « Description » puis cliquez sur "
-"<gui>Commit</gui> (soumettre)."
+"<gui>Submit Bug</gui> (signaler un bogue)."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:44
