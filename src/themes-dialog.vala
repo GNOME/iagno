@@ -23,7 +23,7 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/iagno/ui/themes.ui")]
 public class ThemesDialog : Dialog
 {
-    private static const string PREFIX = "theme-";
+    private const string PREFIX = "theme-";
 
     private GameView view;
 

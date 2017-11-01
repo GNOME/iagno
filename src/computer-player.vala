@@ -35,8 +35,8 @@ public class ComputerPlayer : Object
     }
 
     /* Big enough. Don't use int.MIN / int.MAX, because int.MIN ≠ - int.MAX */
-    private static const int POSITIVE_INFINITY = 10000;
-    private static const int NEGATIVE_INFINITY = -10000;
+    private const int POSITIVE_INFINITY = 10000;
+    private const int NEGATIVE_INFINITY = -10000;
 
     /* Game being played */
     private Game game;
@@ -45,7 +45,7 @@ public class ComputerPlayer : Object
     private int difficulty_level;
 
     /* Value of owning each location */
-    private static const int[] heuristic =
+    private const int[] heuristic =
     {
         65,  -3, 6, 4, 4, 6,  -3, 65,
         -3, -29, 3, 1, 1, 3, -29, -3,

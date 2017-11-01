@@ -33,9 +33,9 @@ public class Iagno : Gtk.Application
     private static bool? play_first = null;
 
     /* Seconds */
-    private static const double QUICK_MOVE_DELAY = 0.4;
-    private static const double MODERATE_MOVE_DELAY = 1.7;
-    private static const double SLOW_MOVE_DELAY = 2.0;
+    private const double QUICK_MOVE_DELAY = 0.4;
+    private const double MODERATE_MOVE_DELAY = 1.7;
+    private const double SLOW_MOVE_DELAY = 2.0;
 
     /* Widgets */
     private GameWindow window;
@@ -53,7 +53,7 @@ public class Iagno : Gtk.Application
     /* The game being played */
     private Game? game = null;
 
-    private static const OptionEntry[] option_entries =
+    private const OptionEntry[] option_entries =
     {
         { "alternative-start", 0, 0, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
