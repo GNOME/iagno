@@ -58,7 +58,7 @@ public class Iagno : Gtk.Application
         { "alternative-start", 0, 0, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
         { "first", 0, 0, OptionArg.NONE, null, N_("Play first"), null},
-        { "level", 'l', 0, OptionArg.STRING, ref level, N_("Set the level of the computer's AI"), "LEVEL"},
+        { "level", 'l', 0, OptionArg.STRING, ref level, N_("Set the level of the computer’s AI"), "LEVEL"},
         { "mute", 0, 0, OptionArg.NONE, null, N_("Turn off the sound"), null},
         { "second", 0, 0, OptionArg.NONE, null, N_("Play second"), null},
         { "size", 's', 0, OptionArg.INT, ref size, N_("Size of the board (debug only)"), "SIZE"},
