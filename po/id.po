@@ -8,10 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-16 08:43+0000\n"
-"PO-Revision-Date: 2017-01-15 17:50+0700\n"
+"POT-Creation-Date: 2017-12-05 16:34+0000\n"
+"PO-Revision-Date: 2017-12-06 15:10+0700\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Rosetta-Export-Date: 2007-04-23 05:58:10+0000\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -43,9 +43,9 @@ msgstr ""
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
+"The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
+"his color. This is done by trapping your opponent’s tiles between two tiles "
 "of your own color."
 msgstr ""
 "Tujuan Iagno adalah untuk membalik sebanyak mungkin butir milik musuh Anda "
@@ -182,7 +182,7 @@ msgid "Sun and Star"
 msgstr "Matahari dan Bintang"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Computer's AI level"
+msgid "Computer’s AI level"
 msgstr "Tingkat AI Komputer"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:2
@@ -255,7 +255,7 @@ msgid "Play first"
 msgstr "Giliran pertama"
 
 #: ../src/iagno.vala:61
-msgid "Set the level of the computer's AI"
+msgid "Set the level of the computer’s AI"
 msgstr "Atur tingkat AI komputer"
 
 #: ../src/iagno.vala:62
