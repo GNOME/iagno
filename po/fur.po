@@ -6,17 +6,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-16 08:43+0000\n"
-"PO-Revision-Date: 2016-08-22 22:41+0200\n"
+"POT-Creation-Date: 2017-12-05 16:34+0000\n"
+"PO-Revision-Date: 2017-12-15 09:29+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -39,13 +39,13 @@ msgstr ""
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
+"The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
+"his color. This is done by trapping your opponent’s tiles between two tiles "
 "of your own color."
 msgstr ""
-"L'obietîf di Iagno al è chel di ribaltâ il plui pussibil lis tessaris dal "
-"aversari tal propri colôr, cirint di evitâ che l'aversari al fasedi "
+"L’obietîf di Iagno al è chel di ribaltâ il plui pussibil lis tessaris dal "
+"aversari tal propri colôr, cirint di evitâ che l’aversari al fasedi "
 "altretant ribaltant lis tôs tal sô colôr. Chest al sucêt brincant lis "
 "pedinis dal aversari tra dôs dal propri colôr."
 
@@ -178,7 +178,7 @@ msgid "Sun and Star"
 msgstr "Soreli e stelis"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Computer's AI level"
+msgid "Computer’s AI level"
 msgstr "Nivel IA dal computer"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:2
@@ -251,7 +251,7 @@ msgid "Play first"
 msgstr "Zuie par prin"
 
 #: ../src/iagno.vala:61
-msgid "Set the level of the computer's AI"
+msgid "Set the level of the computer’s AI"
 msgstr "Imposte il nivel de IA dal computer"
 
 #: ../src/iagno.vala:62
