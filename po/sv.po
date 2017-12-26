@@ -1,19 +1,19 @@
 # Swedish messages for gnome-games.
-# Copyright © 1999-2015 Free Software Foundation, Inc.
+# Copyright © 1999-2017 Free Software Foundation, Inc.
 # Andreas Persenius <ndap@swipnet.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
 # Martin Norbäck <d95mback@dtek.chalmers.se>, 2000.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-16 08:43+0000\n"
-"PO-Revision-Date: 2016-08-20 23:41+0200\n"
+"POT-Creation-Date: 2017-12-05 16:34+0000\n"
+"PO-Revision-Date: 2017-12-26 12:37+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.5\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -44,9 +44,9 @@ msgstr ""
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
+"The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
+"his color. This is done by trapping your opponent’s tiles between two tiles "
 "of your own color."
 msgstr ""
 "Målet i Iagno är att vända så många som möjligt av din motståndares brickor "
@@ -183,7 +183,7 @@ msgid "Sun and Star"
 msgstr "Sol och stjärna"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Computer's AI level"
+msgid "Computer’s AI level"
 msgstr "Datorns AI-nivå"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:2
@@ -255,7 +255,7 @@ msgid "Play first"
 msgstr "Spela först"
 
 #: ../src/iagno.vala:61
-msgid "Set the level of the computer's AI"
+msgid "Set the level of the computer’s AI"
 msgstr "Ställ in nivån på datorns AI"
 
 #: ../src/iagno.vala:62
