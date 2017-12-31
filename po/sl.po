@@ -10,10 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-18 22:32+0200\n"
-"PO-Revision-Date: 2016-08-18 22:32+0200\n"
+"POT-Creation-Date: 2017-12-27 15:47+0000\n"
+"PO-Revision-Date: 2017-12-31 11:23+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
 #: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
@@ -45,13 +45,14 @@ msgstr ""
 
 #: ../data/iagno.appdata.xml.in.h:4
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
+"The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
+"his color. This is done by trapping your opponent’s tiles between two tiles "
 "of your own color."
 msgstr ""
-"CIlj igre je preobrniti čim več nasprotnikovih ploščic v lastno barvo in pri "
-"tem onemogočiti nasprotniku narediti enako."
+"Cilj igre je preobrniti čim več nasprotnikovih ploščic v lastno barvo in pri "
+"tem onemogočiti nasprotniku narediti enako. To storite tako, da ujamete "
+"nasprotnikove ploščice med svoje."
 
 #: ../data/iagno.appdata.xml.in.h:5
 msgid "A GNOME Iagno game preview"
@@ -182,7 +183,8 @@ msgid "Sun and Star"
 msgstr "Sonce in Zvezde"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Computer's AI level"
+#| msgid "Computer's AI level"
+msgid "Computer’s AI level"
 msgstr "Raven inteligence računalnika"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:2
@@ -256,7 +258,8 @@ msgid "Play first"
 msgstr "Igraj prvega"
 
 #: ../src/iagno.vala:61
-msgid "Set the level of the computer's AI"
+#| msgid "Set the level of the computer's AI"
+msgid "Set the level of the computer’s AI"
 msgstr "Določi raven inteligence računalnika"
 
 #: ../src/iagno.vala:62
