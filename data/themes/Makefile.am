@@ -1,12 +1,12 @@
 themes_keydir = $(datadir)/iagno/themes/key
 themes_key_in_files = \
-	adwaita.theme.in \
-	classic.theme.in \
-	high_contrast.theme.in \
-	sun_and_star.theme.in
-themes_key_DATA = $(themes_key_in_files:.theme.in=.theme)
+	adwaita.desktop.in \
+	classic.desktop.in \
+	high_contrast.desktop.in \
+	sun_and_star.desktop.in
+themes_key_DATA = $(themes_key_in_files:.desktop.in=.desktop)
 
-%.theme: %.theme.in
+%.desktop: %.desktop.in
 	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = $(themes_key_in_files)
