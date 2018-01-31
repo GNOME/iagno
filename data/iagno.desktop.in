@@ -1,9 +1,11 @@
 [Desktop Entry]
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=iagno
-_Name=Iagno
-_GenericName=Reversi
-_Comment=Dominate the board in a classic version of Reversi
-_Keywords=reversi;othello;
+Name=Iagno
+GenericName=Reversi
+Comment=Dominate the board in a classic version of Reversi
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=reversi;othello;
 Exec=iagno
 Terminal=false
 Type=Application
@@ -12,13 +14,13 @@ StartupNotify=true
 Actions=First;Second;TwoPlayers;
 
 [Desktop Action First]
-_Name=Play first (Dark)
+Name=Play first (Dark)
 Exec=iagno --first
 
 [Desktop Action Second]
-_Name=Play second (Light)
+Name=Play second (Light)
 Exec=iagno --second
 
 [Desktop Action TwoPlayers]
-_Name=Two players game
+Name=Two players game
 Exec=iagno --two-players

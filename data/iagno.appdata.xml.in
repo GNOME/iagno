@@ -4,25 +4,25 @@
   <id>iagno.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <_name>Iagno</_name>
-  <_summary>Dominate the board in a classic version of Reversi</_summary>
+  <name>Iagno</name>
+  <summary>Dominate the board in a classic version of Reversi</summary>
   <description>
-    <_p>
+    <p>
       Iagno is a computer version of the game Reversi, a two-player strategy
       board game. The game is played with tiles that are dark on one side and
       light on the other.
-    </_p>
-    <_p>
+    </p>
+    <p>
       The object of Iagno is to flip as many of your opponent’s tiles to your
       color as possible while preventing your opponent from flipping your tiles
       to his color. This is done by trapping your opponent’s tiles between two
       tiles of your own color.
-    </_p>
+    </p>
   </description>
   <screenshots>
     <screenshot height="447" width="700" type="default">
       <image>https://people.gnome.org/~mcatanzaro/iagno.png</image>
-      <_caption>A GNOME Iagno game preview</_caption>
+      <caption>A GNOME Iagno game preview</caption>
     </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/Iagno</url>
@@ -38,7 +38,7 @@
     <kudo>UserDocs</kudo>
   </kudos>
   <translation type="gettext">iagno</translation>
-  <_developer_name>The GNOME Project</_developer_name>
+  <developer_name>The GNOME Project</developer_name>
   <content_rating type="oars-1.0">
     <content_attribute id="violence-cartoon">none</content_attribute>
     <content_attribute id="violence-fantasy">none</content_attribute>
