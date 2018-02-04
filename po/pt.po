@@ -340,36 +340,3 @@ msgstr "O jogo ficou empatado."
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Não pode mover-se para aí!"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Preferências"
-
-#~ msgid "true if the window is fullscren"
-#~ msgstr "verdadeiro se a janela estiver em modo de ecrã completo"
-
-#~ msgid "Iagno Preferences"
-#~ msgstr "Preferências do Iagno"
-
-#~ msgid "_Close"
-#~ msgstr "_Fechar"
-
-#~ msgid "Human"
-#~ msgstr "Humano"
-
-#~ msgid "Level one"
-#~ msgstr "Nível um"
-
-#~ msgid "Level two"
-#~ msgstr "Nível dois"
-
-#~ msgid "Level three"
-#~ msgstr "Nível três"
-
-#~ msgid "Light Player:"
-#~ msgstr "Jogador Branco:"
-
-#~ msgid "_Tile set:"
-#~ msgstr "_Conjunto de peças:"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "Ativar _sons"

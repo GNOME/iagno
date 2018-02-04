@@ -327,9 +327,3 @@ msgstr "La partida es nulla."
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Impossible de se desplaçar aicí !"
-
-#~ msgid "Start a new game as configured"
-#~ msgstr "Comença una novèla partida tala coma configurada"
-
-#~ msgid "Start a game"
-#~ msgstr "Comença una partida"

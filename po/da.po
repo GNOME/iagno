@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: "
-"https://bugzilla.gnome.org/enter_bug.cgi?product=iagno&keywords=I18N+L10N&component=general\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2017-02-28 09:22+0000\n"
 "PO-Revision-Date: 2016-09-08 02:49+0200\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
@@ -350,44 +350,3 @@ msgstr "Spillet blev uafgjort."
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Du kan ikke flytte dertil!"
-
-#~ msgid "Start a new game as configured"
-#~ msgstr "Start et nyt spil som indstillet"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Indstillinger"
-
-#~ msgid "Game mode:"
-#~ msgstr "Spiltilstand:"
-
-#~ msgid "Computer:"
-#~ msgstr "Computer:"
-
-#~ msgid "_Tile set:"
-#~ msgstr "_Brikker:"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "A_ktivér lyde"
-
-#~ msgid "Two players"
-#~ msgstr "To spillere"
-
-#~ msgid "Level one"
-#~ msgstr "Niveau et"
-
-#~ msgid "Level two"
-#~ msgstr "Niveau to"
-
-#~ msgid "Level three"
-#~ msgstr "Niveau tre"
-
-#~ msgid "Type of game"
-#~ msgstr "Spiltype"
-
-#~ msgid "Choose the type of the next game."
-#~ msgstr "Vælg typen af næste spil."
-
-#~ msgid "Preferences"
-#~ msgstr "Indstillinger"
-
-

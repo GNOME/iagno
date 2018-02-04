@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&"
-"keywords=I18N+L10N&component=general\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2015-09-21 15:49+0000\n"
 "PO-Revision-Date: 2016-04-02 23:56+0200\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
@@ -70,12 +70,10 @@ msgid "Play second (Light)"
 msgstr "Ludi la sekvanton (helulo)"
 
 #: ../data/iagno.desktop.in.h:7
-#| msgid "Player Names"
 msgid "Two players game"
 msgstr "Du-ludantoj-ludo"
 
 #: ../data/iagno-menus.ui.h:1
-#| msgid "Appearance"
 msgid "A_ppearance"
 msgstr "As_pekto"
 
@@ -96,7 +94,6 @@ msgid "_Quit"
 msgstr "_Fini"
 
 #: ../data/iagno-screens.ui.h:1
-#| msgid "Player"
 msgid "Players"
 msgstr "Ludantoj"
 
@@ -109,7 +106,6 @@ msgid "_Two"
 msgstr "_Du"
 
 #: ../data/iagno-screens.ui.h:4
-#| msgid "Difficulty:"
 msgid "Difficulty"
 msgstr "Malfacileco"
 
@@ -126,22 +122,18 @@ msgid "_Hard"
 msgstr "_Malfacile"
 
 #: ../data/iagno-screens.ui.h:8
-#| msgid "Colors"
 msgid "Color"
 msgstr "Koloro"
 
 #: ../data/iagno-screens.ui.h:9
-#| msgid "Dark"
 msgid "_Dark"
 msgstr "_Malhele"
 
 #: ../data/iagno-screens.ui.h:10
-#| msgid "Light"
 msgid "_Light"
 msgstr "_Hele"
 
 #: ../data/iagno-themes.ui.h:1
-#| msgid "Select Game"
 msgid "Select Theme"
 msgstr "Elekti etoson"
 
@@ -150,7 +142,6 @@ msgid "Default"
 msgstr "Defaŭlte"
 
 #: ../data/iagno.ui.h:1
-#| msgid "Restart the current game"
 msgid "Go back to the current game"
 msgstr "Reiri al la nuna ludon"
 
@@ -159,7 +150,6 @@ msgid "_New Game"
 msgstr "_Nova ludo"
 
 #: ../data/iagno.ui.h:3
-#| msgid "Configure the game"
 msgid "Configure a new game"
 msgstr "Agordi novan ludon"
 
@@ -176,7 +166,6 @@ msgid "Classic"
 msgstr "Klasika"
 
 #: ../data/themes/high_contrast.theme.in.h:1
-#| msgid "Black Side"
 msgid "Black and White"
 msgstr "Nigra kaj blanka"
 
@@ -225,12 +214,10 @@ msgid "Whether or not to play event sounds."
 msgstr "Ĉu ludi eventajn sonojn?"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:10
-#| msgid "The width of the main window in pixels."
 msgid "Width of the window in pixels"
 msgstr "La larĝo de la fenestro per rastrumeroj"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:11
-#| msgid "The height of the main window in pixels."
 msgid "Height of the window in pixels"
 msgstr "La alto de la fenestro per rastrumeroj"
 
@@ -239,12 +226,10 @@ msgid "true if the window is maximized"
 msgstr "vera se la fenestro estas maksimumigita"
 
 #: ../src/game-window.vala:128
-#| msgid "Start New Game"
 msgid "_Start Game"
 msgstr "_Komenci ludon"
 
 #: ../src/game-window.vala:153
-#| msgid "The users's most recent level."
 msgid "Undo your most recent move"
 msgstr "Malfari vian lastan movon"
 
@@ -257,7 +242,6 @@ msgid "Reduce delay before AI moves"
 msgstr "Redukti prokraston antaŭ movoj de la komputilo"
 
 #: ../src/iagno.vala:60
-#| msgid "Player _List"
 msgid "Play first"
 msgstr "Ludi la startulon"
 
@@ -266,18 +250,14 @@ msgid "Set the level of the computer's AI"
 msgstr "Agordi la fortecon de la komputilo"
 
 #: ../src/iagno.vala:62
-#| msgid "Turn off all the lights"
 msgid "Turn off the sound"
 msgstr "Elŝalti la sonon"
 
 #: ../src/iagno.vala:63
-#| msgid "Played for %d second"
-#| msgid_plural "Played for %d seconds"
 msgid "Play second"
 msgstr "Ludi la sekvanton"
 
 #: ../src/iagno.vala:64
-#| msgid "Size of board (2-6)"
 msgid "Size of the board (debug only)"
 msgstr "Grando de la tabulo (nur sencemigado)"
 
@@ -286,18 +266,15 @@ msgid "Two-players mode"
 msgstr "Du-ludista reĝimo"
 
 #: ../src/iagno.vala:66
-#| msgid "Turn off all the lights"
 msgid "Turn on the sound"
 msgstr "Enŝalti la sonon"
 
 #: ../src/iagno.vala:67
-#| msgid "Show release version"
 msgid "Print release version and exit"
 msgstr "Montri eldonversion kaj eliri"
 
 #. Console message displayed for an incorrect size
 #: ../src/iagno.vala:111
-#| msgid "Size of game tiles."
 msgid "Size must be at least 4."
 msgstr "Grando estu minimume 4."
 
@@ -307,10 +284,6 @@ msgstr ""
 "Nivelo estu inter 1 (facile) kaj 3 (malfacile). Agordoj restas neŝanĝitaj."
 
 #: ../src/iagno.vala:275
-#| msgid ""
-#| "A disk flipping game derived from Reversi.\n"
-#| "\n"
-#| "Iagno is a part of GNOME Games."
 msgid "A disk flipping game derived from Reversi"
 msgstr "Disk-turnada ludo devena de Reverso"
 
@@ -328,36 +301,30 @@ msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
 #: ../src/iagno.vala:408
-#| msgid "Light must pass, Dark's move"
 msgid "Light must pass, Dark’s move"
 msgstr "La helulo devas pasi, jen vico de la malhelulo"
 
 #. Message to display when Dark has no possible moves
 #: ../src/iagno.vala:413
-#| msgid "Dark must pass, Light's move"
 msgid "Dark must pass, Light’s move"
 msgstr "La malhelulo devas pasi, jen vico de la helulo"
 
 #. Message to display when Light has won the game
 #: ../src/iagno.vala:424
-#| msgid "Light player wins!"
 msgid "Light wins!"
 msgstr "La helulo gajnis!"
 
 #. Message to display when Dark has won the game
 #: ../src/iagno.vala:429
-#| msgid "Dark player wins!"
 msgid "Dark wins!"
 msgstr "La malhelulo gajnis!"
 
 #. Message to display when the game is a draw
 #: ../src/iagno.vala:434
-#| msgid "The game is a draw!"
 msgid "The game is draw."
 msgstr "La ludo estas sendecida."
 
 #. Message to display when the player tries to make an illegal move
 #: ../src/iagno.vala:450
-#| msgid "You can't move there!"
 msgid "You can’t move there!"
 msgstr "Vi ne povas movi tien!"

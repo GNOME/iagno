@@ -58,7 +58,6 @@ msgstr ""
 "priešininko koklius tarp dviejų savų."
 
 #: ../data/iagno.appdata.xml.in.h:5
-#| msgid "A GNOME iagno game preview"
 msgid "A GNOME Iagno game preview"
 msgstr "GNOME iagno žaidimo peržiūra"
 
@@ -346,53 +345,3 @@ msgstr "Žaidimas baigėsi lygiosiomis!"
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Negalima ten padėti!"
-
-#~| msgid "Start a new game"
-#~ msgid "Start a new game as configured"
-#~ msgstr "Pradėti naują žaidimą kaip sukonfigūruota"
-
-#~ msgid "Start a game"
-#~ msgstr "Pradėti žaidimą"
-
-#~| msgid "Game mode:"
-#~ msgid "Game Mode"
-#~ msgstr "Žaidimo veiksena"
-
-#~| msgid "Play first (Dark)"
-#~ msgid "Play _Dark"
-#~ msgstr "Žaisti _tamsiais"
-
-#~| msgid "Play second (Light)"
-#~ msgid "Play _Light"
-#~ msgstr "Žaisti _šviesiais"
-
-#~| msgid "Computer:"
-#~ msgid "Computer Player"
-#~ msgstr "Kompiuteris"
-
-#~ msgid "Type of game"
-#~ msgstr "Žaidimo tipas"
-
-#~ msgid "Choose the type of the next game."
-#~ msgstr "Pasirinkite kito žaidimo tipą."
-
-#~ msgid "_Preferences"
-#~ msgstr "_Nustatymai"
-
-#~ msgid "Preferences"
-#~ msgstr "Nustatymai"
-
-#~ msgid "Level one"
-#~ msgstr "Pirmas lygis"
-
-#~ msgid "Level two"
-#~ msgstr "Antras lygis"
-
-#~ msgid "Level three"
-#~ msgstr "Trečias lygis"
-
-#~ msgid "_Tile set:"
-#~ msgstr "_Skridinėlių rūšis:"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "Įj_ungti garsus"

@@ -365,9 +365,3 @@ msgstr "La partie est nulle."
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Impossible de se déplacer ici !"
-
-#~ msgid "Start a new game as configured"
-#~ msgstr "Commence une nouvelle partie telle que configurée"
-
-#~ msgid "Start a game"
-#~ msgstr "Commence une partie"

@@ -344,6 +344,3 @@ msgstr "Partita patta!"
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Irraggiungibile!"
-
-#~ msgid "Start a new game as configured"
-#~ msgstr "Inizia una nuova partita"

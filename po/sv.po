@@ -64,7 +64,6 @@ msgstr "GNOME-projektet"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/iagno.desktop.in:4
-#| msgid "Iagno"
 msgid "iagno"
 msgstr "iagno"
 
@@ -351,9 +350,3 @@ msgstr "Spelet är oavgjort."
 #: src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Du kan inte lägga där!"
-
-#~ msgid "Start a new game as configured"
-#~ msgstr "Starta ett nytt spel enligt konfiguration"
-
-#~ msgid "Start a game"
-#~ msgstr "Starta ett spel"

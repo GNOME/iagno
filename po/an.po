@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=iagno&keywords=I18N+L10N&component=general\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=iagno&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-02-19 13:45+0000\n"
 "PO-Revision-Date: 2013-02-20 01:00+0100\n"
 "Last-Translator: Daniel Martinez <entaltoaragon@gmail.com>\n"
@@ -16,9 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/iagno.desktop.in.in.h:1
-#: ../src/iagno.vala:82
-#: ../src/iagno.vala:295
+#: ../data/iagno.desktop.in.in.h:1 ../src/iagno.vala:82 ../src/iagno.vala:295
 #: ../src/iagno.vala:620
 msgid "Iagno"
 msgstr "Iagno"
@@ -79,15 +78,11 @@ msgstr "cierto si a finestra ye maximizada"
 msgid "true if the window is fullscren"
 msgstr "cierto si a finestra ye en pantalla completa"
 
-#: ../src/iagno.vala:137
-#: ../src/iagno.vala:254
-#: ../src/iagno.vala:262
+#: ../src/iagno.vala:137 ../src/iagno.vala:254 ../src/iagno.vala:262
 msgid "Dark:"
 msgstr "Negras:"
 
-#: ../src/iagno.vala:145
-#: ../src/iagno.vala:255
-#: ../src/iagno.vala:263
+#: ../src/iagno.vala:145 ../src/iagno.vala:255 ../src/iagno.vala:263
 msgid "Light:"
 msgstr "Blancas:"
 
@@ -100,9 +95,7 @@ msgid "Dark must pass, Light's move"
 msgstr "Negras pasan redolín, mueven as blancas"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:257
-#: ../src/iagno.vala:258
-#: ../src/iagno.vala:265
+#: ../src/iagno.vala:257 ../src/iagno.vala:258 ../src/iagno.vala:265
 #: ../src/iagno.vala:266
 #, c-format
 msgid "%.2d"
@@ -150,23 +143,19 @@ msgstr "Preferencias de Iagno"
 msgid "Dark Player:"
 msgstr "Negras:"
 
-#: ../src/iagno.vala:493
-#: ../src/iagno.vala:522
+#: ../src/iagno.vala:493 ../src/iagno.vala:522
 msgid "Human"
 msgstr "Humán"
 
-#: ../src/iagno.vala:497
-#: ../src/iagno.vala:526
+#: ../src/iagno.vala:497 ../src/iagno.vala:526
 msgid "Level one"
 msgstr "Ran 1"
 
-#: ../src/iagno.vala:501
-#: ../src/iagno.vala:530
+#: ../src/iagno.vala:501 ../src/iagno.vala:530
 msgid "Level two"
 msgstr "Ran 2"
 
-#: ../src/iagno.vala:505
-#: ../src/iagno.vala:534
+#: ../src/iagno.vala:505 ../src/iagno.vala:534
 msgid "Level three"
 msgstr "Ran 3"
 
@@ -189,4 +178,3 @@ msgstr "Invertir resultau _final"
 #: ../src/iagno.vala:554
 msgid "_Tile set:"
 msgstr "Chuego de _fichas:"
-

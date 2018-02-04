@@ -347,39 +347,3 @@ msgstr "El joc ha acabat en taules."
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Aquí no s'hi pot anar!"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Preferències"
-
-#~ msgid "Type of game"
-#~ msgstr "Tipus de joc"
-
-#~ msgid "Choose the type of the next game."
-#~ msgstr "Trieu el tipus de la pròxima partida"
-
-#~ msgid "Preferences"
-#~ msgstr "Preferències"
-
-#~ msgid "Game mode:"
-#~ msgstr "Mode del joc:"
-
-#~ msgid "Two players"
-#~ msgstr "Dos jugadors"
-
-#~ msgid "Computer:"
-#~ msgstr "Ordinador:"
-
-#~ msgid "Level one"
-#~ msgstr "Primer nivell"
-
-#~ msgid "Level two"
-#~ msgstr "Segon nivell"
-
-#~ msgid "Level three"
-#~ msgstr "Tercer nivell"
-
-#~ msgid "_Tile set:"
-#~ msgstr "_Fitxes:"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "_Habilita el so"

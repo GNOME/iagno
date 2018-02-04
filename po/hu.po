@@ -46,11 +46,6 @@ msgstr ""
 "játsszák."
 
 #: ../data/iagno.appdata.xml.in.h:4
-#| msgid ""
-#| "The object of Iagno is to flip as many of your opponent's tiles to your "
-#| "color as possible while preventing your opponent from flipping your tiles "
-#| "to his color. This is done by trapping your opponent's tiles between two "
-#| "tiles of your own color."
 msgid ""
 "The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
@@ -190,7 +185,6 @@ msgid "Sun and Star"
 msgstr "Nap és csillag"
 
 #: ../data/org.gnome.iagno.gschema.xml.h:1
-#| msgid "Computer's AI level"
 msgid "Computer’s AI level"
 msgstr "A számítógép intelligencia szintje"
 
@@ -264,7 +258,6 @@ msgid "Play first"
 msgstr "Első játékos"
 
 #: ../src/iagno.vala:61
-#| msgid "Set the level of the computer's AI"
 msgid "Set the level of the computer’s AI"
 msgstr "A számítógép intelligencia szintjének beállítása"
 
@@ -353,4 +346,3 @@ msgstr "Az eredmény döntetlen."
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Nem léphet oda!"
-

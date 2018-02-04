@@ -341,39 +341,3 @@ msgstr "Permainan seri."
 #: ../src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Anda tidak bisa bergerak ke sana!"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Preferensi"
-
-#~ msgid "Type of game"
-#~ msgstr "Tipe permainan"
-
-#~ msgid "Choose the type of the next game."
-#~ msgstr "Pilih tipe permainan selanjutnya."
-
-#~ msgid "Preferences"
-#~ msgstr "Preferensi"
-
-#~ msgid "Game mode:"
-#~ msgstr "Mode permainan:"
-
-#~ msgid "Two players"
-#~ msgstr "Dua pemain"
-
-#~ msgid "Computer:"
-#~ msgstr "Komputer:"
-
-#~ msgid "Level one"
-#~ msgstr "Tingkat satu"
-
-#~ msgid "Level two"
-#~ msgstr "Tingkat dua"
-
-#~ msgid "Level three"
-#~ msgstr "Tingkat tiga"
-
-#~ msgid "_Tile set:"
-#~ msgstr "Se_t kotak:"
-
-#~ msgid "E_nable sounds"
-#~ msgstr "Aktifka_n suara"
