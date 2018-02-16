@@ -22,37 +22,36 @@
 # Flamarion Jorge <jorge.flamarion@gmail.com>, 2011.
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Fábio Nogueira <fnogueira@gnome.org>, 2014.
-# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014.
 # Artur de Aquino Morais <artur.morais93@outlook.com>, 2016.
 # Enrico Nicoletto <liverig@gmail.com>, 2013, 2015, 2016.
-#
+# Rafael Fontenelle <rafaelff@gnome.org>, 2013, 2014, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-16 08:43+0000\n"
-"PO-Revision-Date: 2016-09-02 21:37-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"POT-Creation-Date: 2018-02-04 04:33+0000\n"
+"PO-Revision-Date: 2018-02-16 16:06-0200\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Virtaal 1.0.0-beta1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
+#: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
+#: src/iagno.vala:173 src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
+#: data/iagno.appdata.xml.in:8 data/iagno.desktop.in:7
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Domine o tabuleiro em uma versão clássica do Reversi"
 
-#: ../data/iagno.appdata.xml.in.h:3
+#: data/iagno.appdata.xml.in:10
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -62,11 +61,16 @@ msgstr ""
 "de tabuleiro para dois jogadores. O jogo é disputado com peças que são "
 "escuras de um lado e claras no outro."
 
-#: ../data/iagno.appdata.xml.in.h:4
+#: data/iagno.appdata.xml.in:15
+#| msgid ""
+#| "The object of Iagno is to flip as many of your opponent's tiles to your "
+#| "color as possible while preventing your opponent from flipping your tiles "
+#| "to his color. This is done by trapping your opponent's tiles between two "
+#| "tiles of your own color."
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
+"The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
+"his color. This is done by trapping your opponent’s tiles between two tiles "
 "of your own color."
 msgstr ""
 "O objetivo do Iagno é o de virar o maior número de peças possíveis de seu "
@@ -75,251 +79,260 @@ msgstr ""
 "ao interceptar as peças do seu adversário entre duas peças da sua própria "
 "cor."
 
-#: ../data/iagno.appdata.xml.in.h:5
+#: data/iagno.appdata.xml.in:25
 msgid "A GNOME Iagno game preview"
 msgstr "Uma prévia do GNOME para o jogo Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:6
+#: data/iagno.appdata.xml.in:41
 msgid "The GNOME Project"
 msgstr "O projeto GNOME"
 
-#: ../data/iagno.desktop.in.h:2
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/iagno.desktop.in:4
+#| msgid "Iagno"
+msgid "iagno"
+msgstr "iagno"
+
+#: data/iagno.desktop.in:6
 msgid "Reversi"
 msgstr "Reversi"
 
-#: ../data/iagno.desktop.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/iagno.desktop.in:9
 msgid "reversi;othello;"
 msgstr "reversi;othello;"
 
-#: ../data/iagno.desktop.in.h:5
+#: data/iagno.desktop.in:18
 msgid "Play first (Dark)"
 msgstr "Jogar primeiro (escura)"
 
-#: ../data/iagno.desktop.in.h:6
+#: data/iagno.desktop.in:22
 msgid "Play second (Light)"
 msgstr "Jogar segundo (clara)"
 
-#: ../data/iagno.desktop.in.h:7
+#: data/iagno.desktop.in:26
 msgid "Two players game"
 msgstr "Partida de dois jogadores"
 
-#: ../data/iagno-menus.ui.h:1
+#: data/iagno-menus.ui:7
 msgid "A_ppearance"
 msgstr "A_parência"
 
-#: ../data/iagno-menus.ui.h:2
+#: data/iagno-menus.ui:11
 msgid "_Sound"
 msgstr "_Som"
 
-#: ../data/iagno-menus.ui.h:3
+#: data/iagno-menus.ui:17
 msgid "_Help"
 msgstr "Aj_uda"
 
-#: ../data/iagno-menus.ui.h:4
+#: data/iagno-menus.ui:22
 msgid "_About"
 msgstr "_Sobre"
 
-#: ../data/iagno-menus.ui.h:5
+#: data/iagno-menus.ui:26
 msgid "_Quit"
 msgstr "Sai_r"
 
-#: ../data/iagno-screens.ui.h:1
+#: data/iagno-screens.ui:22
 msgid "Players"
 msgstr "Jogadores"
 
-#: ../data/iagno-screens.ui.h:2
+#: data/iagno-screens.ui:37
 msgid "_One"
 msgstr "_Um"
 
-#: ../data/iagno-screens.ui.h:3
+#: data/iagno-screens.ui:48
 msgid "_Two"
 msgstr "_Dois"
 
-#: ../data/iagno-screens.ui.h:4
+#: data/iagno-screens.ui:71
 msgid "Difficulty"
 msgstr "Dificuldade"
 
-#: ../data/iagno-screens.ui.h:5
+#: data/iagno-screens.ui:86
 msgid "_Easy"
 msgstr "_Fáceis"
 
-#: ../data/iagno-screens.ui.h:6
+#: data/iagno-screens.ui:97
 msgid "_Medium"
 msgstr "_Médio"
 
-#: ../data/iagno-screens.ui.h:7
+#: data/iagno-screens.ui:108
 msgid "_Hard"
 msgstr "_Difícil"
 
-#: ../data/iagno-screens.ui.h:8
+#: data/iagno-screens.ui:131
 msgid "Color"
 msgstr "Cor"
 
-#: ../data/iagno-screens.ui.h:9
+#: data/iagno-screens.ui:146
 msgid "_Dark"
 msgstr "_Escuras"
 
-#: ../data/iagno-screens.ui.h:10
+#: data/iagno-screens.ui:157
 msgid "_Light"
 msgstr "_Claras"
 
-#: ../data/iagno-themes.ui.h:1
+#: data/iagno-themes.ui:9
 msgid "Select Theme"
 msgstr "Selecionar tema"
 
-#: ../data/iagno-themes.ui.h:2
+#: data/iagno-themes.ui:54
 msgid "Default"
 msgstr "Padrão"
 
-#: ../data/iagno.ui.h:1
+#: data/iagno.ui:21
 msgid "Go back to the current game"
 msgstr "Retornar ao jogo atual"
 
-#: ../data/iagno.ui.h:2
+#: data/iagno.ui:76
 msgid "_New Game"
 msgstr "_Novo jogo"
 
-#: ../data/iagno.ui.h:3
+#: data/iagno.ui:77
 msgid "Configure a new game"
 msgstr "Configurar um novo jogo"
 
-#: ../data/iagno.ui.h:4
+#: data/iagno.ui:81
 msgid "Start a new game"
 msgstr "Iniciar um novo jogo"
 
-#: ../data/themes/adwaita.theme.in.h:1
+#: data/themes/adwaita.theme.desktop.in:4
 msgid "Adwaita"
 msgstr "Adwaita"
 
-#: ../data/themes/classic.theme.in.h:1
+#: data/themes/classic.theme.desktop.in:4
 msgid "Classic"
 msgstr "Clássico"
 
-#: ../data/themes/high_contrast.theme.in.h:1
+#: data/themes/high_contrast.theme.desktop.in:4
 msgid "Black and White"
 msgstr "Preta e branca"
 
-#: ../data/themes/sun_and_star.theme.in.h:1
+#: data/themes/sun_and_star.theme.desktop.in:4
 msgid "Sun and Star"
 msgstr "Sol e estrela"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Computer's AI level"
+#: data/org.gnome.iagno.gschema.xml:11
+#| msgid "Computer's AI level"
+msgid "Computer’s AI level"
 msgstr "Nível de IA do computador"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: data/org.gnome.iagno.gschema.xml:12
 msgid "From 1, the easiest, to 3, the hardest."
 msgstr "De 1, o mais fácil, até 3, o mais difícil."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: data/org.gnome.iagno.gschema.xml:17
 msgid "Whether to play against the computer or another human."
 msgstr "Se deve, ou não, jogar contra o computador ou outro humano."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: data/org.gnome.iagno.gschema.xml:21
 msgid "Color to play as"
 msgstr "Cor a ser jogada como"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: data/org.gnome.iagno.gschema.xml:22
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "Se deve jogar como escuras ou claras. Ignora-se isto em partidas de dois "
 "jogadores."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: data/org.gnome.iagno.gschema.xml:26
 msgid "Theme"
 msgstr "Tema"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: data/org.gnome.iagno.gschema.xml:27
 msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
-"Nome de arquivo do tema utilizado, ou \"padrão\". São fornecidos: \"adwaita."
-"theme\", \"high_contrast.theme\" e \"sun_and_star.theme\"."
+"Nome de arquivo do tema utilizado, ou “default”. São fornecidos: “adwaita."
+"theme”, “high_contrast.theme” e “sun_and_star.theme”."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: data/org.gnome.iagno.gschema.xml:31
 msgid "Sound"
 msgstr "Som"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: data/org.gnome.iagno.gschema.xml:32
 msgid "Whether or not to play event sounds."
 msgstr "Reproduzir os sons dos eventos."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:10
+#: data/org.gnome.iagno.gschema.xml:36
 msgid "Width of the window in pixels"
 msgstr "A largura da janela em pixels"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:11
+#: data/org.gnome.iagno.gschema.xml:40
 msgid "Height of the window in pixels"
 msgstr "A altura da janela em pixels"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:12
+#: data/org.gnome.iagno.gschema.xml:44
 msgid "true if the window is maximized"
 msgstr "verdadeiro se a janela estiver maximizada"
 
-#: ../src/game-window.vala:128
+#: src/game-window.vala:128
 msgid "_Start Game"
 msgstr "_Iniciar jogo"
 
-#: ../src/game-window.vala:153
+#: src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Desfaz seu movimento mais recente"
 
-#: ../src/iagno.vala:58
+#: src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Iniciar com uma posição alternativa"
 
-#: ../src/iagno.vala:59
+#: src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Reduzir atraso antes de movimentos de IA"
 
-#: ../src/iagno.vala:60
+#: src/iagno.vala:60
 msgid "Play first"
 msgstr "Jogar primeiro"
 
-#: ../src/iagno.vala:61
-msgid "Set the level of the computer's AI"
+#: src/iagno.vala:61
+#| msgid "Set the level of the computer's AI"
+msgid "Set the level of the computer’s AI"
 msgstr "Define o nível da IA do computador"
 
-#: ../src/iagno.vala:62
+#: src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Desligar o som"
 
-#: ../src/iagno.vala:63
+#: src/iagno.vala:63
 msgid "Play second"
 msgstr "Jogar segundo"
 
-#: ../src/iagno.vala:64
+#: src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Tamanho do tabuleiro (apenas depuração)"
 
-#: ../src/iagno.vala:65
+#: src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Modo de dois jogadores"
 
-#: ../src/iagno.vala:66
+#: src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Desligar o som"
 
-#: ../src/iagno.vala:67
+#: src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Mostra versão de lançamento e sai"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:111
+#: src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "O tamanho deve ser ao menos 4."
 
-#: ../src/iagno.vala:158
+#: src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Nível deve estar entre 1 (fácil) e 3 (difícil). Configurações inalteradas."
 
-#: ../src/iagno.vala:275
+#: src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Um jogo de virar discos derivado do Reversi"
 
-#: ../src/iagno.vala:278
+#: src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Sandro Nunes Henrique <sandro@conectiva.com.br>\n"
@@ -336,41 +349,41 @@ msgstr ""
 "Felipe Borges <felipe10borges@gmail.com>\n"
 "Sérgio Cipolla <secipolla@gmail.com>\n"
 "Rodrigo Padula de Oliveira <contato@rodrigopadula.com>\n"
-"Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Enrico Nicoletto <liverig@gmail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:340 ../src/iagno.vala:341
+#: src/iagno.vala:340 src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:408
+#: src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "As brancas passam, vez das pretas"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:413
+#: src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "As pretas passam, vez das brancas"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:424
+#: src/iagno.vala:424
 msgid "Light wins!"
 msgstr "As brancas venceram!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:429
+#: src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "As pretas venceram!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:434
+#: src/iagno.vala:434
 msgid "The game is draw."
 msgstr "O jogo está empatado."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:450
+#: src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Você não pode mover para lá!"
