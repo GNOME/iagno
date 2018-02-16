@@ -28,10 +28,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-02-04 04:33+0000\n"
-"PO-Revision-Date: 2018-02-16 16:06-0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=iagno&"
+"keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2018-02-16 18:09+0000\n"
+"PO-Revision-Date: 2018-02-16 20:19-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -62,11 +62,6 @@ msgstr ""
 "escuras de um lado e claras no outro."
 
 #: data/iagno.appdata.xml.in:15
-#| msgid ""
-#| "The object of Iagno is to flip as many of your opponent's tiles to your "
-#| "color as possible while preventing your opponent from flipping your tiles "
-#| "to his color. This is done by trapping your opponent's tiles between two "
-#| "tiles of your own color."
 msgid ""
 "The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
@@ -81,15 +76,14 @@ msgstr ""
 
 #: data/iagno.appdata.xml.in:25
 msgid "A GNOME Iagno game preview"
-msgstr "Uma prévia do GNOME para o jogo Iagno"
+msgstr "Uma prévia do jogo GNOME Iagno"
 
 #: data/iagno.appdata.xml.in:41
 msgid "The GNOME Project"
-msgstr "O projeto GNOME"
+msgstr "O Projeto GNOME"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/iagno.desktop.in:4
-#| msgid "Iagno"
 msgid "iagno"
 msgstr "iagno"
 
@@ -104,11 +98,11 @@ msgstr "reversi;othello;"
 
 #: data/iagno.desktop.in:18
 msgid "Play first (Dark)"
-msgstr "Jogar primeiro (escura)"
+msgstr "Jogar primeiro (Preto)"
 
 #: data/iagno.desktop.in:22
 msgid "Play second (Light)"
-msgstr "Jogar segundo (clara)"
+msgstr "Jogar segundo (Branco)"
 
 #: data/iagno.desktop.in:26
 msgid "Two players game"
@@ -152,7 +146,7 @@ msgstr "Dificuldade"
 
 #: data/iagno-screens.ui:86
 msgid "_Easy"
-msgstr "_Fáceis"
+msgstr "_Fácil"
 
 #: data/iagno-screens.ui:97
 msgid "_Medium"
@@ -168,11 +162,11 @@ msgstr "Cor"
 
 #: data/iagno-screens.ui:146
 msgid "_Dark"
-msgstr "_Escuras"
+msgstr "_Preto"
 
 #: data/iagno-screens.ui:157
 msgid "_Light"
-msgstr "_Claras"
+msgstr "_Branco"
 
 #: data/iagno-themes.ui:9
 msgid "Select Theme"
@@ -215,7 +209,6 @@ msgid "Sun and Star"
 msgstr "Sol e estrela"
 
 #: data/org.gnome.iagno.gschema.xml:11
-#| msgid "Computer's AI level"
 msgid "Computer’s AI level"
 msgstr "Nível de IA do computador"
 
@@ -234,7 +227,7 @@ msgstr "Cor a ser jogada como"
 #: data/org.gnome.iagno.gschema.xml:22
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
-"Se deve jogar como escuras ou claras. Ignora-se isto em partidas de dois "
+"Se deve jogar como Preto ou Branco. Ignora-se isto em partidas de dois "
 "jogadores."
 
 #: data/org.gnome.iagno.gschema.xml:26
@@ -290,7 +283,6 @@ msgid "Play first"
 msgstr "Jogar primeiro"
 
 #: src/iagno.vala:61
-#| msgid "Set the level of the computer's AI"
 msgid "Set the level of the computer’s AI"
 msgstr "Define o nível da IA do computador"
 
@@ -361,22 +353,22 @@ msgstr "%.2d"
 #. Message to display when Light has no possible moves
 #: src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
-msgstr "As brancas passam, vez das pretas"
+msgstr "Branco deve passar, vez do Preto"
 
 #. Message to display when Dark has no possible moves
 #: src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
-msgstr "As pretas passam, vez das brancas"
+msgstr "Preto deve passar, vez do Branco"
 
 #. Message to display when Light has won the game
 #: src/iagno.vala:424
 msgid "Light wins!"
-msgstr "As brancas venceram!"
+msgstr "Branco venceu!"
 
 #. Message to display when Dark has won the game
 #: src/iagno.vala:429
 msgid "Dark wins!"
-msgstr "As pretas venceram!"
+msgstr "Preto venceu!"
 
 #. Message to display when the game is a draw
 #: src/iagno.vala:434
