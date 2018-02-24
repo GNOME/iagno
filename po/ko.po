@@ -9,7 +9,7 @@
 # Updated for iagno:
 #
 # Changwoo Ryu <cwryu@debian.org>, 2013-2016.
-# DaeHyun Sung <sungdh86@gmail.com>, 2017
+# DaeHyun Sung <sungdh86@gmail.com>, 2017-2018.
 #
 # 새로 번역하신 분은 아래 "translator-credits"에 추가하세요.
 #
@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-02 06:16+0000\n"
-"PO-Revision-Date: 2017-09-03 20:04+0900\n"
+"POT-Creation-Date: 2018-02-04 04:33+0000\n"
+"PO-Revision-Date: 2018-02-22 22:32+0900\n"
 "Last-Translator: DaeHyun Sung <sungdh86@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -30,18 +30,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.0.3\n"
 
-#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
+#: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
+#: src/iagno.vala:173 src/iagno.vala:267
 msgid "Iagno"
 msgstr "이아그노"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
+#: data/iagno.appdata.xml.in:8 data/iagno.desktop.in:7
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "리버시 게임의 전통적인 버전에서 보드를 차지합니다"
 
-#: ../data/iagno.appdata.xml.in.h:3
+#: data/iagno.appdata.xml.in:10
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -50,170 +50,176 @@ msgstr ""
 "이아그노는 2인용 보드 게임인 리버시의 컴퓨터 버전입니다. 게임은 한쪽 면이 검"
 "은색이고 다른 면이 흰색인 타일로 플레이합니다."
 
-#: ../data/iagno.appdata.xml.in.h:4
+#: data/iagno.appdata.xml.in:15
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
+"The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
+"his color. This is done by trapping your opponent’s tiles between two tiles "
 "of your own color."
 msgstr ""
-"이아그노의 목표는 상대편의 타일을 내 색으로 뒤집으면서, 상대편이 내 타일을 상"
-"대편 색으로 뒤집는 걸 막는 것입니다. 상대편 타일을 내 색깔 타일 사이로 집어 "
-"넣으면 됩니다."
+"이아그노의 목표는 상대방이 내 타일을 뒤집지 못하도록 하면서, 상대방의 타일을 "
+"가능한 내 색깔 타일로 많이 뒤집는 것입니다. 상대방의 타일을 내 색깔 타일 두 "
+"개 사이에 가두며 이뤄집니다."
 
-#: ../data/iagno.appdata.xml.in.h:5
+#: data/iagno.appdata.xml.in:25
 msgid "A GNOME Iagno game preview"
 msgstr "그놈 이아그노 게임 미리보기"
 
-#: ../data/iagno.appdata.xml.in.h:6
+#: data/iagno.appdata.xml.in:41
 msgid "The GNOME Project"
 msgstr "그놈 프로젝트"
 
-#: ../data/iagno.desktop.in.h:2
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/iagno.desktop.in:4
+msgid "iagno"
+msgstr "이아그노"
+
+#: data/iagno.desktop.in:6
 msgid "Reversi"
 msgstr "리버시"
 
-#: ../data/iagno.desktop.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/iagno.desktop.in:9
 msgid "reversi;othello;"
 msgstr "reversi;리버시;othello;오델로;"
 
-#: ../data/iagno.desktop.in.h:5
+#: data/iagno.desktop.in:18
 msgid "Play first (Dark)"
 msgstr "먼저 플레이(어두운 색)"
 
-#: ../data/iagno.desktop.in.h:6
+#: data/iagno.desktop.in:22
 msgid "Play second (Light)"
 msgstr "나중에 플레이(밝은 색)"
 
-#: ../data/iagno.desktop.in.h:7
+#: data/iagno.desktop.in:26
 msgid "Two players game"
 msgstr "2인 플레이 게임"
 
-#: ../data/iagno-menus.ui.h:1
+#: data/iagno-menus.ui:7
 msgid "A_ppearance"
 msgstr "모양(_P)"
 
-#: ../data/iagno-menus.ui.h:2
+#: data/iagno-menus.ui:11
 msgid "_Sound"
 msgstr "소리(_S)"
 
-#: ../data/iagno-menus.ui.h:3
+#: data/iagno-menus.ui:17
 msgid "_Help"
 msgstr "도움말(_H)"
 
-#: ../data/iagno-menus.ui.h:4
+#: data/iagno-menus.ui:22
 msgid "_About"
 msgstr "정보(_A)"
 
-#: ../data/iagno-menus.ui.h:5
+#: data/iagno-menus.ui:26
 msgid "_Quit"
 msgstr "끝내기(_Q)"
 
-#: ../data/iagno-screens.ui.h:1
+#: data/iagno-screens.ui:22
 msgid "Players"
 msgstr "플레이어"
 
-#: ../data/iagno-screens.ui.h:2
+#: data/iagno-screens.ui:37
 msgid "_One"
 msgstr "일(_O)"
 
-#: ../data/iagno-screens.ui.h:3
+#: data/iagno-screens.ui:48
 msgid "_Two"
 msgstr "이(_T)"
 
-#: ../data/iagno-screens.ui.h:4
+#: data/iagno-screens.ui:71
 msgid "Difficulty"
 msgstr "난이도"
 
-#: ../data/iagno-screens.ui.h:5
+#: data/iagno-screens.ui:86
 msgid "_Easy"
-msgstr "쉽게(_E)"
+msgstr "쉬움(_E)"
 
-#: ../data/iagno-screens.ui.h:6
+#: data/iagno-screens.ui:97
 msgid "_Medium"
 msgstr "중간(_M)"
 
-#: ../data/iagno-screens.ui.h:7
+#: data/iagno-screens.ui:108
 msgid "_Hard"
-msgstr "어렵게(_H)"
+msgstr "어려움(_H)"
 
-#: ../data/iagno-screens.ui.h:8
+#: data/iagno-screens.ui:131
 msgid "Color"
 msgstr "색"
 
-#: ../data/iagno-screens.ui.h:9
+#: data/iagno-screens.ui:146
 msgid "_Dark"
 msgstr "어두움(_D)"
 
-#: ../data/iagno-screens.ui.h:10
+#: data/iagno-screens.ui:157
 msgid "_Light"
 msgstr "밝음(_L)"
 
-#: ../data/iagno-themes.ui.h:1
+#: data/iagno-themes.ui:9
 msgid "Select Theme"
 msgstr "테마 선택"
 
-#: ../data/iagno-themes.ui.h:2
+#: data/iagno-themes.ui:54
 msgid "Default"
-msgstr "깁노값"
+msgstr "기본값"
 
-#: ../data/iagno.ui.h:1
+#: data/iagno.ui:21
 msgid "Go back to the current game"
 msgstr "현재 게임으로 돌아가기"
 
-#: ../data/iagno.ui.h:2
+#: data/iagno.ui:76
 msgid "_New Game"
 msgstr "새 게임(_N)"
 
-#: ../data/iagno.ui.h:3
+#: data/iagno.ui:77
 msgid "Configure a new game"
 msgstr "새 게임 설정"
 
-#: ../data/iagno.ui.h:4
+#: data/iagno.ui:81
 msgid "Start a new game"
 msgstr "새 게임 시작"
 
-#: ../data/themes/adwaita.theme.in.h:1
+#: data/themes/adwaita.theme.desktop.in:4
 msgid "Adwaita"
 msgstr "애드와이타"
 
-#: ../data/themes/classic.theme.in.h:1
+#: data/themes/classic.theme.desktop.in:4
 msgid "Classic"
 msgstr "클래식"
 
-#: ../data/themes/high_contrast.theme.in.h:1
+#: data/themes/high_contrast.theme.desktop.in:4
 msgid "Black and White"
 msgstr "흑백"
 
-#: ../data/themes/sun_and_star.theme.in.h:1
+#: data/themes/sun_and_star.theme.desktop.in:4
 msgid "Sun and Star"
 msgstr "해와 별"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Computer's AI level"
-msgstr "컴퓨터의 인공지능 단계"
+#: data/org.gnome.iagno.gschema.xml:11
+msgid "Computer’s AI level"
+msgstr "컴퓨터의 인공지능 수준"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: data/org.gnome.iagno.gschema.xml:12
 msgid "From 1, the easiest, to 3, the hardest."
 msgstr "제일 쉬우면 1, 제일 어려우면 3."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: data/org.gnome.iagno.gschema.xml:17
 msgid "Whether to play against the computer or another human."
 msgstr "컴퓨터를 상대로 할지 다른 사람을 상대로 할지 여부."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: data/org.gnome.iagno.gschema.xml:21
 msgid "Color to play as"
 msgstr "플레이할 색"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: data/org.gnome.iagno.gschema.xml:22
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr "어두운 쪽으로 할지 밝은 쪽으로 할지. 2인 게임에서는 무시."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: data/org.gnome.iagno.gschema.xml:26
 msgid "Theme"
 msgstr "테마"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: data/org.gnome.iagno.gschema.xml:27
 msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
@@ -221,125 +227,125 @@ msgstr ""
 "사용할 테마의 파일 이름, 또는 \"default\". 포함된 테마는 \"adwaita.theme\", "
 "\"high_contrast.theme\" 및 \"sun_and_star.theme\"."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: data/org.gnome.iagno.gschema.xml:31
 msgid "Sound"
 msgstr "소리"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: data/org.gnome.iagno.gschema.xml:32
 msgid "Whether or not to play event sounds."
 msgstr "이벤트 사운드를 재생할 지 여부."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:10
+#: data/org.gnome.iagno.gschema.xml:36
 msgid "Width of the window in pixels"
-msgstr "창의 너비, 픽셀 단위."
+msgstr "창의 너비, 픽셀 단위"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:11
+#: data/org.gnome.iagno.gschema.xml:40
 msgid "Height of the window in pixels"
-msgstr "창의 높이, 픽셀 단위."
+msgstr "창의 높이, 픽셀 단위"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:12
+#: data/org.gnome.iagno.gschema.xml:44
 msgid "true if the window is maximized"
 msgstr "참이면 창을 최대화"
 
-#: ../src/game-window.vala:128
+#: src/game-window.vala:128
 msgid "_Start Game"
 msgstr "게임 시작(_S)"
 
-#: ../src/game-window.vala:153
+#: src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "최근 움직임 실행 취소"
 
-#: ../src/iagno.vala:58
+#: src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "다른 위치에서 시작"
 
-#: ../src/iagno.vala:59
+#: src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "AI 움직임 전에 지연시간을 줄입니다"
 
-#: ../src/iagno.vala:60
+#: src/iagno.vala:60
 msgid "Play first"
 msgstr "먼저 플레이합니다"
 
-#: ../src/iagno.vala:61
-msgid "Set the level of the computer's AI"
+#: src/iagno.vala:61
+msgid "Set the level of the computer’s AI"
 msgstr "컴퓨터 인공 지능의 수준을 설정합니다"
 
-#: ../src/iagno.vala:62
+#: src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "소리를 끕니다"
 
-#: ../src/iagno.vala:63
+#: src/iagno.vala:63
 msgid "Play second"
 msgstr "나중에 플레이합니다"
 
-#: ../src/iagno.vala:64
+#: src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "게임판 크기 (디버깅 전용)"
 
-#: ../src/iagno.vala:65
+#: src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "2인 플레이 모드"
 
-#: ../src/iagno.vala:66
+#: src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "소리를 켭니다"
 
-#: ../src/iagno.vala:67
+#: src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "릴리스 버전을 표시하고 끝냅니다"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:111
+#: src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "크기가 최소한 4보다 같거나 커야 합니다."
 
-#: ../src/iagno.vala:158
+#: src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "난이도는 1(쉬움)에서 3(어려움)까지입니다. 설정은 바뀌지 않습니다."
 
-#: ../src/iagno.vala:275
+#: src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
-msgstr "리버시에 기반한 게임으로 원판을 뒤집는 게임."
+msgstr "리버시에 기반한 게임으로 원판을 뒤집는 게임"
 
-#: ../src/iagno.vala:278
+#: src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "류창우 <cwryu@debian.org>\n"
 "성대현 <sungdh86@gmail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:340 ../src/iagno.vala:341
+#: src/iagno.vala:340 src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:408
+#: src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "밝은 쪽은 차례를 걸러야 하고, 어두운 쪽 차례입니다"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:413
+#: src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "어두운 쪽은 차례를 걸러야 하고, 밝은 쪽 차례입니다"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:424
+#: src/iagno.vala:424
 msgid "Light wins!"
 msgstr "밝은 쪽이 이겼습니다!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:429
+#: src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "어두운 쪽이 이겼습니다!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:434
+#: src/iagno.vala:434
 msgid "The game is draw."
 msgstr "게임이 무승부입니다."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:450
+#: src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "거기로 움직일 수 없습니다!"
