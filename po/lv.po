@@ -5,36 +5,36 @@
 # Peteris Krisjanis <peteris.krisjanis@os.lv>, 2002.
 # Raivis Dejus <orvils@gmail.com>, 2006, 2007.
 # Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2010, 2011.
-# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2014, 2016.
+# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2014, 2016, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-16 08:43+0000\n"
-"PO-Revision-Date: 2016-09-08 20:39+0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=iagno"
+"&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2018-02-04 04:33+0000\n"
+"PO-Revision-Date: 2018-03-09 17:19+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 :"
+" 2);\n"
 "X-Generator: Lokalize 2.0\n"
 "X-Poedit-Language: Latvian\n"
 "X-Poedit-Country: LATVIA\n"
 
-#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:173 ../src/iagno.vala:267
+#: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
+#: src/iagno.vala:173 src/iagno.vala:267
 msgid "Iagno"
 msgstr "Iagno"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:3
+#: data/iagno.appdata.xml.in:8 data/iagno.desktop.in:7
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Dominē gadu klasiskajā Reversi spēles variācijā"
 
-#: ../data/iagno.appdata.xml.in.h:3
+#: data/iagno.appdata.xml.in:10
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -44,11 +44,16 @@ msgstr ""
 "galda spēle. Tā tiek spēlēta ar kauliņiem, kas ir tumši vienā pusē un gaiši "
 "otrā."
 
-#: ../data/iagno.appdata.xml.in.h:4
+#: data/iagno.appdata.xml.in:15
+#| msgid ""
+#| "The object of Iagno is to flip as many of your opponent's tiles to your "
+#| "color as possible while preventing your opponent from flipping your tiles "
+#| "to his color. This is done by trapping your opponent's tiles between two "
+#| "tiles of your own color."
 msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
+"The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
+"his color. This is done by trapping your opponent’s tiles between two tiles "
 "of your own color."
 msgstr ""
 "Iagno spēles mērķis ir apgriezt otrādi pēc iespējas vairāk pretinieka "
@@ -56,159 +61,167 @@ msgstr ""
 "tavus kauliņus uz viņa krāsu. To var paveikt, ielencot pretinieka kauliņus "
 "starp diviem savas krāsas kauliņiem."
 
-#: ../data/iagno.appdata.xml.in.h:5
+#: data/iagno.appdata.xml.in:25
 msgid "A GNOME Iagno game preview"
 msgstr "GNOME Iagno spēles priekšskatījums"
 
-#: ../data/iagno.appdata.xml.in.h:6
+#: data/iagno.appdata.xml.in:41
 msgid "The GNOME Project"
 msgstr "GNOME projekts"
 
-#: ../data/iagno.desktop.in.h:2
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/iagno.desktop.in:4
+#| msgid "Iagno"
+msgid "iagno"
+msgstr "iagno"
+
+#: data/iagno.desktop.in:6
 msgid "Reversi"
 msgstr "Reversi"
 
-#: ../data/iagno.desktop.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/iagno.desktop.in:9
 msgid "reversi;othello;"
 msgstr "reversi;othello;"
 
-#: ../data/iagno.desktop.in.h:5
+#: data/iagno.desktop.in:18
 msgid "Play first (Dark)"
 msgstr "Spēlēt pirmajam (tumšais)"
 
-#: ../data/iagno.desktop.in.h:6
+#: data/iagno.desktop.in:22
 msgid "Play second (Light)"
 msgstr "Spēlēt otrajam (gaišais)"
 
-#: ../data/iagno.desktop.in.h:7
+#: data/iagno.desktop.in:26
 msgid "Two players game"
 msgstr "Divu spēlētāju spēle"
 
-#: ../data/iagno-menus.ui.h:1
+#: data/iagno-menus.ui:7
 msgid "A_ppearance"
 msgstr "_Izskats"
 
-#: ../data/iagno-menus.ui.h:2
+#: data/iagno-menus.ui:11
 msgid "_Sound"
 msgstr "_Skaņa"
 
-#: ../data/iagno-menus.ui.h:3
+#: data/iagno-menus.ui:17
 msgid "_Help"
 msgstr "_Palīdzība"
 
-#: ../data/iagno-menus.ui.h:4
+#: data/iagno-menus.ui:22
 msgid "_About"
 msgstr "P_ar"
 
-#: ../data/iagno-menus.ui.h:5
+#: data/iagno-menus.ui:26
 msgid "_Quit"
 msgstr "_Iziet"
 
-#: ../data/iagno-screens.ui.h:1
+#: data/iagno-screens.ui:22
 msgid "Players"
 msgstr "Spēlētāji"
 
-#: ../data/iagno-screens.ui.h:2
+#: data/iagno-screens.ui:37
 msgid "_One"
 msgstr "_Viens"
 
-#: ../data/iagno-screens.ui.h:3
+#: data/iagno-screens.ui:48
 msgid "_Two"
 msgstr "_Divi"
 
-#: ../data/iagno-screens.ui.h:4
+#: data/iagno-screens.ui:71
 msgid "Difficulty"
 msgstr "Grūtība"
 
-#: ../data/iagno-screens.ui.h:5
+#: data/iagno-screens.ui:86
 msgid "_Easy"
 msgstr "_Viegli"
 
-#: ../data/iagno-screens.ui.h:6
+#: data/iagno-screens.ui:97
 msgid "_Medium"
 msgstr "_Vidējs"
 
-#: ../data/iagno-screens.ui.h:7
+#: data/iagno-screens.ui:108
 msgid "_Hard"
 msgstr "_Grūti"
 
-#: ../data/iagno-screens.ui.h:8
+#: data/iagno-screens.ui:131
 msgid "Color"
 msgstr "Krāsa"
 
-#: ../data/iagno-screens.ui.h:9
+#: data/iagno-screens.ui:146
 msgid "_Dark"
 msgstr "_Tumšs"
 
-#: ../data/iagno-screens.ui.h:10
+#: data/iagno-screens.ui:157
 msgid "_Light"
 msgstr "_Gaišs"
 
-#: ../data/iagno-themes.ui.h:1
+#: data/iagno-themes.ui:9
 msgid "Select Theme"
 msgstr "Izvēlieties motīvu"
 
-#: ../data/iagno-themes.ui.h:2
+#: data/iagno-themes.ui:54
 msgid "Default"
 msgstr "Noklusējuma"
 
-#: ../data/iagno.ui.h:1
+#: data/iagno.ui:21
 msgid "Go back to the current game"
 msgstr "Iet uz pašreizējo spēli"
 
-#: ../data/iagno.ui.h:2
+#: data/iagno.ui:76
 msgid "_New Game"
 msgstr "Jau_na spēle"
 
-#: ../data/iagno.ui.h:3
+#: data/iagno.ui:77
 msgid "Configure a new game"
 msgstr "Konfigurēt jaunu spēli"
 
-#: ../data/iagno.ui.h:4
+#: data/iagno.ui:81
 msgid "Start a new game"
 msgstr "Sākt jaunu spēli"
 
-#: ../data/themes/adwaita.theme.in.h:1
+#: data/themes/adwaita.theme.desktop.in:4
 msgid "Adwaita"
 msgstr "Adwaita"
 
-#: ../data/themes/classic.theme.in.h:1
+#: data/themes/classic.theme.desktop.in:4
 msgid "Classic"
 msgstr "Klasiska"
 
-#: ../data/themes/high_contrast.theme.in.h:1
+#: data/themes/high_contrast.theme.desktop.in:4
 msgid "Black and White"
 msgstr "Melns un balts"
 
-#: ../data/themes/sun_and_star.theme.in.h:1
+#: data/themes/sun_and_star.theme.desktop.in:4
 msgid "Sun and Star"
 msgstr "Saule un zvaigzne"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Computer's AI level"
+#: data/org.gnome.iagno.gschema.xml:11
+#| msgid "Computer's AI level"
+msgid "Computer’s AI level"
 msgstr "Datora MI līmenis"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
+#: data/org.gnome.iagno.gschema.xml:12
 msgid "From 1, the easiest, to 3, the hardest."
 msgstr "No 1 (vieglākais) līdz 3 (grūtākais)."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
+#: data/org.gnome.iagno.gschema.xml:17
 msgid "Whether to play against the computer or another human."
 msgstr "Vai spēlēt pret datoru vai citu cilvēku."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#: data/org.gnome.iagno.gschema.xml:21
 msgid "Color to play as"
 msgstr "Ar kuru krāsu spēlēt"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#: data/org.gnome.iagno.gschema.xml:22
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr "Vai spēlēt ar gaišajiem vai tumšajiem. Ignorē divu spēlētāju spēlēs."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
+#: data/org.gnome.iagno.gschema.xml:26
 msgid "Theme"
 msgstr "Motīvs"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#: data/org.gnome.iagno.gschema.xml:27
 msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
@@ -216,89 +229,90 @@ msgstr ""
 "Izmantotā motīva datnes nosaukums, vai “noklusējuma“. Tiek piedāvāti "
 "“adwaita.theme”, “high_contrast.theme” un “sun_and_star.theme”."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#: data/org.gnome.iagno.gschema.xml:31
 msgid "Sound"
 msgstr "Skaņa"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#: data/org.gnome.iagno.gschema.xml:32
 msgid "Whether or not to play event sounds."
 msgstr "Vai atskaņot notikumu skaņas."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:10
+#: data/org.gnome.iagno.gschema.xml:36
 msgid "Width of the window in pixels"
 msgstr "Galvenā loga platums pikseļos"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:11
+#: data/org.gnome.iagno.gschema.xml:40
 msgid "Height of the window in pixels"
 msgstr "Galvenā loga augstums pikseļos"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:12
+#: data/org.gnome.iagno.gschema.xml:44
 msgid "true if the window is maximized"
 msgstr "patiess, ja logs ir maksimizēts"
 
-#: ../src/game-window.vala:128
+#: src/game-window.vala:128
 msgid "_Start Game"
 msgstr "_Sākt spēli"
 
-#: ../src/game-window.vala:153
+#: src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Atsaukt savu pēdējo gājienu"
 
-#: ../src/iagno.vala:58
+#: src/iagno.vala:58
 msgid "Start with an alternative position"
 msgstr "Sākt ar alternatīvu novietojumu"
 
-#: ../src/iagno.vala:59
+#: src/iagno.vala:59
 msgid "Reduce delay before AI moves"
 msgstr "Samazināt aizturi starp MI gājieniem"
 
-#: ../src/iagno.vala:60
+#: src/iagno.vala:60
 msgid "Play first"
 msgstr "Spēlēt pirmajam"
 
-#: ../src/iagno.vala:61
-msgid "Set the level of the computer's AI"
+#: src/iagno.vala:61
+#| msgid "Set the level of the computer's AI"
+msgid "Set the level of the computer’s AI"
 msgstr "Iestatiet datora MI līmeni"
 
-#: ../src/iagno.vala:62
+#: src/iagno.vala:62
 msgid "Turn off the sound"
 msgstr "Izslēgt skaņu"
 
-#: ../src/iagno.vala:63
+#: src/iagno.vala:63
 msgid "Play second"
 msgstr "Spēlēt otrajam"
 
-#: ../src/iagno.vala:64
+#: src/iagno.vala:64
 msgid "Size of the board (debug only)"
 msgstr "Laukuma izmērs (tikai atkļūdošanai)"
 
-#: ../src/iagno.vala:65
+#: src/iagno.vala:65
 msgid "Two-players mode"
 msgstr "Divu spēlētāju režīms"
 
-#: ../src/iagno.vala:66
+#: src/iagno.vala:66
 msgid "Turn on the sound"
 msgstr "Ieslēgt skaņu"
 
-#: ../src/iagno.vala:67
+#: src/iagno.vala:67
 msgid "Print release version and exit"
 msgstr "Parādīt informāciju par laidienu un iziet"
 
 #. Console message displayed for an incorrect size
-#: ../src/iagno.vala:111
+#: src/iagno.vala:111
 msgid "Size must be at least 4."
 msgstr "Izmērs ne mazāks par 4."
 
-#: ../src/iagno.vala:158
+#: src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Līmenim ir jābūt no 1 (viegls) līdz 3 (grūts). Iestatījumi nav mainīti."
 
-#: ../src/iagno.vala:275
+#: src/iagno.vala:275
 msgid "A disk flipping game derived from Reversi"
 msgstr "Disku apgriešanas spēle, kas atvasināta no Reversi"
 
-#: ../src/iagno.vala:278
+#: src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Raivis Dejus <orvils@gmail.com>\n"
@@ -306,37 +320,38 @@ msgstr ""
 "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:340 ../src/iagno.vala:341
+#: src/iagno.vala:340 src/iagno.vala:341
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: ../src/iagno.vala:408
+#: src/iagno.vala:408
 msgid "Light must pass, Dark’s move"
 msgstr "Gaišajam jāizlaiž, tumšā gājiens"
 
 #. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:413
+#: src/iagno.vala:413
 msgid "Dark must pass, Light’s move"
 msgstr "Tumšajam jāizlaiž, gaišā gājiens"
 
 #. Message to display when Light has won the game
-#: ../src/iagno.vala:424
+#: src/iagno.vala:424
 msgid "Light wins!"
 msgstr "Uzvar gaišie!"
 
 #. Message to display when Dark has won the game
-#: ../src/iagno.vala:429
+#: src/iagno.vala:429
 msgid "Dark wins!"
 msgstr "Uzvar tumšie!"
 
 #. Message to display when the game is a draw
-#: ../src/iagno.vala:434
+#: src/iagno.vala:434
 msgid "The game is draw."
 msgstr "Spēle beidzās ar neizšķirtu."
 
 #. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:450
+#: src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Šeit nevar iet!"
+
