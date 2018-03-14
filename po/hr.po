@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: gnome-games 0\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-02-04 04:33+0000\n"
-"PO-Revision-Date: 2018-03-07 16:56+0100\n"
+"POT-Creation-Date: 2018-03-07 15:57+0000\n"
+"PO-Revision-Date: 2018-03-14 14:18+0100\n"
 "Last-Translator: Launchpad Translations Administrators <rosetta@launchpad."
 "net>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -27,7 +27,7 @@ msgstr "Iagno"
 
 #: data/iagno.appdata.xml.in:8 data/iagno.desktop.in:7
 msgid "Dominate the board in a classic version of Reversi"
-msgstr "Dominirajte pločom u klasičnoj inačici Reversi"
+msgstr "Dominirajte pločom u klasičnoj inačici Reversia"
 
 #: data/iagno.appdata.xml.in:10
 msgid ""
@@ -47,13 +47,13 @@ msgid ""
 "of your own color."
 msgstr ""
 "Cilj igano igre je da pretvorite što više protivnikovih pločica u vašu boju, "
-"a istovremeno spriječiti protivnika da promijeni vaše pločice svoju boju. To "
-"se postiže zaustavljanjem pločica vašeg protivnika između dvije pločice vaše "
-"boje."
+"a istovremeno spriječiti protivnika da promijeni vaše pločice u svoju boju. "
+"To se postiže zaustavljanjem pločica vašeg protivnika između dvije pločice "
+"vaše boje."
 
 #: data/iagno.appdata.xml.in:25
 msgid "A GNOME Iagno game preview"
-msgstr "A GNOME Iagno izgled igre"
+msgstr "A GNOME Iagno pregled igre"
 
 #: data/iagno.appdata.xml.in:41
 msgid "The GNOME Project"
@@ -236,7 +236,7 @@ msgstr "Visina prozora u pikselima"
 
 #: data/org.gnome.iagno.gschema.xml:44
 msgid "true if the window is maximized"
-msgstr "true ako je prozor uvećan"
+msgstr "istinito ako je prozor uvećan"
 
 #: src/game-window.vala:128
 msgid "_Start Game"
