@@ -1,4 +1,36 @@
-3.26.1 – October 1, 2016
+3.28.0 – March 15, 2018
+=============================
+
+That’s mostly a translation-only release (with maintainance and cleaning work by
+Piotr Drąg and Robert Roth).
+
+Translations updated:
+  Catalan (Valencian): Xavi Ivars
+  Croatian: gogo
+  Czech: Marek Černocký
+  Danish: Ask Hjorth Larsen
+  Dutch: Nathan Follens
+  British English: Bruce Cowan
+  Finnish: Jiri Grönroos
+  French: Charles Monzat
+  Friulian: Fabio Tomat
+  Galician: Fran Dieguez
+  German: Mario Blättermann
+  Hungarian: Balázs Úr
+  Indonesian: Kukuh Syafaat
+  Italian: Milo Casagrande
+  Korean: DaeHyun Sung
+  Latvian: Rūdolfs Mazurs
+  Lithuanian: Aurimas Černius
+  Polish: Piotr Drąg
+  Brazilian Portuguese: Rafael Fontenelle
+  Serbian: Мирослав Николић
+  Slovenian: Matej Urbančič
+  Spanish: Daniel Mustieles
+  Swedish: Anders Jonsson
+  Turkish: Muhammet Kara
+
+3.26.1 – October 1, 2017
 =============================
 
 Some now-unused files removed (thanks to Andre Klapper and Piotr Drąg), and many
