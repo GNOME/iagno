@@ -12,9 +12,9 @@ msgstr ""
 "Project-Id-Version: gnome-games.HEAD.ro\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-01-31 18:13+0000\n"
-"PO-Revision-Date: 2011-03-16 17:36+0200\n"
-"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
+"POT-Creation-Date: 2018-03-26 22:45+0000\n"
+"PO-Revision-Date: 2018-04-02 21:23+0300\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Virtaal 0.6.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Launchpad-Export-Date: 2009-11-27 09:12+0000\n"
 
 #: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
@@ -40,6 +40,9 @@ msgid ""
 "game. The game is played with tiles that are dark on one side and light on "
 "the other."
 msgstr ""
+"Iagno este o versiune pe calculator a jocului Reversi, un joc de tablă de "
+"strategie cu doi jucători. Jocul este jucat cu dale care sunt negre pe o "
+"parte și albe pe cealaltă."
 
 #: data/iagno.appdata.xml.in:15
 msgid ""
@@ -48,50 +51,49 @@ msgid ""
 "his color. This is done by trapping your opponent’s tiles between two tiles "
 "of your own color."
 msgstr ""
+"Scopul jocului Iagno este să întoarceți cât mai multe dintre dalele "
+"oponentului la culoarea cu care jucați, în timp ce evitați ca oponentul să "
+"vă întoarcă dalele la culoarea cu care joacă acesta. Acest lucru este "
+"realizat prin blocarea dalelor oponentului între două dale care au culoarea "
+"pe care ați ales-o."
 
 #: data/iagno.appdata.xml.in:25
-#, fuzzy
 msgid "A GNOME Iagno game preview"
-msgstr "Previzualizare joc"
+msgstr "O previzualizare de joc Iagno GNOME"
 
 #: data/iagno.appdata.xml.in:41
 msgid "The GNOME Project"
-msgstr ""
+msgstr "Proiectul GNOME"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/iagno.desktop.in:4
-#, fuzzy
 msgid "iagno"
-msgstr "Iagno"
+msgstr "iagno"
 
 #: data/iagno.desktop.in:6
-#, fuzzy
 msgid "Reversi"
-msgstr "Servere"
+msgstr "Reversi"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/iagno.desktop.in:9
 msgid "reversi;othello;"
-msgstr ""
+msgstr "reversi;othello;"
 
 #: data/iagno.desktop.in:18
 msgid "Play first (Dark)"
-msgstr ""
+msgstr "Joacă primul (Negru)"
 
 #: data/iagno.desktop.in:22
-#, fuzzy
 msgid "Play second (Light)"
-msgstr "Listă jucători"
+msgstr "Joacă al doilea (Alb)"
 
 #: data/iagno.desktop.in:26
-#, fuzzy
 msgid "Two players game"
-msgstr "Numele jucătorilor"
+msgstr "Joc pentru doi jucători"
 
 #: data/iagno-menus.ui:7
-#, fuzzy
 msgid "A_ppearance"
-msgstr "Aspect"
+msgstr "As_pect"
 
 #: data/iagno-menus.ui:11
 msgid "_Sound"
@@ -106,27 +108,24 @@ msgid "_About"
 msgstr "_Despre"
 
 #: data/iagno-menus.ui:26
-#, fuzzy
 msgid "_Quit"
-msgstr "Ieșire"
+msgstr "_Ieșire"
 
 #: data/iagno-screens.ui:22
-#, fuzzy
 msgid "Players"
-msgstr "Jucător"
+msgstr "Jucători"
 
 #: data/iagno-screens.ui:37
 msgid "_One"
-msgstr ""
+msgstr "_Unu"
 
 #: data/iagno-screens.ui:48
 msgid "_Two"
-msgstr ""
+msgstr "_Doi"
 
 #: data/iagno-screens.ui:71
-#, fuzzy
 msgid "Difficulty"
-msgstr "Dificultate:"
+msgstr "Dificultate"
 
 #: data/iagno-screens.ui:86
 msgid "_Easy"
@@ -141,42 +140,36 @@ msgid "_Hard"
 msgstr "_Dificil"
 
 #: data/iagno-screens.ui:131
-#, fuzzy
 msgid "Color"
-msgstr "Culori"
+msgstr "Culoare"
 
 #: data/iagno-screens.ui:146
-#, fuzzy
 msgid "_Dark"
-msgstr "Negru"
+msgstr "_Negru"
 
 #: data/iagno-screens.ui:157
-#, fuzzy
 msgid "_Light"
-msgstr "Alb"
+msgstr "A_lb"
 
 #: data/iagno-themes.ui:9
-#, fuzzy
 msgid "Select Theme"
-msgstr "Selectare Joc"
+msgstr "Selectare temă"
 
 #: data/iagno-themes.ui:54
 msgid "Default"
-msgstr ""
+msgstr "Implicit"
 
 #: data/iagno.ui:21
-#, fuzzy
 msgid "Go back to the current game"
-msgstr "Salvare partidă curentă"
+msgstr "Navighează înapoi la jocul curent"
 
 #: data/iagno.ui:76
 msgid "_New Game"
 msgstr "Joc _nou"
 
 #: data/iagno.ui:77
-#, fuzzy
 msgid "Configure a new game"
-msgstr "Configurează jocul"
+msgstr "Configurează un joc nou"
 
 #: data/iagno.ui:81
 msgid "Start a new game"
@@ -184,40 +177,41 @@ msgstr "Pornește un joc nou"
 
 #: data/themes/adwaita.theme.desktop.in:4
 msgid "Adwaita"
-msgstr ""
+msgstr "Adwaita"
 
 #: data/themes/classic.theme.desktop.in:4
 msgid "Classic"
 msgstr "Clasic"
 
 #: data/themes/high_contrast.theme.desktop.in:4
-#, fuzzy
 msgid "Black and White"
-msgstr "Partea neagră"
+msgstr "Negru și alb"
 
 #: data/themes/sun_and_star.theme.desktop.in:4
 msgid "Sun and Star"
-msgstr ""
+msgstr "Soare și stea"
 
 #: data/org.gnome.iagno.gschema.xml:11
 msgid "Computer’s AI level"
-msgstr ""
+msgstr "Nivelul AI al calculatorului"
 
 #: data/org.gnome.iagno.gschema.xml:12
 msgid "From 1, the easiest, to 3, the hardest."
-msgstr ""
+msgstr "De la 1, cel mai simplu, la 3, cel mai dificil."
 
 #: data/org.gnome.iagno.gschema.xml:17
 msgid "Whether to play against the computer or another human."
-msgstr ""
+msgstr "Dacă doriți să jucați împotriva calculatorului sau alt om."
 
 #: data/org.gnome.iagno.gschema.xml:21
 msgid "Color to play as"
-msgstr ""
+msgstr "Culoare cu care se joacă"
 
 #: data/org.gnome.iagno.gschema.xml:22
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
+"Dacă doriți să jucați ca negru sau alb. Ignorat pentru jocuri de doi "
+"jucători."
 
 #: data/org.gnome.iagno.gschema.xml:26
 msgid "Theme"
@@ -228,6 +222,8 @@ msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgstr ""
+"Numele de fișier al temei utilizate, sau „implicit”. Sunt oferite „adwaita."
+"theme”, „high_contrast.theme” și „sun_and_star.theme”."
 
 #: data/org.gnome.iagno.gschema.xml:31
 msgid "Sound"
@@ -238,97 +234,86 @@ msgid "Whether or not to play event sounds."
 msgstr "Dacă sau nu să se folosească sunete pentru evenimente."
 
 #: data/org.gnome.iagno.gschema.xml:36
-#, fuzzy
 msgid "Width of the window in pixels"
-msgstr "Mărimea în pixeli a ferestrei principale."
+msgstr "Lățimea ferestrei în pixeli"
 
 #: data/org.gnome.iagno.gschema.xml:40
-#, fuzzy
 msgid "Height of the window in pixels"
-msgstr "Înălțimea în pixeli a ferestrei principale."
+msgstr "Înălțimea ferestrei în pixeli"
 
 #: data/org.gnome.iagno.gschema.xml:44
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "adevărat dacă fereastra este maximizată"
 
 #: src/game-window.vala:128
-#, fuzzy
 msgid "_Start Game"
-msgstr "_Start"
+msgstr "_Start joc"
 
 #: src/game-window.vala:153
-#, fuzzy
 msgid "Undo your most recent move"
-msgstr "Scorul recent al utilizatorului."
+msgstr "Anulează mutarea cea mai recentă"
 
 #: src/iagno.vala:58
 msgid "Start with an alternative position"
-msgstr ""
+msgstr "Începe cu o poziție alternativă"
 
 #: src/iagno.vala:59
 msgid "Reduce delay before AI moves"
-msgstr ""
+msgstr "Reduce întârzierea înainte de mutarea AI"
 
 #: src/iagno.vala:60
-#, fuzzy
 msgid "Play first"
-msgstr "Listă jucători"
+msgstr "Joacă primul"
 
 #: src/iagno.vala:61
 msgid "Set the level of the computer’s AI"
-msgstr ""
+msgstr "Stabilește nivelul AI-ului calculatorului"
 
 #: src/iagno.vala:62
-#, fuzzy
 msgid "Turn off the sound"
-msgstr "Închide toate luminile"
+msgstr "Oprește sunetul"
 
 #: src/iagno.vala:63
-#, fuzzy
 msgid "Play second"
-msgstr "Redare sunete"
+msgstr "Joacă al doilea"
 
 #: src/iagno.vala:64
-#, fuzzy
 msgid "Size of the board (debug only)"
-msgstr "Mărimea tablei (2-6)"
+msgstr "Dimensiunea tablei (doar în modul depanare)"
 
 #: src/iagno.vala:65
 msgid "Two-players mode"
-msgstr ""
+msgstr "Mod doi jucători"
 
 #: src/iagno.vala:66
-#, fuzzy
 msgid "Turn on the sound"
-msgstr "Închide toate luminile"
+msgstr "Pornește sunetul"
 
 #: src/iagno.vala:67
 msgid "Print release version and exit"
-msgstr ""
+msgstr "Tipărește versiunea de lansare și ieși"
 
 #. Console message displayed for an incorrect size
 #: src/iagno.vala:111
-#, fuzzy
 msgid "Size must be at least 4."
-msgstr "Mărimea mozaicurilor în joc."
+msgstr "Dimensiunea trebuie să fie cel puțin 4."
 
 #: src/iagno.vala:158
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
+"Nivelul ar trebui să fie între 1 (simplu) și 3 (dificil). Nu s-au modificat "
+"configurările."
 
 #: src/iagno.vala:275
-#, fuzzy
 msgid "A disk flipping game derived from Reversi"
-msgstr ""
-"Un joc de întoarcere a discurilor derivat din Reversi.\n"
-"\n"
-"Iango este o componentă a proiectului Jocuri GNOME."
+msgstr "Un joc de întoarcere a discurilor derivat de la Reversi"
 
 #: src/iagno.vala:278
 msgid "translator-credits"
 msgstr ""
 "Mugurel Tudor <mugurelu@gnome.ro>\n"
 "Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
+"Florentina Mușat <florentina.musat.28@gmail.com>\n"
 "\n"
 "Launchpad Contributions:\n"
 "  Adi Roiban https://launchpad.net/~adiroiban\n"
@@ -354,36 +339,30 @@ msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
 #: src/iagno.vala:408
-#, fuzzy
 msgid "Light must pass, Dark’s move"
-msgstr "Albul obligat pass, Negrul la mutare"
+msgstr "Alb obligat pas, negru la mutare"
 
 #. Message to display when Dark has no possible moves
 #: src/iagno.vala:413
-#, fuzzy
 msgid "Dark must pass, Light’s move"
-msgstr "Negrul obligat pass, Albul la mutare"
+msgstr "Negru obligat pas, alb la mutare"
 
 #. Message to display when Light has won the game
 #: src/iagno.vala:424
-#, fuzzy
 msgid "Light wins!"
-msgstr "Albele au câștigat!"
+msgstr "Alb a câștigat!"
 
 #. Message to display when Dark has won the game
 #: src/iagno.vala:429
-#, fuzzy
 msgid "Dark wins!"
-msgstr "Negrele au câștigat!"
+msgstr "Negru a câștigat!"
 
 #. Message to display when the game is a draw
 #: src/iagno.vala:434
-#, fuzzy
 msgid "The game is draw."
-msgstr "Jocul s-a terminat remiză!"
+msgstr "Jocul este remiză."
 
 #. Message to display when the player tries to make an illegal move
 #: src/iagno.vala:450
-#, fuzzy
 msgid "You can’t move there!"
-msgstr "Nu puteți muta acolo!"
+msgstr "Nu se poate muta acolo!"
