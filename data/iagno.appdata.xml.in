@@ -26,7 +26,7 @@
     </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/Iagno</url>
-  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=iagno</url>
+  <url type="bugtracker">https://gitlab.gnome.org/GNOME/iagno/issues</url>
   <url type="donation">http://www.gnome.org/friends/</url>
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
@@ -39,17 +39,24 @@
   </kudos>
   <translation type="gettext">iagno</translation>
   <developer_name>The GNOME Project</developer_name>
-  <content_rating type="oars-1.0">
+  <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
     <content_attribute id="violence-fantasy">none</content_attribute>
     <content_attribute id="violence-realistic">none</content_attribute>
     <content_attribute id="violence-bloodshed">none</content_attribute>
     <content_attribute id="violence-sexual">none</content_attribute>
+    <content_attribute id="violence-desecration">none</content_attribute>
+    <content_attribute id="violence-slavery">none</content_attribute>
+    <content_attribute id="violence-worship">none</content_attribute>
     <content_attribute id="drugs-alcohol">none</content_attribute>
     <content_attribute id="drugs-narcotics">none</content_attribute>
     <content_attribute id="drugs-tobacco">none</content_attribute>
     <content_attribute id="sex-nudity">none</content_attribute>
     <content_attribute id="sex-themes">none</content_attribute>
+    <content_attribute id="sex-homosexuality">none</content_attribute>
+    <content_attribute id="sex-prostitution">none</content_attribute>
+    <content_attribute id="sex-adultery">none</content_attribute>
+    <content_attribute id="sex-appearance">none</content_attribute>
     <content_attribute id="language-profanity">none</content_attribute>
     <content_attribute id="language-humor">none</content_attribute>
     <content_attribute id="language-discrimination">none</content_attribute>
