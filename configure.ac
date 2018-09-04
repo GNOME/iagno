@@ -1,5 +1,6 @@
 AC_PREREQ([2.63])
-AC_INIT([Iagno], [3.28.0], [https://bugzilla.gnome.org/],
+AC_INIT([Iagno], [3.30.0],
+        [https://gitlab.gnome.org/GNOME/iagno/issues],
         [iagno], [https://wiki.gnome.org/Apps/Iagno])
 AC_CONFIG_MACRO_DIR([m4])
 
