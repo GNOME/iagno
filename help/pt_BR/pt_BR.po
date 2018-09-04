@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno manual v2.8\n"
-"POT-Creation-Date: 2018-01-31 18:14+0000\n"
-"PO-Revision-Date: 2018-02-16 20:52-0200\n"
+"POT-Creation-Date: 2018-08-13 21:39+0000\n"
+"PO-Revision-Date: 2018-09-04 10:08-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "Language: pt_BR\n"
@@ -21,13 +21,12 @@ msgstr ""
 "X-Poedit-Country: BRAZIL\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
-#| msgid "translator-credits"
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Vladimir Melo <vladimirmelo@foresightlinux.org>, 2007, 2008.\n"
-"Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2008.\n"
-"Rafael Fontenelle <rafaelff@gnome.org>, 2018."
+"Vladimir Melo <vladimirmelo@foresightlinux.org>, 2007, 2008\n"
+"Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2008\n"
+"Rafael Fontenelle <rafaelff@gnome.org>, 2018"
 
 #. (itstool) path: credit/name
 #: C/2player.page:9 C/ai-game.page:9 C/shortcuts.page:9
@@ -142,15 +141,20 @@ msgstr "Relatando um erro ou sugerindo uma melhoria"
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:22
+#| msgid ""
+#| "<app>Iagno</app> is maintained by a volunteer community. You are welcome "
+#| "to participate. If you notice a problem you can file a <em>bug report</"
+#| "em>. To file a bug, go to <link href=\"https://bugzilla.gnome.org/\"/>."
 msgid ""
 "<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
 "participate. If you notice a problem you can file a <em>bug report</em>. To "
-"file a bug, go to <link href=\"https://bugzilla.gnome.org/\"/>."
+"file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues/"
+"\"/>."
 msgstr ""
 "<app>Iagno</app> é mantido por uma comunidade voluntária. Você pode "
 "participar. Se você notar um problema, você pode apresentar um <em>relatório "
-"de erro</em>. Para relatar um erro, acesse <link href=\""
-"https://bugzilla.gnome.org/\"/>."
+"de erro</em>. Para relatar um erro, acesse <link href=\"https://gitlab.gnome."
+"org/GNOME/iagno/issues/\"/>."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:25
@@ -163,49 +167,65 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:28
+#| msgid ""
+#| "To participate you need an account which will give you the ability to "
+#| "gain access, file bugs, and make comments. Also, you need to register so "
+#| "you can receive updates by e-mail about the status of your bug. If you "
+#| "don't already have an account, just click on the <gui>New Account</gui> "
+#| "link to create one."
 msgid ""
 "To participate you need an account which will give you the ability to gain "
 "access, file bugs, and make comments. Also, you need to register so you can "
 "receive updates by e-mail about the status of your bug. If you don't already "
-"have an account, just click on the <gui>New Account</gui> link to create one."
+"have an account, just click on the <gui>Sign in / Register</gui> link to "
+"create one."
 msgstr ""
-"Para participar, você precisa de uma conta que lhe dará a possibilidade de "
-"obter acesso, erros de arquivo e fazer comentários. Além disso, você precisa "
-"se registrar para que você possa receber atualizações por e-mail sobre o "
-"status do seu relatório. Se você ainda não possui uma conta, basta clicar no "
-"link <gui>New Account</gui> para criar uma."
+"Para participar, você precisa de uma conta que lhe concederá a habilidade de "
+"relatar erros e fazer comentários. Também, você precisa se registrar para "
+"receber atualizações por e-mail sobre o status de seu relatório de erro. Se "
+"você não tiver uma conta, basta clicar no link <gui>Sign in / Register</gui> "
+"para criar uma."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:32
+#| msgid ""
+#| "Once you have an account, log in, click on <guiseq><gui>File a Bug</"
+#| "gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
+#| "bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?"
+#| "id=bug-writing.html\">bug writing guidelines</link>, and please <link "
+#| "href=\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">browse</"
+#| "link> for the bug to see if it already exists."
 msgid ""
-"Once you have an account, log in, click on <guiseq><gui>File a Bug</"
-"gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
-"bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?id=bug-"
-"writing.html\">bug writing guidelines</link>, and please <link href="
-"\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">browse</link> for "
+"Once you have an account, log in, and click on <gui>New issue</gui>. Before "
+"reporting a bug, please read the <link href=\"https://bugzilla.gnome.org/"
+"page.cgi?id=bug-writing.html\">bug writing guidelines</link>, and please "
+"<link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">browse</link> for "
 "the bug to see if it already exists."
 msgstr ""
-"Assim que você tiver uma conta, autentique-se, clique em <guiseq><gui>File a "
-"Bug</gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Antes de relatar "
-"um erro, por favor leia as <link href=\""
+"Assim que você tiver uma conta, autentique-se, clique em <gui>New issue</gui>"
+". Antes de relatar um erro, por favor leia as <link href=\""
 "https://bugzilla.gnome.org/page.cgi?id=bug-writing.html\">diretrizes de "
-"escrita de erro</link>, e por favor <link href=\""
-"https://bugzilla.gnome.org/browse.cgi?product=iagno\">pesquise</link> por "
-"erros relatados para ver se já foi relatado."
+"relatório de erro</link>, e por favor <link href=\"https://gitlab.gnome.org/"
+"GNOME/iagno/issues\">pesquise</link> por erros relatados para ver se já foi "
+"relatado."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:40
+#: C/bug-filing.page:37
+#| msgid ""
+#| "If you are requesting a new feature, choose <gui>enhancement</gui> in the "
+#| "<gui>Severity</gui> menu. Fill in the Summary and Description sections "
+#| "and click <gui>Submit Bug</gui>."
 msgid ""
-"If you are requesting a new feature, choose <gui>enhancement</gui> in the "
-"<gui>Severity</gui> menu. Fill in the Summary and Description sections and "
-"click <gui>Submit Bug</gui>."
+"If you are requesting a new feature, choose <gui>1. Feature</gui> in the "
+"<gui>Labels</gui> menu. Fill in the Title and Description sections and click "
+"<gui>Submit Issue</gui>."
 msgstr ""
-"Se você está solicitando um novo recurso, escolha <gui>enhancement</gui> no "
-"menu <gui>Severity</gui>. Preencha as seções Summary e Description e clique "
-"em <gui>Submit Bug</gui>."
+"Se você está requisitando um novo recurso, escolha <gui>1. Feature</gui> no "
+"menu <gui>Labels</gui>. Preencha as seções Title e Description e clique em "
+"<gui>Submit Issue</gui>."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:44
+#: C/bug-filing.page:41
 msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
 "is being dealt with. Thanks for helping make <app>Iagno</app> better!"
@@ -216,7 +236,6 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/change-color.page:17
-#| msgid "Player Color and Difficulty"
 msgid "Change player color and difficulty"
 msgstr "Alterando a cor e a dificuldade do jogador"
 
@@ -236,8 +255,8 @@ msgid ""
 "Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
 "gui>."
 msgstr ""
-"Selecione o tipo de jogador/dificuldade sob <gui>Preto</gui> e "
-"<gui>Branco</gui>."
+"Selecione o tipo de jogador/dificuldade sob <gui>Preto</gui> e <gui>Branco</"
+"gui>."
 
 #. (itstool) path: note/p
 #: C/change-color.page:27
@@ -270,10 +289,10 @@ msgid ""
 msgstr ""
 "Se você gostaria de <link href=\"https://wiki.gnome.org/Apps/Games/"
 "Contributing\">ajudar no desenvolvimento do <app>GNOME Games</app></link>, "
-"você pode entrar em contato com os desenvolvedores usando <link href=\""
-"https://cbe005.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\""
-">irc</link> ou por meio de nossa <link href=\""
-"http://mail.gnome.org/mailman/listinfo/games-list\">lista de e-mail</link>."
+"você pode entrar em contato com os desenvolvedores usando <link href="
+"\"https://cbe005.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games"
+"\">irc</link> ou por meio de nossa <link href=\"http://mail.gnome.org/"
+"mailman/listinfo/games-list\">lista de e-mail</link>."
 
 #. (itstool) path: page/title
 #: C/documentation.page:17
@@ -298,11 +317,10 @@ msgid ""
 "mailman/listinfo/gnome-doc-list\">mailing list</link>."
 msgstr ""
 "Para contribuir para o Projeto de Documentação, sinta-se à vontade para "
-"entrar em contato com nós usando o <link href=\""
-"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fdocs\""
-">irc</link> ou por meio de nossa <link href=\""
-"http://mail.gnome.org/mailman/listinfo/gnome-doc-list\">lista de "
-"discussão</link>."
+"entrar em contato com nós usando o <link href=\"https://cbe003.chat.mibbit."
+"com/?url=irc%3A%2F%2Firc.gnome.org%2Fdocs\">irc</link> ou por meio de nossa "
+"<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-doc-list\">lista "
+"de discussão</link>."
 
 #. (itstool) path: page/p
 #: C/documentation.page:24
@@ -315,21 +333,18 @@ msgstr ""
 
 #. (itstool) path: info/title
 #: C/index.page:8
-#| msgid "Iagno"
 msgctxt "link"
 msgid "Iagno"
 msgstr "Iagno"
 
 #. (itstool) path: info/title
 #: C/index.page:9
-#| msgid "Iagno"
 msgctxt "text"
 msgid "Iagno"
 msgstr "Iagno"
 
 #. (itstool) path: media/span
 #: C/index.page:20
-#| msgid "Iagno"
 msgid "Iagno logo"
 msgstr "Logo do Iagno"
 
@@ -469,11 +484,10 @@ msgid ""
 "link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
-"Para o texto completo da licença, veja o<link href=\""
-"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">site da "
-"CreativeCommons</link> ou leia o <link href=\""
-"https://creativecommons.org/licenses/by-sa/3.0/deed.pt_BR\">Commons "
-"Deed</link>."
+"Para o texto completo da licença, veja o<link href=\"http://creativecommons."
+"org/licenses/by-sa/3.0/legalcode\">site da CreativeCommons</link> ou leia o <"
+"link href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.pt_BR\">"
+"Commons Deed</link>."
 
 #. (itstool) path: page/title
 #: C/play.page:18
@@ -497,8 +511,8 @@ msgid ""
 "<gui>Level one</gui> by default."
 msgstr ""
 "Quando o jogo inicia, você joga como o <em>Preto</em> e o jogador computador "
-"joga como <em>Branco</em>. O <link xref=\"ai-game\">nível de "
-"dificuldade</link> é o <gui>nível um</gui> por padrão."
+"joga como <em>Branco</em>. O <link xref=\"ai-game\">nível de dificuldade</"
+"link> é o <gui>nível um</gui> por padrão."
 
 #. (itstool) path: page/p
 #: C/play.page:25
@@ -530,8 +544,8 @@ msgid ""
 "You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
 "guiseq>."
 msgstr ""
-"Você pode desfazer um movimento clicando <guiseq><gui>Jogo</gui><gui>Desfazer "
-"movimento</gui></guiseq>."
+"Você pode desfazer um movimento clicando <guiseq><gui>Jogo</"
+"gui><gui>Desfazer movimento</gui></guiseq>."
 
 #. (itstool) path: section/title
 #: C/play.page:41
@@ -630,7 +644,6 @@ msgstr ""
 
 #. (itstool) path: media/p
 #: C/rules.page:50
-#| msgid "Starting Position"
 msgid "Start position"
 msgstr "Posição Inicial"
 
@@ -646,7 +659,6 @@ msgstr "Movimento bloqueante"
 
 #. (itstool) path: td/p
 #: C/rules.page:65
-#| msgid "Starting Position"
 msgid "<em>Start position</em>"
 msgstr "<em>Posição Inicial</em>"
 
@@ -712,7 +724,6 @@ msgstr "Habilitando e desabilitando som"
 
 #. (itstool) path: page/p
 #: C/sound.page:18
-#| msgid "Enable/Disable Sound"
 msgid "To enable or disable the sound:"
 msgstr "Para habilitar ou desabilitar o som:"
 
@@ -801,8 +812,8 @@ msgid ""
 "<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
 "\">Wikipedia: Strategic elements</link>"
 msgstr ""
-"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements\""
-">Wikipédia: Elementos estratégicos</link>"
+"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
+"\">Wikipédia: Elementos estratégicos</link>"
 
 #. (itstool) path: item/p
 #: C/strategy.page:52
@@ -845,10 +856,10 @@ msgid ""
 "teams/\">translation team</link> for your language. This will give you the "
 "ability to upload new translations."
 msgstr ""
-"Para começar a traduzir, você precisará <link href=\"http://l10n.gnome.org\">"
-"criar uma conta</link> e se juntar à <link href=\""
-"http://l10n.gnome.org/teams/\">equipe de tradução</link> para seu idioma. "
-"Isso vai lhe fornecer a capacidade de enviar novas traduções."
+"Para começar a traduzir, você precisará <link href=\"http://l10n.gnome.org"
+"\">criar uma conta</link> e se juntar à <link href=\"http://l10n.gnome.org/"
+"teams/\">equipe de tradução</link> para seu idioma. Isso vai lhe fornecer a "
+"capacidade de enviar novas traduções."
 
 #. (itstool) path: page/p
 #: C/translate.page:34
@@ -858,11 +869,10 @@ msgid ""
 "channel are located worldwide, so you may not get an immediate response as a "
 "result of timezone differences."
 msgstr ""
-"Você pode conversar com tradutores do GNOME usando o <link href=\""
-"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\""
-">irc</link>. As pessoas no canal estão localizadas por todo o mundo, então "
-"você pode não obter uma resposta imediata como um resultado de fusos "
-"horários diferentes."
+"Você pode conversar com tradutores do GNOME usando o <link href=\"https://"
+"cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. "
+"As pessoas no canal estão localizadas por todo o mundo, então você pode não "
+"obter uma resposta imediata como um resultado de fusos horários diferentes."
 
 #. (itstool) path: page/p
 #: C/translate.page:37
