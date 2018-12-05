@@ -114,6 +114,21 @@ public class GameWindow : ApplicationWindow
         set_title (name);
         headerbar.set_title (name);
 
+        var menu = new GLib.Menu ();
+        var section = new GLib.Menu ();
+        menu.append_section (null, section);
+        section.append (_("A_ppearance"), "app.theme");
+        section.append (_("_Sound"), "app.sound");
+        section = new GLib.Menu ();
+        menu.append_section (null, section);
+        section.append (_("_Help"), "app.help");
+        section.append (_("_About Iagno"), "app.about");
+        var menu_button = new Gtk.MenuButton ();
+        menu_button.set_image (new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.BUTTON));
+        menu_button.show ();
+        menu_button.set_menu_model (menu);
+        headerbar.pack_end(menu_button);
+
         set_default_size (width, height);
         if (maximized)
             maximize ();
