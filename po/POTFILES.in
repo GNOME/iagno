@@ -2,7 +2,6 @@
 # Please keep this file in alphabetical order.
 data/iagno.appdata.xml.in
 data/iagno.desktop.in
-data/iagno-menus.ui
 data/iagno-screens.ui
 data/iagno-themes.ui
 data/iagno.ui

@@ -6,7 +6,4 @@
     <file preprocess="xml-stripblanks" alias="iagno-screens.ui">../data/iagno-screens.ui</file>
     <file alias="iagno.css">../data/iagno.css</file>
   </gresource>
-  <gresource prefix="/org/gnome/iagno/gtk">
-    <file preprocess="xml-stripblanks" alias="menus.ui">../data/iagno-menus.ui</file>
-  </gresource>
 </gresources>
