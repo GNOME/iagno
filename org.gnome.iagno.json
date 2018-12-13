@@ -43,6 +43,7 @@
     "modules" : [
         {
             "name" : "iagno",
+            "buildsystem": "meson",
             "sources" : [
                 {
                     "type" : "git",
