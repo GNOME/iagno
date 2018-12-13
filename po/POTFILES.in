@@ -1,10 +1,10 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
-data/iagno.appdata.xml.in
-data/iagno.desktop.in
-data/iagno-screens.ui
-data/iagno-themes.ui
-data/iagno.ui
+data/org.gnome.iagno.appdata.xml.in
+data/org.gnome.iagno.desktop.in
+data/ui/iagno-screens.ui
+data/ui/iagno-themes.ui
+data/ui/iagno.ui
 data/themes/adwaita.theme.desktop.in
 data/themes/classic.theme.desktop.in
 data/themes/high_contrast.theme.desktop.in
