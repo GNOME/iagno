@@ -1,20 +1,24 @@
-# TODO: run tests
-#         'test-iagno.vala',
-# test_iagno_SOURCES = \
-# 	test-iagno.vala \
-# 	computer-player.vala \
-# 	game.vala \
-# 	player.vala
-
-# test_iagno_VALAFLAGS = \
-# 	--pkg gio-2.0 \
-# 	--target-glib $(GLIB_REQUIRED)
+# Tests
+iagno_tests = executable('iagno_tests', 
+    [
+        'test-iagno.vala',
+        'computer-player.vala',
+        'game.vala',
+        'player.vala'
+    ], 
+    dependencies : [
+        gio_dependency
+    ]
+)
+test('iagno-tests', iagno_tests)
 
 executable(meson.project_name(),
     [
-        'vapi/config.vapi',        
+        'vapi/config.vapi',
+        'computer-player.vala',        
         'game-view.vala',
         'game-window.vala',
+        'game.vala',
         'iagno.vala',
         'player.vala',
         'themes-dialog.vala'

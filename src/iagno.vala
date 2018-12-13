@@ -84,7 +84,7 @@ public class Iagno : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (_("Iagno"));
-        Window.set_default_icon_name ("iagno");
+        Window.set_default_icon_name ("org.gnome.iagno");
 
         return new Iagno ().run (args);
     }
@@ -276,7 +276,7 @@ public class Iagno : Gtk.Application
                            "authors", authors,
                            "documenters", documenters,
                            "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "iagno",
+                           "logo-icon-name", "org.gnome.iagno",
                            "website", "https://wiki.gnome.org/Apps/Iagno",
                            null);
     }

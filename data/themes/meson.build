@@ -2,7 +2,7 @@ themes = [
     'adwaita',
     'classic',
     'high_contrast',
-    'sun_and_start'
+    'sun_and_star'
 ]
 foreach theme: themes
     i18n.merge_file(
@@ -11,6 +11,6 @@ foreach theme: themes
         po_dir: join_paths(meson.source_root(), 'po'),
         type: 'desktop',
         install: true,
-        install_dir: join_paths(get_option('datadir'), 'iagno', 'themes','key'))
+        install_dir: join_paths(get_option('datadir'), 'iagno', 'themes','key')
     )
 endforeach
