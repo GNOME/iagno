@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/iagno/ui">
-    <file preprocess="xml-stripblanks" compressed="true" alias="iagno.ui">ui/iagno.ui</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="iagno-themes.ui">ui/iagno-themes.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="game-window.ui">ui/iagno.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="themes.ui">ui/iagno-themes.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="iagno-screens.ui">ui/iagno-screens.ui</file>
     <file compressed="true">iagno.css</file>
   </gresource>

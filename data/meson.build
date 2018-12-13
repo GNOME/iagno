@@ -83,7 +83,7 @@ install_data(
     [
         'black_and_white.svg',
         'high_contrast.svg',
-        'sun_and_start.svg'
+        'sun_and_star.svg'
     ],
     install_dir: join_paths(get_option('datadir'), meson.project_name(), 'themes', 'svg')
 )
