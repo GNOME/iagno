@@ -10,10 +10,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-01-31 18:13+0000\n"
-"PO-Revision-Date: 2018-01-31 22:45+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2018-12-10 15:03+0000\n"
+"PO-Revision-Date: 2018-12-28 11:13+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.2\n"
 
 #: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
 #: src/iagno.vala:173 src/iagno.vala:267
@@ -88,26 +87,6 @@ msgstr "Spela tvåa (Vit)"
 msgid "Two players game"
 msgstr "Spel för två spelare"
 
-#: data/iagno-menus.ui:7
-msgid "A_ppearance"
-msgstr "_Utseende"
-
-#: data/iagno-menus.ui:11
-msgid "_Sound"
-msgstr "_Ljud"
-
-#: data/iagno-menus.ui:17
-msgid "_Help"
-msgstr "_Hjälp"
-
-#: data/iagno-menus.ui:22
-msgid "_About"
-msgstr "_Om"
-
-#: data/iagno-menus.ui:26
-msgid "_Quit"
-msgstr "A_vsluta"
-
 #: data/iagno-screens.ui:22
 msgid "Players"
 msgstr "Spelare"
@@ -156,19 +135,35 @@ msgstr "Välj tema"
 msgid "Default"
 msgstr "Standard"
 
-#: data/iagno.ui:21
+#: data/iagno.ui:7
+msgid "A_ppearance"
+msgstr "_Utseende"
+
+#: data/iagno.ui:11
+msgid "_Sound"
+msgstr "_Ljud"
+
+#: data/iagno.ui:17
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: data/iagno.ui:22
+msgid "_About Iagno"
+msgstr "_Om Iagno"
+
+#: data/iagno.ui:44
 msgid "Go back to the current game"
 msgstr "Gå tillbaka till aktuellt spel"
 
-#: data/iagno.ui:76
+#: data/iagno.ui:117
 msgid "_New Game"
 msgstr "_Nytt spel"
 
-#: data/iagno.ui:77
+#: data/iagno.ui:118
 msgid "Configure a new game"
 msgstr "Konfigurera ett nytt spel"
 
-#: data/iagno.ui:81
+#: data/iagno.ui:122
 msgid "Start a new game"
 msgstr "Starta ett nytt spel"
 
@@ -350,3 +345,6 @@ msgstr "Spelet är oavgjort."
 #: src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "Du kan inte lägga där!"
+
+#~ msgid "_Quit"
+#~ msgstr "A_vsluta"
