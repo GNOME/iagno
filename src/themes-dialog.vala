@@ -20,7 +20,7 @@
 
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/iagno/ui/themes.ui")]
+[GtkTemplate (ui = "/org/gnome/Iagno/ui/themes.ui")]
 public class ThemesDialog : Dialog
 {
     private const string PREFIX = "theme-";

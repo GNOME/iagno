@@ -2,7 +2,7 @@ project('iagno', ['vala', 'c'],
     version: '3.30.0')
 
 
-project_id = 'org.gnome.iagno'
+project_id = 'org.gnome.Iagno'
 i18n = import('i18n')
 # used to install help
 gnome = import('gnome')
