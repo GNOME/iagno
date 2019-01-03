@@ -7,7 +7,7 @@ themes = [
 foreach theme: themes
     i18n.merge_file(
         input: '@0@.theme.desktop.in'.format(theme),
-        output: '@0@.theme.desktop'.format(theme),
+        output: '@0@.theme'.format(theme),
         po_dir: join_paths(meson.source_root(), 'po'),
         type: 'desktop',
         install: true,
