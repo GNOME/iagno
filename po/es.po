@@ -5,15 +5,14 @@
 # Lucas Vieites <lucas@codexion.com>, 2007, 2008.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
 # Chris Leonard <cjl@laptop.org>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2018.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-02-04 04:33+0000\n"
-"PO-Revision-Date: 2018-02-21 17:29+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2018-12-10 15:03+0000\n"
+"PO-Revision-Date: 2019-01-04 13:05+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-Project-Style: gnome\n"
 
 #: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
@@ -64,7 +63,6 @@ msgstr "El proyecto GNOME"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/iagno.desktop.in:4
-#| msgid "Iagno"
 msgid "iagno"
 msgstr "iagno"
 
@@ -88,26 +86,6 @@ msgstr "Mover segundo (blancas)"
 #: data/iagno.desktop.in:26
 msgid "Two players game"
 msgstr "Partida de dos jugadores"
-
-#: data/iagno-menus.ui:7
-msgid "A_ppearance"
-msgstr "As_pecto"
-
-#: data/iagno-menus.ui:11
-msgid "_Sound"
-msgstr "_Sonido"
-
-#: data/iagno-menus.ui:17
-msgid "_Help"
-msgstr "Ay_uda"
-
-#: data/iagno-menus.ui:22
-msgid "_About"
-msgstr "_Acerca de"
-
-#: data/iagno-menus.ui:26
-msgid "_Quit"
-msgstr "_Salir"
 
 #: data/iagno-screens.ui:22
 msgid "Players"
@@ -157,19 +135,36 @@ msgstr "Seleccionar tema"
 msgid "Default"
 msgstr "Predeterminado"
 
-#: data/iagno.ui:21
+#: data/iagno.ui:7
+msgid "A_ppearance"
+msgstr "As_pecto"
+
+#: data/iagno.ui:11
+msgid "_Sound"
+msgstr "_Sonido"
+
+#: data/iagno.ui:17
+msgid "_Help"
+msgstr "Ay_uda"
+
+#: data/iagno.ui:22
+#| msgid "_About"
+msgid "_About Iagno"
+msgstr "_Acerca de Iagno"
+
+#: data/iagno.ui:44
 msgid "Go back to the current game"
 msgstr "Volver al juego actual"
 
-#: data/iagno.ui:76
+#: data/iagno.ui:117
 msgid "_New Game"
 msgstr "Juego _nuevo"
 
-#: data/iagno.ui:77
+#: data/iagno.ui:118
 msgid "Configure a new game"
 msgstr "Configurar un juego nuevo"
 
-#: data/iagno.ui:81
+#: data/iagno.ui:122
 msgid "Start a new game"
 msgstr "Iniciar un juego nuevo"
 
@@ -350,3 +345,6 @@ msgstr "El juego ha resultado en empate."
 #: src/iagno.vala:450
 msgid "You can’t move there!"
 msgstr "No puede mover ahí"
+
+#~ msgid "_Quit"
+#~ msgstr "_Salir"
