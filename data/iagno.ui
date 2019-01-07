@@ -54,7 +54,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkMenuButton" id="menu_button">
+          <object class="GtkMenuButton" id="info_button">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="menu-model">primary-menu</property>

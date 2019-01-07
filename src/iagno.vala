@@ -189,11 +189,12 @@ public class Iagno : Gtk.Application
 
         /* Actions and preferences */
         add_action_entries (app_actions, this);
-        set_accels_for_action ("win.new-game", {"<Primary>n"});
-        set_accels_for_action ("win.start-game", {"<Primary><Shift>n"});
-        set_accels_for_action ("win.undo", {"<Primary>z"});
-        set_accels_for_action ("win.redo", {"<Primary><Shift>z"});
-        set_accels_for_action ("win.back", {"Escape"});
+        set_accels_for_action ("win.new-game",          {        "<Primary>n"       });
+        set_accels_for_action ("win.start-game",        { "<Shift><Primary>n"       });
+        set_accels_for_action ("win.undo",              {        "<Primary>z"       });
+        set_accels_for_action ("win.redo",              { "<Shift><Primary>z"       });
+        set_accels_for_action ("win.back",              {                 "Escape"  });
+        set_accels_for_action ("win.toggle-hamburger",  {                 "F10"     });
         add_action (settings.create_action ("sound"));
         add_action (settings.create_action ("color"));
         add_action (settings.create_action ("num-players"));

@@ -80,7 +80,9 @@ public class GameWindow : ApplicationWindow
 
         { "undo", undo_cb },
         { "redo", redo_cb },
-        { "hint", hint_cb }
+        { "hint", hint_cb },
+
+        { "toggle-hamburger", toggle_hamburger }
     };
 
     private SimpleAction back_action;
@@ -356,5 +358,16 @@ public class GameWindow : ApplicationWindow
         if (stack.get_visible_child_name () != "frame")
             return;
         hint ();
+    }
+
+    /*\
+    * * hamburger menu
+    \*/
+
+    [GtkChild] private MenuButton info_button;
+
+    private void toggle_hamburger (/* SimpleAction action, Variant? variant */)
+    {
+        info_button.active = !info_button.active;
     }
 }
