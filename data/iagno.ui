@@ -4,22 +4,21 @@
   <menu id="primary-menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">A_ppearance</attribute>
+        <attribute name="label" translatable="yes">Appearance</attribute>
         <attribute name="action">app.theme</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_Sound</attribute>
+        <attribute name="label" translatable="yes">Sound</attribute>
         <attribute name="action">app.sound</attribute>
       </item>
     </section>
     <section>
       <item>
-        <attribute name="label" translatable="yes">_Help</attribute>
+        <attribute name="label" translatable="yes">Help</attribute>
         <attribute name="action">app.help</attribute>
-        <attribute name="accel">F1</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_About Iagno</attribute>
+        <attribute name="label" translatable="yes">About Iagno</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>
