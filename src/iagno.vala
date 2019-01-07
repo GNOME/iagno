@@ -196,6 +196,7 @@ public class Iagno : Gtk.Application
         set_accels_for_action ("win.back",              {                 "Escape"  });
         set_accels_for_action ("win.toggle-hamburger",  {                 "F10"     });
         set_accels_for_action ("app.help",              {                 "F1"      });
+        set_accels_for_action ("app.about",             {          "<Shift>F1"      });
         add_action (settings.create_action ("sound"));
         add_action (settings.create_action ("color"));
         add_action (settings.create_action ("num-players"));
