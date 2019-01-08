@@ -273,7 +273,7 @@ public class Iagno : Gtk.Application
                            "copyright",
                              "Copyright © 1998–2008 Ian Peters\n"+
                              "Copyright © 2013–2015 Michael Catanzaro\n"+
-                             "Copyright © 2014–2015 Arnaud Bonatti",
+                             "Copyright © 2014–2019 Arnaud Bonatti",
                            "license-type", License.GPL_3_0,
                            "comments",
                              _("A disk flipping game derived from Reversi"),
