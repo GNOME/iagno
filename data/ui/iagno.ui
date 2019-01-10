@@ -4,20 +4,24 @@
   <menu id="primary-menu">
     <section>
       <item>
+        <!-- Translators: hamburger menu entry; open theme dialog button (with a mnemonic that appears pressing Alt) -->
         <attribute name="label" translatable="yes">A_ppearance</attribute>
         <attribute name="action">app.theme</attribute>
       </item>
       <item>
+        <!-- Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt) -->
         <attribute name="label" translatable="yes">_Sound</attribute>
         <attribute name="action">app.sound</attribute>
       </item>
     </section>
     <section>
       <item>
+        <!-- Translators: hamburger menu entry; open help (with a mnemonic that appears pressing Alt) -->
         <attribute name="label" translatable="yes">_Help</attribute>
         <attribute name="action">app.help</attribute>
       </item>
       <item>
+        <!-- Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt) -->
         <attribute name="label" translatable="yes">_About Iagno</attribute>
         <attribute name="action">app.about</attribute>
       </item>
@@ -40,6 +44,7 @@
             <property name="visible">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
+            <!-- Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button -->
             <property name="tooltip-text" translatable="yes">Go back to the current game</property>
             <property name="use-underline">True</property>
             <property name="action-name">win.back</property>
@@ -113,11 +118,12 @@
                       <object class="GtkButton" id="new_game_button">
                         <property name="visible">True</property>
                         <property name="use-underline">True</property>
+                        <!-- Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt) -->
                         <property name="label" translatable="yes">_New Game</property>
-                        <property name="tooltip-text" translatable="yes">Configure a new game</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <property name="action-name">win.new-game</property>
+                        <!-- Translators: during a game, tooltip text of the Start Over button -->
                         <property name="tooltip-text" translatable="yes">Start a new game</property>
                         <property name="width-request">120</property>
                         <property name="height-request">60</property>

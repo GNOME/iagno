@@ -22,6 +22,9 @@ using Gtk;
 
 public class Iagno : Gtk.Application
 {
+    /* Translators: application name, as used in the window manager, the window title, the about dialog... */
+    internal const string PROGRAM_NAME = _("Iagno");
+
     /* Application settings */
     private GLib.Settings settings;
     private static bool fast_mode;
@@ -55,16 +58,35 @@ public class Iagno : Gtk.Application
 
     private const OptionEntry[] option_entries =
     {
+        /* Translators: command-line option description, see 'iagno --help' */
         { "alternative-start", 0, 0, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
-        { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode, N_("Reduce delay before AI moves"), null},
-        { "first", 0, 0, OptionArg.NONE, null, N_("Play first"), null},
-        { "level", 'l', 0, OptionArg.STRING, ref level, N_("Set the level of the computer’s AI"), "LEVEL"},
-        { "mute", 0, 0, OptionArg.NONE, null, N_("Turn off the sound"), null},
-        { "second", 0, 0, OptionArg.NONE, null, N_("Play second"), null},
-        { "size", 's', 0, OptionArg.INT, ref size, N_("Size of the board (debug only)"), "SIZE"},
-        { "two-players", 0, 0, OptionArg.NONE, null, N_("Two-players mode"), null},
-        { "unmute", 0, 0, OptionArg.NONE, null, N_("Turn on the sound"), null},
-        { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,               N_("Reduce delay before AI moves"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "first", 0, 0, OptionArg.NONE, null,                              N_("Play first"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "level", 'l', 0, OptionArg.STRING, ref level,                     N_("Set the level of the computer’s AI"), "LEVEL"},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "mute", 0, 0, OptionArg.NONE, null,                               N_("Turn off the sound"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "second", 0, 0, OptionArg.NONE, null,                             N_("Play second"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "size", 's', 0, OptionArg.INT, ref size,                          N_("Size of the board (debug only)"), "SIZE"},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "two-players", 0, 0, OptionArg.NONE, null,                        N_("Two-players mode"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "unmute", 0, 0, OptionArg.NONE, null,                             N_("Turn on the sound"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "version", 'v', 0, OptionArg.NONE, null,                          N_("Print release version and exit"), null},
         { null }
     };
 
@@ -83,7 +105,7 @@ public class Iagno : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        Environment.set_application_name (_("Iagno"));
+        Environment.set_application_name (PROGRAM_NAME);
         Window.set_default_icon_name ("org.gnome.Reversi");
 
         return new Iagno ().run (args);
@@ -107,7 +129,7 @@ public class Iagno : Gtk.Application
 
         if (size < 4)
         {
-            /* Console message displayed for an incorrect size */
+            /* Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2' */
             stderr.printf ("%s\n", _("Size must be at least 4."));
             return Posix.EXIT_FAILURE;
         }
@@ -155,6 +177,7 @@ public class Iagno : Gtk.Application
         else if (level == "three")  /*  || level == "hard" */
             settings.set_int ("computer-level", 3);
         else if (level != null)
+            /* Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5' */
             stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
         //  stderr.printf ("%s\n", _("Level should be 1 (easy), 2 (medium) or 3 (hard). Settings unchanged."));     // TODO better?
 
@@ -170,7 +193,7 @@ public class Iagno : Gtk.Application
 
         /* Window */
         window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
-                                 _("Iagno"),
+                                 PROGRAM_NAME,
                                  settings.get_int ("window-width"),
                                  settings.get_int ("window-height"),
                                  settings.get_boolean ("window-is-maximized"),
@@ -268,7 +291,7 @@ public class Iagno : Gtk.Application
         string[] documenters = { "Tiffany Antopolski", null };
 
         show_about_dialog (window,
-                           "name", _("Iagno"),
+                           "name", PROGRAM_NAME,
                            "version", VERSION,
                            "copyright",
                              "Copyright © 1998–2008 Ian Peters\n"+
@@ -276,9 +299,11 @@ public class Iagno : Gtk.Application
                              "Copyright © 2014–2019 Arnaud Bonatti",
                            "license-type", License.GPL_3_0,
                            "comments",
+                             /* Translators: about dialog text */
                              _("A disk flipping game derived from Reversi"),
                            "authors", authors,
                            "documenters", documenters,
+                           /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
                            "translator-credits", _("translator-credits"),
                            "logo-icon-name", "org.gnome.Reversi",
                            "website", "https://wiki.gnome.org/Apps/Iagno",
@@ -408,12 +433,12 @@ public class Iagno : Gtk.Application
         game.pass ();
         if (game.current_color == Player.DARK)
         {
-            /* Message to display when Light has no possible moves */
+            /* Translators: during a game, notification to display when Light has no possible moves */
             window.set_subtitle (_("Light must pass, Dark’s move"));
         }
         else
         {
-            /* Message to display when Dark has no possible moves */
+            /* Translators: during a game, notification to display when Dark has no possible moves */
             window.set_subtitle (_("Dark must pass, Light’s move"));
         }
     }
@@ -424,17 +449,17 @@ public class Iagno : Gtk.Application
 
         if (game.n_light_tiles > game.n_dark_tiles)
         {
-            /* Message to display when Light has won the game */
+            /* Translators: during a game, notification to display when Light has won the game */
             window.set_subtitle (_("Light wins!"));
         }
         else if (game.n_dark_tiles > game.n_light_tiles)
         {
-            /* Message to display when Dark has won the game */
+            /* Translators: during a game, notification to display when Dark has won the game */
             window.set_subtitle (_("Dark wins!"));
         }
         else
         {
-            /* Message to display when the game is a draw */
+            /* Translators: during a game, notification to display when the game is a draw */
             window.set_subtitle (_("The game is draw."));
         }
 
@@ -450,7 +475,7 @@ public class Iagno : Gtk.Application
 
         if (game.place_tile (x, y) == 0)
         {
-            /* Message to display when the player tries to make an illegal move */
+            /* Translators: during a game, notification to display when the player tries to make an illegal move */
             window.set_subtitle (_("You can’t move there!"));
         }
     }

@@ -6,6 +6,7 @@
     <property name="width-request">333</property>
     <property name="height-request">450</property>
     <property name="resizable">False</property>
+    <!-- Translators: title of the theme dialog -->
     <property name="title" translatable="yes">Select Theme</property>
     <property name="border-width">0</property>
     <child internal-child="vbox">
@@ -51,6 +52,7 @@
                             <child>
                               <object class="GtkLabel">
                                 <property name="visible">True</property>
+                                <!-- Translators: first row (default theme) in the theme dialog -->
                                 <property name="label" translatable="yes">Default</property>
                                 <style><class name="italic-label"/></style>
                               </object>

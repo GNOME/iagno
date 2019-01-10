@@ -127,12 +127,14 @@ public class GameWindow : ApplicationWindow
         new_game_box.pack_start (new_game_screen, true, true, 0);
         if (GameWindowFlags.SHOW_START_BUTTON in flags)
         {
+            /* Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt) */
             start_game_button = new Button.with_mnemonic (_("_Start Game"));
-            // start_game_button.set_tooltip_text (_("Start a new game as configured"));
             start_game_button.width_request = 222;
             start_game_button.height_request = 60;
             start_game_button.halign = Align.CENTER;
             start_game_button.set_action_name ("win.start-game");
+            /* Translators: when configuring a new game, tooltip text of the blue Start button */
+            // start_game_button.set_tooltip_text (_("Start a new game as configured"));
             ((StyleContext) start_game_button.get_style_context ()).add_class ("suggested-action");
             start_game_button.show ();
             new_game_box.pack_end (start_game_button, false, false, 0);
@@ -152,6 +154,7 @@ public class GameWindow : ApplicationWindow
 
             Button undo_button = new Button.from_icon_name ("edit-undo-symbolic", Gtk.IconSize.BUTTON);
             undo_button.action_name = "win.undo";
+            /* Translators: during a game, tooltip text of the Undo button */
             undo_button.set_tooltip_text (_("Undo your most recent move"));
             undo_button.valign = Align.CENTER;
             undo_button.show ();
@@ -161,6 +164,7 @@ public class GameWindow : ApplicationWindow
             {
                 Button redo_button = new Button.from_icon_name ("edit-redo-symbolic", Gtk.IconSize.BUTTON);
                 redo_button.action_name = "app.redo";
+                / Translators: during a game, tooltip text of the Redo button /
                 redo_button.set_tooltip_text (_("Redo your most recent undone move"));
                 redo_button.valign = Align.CENTER;
                 redo_button.show ();
@@ -174,6 +178,7 @@ public class GameWindow : ApplicationWindow
         {
             Button hint_button = new Button.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.BUTTON);
             hint_button.action_name = "app.hint";
+            / Translators: during a game, tooltip text of the Hint button /
             hint_button.set_tooltip_text (_("Receive a hint for your next move"));
             hint_button.valign = Align.CENTER;
             hint_button.show ();

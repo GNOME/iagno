@@ -19,6 +19,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="halign">start</property>
+            <!-- Translators: when configuring a new game, header of the row for choosing the number of players -->
             <property name="label" translatable="yes">Players</property>
             <style>
               <class name="bold-label"/>
@@ -34,6 +35,7 @@
               <object class="GtkModelButton">
                 <property name="visible">True</property>
                 <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt) -->
                 <property name="text" translatable="yes">_One</property>
                 <property name="action-name">app.num-players</property>
                 <property name="action-target">1</property>
@@ -45,6 +47,7 @@
               <object class="GtkModelButton">
                 <property name="visible">True</property>
                 <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt) -->
                 <property name="text" translatable="yes">_Two</property>
                 <property name="action-name">app.num-players</property>
                 <property name="action-target">2</property>
@@ -68,6 +71,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="halign">start</property>
+            <!-- Translators: when configuring a new game, header of the row for choosing the level of the artificial intelligence -->
             <property name="label" translatable="yes">Difficulty</property>
             <style>
               <class name="bold-label"/>
@@ -83,6 +87,7 @@
               <object class="GtkModelButton">
                 <property name="visible">True</property>
                 <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, row "Difficulty", label of the button to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt) -->
                 <property name="text" translatable="yes">_Easy</property>
                 <property name="action-name">app.computer-level</property>
                 <property name="action-target">1</property>
@@ -94,6 +99,7 @@
               <object class="GtkModelButton">
                 <property name="visible">True</property>
                 <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, row "Difficulty", label of the button to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt) -->
                 <property name="text" translatable="yes">_Medium</property>
                 <property name="action-name">app.computer-level</property>
                 <property name="action-target">2</property>
@@ -105,6 +111,7 @@
               <object class="GtkModelButton">
                 <property name="visible">True</property>
                 <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, row "Difficulty", label of the button to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt) -->
                 <property name="text" translatable="yes">_Hard</property>
                 <property name="action-name">app.computer-level</property>
                 <property name="action-target">3</property>
@@ -128,6 +135,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="halign">start</property>
+            <!-- Translators: when configuring a new game, header of the row for choosing the played color (whether to start or not) -->
             <property name="label" translatable="yes">Color</property>
             <style>
               <class name="bold-label"/>
@@ -143,6 +151,7 @@
               <object class="GtkModelButton">
                 <property name="visible">True</property>
                 <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, row "Color", label of the button to play the dark color, so to start (with a mnemonic that appears pressing Alt) -->
                 <property name="text" translatable="yes">_Dark</property>
                 <property name="action-name">app.color</property>
                 <property name="action-target">'dark'</property>
@@ -154,6 +163,7 @@
               <object class="GtkModelButton">
                 <property name="visible">True</property>
                 <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, row "Color", label of the button to play the light color, so not play second (with a mnemonic that appears pressing Alt) -->
                 <property name="text" translatable="yes">_Light</property>
                 <property name="action-name">app.color</property>
                 <property name="action-target">'light'</property>

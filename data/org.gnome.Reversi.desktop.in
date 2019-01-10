@@ -2,9 +2,11 @@
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Reversi
 Name=Iagno
+# Translators: a GenericName that gives the application goal, as defined in the desktop file spec
 GenericName=Reversi
+# Translators: a Comment that gives the application function, as defined in the desktop file spec
 Comment=Dominate the board in a classic version of Reversi
-# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+# Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 Keywords=reversi;othello;
 Exec=iagno
 Terminal=false
@@ -14,13 +16,16 @@ StartupNotify=true
 Actions=First;Second;TwoPlayers;
 
 [Desktop Action First]
+# Translators: an action Name, as defined in the desktop file spec
 Name=Play first (Dark)
 Exec=iagno --first
 
 [Desktop Action Second]
+# Translators: an action Name, as defined in the desktop file spec
 Name=Play second (Light)
 Exec=iagno --second
 
 [Desktop Action TwoPlayers]
+# Translators: an action Name, as defined in the desktop file spec
 Name=Two players game
 Exec=iagno --two-players
