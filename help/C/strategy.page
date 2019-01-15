@@ -20,16 +20,16 @@
 
   <title>Strategy</title>
 
-  <p><app>Iagno</app> doesn't have one particular winning strategy. Rather it
+  <p><app>Reversi</app> doesn't have one particular winning strategy. Rather it
   has strategic elements which can be used to help one gain advantage. Some
   strategies, such as trying to flip as many of your opponent's pieces early on
   in the game, should be avoided.</p>
 
   <p>Much has been written on the topic of strategy for the games
-  <em>Othello</em> and <em>Reversi</em>, which <app>Iagno</app> is based on.</p>
+  <em>Othello</em> and <em>Reversi</em>, which <app>Reversi</app> is based on.</p>
 
   <note style="tip"><p>Some sources state that Reversi does not have a
-  predefined starting position, whereas Othello and <app>Iagno</app>
+  predefined starting position, whereas Othello and <app>Reversi</app>
   do.</p></note>
 
   <p>If you are interested in learning about specific strategies for the game,

@@ -18,7 +18,7 @@
         <attribute name="action">app.help</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_About Iagno</attribute>
+        <attribute name="label" translatable="yes">_About Reversi</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>

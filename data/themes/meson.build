@@ -11,6 +11,6 @@ foreach theme: themes
         po_dir: join_paths(meson.source_root(), 'po'),
         type: 'desktop',
         install: true,
-        install_dir: join_paths(get_option('datadir'), 'iagno', 'themes','key')
+        install_dir: join_paths(get_option('datadir'), 'reversi', 'themes','key')
     )
 endforeach

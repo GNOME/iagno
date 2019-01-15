@@ -17,7 +17,7 @@
 
   <title>How to Play</title>
 
-  <p><app>Iagno</app> has simple <link xref="rules">rules</link> and is easy to play.</p>
+  <p><app>Reversi</app> has simple <link xref="rules">rules</link> and is easy to play.</p>
 
   <p>When the game first starts, you play <em>Dark</em> and the computer player plays <em>Light</em>.  The <link xref="ai-game">difficulty level</link> is <gui>Level one</gui> by default.</p>
 
@@ -39,7 +39,7 @@
 
     <section id="usage-video">
       <title>Video demonstration</title>
-       <media type="video" mime="application/ogg" src="figures/iagno-video.ogv" its:translate="no">
+       <media type="video" mime="application/ogg" src="figures/reversi-video.ogv" its:translate="no">
 
         </media>
     </section>

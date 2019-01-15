@@ -1,10 +1,10 @@
 <schemalist>
-  <enum id="org.gnome.Iagno.Color">
+  <enum id="org.gnome.Reversi.Color">
     <value value="0" nick="dark"/>
     <value value="1" nick="light"/>
   </enum>
 
-  <schema id="org.gnome.Iagno" path="/org/gnome/Iagno/" gettext-domain="iagno">
+  <schema id="org.gnome.Reversi" path="/org/gnome/Reversi/" gettext-domain="reversi">
     <key name="computer-level" type="i">
       <default>1</default>
       <range min="1" max="3" />
@@ -16,7 +16,7 @@
       <range min="1" max="2" />
       <summary>Whether to play against the computer or another human.</summary>
     </key>
-    <key name="color" enum="org.gnome.Iagno.Color">
+    <key name="color" enum="org.gnome.Reversi.Color">
       <default>'dark'</default>
       <summary>Color to play as</summary>
       <description>Whether to play as Dark or Light. Ignored for two-player games.</description>

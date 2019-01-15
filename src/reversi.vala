@@ -2,25 +2,25 @@
  *
  * Copyright (C) 2010-2013 Robert Ancell
  *
- * This file is part of Iagno.
+ * This file is part of Reversi.
  *
- * Iagno is free software: you can redistribute it and/or modify
+ * Reversi is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Iagno is distributed in the hope that it will be useful,
+ * Reversi is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Iagno. If not, see <http://www.gnu.org/licenses/>.
+ * along with Reversi. If not, see <http://www.gnu.org/licenses/>.
  */
 
 using Gtk;
 
-public class Iagno : Gtk.Application
+public class Reversi : Gtk.Application
 {
     /* Application settings */
     private GLib.Settings settings;
@@ -83,15 +83,15 @@ public class Iagno : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        Environment.set_application_name (_("Iagno"));
-        Window.set_default_icon_name ("org.gnome.Iagno");
+        Environment.set_application_name (_("Reversi"));
+        Window.set_default_icon_name ("org.gnome.Reversi");
 
-        return new Iagno ().run (args);
+        return new Reversi ().run (args);
     }
 
-    private Iagno ()
+    private Reversi ()
     {
-        Object (application_id: "org.gnome.Iagno", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: "org.gnome.Reversi", flags: ApplicationFlags.FLAGS_NONE);
 
         add_main_option_entries (option_entries);
     }
@@ -101,7 +101,7 @@ public class Iagno : Gtk.Application
         if (options.contains ("version"))
         {
             /* NOTE: Is not translated so can be easily parsed */
-            stdout.printf ("%1$s %2$s\n", "iagno", VERSION);
+            stdout.printf ("%1$s %2$s\n", "reversi", VERSION);
             return Posix.EXIT_SUCCESS;
         }
 
@@ -133,7 +133,7 @@ public class Iagno : Gtk.Application
         base.startup ();
 
         /* Settings */
-        settings = new GLib.Settings ("org.gnome.Iagno");
+        settings = new GLib.Settings ("org.gnome.Reversi");
 
         if (sound != null)
             settings.set_boolean ("sound", sound);
@@ -159,7 +159,7 @@ public class Iagno : Gtk.Application
         //  stderr.printf ("%s\n", _("Level should be 1 (easy), 2 (medium) or 3 (hard). Settings unchanged."));     // TODO better?
 
         /* UI parts */
-        Builder builder = new Builder.from_resource ("/org/gnome/Iagno/ui/iagno-screens.ui");
+        Builder builder = new Builder.from_resource ("/org/gnome/Reversi/ui/reversi-screens.ui");
 
         view = new GameView ();
         view.move.connect (player_move_cb);
@@ -169,8 +169,8 @@ public class Iagno : Gtk.Application
         view.theme = settings.get_string ("theme");
 
         /* Window */
-        window = new GameWindow ("/org/gnome/Iagno/ui/iagno.css",
-                                 _("Iagno"),
+        window = new GameWindow ("/org/gnome/Reversi/ui/reversi.css",
+                                 _("Reversi"),
                                  settings.get_int ("window-width"),
                                  settings.get_int ("window-height"),
                                  settings.get_boolean ("window-is-maximized"),
@@ -254,7 +254,7 @@ public class Iagno : Gtk.Application
     {
         try
         {
-            show_uri (window.get_screen (), "help:iagno", get_current_event_time ());
+            show_uri (window.get_screen (), "help:reversi", get_current_event_time ());
         }
         catch (Error e)
         {
@@ -268,7 +268,7 @@ public class Iagno : Gtk.Application
         string[] documenters = { "Tiffany Antopolski", null };
 
         show_about_dialog (window,
-                           "name", _("Iagno"),
+                           "name", _("Reversi"),
                            "version", VERSION,
                            "copyright",
                              "Copyright © 1998–2008 Ian Peters\n"+
@@ -280,7 +280,7 @@ public class Iagno : Gtk.Application
                            "authors", authors,
                            "documenters", documenters,
                            "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "org.gnome.Iagno",
+                           "logo-icon-name", "org.gnome.Reversi",
                            "website", "https://wiki.gnome.org/Apps/Iagno",
                            null);
     }

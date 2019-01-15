@@ -2,23 +2,23 @@
  *
  * Copyright (C) 2013 Michael Catanzaro
  *
- * This file is part of Iagno.
+ * This file is part of Reversi.
  *
- * Iagno is free software: you can redistribute it and/or modify
+ * Reversi is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Iagno is distributed in the hope that it will be useful,
+ * Reversi is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Iagno. If not, see <http://www.gnu.org/licenses/>.
+ * along with Reversi. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class TestIagno : Object
+public class TestReversi : Object
 {
     private static void test_undo_after_pass ()
     {
@@ -159,14 +159,14 @@ public class TestIagno : Object
 
     public static int main (string[] args) {
         Test.init (ref args);
-        Test.add_func ("/Iagno/Pass then Undo", test_undo_after_pass);
-        Test.add_func ("/Iagno/Undo at Start", test_undo_at_start);
-        Test.add_func ("/Iagno/Current Color after Pass", test_current_color_after_pass);
-        Test.add_func ("/Iagno/AI Search 1", test_ai_search_1);
-        Test.add_func ("/Iagno/AI Search 2", test_ai_search_2);
-        Test.add_func ("/Iagno/AI Search 3", test_ai_search_3);
-        Test.add_func ("/Iagno/AI Search 4", test_ai_search_4);
-        Test.add_func ("/Iagno/AI Search 5", test_ai_search_5);
+        Test.add_func ("/Reversi/Pass then Undo", test_undo_after_pass);
+        Test.add_func ("/Reversi/Undo at Start", test_undo_at_start);
+        Test.add_func ("/Reversi/Current Color after Pass", test_current_color_after_pass);
+        Test.add_func ("/Reversi/AI Search 1", test_ai_search_1);
+        Test.add_func ("/Reversi/AI Search 2", test_ai_search_2);
+        Test.add_func ("/Reversi/AI Search 3", test_ai_search_3);
+        Test.add_func ("/Reversi/AI Search 4", test_ai_search_4);
+        Test.add_func ("/Reversi/AI Search 5", test_ai_search_5);
         return Test.run ();
     }
 }

@@ -1,9 +1,9 @@
 {
-    "app-id" : "org.gnome.Iagno",
+    "app-id" : "org.gnome.Reversi",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
-    "command" : "iagno",
+    "command" : "reversi",
     "tags" : [
         "nightly"
     ],
@@ -32,7 +32,7 @@
     ],
     "modules" : [
         {
-            "name" : "iagno",
+            "name" : "reversi",
             "buildsystem": "meson",
             "sources" : [
                 {

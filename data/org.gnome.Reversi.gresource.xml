@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/Reversi/ui">
+    <file preprocess="xml-stripblanks" compressed="true" alias="game-window.ui">ui/reversi.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="themes.ui">ui/reversi-themes.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="reversi-screens.ui">ui/reversi-screens.ui</file>
+    <file compressed="true">reversi.css</file>
+  </gresource>
+</gresources>

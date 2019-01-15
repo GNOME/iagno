@@ -1,12 +1,12 @@
 [Desktop Entry]
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-Icon=org.gnome.Iagno
-Name=Iagno
+Icon=org.gnome.Reversi
+Name=Reversi
 GenericName=Reversi
 Comment=Dominate the board in a classic version of Reversi
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 Keywords=reversi;othello;
-Exec=iagno
+Exec=reversi
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;BoardGame;
@@ -15,12 +15,12 @@ Actions=First;Second;TwoPlayers;
 
 [Desktop Action First]
 Name=Play first (Dark)
-Exec=iagno --first
+Exec=reversi --first
 
 [Desktop Action Second]
 Name=Play second (Light)
-Exec=iagno --second
+Exec=reversi --second
 
 [Desktop Action TwoPlayers]
 Name=Two players game
-Exec=iagno --two-players
+Exec=reversi --two-players

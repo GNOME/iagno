@@ -28,7 +28,7 @@ public enum GameWindowFlags {
     SHOW_START_BUTTON;
 }
 
-[GtkTemplate (ui = "/org/gnome/Iagno/ui/game-window.ui")]
+[GtkTemplate (ui = "/org/gnome/Reversi/ui/game-window.ui")]
 public class GameWindow : ApplicationWindow
 {
     /* settings */

@@ -1,7 +1,7 @@
 help_media = [
 	'figures/block.png',
 	'figures/first.png',
-	'figures/iagno-video.ogv',
+	'figures/reversi-video.ogv',
 	'figures/logo32.png',
 	'figures/logo.png',
 	'figures/start.png'

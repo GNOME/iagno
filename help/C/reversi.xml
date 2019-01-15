@@ -5,8 +5,8 @@
   <!ENTITY appversion "2.20">
   <!ENTITY manrevision "2.9">
   <!ENTITY date "February 2008">
-  <!ENTITY app "<application>Iagno</application>">
-  <!ENTITY appname "Iagno">
+  <!ENTITY app "<application>Reversi</application>">
+  <!ENTITY appname "Reversi">
   <!ENTITY version "2.9">
 ]>
 
@@ -26,7 +26,7 @@
 
     <abstract role="description">
       <para>
-	Iagno is the two player strategy game of Othello, which is also known as
+	Reversi is the two player strategy game of Othello, which is also known as
 	Reversi and is similar to Go. The pieces are tiles that are black on one 
 	side and white on the other and the objective is for the player to flip 
 	his/her opponent's tiles to his/her color, while keeping the opponent 
@@ -137,7 +137,7 @@
    <date>7 April 2000</date>
    <authorinitials>EB</authorinitials>
    <revremark>
-   Licensed the Iagno Manual under the FDL.  Updated the 
+   Licensed the Reversi Manual under the FDL.  Updated the 
    screenshots to the GDP standard theme, MicroGUI.
    </revremark>
   </revision>
@@ -162,7 +162,7 @@
 </articleinfo>
 
   <indexterm zone="index"> 
-    <primary>Iagno</primary> 
+    <primary>Reversi</primary> 
   </indexterm>
 
 <!-- ============= Document Body ============================= -->
@@ -170,15 +170,15 @@
 <sect1 id="intro">
  <title>Introduction</title>
  <sect2 id="what">
-  <title>What is Iagno?</title>
+  <title>What is Reversi?</title>
   
   <para>
-  <application>Iagno</application> is a computer version of 
+  <application>Reversi</application> is a computer version of 
   the game Reversi, more popularly called Othello.  
-  <application>Iagno</application> is a two player strategy 
+  <application>Reversi</application> is a two player strategy 
   game similar to Go.  The board is 8 by 8 with tiles that 
   are black on one side and white on the other side.  The 
-  object of <application>Iagno</application> is to flip as 
+  object of <application>Reversi</application> is to flip as 
   many of your opponent's tiles to your color as possible 
   without your opponent flipping your tiles.  This is done 
   by trapping your opponent's tiles between two tiles of 
@@ -186,24 +186,24 @@
   </para>
 
   <para>
-   To run <application>Iagno</application>, select
-   <guimenuitem>Iagno</guimenuitem> from the
+   To run <application>Reversi</application>, select
+   <guimenuitem>Reversi</guimenuitem> from the
    <guisubmenu>Games</guisubmenu> submenu of the <guimenu>Main
-   Menu</guimenu>, or type <command>iagno</command> on the
+   Menu</guimenu>, or type <command>reversi</command> on the
    command line. 
   </para>
  </sect2>
 
  <sect2 id="why">
-  <title>Why is Othello called Iagno?</title>
+  <title>Why is Othello called Reversi?</title>
   <para>
   You're probably wondering why this game is called
-  <application>Iagno</application> instead of Othello or
+  <application>Reversi</application> instead of Othello or
   even gnothello.  The answer is complicated, and involves
   things like trademarks and lawyers and whatnot.
   Instead of leaving 
   it at that, I'll tell you a long and complicated lie about 
-  the origin of the name <application>Iagno</application>.
+  the origin of the name <application>Reversi</application>.
   </para>
   <para>
   On a stormy night, like those depicted so much in England, 
@@ -229,14 +229,14 @@
   had manifested itself due to his game.  Yet it still 
   didn't sound right.  All GNOME programs have some part 
   of GNOME in it, Ian thought.  After much thought he decided 
-  on the name we have come to cherish, <application>Iagno
+  on the name we have come to cherish, <application>Reversi
   </application>.
   </para>
  </sect2>
 </sect1>
 
 <sect1 id="playing">
- <title>Playing Iagno</title>
+ <title>Playing Reversi</title>
  <para>
  The board starts with four tiles arranged in a box on the 
  middle of the board. The tiles have the same color at each 
@@ -317,7 +317,7 @@
   <title>Player Color and Difficulty</title>
  
   <para>
-  When you start Iagno the human player plays black and the computer player 
+  When you start Reversi the human player plays black and the computer player 
   plays white with the first level of difficulty. Using the
   <guimenuitem>Game</guimenuitem> tab in the
   <guisubmenu>Preferences</guisubmenu> dialog you can set the type of
@@ -454,7 +454,7 @@
   This option lets you choose the type of board and tiles which are displayed.  
   If you want to make your own tile sets use the classic tile set as a template 
   and change the texture and colors for different effects.  When you make a new 
-  tile set that works with Iagno send it to Ian Peters <email>itp@gnu.org</email> 
+  tile set that works with Reversi send it to Ian Peters <email>itp@gnu.org</email> 
   and he will include it with the next distribution.
   </para>
 
@@ -490,7 +490,7 @@
  <itemizedlist mark="opencircle">
     <listitem>
      <para>
-	The computer player for Iagno is easy to beat.
+	The computer player for Reversi is easy to beat.
      </para>
     </listitem>
  </itemizedlist>
@@ -500,7 +500,7 @@
 <sect1 id="credits">
  <title>Authors</title>
   <para>
-   <application>Iagno</application> was written by Ian Peters
+   <application>Reversi</application> was written by Ian Peters
    (<email>itp@gnu.org</email>).    This manual was written by Eric Baudais
    (<email>baudais@okstate.edu</email>).
    To report a bug or make a suggestion regarding this application or

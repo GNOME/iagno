@@ -1,7 +1,7 @@
 # Tests
-iagno_tests = executable('iagno_tests', 
+reversi_tests = executable('reversi_tests', 
     [
-        'test-iagno.vala',
+        'test-reversi.vala',
         'computer-player.vala',
         'game.vala',
         'player.vala'
@@ -10,7 +10,7 @@ iagno_tests = executable('iagno_tests',
         gio_dependency
     ]
 )
-test('iagno-tests', iagno_tests)
+test('reversi-tests', reversi_tests)
 
 executable(meson.project_name(),
     [
@@ -19,7 +19,7 @@ executable(meson.project_name(),
         'game-view.vala',
         'game-window.vala',
         'game.vala',
-        'iagno.vala',
+        'reversi.vala',
         'player.vala',
         'themes-dialog.vala'
     ] + resources,
