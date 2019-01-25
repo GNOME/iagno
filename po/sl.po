@@ -5,15 +5,14 @@
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006–2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007–2018.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007–2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-03-03 12:01+0000\n"
-"PO-Revision-Date: 2018-03-06 22:14+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2019-01-08 08:27+0000\n"
+"PO-Revision-Date: 2019-01-25 18:26+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -23,10 +22,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
-#: src/iagno.vala:173 src/iagno.vala:267
+#: src/iagno.vala:173 src/iagno.vala:271
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -64,7 +63,6 @@ msgstr "Projekt GNOME"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/iagno.desktop.in:4
-#| msgid "Iagno"
 msgid "iagno"
 msgstr "iagno"
 
@@ -88,26 +86,6 @@ msgstr "Igraj drugega (svetli)"
 #: data/iagno.desktop.in:26
 msgid "Two players game"
 msgstr "Igra za dva igralca"
-
-#: data/iagno-menus.ui:7
-msgid "A_ppearance"
-msgstr "_Videz"
-
-#: data/iagno-menus.ui:11
-msgid "_Sound"
-msgstr "_Zvok"
-
-#: data/iagno-menus.ui:17
-msgid "_Help"
-msgstr "Pomo_č"
-
-#: data/iagno-menus.ui:22
-msgid "_About"
-msgstr "_O Programu"
-
-#: data/iagno-menus.ui:26
-msgid "_Quit"
-msgstr "_Končaj"
 
 #: data/iagno-screens.ui:22
 msgid "Players"
@@ -157,19 +135,35 @@ msgstr "Izbor teme"
 msgid "Default"
 msgstr "Privzeto"
 
+#: data/iagno.ui:7
+msgid "A_ppearance"
+msgstr "_Videz"
+
+#: data/iagno.ui:11
+msgid "_Sound"
+msgstr "_Zvok"
+
+#: data/iagno.ui:17
+msgid "_Help"
+msgstr "Pomo_č"
+
 #: data/iagno.ui:21
+msgid "_About Iagno"
+msgstr "_O igri"
+
+#: data/iagno.ui:43
 msgid "Go back to the current game"
 msgstr "Vrni se na trenutno igro"
 
-#: data/iagno.ui:76
+#: data/iagno.ui:116
 msgid "_New Game"
 msgstr "_Nova Igra"
 
-#: data/iagno.ui:77
+#: data/iagno.ui:117
 msgid "Configure a new game"
 msgstr "Nastavi novo igro"
 
-#: data/iagno.ui:81
+#: data/iagno.ui:121
 msgid "Start a new game"
 msgstr "Začni novo igro"
 
@@ -243,11 +237,11 @@ msgstr "Višina okna v točkah"
 msgid "true if the window is maximized"
 msgstr "prav, če je okno razpeto."
 
-#: src/game-window.vala:128
+#: src/game-window.vala:130
 msgid "_Start Game"
 msgstr "_Začni igro"
 
-#: src/game-window.vala:153
+#: src/game-window.vala:155
 msgid "Undo your most recent move"
 msgstr "Razveljavi zadnjo potezo"
 
@@ -302,11 +296,11 @@ msgstr ""
 "Raven zahtevnosti mora biti med 1 (najlažje) do 3 (najtežje). Nastavitve "
 "niso spremenjene."
 
-#: src/iagno.vala:275
+#: src/iagno.vala:279
 msgid "A disk flipping game derived from Reversi"
 msgstr "Igra preobračanja ploščic po predlogi igre Reversi."
 
-#: src/iagno.vala:278
+#: src/iagno.vala:282
 msgid "translator-credits"
 msgstr ""
 "Matic Žgur <mr.zgur@gmail.com>\n"
@@ -315,40 +309,43 @@ msgstr ""
 "Matej Urbančič <mateju@svn.gnome.org>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:340 src/iagno.vala:341
+#: src/iagno.vala:344 src/iagno.vala:345
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: src/iagno.vala:408
+#: src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "Svetli mora počakati, temni je na potezi"
 
 #. Message to display when Dark has no possible moves
-#: src/iagno.vala:413
+#: src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "Temni mora počakati, svetli je na potezi"
 
 #. Message to display when Light has won the game
-#: src/iagno.vala:424
+#: src/iagno.vala:428
 msgid "Light wins!"
 msgstr "Zmagal je svetli igralec!"
 
 #. Message to display when Dark has won the game
-#: src/iagno.vala:429
+#: src/iagno.vala:433
 msgid "Dark wins!"
 msgstr "Zmagal je temni igralec!"
 
 #. Message to display when the game is a draw
-#: src/iagno.vala:434
+#: src/iagno.vala:438
 msgid "The game is draw."
 msgstr "Igra je neodločena!"
 
 #. Message to display when the player tries to make an illegal move
-#: src/iagno.vala:450
+#: src/iagno.vala:454
 msgid "You can’t move there!"
 msgstr "Ta premik ni dovoljen!"
+
+#~ msgid "_Quit"
+#~ msgstr "_Končaj"
 
 #~ msgid "Start a new game as configured"
 #~ msgstr "Začni novo nastavljeno igro"
