@@ -1,5 +1,5 @@
 # Hungarian translation for iagno.
-# Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2018. Free Software Foundation, Inc.
+# Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2018, 2019. Free Software Foundation, Inc.
 # This file is distributed under the same license as the iagno package.
 #
 # Szabolcs Ban <shooby at gnome dot hu>, 1999, 2000, 2001.
@@ -9,16 +9,15 @@
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
-# Balázs Úr <urbalazs at gmail dot com>, 2014, 2015, 2016, 2018.
+# Balázs Úr <urbalazs at gmail dot com>, 2014, 2015, 2016, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-02-04 04:33+0000\n"
-"PO-Revision-Date: 2018-02-24 00:09+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2019-01-08 08:27+0000\n"
+"PO-Revision-Date: 2019-01-27 16:43+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +26,7 @@ msgstr ""
 "X-Generator: Lokalize 1.2\n"
 
 #: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
-#: src/iagno.vala:173 src/iagno.vala:267
+#: src/iagno.vala:173 src/iagno.vala:271
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -90,26 +89,6 @@ msgstr "Második játékos (világos)"
 msgid "Two players game"
 msgstr "Kétszemélyes játék"
 
-#: data/iagno-menus.ui:7
-msgid "A_ppearance"
-msgstr "_Megjelenés"
-
-#: data/iagno-menus.ui:11
-msgid "_Sound"
-msgstr "_Hang"
-
-#: data/iagno-menus.ui:17
-msgid "_Help"
-msgstr "_Súgó"
-
-#: data/iagno-menus.ui:22
-msgid "_About"
-msgstr "_Névjegy"
-
-#: data/iagno-menus.ui:26
-msgid "_Quit"
-msgstr "_Kilépés"
-
 #: data/iagno-screens.ui:22
 msgid "Players"
 msgstr "Játékosok"
@@ -158,19 +137,35 @@ msgstr "Téma kiválasztása"
 msgid "Default"
 msgstr "Alapértelmezett"
 
+#: data/iagno.ui:7
+msgid "A_ppearance"
+msgstr "_Megjelenés"
+
+#: data/iagno.ui:11
+msgid "_Sound"
+msgstr "_Hang"
+
+#: data/iagno.ui:17
+msgid "_Help"
+msgstr "_Súgó"
+
 #: data/iagno.ui:21
+msgid "_About Iagno"
+msgstr "Az Iagno _névjegye"
+
+#: data/iagno.ui:43
 msgid "Go back to the current game"
 msgstr "Vissza a jelenlegi játékhoz"
 
-#: data/iagno.ui:76
+#: data/iagno.ui:116
 msgid "_New Game"
 msgstr "Ú_j játék"
 
-#: data/iagno.ui:77
+#: data/iagno.ui:117
 msgid "Configure a new game"
 msgstr "Új játék beállítása"
 
-#: data/iagno.ui:81
+#: data/iagno.ui:121
 msgid "Start a new game"
 msgstr "Új játék indítása"
 
@@ -243,11 +238,11 @@ msgstr "Az ablak magassága képpontokban"
 msgid "true if the window is maximized"
 msgstr "Az ablak teljes méretű-e"
 
-#: src/game-window.vala:128
+#: src/game-window.vala:130
 msgid "_Start Game"
 msgstr "Játék _indítása"
 
-#: src/game-window.vala:153
+#: src/game-window.vala:155
 msgid "Undo your most recent move"
 msgstr "A legutóbbi lépés visszavonása"
 
@@ -302,11 +297,11 @@ msgstr ""
 "A szintnek 1 (könnyű) és 3 (nehéz) között kell lennie. A beállítások nem "
 "változtak."
 
-#: src/iagno.vala:275
+#: src/iagno.vala:279
 msgid "A disk flipping game derived from Reversi"
 msgstr "A Reversiből származtatott korongfordítgatós játék"
 
-#: src/iagno.vala:278
+#: src/iagno.vala:282
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -318,38 +313,38 @@ msgstr ""
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:340 src/iagno.vala:341
+#: src/iagno.vala:344 src/iagno.vala:345
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: src/iagno.vala:408
+#: src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "A világos nem tud lépni, a sötét jön"
 
 #. Message to display when Dark has no possible moves
-#: src/iagno.vala:413
+#: src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "A sötét nem tud lépni, a világos jön"
 
 #. Message to display when Light has won the game
-#: src/iagno.vala:424
+#: src/iagno.vala:428
 msgid "Light wins!"
 msgstr "A világos nyert!"
 
 #. Message to display when Dark has won the game
-#: src/iagno.vala:429
+#: src/iagno.vala:433
 msgid "Dark wins!"
 msgstr "A sötét nyert!"
 
 #. Message to display when the game is a draw
-#: src/iagno.vala:434
+#: src/iagno.vala:438
 msgid "The game is draw."
 msgstr "Az eredmény döntetlen."
 
 #. Message to display when the player tries to make an illegal move
-#: src/iagno.vala:450
+#: src/iagno.vala:454
 msgid "You can’t move there!"
 msgstr "Nem léphet oda!"
 
