@@ -10,11 +10,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.ro\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-03-26 22:45+0000\n"
-"PO-Revision-Date: 2018-04-02 21:23+0300\n"
-"Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2019-01-08 08:27+0000\n"
+"PO-Revision-Date: 2019-01-27 02:26+0200\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28 [at] gmail [dot] "
+"com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -22,11 +22,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Launchpad-Export-Date: 2009-11-27 09:12+0000\n"
 
 #: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
-#: src/iagno.vala:173 src/iagno.vala:267
+#: src/iagno.vala:173 src/iagno.vala:271
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -91,26 +91,6 @@ msgstr "Joacă al doilea (Alb)"
 msgid "Two players game"
 msgstr "Joc pentru doi jucători"
 
-#: data/iagno-menus.ui:7
-msgid "A_ppearance"
-msgstr "As_pect"
-
-#: data/iagno-menus.ui:11
-msgid "_Sound"
-msgstr "_Sunet"
-
-#: data/iagno-menus.ui:17
-msgid "_Help"
-msgstr "_Ajutor"
-
-#: data/iagno-menus.ui:22
-msgid "_About"
-msgstr "_Despre"
-
-#: data/iagno-menus.ui:26
-msgid "_Quit"
-msgstr "_Ieșire"
-
 #: data/iagno-screens.ui:22
 msgid "Players"
 msgstr "Jucători"
@@ -159,19 +139,35 @@ msgstr "Selectare temă"
 msgid "Default"
 msgstr "Implicit"
 
+#: data/iagno.ui:7
+msgid "A_ppearance"
+msgstr "As_pect"
+
+#: data/iagno.ui:11
+msgid "_Sound"
+msgstr "_Sunet"
+
+#: data/iagno.ui:17
+msgid "_Help"
+msgstr "_Ajutor"
+
 #: data/iagno.ui:21
+msgid "_About Iagno"
+msgstr "_Despre Iagno"
+
+#: data/iagno.ui:43
 msgid "Go back to the current game"
 msgstr "Navighează înapoi la jocul curent"
 
-#: data/iagno.ui:76
+#: data/iagno.ui:116
 msgid "_New Game"
 msgstr "Joc _nou"
 
-#: data/iagno.ui:77
+#: data/iagno.ui:117
 msgid "Configure a new game"
 msgstr "Configurează un joc nou"
 
-#: data/iagno.ui:81
+#: data/iagno.ui:121
 msgid "Start a new game"
 msgstr "Pornește un joc nou"
 
@@ -245,11 +241,11 @@ msgstr "Înălțimea ferestrei în pixeli"
 msgid "true if the window is maximized"
 msgstr "adevărat dacă fereastra este maximizată"
 
-#: src/game-window.vala:128
+#: src/game-window.vala:130
 msgid "_Start Game"
 msgstr "_Start joc"
 
-#: src/game-window.vala:153
+#: src/game-window.vala:155
 msgid "Undo your most recent move"
 msgstr "Anulează mutarea cea mai recentă"
 
@@ -304,16 +300,16 @@ msgstr ""
 "Nivelul ar trebui să fie între 1 (simplu) și 3 (dificil). Nu s-au modificat "
 "configurările."
 
-#: src/iagno.vala:275
+#: src/iagno.vala:279
 msgid "A disk flipping game derived from Reversi"
 msgstr "Un joc de întoarcere a discurilor derivat de la Reversi"
 
-#: src/iagno.vala:278
+#: src/iagno.vala:282
 msgid "translator-credits"
 msgstr ""
 "Mugurel Tudor <mugurelu@gnome.ro>\n"
 "Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
-"Florentina Mușat <florentina.musat.28@gmail.com>\n"
+"Florentina Mușat <florentina.musat.28 [at] gmail [dot] com>, 2019\n"
 "\n"
 "Launchpad Contributions:\n"
 "  Adi Roiban https://launchpad.net/~adiroiban\n"
@@ -332,37 +328,40 @@ msgstr ""
 "  leandrud https://launchpad.net/~leandrud"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:340 src/iagno.vala:341
+#: src/iagno.vala:344 src/iagno.vala:345
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: src/iagno.vala:408
+#: src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "Alb obligat pas, negru la mutare"
 
 #. Message to display when Dark has no possible moves
-#: src/iagno.vala:413
+#: src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "Negru obligat pas, alb la mutare"
 
 #. Message to display when Light has won the game
-#: src/iagno.vala:424
+#: src/iagno.vala:428
 msgid "Light wins!"
 msgstr "Alb a câștigat!"
 
 #. Message to display when Dark has won the game
-#: src/iagno.vala:429
+#: src/iagno.vala:433
 msgid "Dark wins!"
 msgstr "Negru a câștigat!"
 
 #. Message to display when the game is a draw
-#: src/iagno.vala:434
+#: src/iagno.vala:438
 msgid "The game is draw."
 msgstr "Jocul este remiză."
 
 #. Message to display when the player tries to make an illegal move
-#: src/iagno.vala:450
+#: src/iagno.vala:454
 msgid "You can’t move there!"
 msgstr "Nu se poate muta acolo!"
+
+#~ msgid "_Quit"
+#~ msgstr "_Ieșire"
