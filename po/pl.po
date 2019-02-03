@@ -1,5 +1,5 @@
 # Polish translation for iagno.
-# Copyright © 1998-2018 the iagno authors.
+# Copyright © 1998-2019 the iagno authors.
 # This file is distributed under the same license as the iagno package.
 # Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002.
 # Marcin Gorycki <mgo@olicom.dk>, 1999.
@@ -12,16 +12,15 @@
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008.
 # Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010.
 # Wojciech Kapusta <wkapusta@aviary.pl>, 2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2018.
-# Aviary.pl <community-poland@mozilla.org>, 2007-2018.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2019.
+# Aviary.pl <community-poland@mozilla.org>, 2007-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-01-31 18:13+0000\n"
-"PO-Revision-Date: 2018-02-05 01:02+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2019-01-08 08:27+0000\n"
+"PO-Revision-Date: 2019-02-03 18:15+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -32,7 +31,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
-#: src/iagno.vala:173 src/iagno.vala:267
+#: src/iagno.vala:173 src/iagno.vala:271
 msgid "Iagno"
 msgstr "Iagno"
 
@@ -95,26 +94,6 @@ msgstr "Zacznij drugi (jasne)"
 msgid "Two players game"
 msgstr "Gra dla dwóch graczy"
 
-#: data/iagno-menus.ui:7
-msgid "A_ppearance"
-msgstr "_Wygląd"
-
-#: data/iagno-menus.ui:11
-msgid "_Sound"
-msgstr "_Dźwięk"
-
-#: data/iagno-menus.ui:17
-msgid "_Help"
-msgstr "Pomo_c"
-
-#: data/iagno-menus.ui:22
-msgid "_About"
-msgstr "_O grze"
-
-#: data/iagno-menus.ui:26
-msgid "_Quit"
-msgstr "Za_kończ"
-
 #: data/iagno-screens.ui:22
 msgid "Players"
 msgstr "Gracze"
@@ -163,19 +142,35 @@ msgstr "Wybór motywu"
 msgid "Default"
 msgstr "Domyślny"
 
+#: data/iagno.ui:7
+msgid "A_ppearance"
+msgstr "_Wygląd"
+
+#: data/iagno.ui:11
+msgid "_Sound"
+msgstr "_Dźwięk"
+
+#: data/iagno.ui:17
+msgid "_Help"
+msgstr "Pomo_c"
+
 #: data/iagno.ui:21
+msgid "_About Iagno"
+msgstr "_O grze"
+
+#: data/iagno.ui:43
 msgid "Go back to the current game"
 msgstr "Wraca do bieżącej gry"
 
-#: data/iagno.ui:76
+#: data/iagno.ui:116
 msgid "_New Game"
 msgstr "_Nowa gra"
 
-#: data/iagno.ui:77
+#: data/iagno.ui:117
 msgid "Configure a new game"
 msgstr "Konfiguruje nową grę"
 
-#: data/iagno.ui:81
+#: data/iagno.ui:121
 msgid "Start a new game"
 msgstr "Rozpoczyna nową grę"
 
@@ -249,11 +244,11 @@ msgstr "Wysokość okna w pikselach"
 msgid "true if the window is maximized"
 msgstr "Wartość „true” oznacza, że okno jest zmaksymalizowane"
 
-#: src/game-window.vala:128
+#: src/game-window.vala:130
 msgid "_Start Game"
 msgstr "_Rozpocznij grę"
 
-#: src/game-window.vala:153
+#: src/game-window.vala:155
 msgid "Undo your most recent move"
 msgstr "Cofa ostatni ruch"
 
@@ -308,11 +303,11 @@ msgstr ""
 "Poziom powinien wynosić między 1 (łatwy) a 3 (trudny). Ustawienia nie "
 "zostały zmienione."
 
-#: src/iagno.vala:275
+#: src/iagno.vala:279
 msgid "A disk flipping game derived from Reversi"
 msgstr "Gra polegająca na odwracaniu pionów podobna do Reversi"
 
-#: src/iagno.vala:278
+#: src/iagno.vala:282
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -326,41 +321,41 @@ msgstr ""
 "Tomasz Dominikowski <dominikowski@gmail.com>, 2008\n"
 "Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010\n"
 "Wojciech Kapusta <wkapusta@aviary.pl>, 2009\n"
-"Piotr Drąg <piotrdrag@gmail.com>, 2010-2018\n"
-"Aviary.pl <community-poland@mozilla.org>, 2007-2018"
+"Piotr Drąg <piotrdrag@gmail.com>, 2010-2019\n"
+"Aviary.pl <community-poland@mozilla.org>, 2007-2019"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:340 src/iagno.vala:341
+#: src/iagno.vala:344 src/iagno.vala:345
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Message to display when Light has no possible moves
-#: src/iagno.vala:408
+#: src/iagno.vala:412
 msgid "Light must pass, Dark’s move"
 msgstr "Jasne nie mogą wykonać ruchu, ruch ciemnych"
 
 #. Message to display when Dark has no possible moves
-#: src/iagno.vala:413
+#: src/iagno.vala:417
 msgid "Dark must pass, Light’s move"
 msgstr "Ciemne nie mogą wykonać ruchu, ruch jasnych"
 
 #. Message to display when Light has won the game
-#: src/iagno.vala:424
+#: src/iagno.vala:428
 msgid "Light wins!"
 msgstr "Jasne wygrywają!"
 
 #. Message to display when Dark has won the game
-#: src/iagno.vala:429
+#: src/iagno.vala:433
 msgid "Dark wins!"
 msgstr "Ciemne wygrywają!"
 
 #. Message to display when the game is a draw
-#: src/iagno.vala:434
+#: src/iagno.vala:438
 msgid "The game is draw."
 msgstr "Remis."
 
 #. Message to display when the player tries to make an illegal move
-#: src/iagno.vala:450
+#: src/iagno.vala:454
 msgid "You can’t move there!"
 msgstr "Nie można tu się ruszyć."
