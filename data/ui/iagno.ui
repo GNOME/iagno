@@ -61,18 +61,19 @@
         <child>
           <object class="GtkMenuButton" id="info_button">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="valign">center</property>
+            <property name="can-focus">True</property>
             <property name="menu-model">primary-menu</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
-                <property name="icon_name">open-menu-symbolic</property>
-                <property name="icon_size">1</property>
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="icon-size">1</property>
               </object>
             </child>
           </object>
           <packing>
-            <property name="pack_type">end</property>
+            <property name="pack-type">end</property>
             <property name="position">1</property>
           </packing>
         </child>
