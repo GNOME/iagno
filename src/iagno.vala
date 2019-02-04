@@ -84,14 +84,14 @@ public class Iagno : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (_("Iagno"));
-        Window.set_default_icon_name ("org.gnome.iagno");
+        Window.set_default_icon_name ("org.gnome.Reversi");
 
         return new Iagno ().run (args);
     }
 
     private Iagno ()
     {
-        Object (application_id: "org.gnome.iagno", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: "org.gnome.Reversi", flags: ApplicationFlags.FLAGS_NONE);
 
         add_main_option_entries (option_entries);
     }
@@ -133,7 +133,7 @@ public class Iagno : Gtk.Application
         base.startup ();
 
         /* Settings */
-        settings = new GLib.Settings ("org.gnome.iagno");
+        settings = new GLib.Settings ("org.gnome.Reversi");
 
         if (sound != null)
             settings.set_boolean ("sound", sound);
@@ -159,7 +159,7 @@ public class Iagno : Gtk.Application
         //  stderr.printf ("%s\n", _("Level should be 1 (easy), 2 (medium) or 3 (hard). Settings unchanged."));     // TODO better?
 
         /* UI parts */
-        Builder builder = new Builder.from_resource ("/org/gnome/iagno/ui/iagno-screens.ui");
+        Builder builder = new Builder.from_resource ("/org/gnome/Reversi/ui/iagno-screens.ui");
 
         view = new GameView ();
         view.move.connect (player_move_cb);
@@ -169,7 +169,7 @@ public class Iagno : Gtk.Application
         view.theme = settings.get_string ("theme");
 
         /* Window */
-        window = new GameWindow ("/org/gnome/iagno/ui/iagno.css",
+        window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
                                  _("Iagno"),
                                  settings.get_int ("window-width"),
                                  settings.get_int ("window-height"),
@@ -280,7 +280,7 @@ public class Iagno : Gtk.Application
                            "authors", authors,
                            "documenters", documenters,
                            "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "org.gnome.iagno",
+                           "logo-icon-name", "org.gnome.Reversi",
                            "website", "https://wiki.gnome.org/Apps/Iagno",
                            null);
     }

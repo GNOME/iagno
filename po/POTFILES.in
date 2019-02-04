@@ -1,7 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
-data/org.gnome.iagno.appdata.xml.in
-data/org.gnome.iagno.desktop.in
+data/org.gnome.Reversi.appdata.xml.in
+data/org.gnome.Reversi.desktop.in
 data/ui/iagno-screens.ui
 data/ui/iagno-themes.ui
 data/ui/iagno.ui
@@ -9,7 +9,7 @@ data/themes/adwaita.theme.desktop.in
 data/themes/classic.theme.desktop.in
 data/themes/high_contrast.theme.desktop.in
 data/themes/sun_and_star.theme.desktop.in
-data/org.gnome.iagno.gschema.xml
+data/org.gnome.Reversi.gschema.xml
 src/computer-player.vala
 src/game.vala
 src/game-view.vala

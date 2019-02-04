@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Michael Catanzaro and contributors -->
-<component type="desktop">
-  <id>org.gnome.iagno</id>
+<component type="desktop-application">
+  <id>org.gnome.Reversi</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Iagno</name>
@@ -31,8 +31,8 @@
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
+  <launchable type="desktop-id">org.gnome.Reversi.desktop</launchable>
   <kudos>
-    <kudo>AppMenu</kudo>
     <kudo>HiDpiIcon</kudo>
     <kudo>ModernToolkit</kudo>
     <kudo>UserDocs</kudo>

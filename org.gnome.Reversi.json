@@ -1,12 +1,9 @@
 {
-    "app-id" : "org.gnome.iagno",
+    "app-id" : "org.gnome.Reversi",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
     "command" : "iagno",
-    "rename-desktop-file" : "iagno.desktop",
-    "rename-icon" : "iagno",
-    "rename-appdata-file" : "iagno.appdata.xml",
     "tags" : [
         "nightly"
     ],
@@ -21,13 +18,6 @@
         "--talk-name=ca.desrt.dconf",
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
-    "build-options" : {
-        "cflags" : "-O2 -g",
-        "cxxflags" : "-O2 -g",
-        "env" : {
-            "V" : "1"
-        }
-    },
     "cleanup" : [
         "/include",
         "/lib/pkgconfig",
