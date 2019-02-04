@@ -16,43 +16,46 @@
  * with this application. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* GtkXyz is pre-3.19.n */
-
 /* Labels' tweaks */
-GtkLabel.bold-label,
 label.bold-label {
   font-weight: bold;
 }
-GtkLabel.italic-label,
 label.italic-label {
   font-style: italic;
-}
-GtkGrid#scoreboard GtkLabel {
-  padding: 5px 2px;
 }
 grid#scoreboard label {
   padding: 4px 7px 4px 0;
 }
 
 /* Themes' dialog listbox */
-GtkListBox#themes-listbox GtkImage,
 list#themes-listbox image {
   transition-duration: 200ms;
   opacity: 0;
 }
 
-/* if you removed the fix at the bottom of the CSS file,
-   replacing "*" by "GtkImage" makes bug #746210 appear */
-GtkListBox#themes-listbox GtkListBoxRow:selected *,
 list#themes-listbox row:selected * {
   opacity: 1;
   color:@theme_selected_fg_color;
 }
-GtkListBox#themes-listbox GtkListBoxRow:selected GtkImage:backdrop,
 list#themes-listbox row:selected image:backdrop {
   color:@theme_unfocused_selected_fg_color;
+}
+
+/* make all widgets change font-size at same time */
+label.bold-label,
+button,
+headerbar,
+popover modelbutton {
+  transition:all       0    ease,
+             font-size 0.3s ease,
+             padding   0.3s ease,
+             margin    0.3s ease;
 }
 
 /* bug #746210: HighContrast doesn't update correctly on ListBoxRow selection
    hicolor is preserved because of a "*:selected *:link:visited" declaration */
 #fake-example *:selected *:visited { opacity: 1; }
+
+/*\
+* * the end
+\*/
