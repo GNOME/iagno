@@ -3,19 +3,19 @@ icon_sizes = ['16', '22', '24', '32', '48', '256']
 foreach size : icon_sizes
     install_data(
         join_paths('icons', 'hicolor', '@0@x@0@'.format(size), '@0@.png'.format(project_id)),
-        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', '@0@x@0@'.format(size), 'apps')
+        install_dir: join_paths(icondir, '@0@x@0@'.format(size), 'apps')
     )
 endforeach
 # Install symbolic icon
 install_data(
         join_paths('icons', 'hicolor', 'symbolic', '@0@-symbolic.svg'.format(project_id)),
-    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'symbolic', 'apps')
+    install_dir: join_paths(icondir, 'symbolic', 'apps')
 )
 
 # Install gschema
 install_data(
   '@0@.gschema.xml'.format(project_id),
-  install_dir : join_paths(get_option('datadir'), 'glib-2.0', 'schemas')
+  install_dir : schemadir
 )
 
 # Compiling gresoruce
@@ -31,7 +31,7 @@ desktop_file = i18n.merge_file(
     po_dir: join_paths(meson.source_root(), 'po'),
     type: 'desktop',
     install: true,
-    install_dir: join_paths(get_option('datadir'), 'applications')
+    install_dir: appsdir
 )
 
 # Validate desktop file

@@ -21,9 +21,13 @@ rsvg_dependency = dependency('librsvg-2.0', version: '>= 2.32.0')
 # Set gettext package name
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language: 'c')
 
-localedir = join_paths(get_option('prefix'), get_option('localedir'))
-pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
-soundsdir = join_paths(pkgdatadir, 'sounds')
+localedir   = join_paths(get_option('prefix'), get_option('localedir'))
+datadir     = join_paths(get_option('prefix'), get_option('datadir'))
+icondir     = join_paths(datadir, 'icons', 'hicolor')
+pkgdatadir  = join_paths(datadir, meson.project_name())
+soundsdir   = join_paths(pkgdatadir, 'sounds')
+schemadir   = join_paths(datadir, 'glib-2.0', 'schemas')
+appsdir     = join_paths(datadir, 'applications')
 
 conf = configuration_data ()
 conf.set_quoted ('VERSION', meson.project_version())
@@ -40,6 +44,8 @@ subdir('po')
 subdir('help')
 subdir('src')
 
-meson.add_install_script(python3.find_python().path(), join_paths(meson.source_root(),
-                                                                  'build-aux',
-                                                                  'meson_post_install.py'))
+meson.add_install_script(python3.find_python().path(),
+                         join_paths(meson.source_root(), 'build-aux', 'meson_post_install.py'),
+                         icondir,
+                         schemadir,
+                         appsdir)
