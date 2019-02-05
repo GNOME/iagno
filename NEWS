@@ -1,3 +1,21 @@
+3.31.90 – February 5, 2019
+=============================
+
+Only technical things, but big ones:
+ * Iagno switched to Meson;
+ * it can now be built by the Gitlab CI;
+ * it uses now the org.gnome.Reversi application-id.
+Many thanks to Bilal Elmoussaoui for all that.
+We should be good for the 3.32 release, great!
+
+Translations updated:
+  Galician: Fran Dieguez
+  Hungarian: Balázs Úr
+  Indonesian: Kukuh Syafaat
+  Polish: Piotr Drąg
+  Romanian: Daniel Șerbănescu
+  Slovenian: Matej Urbančič
+
 3.31.4 – January 8, 2019
 =============================
 
