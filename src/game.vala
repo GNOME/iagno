@@ -24,7 +24,7 @@ public class Game : Object
     private Player[,] tiles;
 
     private int _size;
-    public int size
+    [CCode (notify = false)] public int size
     {
         get { return _size; }
         private set { _size = value; }
@@ -36,12 +36,13 @@ public class Game : Object
 
     /* Color to move next; Dark always plays first;
      * should be dark if number_of_moves % 2 == 0 */
-    public Player current_color { get; private set; default = Player.DARK; }
-    public int number_of_moves { get; private set; default = 0; }
+    [CCode (notify = false)] public Player current_color { get; private set; default = Player.DARK; }
+    [CCode (notify = false)] public int number_of_moves { get; private set; default = 0; }
 
     /* Indicate who's the next player who can move */
-    public bool current_player_can_move { get; private set; default = true; }
-    public bool is_complete { get; private set; default = false; }
+    [CCode (notify = false)] public bool current_player_can_move { get; private set; default = true; }
+    // there's a race for the final "counter" turn, and looks like notifying here helps, not sure why // TODO fix the race
+    [CCode (notify = true)] public bool is_complete { get; private set; default = false; }
 
     /* Indicate that a player should move */
     public signal void turn_ended ();
@@ -52,25 +53,25 @@ public class Game : Object
     * * Number of tiles on the board
     \*/
 
-    public int initial_number_of_tiles { get; private set; }
-    public int n_tiles
+    [CCode (notify = false)] public int initial_number_of_tiles { get; private set; }
+    [CCode (notify = false)] public int n_tiles
     {
         get { return n_dark_tiles + n_light_tiles; }
     }
 
     private int _n_light_tiles = 2;
-    public int n_light_tiles
+    [CCode (notify = false)] public int n_light_tiles
     {
         get { return _n_light_tiles; }
     }
 
     private int _n_dark_tiles = 2;
-    public int n_dark_tiles
+    [CCode (notify = false)] public int n_dark_tiles
     {
         get { return _n_dark_tiles; }
     }
 
-    public int n_current_tiles
+    [CCode (notify = false)] public int n_current_tiles
     {
         get { return current_color == Player.LIGHT ? n_light_tiles : n_dark_tiles; }
         private set {
@@ -81,7 +82,7 @@ public class Game : Object
         }
     }
 
-    public int n_opponent_tiles
+    [CCode (notify = false)] public int n_opponent_tiles
     {
         get { return current_color == Player.DARK ? n_light_tiles : n_dark_tiles; }
         private set {

@@ -21,7 +21,7 @@
 public class GameView : Gtk.DrawingArea
 {
     private Gtk.DrawingArea _scoreboard;
-    public Gtk.DrawingArea scoreboard {
+    [CCode (notify = false)] public Gtk.DrawingArea scoreboard {
         private get { return _scoreboard; }
         set
         {
@@ -60,15 +60,15 @@ public class GameView : Gtk.DrawingArea
 
     // private int margin_width = 0;
 
-    public string sound_flip     { get; private set; }
-    public string sound_gameover { get; private set; }
+    [CCode (notify = false)] public string sound_flip     { get; private set; }
+    [CCode (notify = false)] public string sound_gameover { get; private set; }
 
     /* Utilities, see calculate () */
     private int paving_size;
     private int tile_size;
     private int board_size;
-    private int board_x { get { return (get_allocated_width () - board_size) / 2; }}
-    private int board_y { get { return (get_allocated_height () - board_size) / 2; }}
+    [CCode (notify = false)] private int board_x { get { return (get_allocated_width () - board_size) / 2; }}
+    [CCode (notify = false)] private int board_y { get { return (get_allocated_height () - board_size) / 2; }}
 
     /* Keyboard */
     private bool show_highlight;
@@ -101,7 +101,7 @@ public class GameView : Gtk.DrawingArea
 
     private bool game_is_set = false;
     private Game _game;
-    public Game game
+    [CCode (notify = false)] public Game game
     {
         get
         {
@@ -135,7 +135,7 @@ public class GameView : Gtk.DrawingArea
     }
 
     private string? _theme = null;
-    public string? theme
+    [CCode (notify = false)] public string? theme
     {
         get { return _theme; }
         set {

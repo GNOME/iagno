@@ -64,7 +64,7 @@ public class ComputerPlayer : Object
      * The mutex is only needed for its memory barrier. */
     private bool _move_pending;
     private RecMutex _move_pending_mutex;
-    private bool move_pending
+    [CCode (notify = false)] private bool move_pending
     {
         get
         {
