@@ -99,23 +99,31 @@ public class GameView : Gtk.DrawingArea
     /* Used for a delay between the last move and flipping the pieces */
     private bool flip_final_result_now = false;
 
-    private Game? _game = null;
-    public Game? game
+    private bool game_is_set = false;
+    private Game _game;
+    public Game game
     {
-        get { return _game; }
+        get
+        {
+            if (!game_is_set)
+                assert_not_reached ();
+            return _game;
+        }
         set
         {
-            if (_game != null)
+            Game? test = value;
+            if (test == null)
+                assert_not_reached ();
+
+            if (game_is_set)
                 SignalHandler.disconnect_by_func (_game, null, this);
             _game = value;
-            pixmaps = new int[game.size,game.size];
-            if (_game != null)
-            {
-                _game.square_changed.connect (square_changed_cb);
-                for (int x = 0; x < game.size; x++)
-                    for (int y = 0; y < game.size; y++)
-                        pixmaps[x, y] = get_pixmap (_game.get_owner (x, y));
-            }
+            game_is_set = true;
+            pixmaps = new int [_game.size, _game.size];
+            for (int x = 0; x < _game.size; x++)
+                for (int y = 0; y < _game.size; y++)
+                    pixmaps[x, y] = get_pixmap (_game.get_owner (x, y));
+            _game.square_changed.connect (square_changed_cb);
 
             show_highlight = false;
             highlight_x = 3;    // TODO default on 3 3 / 4 4 (on 8×8 board) when dark and
@@ -132,13 +140,13 @@ public class GameView : Gtk.DrawingArea
         get { return _theme; }
         set {
             var key = new KeyFile ();
-            if (value == "default")
+            if (value == null || (!) value == "default")
                 set_default_theme (ref key);
             else
                 try
                 {
                     string key_path = Path.build_filename (DATA_DIRECTORY, "themes", "key");
-                    string filepath = Path.build_filename (key_path, value);
+                    string filepath = Path.build_filename (key_path, (!) value);
                     if (Path.get_dirname (filepath) != key_path)
                         throw new FileError.FAILED ("Theme file is not in the \"key\" directory.");
 
@@ -164,12 +172,12 @@ public class GameView : Gtk.DrawingArea
 
     private void set_default_theme (ref KeyFile key)
     {
-        var defaults = Gtk.Settings.get_default ();
+        Gtk.Settings? defaults = Gtk.Settings.get_default ();
 
         string filename;
-        if ("HighContrast" in defaults.gtk_theme_name)
+        if (defaults != null && "HighContrast" in ((!) defaults).gtk_theme_name)
             filename = "high_contrast.theme";
-        else if (defaults.gtk_application_prefer_dark_theme == true)
+        else if (defaults != null && ((!) defaults).gtk_application_prefer_dark_theme == true)
             filename = "adwaita.theme";
         else
             filename = "classic.theme";
@@ -234,6 +242,7 @@ public class GameView : Gtk.DrawingArea
     }
 
     private void calculate ()
+        requires (game_is_set)
     {
         int size = int.min (get_allocated_width (), get_allocated_height ());
         paving_size = (size - 2 * border_width + spacing_width) / game.size;
@@ -244,7 +253,7 @@ public class GameView : Gtk.DrawingArea
 
     public override bool draw (Cairo.Context cr)
     {
-        if (game == null)
+        if (!game_is_set)
             return false;
 
         calculate ();
@@ -312,8 +321,8 @@ public class GameView : Gtk.DrawingArea
 
                 var matrix = Cairo.Matrix.identity ();
                 matrix.translate (texture_x - tile_x, texture_y - tile_y);
-                tiles_pattern.set_matrix (matrix);
-                cr.set_source (tiles_pattern);
+                ((!) tiles_pattern).set_matrix (matrix);
+                cr.set_source ((!) tiles_pattern);
                 cr.rectangle (tile_x, tile_y, tile_size, tile_size);
                 cr.fill ();
             }
@@ -386,6 +395,7 @@ public class GameView : Gtk.DrawingArea
     }
 
     private void update_square (int x, int y)
+        requires (game_is_set)
     {
         int pixmap = get_pixmap (game.get_owner (x, y));
 
@@ -454,6 +464,7 @@ public class GameView : Gtk.DrawingArea
     }
 
     private bool animate_cb ()
+        requires (game_is_set)
     {
         bool animating = false;
 
@@ -493,6 +504,9 @@ public class GameView : Gtk.DrawingArea
 
     public override bool button_press_event (Gdk.EventButton event)
     {
+        if (!game_is_set)
+            return false;
+
         if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
         {
             int x = (int) (event.x - board_x) / paving_size;
@@ -512,7 +526,10 @@ public class GameView : Gtk.DrawingArea
 
     public override bool key_press_event (Gdk.EventKey event)
     {
-        string key = Gdk.keyval_name (event.keyval);
+        if (!game_is_set)
+            return false;
+
+        string key = (!) (Gdk.keyval_name (event.keyval) ?? "");
 
         if (show_highlight && (key == "space" || key == "Return" || key == "KP_Enter"))
         {
@@ -646,15 +663,15 @@ public class GameView : Gtk.DrawingArea
 
             /* draw dark piece */
             matrix.translate (height / 2.0, 0);
-            scoreboard_tiles_pattern.set_matrix (matrix);
-            cr.set_source (scoreboard_tiles_pattern);
+            ((!) scoreboard_tiles_pattern).set_matrix (matrix);
+            cr.set_source ((!) scoreboard_tiles_pattern);
             cr.rectangle (0, 0, height / 2.0, height / 2.0);
             cr.fill ();
 
             /* draw white piece */
             matrix.translate (3 * height, height);
-            scoreboard_tiles_pattern.set_matrix (matrix);
-            cr.set_source (scoreboard_tiles_pattern);
+            ((!) scoreboard_tiles_pattern).set_matrix (matrix);
+            cr.set_source ((!) scoreboard_tiles_pattern);
             cr.rectangle (0, height / 2.0, height / 2.0, height / 2.0);
             cr.fill ();
         // }
@@ -679,6 +696,7 @@ public class GameView : Gtk.DrawingArea
     }
 
     public void update_scoreboard ()
+        requires (game_is_set)
     {
         current_player_number = (game.current_color == Player.DARK) ? 0 : 1;
         scoreboard.queue_draw ();  // TODO queue_draw_area (…), or only refresh part of the DrawingArea, or both

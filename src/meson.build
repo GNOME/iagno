@@ -29,7 +29,8 @@ executable(meson.project_name(),
     ],
     vala_args: [
         '--target-glib', '2.44',
-        '--vapidir', join_paths(meson.current_source_dir(), 'vapi')
+        '--vapidir', join_paths(meson.current_source_dir(), 'vapi'),
+        '--enable-experimental-non-null'
     ],
     dependencies: [
         canberra_dependency,

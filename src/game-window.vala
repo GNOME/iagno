@@ -95,8 +95,10 @@ public class GameWindow : ApplicationWindow
         if (css_resource != null)
         {
             CssProvider css_provider = new CssProvider ();
-            css_provider.load_from_resource (css_resource);
-            StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
+            css_provider.load_from_resource ((!) css_resource);
+            Gdk.Screen? gdk_screen = Gdk.Screen.get_default ();
+            if (gdk_screen != null) // else..?
+                StyleContext.add_provider_for_screen ((!) gdk_screen, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
         }
 
         view = _view;
@@ -128,16 +130,17 @@ public class GameWindow : ApplicationWindow
         if (GameWindowFlags.SHOW_START_BUTTON in flags)
         {
             /* Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt) */
-            start_game_button = new Button.with_mnemonic (_("_Start Game"));
-            start_game_button.width_request = 222;
-            start_game_button.height_request = 60;
-            start_game_button.halign = Align.CENTER;
-            start_game_button.set_action_name ("win.start-game");
+            Button _start_game_button = new Button.with_mnemonic (_("_Start Game"));
+            _start_game_button.width_request = 222;
+            _start_game_button.height_request = 60;
+            _start_game_button.halign = Align.CENTER;
+            _start_game_button.set_action_name ("win.start-game");
             /* Translators: when configuring a new game, tooltip text of the blue Start button */
-            // start_game_button.set_tooltip_text (_("Start a new game as configured"));
-            ((StyleContext) start_game_button.get_style_context ()).add_class ("suggested-action");
-            start_game_button.show ();
-            new_game_box.pack_end (start_game_button, false, false, 0);
+            // _start_game_button.set_tooltip_text (_("Start a new game as configured"));
+            ((StyleContext) _start_game_button.get_style_context ()).add_class ("suggested-action");
+            _start_game_button.show ();
+            new_game_box.pack_end (_start_game_button, false, false, 0);
+            start_game_button = _start_game_button;
         }
 
         game_box.pack_start (view, true, true, 0);
@@ -266,7 +269,7 @@ public class GameWindow : ApplicationWindow
         if (!game_finished && back_button.visible)
             back_button.grab_focus ();
         else if (start_game_button != null)
-            start_game_button.grab_focus ();
+            ((!) start_game_button).grab_focus ();
     }
 
     private void show_view ()
@@ -287,7 +290,8 @@ public class GameWindow : ApplicationWindow
 
     private void new_game_cb ()
     {
-        if (stack.get_visible_child_name () != "frame")
+        string? stack_child = stack.get_visible_child_name ();
+        if (stack_child == null || (!) stack_child != "frame")
             return;
 
         wait ();
@@ -303,7 +307,8 @@ public class GameWindow : ApplicationWindow
 
     private void start_game_cb ()
     {
-        if (stack.get_visible_child_name () != "start-box")
+        string? stack_child = stack.get_visible_child_name ();
+        if (stack_child == null || (!) stack_child != "start-box")
             return;
 
         game_finished = false;
@@ -320,7 +325,8 @@ public class GameWindow : ApplicationWindow
 
     private void back_cb ()
     {
-        if (stack.get_visible_child_name () != "start-box")
+        string? stack_child = stack.get_visible_child_name ();
+        if (stack_child == null || (!) stack_child != "start-box")
             return;
         // TODO change back headerbar subtitle?
         stack.set_transition_type (StackTransitionType.SLIDE_RIGHT);
@@ -336,7 +342,8 @@ public class GameWindow : ApplicationWindow
 
     private void undo_cb ()
     {
-        if (stack.get_visible_child_name () != "frame")
+        string? stack_child = stack.get_visible_child_name ();
+        if (stack_child == null || (!) stack_child != "frame")
             return;
 
         game_finished = false;
@@ -349,7 +356,8 @@ public class GameWindow : ApplicationWindow
 
     private void redo_cb ()
     {
-        if (stack.get_visible_child_name () != "frame")
+        string? stack_child = stack.get_visible_child_name ();
+        if (stack_child == null || (!) stack_child != "frame")
             return;
 
         if (new_game_button.is_focus)
@@ -360,7 +368,8 @@ public class GameWindow : ApplicationWindow
 
     private void hint_cb ()
     {
-        if (stack.get_visible_child_name () != "frame")
+        string? stack_child = stack.get_visible_child_name ();
+        if (stack_child == null || (!) stack_child != "frame")
             return;
         hint ();
     }

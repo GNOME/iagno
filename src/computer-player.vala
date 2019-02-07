@@ -194,11 +194,14 @@ public class ComputerPlayer : Object
         get_possible_moves_sorted (g, ref moves);
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
-        foreach (var move in moves)
+        foreach (PossibleMove? move in moves)
         {
-            if (g.place_tile (move.x, move.y, true) == 0)
+            if (move == null)
+                assert_not_reached ();
+
+            if (g.place_tile (((!) move).x, ((!) move).y, true) == 0)
             {
-                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, move.x, move.y, move.n_tiles, g.to_string ());
+                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, ((!) move).x, ((!) move).y, ((!) move).n_tiles, g.to_string ());
                 assert_not_reached ();
             }
 
@@ -206,8 +209,8 @@ public class ComputerPlayer : Object
             if (a_new > a)
             {
                 a = a_new;
-                x = move.x;
-                y = move.y;
+                x = ((!) move).x;
+                y = ((!) move).y;
             }
 
             g.undo ();
@@ -236,11 +239,14 @@ public class ComputerPlayer : Object
             get_possible_moves_sorted (g, ref moves);
 
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
-            foreach (var move in moves)
+            foreach (PossibleMove? move in moves)
             {
-                if (g.place_tile (move.x, move.y) == 0)
+                if (move == null)
+                    assert_not_reached ();
+
+                if (g.place_tile (((!) move).x, ((!) move).y) == 0)
                 {
-                    critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, move.x, move.y, move.n_tiles, g.to_string ());
+                    critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, ((!) move).x, ((!) move).y, ((!) move).n_tiles, g.to_string ());
                     assert_not_reached ();
                 }
 
@@ -287,7 +293,9 @@ public class ComputerPlayer : Object
 
     private static int compare_move (PossibleMove? a, PossibleMove? b)
     {
-        return b.n_tiles - a.n_tiles;
+        if (a == null || b == null)
+            assert_not_reached ();
+        return ((!) b).n_tiles - ((!) a).n_tiles;
     }
 
     /*\
@@ -372,16 +380,17 @@ public class ComputerPlayer : Object
 
     private static void random_select (Game g, out int move_x, out int move_y)
     {
-        List<int> moves = null;
+        List<int> moves = new List<int> ();
         for (var x = 0; x < g.size; x++)
             for (var y = 0; y < g.size; y++)
                 if (g.can_place (x, y, g.current_color))
                     moves.append (x * g.size + y);
 
-        if (moves == null)
+        int length = (int) moves.length ();
+        if (length == 0)
             assert_not_reached ();
 
-        var i = Random.int_range (0, (int) moves.length ());
+        var i = Random.int_range (0, length);
         var xy = moves.nth_data (i);
         move_x = xy / g.size;
         move_y = xy % g.size;

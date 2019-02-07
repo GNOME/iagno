@@ -359,14 +359,20 @@ public class Game : Object
         history_index--;
 
         /* if not pass */
-        if (undo_stack[history_index] != null)
+        int? undo_item = undo_stack [history_index];
+        if (undo_item != null)
         {
             /* last log entry is the placed tile, previous are flipped tiles */
-            unset_tile (undo_stack[history_index], Player.NONE);
-            while (history_index > -1 && undo_stack[history_index] != null)
+            unset_tile ((!) undo_item, Player.NONE);
+            undo_item = undo_stack [history_index];
+            while (history_index > -1 && undo_item != null)
             {
                 n_opponent_tiles++;
-                unset_tile (undo_stack[history_index], enemy);
+                unset_tile ((!) undo_item, enemy);
+                if (history_index > -1)
+                    undo_item = undo_stack [history_index];
+                else
+                    undo_item = null;
             }
         }
 

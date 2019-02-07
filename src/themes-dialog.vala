@@ -32,7 +32,13 @@ public class ThemesDialog : Dialog
 
     public ThemesDialog (GLib.Settings settings, GameView view)
     {
-        Object (use_header_bar: Gtk.Settings.get_default ().gtk_dialogs_use_header ? 1 : 0);
+        Gtk.Settings? gtk_settings = Gtk.Settings.get_default ();
+        int use_header_bar;
+        if (gtk_settings != null && !((!) gtk_settings).gtk_dialogs_use_header)
+            use_header_bar = 0;
+        else
+            use_header_bar = 1;
+        Object (use_header_bar: use_header_bar);
         this.view = view;
         delete_event.connect (do_not_close);
 
@@ -43,11 +49,11 @@ public class ThemesDialog : Dialog
             dir = Dir.open (Path.build_filename (DATA_DIRECTORY, "themes", "key"));
             while (true)
             {
-                string filename = dir.read_name ();
+                string? filename = dir.read_name ();
                 if (filename == null)
                     break;
 
-                string path = Path.build_filename (DATA_DIRECTORY, "themes", "key", filename);
+                string path = Path.build_filename (DATA_DIRECTORY, "themes", "key", (!) filename);
                 var key = new GLib.KeyFile ();
                 string name;
                 try
@@ -73,7 +79,7 @@ public class ThemesDialog : Dialog
                 var lbl = new Label (name);
                 lbl.visible = true;
                 lbl.xalign = 0;
-                var data = new Label (filename);
+                var data = new Label ((!) filename);
                 data.visible = false;
 
                 box.add (img);
@@ -82,14 +88,18 @@ public class ThemesDialog : Dialog
                 row.add (box);
                 listbox.add (row);
 
-                if (filename == settings.get_string ("theme"))
+                if ((!) filename == settings.get_string ("theme"))
                     listbox.select_row (row);
             }
             // FIXME bug on <ctrl>double-click
             listbox.row_selected.connect ((row) => {
-                    view.theme = ((Label) (((Box) row.get_child ()).get_children ().nth_data (2))).label;
+                    if (row == null)
+                        return; // assert_not_reached?
+
+                    string view_theme = ((Label) (((Box) ((!) row).get_child ()).get_children ().nth_data (2))).label;
+                    view.theme = view_theme;
                     // TODO BETTER view.theme may have fall back to "default"
-                    settings.set_string ("theme", view.theme);
+                    settings.set_string ("theme", view_theme);
                     queue_draw ();      // try to redraw because there’re sometimes bugs
                 });
         }

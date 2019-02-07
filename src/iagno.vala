@@ -45,6 +45,8 @@ public class Iagno : Gtk.Application
     private GameView view;
     private Label dark_score_label;
     private Label light_score_label;
+
+    private bool should_init_themes_dialog = true;
     private ThemesDialog themes_dialog;
 
     /* Computer player (if there is one) */
@@ -54,9 +56,10 @@ public class Iagno : Gtk.Application
     private Player player_one;
 
     /* The game being played */
-    private Game? game = null;
+    private Game game;
+    private bool game_is_set = false;
 
-    private const OptionEntry[] option_entries =
+    private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'iagno --help' */
         { "alternative-start", 0, 0, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
@@ -87,10 +90,10 @@ public class Iagno : Gtk.Application
 
         /* Translators: command-line option description, see 'iagno --help' */
         { "version", 'v', 0, OptionArg.NONE, null,                          N_("Print release version and exit"), null},
-        { null }
+        {}
     };
 
-    private const GLib.ActionEntry app_actions[] =
+    private const GLib.ActionEntry app_actions [] =
     {
         {"theme", theme_cb},
         {"help", help_cb},
@@ -98,7 +101,7 @@ public class Iagno : Gtk.Application
         {"quit", quit}
     };
 
-    public static int main (string[] args)
+    public static int main (string [] args)
     {
         Intl.setlocale (LocaleCategory.ALL, "");
         Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
@@ -158,28 +161,37 @@ public class Iagno : Gtk.Application
         settings = new GLib.Settings ("org.gnome.Reversi");
 
         if (sound != null)
-            settings.set_boolean ("sound", sound);
+            settings.set_boolean ("sound", (!) sound);
 
         bool start_now = (two_players == true) || (play_first != null);
         if (start_now)
             settings.set_int ("num-players", two_players ? 2 : 1);
 
         if (play_first != null)
-            settings.set_string ("color", play_first ? "dark" : "light");
+            settings.set_string ("color", ((!) play_first) ? "dark" : "light");
 
         // TODO start one-player game immediately, if two_players == false
-        if (level == "1" || level == "2" || level == "3")   // TODO add a localized text option?
-            settings.set_int ("computer-level", int.parse (level));
-        else if (level == "one")    /*  || level == "easy" */
-            settings.set_int ("computer-level", 1);
-        else if (level == "two")    /*  || level == "medium" */
-            settings.set_int ("computer-level", 2);
-        else if (level == "three")  /*  || level == "hard" */
-            settings.set_int ("computer-level", 3);
-        else if (level != null)
-            /* Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5' */
-            stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
-        //  stderr.printf ("%s\n", _("Level should be 1 (easy), 2 (medium) or 3 (hard). Settings unchanged."));     // TODO better?
+        if (level != null)
+        {
+            // TODO add a localized text option?
+            switch ((!) level)
+            {
+                case "1":
+                case "one":     settings.set_int ("computer-level", 1); break;  // TODO "easy"
+
+                case "2":
+                case "two":     settings.set_int ("computer-level", 2); break;  // TODO "medium"
+
+                case "3":
+                case "three":   settings.set_int ("computer-level", 3); break;  // TODO "hard"
+
+                default:
+                    /* Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5' */
+                    stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
+                //  stderr.printf ("%s\n", _("Level should be 1 (easy), 2 (medium) or 3 (hard). Settings unchanged.")); // TODO better?
+                    break;
+            }
+        }
 
         /* UI parts */
         Builder builder = new Builder.from_resource ("/org/gnome/Reversi/ui/iagno-screens.ui");
@@ -228,7 +240,7 @@ public class Iagno : Gtk.Application
 
         Box level_box = (Box) builder.get_object ("difficulty-box");
         Box color_box = (Box) builder.get_object ("color-box");
-        settings.changed["num-players"].connect (() => {
+        settings.changed ["num-players"].connect (() => {
             bool solo = settings.get_int ("num-players") == 1;
             level_box.sensitive = solo;
             color_box.sensitive = solo;
@@ -265,10 +277,11 @@ public class Iagno : Gtk.Application
     private void theme_cb ()
     {
         /* Don’t permit to open more than one dialog */
-        if (themes_dialog == null)
+        if (should_init_themes_dialog)
         {
             themes_dialog = new ThemesDialog (settings, view);
             themes_dialog.set_transient_for (window);
+            should_init_themes_dialog = false;
         }
         themes_dialog.present ();
     }
@@ -287,8 +300,8 @@ public class Iagno : Gtk.Application
 
     private void about_cb ()
     {
-        string[] authors = { "Ian Peters", "Robert Ancell", null };
-        string[] documenters = { "Tiffany Antopolski", null };
+        string [] authors = { "Ian Peters", "Robert Ancell" };
+        string [] documenters = { "Tiffany Antopolski" };
 
         show_about_dialog (window,
                            "name", PROGRAM_NAME,
@@ -315,9 +328,10 @@ public class Iagno : Gtk.Application
     \*/
 
     private void back_cb ()
+        requires (game_is_set)
     {
         if (game.current_color != player_one && computer != null && !game.is_complete)
-            computer.move_async.begin (SLOW_MOVE_DELAY);
+            ((!) computer).move_async.begin (SLOW_MOVE_DELAY);
         else if (game.is_complete)
             game_complete (false);
     }
@@ -325,18 +339,19 @@ public class Iagno : Gtk.Application
     private void wait_cb ()
     {
         if (computer != null)
-            computer.cancel_move ();
+            ((!) computer).cancel_move ();
     }
 
     private void start_game ()
     {
-        if (game != null)
+        if (game_is_set)
             SignalHandler.disconnect_by_func (game, null, this);
 
         if (computer != null)
-            computer.cancel_move ();
+            ((!) computer).cancel_move ();
 
         game = new Game (alternative_start, size);
+        game_is_set = true;
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
 
@@ -353,10 +368,11 @@ public class Iagno : Gtk.Application
         update_ui ();
 
         if (player_one != Player.DARK && computer != null)
-            computer.move_async.begin (MODERATE_MOVE_DELAY);     // TODO MODERATE_MOVE_DELAY = 1.0, but after the sliding animation…
+            ((!) computer).move_async.begin (MODERATE_MOVE_DELAY);     // TODO MODERATE_MOVE_DELAY = 1.0, but after the sliding animation…
     }
 
     private void update_ui ()
+        requires (game_is_set)
     {
         window.set_subtitle (null);
 
@@ -371,6 +387,7 @@ public class Iagno : Gtk.Application
     }
 
     private void undo_cb ()
+        requires (game_is_set)
     {
         if (computer == null)
         {
@@ -380,7 +397,7 @@ public class Iagno : Gtk.Application
         }
         else
         {
-            computer.cancel_move ();
+            ((!) computer).cancel_move ();
 
             /* Undo once if the human player just moved, otherwise undo both moves */
             if (game.current_color != player_one)
@@ -399,6 +416,7 @@ public class Iagno : Gtk.Application
     }
 
     private void turn_ended_cb ()
+        requires (game_is_set)
     {
         update_ui ();
         if (game.current_player_can_move)
@@ -410,6 +428,7 @@ public class Iagno : Gtk.Application
     }
 
     private void prepare_move ()
+        requires (game_is_set)
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
@@ -421,10 +440,11 @@ public class Iagno : Gtk.Application
          * but not so long as to become boring.
          */
         if (game.current_color != player_one && computer != null)
-            computer.move_async.begin (fast_mode ? QUICK_MOVE_DELAY : SLOW_MOVE_DELAY);
+            ((!) computer).move_async.begin (fast_mode ? QUICK_MOVE_DELAY : SLOW_MOVE_DELAY);
     }
 
     private void pass ()
+        requires (game_is_set)
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
@@ -444,6 +464,7 @@ public class Iagno : Gtk.Application
     }
 
     private void game_complete (bool play_gameover_sound = true)
+        requires (game_is_set)
     {
         window.finish_game ();
 
@@ -468,6 +489,7 @@ public class Iagno : Gtk.Application
     }
 
     private void player_move_cb (int x, int y)
+        requires (game_is_set)
     {
         /* Ignore if we are waiting for the AI to move or if game is finished */
         if ((game.current_color != player_one && computer != null) || !game.current_player_can_move)
@@ -512,6 +534,9 @@ public class Iagno : Gtk.Application
                                              Canberra.PROP_MEDIA_NAME, name,
                                              Canberra.PROP_MEDIA_FILENAME, path);
         if (r != 0)
-            warning ("Error playing %s: %s", path, Canberra.strerror (r));
+        {
+            string? error = Canberra.strerror (r);
+            warning ("Error playing %s: %s", path, error ?? "unknown error");
+        }
     }
 }
