@@ -177,13 +177,16 @@ public class Iagno : Gtk.Application
             switch ((!) level)
             {
                 case "1":
-                case "one":     settings.set_int ("computer-level", 1); break;  // TODO "easy"
+                case "easy":
+                case "one":     settings.set_int ("computer-level", 1); break;
 
                 case "2":
-                case "two":     settings.set_int ("computer-level", 2); break;  // TODO "medium"
+                case "medium":
+                case "two":     settings.set_int ("computer-level", 2); break;
 
                 case "3":
-                case "three":   settings.set_int ("computer-level", 3); break;  // TODO "hard"
+                case "hard":
+                case "three":   settings.set_int ("computer-level", 3); break;
 
                 default:
                     /* Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5' */
