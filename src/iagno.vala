@@ -160,40 +160,45 @@ public class Iagno : Gtk.Application
         /* Settings */
         settings = new GLib.Settings ("org.gnome.Reversi");
 
-        if (sound != null)
-            settings.set_boolean ("sound", (!) sound);
-
         bool start_now = (two_players == true) || (play_first != null);
-        if (start_now)
-            settings.set_int ("num-players", two_players ? 2 : 1);
-
-        if (play_first != null)
-            settings.set_string ("color", ((!) play_first) ? "dark" : "light");
-
-        // TODO start one-player game immediately, if two_players == false
-        if (level != null)
+        if ((sound != null) || start_now || (level != null))
         {
-            // TODO add a localized text option?
-            switch ((!) level)
+            settings.delay ();
+            if (sound != null)
+                settings.set_boolean ("sound", (!) sound);
+
+            if (start_now)
+                settings.set_int ("num-players", two_players ? 2 : 1);
+
+            if (play_first != null)
+                settings.set_string ("color", ((!) play_first) ? "dark" : "light");
+
+            // TODO start one-player game immediately, if two_players == false
+            if (level != null)
             {
-                case "1":
-                case "easy":
-                case "one":     settings.set_int ("computer-level", 1); break;
+                // TODO add a localized text option?
+                switch ((!) level)
+                {
+                    case "1":
+                    case "easy":
+                    case "one":     settings.set_int ("computer-level", 1); break;
 
-                case "2":
-                case "medium":
-                case "two":     settings.set_int ("computer-level", 2); break;
+                    case "2":
+                    case "medium":
+                    case "two":     settings.set_int ("computer-level", 2); break;
 
-                case "3":
-                case "hard":
-                case "three":   settings.set_int ("computer-level", 3); break;
+                    case "3":
+                    case "hard":
+                    case "three":   settings.set_int ("computer-level", 3); break;
 
-                default:
-                    /* Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5' */
-                    stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
-                //  stderr.printf ("%s\n", _("Level should be 1 (easy), 2 (medium) or 3 (hard). Settings unchanged.")); // TODO better?
-                    break;
+                    default:
+                        /* Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5' */
+                        stderr.printf ("%s\n", _("Level should be between 1 (easy) and 3 (hard). Settings unchanged."));
+                    //  stderr.printf ("%s\n", _("Level should be 1 (easy), 2 (medium) or 3 (hard). Settings unchanged.")); // TODO better?
+                        break;
+                }
             }
+            settings.apply ();
         }
 
         /* UI parts */
