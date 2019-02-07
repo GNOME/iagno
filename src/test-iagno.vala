@@ -18,7 +18,7 @@
  * along with Iagno. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class TestIagno : Object
+private class TestIagno : Object
 {
     private static void test_undo_after_pass ()
     {
@@ -157,7 +157,7 @@ public class TestIagno : Object
         /* didn't crash */
     }
 
-    public static int main (string[] args) {
+    private static int main (string[] args) {
         Test.init (ref args);
         Test.add_func ("/Iagno/Pass then Undo", test_undo_after_pass);
         Test.add_func ("/Iagno/Undo at Start", test_undo_at_start);

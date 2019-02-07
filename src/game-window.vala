@@ -21,7 +21,7 @@
 using Gtk;
 
 [Flags]
-public enum GameWindowFlags {
+private enum GameWindowFlags {
     SHOW_UNDO,
     SHOW_REDO,
     SHOW_HINT,
@@ -29,7 +29,7 @@ public enum GameWindowFlags {
 }
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-window.ui")]
-public class GameWindow : ApplicationWindow
+private class GameWindow : ApplicationWindow
 {
     /* settings */
     private bool tiled_state;
@@ -63,13 +63,13 @@ public class GameWindow : ApplicationWindow
     private Widget view;
 
     /* signals */
-    public signal void play ();
-    public signal void wait ();
-    public signal void back ();
+    internal signal void play ();
+    internal signal void wait ();
+    internal signal void back ();
 
-    public signal void undo ();
-    public signal void redo ();
-    public signal void hint ();
+    internal signal void undo ();
+    internal signal void redo ();
+    internal signal void hint ();
 
     /* actions */
     private const GLib.ActionEntry win_actions[] =
@@ -87,10 +87,10 @@ public class GameWindow : ApplicationWindow
 
     private SimpleAction back_action;
 
-    public SimpleAction undo_action;
-    public SimpleAction redo_action;
+    internal SimpleAction undo_action;
+    internal SimpleAction redo_action;
 
-    public GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view)
+    internal GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view)
     {
         if (css_resource != null)
         {
@@ -216,7 +216,7 @@ public class GameWindow : ApplicationWindow
         return false;
     }
 
-    public void shutdown (GLib.Settings settings)
+    internal void shutdown (GLib.Settings settings)
     {
         settings.delay ();
         settings.set_int ("window-width", window_width);
@@ -227,32 +227,32 @@ public class GameWindow : ApplicationWindow
     }
 
     /*\
-    * * Some public calls
+    * * Some internal calls
     \*/
 
-    public void add_to_sidebox (Widget widget)
+    internal void add_to_sidebox (Widget widget)
     {
         side_box.pack_start (widget, false, false, 0);
     }
 
-    public void cannot_undo_more ()
+    internal void cannot_undo_more ()
     {
         undo_action.set_enabled (false);
         view.grab_focus ();
     }
 
-    public void set_subtitle (string? subtitle)
+    internal void set_subtitle (string? subtitle)
     {
         headerbar.set_subtitle (subtitle);
     }
 
-    public void finish_game ()
+    internal void finish_game ()
     {
         game_finished = true;
         new_game_button.grab_focus ();
     }
 
-    /* public void about ()
+    /* internal void about ()
     {
         TODO
     } */

@@ -18,13 +18,13 @@
  * along with Iagno. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public enum Player
+private enum Player
 {
     NONE,
     DARK,
     LIGHT;
 
-    public string to_string ()
+    internal string to_string ()
     {
         switch (this)
         {
@@ -38,7 +38,7 @@ public enum Player
         }
     }
 
-    public static Player from_char (char c)
+    internal static Player from_char (char c)
         requires (c == 'L' || c == 'D' || c == '.')
     {
         switch (c)
@@ -55,7 +55,7 @@ public enum Player
         }
     }
 
-    public static Player flip_color (Player p)
+    internal static Player flip_color (Player p)
         requires (p != Player.NONE)
     {
         return p == Player.LIGHT ? Player.DARK : Player.LIGHT;

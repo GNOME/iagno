@@ -21,7 +21,7 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/themes.ui")]
-public class ThemesDialog : Dialog
+private class ThemesDialog : Dialog
 {
     private const string PREFIX = "theme-";
 
@@ -30,7 +30,7 @@ public class ThemesDialog : Dialog
     [GtkChild]
     private ListBox listbox;
 
-    public ThemesDialog (GLib.Settings settings, GameView view)
+    internal ThemesDialog (GLib.Settings settings, GameView view)
     {
         Gtk.Settings? gtk_settings = Gtk.Settings.get_default ();
         int use_header_bar;

@@ -20,7 +20,7 @@
 
 using Gtk;
 
-public class Iagno : Gtk.Application
+private class Iagno : Gtk.Application
 {
     /* Translators: application name, as used in the window manager, the window title, the about dialog... */
     internal const string PROGRAM_NAME = _("Iagno");
@@ -101,7 +101,7 @@ public class Iagno : Gtk.Application
         {"quit", quit}
     };
 
-    public static int main (string [] args)
+    private static int main (string [] args)
     {
         Intl.setlocale (LocaleCategory.ALL, "");
         Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);

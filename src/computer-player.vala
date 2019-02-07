@@ -18,7 +18,7 @@
  * along with Iagno. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class ComputerPlayer : Object
+private class ComputerPlayer : Object
 {
     private struct PossibleMove
     {
@@ -26,7 +26,7 @@ public class ComputerPlayer : Object
         public int y;
         public int n_tiles;
 
-        public PossibleMove (int x, int y, int n_tiles)
+        private PossibleMove (int x, int y, int n_tiles)
         {
             this.x = x;
             this.y = y;
@@ -82,7 +82,7 @@ public class ComputerPlayer : Object
         }
     }
 
-    public ComputerPlayer (Game game, int difficulty_level = 1)
+    internal ComputerPlayer (Game game, int difficulty_level = 1)
     {
         this.game = game;
         this.difficulty_level = difficulty_level;
@@ -98,7 +98,7 @@ public class ComputerPlayer : Object
     }
 
     /* For tests only. */
-    public void move ()
+    internal void move ()
     {
         int x = 0;
         int y = 0;
@@ -107,7 +107,7 @@ public class ComputerPlayer : Object
         complete_move (x, y);
     }
 
-    public async void move_async (double delay_seconds = 0.0)
+    internal async void move_async (double delay_seconds = 0.0)
     {
         var timer = new Timer ();
         int x = 0;
@@ -151,7 +151,7 @@ public class ComputerPlayer : Object
         });
     }
 
-    public void cancel_move ()
+    internal void cancel_move ()
     {
         if (!move_pending)
             return;

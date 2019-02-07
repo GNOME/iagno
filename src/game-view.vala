@@ -18,12 +18,12 @@
  * along with Iagno. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class GameView : Gtk.DrawingArea
+private class GameView : Gtk.DrawingArea
 {
     private Gtk.DrawingArea _scoreboard;
-    [CCode (notify = false)] public Gtk.DrawingArea scoreboard {
+    [CCode (notify = false)] internal Gtk.DrawingArea scoreboard {
         private get { return _scoreboard; }
-        set
+        internal set
         {
             _scoreboard = value;
             _scoreboard.draw.connect (draw_scoreboard);
@@ -60,15 +60,15 @@ public class GameView : Gtk.DrawingArea
 
     // private int margin_width = 0;
 
-    [CCode (notify = false)] public string sound_flip     { get; private set; }
-    [CCode (notify = false)] public string sound_gameover { get; private set; }
+    [CCode (notify = false)] internal string sound_flip     { internal get; private set; }
+    [CCode (notify = false)] internal string sound_gameover { internal get; private set; }
 
     /* Utilities, see calculate () */
     private int paving_size;
     private int tile_size;
     private int board_size;
-    [CCode (notify = false)] private int board_x { get { return (get_allocated_width () - board_size) / 2; }}
-    [CCode (notify = false)] private int board_y { get { return (get_allocated_height () - board_size) / 2; }}
+    [CCode (notify = false)] private int board_x { private get { return (get_allocated_width () - board_size) / 2; }}
+    [CCode (notify = false)] private int board_y { private get { return (get_allocated_height () - board_size) / 2; }}
 
     /* Keyboard */
     private bool show_highlight;
@@ -94,14 +94,14 @@ public class GameView : Gtk.DrawingArea
     // private double cursor = 0;
     private int current_player_number = 0;
 
-    public signal void move (int x, int y);
+    internal signal void move (int x, int y);
 
     /* Used for a delay between the last move and flipping the pieces */
     private bool flip_final_result_now = false;
 
     private bool game_is_set = false;
     private Game _game;
-    [CCode (notify = false)] public Game game
+    [CCode (notify = false)] internal Game game
     {
         get
         {
@@ -135,7 +135,7 @@ public class GameView : Gtk.DrawingArea
     }
 
     private string? _theme = null;
-    [CCode (notify = false)] public string? theme
+    [CCode (notify = false)] internal string? theme
     {
         get { return _theme; }
         set {
@@ -235,7 +235,7 @@ public class GameView : Gtk.DrawingArea
         }
     }
 
-    public GameView ()
+    internal GameView ()
     {
         set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK);
         set_size_request (350, 350);
@@ -251,7 +251,7 @@ public class GameView : Gtk.DrawingArea
         board_size = paving_size * game.size - spacing_width;
     }
 
-    public override bool draw (Cairo.Context cr)
+    internal override bool draw (Cairo.Context cr)
     {
         if (!game_is_set)
             return false;
@@ -502,7 +502,7 @@ public class GameView : Gtk.DrawingArea
         }
     }
 
-    public override bool button_press_event (Gdk.EventButton event)
+    internal override bool button_press_event (Gdk.EventButton event)
     {
         if (!game_is_set)
             return false;
@@ -524,7 +524,7 @@ public class GameView : Gtk.DrawingArea
         return true;
     }
 
-    public override bool key_press_event (Gdk.EventKey event)
+    internal override bool key_press_event (Gdk.EventKey event)
     {
         if (!game_is_set)
             return false;
@@ -695,7 +695,7 @@ public class GameView : Gtk.DrawingArea
         return true;
     }
 
-    public void update_scoreboard ()
+    internal void update_scoreboard ()
         requires (game_is_set)
     {
         current_player_number = (game.current_color == Player.DARK) ? 0 : 1;

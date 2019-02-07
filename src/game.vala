@@ -18,15 +18,15 @@
  * along with Iagno. If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Game : Object
+private class Game : Object
 {
     /* Tiles on the board */
     private Player[,] tiles;
 
     private int _size;
-    [CCode (notify = false)] public int size
+    [CCode (notify = false)] internal int size
     {
-        get { return _size; }
+        internal get { return _size; }
         private set { _size = value; }
     }
 
@@ -36,44 +36,44 @@ public class Game : Object
 
     /* Color to move next; Dark always plays first;
      * should be dark if number_of_moves % 2 == 0 */
-    [CCode (notify = false)] public Player current_color { get; private set; default = Player.DARK; }
-    [CCode (notify = false)] public int number_of_moves { get; private set; default = 0; }
+    [CCode (notify = false)] internal Player current_color { internal get; private set; default = Player.DARK; }
+    [CCode (notify = false)] internal int number_of_moves { internal get; private set; default = 0; }
 
     /* Indicate who's the next player who can move */
-    [CCode (notify = false)] public bool current_player_can_move { get; private set; default = true; }
+    [CCode (notify = false)] internal bool current_player_can_move { internal get; private set; default = true; }
     // there's a race for the final "counter" turn, and looks like notifying here helps, not sure why // TODO fix the race
-    [CCode (notify = true)] public bool is_complete { get; private set; default = false; }
+    [CCode (notify = true)] internal bool is_complete { internal get; private set; default = false; }
 
     /* Indicate that a player should move */
-    public signal void turn_ended ();
+    internal signal void turn_ended ();
     /* Indicate a square has changed */
-    public signal void square_changed (int x, int y, Player new_color);
+    internal signal void square_changed (int x, int y, Player new_color);
 
     /*\
     * * Number of tiles on the board
     \*/
 
-    [CCode (notify = false)] public int initial_number_of_tiles { get; private set; }
-    [CCode (notify = false)] public int n_tiles
+    [CCode (notify = false)] internal int initial_number_of_tiles { internal get; private set; }
+    [CCode (notify = false)] internal int n_tiles
     {
-        get { return n_dark_tiles + n_light_tiles; }
+        internal get { return n_dark_tiles + n_light_tiles; }
     }
 
     private int _n_light_tiles = 2;
-    [CCode (notify = false)] public int n_light_tiles
+    [CCode (notify = false)] internal int n_light_tiles
     {
-        get { return _n_light_tiles; }
+        internal get { return _n_light_tiles; }
     }
 
     private int _n_dark_tiles = 2;
-    [CCode (notify = false)] public int n_dark_tiles
+    [CCode (notify = false)] internal int n_dark_tiles
     {
-        get { return _n_dark_tiles; }
+        internal get { return _n_dark_tiles; }
     }
 
-    [CCode (notify = false)] public int n_current_tiles
+    [CCode (notify = false)] internal int n_current_tiles
     {
-        get { return current_color == Player.LIGHT ? n_light_tiles : n_dark_tiles; }
+        internal get { return current_color == Player.LIGHT ? n_light_tiles : n_dark_tiles; }
         private set {
             if (current_color == Player.LIGHT)
                 _n_light_tiles = value;
@@ -82,9 +82,9 @@ public class Game : Object
         }
     }
 
-    [CCode (notify = false)] public int n_opponent_tiles
+    [CCode (notify = false)] internal int n_opponent_tiles
     {
-        get { return current_color == Player.DARK ? n_light_tiles : n_dark_tiles; }
+        internal get { return current_color == Player.DARK ? n_light_tiles : n_dark_tiles; }
         private set {
             if (current_color == Player.DARK)
                 _n_light_tiles = value;
@@ -97,7 +97,7 @@ public class Game : Object
     * * Creation / exporting
     \*/
 
-    public Game (bool alternative_start = false, int tmp_size = 8)
+    internal Game (bool alternative_start = false, int tmp_size = 8)
         requires (tmp_size >= 4)
     {
         size = tmp_size;
@@ -138,7 +138,7 @@ public class Game : Object
         }
     }
 
-    public Game.from_strings (string[] setup, Player to_move, int tmp_size = 8)
+    internal Game.from_strings (string [] setup, Player to_move, int tmp_size = 8)
         requires (setup.length == tmp_size)
     {
         size = tmp_size;
@@ -158,7 +158,7 @@ public class Game : Object
         warn_if_fail (string.joinv ("\n", setup).strip () == to_string ().strip ());
     }
 
-    public string to_string ()
+    internal string to_string ()
     {
         string s = "\n";
 
@@ -172,7 +172,7 @@ public class Game : Object
         return s;
     }
 
-    public Game.copy (Game game)
+    internal Game.copy (Game game)
     {
         size = game.size;
         tiles = new Player[size, size];
@@ -191,18 +191,18 @@ public class Game : Object
     * * Public information
     \*/
 
-    public bool is_valid_location (int x, int y)
+    internal bool is_valid_location (int x, int y)
     {
         return x >= 0 && x < size && y >= 0 && y < size;
     }
 
-    public Player get_owner (int x, int y)
+    internal Player get_owner (int x, int y)
         requires (is_valid_location (x, y))
     {
         return tiles[x, y];
     }
 
-    public bool can_place (int x, int y, Player color)
+    internal bool can_place (int x, int y, Player color)
         requires (is_valid_location (x, y))
         requires (color != Player.NONE)
     {
@@ -224,7 +224,7 @@ public class Game : Object
     * * Actions (apart undo)
     \*/
 
-    public int place_tile (int x, int y, bool apply = true)
+    internal int place_tile (int x, int y, bool apply = true)
         requires (is_valid_location (x, y))
     {
         if (tiles[x, y] != Player.NONE)
@@ -252,7 +252,7 @@ public class Game : Object
         return tiles_turned;
     }
 
-    public void pass ()
+    internal void pass ()
         requires (!current_player_can_move)
     {
         end_of_turn ();
@@ -347,7 +347,7 @@ public class Game : Object
     * * Undo
     \*/
 
-    public void undo (int count = 1)
+    internal void undo (int count = 1)
         requires (count == 1 || count == 2)
         requires (number_of_moves >= count)
         requires (history_index < undo_stack.length)
