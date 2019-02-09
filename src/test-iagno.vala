@@ -20,73 +20,105 @@
 
 private class TestIagno : Object
 {
+    private static int main (string [] args) {
+        Test.init (ref args);
+        Test.add_func ("/Iagno/test tests",
+                            test_tests);
+        Test.add_func ("/Iagno/Pass then Undo",
+                            test_undo_after_pass);
+        Test.add_func ("/Iagno/Undo at Start",
+                            test_undo_at_start);
+        Test.add_func ("/Iagno/Current Color after Pass",
+                            test_current_color_after_pass);
+        Test.add_func ("/Iagno/AI Search 1",
+                            test_ai_search_1);
+        Test.add_func ("/Iagno/AI Search 2",
+                            test_ai_search_2);
+        Test.add_func ("/Iagno/AI Search 3",
+                            test_ai_search_3);
+        Test.add_func ("/Iagno/AI Search 4",
+                            test_ai_search_4);
+        Test.add_func ("/Iagno/AI Search 5",
+                            test_ai_search_5);
+        return Test.run ();
+    }
+
+    private static void test_tests ()
+    {
+        assert_true (1 + 1 == 2);
+    }
+
+    /*\
+    * * tests
+    \*/
+
     private static void test_undo_after_pass ()
     {
-        string[] board = {" . . . . L L L L",
-                          " . . . L L L L D",
-                          " . . L L L L D .",
-                          " . . L L L D L L",
-                          " . L L L D L L L",
-                          " . L L D D L L L",
-                          " L L L L L L L L",
-                          " L L L L L L L L"};
+        string [] board = { " . . . . L L L L",
+                            " . . . L L L L D",
+                            " . . L L L L D .",
+                            " . . L L L D L L",
+                            " . L L L D L L L",
+                            " . L L D D L L L",
+                            " L L L L L L L L",
+                            " L L L L L L L L" };
         Game game = new Game.from_strings (board, Player.DARK);
-        assert (game.number_of_moves == 0);
-        assert (game.place_tile (7, 2) > 0);
-        assert (game.number_of_moves == 1);
-        assert (!game.current_player_can_move);
+        assert_true (game.number_of_moves == 0);
+        assert_true (game.place_tile (7, 2) > 0);
+        assert_true (game.number_of_moves == 1);
+        assert_true (!game.current_player_can_move);
         game.pass ();
-        assert (game.number_of_moves == 2);
+        assert_true (game.number_of_moves == 2);
         game.undo (2);
-        assert (game.number_of_moves == 0);
-        assert (game.to_string ().strip () == string.joinv ("\n", board).strip ());
-        assert (game.place_tile (7, 2) > 0);
-        assert (game.number_of_moves == 1);
-        assert (!game.current_player_can_move);
+        assert_true (game.number_of_moves == 0);
+        assert_true (game.to_string ().strip () == string.joinv ("\n", board).strip ());
+        assert_true (game.place_tile (7, 2) > 0);
+        assert_true (game.number_of_moves == 1);
+        assert_true (!game.current_player_can_move);
         game.undo (1);
-        assert (game.number_of_moves == 0);
-        assert (game.to_string ().strip () == string.joinv ("\n", board).strip ());
+        assert_true (game.number_of_moves == 0);
+        assert_true (game.to_string ().strip () == string.joinv ("\n", board).strip ());
     }
 
     private static void test_undo_at_start ()
     {
         Game game = new Game ();
-        assert (game.number_of_moves == 0);
+        assert_true (game.number_of_moves == 0);
         game.place_tile (2, 3);
-        assert (game.number_of_moves == 1);
+        assert_true (game.number_of_moves == 1);
         game.place_tile (2, 2);
-        assert (game.number_of_moves == 2);
+        assert_true (game.number_of_moves == 2);
     }
 
     private static void test_current_color_after_pass ()
     {
-        string[] board = {" L . L L L L L L",
-                          " L L L L L L L L",
-                          " L . L L L L L L",
-                          " L D L L L L L L",
-                          " L D D L D L L L",
-                          " L D L D L L L L",
-                          " D D D D D L L L",
-                          " D D D D D D D D"};
+        string [] board = { " L . L L L L L L",
+                            " L L L L L L L L",
+                            " L . L L L L L L",
+                            " L D L L L L L L",
+                            " L D D L D L L L",
+                            " L D L D L L L L",
+                            " D D D D D L L L",
+                            " D D D D D D D D" };
         Game game = new Game.from_strings (board, Player.DARK);
-        assert (game.current_color == Player.DARK);
-        assert (game.place_tile (1, 2) > 0);
-        assert (game.current_color == Player.LIGHT);
-        assert (!game.current_player_can_move);
+        assert_true (game.current_color == Player.DARK);
+        assert_true (game.place_tile (1, 2) > 0);
+        assert_true (game.current_color == Player.LIGHT);
+        assert_true (!game.current_player_can_move);
         game.pass ();
-        assert (game.current_color == Player.DARK);
+        assert_true (game.current_color == Player.DARK);
     }
 
     private static void test_ai_search_1 ()
     {
-        string[] board = {" L . . L L L L L",
-                          " L L D D D D D D",
-                          " D D D D D L D D",
-                          " L D L L L L L L",
-                          " L L D L D D L L",
-                          " L L D D L L L L",
-                          " L L L L L L L L",
-                          " L L L L L L L L"};
+        string [] board = { " L . . L L L L L",
+                            " L L D D D D D D",
+                            " D D D D D L D D",
+                            " L D L L L L L L",
+                            " L L D L D D L L",
+                            " L L D D L L L L",
+                            " L L L L L L L L",
+                            " L L L L L L L L" };
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
@@ -95,14 +127,14 @@ private class TestIagno : Object
 
     private static void test_ai_search_2 ()
     {
-        string[] board = {" . . . . . . . .",
-                          " . . . . . . . .",
-                          " . . . D . . . .",
-                          " . . . D D . . .",
-                          " . . . D L L . .",
-                          " . . D D D . . .",
-                          " . . . D . . . .",
-                          " . . D . . . . ."};
+        string [] board = { " . . . . . . . .",
+                            " . . . . . . . .",
+                            " . . . D . . . .",
+                            " . . . D D . . .",
+                            " . . . D L L . .",
+                            " . . D D D . . .",
+                            " . . . D . . . .",
+                            " . . D . . . . ." };
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
@@ -111,62 +143,49 @@ private class TestIagno : Object
 
     private static void test_ai_search_3 ()
     {
-        string[] board = {" D L . D D D D D",
-                          " D L D D D D D D",
-                          " D D L D L D D D",
-                          " D L D D L D D D",
-                          " D D L D L L L D",
-                          " D L D D L D L D",
-                          " L L L L L D D D",
-                          " D D D D D D D D"};
+        string [] board = { " D L . D D D D D",
+                            " D L D D D D D D",
+                            " D D L D L D D D",
+                            " D L D D L D D D",
+                            " D D L D L L L D",
+                            " D L D D L D L D",
+                            " L L L L L D D D",
+                            " D D D D D D D D" };
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
-        assert (game.get_owner (2, 0) == Player.LIGHT);
+        assert_true (game.get_owner (2, 0) == Player.LIGHT);
     }
 
     private static void test_ai_search_4 ()
     {
-        string[] board = {" . . L D D D D D",
-                          " D L D L D L D D",
-                          " D D D L L D L D",
-                          " D D L L D L D D",
-                          " D L L L D D D D",
-                          " D L D L D L D D",
-                          " D D D L L D D D",
-                          " D D D L D D D D"};
+        string [] board = { " . . L D D D D D",
+                            " D L D L D L D D",
+                            " D D D L L D L D",
+                            " D D L L D L D D",
+                            " D L L L D D D D",
+                            " D L D L D L D D",
+                            " D D D L L D D D",
+                            " D D D L D D D D" };
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
-        assert (game.get_owner (1, 0) == Player.LIGHT);
+        assert_true (game.get_owner (1, 0) == Player.LIGHT);
     }
 
     private static void test_ai_search_5 ()
     {
-        string[] board = {" . . . . . L . .",
-                          " . . . . L L . .",
-                          " . . L L L L . .",
-                          " . . L L L L . .",
-                          " . D D D L L L L",
-                          " . L . D L L L L",
-                          " . L L L D L L L",
-                          " . . L L L L L L"};
+        string [] board = { " . . . . . L . .",
+                            " . . . . L L . .",
+                            " . . L L L L . .",
+                            " . . L L L L . .",
+                            " . D D D L L L L",
+                            " . L . D L L L L",
+                            " . L L L D L L L",
+                            " . . L L L L L L" };
         Game game = new Game.from_strings (board, Player.LIGHT);
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
         /* didn't crash */
-    }
-
-    private static int main (string[] args) {
-        Test.init (ref args);
-        Test.add_func ("/Iagno/Pass then Undo", test_undo_after_pass);
-        Test.add_func ("/Iagno/Undo at Start", test_undo_at_start);
-        Test.add_func ("/Iagno/Current Color after Pass", test_current_color_after_pass);
-        Test.add_func ("/Iagno/AI Search 1", test_ai_search_1);
-        Test.add_func ("/Iagno/AI Search 2", test_ai_search_2);
-        Test.add_func ("/Iagno/AI Search 3", test_ai_search_3);
-        Test.add_func ("/Iagno/AI Search 4", test_ai_search_4);
-        Test.add_func ("/Iagno/AI Search 5", test_ai_search_5);
-        return Test.run ();
     }
 }
