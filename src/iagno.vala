@@ -341,7 +341,7 @@ private class Iagno : Gtk.Application
         if (game.current_color != player_one && computer != null && !game.is_complete)
             ((!) computer).move_async.begin (SLOW_MOVE_DELAY);
         else if (game.is_complete)
-            game_complete (false);
+            game_complete (/* play sound */ false);
     }
 
     private void wait_cb ()
@@ -430,7 +430,7 @@ private class Iagno : Gtk.Application
         if (game.current_player_can_move)
             prepare_move ();
         else if (game.is_complete)
-            game_complete ();
+            game_complete (/* play sound */ true);
         else
             pass ();
     }
@@ -471,7 +471,7 @@ private class Iagno : Gtk.Application
         }
     }
 
-    private void game_complete (bool play_gameover_sound = true)
+    private void game_complete (bool play_gameover_sound)
         requires (game_is_set)
     {
         window.finish_game ();
@@ -522,9 +522,12 @@ private class Iagno : Gtk.Application
 
     private void play_sound (Sound sound)
     {
-        if (!settings.get_boolean ("sound"))
-            return;
+        if (settings.get_boolean ("sound"))
+            _play_sound (sound, ref view);
+    }
 
+    private static void _play_sound (Sound sound, ref GameView view)
+    {
         string name;
         switch (sound)
         {

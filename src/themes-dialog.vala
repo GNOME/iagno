@@ -27,8 +27,7 @@ private class ThemesDialog : Dialog
 
     private GameView view;
 
-    [GtkChild]
-    private ListBox listbox;
+    [GtkChild] private ListBox listbox;
 
     internal ThemesDialog (GLib.Settings settings, GameView view)
     {

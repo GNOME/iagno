@@ -40,25 +40,17 @@ private class GameWindow : ApplicationWindow
     private bool game_finished = false;
 
     /* private widgets */
-    [GtkChild]
-    private HeaderBar headerbar;
-    [GtkChild]
-    private Stack stack;
+    [GtkChild] private HeaderBar headerbar;
+    [GtkChild] private Stack stack;
 
     private Button? start_game_button = null;
-    [GtkChild]
-    private Button new_game_button;
-    [GtkChild]
-    private Button back_button;
+    [GtkChild] private Button new_game_button;
+    [GtkChild] private Button back_button;
 
-    [GtkChild]
-    private Box controls_box;
-    [GtkChild]
-    private Box game_box;
-    [GtkChild]
-    private Box new_game_box;
-    [GtkChild]
-    private Box side_box;
+    [GtkChild] private Box controls_box;
+    [GtkChild] private Box game_box;
+    [GtkChild] private Box new_game_box;
+    [GtkChild] private Box side_box;
 
     private Widget view;
 
