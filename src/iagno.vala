@@ -431,6 +431,7 @@ private class Iagno : Gtk.Application
             prepare_move ();
         else if (game.is_complete)
             game_complete (/* play sound */ true);
+            // view is updated by connecting to game.notify ["is-complete"]
         else
             pass ();
     }

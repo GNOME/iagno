@@ -41,13 +41,12 @@ private class Game : Object
 
     /* Indicate who's the next player who can move */
     [CCode (notify = false)] internal bool current_player_can_move { internal get; private set; default = true; }
-    // there's a race for the final "counter" turn, and looks like notifying here helps, not sure why // TODO fix the race
     [CCode (notify = true)] internal bool is_complete { internal get; private set; default = false; }
 
     /* Indicate that a player should move */
     internal signal void turn_ended ();
     /* Indicate a square has changed */
-    internal signal void square_changed (int x, int y, Player new_color);
+    internal signal void square_changed (int x, int y, Player new_color, bool undoing);
 
     /*\
     * * Number of tiles on the board
@@ -340,7 +339,7 @@ private class Game : Object
         history_index++;
         undo_stack[history_index] = x + y * size;
         tiles[x, y] = current_color;
-        square_changed (x, y, current_color);
+        square_changed (x, y, current_color, /* undoing */ false);
     }
 
     /*\
@@ -395,6 +394,6 @@ private class Game : Object
         var x = tile_number % size;
         var y = tile_number / size;
         tiles [x, y] = replacement_color;
-        square_changed (x, y, replacement_color);
+        square_changed (x, y, replacement_color, /* undoing */ true);
     }
 }

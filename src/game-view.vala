@@ -123,6 +123,7 @@ private class GameView : Gtk.DrawingArea
             for (int x = 0; x < _game.size; x++)
                 for (int y = 0; y < _game.size; y++)
                     pixmaps[x, y] = get_pixmap (_game.get_owner (x, y));
+            _game.notify ["is-complete"].connect (game_is_complete_cb);
             _game.square_changed.connect (square_changed_cb);
 
             show_highlight = false;
@@ -384,23 +385,44 @@ private class GameView : Gtk.DrawingArea
         }
     }
 
-    private void square_changed_cb (int x, int y, Player replacement)
+    private void game_is_complete_cb ()
+    {
+        if (!game.is_complete)
+            return;
+
+        if (game.n_light_tiles == 0 || game.n_dark_tiles == 0)  // complete win
+            return;
+
+        /*
+         * Show the actual final positions of the pieces before flipping the board.
+         * Otherwise, it could seem like the final player placed the other's piece.
+         */
+        Timeout.add_seconds (2, () =>  {
+            flip_final_result_now = true;
+            for (int x = 0; x < game.size; x++)
+                for (int y = 0; y < game.size; y++)
+                    update_square (x, y);
+            return Source.REMOVE;
+        });
+    }
+
+    private void square_changed_cb (int x, int y, Player replacement, bool undoing)
     {
         if (replacement == Player.NONE)
         {
             highlight_x = x;
             highlight_y = y;
         }
-        update_square (x, y);
+        update_square (x, y, undoing);  // FIXME undoing is only for when undoing the counter turn
     }
 
-    private void update_square (int x, int y)
+    private void update_square (int x, int y, bool undoing = false)
         requires (game_is_set)
     {
         int pixmap = get_pixmap (game.get_owner (x, y));
 
         /* Show the result by laying the tiles with winning color first */
-        if (flip_final_result_now && game.is_complete)
+        if (flip_final_result_now && game.is_complete && !undoing)
         {
             int n = y * game.size + x;
             Player winning_color = Player.LIGHT;
@@ -429,19 +451,6 @@ private class GameView : Gtk.DrawingArea
         }
 
         set_square (x, y, pixmap);
-
-        if (game.is_complete && game.n_light_tiles > 0 && game.n_dark_tiles > 0)
-        {
-            /*
-             * Show the actual final positions of the pieces before flipping the board.
-             * Otherwise, it could seem like the final player placed the other's piece.
-             */
-            Timeout.add_seconds (2, () =>  {
-                flip_final_result_now = true;
-                update_square (x, y);
-                return Source.REMOVE;
-            });
-        }
     }
 
     private void set_square (int x, int y, int pixmap)
