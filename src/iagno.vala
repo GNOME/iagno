@@ -136,6 +136,12 @@ private class Iagno : Gtk.Application
             stderr.printf ("%s\n", _("Size must be at least 4."));
             return Posix.EXIT_FAILURE;
         }
+        if (size > 16)
+        {
+            /* Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17' */
+            stderr.printf ("%s\n", _("Size must not be more than 16."));
+            return Posix.EXIT_FAILURE;
+        }
 
         if (options.contains ("mute"))
             sound = false;
@@ -358,7 +364,7 @@ private class Iagno : Gtk.Application
         if (computer != null)
             ((!) computer).cancel_move ();
 
-        game = new Game (alternative_start, size);
+        game = new Game (alternative_start, (uint8) size /* 4 <= size <= 16 */);
         game_is_set = true;
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
@@ -497,7 +503,7 @@ private class Iagno : Gtk.Application
             play_sound (Sound.GAMEOVER);
     }
 
-    private void player_move_cb (int x, int y)
+    private void player_move_cb (uint8 x, uint8 y)
         requires (game_is_set)
     {
         /* Ignore if we are waiting for the AI to move or if game is finished */

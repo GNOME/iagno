@@ -72,8 +72,8 @@ private class GameView : Gtk.DrawingArea
 
     /* Keyboard */
     private bool show_highlight;
-    private int highlight_x;
-    private int highlight_y;
+    private uint8 highlight_x;
+    private uint8 highlight_y;
     private int highlight_state;
     private const int HIGHLIGHT_MAX = 5;
 
@@ -94,7 +94,7 @@ private class GameView : Gtk.DrawingArea
     // private double cursor = 0;
     private int current_player_number = 0;
 
-    internal signal void move (int x, int y);
+    internal signal void move (uint8 x, uint8 y);
 
     /* Used for a delay between the last move and flipping the pieces */
     private bool flip_final_result_now = false;
@@ -120,9 +120,9 @@ private class GameView : Gtk.DrawingArea
             _game = value;
             game_is_set = true;
             pixmaps = new int [_game.size, _game.size];
-            for (int x = 0; x < _game.size; x++)
-                for (int y = 0; y < _game.size; y++)
-                    pixmaps[x, y] = get_pixmap (_game.get_owner (x, y));
+            for (uint8 x = 0; x < _game.size; x++)
+                for (uint8 y = 0; y < _game.size; y++)
+                    pixmaps [x, y] = get_pixmap (_game.get_owner (x, y));
             _game.notify ["is-complete"].connect (game_is_complete_cb);
             _game.square_changed.connect (square_changed_cb);
 
@@ -399,14 +399,14 @@ private class GameView : Gtk.DrawingArea
          */
         Timeout.add_seconds (2, () =>  {
             flip_final_result_now = true;
-            for (int x = 0; x < game.size; x++)
-                for (int y = 0; y < game.size; y++)
+            for (uint8 x = 0; x < game.size; x++)
+                for (uint8 y = 0; y < game.size; y++)
                     update_square (x, y);
             return Source.REMOVE;
         });
     }
 
-    private void square_changed_cb (int x, int y, Player replacement, bool undoing)
+    private void square_changed_cb (uint8 x, uint8 y, Player replacement, bool undoing)
     {
         if (replacement == Player.NONE)
         {
@@ -416,7 +416,7 @@ private class GameView : Gtk.DrawingArea
         update_square (x, y, undoing);  // FIXME undoing is only for when undoing the counter turn
     }
 
-    private void update_square (int x, int y, bool undoing = false)
+    private void update_square (uint8 x, uint8 y, bool undoing = false)
         requires (game_is_set)
     {
         int pixmap = get_pixmap (game.get_owner (x, y));
@@ -424,7 +424,7 @@ private class GameView : Gtk.DrawingArea
         /* Show the result by laying the tiles with winning color first */
         if (flip_final_result_now && game.is_complete && !undoing)
         {
-            int n = y * game.size + x;
+            uint8 n = y * game.size + x;
             Player winning_color = Player.LIGHT;
             Player losing_color = Player.DARK;
             int n_winning_tiles = game.n_light_tiles;
@@ -453,7 +453,7 @@ private class GameView : Gtk.DrawingArea
         set_square (x, y, pixmap);
     }
 
-    private void set_square (int x, int y, int pixmap)
+    private void set_square (uint8 x, uint8 y, int pixmap)
     {
         if (pixmaps[x, y] == pixmap)
             return;
@@ -469,7 +469,10 @@ private class GameView : Gtk.DrawingArea
             if (animate_timeout == 0)
                 animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, animate_cb);
         }
-        queue_draw_area (board_x + x * paving_size, board_y + y * paving_size, tile_size, tile_size);
+        queue_draw_area ((int) (board_x + x * paving_size),
+                         (int) (board_y + y * paving_size),
+                         tile_size,
+                         tile_size);
     }
 
     private bool animate_cb ()
@@ -477,13 +480,13 @@ private class GameView : Gtk.DrawingArea
     {
         bool animating = false;
 
-        for (int x = 0; x < game.size; x++)
+        for (uint8 x = 0; x < game.size; x++)
         {
-            for (int y = 0; y < game.size; y++)
+            for (uint8 y = 0; y < game.size; y++)
             {
-                int old = pixmaps[x, y];
+                int old = pixmaps [x, y];
                 update_square (x, y);
-                if (pixmaps[x, y] != old)
+                if (pixmaps [x, y] != old)
                     animating = true;
             }
         }
@@ -518,8 +521,8 @@ private class GameView : Gtk.DrawingArea
 
         if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
         {
-            int x = (int) (event.x - board_x) / paving_size;
-            int y = (int) (event.y - board_y) / paving_size;
+            uint8 x = (uint8) ((event.x - board_x) / paving_size);
+            uint8 y = (uint8) ((event.y - board_y) / paving_size);
             if (x >= 0 && x < game.size && y >= 0 && y < game.size)
             {
                 show_highlight = false;

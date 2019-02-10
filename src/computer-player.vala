@@ -22,11 +22,11 @@ private class ComputerPlayer : Object
 {
     private struct PossibleMove
     {
-        public int x;
-        public int y;
-        public int n_tiles;
+        public uint8 x;
+        public uint8 y;
+        public uint8 n_tiles;
 
-        private PossibleMove (int x, int y, int n_tiles)
+        private PossibleMove (uint8 x, uint8 y, uint8 n_tiles)
         {
             this.x = x;
             this.y = y;
@@ -88,7 +88,7 @@ private class ComputerPlayer : Object
         this.difficulty_level = difficulty_level;
     }
 
-    private void complete_move (int x, int y)
+    private void complete_move (uint8 x, uint8 y)
     {
         if (game.place_tile (x, y) == 0)
         {
@@ -100,8 +100,8 @@ private class ComputerPlayer : Object
     /* For tests only. */
     internal void move ()
     {
-        int x = 0;
-        int y = 0;
+        uint8 x = 0;
+        uint8 y = 0;
 
         run_search (ref x, ref y);
         complete_move (x, y);
@@ -110,8 +110,8 @@ private class ComputerPlayer : Object
     internal async void move_async (double delay_seconds = 0.0)
     {
         var timer = new Timer ();
-        int x = 0;
-        int y = 0;
+        uint8 x = 0;
+        uint8 y = 0;
 
         while (move_pending)
         {
@@ -172,7 +172,7 @@ private class ComputerPlayer : Object
     * * Minimax / Negamax / alpha-beta pruning
     \*/
 
-    private void run_search (ref int x, ref int y)
+    private void run_search (ref uint8 x, ref uint8 y)
         requires (game.current_player_can_move)
     {
         /* For the first/first two moves play randomly so the game is not always the same */
@@ -277,15 +277,15 @@ private class ComputerPlayer : Object
 
     private void get_possible_moves_sorted (Game g, ref List<PossibleMove?> moves)
     {
-        for (var x = 0; x < g.size; x++)
+        for (uint8 x = 0; x < g.size; x++)
         {
-            for (var y = 0; y < g.size; y++)
+            for (uint8 y = 0; y < g.size; y++)
             {
-                var n_tiles = g.place_tile (x, y, false);
-                if (n_tiles <= 0)
+                uint8 n_tiles = g.place_tile (x, y, false);
+                if (n_tiles == 0)
                     continue;
 
-                var move = PossibleMove (x, y, n_tiles);
+                PossibleMove move = PossibleMove (x, y, n_tiles);
                 moves.insert_sorted (move, compare_move);
             }
         }
@@ -366,7 +366,7 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int is_empty (Game g, int x, int y)
+    private static int is_empty (Game g, uint8 x, uint8 y)
     {
         if (g.is_valid_location (x, y) && g.get_owner (x, y) == Player.NONE)
             return 1;
@@ -378,11 +378,11 @@ private class ComputerPlayer : Object
     * * First random moves
     \*/
 
-    private static void random_select (Game g, out int move_x, out int move_y)
+    private static void random_select (Game g, out uint8 move_x, out uint8 move_y)
     {
-        List<int> moves = new List<int> ();
-        for (var x = 0; x < g.size; x++)
-            for (var y = 0; y < g.size; y++)
+        List<uint8> moves = new List<uint8> ();
+        for (uint8 x = 0; x < g.size; x++)
+            for (uint8 y = 0; y < g.size; y++)
                 if (g.can_place (x, y, g.current_color))
                     moves.append (x * g.size + y);
 
@@ -390,8 +390,8 @@ private class ComputerPlayer : Object
         if (length == 0)
             assert_not_reached ();
 
-        var i = Random.int_range (0, length);
-        var xy = moves.nth_data (i);
+        uint8 i = (uint8) Random.int_range (0, length);
+        uint8 xy = moves.nth_data (i);
         move_x = xy / g.size;
         move_y = xy % g.size;
     }

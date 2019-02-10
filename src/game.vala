@@ -21,23 +21,23 @@
 private class Game : Object
 {
     /* Tiles on the board */
-    private Player[,] tiles;
+    private Player [,] tiles;
 
-    private int _size;
-    [CCode (notify = false)] internal int size
+    private uint8 _size;
+    [CCode (notify = false)] internal uint8 size
     {
         internal get { return _size; }
         private set { _size = value; }
     }
 
     /* Undoing */
-    private int?[] undo_stack;
+    private uint8? [] undo_stack;
     private int history_index = -1;
 
     /* Color to move next; Dark always plays first;
      * should be dark if number_of_moves % 2 == 0 */
     [CCode (notify = false)] internal Player current_color { internal get; private set; default = Player.DARK; }
-    [CCode (notify = false)] internal int number_of_moves { internal get; private set; default = 0; }
+    [CCode (notify = false)] internal uint8 number_of_moves { internal get; private set; default = 0; }
 
     /* Indicate who's the next player who can move */
     [CCode (notify = false)] internal bool current_player_can_move { internal get; private set; default = true; }
@@ -46,7 +46,7 @@ private class Game : Object
     /* Indicate that a player should move */
     internal signal void turn_ended ();
     /* Indicate a square has changed */
-    internal signal void square_changed (int x, int y, Player new_color, bool undoing);
+    internal signal void square_changed (uint8 x, uint8 y, Player new_color, bool undoing);
 
     /*\
     * * Number of tiles on the board
@@ -96,19 +96,20 @@ private class Game : Object
     * * Creation / exporting
     \*/
 
-    internal Game (bool alternative_start = false, int tmp_size = 8)
+    internal Game (bool alternative_start = false, uint8 tmp_size = 8)
         requires (tmp_size >= 4)
+        requires (tmp_size <= 16)
     {
         size = tmp_size;
-        tiles = new Player[size, size];
-        for (var x = 0; x < size; x++)
-            for (var y = 0; y < size; y++)
-                tiles[x, y] = Player.NONE;
+        tiles = new Player [size, size];
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                tiles [x, y] = Player.NONE;
 
         /* Stack is oversized: there is 60 turns, each adds one piece,
          * there's place for the end of turn and the opponent passing,
          * and you could flip max ((size - 2) * 3) tiles in one turn. */
-        undo_stack = new int?[180 * (size - 1)]; /* (3 + (size - 2) * 3) * 60 */
+        undo_stack = new int? [180 * (size - 1)]; /* (3 + (size - 2) * 3) * 60 */
 
         if (size % 2 == 0)
         {
@@ -137,19 +138,19 @@ private class Game : Object
         }
     }
 
-    internal Game.from_strings (string [] setup, Player to_move, int tmp_size = 8)
+    internal Game.from_strings (string [] setup, Player to_move, uint8 tmp_size = 8)
         requires (setup.length == tmp_size)
     {
         size = tmp_size;
         tiles = new Player[size, size];
-        undo_stack = new int?[180 * (size - 1)];
+        undo_stack = new int? [180 * (size - 1)];
 
-        for (int y = 0; y < size; y++)
+        for (uint8 y = 0; y < size; y++)
         {
-            if (setup[y].length != size * 2)
+            if (setup [y].length != size * 2)
                 warn_if_reached ();
-            for (int x = 0; x < size; x++)
-                tiles[x, y] = Player.from_char (setup[y][x * 2 + 1]);
+            for (uint8 x = 0; x < size; x++)
+                tiles [x, y] = Player.from_char (setup [y][x * 2 + 1]);
         }
 
         current_color = to_move;
@@ -174,15 +175,18 @@ private class Game : Object
     internal Game.copy (Game game)
     {
         size = game.size;
-        tiles = new Player[size, size];
-        undo_stack = new int?[180 * (size - 1)];
-        for (var x = 0; x < size; x++)
-            for (var y = 0; y < size; y++)
-                tiles[x, y] = game.tiles[x, y];
-        number_of_moves = game.number_of_moves;
-        current_color = game.current_color;
-        n_current_tiles = game.n_current_tiles;
+        tiles = new Player [size, size];
+
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                tiles [x, y] = game.tiles [x, y];
+
+        number_of_moves  = game.number_of_moves;
+        current_color    = game.current_color;
+        n_current_tiles  = game.n_current_tiles;
         n_opponent_tiles = game.n_opponent_tiles;
+
+        undo_stack = new int? [180 * (size - 1)];
         /* warning: history not copied */
     }
 
@@ -190,22 +194,22 @@ private class Game : Object
     * * Public information
     \*/
 
-    internal bool is_valid_location (int x, int y)
+    internal bool is_valid_location (uint8 x, uint8 y)
     {
-        return x >= 0 && x < size && y >= 0 && y < size;
+        return x < size && y < size;
     }
 
-    internal Player get_owner (int x, int y)
+    internal Player get_owner (uint8 x, uint8 y)
         requires (is_valid_location (x, y))
     {
-        return tiles[x, y];
+        return tiles [x, y];
     }
 
-    internal bool can_place (int x, int y, Player color)
+    internal bool can_place (uint8 x, uint8 y, Player color)
         requires (is_valid_location (x, y))
         requires (color != Player.NONE)
     {
-        if (tiles[x, y] != Player.NONE)
+        if (tiles [x, y] != Player.NONE)
             return false;
 
         if (can_flip_tiles (x, y, 1, 0, color) > 0) return true;
@@ -223,7 +227,7 @@ private class Game : Object
     * * Actions (apart undo)
     \*/
 
-    internal int place_tile (int x, int y, bool apply = true)
+    internal uint8 place_tile (uint8 x, uint8 y, bool apply = true)
         requires (is_valid_location (x, y))
     {
         if (tiles[x, y] != Player.NONE)
@@ -263,7 +267,7 @@ private class Game : Object
         current_color = Player.flip_color (current_color);
         number_of_moves++;
         history_index++;
-        undo_stack[history_index] = null;
+        undo_stack [history_index] = null;
         update_who_can_move ();
         turn_ended ();
     }
@@ -294,7 +298,7 @@ private class Game : Object
     * * Flipping tiles
     \*/
 
-    private int flip_tiles (int x, int y, int x_step, int y_step, bool apply)
+    private int flip_tiles (uint8 x, uint8 y, int8 x_step, int8 y_step, bool apply)
     {
         var enemy_count = can_flip_tiles (x, y, x_step, y_step, current_color);
         if (enemy_count == 0)
@@ -311,19 +315,19 @@ private class Game : Object
         return enemy_count;
     }
 
-    private int can_flip_tiles (int x, int y, int x_step, int y_step, Player color)
+    private int can_flip_tiles (uint8 x, uint8 y, int8 x_step, int8 y_step, Player color)
     {
         var enemy = Player.flip_color (color);
 
         /* Count number of enemy pieces we are beside */
         var enemy_count = -1;
-        var xt = x;
-        var yt = y;
+        uint8 xt = x;
+        uint8 yt = y;
         do {
             enemy_count++;
             xt += x_step;
             yt += y_step;
-        } while (is_valid_location (xt, yt) && tiles[xt, yt] == enemy);
+        } while (is_valid_location (xt, yt) && tiles [xt, yt] == enemy);
 
         /* Must be a line of enemy pieces then one of ours */
         if (enemy_count == 0 || !is_valid_location (xt, yt) || tiles[xt, yt] != color)
@@ -332,13 +336,13 @@ private class Game : Object
         return enemy_count;
     }
 
-    private void set_tile (int x, int y)
+    private void set_tile (uint8 x, uint8 y)
         requires (history_index >= -1 && history_index < undo_stack.length - 2)
     {
         n_current_tiles++;
         history_index++;
-        undo_stack[history_index] = x + y * size;
-        tiles[x, y] = current_color;
+        undo_stack [history_index] = x + y * size;
+        tiles [x, y] = current_color;
         square_changed (x, y, current_color, /* undoing */ false);
     }
 
@@ -359,7 +363,7 @@ private class Game : Object
         history_index--;
 
         /* if not pass */
-        int? undo_item = undo_stack [history_index];
+        uint8? undo_item = undo_stack [history_index];
         if (undo_item != null)
         {
             /* last log entry is the placed tile, previous are flipped tiles */
@@ -387,12 +391,12 @@ private class Game : Object
         }
     }
 
-    private void unset_tile (int tile_number, Player replacement_color)
+    private void unset_tile (uint8 tile_number, Player replacement_color)
     {
         n_current_tiles--;
         history_index--;
-        var x = tile_number % size;
-        var y = tile_number / size;
+        uint8 x = tile_number % size;
+        uint8 y = tile_number / size;
         tiles [x, y] = replacement_color;
         square_changed (x, y, replacement_color, /* undoing */ true);
     }
