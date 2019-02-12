@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-01-08 08:27+0000\n"
-"PO-Revision-Date: 2019-01-25 18:26+0100\n"
+"POT-Creation-Date: 2019-02-09 13:36+0000\n"
+"PO-Revision-Date: 2019-02-09 20:47+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -24,16 +24,18 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 2.1.1\n"
 
-#: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
-#: src/iagno.vala:173 src/iagno.vala:271
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:5
+#: src/iagno.vala:26
 msgid "Iagno"
 msgstr "Iagno"
 
-#: data/iagno.appdata.xml.in:8 data/iagno.desktop.in:7
+#. Translators: a Comment that gives the application function, as defined in the desktop file spec
+#: data/org.gnome.Reversi.appdata.xml.in:8 data/org.gnome.Reversi.desktop.in:9
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "Nadzor nad igralno ploščo pri znani igri Reversi."
 
-#: data/iagno.appdata.xml.in:10
+#: data/org.gnome.Reversi.appdata.xml.in:10
 msgid ""
 "Iagno is a computer version of the game Reversi, a two-player strategy board "
 "game. The game is played with tiles that are dark on one side and light on "
@@ -42,7 +44,7 @@ msgstr ""
 "Igra Iagno je strateška računalniška različica tabelne igre reversi. Igro se "
 "igra na igralni deski s polji, kot pri šahovnici."
 
-#: data/iagno.appdata.xml.in:15
+#: data/org.gnome.Reversi.appdata.xml.in:15
 msgid ""
 "The object of Iagno is to flip as many of your opponent’s tiles to your "
 "color as possible while preventing your opponent from flipping your tiles to "
@@ -53,117 +55,136 @@ msgstr ""
 "tem onemogočiti nasprotniku narediti enako. To storite tako, da ujamete "
 "nasprotnikove ploščice med svoje."
 
-#: data/iagno.appdata.xml.in:25
+#: data/org.gnome.Reversi.appdata.xml.in:25
 msgid "A GNOME Iagno game preview"
 msgstr "Predogled igre GNOME Iagno"
 
-#: data/iagno.appdata.xml.in:41
+#: data/org.gnome.Reversi.appdata.xml.in:41
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/iagno.desktop.in:4
-msgid "iagno"
-msgstr "iagno"
+#: data/org.gnome.Reversi.desktop.in:4
+msgid "org.gnome.Reversi"
+msgstr "org.gnome.Reversi"
 
-#: data/iagno.desktop.in:6
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:7
 msgid "Reversi"
 msgstr "Reversi"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/iagno.desktop.in:9
+#. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Reversi.desktop.in:11
 msgid "reversi;othello;"
 msgstr "reversi;otelo;"
 
-#: data/iagno.desktop.in:18
+#. Translators: an action Name, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:21
 msgid "Play first (Dark)"
 msgstr "Igraj prvega (temni)"
 
-#: data/iagno.desktop.in:22
+#. Translators: an action Name, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:26
 msgid "Play second (Light)"
 msgstr "Igraj drugega (svetli)"
 
-#: data/iagno.desktop.in:26
+#. Translators: an action Name, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:31
 msgid "Two players game"
 msgstr "Igra za dva igralca"
 
-#: data/iagno-screens.ui:22
+#. Translators: when configuring a new game, header of the row for choosing the number of players
+#: data/ui/iagno-screens.ui:23
 msgid "Players"
 msgstr "Igralci"
 
-#: data/iagno-screens.ui:37
+#. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno-screens.ui:39
 msgid "_One"
 msgstr "_En"
 
-#: data/iagno-screens.ui:48
+#. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno-screens.ui:51
 msgid "_Two"
 msgstr "_Dva"
 
-#: data/iagno-screens.ui:71
+#. Translators: when configuring a new game, header of the row for choosing the level of the artificial intelligence
+#: data/ui/iagno-screens.ui:75
 msgid "Difficulty"
 msgstr "Zahtevnost"
 
-#: data/iagno-screens.ui:86
+#. Translators: when configuring a new game, row "Difficulty", label of the button to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno-screens.ui:91
 msgid "_Easy"
 msgstr "_Enostavno"
 
-#: data/iagno-screens.ui:97
+#. Translators: when configuring a new game, row "Difficulty", label of the button to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno-screens.ui:103
 msgid "_Medium"
 msgstr "_Srednje"
 
-#: data/iagno-screens.ui:108
+#. Translators: when configuring a new game, row "Difficulty", label of the button to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno-screens.ui:115
 msgid "_Hard"
 msgstr "_Zahtevno"
 
-#: data/iagno-screens.ui:131
+#. Translators: when configuring a new game, header of the row for choosing the played color (whether to start or not)
+#: data/ui/iagno-screens.ui:139
 msgid "Color"
 msgstr "Barva"
 
-#: data/iagno-screens.ui:146
+#. Translators: when configuring a new game, row "Color", label of the button to play the dark color, so to start (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno-screens.ui:155
 msgid "_Dark"
 msgstr "_Temno"
 
-#: data/iagno-screens.ui:157
+#. Translators: when configuring a new game, row "Color", label of the button to play the light color, so not play second (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno-screens.ui:167
 msgid "_Light"
 msgstr "_Svetlo"
 
-#: data/iagno-themes.ui:9
+#. Translators: title of the theme dialog
+#: data/ui/iagno-themes.ui:10
 msgid "Select Theme"
 msgstr "Izbor teme"
 
-#: data/iagno-themes.ui:54
+#. Translators: first row (default theme) in the theme dialog
+#: data/ui/iagno-themes.ui:56
 msgid "Default"
 msgstr "Privzeto"
 
-#: data/iagno.ui:7
+#. Translators: hamburger menu entry; open theme dialog button (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno.ui:8
 msgid "A_ppearance"
 msgstr "_Videz"
 
-#: data/iagno.ui:11
+#. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno.ui:13
 msgid "_Sound"
 msgstr "_Zvok"
 
-#: data/iagno.ui:17
+#. Translators: hamburger menu entry; open help (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno.ui:20
 msgid "_Help"
 msgstr "Pomo_č"
 
-#: data/iagno.ui:21
+#. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno.ui:25
 msgid "_About Iagno"
 msgstr "_O igri"
 
-#: data/iagno.ui:43
+#. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
+#: data/ui/iagno.ui:48
 msgid "Go back to the current game"
 msgstr "Vrni se na trenutno igro"
 
-#: data/iagno.ui:116
+#. Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno.ui:123
 msgid "_New Game"
 msgstr "_Nova Igra"
 
-#: data/iagno.ui:117
-msgid "Configure a new game"
-msgstr "Nastavi novo igro"
-
-#: data/iagno.ui:121
+#. Translators: during a game, tooltip text of the Start Over button
+#: data/ui/iagno.ui:128
 msgid "Start a new game"
 msgstr "Začni novo igro"
 
@@ -183,32 +204,39 @@ msgstr "Črno-belo"
 msgid "Sun and Star"
 msgstr "Sonce in Zvezde"
 
-#: data/org.gnome.iagno.gschema.xml:11
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:12
 msgid "Computer’s AI level"
 msgstr "Raven inteligence računalnika"
 
-#: data/org.gnome.iagno.gschema.xml:12
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:14
 msgid "From 1, the easiest, to 3, the hardest."
 msgstr "Od 1; najlažje, do 3; najtežje"
 
-#: data/org.gnome.iagno.gschema.xml:17
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
+#: data/org.gnome.Reversi.gschema.xml:20
 msgid "Whether to play against the computer or another human."
 msgstr "Ali bo soigralec računalnik ali pa druga oseba."
 
-#: data/org.gnome.iagno.gschema.xml:21
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
+#: data/org.gnome.Reversi.gschema.xml:26
 msgid "Color to play as"
 msgstr "Barva za igranje kot"
 
-#: data/org.gnome.iagno.gschema.xml:22
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color'
+#: data/org.gnome.Reversi.gschema.xml:28
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "Ali bo igralec svetel ali temen. Nastavitev bo prezrta v igri dveh igralcev."
 
-#: data/org.gnome.iagno.gschema.xml:26
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#: data/org.gnome.Reversi.gschema.xml:33
 msgid "Theme"
 msgstr "Tema"
 
-#: data/org.gnome.iagno.gschema.xml:27
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
+#: data/org.gnome.Reversi.gschema.xml:35
 msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
@@ -217,90 +245,110 @@ msgstr ""
 "je mogoče med \"adwaita.tema\", \"kontrastna.tema\" in \"sonce_in_zvezde.tema"
 "\"."
 
-#: data/org.gnome.iagno.gschema.xml:31
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
+#: data/org.gnome.Reversi.gschema.xml:40
 msgid "Sound"
 msgstr "Zvok"
 
-#: data/org.gnome.iagno.gschema.xml:32
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
+#: data/org.gnome.Reversi.gschema.xml:42
 msgid "Whether or not to play event sounds."
 msgstr "Ali naj se ob dogodkih predvajajo zvoki."
 
-#: data/org.gnome.iagno.gschema.xml:36
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:47
 msgid "Width of the window in pixels"
 msgstr "Širina okna v točkah"
 
-#: data/org.gnome.iagno.gschema.xml:40
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:53
 msgid "Height of the window in pixels"
 msgstr "Višina okna v točkah"
 
-#: data/org.gnome.iagno.gschema.xml:44
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:59
 msgid "true if the window is maximized"
 msgstr "prav, če je okno razpeto."
 
-#: src/game-window.vala:130
+#. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
+#: src/game-window.vala:125
 msgid "_Start Game"
 msgstr "_Začni igro"
 
-#: src/game-window.vala:155
+#. Translators: during a game, tooltip text of the Undo button
+#: src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Razveljavi zadnjo potezo"
 
-#: src/iagno.vala:58
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:65
 msgid "Start with an alternative position"
 msgstr "Začni z novim začentim mestom"
 
-#: src/iagno.vala:59
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:68
 msgid "Reduce delay before AI moves"
 msgstr "Zmanjšaj čas pred potezo računalnika"
 
-#: src/iagno.vala:60
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:71
 msgid "Play first"
 msgstr "Igraj prvega"
 
-#: src/iagno.vala:61
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:74
 msgid "Set the level of the computer’s AI"
 msgstr "Določi raven inteligence računalnika"
 
-#: src/iagno.vala:62
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:77
 msgid "Turn off the sound"
 msgstr "Izklopi zvok"
 
-#: src/iagno.vala:63
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:80
 msgid "Play second"
 msgstr "Igraj drugega"
 
-#: src/iagno.vala:64
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:83
 msgid "Size of the board (debug only)"
 msgstr "Velikost igralne plošče (za razhroščevanje)"
 
-#: src/iagno.vala:65
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:86
 msgid "Two-players mode"
 msgstr "Dva igralca"
 
-#: src/iagno.vala:66
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:89
 msgid "Turn on the sound"
 msgstr "Vklopi zvok"
 
-#: src/iagno.vala:67
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:92
 msgid "Print release version and exit"
 msgstr "Izpiši različico programa in končaj"
 
-#. Console message displayed for an incorrect size
-#: src/iagno.vala:111
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
+#: src/iagno.vala:136
 msgid "Size must be at least 4."
 msgstr "Velikost mora biti vsaj 4."
 
-#: src/iagno.vala:158
+#. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
+#: src/iagno.vala:196
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Raven zahtevnosti mora biti med 1 (najlažje) do 3 (najtežje). Nastavitve "
 "niso spremenjene."
 
-#: src/iagno.vala:279
+#. Translators: about dialog text
+#: src/iagno.vala:324
 msgid "A disk flipping game derived from Reversi"
 msgstr "Igra preobračanja ploščic po predlogi igre Reversi."
 
-#: src/iagno.vala:282
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/iagno.vala:328
 msgid "translator-credits"
 msgstr ""
 "Matic Žgur <mr.zgur@gmail.com>\n"
@@ -309,40 +357,46 @@ msgstr ""
 "Matej Urbančič <mateju@svn.gnome.org>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:344 src/iagno.vala:345
+#: src/iagno.vala:393 src/iagno.vala:394
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
-#. Message to display when Light has no possible moves
-#: src/iagno.vala:412
+#. Translators: during a game, notification to display when Light has no possible moves
+#: src/iagno.vala:465
 msgid "Light must pass, Dark’s move"
 msgstr "Svetli mora počakati, temni je na potezi"
 
-#. Message to display when Dark has no possible moves
-#: src/iagno.vala:417
+#. Translators: during a game, notification to display when Dark has no possible moves
+#: src/iagno.vala:470
 msgid "Dark must pass, Light’s move"
 msgstr "Temni mora počakati, svetli je na potezi"
 
-#. Message to display when Light has won the game
-#: src/iagno.vala:428
+#. Translators: during a game, notification to display when Light has won the game
+#: src/iagno.vala:482
 msgid "Light wins!"
 msgstr "Zmagal je svetli igralec!"
 
-#. Message to display when Dark has won the game
-#: src/iagno.vala:433
+#. Translators: during a game, notification to display when Dark has won the game
+#: src/iagno.vala:487
 msgid "Dark wins!"
 msgstr "Zmagal je temni igralec!"
 
-#. Message to display when the game is a draw
-#: src/iagno.vala:438
+#. Translators: during a game, notification to display when the game is a draw
+#: src/iagno.vala:492
 msgid "The game is draw."
 msgstr "Igra je neodločena!"
 
-#. Message to display when the player tries to make an illegal move
-#: src/iagno.vala:454
+#. Translators: during a game, notification to display when the player tries to make an illegal move
+#: src/iagno.vala:509
 msgid "You can’t move there!"
 msgstr "Ta premik ni dovoljen!"
+
+#~ msgid "iagno"
+#~ msgstr "iagno"
+
+#~ msgid "Configure a new game"
+#~ msgstr "Nastavi novo igro"
 
 #~ msgid "_Quit"
 #~ msgstr "_Končaj"
