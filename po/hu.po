@@ -9,21 +9,21 @@
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
-# Balázs Úr <urbalazs at gmail dot com>, 2014, 2015, 2016, 2018, 2019.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2015, 2016, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-02-04 15:52+0000\n"
-"PO-Revision-Date: 2019-02-05 21:16+0100\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"POT-Creation-Date: 2019-02-13 10:48+0000\n"
+"PO-Revision-Date: 2019-02-13 19:39+0100\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
 #: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:5
@@ -181,12 +181,12 @@ msgid "Go back to the current game"
 msgstr "Vissza a jelenlegi játékhoz"
 
 #. Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:122
+#: data/ui/iagno.ui:123
 msgid "_New Game"
 msgstr "Ú_j játék"
 
 #. Translators: during a game, tooltip text of the Start Over button
-#: data/ui/iagno.ui:127
+#: data/ui/iagno.ui:128
 msgid "Start a new game"
 msgstr "Új játék indítása"
 
@@ -272,84 +272,89 @@ msgid "true if the window is maximized"
 msgstr "Az ablak teljes méretű-e"
 
 #. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
-#: src/game-window.vala:131
+#: src/game-window.vala:125
 msgid "_Start Game"
 msgstr "Játék _indítása"
 
 #. Translators: during a game, tooltip text of the Undo button
-#: src/game-window.vala:158
+#: src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "A legutóbbi lépés visszavonása"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:62
+#: src/iagno.vala:65
 msgid "Start with an alternative position"
 msgstr "Indítás egy alternatív pozícióval"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:65
+#: src/iagno.vala:68
 msgid "Reduce delay before AI moves"
 msgstr "Késleltetés csökkentése a gép lépése előtt"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:68
+#: src/iagno.vala:71
 msgid "Play first"
 msgstr "Első játékos"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:71
+#: src/iagno.vala:74
 msgid "Set the level of the computer’s AI"
 msgstr "A számítógép intelligencia szintjének beállítása"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:74
+#: src/iagno.vala:77
 msgid "Turn off the sound"
 msgstr "Hang kikapcsolása"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:77
+#: src/iagno.vala:80
 msgid "Play second"
 msgstr "Második játékos"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:80
+#: src/iagno.vala:83
 msgid "Size of the board (debug only)"
 msgstr "A tábla mérete (csak hibakereséshez)"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:83
+#: src/iagno.vala:86
 msgid "Two-players mode"
 msgstr "Kétszemélyes mód"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:86
+#: src/iagno.vala:89
 msgid "Turn on the sound"
 msgstr "Hang bekapcsolása"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:89
+#: src/iagno.vala:92
 msgid "Print release version and exit"
 msgstr "Kiadási verzió kiírása és kilépés"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:133
+#: src/iagno.vala:136
 msgid "Size must be at least 4."
 msgstr "A méretnek legalább 4-nek kell lennie."
 
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
+#: src/iagno.vala:142
+msgid "Size must not be more than 16."
+msgstr "A méret nem lehet nagyobb 16-nál."
+
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:181
+#: src/iagno.vala:202
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "A szintnek 1 (könnyű) és 3 (nehéz) között kell lennie. A beállítások nem "
 "változtak."
 
 #. Translators: about dialog text
-#: src/iagno.vala:303
+#: src/iagno.vala:330
 msgid "A disk flipping game derived from Reversi"
 msgstr "A Reversiből származtatott korongfordítgatós játék"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:307
+#: src/iagno.vala:334
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -361,38 +366,38 @@ msgstr ""
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:369 src/iagno.vala:370
+#: src/iagno.vala:399 src/iagno.vala:400
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:437
+#: src/iagno.vala:472
 msgid "Light must pass, Dark’s move"
 msgstr "A világos nem tud lépni, a sötét jön"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:442
+#: src/iagno.vala:477
 msgid "Dark must pass, Light’s move"
 msgstr "A sötét nem tud lépni, a világos jön"
 
 #. Translators: during a game, notification to display when Light has won the game
-#: src/iagno.vala:453
+#: src/iagno.vala:489
 msgid "Light wins!"
 msgstr "A világos nyert!"
 
 #. Translators: during a game, notification to display when Dark has won the game
-#: src/iagno.vala:458
+#: src/iagno.vala:494
 msgid "Dark wins!"
 msgstr "A sötét nyert!"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:463
+#: src/iagno.vala:499
 msgid "The game is draw."
 msgstr "Az eredmény döntetlen."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:479
+#: src/iagno.vala:516
 msgid "You can’t move there!"
 msgstr "Nem léphet oda!"
 
