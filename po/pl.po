@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-02-06 21:10+0000\n"
-"PO-Revision-Date: 2019-02-06 21:11+0100\n"
+"POT-Creation-Date: 2019-02-13 10:48+0000\n"
+"PO-Revision-Date: 2019-02-13 11:55+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -278,84 +278,89 @@ msgid "true if the window is maximized"
 msgstr "Wartość „true” oznacza, że okno jest zmaksymalizowane"
 
 #. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
-#: src/game-window.vala:131
+#: src/game-window.vala:125
 msgid "_Start Game"
 msgstr "_Rozpocznij grę"
 
 #. Translators: during a game, tooltip text of the Undo button
-#: src/game-window.vala:158
+#: src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Cofa ostatni ruch"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:62
+#: src/iagno.vala:65
 msgid "Start with an alternative position"
 msgstr "Rozpoczyna w alternatywnym położeniu"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:65
+#: src/iagno.vala:68
 msgid "Reduce delay before AI moves"
 msgstr "Zmniejsza opóźnienie przed ruchami komputera"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:68
+#: src/iagno.vala:71
 msgid "Play first"
 msgstr "Zaczyna jako pierwszy"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:71
+#: src/iagno.vala:74
 msgid "Set the level of the computer’s AI"
 msgstr "Ustawia poziom sztucznej inteligencji komputera"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:74
+#: src/iagno.vala:77
 msgid "Turn off the sound"
 msgstr "Wyłącza dźwięk"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:77
+#: src/iagno.vala:80
 msgid "Play second"
 msgstr "Zaczyna jako drugi"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:80
+#: src/iagno.vala:83
 msgid "Size of the board (debug only)"
 msgstr "Rozmiar planszy (tylko do debugowania)"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:83
+#: src/iagno.vala:86
 msgid "Two-players mode"
 msgstr "Tryb dla dwóch graczy"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:86
+#: src/iagno.vala:89
 msgid "Turn on the sound"
 msgstr "Włącza dźwięk"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:89
+#: src/iagno.vala:92
 msgid "Print release version and exit"
 msgstr "Wyświetla wersję wydania i kończy działanie"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:133
+#: src/iagno.vala:136
 msgid "Size must be at least 4."
 msgstr "Rozmiar musi wynosić co najmniej 4."
 
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
+#: src/iagno.vala:142
+msgid "Size must not be more than 16."
+msgstr "Rozmiar nie może być większy niż 16."
+
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:181
+#: src/iagno.vala:202
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Poziom powinien wynosić między 1 (łatwy) a 3 (trudny). Ustawienia nie "
 "zostały zmienione."
 
 #. Translators: about dialog text
-#: src/iagno.vala:303
+#: src/iagno.vala:330
 msgid "A disk flipping game derived from Reversi"
 msgstr "Gra polegająca na odwracaniu pionów podobna do Reversi"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:307
+#: src/iagno.vala:334
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -373,37 +378,37 @@ msgstr ""
 "Aviary.pl <community-poland@mozilla.org>, 2007-2019"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:369 src/iagno.vala:370
+#: src/iagno.vala:399 src/iagno.vala:400
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:437
+#: src/iagno.vala:472
 msgid "Light must pass, Dark’s move"
 msgstr "Jasne nie mogą wykonać ruchu, ruch ciemnych"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:442
+#: src/iagno.vala:477
 msgid "Dark must pass, Light’s move"
 msgstr "Ciemne nie mogą wykonać ruchu, ruch jasnych"
 
 #. Translators: during a game, notification to display when Light has won the game
-#: src/iagno.vala:453
+#: src/iagno.vala:489
 msgid "Light wins!"
 msgstr "Jasne wygrywają!"
 
 #. Translators: during a game, notification to display when Dark has won the game
-#: src/iagno.vala:458
+#: src/iagno.vala:494
 msgid "Dark wins!"
 msgstr "Ciemne wygrywają!"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:463
+#: src/iagno.vala:499
 msgid "The game is draw."
 msgstr "Remis."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:479
+#: src/iagno.vala:516
 msgid "You can’t move there!"
 msgstr "Nie można tu się ruszyć."
