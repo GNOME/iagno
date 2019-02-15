@@ -332,6 +332,7 @@ private class GameView : Gtk.DrawingArea
         return false;
     }
 
+    private const double HALF_PI = Math.PI / 2.0;
     private void rounded_square (Cairo.Context cr, double x, double y, int size, double width, double radius_percent)
     {
         if (radius_percent <= 0)
@@ -349,11 +350,11 @@ private class GameView : Gtk.DrawingArea
         double x2 = x + size - radius_border;
         double y2 = y + size - radius_border;
 
-        cr.arc (x1, y1, radius_arc, Math.PI, Math.PI * 3 / 2.0);
-        cr.arc (x2, y1, radius_arc, Math.PI * 3 / 2.0, 0);
-        cr.arc (x2, y2, radius_arc, 0, Math.PI / 2.0);
-        cr.arc (x1, y2, radius_arc, Math.PI / 2.0, Math.PI);
-        cr.arc (x1, y1, radius_arc, Math.PI, Math.PI * 3 / 2.0);
+        cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
+        cr.arc (x2, y1, radius_arc, -HALF_PI,        0);
+        cr.arc (x2, y2, radius_arc,        0,  HALF_PI);
+        cr.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
+        cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
     }
 
     private void load_image (Cairo.Context c, int width, int height)
@@ -501,17 +502,17 @@ private class GameView : Gtk.DrawingArea
         return Source.CONTINUE;
     }
 
-    private int get_pixmap (Player color)
+    private static int get_pixmap (Player color)
     {
         switch (color)
         {
-        default:
-        case Player.NONE:
-            return 0;
-        case Player.DARK:
-            return 1;
-        case Player.LIGHT:
-            return 31;
+            default:
+            case Player.NONE:
+                return 0;
+            case Player.DARK:
+                return 1;
+            case Player.LIGHT:
+                return 31;
         }
     }
 
