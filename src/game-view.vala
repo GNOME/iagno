@@ -68,10 +68,11 @@ private class GameView : Gtk.DrawingArea
 
     /* Keyboard */
     private bool show_highlight;
+    private bool highlight_set;
     private uint8 highlight_x;
     private uint8 highlight_y;
-    private int highlight_state;
-    private const int HIGHLIGHT_MAX = 5;
+    private uint8 highlight_state;
+    private const uint8 HIGHLIGHT_MAX = 5;
 
     /* Delay in milliseconds between tile flip frames */
     private const int PIXMAP_FLIP_DELAY = 20;
@@ -120,8 +121,10 @@ private class GameView : Gtk.DrawingArea
             _game.square_changed.connect (square_changed_cb);
 
             show_highlight = false;
-            highlight_x = 3;    // TODO default on 3 3 / 4 4 (on 8×8 board) when dark and
-            highlight_y = 3;    // 3 4 / 4 3 when light, depending on first key pressed
+            bool odd_game = game.size % 2 != 0; // always start on center on odd games
+            highlight_set = game.alternative_start || odd_game;
+            highlight_x = odd_game ? (uint8) (game.size / 2) : game.size / 2 - 1;
+            highlight_y = highlight_x;
             highlight_state = 0;
 
             queue_draw ();
@@ -311,7 +314,8 @@ private class GameView : Gtk.DrawingArea
                     /* draw animated highlight */
                     cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
                     rounded_square (cr,
-                                    tile_x + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),     // TODO odd/even sizes problem
+                                    // TODO odd/even sizes problem
+                                    tile_x + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
                                     tile_y + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
                                     tile_size * highlight_state / HIGHLIGHT_MAX,
                                     0,
@@ -400,6 +404,7 @@ private class GameView : Gtk.DrawingArea
     {
         if (replacement == Player.NONE)
         {
+            highlight_set = true;
             highlight_x = x;
             highlight_y = y;
         }
@@ -581,6 +586,7 @@ private class GameView : Gtk.DrawingArea
             {
                 show_highlight = false;
                 queue_draw ();
+                highlight_set = true;
                 highlight_x = x;
                 highlight_y = y;
                 move (x, y);
@@ -615,18 +621,30 @@ private class GameView : Gtk.DrawingArea
         {
             case "Left":
             case "KP_Left":
+                if (!highlight_set && game.current_color == Player.LIGHT) highlight_y = game.size / 2;
                 if (highlight_x > 0) highlight_x --;
                 break;
             case "Right":
             case "KP_Right":
+                if (!highlight_set)
+                {
+                    highlight_x = game.size / 2;
+                    if (game.current_color == Player.DARK) highlight_y = highlight_x;
+                }
                 if (highlight_x < game.size - 1) highlight_x ++;
                 break;
             case "Up":
             case "KP_Up":
+                if (!highlight_set && game.current_color == Player.LIGHT) highlight_x = game.size / 2;
                 if (highlight_y > 0) highlight_y --;
                 break;
             case "Down":
             case "KP_Down":
+                if (!highlight_set)
+                {
+                    highlight_y = game.size / 2;
+                    if (game.current_color == Player.DARK) highlight_x = highlight_y;
+                }
                 if (highlight_y < game.size - 1) highlight_y ++;
                 break;
 
@@ -679,6 +697,8 @@ private class GameView : Gtk.DrawingArea
             default:
                 return false;
         }
+
+        highlight_set = true;
 
         if (key == "Escape")
             show_highlight = false;

@@ -96,10 +96,14 @@ private class Game : Object
     * * Creation / exporting
     \*/
 
+    public bool alternative_start { internal get; protected construct; }
+
     internal Game (bool alternative_start = false, uint8 tmp_size = 8)
         requires (tmp_size >= 4)
         requires (tmp_size <= 16)
     {
+        Object (alternative_start: alternative_start);
+
         size = tmp_size;
         tiles = new Player [size, size];
         for (uint8 x = 0; x < size; x++)
