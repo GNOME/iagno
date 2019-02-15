@@ -82,7 +82,7 @@ private class GameView : Gtk.DrawingArea
     private Cairo.Pattern? scoreboard_tiles_pattern = null;
 
     /* The images being showed on each location */
-    private int[,] pixmaps;
+    private int [,] pixmaps;
 
     /* Animation timer */
     private uint animate_timeout = 0;
@@ -320,11 +320,11 @@ private class GameView : Gtk.DrawingArea
                 }
 
                 /* draw pieces */
-                if (pixmaps[x, y] == 0)
+                if (pixmaps [x, y] == 0)
                     continue;
 
-                int texture_x = (pixmaps[x, y] % 8) * tile_size;
-                int texture_y = (pixmaps[x, y] / 8) * tile_size;
+                int texture_x = (pixmaps [x, y] % 8) * tile_size;
+                int texture_y = (pixmaps [x, y] / 8) * tile_size;
 
                 var matrix = Cairo.Matrix.identity ();
                 matrix.translate (texture_x - tile_x, texture_y - tile_y);
@@ -418,17 +418,17 @@ private class GameView : Gtk.DrawingArea
 
     private void set_square (uint8 x, uint8 y, int pixmap)
     {
-        if (pixmaps[x, y] == pixmap)
+        if (pixmaps [x, y] == pixmap)
             return;
 
-        if (pixmap == 0 || pixmaps[x, y] == 0)
-            pixmaps[x, y] = pixmap;
+        if (pixmap == 0 || pixmaps [x, y] == 0)
+            pixmaps [x, y] = pixmap;
         else
         {
-            if (pixmap > pixmaps[x, y])
-                pixmaps[x, y]++;
+            if (pixmap > pixmaps [x, y])
+                pixmaps [x, y]++;
             else
-                pixmaps[x, y]--;
+                pixmaps [x, y]--;
             if (animate_timeout == 0)
                 animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, animate_cb);
         }
