@@ -403,6 +403,12 @@ private class Iagno : Gtk.Application
     private void undo_cb ()
         requires (game_is_set)
     {
+        if (view.undo_final_animation ())
+        {
+            play_sound (Sound.GAMEOVER);
+            return;
+        }
+
         if (computer == null)
         {
             game.undo (1);

@@ -552,6 +552,18 @@ private class GameView : Gtk.DrawingArea
         }
     }
 
+    internal bool undo_final_animation ()
+    {
+        if (!flip_final_result_now)
+            return false;
+
+        for (uint8 x = 0; x < game.size; x++)
+            for (uint8 y = 0; y < game.size; y++)
+                update_square (x, y);
+
+        return true;
+    }
+
     /*\
     * * user actions
     \*/
