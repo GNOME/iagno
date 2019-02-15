@@ -63,10 +63,6 @@ private class GameView : Gtk.DrawingArea
     [CCode (notify = false)] internal string sound_flip     { internal get; private set; }
     [CCode (notify = false)] internal string sound_gameover { internal get; private set; }
 
-    /* Utilities, see calculate () */
-    private int paving_size;
-    private int tile_size;
-    private int board_size;
     [CCode (notify = false)] private int board_x { private get { return (get_allocated_width () - board_size) / 2; }}
     [CCode (notify = false)] private int board_y { private get { return (get_allocated_height () - board_size) / 2; }}
 
@@ -95,9 +91,6 @@ private class GameView : Gtk.DrawingArea
     private int current_player_number = 0;
 
     internal signal void move (uint8 x, uint8 y);
-
-    /* Used for a delay between the last move and flipping the pieces */
-    private bool flip_final_result_now = false;
 
     private bool game_is_set = false;
     private Game _game;
@@ -134,6 +127,16 @@ private class GameView : Gtk.DrawingArea
             queue_draw ();
         }
     }
+
+    construct
+    {
+        set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK);
+        set_size_request (350, 350);
+    }
+
+    /*\
+    * * theme
+    \*/
 
     private string? _theme = null;
     [CCode (notify = false)] internal string? theme
@@ -237,11 +240,13 @@ private class GameView : Gtk.DrawingArea
         }
     }
 
-    internal GameView ()
-    {
-        set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK);
-        set_size_request (350, 350);
-    }
+    /*\
+    * * drawing
+    \*/
+
+    private int paving_size;
+    private int tile_size;
+    private int board_size;
 
     private void calculate ()
         requires (game_is_set)
@@ -387,72 +392,28 @@ private class GameView : Gtk.DrawingArea
         }
     }
 
-    private void game_is_complete_cb ()
-    {
-        if (!game.is_complete)
-            return;
+    /*\
+    * * turning tiles
+    \*/
 
-        if (game.n_light_tiles == 0 || game.n_dark_tiles == 0)  // complete win
-            return;
-
-        /*
-         * Show the actual final positions of the pieces before flipping the board.
-         * Otherwise, it could seem like the final player placed the other's piece.
-         */
-        Timeout.add_seconds (2, () =>  {
-            flip_final_result_now = true;
-            for (uint8 x = 0; x < game.size; x++)
-                for (uint8 y = 0; y < game.size; y++)
-                    update_square (x, y);
-            return Source.REMOVE;
-        });
-    }
-
-    private void square_changed_cb (uint8 x, uint8 y, Player replacement, bool undoing)
+    private void square_changed_cb (uint8 x, uint8 y, Player replacement)
     {
         if (replacement == Player.NONE)
         {
             highlight_x = x;
             highlight_y = y;
         }
-        update_square (x, y, undoing);  // FIXME undoing is only for when undoing the counter turn
+        update_square (x, y);
     }
 
-    private void update_square (uint8 x, uint8 y, bool undoing = false)
+    private void update_square (uint8 x, uint8 y)
         requires (game_is_set)
     {
-        int pixmap = get_pixmap (game.get_owner (x, y));
-
-        /* Show the result by laying the tiles with winning color first */
-        if (flip_final_result_now && game.is_complete && !undoing)
-        {
-            uint8 n = y * game.size + x;
-            Player winning_color = Player.LIGHT;
-            Player losing_color = Player.DARK;
-            int n_winning_tiles = game.n_light_tiles;
-            int n_losing_tiles = game.n_dark_tiles;
-            if (n_losing_tiles > n_winning_tiles)
-            {
-                winning_color = Player.DARK;
-                losing_color = Player.LIGHT;
-                int t = n_winning_tiles;
-                n_winning_tiles = n_losing_tiles;
-                n_losing_tiles = t;
-            }
-            if (n < n_winning_tiles)
-                pixmap = get_pixmap (winning_color);
-            else if (n < n_winning_tiles + n_losing_tiles)
-                pixmap = get_pixmap (losing_color);
-            else
-                pixmap = get_pixmap (Player.NONE);
-        }
         /* An undo occurred after the game was complete */
-        else if (flip_final_result_now)
-        {
+        if (flip_final_result_now)
             flip_final_result_now = false;
-        }
 
-        set_square (x, y, pixmap);
+        set_square (x, y, get_pixmap (game.get_owner (x, y)));
     }
 
     private void set_square (uint8 x, uint8 y, int pixmap)
@@ -487,7 +448,12 @@ private class GameView : Gtk.DrawingArea
             for (uint8 y = 0; y < game.size; y++)
             {
                 int old = pixmaps [x, y];
-                update_square (x, y);
+
+                if (flip_final_result_now && game.is_complete)
+                    flip_final_result_tile (x, y);
+                else
+                    update_square (x, y);
+
                 if (pixmaps [x, y] != old)
                     animating = true;
             }
@@ -515,6 +481,80 @@ private class GameView : Gtk.DrawingArea
                 return 31;
         }
     }
+
+    /*\
+    * * game complete
+    \*/
+
+    private bool flip_final_result_now = false;  // the final animation is delayed until this is true
+
+    /* set only when a game is finished */
+    private Player winning_color;
+    private int  n_winning_tiles;
+    private Player losing_color;
+    private int  n_losing_tiles;
+
+    private void game_is_complete_cb ()
+    {
+        if (!game.is_complete)  // we're connecting to a property change, not a signal
+            return;
+
+        if (game.n_light_tiles == 0 || game.n_dark_tiles == 0)  // complete win
+            return;
+
+        /*
+         * Show the actual final positions of the pieces before flipping the board.
+         * Otherwise, it could seem like the final player placed the other's piece.
+         */
+        Timeout.add_seconds (2, () => {
+            if (!game.is_complete)  // in case an undo has been called
+                return Source.REMOVE;
+
+            set_winner_and_loser_variables ();
+            flip_final_result_now = true;
+            for (uint8 x = 0; x < game.size; x++)
+                for (uint8 y = 0; y < game.size; y++)
+                    flip_final_result_tile (x, y);
+
+            return Source.REMOVE;
+        });
+    }
+
+    private void flip_final_result_tile (uint8 x, uint8 y)
+    {
+        int pixmap;
+        uint8 n = y * game.size + x;
+        if (n < n_winning_tiles)
+            pixmap = get_pixmap (winning_color);
+        else if (n < n_winning_tiles + n_losing_tiles)
+            pixmap = get_pixmap (losing_color);
+        else
+            pixmap = get_pixmap (Player.NONE);
+        set_square (x, y, pixmap);
+    }
+
+    private void set_winner_and_loser_variables ()
+    {
+        n_winning_tiles = game.n_light_tiles;
+        n_losing_tiles  = game.n_dark_tiles;
+        if (n_losing_tiles > n_winning_tiles)
+        {
+            winning_color = Player.DARK;
+            losing_color  = Player.LIGHT;
+            int t = n_winning_tiles;
+            n_winning_tiles = n_losing_tiles;
+            n_losing_tiles = t;
+        }
+        else
+        {
+            winning_color = Player.LIGHT;
+            losing_color  = Player.DARK;
+        }
+    }
+
+    /*\
+    * * user actions
+    \*/
 
     internal override bool button_press_event (Gdk.EventButton event)
     {

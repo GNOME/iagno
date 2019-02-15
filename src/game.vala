@@ -46,7 +46,7 @@ private class Game : Object
     /* Indicate that a player should move */
     internal signal void turn_ended ();
     /* Indicate a square has changed */
-    internal signal void square_changed (uint8 x, uint8 y, Player new_color, bool undoing);
+    internal signal void square_changed (uint8 x, uint8 y, Player new_color);
 
     /*\
     * * Number of tiles on the board
@@ -343,7 +343,7 @@ private class Game : Object
         history_index++;
         undo_stack [history_index] = x + y * size;
         tiles [x, y] = current_color;
-        square_changed (x, y, current_color, /* undoing */ false);
+        square_changed (x, y, current_color);
     }
 
     /*\
@@ -398,6 +398,6 @@ private class Game : Object
         uint8 x = tile_number % size;
         uint8 y = tile_number / size;
         tiles [x, y] = replacement_color;
-        square_changed (x, y, replacement_color, /* undoing */ true);
+        square_changed (x, y, replacement_color);
     }
 }
