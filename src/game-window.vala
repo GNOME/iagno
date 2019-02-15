@@ -32,8 +32,8 @@ private enum GameWindowFlags {
 private class GameWindow : ApplicationWindow
 {
     /* settings */
-    private bool tiled_state;
-    private bool maximized_state;
+    private bool window_is_tiled;
+    private bool window_is_maximized;
     private int window_width;
     private int window_height;
 
@@ -193,7 +193,7 @@ private class GameWindow : ApplicationWindow
 
     private void size_allocate_cb ()
     {
-        if (maximized_state || tiled_state)
+        if (window_is_maximized || window_is_tiled)
             return;
         get_size (out window_width, out window_height);
     }
@@ -201,10 +201,17 @@ private class GameWindow : ApplicationWindow
     private bool window_state_event_cb (Gdk.EventWindowState event)
     {
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            maximized_state = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+            window_is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+
         /* We don’t save this state, but track it for saving size allocation */
-        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
-            tiled_state = (event.new_window_state & Gdk.WindowState.TILED) != 0;
+        Gdk.WindowState tiled_state = Gdk.WindowState.TILED
+                                    | Gdk.WindowState.TOP_TILED
+                                    | Gdk.WindowState.BOTTOM_TILED
+                                    | Gdk.WindowState.LEFT_TILED
+                                    | Gdk.WindowState.RIGHT_TILED;
+        if ((event.changed_mask & tiled_state) != 0)
+            window_is_tiled = (event.new_window_state & tiled_state) != 0;
+
         return false;
     }
 
@@ -213,7 +220,7 @@ private class GameWindow : ApplicationWindow
         settings.delay ();
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
-        settings.set_boolean ("window-is-maximized", maximized_state);
+        settings.set_boolean ("window-is-maximized", window_is_maximized);
         settings.apply ();
         destroy ();
     }
