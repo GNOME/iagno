@@ -630,6 +630,8 @@ private class GameView : Gtk.DrawingArea
             (game.size <= 9 && (key == "j" || key == "0" || key == "KP_0")))
             return false;
 
+        uint8 old_highlight_x = highlight_x;
+        uint8 old_highlight_y = highlight_y;
         switch (key)
         {
             case "Left":
@@ -720,7 +722,16 @@ private class GameView : Gtk.DrawingArea
         else
             show_highlight = true;
 
-        queue_draw ();      // TODO is a queue_draw_area usable somehow here?
+        queue_draw_area ((int) (board_x + old_highlight_x * paving_size),
+                         (int) (board_y + old_highlight_y * paving_size),
+                         tile_size,
+                         tile_size);
+        if ((old_highlight_x != highlight_x)
+         || (old_highlight_y != highlight_y))
+            queue_draw_area ((int) (board_x + highlight_x * paving_size),
+                             (int) (board_y + highlight_y * paving_size),
+                             tile_size,
+                             tile_size);
         return true;
     }
 
