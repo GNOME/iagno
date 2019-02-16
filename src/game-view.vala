@@ -404,6 +404,19 @@ private class GameView : Gtk.DrawingArea
     {
         if (replacement == Player.NONE)
         {
+            // clear the previous highlight (if any)
+            if (show_highlight)
+            {
+                highlight_state = 0;
+                set_square (highlight_x,
+                            highlight_y,
+                            get_pixmap (game.get_owner (x, y)),
+                            /* force redraw */ true);
+                // no highliqht animation after undo
+                highlight_state = HIGHLIGHT_MAX;
+            }
+
+            // set highlight on undone play position
             highlight_set = true;
             highlight_x = x;
             highlight_y = y;
@@ -421,9 +434,9 @@ private class GameView : Gtk.DrawingArea
         set_square (x, y, get_pixmap (game.get_owner (x, y)));
     }
 
-    private void set_square (uint8 x, uint8 y, int pixmap)
+    private void set_square (uint8 x, uint8 y, int pixmap, bool force_redraw = false)
     {
-        if (pixmaps [x, y] == pixmap)
+        if (!force_redraw && pixmaps [x, y] == pixmap)
             return;
 
         if (pixmap == 0 || pixmaps [x, y] == 0)
