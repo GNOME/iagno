@@ -28,13 +28,11 @@ private enum Player
     {
         switch (this)
         {
-        case LIGHT:
-            return "L";
-        case DARK:
-            return "D";
-        default:
-            warn_if_fail (this == NONE);
-            return ".";
+            case LIGHT: return "L";
+            case DARK:  return "D";
+            case NONE:  return ".";
+            default:
+                assert_not_reached ();
         }
     }
 
@@ -43,22 +41,18 @@ private enum Player
     {
         switch (c)
         {
-        case 'L':
-            return LIGHT;
-        case 'D':
-            return DARK;
-        case '.':
-            return NONE;
-        default:
-            warn_if_reached ();
-            return NONE;
+            case 'L':   return LIGHT;
+            case 'D':   return DARK;
+            case '.':   return NONE;
+            default:
+                assert_not_reached ();
         }
     }
 
-    internal static Player flip_color (Player p)
+    internal static inline Player flip_color (Player p)
         requires (p != Player.NONE)
     {
-        return p == Player.LIGHT ? Player.DARK : Player.LIGHT;
+        return (p == Player.LIGHT) ? Player.DARK : Player.LIGHT;
     }
 }
 
