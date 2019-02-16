@@ -48,7 +48,10 @@
             <property name="tooltip-text" translatable="yes">Go back to the current game</property>
             <property name="use-underline">True</property>
             <property name="action-name">win.back</property>
-            <style><class name="image-button"/></style>
+            <property name="focus-on-click">False</property>
+            <style>
+              <class name="image-button"/>
+            </style>
             <child>
               <object class="GtkImage">
                 <property name="icon-name">go-previous-symbolic</property>
@@ -64,6 +67,7 @@
             <property name="valign">center</property>
             <property name="can-focus">True</property>
             <property name="menu-model">primary-menu</property>
+            <property name="focus-on-click">False</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>

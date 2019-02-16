@@ -349,7 +349,7 @@ private class GameWindow : ApplicationWindow
 
         game_finished = false;
 
-        if (new_game_button.is_focus)
+        if (!back_button.is_focus)
             view.grab_focus();
         redo_action.set_enabled (true);
         undo ();
@@ -361,7 +361,7 @@ private class GameWindow : ApplicationWindow
         if (stack_child == null || (!) stack_child != "frame")
             return;
 
-        if (new_game_button.is_focus)
+        if (!back_button.is_focus)
             view.grab_focus();
         undo_action.set_enabled (true);
         redo ();
