@@ -415,7 +415,8 @@ private class GameView : Gtk.DrawingArea
                             get_pixmap (game.get_owner (x, y)),
                             /* force redraw */ true);
                 // no highliqht animation after undo
-                highlight_state = HIGHLIGHT_MAX;
+                if (!game.is_complete)
+                    highlight_state = HIGHLIGHT_MAX;
             }
 
             // set highlight on undone play position
