@@ -300,7 +300,9 @@ private class GameView : Gtk.DrawingArea
                 rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
                 cr.fill ();
 
-                if (highlight_x == x && highlight_y == y && (show_highlight || highlight_state != 0) && !game.is_complete)  // TODO on game.is_complete…
+                if ((highlight_x == x && highlight_y == y)
+                 && (show_highlight || highlight_state != 0)
+                 && !game.is_complete)  // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
                 {
                     /* manage animated highlight */
                     if (show_highlight && highlight_state != HIGHLIGHT_MAX)
@@ -421,16 +423,13 @@ private class GameView : Gtk.DrawingArea
             highlight_x = x;
             highlight_y = y;
         }
+
         update_square (x, y);
     }
 
-    private void update_square (uint8 x, uint8 y)
+    private inline void update_square (uint8 x, uint8 y)
         requires (game_is_set)
     {
-        /* An undo occurred after the game was complete */
-        if (flip_final_result_now)
-            flip_final_result_now = false;
-
         set_square (x, y, get_pixmap (game.get_owner (x, y)));
     }
 
@@ -575,6 +574,7 @@ private class GameView : Gtk.DrawingArea
         if (!flip_final_result_now)
             return false;
 
+        flip_final_result_now = false;
         for (uint8 x = 0; x < game.size; x++)
             for (uint8 y = 0; y < game.size; y++)
                 update_square (x, y);
