@@ -35,7 +35,7 @@ private class ComputerPlayer : Object
     }
 
     /* Big enough. Don't use int.MIN / int.MAX, because int.MIN ≠ - int.MAX */
-    private const int POSITIVE_INFINITY = 10000;
+    private const int POSITIVE_INFINITY =  10000;
     private const int NEGATIVE_INFINITY = -10000;
 
     /* Game being played */
@@ -45,7 +45,7 @@ private class ComputerPlayer : Object
     private int difficulty_level;
 
     /* Value of owning each location */
-    private const int[] heuristic =
+    private const int [] heuristic =    // TODO make int [,]
     {
         65,  -3, 6, 4, 4, 6,  -3, 65,
         -3, -29, 3, 1, 1, 3, -29, -3,
@@ -109,7 +109,7 @@ private class ComputerPlayer : Object
 
     internal async void move_async (double delay_seconds = 0.0)
     {
-        var timer = new Timer ();
+        Timer timer = new Timer ();
         uint8 x = 0;
         uint8 y = 0;
 
@@ -178,19 +178,19 @@ private class ComputerPlayer : Object
         /* For the first/first two moves play randomly so the game is not always the same */
         if (game.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
         {
-            random_select (game, out x, out y);
+            random_select (ref game, out x, out y);
             return;
         }
 
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
-        var g = new Game.copy (game);
-        var depth = difficulty_level * 2;
+        Game g = new Game.copy (game);
+        int depth = difficulty_level * 2;
         /* The -1 is because the search sometimes returns NEGATIVE_INFINITY. */
-        var a = NEGATIVE_INFINITY - 1;
+        int a = NEGATIVE_INFINITY - 1;
 
-        var moves = new List<PossibleMove?> ();
+        List<PossibleMove?> moves = new List<PossibleMove?> ();
         get_possible_moves_sorted (g, ref moves);
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
@@ -205,7 +205,7 @@ private class ComputerPlayer : Object
                 assert_not_reached ();
             }
 
-            var a_new = -1 * search (g, depth, NEGATIVE_INFINITY, -a);
+            int a_new = -1 * search (ref g, depth, NEGATIVE_INFINITY, -a);
             if (a_new > a)
             {
                 a = a_new;
@@ -217,7 +217,7 @@ private class ComputerPlayer : Object
         }
     }
 
-    private int search (Game g, int depth, int a, int b)
+    private int search (ref Game g, int depth, int a, int b)
         requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
@@ -231,11 +231,11 @@ private class ComputerPlayer : Object
 
         /* End of the search, calculate how good a result this is. */
         if (depth == 0)
-            return calculate_heuristic (g, ref difficulty_level);
+            return calculate_heuristic (ref g, ref difficulty_level);
 
         if (g.current_player_can_move)
         {
-            var moves = new List<PossibleMove?> ();
+            List<PossibleMove?> moves = new List<PossibleMove?> ();
             get_possible_moves_sorted (g, ref moves);
 
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
@@ -250,7 +250,7 @@ private class ComputerPlayer : Object
                     assert_not_reached ();
                 }
 
-                var a_new = -1 * search (g, depth - 1, -b, -a);
+                int a_new = -1 * search (ref g, depth - 1, -b, -a);
                 if (a_new > a)
                     a = a_new;
 
@@ -265,7 +265,7 @@ private class ComputerPlayer : Object
         {
             g.pass ();
 
-            var a_new = -1 * search (g, depth - 1, -b, -a);
+            int a_new = -1 * search (ref g, depth - 1, -b, -a);
             if (a_new > a)
                 a = a_new;
 
@@ -302,9 +302,9 @@ private class ComputerPlayer : Object
     * * AI
     \*/
 
-    private static int calculate_heuristic (Game g, ref int difficulty_level)
+    private static int calculate_heuristic (ref Game g, ref int difficulty_level)
     {
-        var tile_difference = g.n_current_tiles - g.n_opponent_tiles;
+        int tile_difference = g.n_current_tiles - g.n_opponent_tiles;
 
         /* Try to lose */
         if (difficulty_level == 1)
@@ -315,21 +315,21 @@ private class ComputerPlayer : Object
             return tile_difference;
 
         /* Normal strategy: try to evaluate the position */
-        return tile_difference + eval_heuristic (g) + around (g) ;
+        return tile_difference + eval_heuristic (ref g) + around (ref g) ;
     }
 
-    private static int eval_heuristic (Game g)
+    private static int eval_heuristic (ref Game g)
     {
-        var count = 0;
-
         if (g.size != 8)     // TODO
             return 0;
 
-        for (var x = 0; x < g.size; x++)
+        int count = 0;
+
+        for (uint8 x = 0; x < g.size; x++)
         {
-            for (var y = 0; y < g.size; y++)
+            for (uint8 y = 0; y < g.size; y++)
             {
-                var h = heuristic[y * g.size + x];
+                int h = heuristic [y * g.size + x];
                 if (g.get_owner (x, y) != g.current_color)
                     h = -h;
                 count += h;
@@ -339,22 +339,22 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int around (Game g)
+    private static int around (ref Game g)
     {
-        var count = 0;
+        int count = 0;
         for (int8 x = 0; x < g.size; x++)
         {
             for (int8 y = 0; y < g.size; y++)
             {
-                var a = 0;
-                a -= is_empty (g, x + 1, y    );
-                a -= is_empty (g, x + 1, y + 1);
-                a -= is_empty (g, x,     y + 1);
-                a -= is_empty (g, x - 1, y + 1);
-                a -= is_empty (g, x - 1, y    );
-                a -= is_empty (g, x - 1, y - 1);
-                a -= is_empty (g, x,     y - 1);
-                a -= is_empty (g, x + 1, y - 1);
+                int a = 0;
+                a -= is_empty (ref g, x + 1, y    );
+                a -= is_empty (ref g, x + 1, y + 1);
+                a -= is_empty (ref g, x,     y + 1);
+                a -= is_empty (ref g, x - 1, y + 1);
+                a -= is_empty (ref g, x - 1, y    );
+                a -= is_empty (ref g, x - 1, y - 1);
+                a -= is_empty (ref g, x,     y - 1);
+                a -= is_empty (ref g, x + 1, y - 1);
 
                 /* Two points for completely surrounded tiles */
                 if (a == 0)
@@ -366,7 +366,7 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int is_empty (Game g, int8 x, int8 y)
+    private static int is_empty (ref Game g, int8 x, int8 y)
     {
         if (g.is_valid_location_signed (x, y) && g.get_owner (x, y) == Player.NONE)
             return 1;
@@ -378,7 +378,7 @@ private class ComputerPlayer : Object
     * * First random moves
     \*/
 
-    private static void random_select (Game g, out uint8 move_x, out uint8 move_y)
+    private static void random_select (ref Game g, out uint8 move_x, out uint8 move_y)
     {
         List<uint8> moves = new List<uint8> ();
         for (uint8 x = 0; x < g.size; x++)
