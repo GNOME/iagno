@@ -1,5 +1,6 @@
 [Theme]
 Id=classic
+# Translators: name of a board graphical theme; copies the look of the most common physical board
 Name=Classic
 
 [Pieces]
