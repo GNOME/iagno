@@ -242,7 +242,7 @@ private class Iagno : Gtk.Application
         set_accels_for_action ("win.start-game",        { "<Shift><Primary>n"       });
         set_accels_for_action ("app.quit",              {        "<Primary>q"       });
         set_accels_for_action ("win.undo",              {        "<Primary>z"       });
-        set_accels_for_action ("win.redo",              { "<Shift><Primary>z"       });
+     // set_accels_for_action ("win.redo",              { "<Shift><Primary>z"       });
         set_accels_for_action ("win.back",              {                 "Escape"  });
         set_accels_for_action ("win.toggle-hamburger",  {                 "F10"     });
         set_accels_for_action ("app.help",              {                 "F1"      });

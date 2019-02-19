@@ -23,7 +23,7 @@ using Gtk;
 [Flags]
 private enum GameWindowFlags {
     SHOW_UNDO,
-    SHOW_REDO,
+ // SHOW_REDO,
     SHOW_HINT,
     SHOW_START_BUTTON;
 }
@@ -60,7 +60,7 @@ private class GameWindow : ApplicationWindow
     internal signal void back ();
 
     internal signal void undo ();
-    internal signal void redo ();
+ // internal signal void redo ();
     internal signal void hint ();
 
     /* actions */
@@ -71,7 +71,7 @@ private class GameWindow : ApplicationWindow
         { "back", back_cb },
 
         { "undo", undo_cb },
-        { "redo", redo_cb },
+     // { "redo", redo_cb },
         { "hint", hint_cb },
 
         { "toggle-hamburger", toggle_hamburger }
@@ -80,7 +80,7 @@ private class GameWindow : ApplicationWindow
     private SimpleAction back_action;
 
     internal SimpleAction undo_action;
-    internal SimpleAction redo_action;
+ // internal SimpleAction redo_action;
 
     internal GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view)
     {
@@ -100,11 +100,11 @@ private class GameWindow : ApplicationWindow
 
         back_action = (SimpleAction) lookup_action ("back");
         undo_action = (SimpleAction) lookup_action ("undo");
-        redo_action = (SimpleAction) lookup_action ("redo");
+     // redo_action = (SimpleAction) lookup_action ("redo");
 
         back_action.set_enabled (false);
         undo_action.set_enabled (false);
-        redo_action.set_enabled (false);
+     // redo_action.set_enabled (false);
 
         /* window config */
         set_title (name);
@@ -315,7 +315,7 @@ private class GameWindow : ApplicationWindow
         game_finished = false;
 
         undo_action.set_enabled (false);
-        redo_action.set_enabled (false);
+     // redo_action.set_enabled (false);
 
         play ();        // FIXME lag (see in Taquin…)
 
@@ -344,18 +344,24 @@ private class GameWindow : ApplicationWindow
     private void undo_cb ()
     {
         string? stack_child = stack.get_visible_child_name ();
-        if (stack_child == null || (!) stack_child != "frame")
+        if (stack_child == null)
             return;
+        if ((!) stack_child != "frame")
+        {
+            if (back_action.get_enabled ())
+                back_cb ();
+            return;
+        }
 
         game_finished = false;
 
         if (!back_button.is_focus)
             view.grab_focus();
-        redo_action.set_enabled (true);
+     // redo_action.set_enabled (true);
         undo ();
     }
 
-    private void redo_cb ()
+/*    private void redo_cb ()
     {
         string? stack_child = stack.get_visible_child_name ();
         if (stack_child == null || (!) stack_child != "frame")
@@ -365,7 +371,7 @@ private class GameWindow : ApplicationWindow
             view.grab_focus();
         undo_action.set_enabled (true);
         redo ();
-    }
+    } */
 
     private void hint_cb ()
     {
