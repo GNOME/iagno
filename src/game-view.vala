@@ -413,6 +413,7 @@ private class GameView : Gtk.DrawingArea
                 set_square (highlight_x,
                             highlight_y,
                             get_pixmap (game.get_owner (x, y)),
+                            /* is final animation */ false,
                             /* force redraw */ true);
                 // no highliqht animation after undo
                 if (!game.is_complete)
@@ -431,10 +432,10 @@ private class GameView : Gtk.DrawingArea
     private inline void update_square (uint8 x, uint8 y)
         requires (game_is_set)
     {
-        set_square (x, y, get_pixmap (game.get_owner (x, y)));
+        set_square (x, y, get_pixmap (game.get_owner (x, y)), /* is final animation */ false);
     }
 
-    private void set_square (uint8 x, uint8 y, int pixmap, bool force_redraw = false)
+    private void set_square (uint8 x, uint8 y, int pixmap, bool is_final_animation, bool force_redraw = false)
     {
         if (!force_redraw && pixmaps [x, y] == pixmap)
             return;
@@ -448,42 +449,40 @@ private class GameView : Gtk.DrawingArea
             else
                 pixmaps [x, y]--;
             if (animate_timeout == 0)
-                animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, animate_cb);
+                animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, () => {
+                        bool animating = false;
+
+                        for (uint8 ix = 0; ix < game.size; ix++)
+                        {
+                            for (uint8 iy = 0; iy < game.size; iy++)
+                            {
+                                int old = pixmaps [ix, iy];
+
+                                if (is_final_animation  // do not rely only on flip_final_result_now, it fails randomly with hard IA (?!)
+                                 && flip_final_result_now
+                                 && game.is_complete)
+                                    flip_final_result_tile (ix, iy);
+                                else
+                                    update_square (ix, iy);
+
+                                if (pixmaps [ix, iy] != old)
+                                    animating = true;
+                            }
+                        }
+
+                        if (animating)
+                            return Source.CONTINUE;
+                        else
+                        {
+                            animate_timeout = 0;
+                            return Source.REMOVE;
+                        }
+                    });
         }
         queue_draw_area ((int) (board_x + x * paving_size),
                          (int) (board_y + y * paving_size),
                          tile_size,
                          tile_size);
-    }
-
-    private bool animate_cb ()
-        requires (game_is_set)
-    {
-        bool animating = false;
-
-        for (uint8 x = 0; x < game.size; x++)
-        {
-            for (uint8 y = 0; y < game.size; y++)
-            {
-                int old = pixmaps [x, y];
-
-                if (flip_final_result_now && game.is_complete)
-                    flip_final_result_tile (x, y);
-                else
-                    update_square (x, y);
-
-                if (pixmaps [x, y] != old)
-                    animating = true;
-            }
-        }
-
-        if (!animating)
-        {
-            animate_timeout = 0;
-            return Source.REMOVE;
-        }
-
-        return Source.CONTINUE;
     }
 
     private static int get_pixmap (Player color)
@@ -548,7 +547,7 @@ private class GameView : Gtk.DrawingArea
             pixmap = get_pixmap (losing_color);
         else
             pixmap = get_pixmap (Player.NONE);
-        set_square (x, y, pixmap);
+        set_square (x, y, pixmap, /* is final animation */ true);
     }
 
     private void set_winner_and_loser_variables ()
