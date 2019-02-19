@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-02-04 17:15+0000\n"
-"PO-Revision-Date: 2019-02-05 18:05+0300\n"
+"POT-Creation-Date: 2019-02-18 19:45+0000\n"
+"PO-Revision-Date: 2019-02-19 21:39+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -161,7 +161,6 @@ msgstr "Öntanımlı"
 
 #. Translators: hamburger menu entry; open theme dialog button (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno.ui:8
-#| msgid "Appearance"
 msgid "A_ppearance"
 msgstr "_Görünüm"
 
@@ -172,13 +171,11 @@ msgstr "_Ses"
 
 #. Translators: hamburger menu entry; open help (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno.ui:20
-#| msgid "Help"
 msgid "_Help"
 msgstr "_Yardım"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno.ui:25
-#| msgid "About Iagno"
 msgid "_About Iagno"
 msgstr "İagno _Hakkında"
 
@@ -188,28 +185,32 @@ msgid "Go back to the current game"
 msgstr "Geçerli oyuna geri dön"
 
 #. Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:123
+#: data/ui/iagno.ui:127
 msgid "_New Game"
 msgstr "Yeni _Oyun"
 
 #. Translators: during a game, tooltip text of the Start Over button
-#: data/ui/iagno.ui:128
+#: data/ui/iagno.ui:132
 msgid "Start a new game"
 msgstr "Yeni oyun başlat"
 
-#: data/themes/adwaita.theme.desktop.in:4
+#. Translators: name of a board graphical theme; similar to Gtk theme name, should probably be kept unchanged
+#: data/themes/adwaita.theme.desktop.in:5
 msgid "Adwaita"
 msgstr "Adwaita"
 
-#: data/themes/classic.theme.desktop.in:4
+#. Translators: name of a board graphical theme; copies the look of the most common physical board
+#: data/themes/classic.theme.desktop.in:5
 msgid "Classic"
 msgstr "Klasik"
 
-#: data/themes/high_contrast.theme.desktop.in:4
+#. Translators: name of a board graphical theme; uses only two colors, one really dark and one really light
+#: data/themes/high_contrast.theme.desktop.in:5
 msgid "Black and White"
 msgstr "Siyah-Beyaz"
 
-#: data/themes/sun_and_star.theme.desktop.in:4
+#. Translators: name of a board graphical theme; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
+#: data/themes/sun_and_star.theme.desktop.in:5
 msgid "Sun and Star"
 msgstr "Güneş ve Yıldız"
 
@@ -280,120 +281,126 @@ msgid "true if the window is maximized"
 msgstr "pencere ekranı kaplıyorsa true"
 
 #. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
-#: src/game-window.vala:131
+#: src/game-window.vala:125
 msgid "_Start Game"
 msgstr "_Oynu Başlat"
 
 #. Translators: during a game, tooltip text of the Undo button
-#: src/game-window.vala:158
+#: src/game-window.vala:153
 msgid "Undo your most recent move"
 msgstr "Son hareketinizi geri alın"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:62
+#: src/iagno.vala:65
 msgid "Start with an alternative position"
 msgstr "Alternatif bir pozisyonda başlat"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:65
+#: src/iagno.vala:68
 msgid "Reduce delay before AI moves"
 msgstr "YZ (yapay zeka) hareket etmeden önceki gecikmeyi azalt"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:68
+#: src/iagno.vala:71
 msgid "Play first"
 msgstr "İlk oyna"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:71
+#: src/iagno.vala:74
 msgid "Set the level of the computer’s AI"
 msgstr "Bilgisayarın YZ (yapay zeka) düzeyini belirleyin"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:74
+#: src/iagno.vala:77
 msgid "Turn off the sound"
 msgstr "Sesi kapat"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:77
+#: src/iagno.vala:80
 msgid "Play second"
 msgstr "İkinci oyna"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:80
+#: src/iagno.vala:83
 msgid "Size of the board (debug only)"
 msgstr "Tahta boyutu (yalnızca hata ayıklama)"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:83
+#: src/iagno.vala:86
 msgid "Two-players mode"
 msgstr "İki oyunculu kip"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:86
+#: src/iagno.vala:89
 msgid "Turn on the sound"
 msgstr "Sesi aç"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:89
+#: src/iagno.vala:92
 msgid "Print release version and exit"
 msgstr "Yayım sürümünü yazdır ve çık"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:133
+#: src/iagno.vala:136
 msgid "Size must be at least 4."
 msgstr "Boyut en az 4 olmalı."
 
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
+#: src/iagno.vala:142
+#| msgid "Size must be at least 4."
+msgid "Size must not be more than 16."
+msgstr "Boyut 16ʼdan çok olmamalı."
+
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:181
+#: src/iagno.vala:202
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "Düzey, 1 (kolay) ile 3 (zor) arasında olmalı. Ayarlar değişmedi."
 
 #. Translators: about dialog text
-#: src/iagno.vala:303
+#: src/iagno.vala:330
 msgid "A disk flipping game derived from Reversi"
 msgstr "Reversi’den türemiş bir disk çevirme oyunu"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:307
+#: src/iagno.vala:334
 msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr> \n"
 "Muhammet Kara <muhammetk@gmail.com>"
 
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:369 src/iagno.vala:370
+#: src/iagno.vala:399 src/iagno.vala:400
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:437
+#: src/iagno.vala:478
 msgid "Light must pass, Dark’s move"
 msgstr "Beyaz es geçmeli, Siyah’ın sırası"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:442
+#: src/iagno.vala:483
 msgid "Dark must pass, Light’s move"
 msgstr "Siyah es geçmeli, Beyaz’ın sırası"
 
 #. Translators: during a game, notification to display when Light has won the game
-#: src/iagno.vala:453
+#: src/iagno.vala:495
 msgid "Light wins!"
 msgstr "Beyaz kazandı!"
 
 #. Translators: during a game, notification to display when Dark has won the game
-#: src/iagno.vala:458
+#: src/iagno.vala:500
 msgid "Dark wins!"
 msgstr "Siyah kazandı!"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:463
+#: src/iagno.vala:505
 msgid "The game is draw."
 msgstr "Oyun berabere bitti."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:479
+#: src/iagno.vala:522
 msgid "You can’t move there!"
 msgstr "Oraya taşınamaz!"
 
