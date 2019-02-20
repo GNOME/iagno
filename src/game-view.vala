@@ -63,7 +63,7 @@ private class GameView : Gtk.DrawingArea
     [CCode (notify = false)] internal string sound_flip     { internal get; private set; }
     [CCode (notify = false)] internal string sound_gameover { internal get; private set; }
 
-    [CCode (notify = false)] private int board_x { private get { return (get_allocated_width () - board_size) / 2; }}
+    [CCode (notify = false)] private int board_x { private get { return (get_allocated_width ()  - board_size) / 2; }}
     [CCode (notify = false)] private int board_y { private get { return (get_allocated_height () - board_size) / 2; }}
 
     /* Keyboard */
@@ -146,7 +146,7 @@ private class GameView : Gtk.DrawingArea
     {
         get { return _theme; }
         set {
-            var key = new KeyFile ();
+            KeyFile key = new KeyFile ();
             if (value == null || (!) value == "default")
                 set_default_theme (ref key);
             else
@@ -288,9 +288,9 @@ private class GameView : Gtk.DrawingArea
         cr.stroke ();
 
         /* draw tiles */
-        for (var x = 0; x < game.size; x++)
+        for (uint8 x = 0; x < game.size; x++)
         {
-            for (var y = 0; y < game.size; y++)
+            for (uint8 y = 0; y < game.size; y++)
             {
                 int tile_x = x * paving_size;
                 int tile_y = y * paving_size;

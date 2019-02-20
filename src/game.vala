@@ -52,25 +52,25 @@ private class Game : Object
     * * Number of tiles on the board
     \*/
 
-    [CCode (notify = false)] internal int initial_number_of_tiles { internal get; private set; }
-    [CCode (notify = false)] internal int n_tiles
+    [CCode (notify = false)] internal uint8 initial_number_of_tiles { internal get; private set; }
+    [CCode (notify = false)] internal uint8 n_tiles
     {
         internal get { return n_dark_tiles + n_light_tiles; }
     }
 
-    private int _n_light_tiles = 2;
-    [CCode (notify = false)] internal int n_light_tiles
+    private uint8 _n_light_tiles = 2;
+    [CCode (notify = false)] internal uint8 n_light_tiles
     {
         internal get { return _n_light_tiles; }
     }
 
-    private int _n_dark_tiles = 2;
-    [CCode (notify = false)] internal int n_dark_tiles
+    private uint8 _n_dark_tiles = 2;
+    [CCode (notify = false)] internal uint8 n_dark_tiles
     {
         internal get { return _n_dark_tiles; }
     }
 
-    [CCode (notify = false)] internal int n_current_tiles
+    [CCode (notify = false)] internal uint8 n_current_tiles
     {
         internal get { return current_color == Player.LIGHT ? n_light_tiles : n_dark_tiles; }
         private set {
@@ -81,7 +81,7 @@ private class Game : Object
         }
     }
 
-    [CCode (notify = false)] internal int n_opponent_tiles
+    [CCode (notify = false)] internal uint8 n_opponent_tiles
     {
         internal get { return current_color == Player.DARK ? n_light_tiles : n_dark_tiles; }
         private set {
@@ -143,10 +143,13 @@ private class Game : Object
     }
 
     internal Game.from_strings (string [] setup, Player to_move, uint8 tmp_size = 8)
+        requires (tmp_size >= 4)
+        requires (tmp_size <= 16)
+        requires (to_move != Player.NONE)
         requires (setup.length == tmp_size)
     {
         size = tmp_size;
-        tiles = new Player[size, size];
+        tiles = new Player [size, size];
         undo_stack = new int? [180 * (size - 1)];
 
         for (uint8 y = 0; y < size; y++)
@@ -166,10 +169,10 @@ private class Game : Object
     {
         string s = "\n";
 
-        for (int y = 0; y < size; y++)
+        for (uint8 y = 0; y < size; y++)
         {
-            for (int x = 0; x < size; x++)
-                s += " " + tiles[x, y].to_string ();
+            for (uint8 x = 0; x < size; x++)
+                s += " " + tiles [x, y].to_string ();
             s += "\n";
         }
 
@@ -198,32 +201,38 @@ private class Game : Object
     * * Public information
     \*/
 
-    internal bool is_valid_location (uint8 x, uint8 y)
+    internal inline bool is_valid_location_signed (int8 x, int8 y)
+    {
+        return x >= 0 && x < size
+            && y >= 0 && y < size;
+    }
+
+    internal inline bool is_valid_location_unsigned (uint8 x, uint8 y)
     {
         return x < size && y < size;
     }
 
     internal Player get_owner (uint8 x, uint8 y)
-        requires (is_valid_location (x, y))
+        requires (is_valid_location_unsigned (x, y))
     {
         return tiles [x, y];
     }
 
     internal bool can_place (uint8 x, uint8 y, Player color)
-        requires (is_valid_location (x, y))
+        requires (is_valid_location_unsigned (x, y))
         requires (color != Player.NONE)
     {
         if (tiles [x, y] != Player.NONE)
             return false;
 
-        if (can_flip_tiles (x, y, 1, 0, color) > 0) return true;
-        if (can_flip_tiles (x, y, 1, 1, color) > 0) return true;
-        if (can_flip_tiles (x, y, 0, 1, color) > 0) return true;
-        if (can_flip_tiles (x, y, -1, 1, color) > 0) return true;
-        if (can_flip_tiles (x, y, -1, 0, color) > 0) return true;
+        if (can_flip_tiles (x, y,  1,  0, color) > 0) return true;
+        if (can_flip_tiles (x, y,  1,  1, color) > 0) return true;
+        if (can_flip_tiles (x, y,  0,  1, color) > 0) return true;
+        if (can_flip_tiles (x, y, -1,  1, color) > 0) return true;
+        if (can_flip_tiles (x, y, -1,  0, color) > 0) return true;
         if (can_flip_tiles (x, y, -1, -1, color) > 0) return true;
-        if (can_flip_tiles (x, y, 0, -1, color) > 0) return true;
-        if (can_flip_tiles (x, y, 1, -1, color) > 0) return true;
+        if (can_flip_tiles (x, y,  0, -1, color) > 0) return true;
+        if (can_flip_tiles (x, y,  1, -1, color) > 0) return true;
         return false;
     }
 
@@ -232,20 +241,20 @@ private class Game : Object
     \*/
 
     internal uint8 place_tile (uint8 x, uint8 y, bool apply = true)
-        requires (is_valid_location (x, y))
+        requires (is_valid_location_unsigned (x, y))
     {
-        if (tiles[x, y] != Player.NONE)
+        if (tiles [x, y] != Player.NONE)
             return 0;
 
-        var tiles_turned = 0;
-        tiles_turned += flip_tiles (x, y, 1, 0, apply);
-        tiles_turned += flip_tiles (x, y, 1, 1, apply);
-        tiles_turned += flip_tiles (x, y, 0, 1, apply);
-        tiles_turned += flip_tiles (x, y, -1, 1, apply);
-        tiles_turned += flip_tiles (x, y, -1, 0, apply);
+        uint8 tiles_turned = 0;
+        tiles_turned += flip_tiles (x, y,  1,  0, apply);
+        tiles_turned += flip_tiles (x, y,  1,  1, apply);
+        tiles_turned += flip_tiles (x, y,  0,  1, apply);
+        tiles_turned += flip_tiles (x, y, -1,  1, apply);
+        tiles_turned += flip_tiles (x, y, -1,  0, apply);
         tiles_turned += flip_tiles (x, y, -1, -1, apply);
-        tiles_turned += flip_tiles (x, y, 0, -1, apply);
-        tiles_turned += flip_tiles (x, y, 1, -1, apply);
+        tiles_turned += flip_tiles (x, y,  0, -1, apply);
+        tiles_turned += flip_tiles (x, y,  1, -1, apply);
 
         if (tiles_turned == 0)
             return 0;
@@ -278,11 +287,11 @@ private class Game : Object
 
     private void update_who_can_move ()
     {
-        var enemy = Player.flip_color (current_color);
-        var opponent_can_move = false;
-        for (var x = 0; x < size; x++)
+        Player enemy = Player.flip_color (current_color);
+        bool opponent_can_move = false;
+        for (uint8 x = 0; x < size; x++)
         {
-            for (var y = 0; y < size; y++)
+            for (uint8 y = 0; y < size; y++)
             {
                 if (can_place (x, y, current_color))
                 {
@@ -302,42 +311,43 @@ private class Game : Object
     * * Flipping tiles
     \*/
 
-    private int flip_tiles (uint8 x, uint8 y, int8 x_step, int8 y_step, bool apply)
+    private uint8 flip_tiles (uint8 x, uint8 y, int8 x_step, int8 y_step, bool apply)
     {
-        var enemy_count = can_flip_tiles (x, y, x_step, y_step, current_color);
+        uint8 enemy_count = can_flip_tiles (x, y, x_step, y_step, current_color);
         if (enemy_count == 0)
             return 0;
 
         if (apply)
         {
-            for (var i = 1; i <= enemy_count; i++)
+            for (int8 i = 1; i <= enemy_count; i++)
             {
                 n_opponent_tiles--;
-                set_tile (x + i * x_step, y + i * y_step);
+                set_tile (x + (uint8) (i * x_step),
+                          y + (uint8) (i * y_step));
             }
         }
         return enemy_count;
     }
 
-    private int can_flip_tiles (uint8 x, uint8 y, int8 x_step, int8 y_step, Player color)
+    private uint8 can_flip_tiles (uint8 x, uint8 y, int8 x_step, int8 y_step, Player color)
     {
-        var enemy = Player.flip_color (color);
+        Player enemy = Player.flip_color (color);
 
         /* Count number of enemy pieces we are beside */
-        var enemy_count = -1;
-        uint8 xt = x;
-        uint8 yt = y;
+        int8 enemy_count = -1;
+        int8 xt = (int8) x;
+        int8 yt = (int8) y;
         do {
             enemy_count++;
             xt += x_step;
             yt += y_step;
-        } while (is_valid_location (xt, yt) && tiles [xt, yt] == enemy);
+        } while (is_valid_location_signed (xt, yt) && tiles [xt, yt] == enemy);
 
         /* Must be a line of enemy pieces then one of ours */
-        if (enemy_count == 0 || !is_valid_location (xt, yt) || tiles[xt, yt] != color)
+        if (enemy_count == 0 || !is_valid_location_signed (xt, yt) || tiles [xt, yt] != color)
             return 0;
 
-        return enemy_count;
+        return (uint8) enemy_count;
     }
 
     private void set_tile (uint8 x, uint8 y)
@@ -354,12 +364,12 @@ private class Game : Object
     * * Undo
     \*/
 
-    internal void undo (int count = 1)
+    internal void undo (uint8 count = 1)
         requires (count == 1 || count == 2)
         requires (number_of_moves >= count)
         requires (history_index < undo_stack.length)
     {
-        var enemy = current_color;
+        Player enemy = current_color;
         current_color = Player.flip_color (current_color);
         number_of_moves--;
 

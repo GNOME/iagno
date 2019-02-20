@@ -231,7 +231,7 @@ private class ComputerPlayer : Object
 
         /* End of the search, calculate how good a result this is. */
         if (depth == 0)
-            return calculate_heuristic (g);
+            return calculate_heuristic (g, ref difficulty_level);
 
         if (g.current_player_can_move)
         {
@@ -275,7 +275,7 @@ private class ComputerPlayer : Object
         return a;
     }
 
-    private void get_possible_moves_sorted (Game g, ref List<PossibleMove?> moves)
+    private static void get_possible_moves_sorted (Game g, ref List<PossibleMove?> moves)
     {
         for (uint8 x = 0; x < g.size; x++)
         {
@@ -302,7 +302,7 @@ private class ComputerPlayer : Object
     * * AI
     \*/
 
-    private int calculate_heuristic (Game g)
+    private static int calculate_heuristic (Game g, ref int difficulty_level)
     {
         var tile_difference = g.n_current_tiles - g.n_opponent_tiles;
 
@@ -342,18 +342,18 @@ private class ComputerPlayer : Object
     private static int around (Game g)
     {
         var count = 0;
-        for (var x = 0; x < g.size; x++)
+        for (int8 x = 0; x < g.size; x++)
         {
-            for (var y = 0; y < g.size; y++)
+            for (int8 y = 0; y < g.size; y++)
             {
                 var a = 0;
-                a -= is_empty (g, x + 1, y);
+                a -= is_empty (g, x + 1, y    );
                 a -= is_empty (g, x + 1, y + 1);
-                a -= is_empty (g, x, y + 1);
+                a -= is_empty (g, x,     y + 1);
                 a -= is_empty (g, x - 1, y + 1);
-                a -= is_empty (g, x - 1, y);
+                a -= is_empty (g, x - 1, y    );
                 a -= is_empty (g, x - 1, y - 1);
-                a -= is_empty (g, x, y - 1);
+                a -= is_empty (g, x,     y - 1);
                 a -= is_empty (g, x + 1, y - 1);
 
                 /* Two points for completely surrounded tiles */
@@ -366,9 +366,9 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int is_empty (Game g, uint8 x, uint8 y)
+    private static int is_empty (Game g, int8 x, int8 y)
     {
-        if (g.is_valid_location (x, y) && g.get_owner (x, y) == Player.NONE)
+        if (g.is_valid_location_signed (x, y) && g.get_owner (x, y) == Player.NONE)
             return 1;
 
         return 0;
