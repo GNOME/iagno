@@ -34,6 +34,7 @@ private class GameWindow : ApplicationWindow
     /* settings */
     private bool window_is_tiled;
     private bool window_is_maximized;
+    private bool window_is_fullscreen;
     private int window_width;
     private int window_height;
 
@@ -193,7 +194,7 @@ private class GameWindow : ApplicationWindow
 
     private void size_allocate_cb ()
     {
-        if (window_is_maximized || window_is_tiled)
+        if (window_is_maximized || window_is_tiled || window_is_fullscreen)
             return;
         get_size (out window_width, out window_height);
     }
@@ -203,7 +204,11 @@ private class GameWindow : ApplicationWindow
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
             window_is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
 
-        /* We don’t save this state, but track it for saving size allocation */
+        /* fullscreen: saved as maximized */
+        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
+            window_is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
+
+        /* tiled: not saved, but should not change saved window size */
         Gdk.WindowState tiled_state = Gdk.WindowState.TILED
                                     | Gdk.WindowState.TOP_TILED
                                     | Gdk.WindowState.BOTTOM_TILED
@@ -220,7 +225,7 @@ private class GameWindow : ApplicationWindow
         settings.delay ();
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
-        settings.set_boolean ("window-is-maximized", window_is_maximized);
+        settings.set_boolean ("window-is-maximized", window_is_maximized || window_is_fullscreen);
         settings.apply ();
         destroy ();
     }
