@@ -84,77 +84,102 @@
       </object>
     </child>
     <child>
-      <object class="GtkStack" id="stack">
+      <object class="GtkOverlay">
         <property name="visible">True</property>
-        <property name="homogeneous">True</property>
         <child>
-          <object class="GtkBox" id="new_game_box">
-            <property name="orientation">vertical</property>
+          <object class="GtkStack" id="stack">
             <property name="visible">True</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="margin">25</property>
-            <property name="width-request">350</property>
-            <property name="height-request">350</property>
-            <property name="spacing">6</property>
-          </object>
-          <packing>
-            <property name="name">start-box</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkAspectFrame">
-            <property name="visible">True</property>
-            <property name="shadow-type">GTK_SHADOW_NONE</property>
-            <property name="obey-child">false</property>
-            <property name="ratio">1.4</property>
-            <property name="margin">25</property>
+            <property name="homogeneous">True</property>
             <child>
-              <object class="GtkBox" id="game_box">
+              <object class="GtkBox" id="new_game_box">
+                <property name="orientation">vertical</property>
                 <property name="visible">True</property>
-                <property name="orientation">horizontal</property>
-                <property name="spacing">25</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="margin">25</property>
+                <property name="width-request">350</property>
+                <property name="height-request">350</property>
+                <property name="spacing">6</property>
+              </object>
+              <packing>
+                <property name="name">start-box</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkAspectFrame">
+                <property name="visible">True</property>
+                <property name="shadow-type">GTK_SHADOW_NONE</property>
+                <property name="obey-child">false</property>
+                <property name="ratio">1.4</property>
+                <property name="margin">25</property>
                 <child>
-                  <object class="GtkBox" id="side_box">
+                  <object class="GtkBox" id="game_box">
                     <property name="visible">True</property>
-                    <property name="orientation">vertical</property>
-                    <property name="spacing">6</property>
+                    <property name="orientation">horizontal</property>
+                    <property name="spacing">25</property>
                     <child>
-                      <object class="GtkButton" id="new_game_button">
+                      <object class="GtkBox" id="side_box">
                         <property name="visible">True</property>
-                        <property name="use-underline">True</property>
-                        <!-- Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt) -->
-                        <property name="label" translatable="yes">_New Game</property>
-                        <property name="halign">center</property>
-                        <property name="valign">center</property>
-                        <property name="action-name">win.new-game</property>
-                        <!-- Translators: during a game, tooltip text of the Start Over button -->
-                        <property name="tooltip-text" translatable="yes">Start a new game</property>
-                        <property name="width-request">120</property>
-                        <property name="height-request">60</property>
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkButton" id="new_game_button">
+                            <property name="visible">True</property>
+                            <property name="use-underline">True</property>
+                            <!-- Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt) -->
+                            <property name="label" translatable="yes">_New Game</property>
+                            <property name="halign">center</property>
+                            <property name="valign">center</property>
+                            <property name="action-name">win.new-game</property>
+                            <!-- Translators: during a game, tooltip text of the Start Over button -->
+                            <property name="tooltip-text" translatable="yes">Start a new game</property>
+                            <property name="width-request">120</property>
+                            <property name="height-request">60</property>
+                          </object>
+                          <packing>
+                            <property name="pack-type">end</property>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="padding">0</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="pack-type">end</property>
                         <property name="expand">False</property>
-                        <property name="fill">False</property>
+                        <property name="fill">True</property>
                         <property name="padding">0</property>
-                        <property name="position">1</property>
                       </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="pack-type">end</property>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="padding">0</property>
-                  </packing>
                 </child>
+              </object>
+              <packing>
+                <property name="name">frame</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkButton" id="unfullscreen_button">
+            <property name="visible">False</property>
+            <property name="halign">end</property>
+            <property name="valign">start</property>
+            <property name="action-name">win.unfullscreen</property>
+            <style>
+              <class name="image-button"/>
+              <class name="unfullscreen-button"/>
+              <class name="flat"/>
+            </style>
+            <child>
+              <object class="GtkImage">
+                <property name="icon-name">view-restore-symbolic</property>
+                <property name="visible">True</property>
+                <property name="icon-size">1</property>
               </object>
             </child>
           </object>
-          <packing>
-            <property name="name">frame</property>
-          </packing>
         </child>
       </object>
     </child>

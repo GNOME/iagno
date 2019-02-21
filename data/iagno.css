@@ -16,6 +16,10 @@
  * with this application. If not, see <http://www.gnu.org/licenses/>.
  */
 
+button.unfullscreen-button {
+  margin:6px;
+}
+
 /* Labels' tweaks */
 label.bold-label {
   font-weight: bold;
