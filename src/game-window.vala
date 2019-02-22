@@ -305,6 +305,7 @@ private class GameWindow : ApplicationWindow
 
         stack.set_visible_child_name ("start-box");
         controls_box.hide ();
+        new_game_button.hide ();
 
         if (!game_finished && back_button.visible)
             back_button.grab_focus ();
@@ -316,6 +317,7 @@ private class GameWindow : ApplicationWindow
     {
         stack.set_visible_child_name ("frame");
         back_button.hide ();        // TODO transition?
+        new_game_button.show ();
         controls_box.show ();
 
         if (game_finished)

@@ -49,6 +49,19 @@
         <property name="visible">True</property>
         <property name="show-close-button">True</property>
         <child>
+          <object class="GtkButton" id="new_game_button">
+            <property name="visible">False</property>
+            <property name="use-underline">True</property>
+            <!-- Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt) -->
+            <property name="label" translatable="yes">_New Game</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="action-name">ui.new-game</property>
+            <!-- Translators: during a game, tooltip text of the New Game button -->
+            <property name="tooltip-text" translatable="yes">Start a new game</property>
+          </object>
+        </child>
+        <child>
           <object class="GtkBox" id="controls_box">
             <property name="visible">False</property>
             <property name="orientation">horizontal</property>
@@ -137,28 +150,7 @@
                         <property name="visible">True</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
-                        <child>
-                          <object class="GtkButton" id="new_game_button">
-                            <property name="visible">True</property>
-                            <property name="use-underline">True</property>
-                            <!-- Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt) -->
-                            <property name="label" translatable="yes">_New Game</property>
-                            <property name="halign">center</property>
-                            <property name="valign">center</property>
-                            <property name="action-name">ui.new-game</property>
-                            <!-- Translators: during a game, tooltip text of the Start Over button -->
-                            <property name="tooltip-text" translatable="yes">Start a new game</property>
-                            <property name="width-request">120</property>
-                            <property name="height-request">60</property>
-                          </object>
-                          <packing>
-                            <property name="pack-type">end</property>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="padding">0</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
+                        <property name="width-request">111</property>
                       </object>
                       <packing>
                         <property name="pack-type">end</property>
