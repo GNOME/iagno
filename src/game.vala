@@ -742,6 +742,19 @@ private class Game : Object
 
     private SList<PossibleMove?> possible_moves;
 
+    internal bool test_placing_tile (uint8 x, uint8 y)
+    {
+        unowned SList<PossibleMove?>? test_move = possible_moves.nth (0);
+        while (test_move != null)
+        {
+            PossibleMove move = (!) ((!) test_move).data;
+            if (move.x == x && move.y == y)
+                return true;
+            test_move = ((!) test_move).next;
+        }
+        return false;
+    }
+
     internal void get_possible_moves (out SList<PossibleMove?> moves)
     {
         moves = possible_moves.copy_deep ((a) => {

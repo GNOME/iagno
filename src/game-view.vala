@@ -76,8 +76,18 @@ private class GameView : Gtk.DrawingArea
     private bool highlight_set = false;
     private uint8 highlight_x = uint8.MAX;
     private uint8 highlight_y = uint8.MAX;
+    private uint8 old_highlight_x = uint8.MAX;
+    private uint8 old_highlight_y = uint8.MAX;
     private uint8 highlight_state = 0;
     private const uint8 HIGHLIGHT_MAX = 5;
+
+    /* Mouse */
+    private bool show_mouse_highlight = false;
+    private bool mouse_position_set = false;
+    private uint8 mouse_highlight_x = uint8.MAX;
+    private uint8 mouse_highlight_y = uint8.MAX;
+    private uint8 mouse_position_x = uint8.MAX;
+    private uint8 mouse_position_y = uint8.MAX;
 
     /* Delay in milliseconds between tile flip frames */
     private const int PIXMAP_FLIP_DELAY = 20;
@@ -146,8 +156,15 @@ private class GameView : Gtk.DrawingArea
     {
         set_events (Gdk.EventMask.EXPOSURE_MASK
                   | Gdk.EventMask.BUTTON_PRESS_MASK
-                  | Gdk.EventMask.BUTTON_RELEASE_MASK);
+                  | Gdk.EventMask.BUTTON_RELEASE_MASK
+                  | Gdk.EventMask.POINTER_MOTION_MASK);
         set_size_request (350, 350);
+    }
+
+    private Iagno iagno_instance;
+    internal GameView (Iagno iagno_instance)
+    {
+        this.iagno_instance = iagno_instance;
     }
 
     /*\
@@ -379,19 +396,48 @@ private class GameView : Gtk.DrawingArea
     {
         if (game.is_complete)   // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
             return;
-        if (highlight_x != x || highlight_y != y)
-            return;
-        if (!show_highlight && highlight_state == 0)
+
+        bool display_mouse_highlight = !show_highlight  // no mouse highlight if keyboard one
+                                    && (show_mouse_highlight    || highlight_state != 0)
+                                    && (mouse_highlight_x == x)
+                                    && (mouse_highlight_y == y)
+                                    // disable the hover if the computer is thinking; that should not happen with current AI
+                                    && (iagno_instance.player_one == game.current_color || iagno_instance.computer == null);
+
+        bool display_keybd_highlight = show_highlight
+                                    && !show_mouse_highlight
+                                    && (highlight_x == x)
+                                    && (highlight_y == y);
+
+        // disappearing keyboard highlight after Escape pressed, if mouse hovered tile is not playable (else it is selected)
+        bool display_ghost_highlight = !show_highlight
+                                    && !show_mouse_highlight
+                                    && highlight_state != 0
+                                    && (old_highlight_x == x)
+                                    && (old_highlight_y == y);
+
+        if (!display_mouse_highlight && !display_keybd_highlight && !display_ghost_highlight)
             return;
 
+        bool highlight_on = show_highlight || (show_mouse_highlight && (game.get_owner (x, y) == Player.NONE));
+
         /* manage animated highlight */
-        if (show_highlight && highlight_state != HIGHLIGHT_MAX)
+        if (highlight_on && highlight_state != HIGHLIGHT_MAX)
         {
-            highlight_state ++;
+            highlight_state++;
             queue_draw_area (board_x + tile_x, board_y + tile_y, tile_size, tile_size);
         }
-        else if (!show_highlight && highlight_state != 0)
-            highlight_state = 0;    // TODO highlight_state--; on mouse click, conflict updating coords & showing the anim on previous place
+        else if (!highlight_on && highlight_state != 0)
+        {
+            // either we hit Escape with a keyboard highlight and the mouse does not hover a playable tile,
+            // or we moved mouse from a playable tile to a non playable one; in both cases, we decrease the
+            // highlight state and redraw for the mouse highlight to re-animate when re-entering a playable
+            // tile, or for the keyboard highlight to animate when disappearing; the first displays nothing
+            highlight_state--;
+            queue_draw_area (board_x + tile_x, board_y + tile_y, tile_size, tile_size);
+            if (old_highlight_x != x || old_highlight_y != y)   // is not a keyboard highlight disappearing
+                return;
+        }
 
         /* draw animated highlight */
         cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
@@ -476,23 +522,45 @@ private class GameView : Gtk.DrawingArea
         get_missing_tile (out x, out y);
 
         // clear the previous highlight (if any)
-        if (show_highlight)
+        if (show_highlight || show_mouse_highlight || (highlight_state != 0))
         {
             highlight_state = 0;
-            set_square (highlight_x,
-                        highlight_y,
-                        get_pixmap (game.get_owner (x, y)),
-                        /* is final animation */ false,
-                        /* force redraw */ true);
-            // no highlight animation after undo
+            if (show_highlight)
+                set_square (highlight_x,
+                            highlight_y,
+                            get_pixmap (game.get_owner (highlight_x, highlight_y)),
+                            /* is final animation */ false,
+                            /* force redraw */ true);
+            if (show_mouse_highlight)
+                set_square (mouse_highlight_x,
+                            mouse_highlight_y,
+                            get_pixmap (game.get_owner (mouse_highlight_x, mouse_highlight_y)),
+                            /* is final animation */ false,
+                            /* force redraw */ true);
+
             if (!game.is_complete)
-                highlight_state = HIGHLIGHT_MAX;
+            {
+                if (show_highlight
+                 && x == highlight_x
+                 && y == highlight_y)
+                    highlight_state = HIGHLIGHT_MAX;
+                else if (show_mouse_highlight
+                      && x == mouse_highlight_x
+                      && y == mouse_highlight_y)
+                    highlight_state = HIGHLIGHT_MAX;
+                else
+                    highlight_state = 1;
+            }
         }
 
         // set highlight on undone play position
         highlight_set = true;
         highlight_x = x;
         highlight_y = y;
+        mouse_highlight_x = x;
+        mouse_highlight_y = y;
+        if (!show_highlight)
+            show_mouse_highlight = true;
     }
     private void get_missing_tile (out uint8 x, out uint8 y)
     {
@@ -577,6 +645,8 @@ private class GameView : Gtk.DrawingArea
                         else
                         {
                             animate_timeout = 0;
+                            if (!show_highlight)
+                                _motion_notify_event (mouse_position_x, mouse_position_y, /* force redraw */ true);
                             return Source.REMOVE;
                         }
                     });
@@ -701,10 +771,68 @@ private class GameView : Gtk.DrawingArea
                 highlight_x = (uint8) x;
                 highlight_y = (uint8) y;
                 move (highlight_x, highlight_y);
+                if (game.test_placing_tile (highlight_x, highlight_y))
+                    queue_draw_tile (highlight_x, highlight_y);
             }
         }
 
         return true;
+    }
+
+    internal override bool motion_notify_event (Gdk.EventMotion event)
+    {
+        uint8 x = (uint8) ((event.x - board_x) / paving_size);
+        uint8 y = (uint8) ((event.y - board_y) / paving_size);
+        if ((x >= 0 && x < game_size)
+         && (y >= 0 && y < game_size)
+         && ((x != mouse_position_x)
+          || (y != mouse_position_y)))
+        {
+            mouse_position_x = x;
+            mouse_position_y = y;
+            mouse_position_set = true;
+            if (show_highlight
+             || (x != mouse_highlight_x)
+             || (y != mouse_highlight_y))
+                Timeout.add (200, () => { _motion_notify_event (x, y); return Source.REMOVE; });
+        }
+
+        return base.motion_notify_event (event);
+    }
+    private void _motion_notify_event (uint8 x, uint8 y, bool force_redraw = false)
+    {
+        if (!force_redraw
+         && ((x != mouse_position_x)
+          || (y != mouse_position_y)))
+            return;
+
+        bool old_show_mouse_highlight = show_mouse_highlight;
+        show_mouse_highlight = game.test_placing_tile (x, y);
+
+        if (old_show_mouse_highlight && !show_mouse_highlight)
+        {
+            old_highlight_x = uint8.MAX;
+            old_highlight_y = uint8.MAX;
+        }
+
+        uint8 old_mouse_highlight_x = mouse_highlight_x;
+        uint8 old_mouse_highlight_y = mouse_highlight_y;
+
+        mouse_highlight_x = x;
+        mouse_highlight_y = y;
+
+        if (old_mouse_highlight_x != uint8.MAX && old_mouse_highlight_y != uint8.MAX)
+            queue_draw_tile (old_mouse_highlight_x, old_mouse_highlight_y);
+        if (show_mouse_highlight && show_highlight)
+        {
+            show_highlight = false;
+            if (highlight_x != x || highlight_y != y)
+                queue_draw_tile (highlight_x, highlight_y);
+        }
+        if (show_mouse_highlight || force_redraw)
+        {
+            queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
+        }
     }
 
     internal override bool key_press_event (Gdk.EventKey event)
@@ -728,42 +856,57 @@ private class GameView : Gtk.DrawingArea
             (game_size <= 9 && (key == "j" || key == "J" || key == "0" || key == "KP_0")))
             return false;
 
-        uint8 old_highlight_x = highlight_x;
-        uint8 old_highlight_y = highlight_y;
+        old_highlight_x = highlight_x;
+        old_highlight_y = highlight_y;
         switch (key)
         {
             case "Left":
             case "KP_Left":
-                if (!highlight_set && game.current_color == Player.LIGHT) highlight_y = game_size / 2;
-                if (highlight_x > 0) highlight_x --;
+                if (mouse_position_set && show_mouse_highlight) { highlight_x = mouse_highlight_x; highlight_y = mouse_highlight_y; }
+                else if (!highlight_set && game.current_color == Player.LIGHT) highlight_y = game_size / 2;
+                if (highlight_x > 0) highlight_x--;
                 break;
             case "Right":
             case "KP_Right":
-                if (!highlight_set)
+                if (mouse_position_set && show_mouse_highlight) { highlight_x = mouse_highlight_x; highlight_y = mouse_highlight_y; }
+                else if (!highlight_set)
                 {
                     highlight_x = game_size / 2;
                     if (game.current_color == Player.DARK) highlight_y = highlight_x;
                 }
-                if (highlight_x < game_size - 1) highlight_x ++;
+                if (highlight_x < game_size - 1) highlight_x++;
                 break;
             case "Up":
             case "KP_Up":
-                if (!highlight_set && game.current_color == Player.LIGHT) highlight_x = game_size / 2;
-                if (highlight_y > 0) highlight_y --;
+                if (mouse_position_set && show_mouse_highlight) { highlight_x = mouse_highlight_x; highlight_y = mouse_highlight_y; }
+                else if (!highlight_set && game.current_color == Player.LIGHT) highlight_x = game_size / 2;
+                if (highlight_y > 0) highlight_y--;
                 break;
             case "Down":
             case "KP_Down":
-                if (!highlight_set)
+                if (mouse_position_set && show_mouse_highlight) { highlight_x = mouse_highlight_x; highlight_y = mouse_highlight_y; }
+                else if (!highlight_set)
                 {
                     highlight_y = game_size / 2;
                     if (game.current_color == Player.DARK) highlight_x = highlight_y;
                 }
-                if (highlight_y < game_size - 1) highlight_y ++;
+                if (highlight_y < game_size - 1) highlight_y++;
                 break;
 
             case "space":
             case "Return":
             case "KP_Enter":
+                if (show_mouse_highlight)
+                {
+                    move (mouse_highlight_x, mouse_highlight_y);
+                    return true;
+                }
+                else if (mouse_position_set)
+                {
+                    highlight_x = mouse_position_x;
+                    highlight_y = mouse_position_y;
+                }
+                break;
 
             case "Escape": break;
 
@@ -824,6 +967,18 @@ private class GameView : Gtk.DrawingArea
         if ((old_highlight_x != highlight_x)
          || (old_highlight_y != highlight_y))
             queue_draw_tile (highlight_x, highlight_y);
+        if (key != "Escape")
+        {
+            show_mouse_highlight = false;
+            if (mouse_position_set)
+                queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
+        }
+        else if (mouse_position_set)
+        {
+            highlight_x = mouse_position_x;
+            highlight_y = mouse_position_y;
+            _motion_notify_event (highlight_x, highlight_y, /* force redraw */ true);
+        }
         return true;
     }
 
