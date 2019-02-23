@@ -50,10 +50,10 @@ private class Iagno : Gtk.Application
     private ThemesDialog themes_dialog;
 
     /* Computer player (if there is one) */
-    private ComputerPlayer? computer = null;
+    internal ComputerPlayer? computer { internal get; private set; default = null; }
 
     /* Human player */
-    private Player player_one;
+    internal Player player_one { internal get; private set; }
 
     /* The game being played */
     private Game game;
@@ -210,7 +210,7 @@ private class Iagno : Gtk.Application
         /* UI parts */
         Builder builder = new Builder.from_resource ("/org/gnome/Reversi/ui/iagno-screens.ui");
 
-        view = new GameView ();
+        view = new GameView (this);
         view.move.connect (player_move_cb);
 
         DrawingArea scoredrawing = (DrawingArea) builder.get_object ("scoredrawing");
