@@ -30,6 +30,7 @@ Red=0.2
 Green=0.6
 Blue=0.4
 Radius=2
+TextureAlpha=0.25
 
 [Mark]
 Red=0.5

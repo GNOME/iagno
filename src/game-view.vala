@@ -40,6 +40,9 @@ private class GameView : Gtk.DrawingArea
     private double background_blue = 0.4;
     private int background_radius = 0;
 
+    private double texture_alpha = 0.25;
+    private bool   apply_texture = false;
+
     private double mark_red = 0.2;
     private double mark_green = 0.6;
     private double mark_blue = 0.4;
@@ -83,6 +86,10 @@ private class GameView : Gtk.DrawingArea
     private uint render_size = 0;
     private Cairo.Pattern? tiles_pattern = null;
     private Cairo.Pattern? scoreboard_tiles_pattern = null;
+
+    private bool noise_pixbuf_loaded = false;
+    private Gdk.Pixbuf? noise_pixbuf = null;
+    private Cairo.Pattern? noise_pattern = null;
 
     /* The images being showed on each location */
     private int [,] pixmaps;
@@ -216,6 +223,9 @@ private class GameView : Gtk.DrawingArea
             background_blue   = key.get_double  ("Background", "Blue");
             background_radius = key.get_integer ("Background", "Radius");
 
+            texture_alpha     = key.get_double  ("Background", "TextureAlpha");
+            apply_texture     = (texture_alpha > 0.0) && (texture_alpha <= 1.0);
+
             mark_red          = key.get_double  ("Mark", "Red");
             mark_green        = key.get_double  ("Mark", "Green");
             mark_blue         = key.get_double  ("Mark", "Blue");
@@ -275,10 +285,40 @@ private class GameView : Gtk.DrawingArea
         if (tiles_pattern == null || render_size != tile_size)
         {
             render_size = tile_size;
-            var surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8, tile_size * 4);
-            var c = new Cairo.Context (surface);
-            load_image (c, tile_size * 8, tile_size * 4);
+
+            Cairo.Surface surface;
+            Cairo.Context context;
+
+            surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8,
+                                                                                              tile_size * 4);
+            context = new Cairo.Context (surface);
+            load_image (context, tile_size * 8, tile_size * 4);
             tiles_pattern = new Cairo.Pattern.for_surface (surface);
+
+            if (apply_texture)
+            {
+                try
+                {
+                    noise_pixbuf = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/Reversi/ui/noise.png",
+                                                                          /* x */ tile_size,
+                                                                          /* y */ tile_size,
+                                                                          /* preserve aspect ratio */ false);
+                }
+                catch (Error e) { warning (e.message); }
+                noise_pixbuf_loaded = noise_pixbuf != null;
+                if (noise_pixbuf_loaded)
+                {
+                    surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size,
+                                                                                                      tile_size);
+                    context = new Cairo.Context (surface);
+                    Gdk.cairo_set_source_pixbuf (context, (!) noise_pixbuf, 0, 0);
+                    context.paint_with_alpha (texture_alpha);
+                    // or  surface = Gdk.cairo_surface_create_from_pixbuf ((!) noise_pixbuf, 0, null); ?
+
+                    noise_pattern = new Cairo.Pattern.for_surface (surface);
+                    // ((!) noise_pattern).set_extend (Cairo.Extend.REPEAT);
+                }
+            }
         }
 
         cr.translate (board_x, board_y);
@@ -302,6 +342,15 @@ private class GameView : Gtk.DrawingArea
                 /* draw background */
                 cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
                 rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
+                if (apply_texture && noise_pixbuf_loaded)
+                {
+                    cr.fill_preserve ();
+
+                    var matrix = Cairo.Matrix.identity ();
+                    matrix.translate (-tile_x, -tile_y);
+                    ((!) noise_pattern).set_matrix (matrix);
+                    cr.set_source ((!) noise_pattern);
+                }
                 cr.fill ();
 
                 if ((highlight_x == x && highlight_y == y)
