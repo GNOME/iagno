@@ -23,12 +23,7 @@ private class Game : Object
     /* Tiles on the board */
     private Player [,] tiles;
 
-    private uint8 _size;
-    [CCode (notify = false)] internal uint8 size
-    {
-        internal get { return _size; }
-        private set { _size = value; }
-    }
+    [CCode (notify = false)] public uint8 size { internal get; protected construct; default = 8; }
 
     /* Undoing */
     private uint8? [] undo_stack;
@@ -96,33 +91,36 @@ private class Game : Object
     * * Creation / exporting
     \*/
 
-    public bool alternative_start { internal get; protected construct; }
+    [CCode (notify = false)] public bool alternative_start { internal get; protected construct; }
 
-    internal Game (bool alternative_start = false, uint8 tmp_size = 8)
-        requires (tmp_size >= 4)
-        requires (tmp_size <= 16)
+    construct
     {
-        Object (alternative_start: alternative_start);
-
-        size = tmp_size;
         tiles = new Player [size, size];
-        for (uint8 x = 0; x < size; x++)
-            for (uint8 y = 0; y < size; y++)
+    }
+
+    internal Game (bool alternative_start = false, uint8 _size = 8)
+        requires (_size >= 4)
+        requires (_size <= 16)
+    {
+        Object (alternative_start: alternative_start, size: _size);
+
+        for (uint8 x = 0; x < _size; x++)
+            for (uint8 y = 0; y < _size; y++)
                 tiles [x, y] = Player.NONE;
 
         /* Stack is oversized: there is 60 turns, each adds one piece,
          * there's place for the end of turn and the opponent passing,
-         * and you could flip max ((size - 2) * 3) tiles in one turn. */
-        undo_stack = new int? [180 * (size - 1)]; /* (3 + (size - 2) * 3) * 60 */
+         * and you could flip max ((_size - 2) * 3) tiles in one turn. */
+        undo_stack = new int? [180 * (_size - 1)]; /* (3 + (_size - 2) * 3) * 60 */
 
-        if (size % 2 == 0)
+        if (_size % 2 == 0)
         {
             /* Setup board with four tiles by default */
             initial_number_of_tiles = 4;
-            tiles [size / 2 - 1, size / 2 - 1] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [size / 2 - 1, size / 2] = Player.DARK;
-            tiles [size / 2, size / 2 - 1] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [size / 2, size / 2] = Player.LIGHT;
+            tiles [_size / 2 - 1, _size / 2 - 1] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [_size / 2 - 1, _size / 2] = Player.DARK;
+            tiles [_size / 2, _size / 2 - 1] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [_size / 2, _size / 2] = Player.LIGHT;
             n_current_tiles = 2;
             n_opponent_tiles = 2;
         }
@@ -130,33 +128,33 @@ private class Game : Object
         {
             /* Logical starting position for odd board */
             initial_number_of_tiles = 7;
-            tiles [(size - 1) / 2, (size - 1) / 2] = Player.DARK;
-            tiles [(size + 1) / 2, (size - 3) / 2] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [(size - 3) / 2, (size + 1) / 2] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [(size - 1) / 2, (size - 3) / 2] = Player.LIGHT;
-            tiles [(size - 3) / 2, (size - 1) / 2] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [(size + 1) / 2, (size - 1) / 2] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [(size - 1) / 2, (size + 1) / 2] = Player.LIGHT;
+            tiles [(_size - 1) / 2, (_size - 1) / 2] = Player.DARK;
+            tiles [(_size + 1) / 2, (_size - 3) / 2] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [(_size - 3) / 2, (_size + 1) / 2] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [(_size - 1) / 2, (_size - 3) / 2] = Player.LIGHT;
+            tiles [(_size - 3) / 2, (_size - 1) / 2] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [(_size + 1) / 2, (_size - 1) / 2] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [(_size - 1) / 2, (_size + 1) / 2] = Player.LIGHT;
             n_current_tiles = 3;
             n_opponent_tiles = 4;
         }
     }
 
-    internal Game.from_strings (string [] setup, Player to_move, uint8 tmp_size = 8)
-        requires (tmp_size >= 4)
-        requires (tmp_size <= 16)
+    internal Game.from_strings (string [] setup, Player to_move, uint8 _size = 8)
+        requires (_size >= 4)
+        requires (_size <= 16)
         requires (to_move != Player.NONE)
-        requires (setup.length == tmp_size)
+        requires (setup.length == _size)
     {
-        size = tmp_size;
-        tiles = new Player [size, size];
-        undo_stack = new int? [180 * (size - 1)];
+        Object (size: _size);
 
-        for (uint8 y = 0; y < size; y++)
+        undo_stack = new int? [180 * (_size - 1)];
+
+        for (uint8 y = 0; y < _size; y++)
         {
-            if (setup [y].length != size * 2)
+            if (setup [y].length != _size * 2)
                 warn_if_reached ();
-            for (uint8 x = 0; x < size; x++)
+            for (uint8 x = 0; x < _size; x++)
                 tiles [x, y] = Player.from_char (setup [y][x * 2 + 1]);
         }
 
@@ -181,8 +179,7 @@ private class Game : Object
 
     internal Game.copy (Game game)
     {
-        size = game.size;
-        tiles = new Player [size, size];
+        Object (size: game.size);
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
