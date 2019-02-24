@@ -622,12 +622,12 @@ private class GameView : Gtk.DrawingArea
             return true;
         }
 
-        if ((game.size <= 4 && (key == "e" || key == "5" || key == "KP_5")) ||
-            (game.size <= 5 && (key == "f" || key == "6" || key == "KP_6")) ||
-            (game.size <= 6 && (key == "g" || key == "7" || key == "KP_7")) ||
-            (game.size <= 7 && (key == "h" || key == "8" || key == "KP_8")) ||
-            (game.size <= 8 && (key == "i" || key == "9" || key == "KP_9")) ||
-            (game.size <= 9 && (key == "j" || key == "0" || key == "KP_0")))
+        if ((game.size <= 4 && (key == "e" || key == "E" || key == "5" || key == "KP_5")) ||
+            (game.size <= 5 && (key == "f" || key == "F" || key == "6" || key == "KP_6")) ||
+            (game.size <= 6 && (key == "g" || key == "G" || key == "7" || key == "KP_7")) ||
+            (game.size <= 7 && (key == "h" || key == "H" || key == "8" || key == "KP_8")) ||
+            (game.size <= 8 && (key == "i" || key == "I" || key == "9" || key == "KP_9")) ||
+            (game.size <= 9 && (key == "j" || key == "J" || key == "0" || key == "KP_0")))
             return false;
 
         uint8 old_highlight_x = highlight_x;
@@ -669,16 +669,16 @@ private class GameView : Gtk.DrawingArea
 
             case "Escape": break;
 
-            case "a": highlight_x = 0; break;
-            case "b": highlight_x = 1; break;
-            case "c": highlight_x = 2; break;
-            case "d": highlight_x = 3; break;
-            case "e": highlight_x = 4; break;
-            case "f": highlight_x = 5; break;
-            case "g": highlight_x = 6; break;
-            case "h": highlight_x = 7; break;
-            case "i": highlight_x = 8; break;
-            case "j": highlight_x = 9; break;
+            case "a": case "A": highlight_x = 0; break;
+            case "b": case "B": highlight_x = 1; break;
+            case "c": case "C": highlight_x = 2; break;
+            case "d": case "D": highlight_x = 3; break;
+            case "e": case "E": highlight_x = 4; break;
+            case "f": case "F": highlight_x = 5; break;
+            case "g": case "G": highlight_x = 6; break;
+            case "h": case "H": highlight_x = 7; break;
+            case "i": case "I": highlight_x = 8; break;
+            case "j": case "J": highlight_x = 9; break;
 
             case "1": case "KP_1": highlight_y = 0; break;
             case "2": case "KP_2": highlight_y = 1; break;
