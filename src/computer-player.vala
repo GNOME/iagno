@@ -42,7 +42,7 @@ private class ComputerPlayer : Object
     private Game game;
 
     /* Strength */
-    private int difficulty_level;
+    private uint8 difficulty_level;
 
     /* Value of owning each location */
     private const int [] heuristic =    // TODO make int [,]
@@ -82,7 +82,7 @@ private class ComputerPlayer : Object
         }
     }
 
-    internal ComputerPlayer (Game game, int difficulty_level = 1)
+    internal ComputerPlayer (Game game, uint8 difficulty_level = 1)
     {
         this.game = game;
         this.difficulty_level = difficulty_level;
@@ -305,7 +305,7 @@ private class ComputerPlayer : Object
     * * AI
     \*/
 
-    private static int calculate_heuristic (ref Game g, ref int difficulty_level)
+    private static int calculate_heuristic (ref Game g, ref uint8 difficulty_level)
     {
         int tile_difference = g.n_current_tiles - g.n_opponent_tiles;
 
