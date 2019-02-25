@@ -93,7 +93,16 @@ private class ComputerPlayer : Object
         if (game.place_tile (x, y) == 0)
         {
             critical ("Computer chose an invalid move: %d,%d\n%s", x, y, game.to_string ());
-            assert_not_reached ();
+
+            /* Has been reached, once. So let's have a fallback. */
+            uint8 new_x;
+            uint8 new_y;
+            random_select (game, out new_x, out new_y);
+            if (game.place_tile (new_x, new_y) == 0)
+            {
+                critical ("Computer chose an invalid move for the second time: %d,%d\n%s", new_x, new_y, game.to_string ());
+                assert_not_reached ();
+            }
         }
     }
 
