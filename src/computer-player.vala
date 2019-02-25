@@ -62,7 +62,7 @@ private class ComputerPlayer : Object
 
     /* Indicates the results of the AI's search should be discarded.
      * The mutex is only needed for its memory barrier. */
-    private bool _move_pending;
+    private bool _move_pending = false;
     private RecMutex _move_pending_mutex;
     [CCode (notify = false)] private bool move_pending
     {
