@@ -100,18 +100,18 @@ private class ComputerPlayer : Object
     /* For tests only. */
     internal void move ()
     {
-        uint8 x = 0;
-        uint8 y = 0;
+        uint8 x;
+        uint8 y;
 
-        run_search (ref x, ref y);
+        run_search (out x, out y);
         complete_move (x, y);
     }
 
     internal async void move_async (double delay_seconds = 0.0)
     {
         Timer timer = new Timer ();
-        uint8 x = 0;
-        uint8 y = 0;
+        uint8 x = 0; // garbage, should not be needed
+        uint8 y = 0; // idem
 
         while (move_pending)
         {
@@ -124,7 +124,7 @@ private class ComputerPlayer : Object
         timer.start ();
         new Thread<void *> ("AI thread", () => {
             move_pending = true;
-            run_search (ref x, ref y);
+            run_search (out x, out y);
             move_async.callback ();
             return null;
         });
@@ -172,7 +172,7 @@ private class ComputerPlayer : Object
     * * Minimax / Negamax / alpha-beta pruning
     \*/
 
-    private void run_search (ref uint8 x, ref uint8 y)
+    private void run_search (out uint8 x, out uint8 y)
         requires (game.current_player_can_move)
     {
         /* For the first/first two moves play randomly so the game is not always the same */
@@ -181,6 +181,9 @@ private class ComputerPlayer : Object
             random_select (ref game, out x, out y);
             return;
         }
+
+        x = 0;  // garbage
+        y = 0;  // idem
 
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
