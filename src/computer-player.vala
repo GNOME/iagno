@@ -178,7 +178,7 @@ private class ComputerPlayer : Object
         /* For the first/first two moves play randomly so the game is not always the same */
         if (game.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
         {
-            random_select (ref game, out x, out y);
+            random_select (game, out x, out y);
             return;
         }
 
@@ -208,7 +208,7 @@ private class ComputerPlayer : Object
                 assert_not_reached ();
             }
 
-            int a_new = -1 * search (ref g, depth, NEGATIVE_INFINITY, -a);
+            int a_new = -1 * search (g, depth, NEGATIVE_INFINITY, -a);
             if (a_new > a)
             {
                 a = a_new;
@@ -220,7 +220,7 @@ private class ComputerPlayer : Object
         }
     }
 
-    private int search (ref Game g, int depth, int a, int b)
+    private int search (Game g, int depth, int a, int b)
         requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
@@ -234,7 +234,7 @@ private class ComputerPlayer : Object
 
         /* End of the search, calculate how good a result this is. */
         if (depth == 0)
-            return calculate_heuristic (ref g, ref difficulty_level);
+            return calculate_heuristic (g, ref difficulty_level);
 
         if (g.current_player_can_move)
         {
@@ -253,7 +253,7 @@ private class ComputerPlayer : Object
                     assert_not_reached ();
                 }
 
-                int a_new = -1 * search (ref g, depth - 1, -b, -a);
+                int a_new = -1 * search (g, depth - 1, -b, -a);
                 if (a_new > a)
                     a = a_new;
 
@@ -268,7 +268,7 @@ private class ComputerPlayer : Object
         {
             g.pass ();
 
-            int a_new = -1 * search (ref g, depth - 1, -b, -a);
+            int a_new = -1 * search (g, depth - 1, -b, -a);
             if (a_new > a)
                 a = a_new;
 
@@ -305,7 +305,7 @@ private class ComputerPlayer : Object
     * * AI
     \*/
 
-    private static int calculate_heuristic (ref Game g, ref uint8 difficulty_level)
+    private static int calculate_heuristic (Game g, ref uint8 difficulty_level)
     {
         int tile_difference = g.n_current_tiles - g.n_opponent_tiles;
 
@@ -318,10 +318,10 @@ private class ComputerPlayer : Object
             return tile_difference;
 
         /* Normal strategy: try to evaluate the position */
-        return tile_difference + eval_heuristic (ref g) + around (ref g) ;
+        return tile_difference + eval_heuristic (g) + around (g) ;
     }
 
-    private static int eval_heuristic (ref Game g)
+    private static int eval_heuristic (Game g)
     {
         if (g.size != 8)     // TODO
             return 0;
@@ -342,7 +342,7 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int around (ref Game g)
+    private static int around (Game g)
     {
         int count = 0;
         for (int8 x = 0; x < g.size; x++)
@@ -350,14 +350,14 @@ private class ComputerPlayer : Object
             for (int8 y = 0; y < g.size; y++)
             {
                 int a = 0;
-                a -= is_empty (ref g, x + 1, y    );
-                a -= is_empty (ref g, x + 1, y + 1);
-                a -= is_empty (ref g, x,     y + 1);
-                a -= is_empty (ref g, x - 1, y + 1);
-                a -= is_empty (ref g, x - 1, y    );
-                a -= is_empty (ref g, x - 1, y - 1);
-                a -= is_empty (ref g, x,     y - 1);
-                a -= is_empty (ref g, x + 1, y - 1);
+                a -= is_empty (g, x + 1, y    );
+                a -= is_empty (g, x + 1, y + 1);
+                a -= is_empty (g, x,     y + 1);
+                a -= is_empty (g, x - 1, y + 1);
+                a -= is_empty (g, x - 1, y    );
+                a -= is_empty (g, x - 1, y - 1);
+                a -= is_empty (g, x,     y - 1);
+                a -= is_empty (g, x + 1, y - 1);
 
                 /* Two points for completely surrounded tiles */
                 if (a == 0)
@@ -369,7 +369,7 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int is_empty (ref Game g, int8 x, int8 y)
+    private static int is_empty (Game g, int8 x, int8 y)
     {
         if (g.is_valid_location_signed (x, y) && g.get_owner (x, y) == Player.NONE)
             return 1;
@@ -381,7 +381,7 @@ private class ComputerPlayer : Object
     * * First random moves
     \*/
 
-    private static void random_select (ref Game g, out uint8 move_x, out uint8 move_y)
+    private static void random_select (Game g, out uint8 move_x, out uint8 move_y)
     {
         List<uint8> moves = new List<uint8> ();
         for (uint8 x = 0; x < g.size; x++)
