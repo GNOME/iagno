@@ -345,9 +345,9 @@ private class ComputerPlayer : Object
     private static int around (Game g)
     {
         int count = 0;
-        for (int8 x = 0; x < g.size; x++)
+        for (int8 x = 0; x < (int8) g.size; x++)
         {
-            for (int8 y = 0; y < g.size; y++)
+            for (int8 y = 0; y < (int8) g.size; y++)
             {
                 int a = 0;
                 a -= is_empty (g, x + 1, y    );
@@ -363,7 +363,7 @@ private class ComputerPlayer : Object
                 if (a == 0)
                     a = 2;
 
-                count += g.get_owner (x, y) == g.current_color ? a : -a;
+                count += (g.get_owner ((uint8) x, (uint8) y) == g.current_color) ? a : -a;
             }
         }
         return count;
@@ -371,10 +371,12 @@ private class ComputerPlayer : Object
 
     private static int is_empty (Game g, int8 x, int8 y)
     {
-        if (g.is_valid_location_signed (x, y) && g.get_owner (x, y) == Player.NONE)
-            return 1;
+        if (!g.is_valid_location_signed (x, y))
+            return 0;
+        if (g.get_owner ((uint8) x, (uint8) y) != Player.NONE)
+            return 0;
 
-        return 0;
+        return 1;
     }
 
     /*\
