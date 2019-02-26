@@ -193,10 +193,11 @@ private class Game : Object
             for (uint8 y = 0; y < size; y++)
                 tiles [x, y] = game.tiles [x, y];
 
-        number_of_moves  = game.number_of_moves;
-        current_color    = game.current_color;
-        n_current_tiles  = game.n_current_tiles;
-        n_opponent_tiles = game.n_opponent_tiles;
+        number_of_moves         = game.number_of_moves;
+        current_color           = game.current_color;
+        n_current_tiles         = game.n_current_tiles;
+        n_opponent_tiles        = game.n_opponent_tiles;
+        current_player_can_move = game.current_player_can_move;
 
         init_undo_stack (_size, out undo_stack);
         /* warning: history not copied */

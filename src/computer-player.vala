@@ -230,21 +230,21 @@ private class ComputerPlayer : Object
             if (move == null)
                 assert_not_reached ();
 
-            if (g.place_tile (((!) move).x, ((!) move).y, true) == 0)
+            Game _g = new Game.copy (g);
+
+            if (_g.place_tile (((!) move).x, ((!) move).y, true) == 0)
             {
-                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, ((!) move).x, ((!) move).y, ((!) move).n_tiles, g.to_string ());
+                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, ((!) move).x, ((!) move).y, ((!) move).n_tiles, _g.to_string ());
                 assert_not_reached ();
             }
 
-            int a_new = -1 * search (g, depth, NEGATIVE_INFINITY, -a);
+            int a_new = -1 * search (_g, depth, NEGATIVE_INFINITY, -a);
             if (a_new > a)
             {
                 a = a_new;
                 x = ((!) move).x;
                 y = ((!) move).y;
             }
-
-            g.undo ();
         }
     }
 
@@ -276,17 +276,17 @@ private class ComputerPlayer : Object
                 if (move == null)
                     assert_not_reached ();
 
-                if (g.place_tile (((!) move).x, ((!) move).y) == 0)
+                Game _g = new Game.copy (g);
+
+                if (_g.place_tile (((!) move).x, ((!) move).y) == 0)
                 {
-                    critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, ((!) move).x, ((!) move).y, ((!) move).n_tiles, g.to_string ());
+                    critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, ((!) move).x, ((!) move).y, ((!) move).n_tiles, _g.to_string ());
                     assert_not_reached ();
                 }
 
-                int a_new = -1 * search (g, depth - 1, -b, -a);
+                int a_new = -1 * search (_g, depth - 1, -b, -a);
                 if (a_new > a)
                     a = a_new;
-
-                g.undo ();
 
                 /* This branch has worse values, so ignore it */
                 if (b <= a)
@@ -295,13 +295,13 @@ private class ComputerPlayer : Object
         }
         else
         {
-            g.pass ();
+            Game _g = new Game.copy (g);
 
-            int a_new = -1 * search (g, depth - 1, -b, -a);
+            _g.pass ();
+
+            int a_new = -1 * search (_g, depth - 1, -b, -a);
             if (a_new > a)
                 a = a_new;
-
-            g.undo ();
         }
 
         return a;
