@@ -108,10 +108,7 @@ private class Game : Object
             for (uint8 y = 0; y < _size; y++)
                 tiles [x, y] = Player.NONE;
 
-        /* Stack is oversized: there is 60 turns, each adds one piece,
-         * there's place for the end of turn and the opponent passing,
-         * and you could flip max ((_size - 2) * 3) tiles in one turn. */
-        undo_stack = new uint8? [180 * (_size - 1)]; /* (3 + (_size - 2) * 3) * 60 */
+        init_undo_stack (_size, out undo_stack);
 
         if (_size % 2 == 0)
         {
@@ -148,7 +145,7 @@ private class Game : Object
     {
         Object (size: _size);
 
-        undo_stack = new uint8? [180 * (_size - 1)];
+        init_undo_stack (_size, out undo_stack);
 
         for (uint8 y = 0; y < _size; y++)
         {
@@ -190,7 +187,7 @@ private class Game : Object
         n_current_tiles  = game.n_current_tiles;
         n_opponent_tiles = game.n_opponent_tiles;
 
-        undo_stack = new uint8? [180 * (size - 1)];
+        init_undo_stack (_size, out undo_stack);
         /* warning: history not copied */
     }
 
@@ -410,5 +407,14 @@ private class Game : Object
         uint8 y = tile_number / size;
         tiles [x, y] = replacement_color;
         square_changed (x, y, replacement_color);
+    }
+
+    private static void init_undo_stack (uint8 size, out uint8? [] undo_stack)
+    {
+        // Stack is oversized: there are (size * size - initial tiles) turns,
+        // each adds one piece, a null marking the end of turn, then possibly
+        // another null marking the opponent passing, and it is impossible to
+        // flip (size - 2) enemy pieces in each of the 4 possible directions.
+        undo_stack = new uint8? [(size * size - 4) * (3 + (size - 2) * 4)];
     }
 }
