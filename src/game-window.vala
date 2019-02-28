@@ -24,7 +24,7 @@ using Gtk;
 private enum GameWindowFlags {
     SHOW_UNDO,
  // SHOW_REDO,
-    SHOW_HINT,
+ // SHOW_HINT,
     SHOW_START_BUTTON;
 }
 
@@ -63,7 +63,7 @@ private class GameWindow : ApplicationWindow
 
     internal signal void undo ();
  // internal signal void redo ();
-    internal signal void hint ();
+ // internal signal void hint ();
 
     internal GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view)
     {
@@ -192,7 +192,7 @@ private class GameWindow : ApplicationWindow
 
         { "undo", undo_cb },
      // { "redo", redo_cb },
-        { "hint", hint_cb },
+     // { "hint", hint_cb },
 
         { "toggle-hamburger", toggle_hamburger },
         { "unfullscreen", unfullscreen }
@@ -393,13 +393,13 @@ private class GameWindow : ApplicationWindow
         redo ();
     } */
 
-    private void hint_cb ()
+/*    private void hint_cb ()
     {
         string? stack_child = stack.get_visible_child_name ();
         if (stack_child == null || (!) stack_child != "frame")
             return;
         hint ();
-    }
+    } */
 
     /*\
     * * hamburger menu
