@@ -47,7 +47,7 @@
             <!-- Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button -->
             <property name="tooltip-text" translatable="yes">Go back to the current game</property>
             <property name="use-underline">True</property>
-            <property name="action-name">win.back</property>
+            <property name="action-name">ui.back</property>
             <property name="focus-on-click">False</property>
             <style>
               <class name="image-button"/>
@@ -130,7 +130,7 @@
                             <property name="label" translatable="yes">_New Game</property>
                             <property name="halign">center</property>
                             <property name="valign">center</property>
-                            <property name="action-name">win.new-game</property>
+                            <property name="action-name">ui.new-game</property>
                             <!-- Translators: during a game, tooltip text of the Start Over button -->
                             <property name="tooltip-text" translatable="yes">Start a new game</property>
                             <property name="width-request">120</property>
@@ -166,7 +166,7 @@
             <property name="visible">False</property>
             <property name="halign">end</property>
             <property name="valign">start</property>
-            <property name="action-name">win.unfullscreen</property>
+            <property name="action-name">ui.unfullscreen</property>
             <style>
               <class name="image-button"/>
               <class name="unfullscreen-button"/>

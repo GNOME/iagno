@@ -65,26 +65,6 @@ private class GameWindow : ApplicationWindow
  // internal signal void redo ();
     internal signal void hint ();
 
-    /* actions */
-    private const GLib.ActionEntry win_actions[] =
-    {
-        { "new-game", new_game_cb },
-        { "start-game", start_game_cb },
-        { "back", back_cb },
-
-        { "undo", undo_cb },
-     // { "redo", redo_cb },
-        { "hint", hint_cb },
-
-        { "toggle-hamburger", toggle_hamburger },
-        { "unfullscreen", unfullscreen }
-    };
-
-    private SimpleAction back_action;
-
-    internal SimpleAction undo_action;
- // internal SimpleAction redo_action;
-
     internal GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view)
     {
         if (css_resource != null)
@@ -98,18 +78,8 @@ private class GameWindow : ApplicationWindow
 
         view = _view;
 
-        /* window actions */
-        add_action_entries (win_actions, this);
-
-        back_action = (SimpleAction) lookup_action ("back");
-        undo_action = (SimpleAction) lookup_action ("undo");
-     // redo_action = (SimpleAction) lookup_action ("redo");
-
-        back_action.set_enabled (false);
-        undo_action.set_enabled (false);
-     // redo_action.set_enabled (false);
-
         /* window config */
+        install_ui_action_entries ();
         set_title (name);
         headerbar.set_title (name);
 
@@ -129,7 +99,7 @@ private class GameWindow : ApplicationWindow
             _start_game_button.width_request = 222;
             _start_game_button.height_request = 60;
             _start_game_button.halign = Align.CENTER;
-            _start_game_button.set_action_name ("win.start-game");
+            _start_game_button.set_action_name ("ui.start-game");
             /* Translators: when configuring a new game, tooltip text of the blue Start button */
             // _start_game_button.set_tooltip_text (_("Start a new game as configured"));
             ((StyleContext) _start_game_button.get_style_context ()).add_class ("suggested-action");
@@ -151,7 +121,7 @@ private class GameWindow : ApplicationWindow
             history_box.get_style_context ().add_class ("linked");
 
             Button undo_button = new Button.from_icon_name ("edit-undo-symbolic", Gtk.IconSize.BUTTON);
-            undo_button.action_name = "win.undo";
+            undo_button.action_name = "ui.undo";
             /* Translators: during a game, tooltip text of the Undo button */
             undo_button.set_tooltip_text (_("Undo your most recent move"));
             undo_button.valign = Align.CENTER;
@@ -189,6 +159,44 @@ private class GameWindow : ApplicationWindow
         else
             show_new_game_screen ();
     }
+
+    /*\
+    * * actions
+    \*/
+
+    private SimpleAction back_action;
+
+    internal SimpleAction undo_action;
+ // internal SimpleAction redo_action;
+
+    private void install_ui_action_entries ()
+    {
+        SimpleActionGroup action_group = new SimpleActionGroup ();
+        action_group.add_action_entries (ui_action_entries, this);
+        insert_action_group ("ui", action_group);
+
+        back_action = (SimpleAction) action_group.lookup_action ("back");
+        undo_action = (SimpleAction) action_group.lookup_action ("undo");
+     // redo_action = (SimpleAction) lookup_action ("redo");
+
+        back_action.set_enabled (false);
+        undo_action.set_enabled (false);
+     // redo_action.set_enabled (false);
+    }
+
+    private const GLib.ActionEntry [] ui_action_entries =
+    {
+        { "new-game", new_game_cb },
+        { "start-game", start_game_cb },
+        { "back", back_cb },
+
+        { "undo", undo_cb },
+     // { "redo", redo_cb },
+        { "hint", hint_cb },
+
+        { "toggle-hamburger", toggle_hamburger },
+        { "unfullscreen", unfullscreen }
+    };
 
     /*\
     * * Window events
