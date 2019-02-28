@@ -165,9 +165,8 @@ private class GameWindow : ApplicationWindow
     \*/
 
     private SimpleAction back_action;
-
-    internal SimpleAction undo_action;
- // internal SimpleAction redo_action;
+    private SimpleAction undo_action;
+ // private SimpleAction redo_action;
 
     private void install_ui_action_entries ()
     {
@@ -260,7 +259,13 @@ private class GameWindow : ApplicationWindow
         view.grab_focus ();
     }
 
-    internal void set_subtitle (string? subtitle)
+    internal void new_turn_start (bool can_undo)
+    {
+        undo_action.set_enabled (can_undo);
+        headerbar.set_subtitle (null);
+    }
+
+    internal void set_subtitle (string subtitle)
     {
         headerbar.set_subtitle (subtitle);
     }

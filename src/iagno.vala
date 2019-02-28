@@ -379,21 +379,18 @@ private class Iagno : Gtk.Application
         else
             player_one = Player.DARK;
 
+        first_player_is_human = (player_one == Player.DARK) || (computer == null);
         update_ui ();
 
         if (player_one != Player.DARK && computer != null)
             ((!) computer).move_async.begin (MODERATE_MOVE_DELAY);     // TODO MODERATE_MOVE_DELAY = 1.0, but after the sliding animation…
     }
 
+    private bool first_player_is_human = false;
     private void update_ui ()
         requires (game_is_set)
     {
-        window.set_subtitle (null);
-
-        if (player_one == Player.DARK || computer == null)
-            window.undo_action.set_enabled (game.number_of_moves >= 1);
-        else
-            window.undo_action.set_enabled (game.number_of_moves >= 2);
+        window.new_turn_start (/* can undo */ first_player_is_human ? (game.number_of_moves >= 1) : (game.number_of_moves >= 2));
 
         /* Translators: this is a 2 digit representation of the current score. */
         dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
