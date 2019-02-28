@@ -497,8 +497,7 @@ private class Iagno : Gtk.Application
         }
 
         update_ui ();
-        play_sound (Sound.FLIP);
-        view.update_scoreboard ();
+        update_scoreboard ();
     }
 
     private void turn_ended_cb (bool undoing, bool no_draw)
@@ -520,9 +519,7 @@ private class Iagno : Gtk.Application
     private void prepare_move ()
         requires (game_is_set)
     {
-        /* for the move that just ended */
-        play_sound (Sound.FLIP);
-        view.update_scoreboard ();
+        update_scoreboard ();
 
         /*
          * Get the computer to move after a delay, so it looks like it's
@@ -536,9 +533,7 @@ private class Iagno : Gtk.Application
     private void pass ()
         requires (game_is_set)
     {
-        /* for the move that just ended */
-        play_sound (Sound.FLIP);
-        view.update_scoreboard ();
+        update_scoreboard ();
 
         if (!game.pass ())
             assert_not_reached ();
@@ -598,6 +593,14 @@ private class Iagno : Gtk.Application
         requires (game_is_set)
     {
         window.clear_subtitle ();
+    }
+
+    private void update_scoreboard ()
+    {
+        /* for the move that just ended */
+        play_sound (Sound.FLIP);
+        view.update_scoreboard ();
+        window.set_history_button_label (game.current_color);
     }
 
     /*\

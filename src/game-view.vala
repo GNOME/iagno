@@ -829,6 +829,8 @@ private class GameView : Gtk.DrawingArea
     * * game complete
     \*/
 
+    internal signal void notify_final_animation (bool undo);
+
     private bool flip_final_result_now = false;  // the final animation is delayed until this is true
 
     /* set only when a game is finished */
@@ -854,6 +856,7 @@ private class GameView : Gtk.DrawingArea
                     if (!game.is_complete)  // in case an undo has been called
                         return Source.REMOVE;
 
+                    notify_final_animation (/* undoing */ false);
                     set_winner_and_loser_variables ();
                     flip_final_result_now = true;
                     for (uint8 x = 0; x < game_size; x++)
@@ -901,6 +904,7 @@ private class GameView : Gtk.DrawingArea
         if (!flip_final_result_now)
             return false;
 
+        notify_final_animation (/* undoing */ true);
         flip_final_result_now = false;
         update_squares ();
 

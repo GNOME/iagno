@@ -57,14 +57,9 @@
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="action-name">ui.new-game</property>
+            <property name="can-default">True</property>
             <!-- Translators: during a game, tooltip text of the New Game button -->
             <property name="tooltip-text" translatable="yes">Start a new game</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox" id="controls_box">
-            <property name="visible">False</property>
-            <property name="orientation">horizontal</property>
           </object>
         </child>
         <child>
@@ -88,6 +83,25 @@
               </object>
             </child>
           </object>
+        </child>
+        <child>
+          <object class="GtkMenuButton" id="history_button">
+            <property name="visible">False</property>
+            <property name="valign">center</property>
+            <property name="can-focus">True</property>
+            <property name="focus-on-click">False</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">document-open-recent-symbolic</property> <!-- or content-loading-symbolic -->
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+            <property name="position">2</property>
+          </packing>
         </child>
         <child>
           <object class="GtkMenuButton" id="info_button">

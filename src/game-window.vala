@@ -49,7 +49,6 @@ private class GameWindow : ApplicationWindow
     [GtkChild] private Button back_button;
     [GtkChild] private Button unfullscreen_button;
 
-    [GtkChild] private Box controls_box;
     [GtkChild] private Box game_box;
     [GtkChild] private Box new_game_box;
     [GtkChild] private Box side_box;
@@ -117,50 +116,13 @@ private class GameWindow : ApplicationWindow
             start_game_button = _start_game_button;
         }
 
+        configure_history_button ();
+
         game_box.pack_start (view, true, true, 0);
         game_box.set_focus_child (view);            // TODO test if necessary; note: view could grab focus from application
         view.halign = Align.FILL;
         view.can_focus = true;
         view.show ();
-
-        /* add controls */
-        if (GameWindowFlags.SHOW_UNDO in flags)
-        {
-            Box history_box = new Box (Orientation.HORIZONTAL, 0);
-            history_box.get_style_context ().add_class ("linked");
-
-            Button undo_button = new Button.from_icon_name ("edit-undo-symbolic", Gtk.IconSize.BUTTON);
-            undo_button.action_name = "ui.undo";
-            /* Translators: during a game, tooltip text of the Undo button */
-            undo_button.set_tooltip_text (_("Undo your most recent move"));
-            undo_button.valign = Align.CENTER;
-            undo_button.show ();
-            history_box.pack_start (undo_button, true, true, 0);
-
-            /* if (GameWindowFlags.SHOW_REDO in flags)
-            {
-                Button redo_button = new Button.from_icon_name ("edit-redo-symbolic", Gtk.IconSize.BUTTON);
-                redo_button.action_name = "app.redo";
-                / Translators: during a game, tooltip text of the Redo button /
-                redo_button.set_tooltip_text (_("Redo your most recent undone move"));
-                redo_button.valign = Align.CENTER;
-                redo_button.show ();
-                history_box.pack_start (redo_button, true, true, 0);
-            } */
-
-            history_box.show ();
-            controls_box.pack_start (history_box, true, true, 0);
-        }
-        /* if (GameWindowFlags.SHOW_HINT in flags)
-        {
-            Button hint_button = new Button.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.BUTTON);
-            hint_button.action_name = "app.hint";
-            / Translators: during a game, tooltip text of the Hint button /
-            hint_button.set_tooltip_text (_("Receive a hint for your next move"));
-            hint_button.valign = Align.CENTER;
-            hint_button.show ();
-            controls_box.pack_start (hint_button, true, true, 0);
-        } */
 
         /* start or not */
         if (start_now)
@@ -287,7 +249,11 @@ private class GameWindow : ApplicationWindow
     internal void finish_game ()
     {
         game_finished = true;
-        new_game_button.grab_focus ();
+        if (!history_button.active)
+            new_game_button.grab_focus ();
+        else
+            new_game_button.grab_default ();
+        set_history_button_label (Player.NONE);
     }
 
     /* internal void about ()
@@ -304,8 +270,8 @@ private class GameWindow : ApplicationWindow
         headerbar.set_subtitle (null);      // TODO save / restore?
 
         stack.set_visible_child_name ("start-box");
-        controls_box.hide ();
         new_game_button.hide ();
+        history_button.hide ();
 
         if (!game_finished && back_button.visible)
             back_button.grab_focus ();
@@ -318,7 +284,7 @@ private class GameWindow : ApplicationWindow
         stack.set_visible_child_name ("frame");
         back_button.hide ();        // TODO transition?
         new_game_button.show ();
-        controls_box.show ();
+        history_button.show ();
 
         if (game_finished)
             new_game_button.grab_focus ();
@@ -357,6 +323,8 @@ private class GameWindow : ApplicationWindow
 
         undo_action.set_enabled (false);
      // redo_action.set_enabled (false);
+
+        history_button_new_game ();
 
         play ();        // FIXME lag (see in Taquin…)
 
@@ -431,5 +399,60 @@ private class GameWindow : ApplicationWindow
     private void toggle_hamburger (/* SimpleAction action, Variant? variant */)
     {
         info_button.active = !info_button.active;
+    }
+
+    /*\
+    * * history menu
+    \*/
+
+    [GtkChild] private MenuButton history_button;
+
+    private GLib.Menu history_menu;
+    private GLib.Menu finish_menu;
+
+    private string history_button_light_label;
+    private string history_button_dark_label;
+
+    private void configure_history_button ()
+    {
+        history_menu = new GLib.Menu ();
+        /* Translators: history menu entry (with a mnemonic that appears pressing Alt) */
+        history_menu.append (_("_Undo last move"), "ui.undo");
+        history_menu.freeze ();
+
+        finish_menu = new GLib.Menu ();
+        /* Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt) */
+        finish_menu.append (_("_Show final board"), "ui.undo");
+        finish_menu.freeze ();
+
+        bool dir_is_ltr = get_locale_direction () == TextDirection.LTR;
+        history_button_light_label = dir_is_ltr ? "‎⮚ ⚪" : /* yes */ "‏⮘ ⚪";    /* both have an LTR/RTL mark */
+        history_button_dark_label  = dir_is_ltr ? "‎⮚ ⚫" : /* yes */ "‏⮘ ⚫";    /* both have an LTR/RTL mark */
+
+        ((GameView) view).notify_final_animation.connect ((undoing) => { update_history_button (!undoing); });
+
+        history_button_new_game ();
+    }
+
+    private inline void update_history_button (bool finish_animation)
+    {
+        history_button.set_menu_model (finish_animation ? finish_menu : history_menu);
+    }
+
+    private inline void history_button_new_game ()
+    {
+        set_history_button_label (Player.DARK);
+        update_history_button (/* final animation */ false);
+    }
+
+    internal void set_history_button_label (Player player)
+    {
+        switch (player)
+        {
+            case Player.LIGHT:  history_button.set_label (history_button_light_label);  return;
+            case Player.DARK:   history_button.set_label (history_button_dark_label);   return;
+            case Player.NONE:   history_button.set_label (_("Finished!"));              return;
+            default: assert_not_reached ();
+        }
     }
 }
