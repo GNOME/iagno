@@ -111,7 +111,7 @@ private class Game : Object
         /* Stack is oversized: there is 60 turns, each adds one piece,
          * there's place for the end of turn and the opponent passing,
          * and you could flip max ((_size - 2) * 3) tiles in one turn. */
-        undo_stack = new int? [180 * (_size - 1)]; /* (3 + (_size - 2) * 3) * 60 */
+        undo_stack = new uint8? [180 * (_size - 1)]; /* (3 + (_size - 2) * 3) * 60 */
 
         if (_size % 2 == 0)
         {
@@ -148,7 +148,7 @@ private class Game : Object
     {
         Object (size: _size);
 
-        undo_stack = new int? [180 * (_size - 1)];
+        undo_stack = new uint8? [180 * (_size - 1)];
 
         for (uint8 y = 0; y < _size; y++)
         {
@@ -190,7 +190,7 @@ private class Game : Object
         n_current_tiles  = game.n_current_tiles;
         n_opponent_tiles = game.n_opponent_tiles;
 
-        undo_stack = new int? [180 * (size - 1)];
+        undo_stack = new uint8? [180 * (size - 1)];
         /* warning: history not copied */
     }
 
