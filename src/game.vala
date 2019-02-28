@@ -157,7 +157,7 @@ private class Game : Object
 
         current_color = to_move;
 
-        warn_if_fail (string.joinv ("\n", setup).strip () == to_string ().strip ());
+        warn_if_fail (string.joinv ("\n", (string?[]) setup).strip () == to_string ().strip ());
     }
 
     internal string to_string ()
