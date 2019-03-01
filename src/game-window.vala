@@ -22,6 +22,8 @@ using Gtk;
 
 [Flags]
 private enum GameWindowFlags {
+    SHORTCUTS,
+    SHOW_HELP,
     SHOW_UNDO,
  // SHOW_REDO,
  // SHOW_HINT,
@@ -41,16 +43,13 @@ private class GameWindow : ApplicationWindow
     private bool game_finished = false;
 
     /* private widgets */
-    [GtkChild] private HeaderBar headerbar;
     [GtkChild] private Stack stack;
     [GtkChild] private Box new_game_box;
     [GtkChild] private Box view_box;
-
-    private Button? start_game_button = null;
-    [GtkChild] private Button new_game_button;
-    [GtkChild] private Button back_button;
     [GtkChild] private Button unfullscreen_button;
 
+    private GameHeaderBar headerbar;
+    private Button? start_game_button = null;
     private Widget view;
 
     /* signals */
@@ -78,16 +77,12 @@ private class GameWindow : ApplicationWindow
         /* window config */
         install_ui_action_entries ();
         set_title (name);
-        headerbar.set_title (name);
 
-        GLib.MenuModel hamburger_menu = (!) info_button.get_menu_model ();
-        if (appearance_menu != null)
-        {
-            GLib.Menu first_section = (GLib.Menu) (!) hamburger_menu.get_item_link (0, "section");
-            /* Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt) */
-            first_section.prepend_submenu (_("A_ppearance"), (!) appearance_menu);
-        }
-        ((GLib.Menu) hamburger_menu).freeze ();
+        headerbar = new GameHeaderBar (name, flags, appearance_menu);
+        headerbar.show ();
+        set_titlebar (headerbar);
+
+        ((GameView) view).notify_final_animation.connect ((undoing) => { headerbar.update_history_button (!undoing); });
 
         set_default_size (width, height);
         if (maximized)
@@ -113,8 +108,6 @@ private class GameWindow : ApplicationWindow
             new_game_box.pack_end (_start_game_button, false, false, 0);
             start_game_button = _start_game_button;
         }
-
-        configure_history_button ();
 
         view_box.add (view);
         stack.set_visible_child (view_box);
@@ -242,11 +235,12 @@ private class GameWindow : ApplicationWindow
     internal void finish_game ()
     {
         game_finished = true;
-        if (!history_button.active)
-            new_game_button.grab_focus ();
-        else
-            new_game_button.grab_default ();
-        set_history_button_label (Player.NONE);
+        headerbar.finish_game ();
+    }
+
+    internal void set_history_button_label (Player player)
+    {
+        headerbar.set_history_button_label (player);
     }
 
     /* internal void about ()
@@ -260,28 +254,19 @@ private class GameWindow : ApplicationWindow
 
     private void show_new_game_screen ()
     {
-        headerbar.set_subtitle (null);      // TODO save / restore?
-
         stack.set_visible_child (new_game_box);
-        new_game_button.hide ();
-        history_button.hide ();
 
-        if (!game_finished && back_button.visible)
-            back_button.grab_focus ();
-        else if (start_game_button != null)
+        bool headerbar_grabbed_focus = headerbar.show_new_game_screen (game_finished);
+        if (!headerbar_grabbed_focus && start_game_button != null)
             ((!) start_game_button).grab_focus ();
     }
 
     private void show_view ()
     {
         stack.set_visible_child (view_box);
-        back_button.hide ();        // TODO transition?
-        new_game_button.show ();
-        history_button.show ();
 
-        if (game_finished)
-            new_game_button.grab_focus ();
-        else
+        headerbar.show_view (game_finished);
+        if (!game_finished)
             view.grab_focus ();
     }
 
@@ -300,7 +285,7 @@ private class GameWindow : ApplicationWindow
         stack.set_transition_type (StackTransitionType.SLIDE_LEFT);
         stack.set_transition_duration (800);
 
-        back_button.show ();
+        headerbar.new_game ();
         back_action.set_enabled (true);
 
         show_new_game_screen ();
@@ -317,7 +302,7 @@ private class GameWindow : ApplicationWindow
         undo_action.set_enabled (false);
      // redo_action.set_enabled (false);
 
-        history_button_new_game ();
+        headerbar.history_button_new_game ();
 
         play ();        // FIXME lag (see in Taquin…)
 
@@ -357,7 +342,7 @@ private class GameWindow : ApplicationWindow
 
         game_finished = false;
 
-        if (!back_button.is_focus)
+        if (!headerbar.back_button_is_focus ())
             view.grab_focus();
      // redo_action.set_enabled (true);
         undo ();
@@ -369,7 +354,7 @@ private class GameWindow : ApplicationWindow
         if (stack_child == null || (!) stack_child != view_box)
             return;
 
-        if (!back_button.is_focus)
+        if (!headerbar.back_button_is_focus ())
             view.grab_focus();
         undo_action.set_enabled (true);
         redo ();
@@ -383,69 +368,8 @@ private class GameWindow : ApplicationWindow
         hint ();
     } */
 
-    /*\
-    * * hamburger menu
-    \*/
-
-    [GtkChild] private MenuButton info_button;
-
     private void toggle_hamburger (/* SimpleAction action, Variant? variant */)
     {
-        info_button.active = !info_button.active;
-    }
-
-    /*\
-    * * history menu
-    \*/
-
-    [GtkChild] private MenuButton history_button;
-
-    private GLib.Menu history_menu;
-    private GLib.Menu finish_menu;
-
-    private string history_button_light_label;
-    private string history_button_dark_label;
-
-    private void configure_history_button ()
-    {
-        history_menu = new GLib.Menu ();
-        /* Translators: history menu entry (with a mnemonic that appears pressing Alt) */
-        history_menu.append (_("_Undo last move"), "ui.undo");
-        history_menu.freeze ();
-
-        finish_menu = new GLib.Menu ();
-        /* Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt) */
-        finish_menu.append (_("_Show final board"), "ui.undo");
-        finish_menu.freeze ();
-
-        bool dir_is_ltr = get_locale_direction () == TextDirection.LTR;
-        history_button_light_label = dir_is_ltr ? "‎⮚ ⚪" : /* yes */ "‏⮘ ⚪";    /* both have an LTR/RTL mark */
-        history_button_dark_label  = dir_is_ltr ? "‎⮚ ⚫" : /* yes */ "‏⮘ ⚫";    /* both have an LTR/RTL mark */
-
-        ((GameView) view).notify_final_animation.connect ((undoing) => { update_history_button (!undoing); });
-
-        history_button_new_game ();
-    }
-
-    private inline void update_history_button (bool finish_animation)
-    {
-        history_button.set_menu_model (finish_animation ? finish_menu : history_menu);
-    }
-
-    private inline void history_button_new_game ()
-    {
-        set_history_button_label (Player.DARK);
-        update_history_button (/* final animation */ false);
-    }
-
-    internal void set_history_button_label (Player player)
-    {
-        switch (player)
-        {
-            case Player.LIGHT:  history_button.set_label (history_button_light_label);  return;
-            case Player.DARK:   history_button.set_label (history_button_dark_label);   return;
-            case Player.NONE:   history_button.set_label (_("Finished!"));              return;
-            default: assert_not_reached ();
-        }
+        headerbar.toggle_hamburger ();
     }
 }

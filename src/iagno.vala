@@ -284,7 +284,9 @@ private class Iagno : Gtk.Application
                                  settings.get_int ("window-height"),
                                  settings.get_boolean ("window-is-maximized"),
                                  start_now,
-                                 GameWindowFlags.SHOW_UNDO | GameWindowFlags.SHOW_START_BUTTON,
+                                 GameWindowFlags.SHOW_START_BUTTON
+                                 | GameWindowFlags.SHOW_HELP
+                                 | GameWindowFlags.SHOW_UNDO,
                                  (Box) builder.get_object ("new-game-screen"),
                                  view,
                                  appearance_menu);
