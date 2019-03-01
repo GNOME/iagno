@@ -21,12 +21,13 @@ button.unfullscreen-button {
   margin:6px;
 }
 
+.main-box {
+  padding:1.5rem;
+}
+
 /* Labels' tweaks */
 label.bold-label {
   font-weight: bold;
-}
-grid#scoreboard label {
-  padding: 4px 7px 4px 0;
 }
 
 /* "Default" theme is in italic */

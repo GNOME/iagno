@@ -143,42 +143,14 @@
                 <property name="height-request">350</property>
                 <property name="spacing">6</property>
               </object>
-              <packing>
-                <property name="name">start-box</property>
-              </packing>
             </child>
             <child>
-              <object class="GtkAspectFrame">
+              <object class="GtkBox" id="view_box">
                 <property name="visible">True</property>
-                <property name="shadow-type">GTK_SHADOW_NONE</property>
-                <property name="obey-child">false</property>
-                <property name="ratio">1.4</property>
-                <property name="margin">25</property>
-                <child>
-                  <object class="GtkBox" id="game_box">
-                    <property name="visible">True</property>
-                    <property name="orientation">horizontal</property>
-                    <property name="spacing">25</property>
-                    <child>
-                      <object class="GtkBox" id="side_box">
-                        <property name="visible">True</property>
-                        <property name="orientation">vertical</property>
-                        <property name="spacing">6</property>
-                        <property name="width-request">111</property>
-                      </object>
-                      <packing>
-                        <property name="pack-type">end</property>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="padding">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
+                <style>
+                  <class name="main-box"/>
+                </style>
               </object>
-              <packing>
-                <property name="name">frame</property>
-              </packing>
             </child>
           </object>
         </child>

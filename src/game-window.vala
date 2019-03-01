@@ -43,15 +43,13 @@ private class GameWindow : ApplicationWindow
     /* private widgets */
     [GtkChild] private HeaderBar headerbar;
     [GtkChild] private Stack stack;
+    [GtkChild] private Box new_game_box;
+    [GtkChild] private Box view_box;
 
     private Button? start_game_button = null;
     [GtkChild] private Button new_game_button;
     [GtkChild] private Button back_button;
     [GtkChild] private Button unfullscreen_button;
-
-    [GtkChild] private Box game_box;
-    [GtkChild] private Box new_game_box;
-    [GtkChild] private Box side_box;
 
     private Widget view;
 
@@ -118,8 +116,8 @@ private class GameWindow : ApplicationWindow
 
         configure_history_button ();
 
-        game_box.pack_start (view, true, true, 0);
-        game_box.set_focus_child (view);            // TODO test if necessary; note: view could grab focus from application
+        view_box.add (view);
+        stack.set_visible_child (view_box);
         view.halign = Align.FILL;
         view.can_focus = true;
         view.show ();
@@ -219,11 +217,6 @@ private class GameWindow : ApplicationWindow
     * * Some internal calls
     \*/
 
-    internal void add_to_sidebox (Widget widget)
-    {
-        side_box.pack_start (widget, false, false, 0);
-    }
-
     internal void cannot_undo_more ()
     {
         undo_action.set_enabled (false);
@@ -269,7 +262,7 @@ private class GameWindow : ApplicationWindow
     {
         headerbar.set_subtitle (null);      // TODO save / restore?
 
-        stack.set_visible_child_name ("start-box");
+        stack.set_visible_child (new_game_box);
         new_game_button.hide ();
         history_button.hide ();
 
@@ -281,7 +274,7 @@ private class GameWindow : ApplicationWindow
 
     private void show_view ()
     {
-        stack.set_visible_child_name ("frame");
+        stack.set_visible_child (view_box);
         back_button.hide ();        // TODO transition?
         new_game_button.show ();
         history_button.show ();
@@ -298,8 +291,8 @@ private class GameWindow : ApplicationWindow
 
     private void new_game_cb ()
     {
-        string? stack_child = stack.get_visible_child_name ();
-        if (stack_child == null || (!) stack_child != "frame")
+        Widget? stack_child = stack.get_visible_child ();
+        if (stack_child == null || (!) stack_child != view_box)
             return;
 
         wait ();
@@ -315,8 +308,8 @@ private class GameWindow : ApplicationWindow
 
     private void start_game_cb ()
     {
-        string? stack_child = stack.get_visible_child_name ();
-        if (stack_child == null || (!) stack_child != "start-box")
+        Widget? stack_child = stack.get_visible_child ();
+        if (stack_child == null || (!) stack_child != new_game_box)
             return;
 
         game_finished = false;
@@ -335,8 +328,8 @@ private class GameWindow : ApplicationWindow
 
     private void back_cb ()
     {
-        string? stack_child = stack.get_visible_child_name ();
-        if (stack_child == null || (!) stack_child != "start-box")
+        Widget? stack_child = stack.get_visible_child ();
+        if (stack_child == null || (!) stack_child != new_game_box)
             return;
         // TODO change back headerbar subtitle?
         stack.set_transition_type (StackTransitionType.SLIDE_RIGHT);
@@ -352,10 +345,10 @@ private class GameWindow : ApplicationWindow
 
     private void undo_cb ()
     {
-        string? stack_child = stack.get_visible_child_name ();
+        Widget? stack_child = stack.get_visible_child ();
         if (stack_child == null)
             return;
-        if ((!) stack_child != "frame")
+        if ((!) stack_child != view_box)
         {
             if (back_action.get_enabled ())
                 back_cb ();
@@ -372,8 +365,8 @@ private class GameWindow : ApplicationWindow
 
 /*    private void redo_cb ()
     {
-        string? stack_child = stack.get_visible_child_name ();
-        if (stack_child == null || (!) stack_child != "frame")
+        Widget? stack_child = stack.get_visible_child ();
+        if (stack_child == null || (!) stack_child != view_box)
             return;
 
         if (!back_button.is_focus)
@@ -384,8 +377,8 @@ private class GameWindow : ApplicationWindow
 
 /*    private void hint_cb ()
     {
-        string? stack_child = stack.get_visible_child_name ();
-        if (stack_child == null || (!) stack_child != "frame")
+        Widget? stack_child = stack.get_visible_child ();
+        if (stack_child == null || (!) stack_child != view_box)
             return;
         hint ();
     } */

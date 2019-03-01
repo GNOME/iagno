@@ -24,16 +24,6 @@ private class GameView : Gtk.DrawingArea
 {
     internal bool show_turnable_tiles { private get; internal set; default = false; }
 
-    private Gtk.DrawingArea _scoreboard;
-    [CCode (notify = false)] internal Gtk.DrawingArea scoreboard {
-        private get { return _scoreboard; }
-        internal set
-        {
-            _scoreboard = value;
-            _scoreboard.draw.connect (draw_scoreboard);
-        }
-    }
-
     /* Theme */
     private string pieces_file;
 
@@ -103,7 +93,6 @@ private class GameView : Gtk.DrawingArea
     /* Pre-rendered image */
     private uint render_size = 0;
     private Cairo.Pattern? tiles_pattern = null;
-    private Cairo.Pattern? scoreboard_tiles_pattern = null;
     private Cairo.Pattern? board_pattern = null;
 
     private bool noise_pixbuf_loaded = false;
@@ -113,9 +102,6 @@ private class GameView : Gtk.DrawingArea
 
     /* Animation timer */
     private uint animate_timeout = 0;
-
-    // private double cursor = 0;
-    private int current_player_number = 0;
 
     internal signal void move (uint8 x, uint8 y);
     internal signal void clear_impossible_to_move_here_warning ();
@@ -165,6 +151,9 @@ private class GameView : Gtk.DrawingArea
 
     construct
     {
+        hexpand = true;
+        vexpand = true;
+
         set_events (Gdk.EventMask.EXPOSURE_MASK
                   | Gdk.EventMask.BUTTON_PRESS_MASK
                   | Gdk.EventMask.BUTTON_RELEASE_MASK
@@ -216,8 +205,6 @@ private class GameView : Gtk.DrawingArea
 
             /* redraw all */
             tiles_pattern = null;
-            // scoreboard_tiles_pattern = null;
-            scoreboard.queue_draw ();
             queue_draw ();
         }
     }
@@ -1274,83 +1261,5 @@ private class GameView : Gtk.DrawingArea
                 possible_moves [x, y] = true;
                 queue_draw_tile (x, y);
             });
-    }
-
-    /*\
-    * * scoreboard
-    \*/
-
-    private bool draw_scoreboard (Cairo.Context cr)
-    {
-        int height = scoreboard.get_allocated_height ();
-        int width = scoreboard.get_allocated_width ();
-        double half_height = height / 2.0;
-
-        cr.set_line_cap (Cairo.LineCap.ROUND);
-        cr.set_line_join (Cairo.LineJoin.ROUND);
-
-        cr.save ();
-
-        cr.set_source_rgba (mark_red, mark_green, mark_blue, 1.0);
-        cr.set_line_width (mark_width);
-
-        cr.translate (0, current_player_number * half_height);
-        cr.move_to (height / 4.0, height / 8.0);
-        cr.line_to (width - 5.0 * height / 8.0, height / 4.0);
-        cr.line_to (height / 4.0, 3.0 * height / 8.0);
-        cr.stroke ();
-
-        cr.restore ();
-
-        // if (scoreboard_tiles_pattern == null)
-        // {
-            /* prepare drawing of pieces */
-            var surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, height * 4, height * 2);
-            var c = new Cairo.Context (surface);
-            load_image (c, height * 4, height * 2);
-            scoreboard_tiles_pattern = new Cairo.Pattern.for_surface (surface);
-
-            cr.translate (width - half_height, 0);
-            var matrix = Cairo.Matrix.identity ();
-
-            /* draw dark piece */
-            matrix.translate (half_height, 0);
-            ((!) scoreboard_tiles_pattern).set_matrix (matrix);
-            cr.set_source ((!) scoreboard_tiles_pattern);
-            cr.rectangle (0, 0, /* width and height */ half_height, half_height);
-            cr.fill ();
-
-            /* draw white piece */
-            matrix.translate (3 * height, height);
-            ((!) scoreboard_tiles_pattern).set_matrix (matrix);
-            cr.set_source ((!) scoreboard_tiles_pattern);
-            cr.rectangle (0, half_height, /* width and height */ half_height, half_height);
-            cr.fill ();
-        // }
-
-        // TODO
-        /* if (cursor > current_player_number)
-        {
-            cursor -= 0.14;
-            if (cursor < 0)
-                cursor = 0;
-            scoreboard.queue_draw ();
-        }
-        else if (cursor < current_player_number)
-        {
-            cursor += 0.14;
-            if (cursor > 1)
-                cursor = 1;
-            scoreboard.queue_draw ();
-        } */
-
-        return true;
-    }
-
-    internal void update_scoreboard ()
-        requires (game_is_set)
-    {
-        current_player_number = (game.current_color == Player.DARK) ? 0 : 1;
-        scoreboard.queue_draw ();  // TODO queue_draw_area (…), or only refresh part of the DrawingArea, or both
     }
 }

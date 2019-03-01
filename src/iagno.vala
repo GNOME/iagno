@@ -45,8 +45,6 @@ private class Iagno : Gtk.Application
     /* Widgets */
     private GameWindow window;
     private GameView view;
-    private Label dark_score_label;
-    private Label light_score_label;
 
     /* Computer player (if there is one) */
     internal ComputerPlayer? computer { internal get; private set; default = null; }
@@ -212,9 +210,6 @@ private class Iagno : Gtk.Application
         view.move.connect (player_move_cb);
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
-        DrawingArea scoredrawing = (DrawingArea) builder.get_object ("scoredrawing");
-        view.scoreboard = scoredrawing;
-
         if (settings.get_boolean ("sound"))
             init_sound ();
 
@@ -294,9 +289,6 @@ private class Iagno : Gtk.Application
                                  view,
                                  appearance_menu);
 
-        Widget scoregrid = (Widget) builder.get_object ("scoregrid");
-        window.add_to_sidebox (scoregrid);
-
         window.play.connect (start_game);
         window.wait.connect (wait_cb);
         window.back.connect (back_cb);
@@ -334,10 +326,6 @@ private class Iagno : Gtk.Application
         bool solo = settings.get_int ("num-players") == 1;
         level_box.sensitive = solo;
         color_box.sensitive = solo;
-
-        /* Information widgets */
-        light_score_label = (Label) builder.get_object ("light-score-label");
-        dark_score_label = (Label) builder.get_object ("dark-score-label");
 
         if (start_now)
             start_game ();
@@ -460,10 +448,6 @@ private class Iagno : Gtk.Application
         requires (game_is_set)
     {
         window.new_turn_start (/* can undo */ first_player_is_human ? (game.number_of_moves >= 1) : (game.number_of_moves >= 2));
-
-        /* Translators: this is a 2 digit representation of the current score. */
-        dark_score_label.set_text (_("%.2d").printf (game.n_dark_tiles));
-        light_score_label.set_text (_("%.2d").printf (game.n_light_tiles));
     }
 
     private void undo_cb ()
@@ -599,7 +583,6 @@ private class Iagno : Gtk.Application
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
-        view.update_scoreboard ();
         window.set_history_button_label (game.current_color);
     }
 
