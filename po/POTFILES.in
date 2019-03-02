@@ -11,7 +11,7 @@ data/themes/sun_and_star.theme.desktop.in
 data/org.gnome.Reversi.gschema.xml
 src/computer-player.vala
 src/game.vala
-src/game-view.vala
 src/game-window.vala
 src/iagno.vala
 src/player.vala
+src/reversi-view.vala

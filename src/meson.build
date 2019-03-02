@@ -22,11 +22,11 @@ executable(meson.project_name(),
         'computer-player.vala',
         'computer-reversi.vala',
         'game-headerbar.vala',
-        'game-view.vala',
         'game-window.vala',
         'game.vala',
         'iagno.vala',
-        'player.vala'
+        'player.vala',
+        'reversi-view.vala'
     ] + resources,
     install: true,
     c_args: [

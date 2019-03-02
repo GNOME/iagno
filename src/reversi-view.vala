@@ -20,7 +20,7 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class GameView : Gtk.DrawingArea
+private class ReversiView : Gtk.DrawingArea
 {
     internal bool show_turnable_tiles { private get; internal set; default = false; }
 
@@ -166,7 +166,7 @@ private class GameView : Gtk.DrawingArea
     }
 
     private Iagno iagno_instance;
-    internal GameView (Iagno iagno_instance)
+    internal ReversiView (Iagno iagno_instance)
     {
         this.iagno_instance = iagno_instance;
     }

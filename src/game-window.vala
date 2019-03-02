@@ -82,7 +82,7 @@ private class GameWindow : ApplicationWindow
         headerbar.show ();
         set_titlebar (headerbar);
 
-        ((GameView) view).notify_final_animation.connect ((undoing) => { headerbar.update_history_button (!undoing); });
+        ((ReversiView) view).notify_final_animation.connect ((undoing) => { headerbar.update_history_button (!undoing); });
 
         set_default_size (width, height);
         if (maximized)

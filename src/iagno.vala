@@ -44,7 +44,7 @@ private class Iagno : Gtk.Application
 
     /* Widgets */
     private GameWindow window;
-    private GameView view;
+    private ReversiView view;
 
     /* Computer player (if there is one) */
     internal ComputerPlayer? computer { internal get; private set; default = null; }
@@ -206,7 +206,7 @@ private class Iagno : Gtk.Application
         /* UI parts */
         Builder builder = new Builder.from_resource ("/org/gnome/Reversi/ui/iagno-screens.ui");
 
-        view = new GameView (this);
+        view = new ReversiView (this);
         view.move.connect (player_move_cb);
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
@@ -634,7 +634,7 @@ private class Iagno : Gtk.Application
         }
     }
 
-    private static void _play_sound (Sound sound, GSound.Context sound_context, ref GameView view)
+    private static void _play_sound (Sound sound, GSound.Context sound_context, ref ReversiView view)
      // requires (sound_context_state == SoundContextState.WORKING)
     {
         string name;
