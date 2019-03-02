@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" sodipodi:docname="black_and_white.svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" height="256" sodipodi:version="0.32" width="512" version="1.0" inkscape:output_extension="org.inkscape.output.svg.inkscape" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" inkscape:version="0.48.5 r10040" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<!--
+  This file is part of GNOME Reversi (also known as Iagno).
+
+  Copyright 2011 Masuichi Ito
+
+  GNOME Reversi is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  GNOME Reversi is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<!-- Created with Inkscape (https://www.inkscape.org/) -->
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" sodipodi:docname="black_and_white.svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" height="256" sodipodi:version="0.32" width="512" version="1.0" inkscape:output_extension="org.inkscape.output.svg.inkscape" xmlns:cc="https://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" inkscape:version="0.48.5 r10040" xmlns:dc="https://purl.org/dc/elements/1.1/">
  <defs>
   <linearGradient id="linearGradient3032" y2="1.836" gradientUnits="userSpaceOnUse" x2="9.9954" gradientTransform="matrix(3.7536097,0,0,3.2312663,-6.5153492,-7.537471)" y1="21.024" x1="12.531" inkscape:collect="always">
    <stop style="stop-color:#2e3436;" offset="0"/>
@@ -22,7 +40,7 @@
   <rdf:RDF>
    <cc:Work rdf:about="">
     <dc:format>image/svg+xml</dc:format>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:type rdf:resource="https://purl.org/dc/dcmitype/StillImage"/>
     <dc:title/>
     <dc:date>2006-09-11</dc:date>
     <dc:creator>
@@ -30,9 +48,9 @@
       <dc:title>Masuichi Ito</dc:title>
      </cc:Agent>
     </dc:creator>
-    <cc:license rdf:resource="http://creativecommons.org/licenses/GPL/2.0/"/>
+    <cc:license rdf:resource="https://www.gnu.org/licenses/gpl-3.0.html"/> <!-- GPLv3+ -->
    </cc:Work>
-   <cc:License rdf:about="http://creativecommons.org/licenses/GPL/2.0/">
+   <cc:License rdf:about="https://www.gnu.org/licenses/gpl-3.0.html">
     <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
     <cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/>
     <cc:requires rdf:resource="http://web.resource.org/cc/Notice"/>
