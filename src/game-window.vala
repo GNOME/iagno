@@ -24,15 +24,17 @@ using Gtk;
 private enum GameWindowFlags {
     SHORTCUTS,
     SHOW_HELP,
+    SHOW_HINT,
+    SHOW_REDO,
     SHOW_UNDO,
- // SHOW_REDO,
- // SHOW_HINT,
     SHOW_START_BUTTON;
 }
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-window.ui")]
 private class GameWindow : ApplicationWindow
 {
+    private bool game_finished = false;
+
     /* settings */
     private bool window_is_tiled;
     private bool window_is_maximized;
@@ -40,24 +42,12 @@ private class GameWindow : ApplicationWindow
     private int window_width;
     private int window_height;
 
-    private bool game_finished = false;
-
     /* private widgets */
     [GtkChild] private Overlay main_overlay;
     [GtkChild] private Button unfullscreen_button;
 
     private GameHeaderBar   headerbar;
     private GameView        game_view;
-    private Widget view;
-
-    /* signals */
-    internal signal void play ();
-    internal signal void wait ();
-    internal signal void back ();
-
-    internal signal void undo ();
- // internal signal void redo ();
- // internal signal void hint ();
 
     internal GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view, GLib.Menu? appearance_menu)
     {
@@ -69,8 +59,6 @@ private class GameWindow : ApplicationWindow
             if (gdk_screen != null) // else..?
                 StyleContext.add_provider_for_screen ((!) gdk_screen, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
         }
-
-        view = _view;
 
         /* window config */
         install_ui_action_entries ();
@@ -100,13 +88,47 @@ private class GameWindow : ApplicationWindow
             show_new_game_screen ();
     }
 
+    internal void finish_game ()
+    {
+        game_finished = true;
+        headerbar.finish_game ();
+    }
+
+    /*\
+    * * Showing the Stack
+    \*/
+
+    private void show_new_game_screen ()
+    {
+        bool grabs_focus = headerbar.show_new_game_screen (game_finished);
+        game_view.show_new_game_box (/* grab focus */ !grabs_focus);
+    }
+
+    private void show_view ()
+    {
+        bool grabs_focus = headerbar.show_view (game_finished);
+        game_view.show_game_content (/* grab focus */ !grabs_focus);
+    }
+
     /*\
     * * actions
     \*/
 
-    private SimpleAction back_action;
-    private SimpleAction undo_action;
- // private SimpleAction redo_action;
+    internal signal void play ();
+    internal signal void wait ();
+    internal signal void back ();
+
+    internal signal void restart ();
+    internal signal void undo ();
+    internal signal void redo ();
+    internal signal void hint ();
+
+ // private SimpleAction restart_action;
+    private SimpleAction    undo_action;
+    private SimpleAction    redo_action;
+ // private SimpleAction    hint_action;
+
+    private bool back_action_disabled = true;
 
     private void install_ui_action_entries ()
     {
@@ -114,28 +136,89 @@ private class GameWindow : ApplicationWindow
         action_group.add_action_entries (ui_action_entries, this);
         insert_action_group ("ui", action_group);
 
-        back_action = (SimpleAction) action_group.lookup_action ("back");
-        undo_action = (SimpleAction) action_group.lookup_action ("undo");
-     // redo_action = (SimpleAction) lookup_action ("redo");
+     // restart_action = (SimpleAction) action_group.lookup_action ("restart");
+           undo_action = (SimpleAction) action_group.lookup_action ("undo");
+           redo_action = (SimpleAction) action_group.lookup_action ("redo");
+     //    hint_action = (SimpleAction) action_group.lookup_action ("hint");
 
-        back_action.set_enabled (false);
-        undo_action.set_enabled (false);
-     // redo_action.set_enabled (false);
+     // restart_action.set_enabled (false);
+           undo_action.set_enabled (false);
+           redo_action.set_enabled (false);
+     //    hint_action.set_enabled (false);
     }
 
     private const GLib.ActionEntry [] ui_action_entries =
     {
-        { "new-game", new_game_cb },
+        { "new-game",           new_game_cb },          // "New game" button or <Shift>n
+
         { "start-game", start_game_cb },
         { "back", back_cb },
 
         { "undo", undo_cb },
-     // { "redo", redo_cb },
-     // { "hint", hint_cb },
+        { "redo", redo_cb },
+        { "hint", hint_cb },
 
         { "toggle-hamburger", toggle_hamburger },
         { "unfullscreen", unfullscreen }
     };
+
+    private void new_game_cb (/* SimpleAction action, Variant? variant */)
+    {
+     // if (game_view.is_in_in_window_mode ())
+     //     return;
+        if (!game_view.game_content_visible_if_true ())
+            return;
+
+        new_game ();
+    }
+
+    private void undo_cb (/* SimpleAction action, Variant? variant */)
+    {
+     // if (game_view.is_in_in_window_mode ())
+     //     return;
+        if (!game_view.game_content_visible_if_true ())
+        {
+            if (!back_action_disabled)
+                back_cb ();
+            return;
+        }
+
+        game_finished = false;
+     // hide_notification ();
+
+        game_view.show_game_content (/* grab focus */ true);
+     // redo_action.set_enabled (true);
+        undo ();
+    }
+
+    private void redo_cb (/* SimpleAction action, Variant? variant */)
+    {
+     // if (game_view.is_in_in_window_mode ())
+     //     return;
+        if (!game_view.game_content_visible_if_true ())
+            return;
+
+        game_view.show_game_content (/* grab focus */ true);
+     // restart_action.set_enabled (true);
+        undo_action.set_enabled (true);
+
+        redo ();
+    }
+
+    private void hint_cb (/* SimpleAction action, Variant? variant */)
+    {
+     // if (game_view.is_in_in_window_mode ())
+     //     return;
+        if (!game_view.game_content_visible_if_true ())
+            return;
+
+        hint ();
+    }
+
+    private void toggle_hamburger (/* SimpleAction action, Variant? variant */)
+    {
+        headerbar.toggle_hamburger ();
+    }
 
     /*\
     * * Window events
@@ -191,7 +274,7 @@ private class GameWindow : ApplicationWindow
     internal void cannot_undo_more ()
     {
         undo_action.set_enabled (false);
-        view.grab_focus ();
+        game_view.show_game_content (/* grab focus */ true);
     }
 
     internal void new_turn_start (bool can_undo)
@@ -210,54 +293,23 @@ private class GameWindow : ApplicationWindow
         headerbar.set_subtitle (null);
     }
 
-    internal void finish_game ()
-    {
-        game_finished = true;
-        headerbar.finish_game ();
-    }
-
     internal void set_history_button_label (Player player)
     {
         headerbar.set_history_button_label (player);
     }
 
-    /* internal void about ()
-    {
-        TODO
-    } */
-
     /*\
-    * * Showing the Stack
+    * * actions helper
     \*/
 
-    private void show_new_game_screen ()
+    private void new_game ()
     {
-        bool grabs_focus = headerbar.show_new_game_screen (game_finished);
-        game_view.show_new_game_box (/* grab focus */ !grabs_focus);
-    }
-
-    private void show_view ()
-    {
-        bool grabs_focus = headerbar.show_view (game_finished);
-        game_view.show_game_content (/* grab focus */ !grabs_focus);
-    }
-
-    /*\
-    * * Switching the Stack
-    \*/
-
-    private void new_game_cb ()
-    {
-        if (!game_view.game_content_visible_if_true ())
-            return;
-
         wait ();
 
         game_view.configure_transition (StackTransitionType.SLIDE_LEFT, 800);
 
         headerbar.new_game ();
-        back_action.set_enabled (true);
-
+        back_action_disabled = false;
         show_new_game_screen ();
     }
 
@@ -288,49 +340,5 @@ private class GameWindow : ApplicationWindow
         show_view ();
 
         back ();
-    }
-
-    /*\
-    * * Controls_box actions
-    \*/
-
-    private void undo_cb ()
-    {
-        if (!game_view.game_content_visible_if_true ())
-        {
-            if (back_action.get_enabled ())
-                back_cb ();
-            return;
-        }
-
-        game_finished = false;
-
-        if (!headerbar.back_button_is_focus ())
-            view.grab_focus();
-     // redo_action.set_enabled (true);
-        undo ();
-    }
-
-/*    private void redo_cb ()
-    {
-        if (!game_view.game_content_visible_if_true ())
-            return;
-
-        if (!headerbar.back_button_is_focus ())
-            view.grab_focus();
-        undo_action.set_enabled (true);
-        redo ();
-    } */
-
-/*    private void hint_cb ()
-    {
-        if (!game_view.game_content_visible_if_true ())
-            return;
-        hint ();
-    } */
-
-    private void toggle_hamburger (/* SimpleAction action, Variant? variant */)
-    {
-        headerbar.toggle_hamburger ();
     }
 }

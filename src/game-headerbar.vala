@@ -65,11 +65,6 @@ private class GameHeaderBar : HeaderBar
         ((GLib.Menu) hamburger_menu).freeze ();
     }
 
-    internal bool back_button_is_focus ()
-    {
-        return back_button.is_focus;
-    }
-
     internal void finish_game ()
     {
         if (!history_button.active)
