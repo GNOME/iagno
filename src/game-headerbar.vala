@@ -83,27 +83,41 @@ private class GameHeaderBar : HeaderBar
     * * showing the stack
     \*/
 
-    internal bool show_new_game_screen (bool game_finished)
+ // private bool current_view_is_new_game_screen = false;
+
+    internal /* grabs focus */ bool show_new_game_screen (bool game_finished)
     {
+     // current_view_is_new_game_screen = true;
+
         set_subtitle (null);      // TODO save / restore?
 
         new_game_button.hide ();
         history_button.hide ();
 
-        bool grab_focus = !game_finished && back_button.visible;
-        if (grab_focus)
+        if (!game_finished && back_button.visible)
+        {
             back_button.grab_focus ();
-        return grab_focus;
+            return true;
+        }
+        else
+            return false;
     }
 
-    internal void show_view (bool game_finished)
+    internal /* grabs focus */ bool show_view (bool game_finished)
     {
+     // current_view_is_new_game_screen = false;
+
         back_button.hide ();        // TODO transition?
-        new_game_button.show ();
+        new_game_button.show ();    // TODO transition?
         history_button.show ();
 
         if (game_finished)
+        {
             new_game_button.grab_focus ();
+            return true;
+        }
+        else
+            return false;
     }
 
     /*\

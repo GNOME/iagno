@@ -43,13 +43,11 @@ private class GameWindow : ApplicationWindow
     private bool game_finished = false;
 
     /* private widgets */
-    [GtkChild] private Stack stack;
-    [GtkChild] private Box new_game_box;
-    [GtkChild] private Box view_box;
+    [GtkChild] private Overlay main_overlay;
     [GtkChild] private Button unfullscreen_button;
 
-    private GameHeaderBar headerbar;
-    private Button? start_game_button = null;
+    private GameHeaderBar   headerbar;
+    private GameView        game_view;
     private Widget view;
 
     /* signals */
@@ -82,7 +80,11 @@ private class GameWindow : ApplicationWindow
         headerbar.show ();
         set_titlebar (headerbar);
 
-        ((ReversiView) view).notify_final_animation.connect ((undoing) => { headerbar.update_history_button (!undoing); });
+        ((ReversiView) _view).notify_final_animation.connect ((undoing) => { headerbar.update_history_button (!undoing); });
+
+        game_view = new GameView (flags, new_game_screen, _view);
+        game_view.show ();
+        main_overlay.add (game_view);
 
         set_default_size (width, height);
         if (maximized)
@@ -90,30 +92,6 @@ private class GameWindow : ApplicationWindow
 
         size_allocate.connect (size_allocate_cb);
         window_state_event.connect (window_state_event_cb);
-
-        /* add widgets */
-        new_game_box.pack_start (new_game_screen, true, true, 0);
-        if (GameWindowFlags.SHOW_START_BUTTON in flags)
-        {
-            /* Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt) */
-            Button _start_game_button = new Button.with_mnemonic (_("_Start Game"));
-            _start_game_button.width_request = 222;
-            _start_game_button.height_request = 60;
-            _start_game_button.halign = Align.CENTER;
-            _start_game_button.set_action_name ("ui.start-game");
-            /* Translators: when configuring a new game, tooltip text of the blue Start button */
-            // _start_game_button.set_tooltip_text (_("Start a new game as configured"));
-            ((StyleContext) _start_game_button.get_style_context ()).add_class ("suggested-action");
-            _start_game_button.show ();
-            new_game_box.pack_end (_start_game_button, false, false, 0);
-            start_game_button = _start_game_button;
-        }
-
-        view_box.add (view);
-        stack.set_visible_child (view_box);
-        view.halign = Align.FILL;
-        view.can_focus = true;
-        view.show ();
 
         /* start or not */
         if (start_now)
@@ -254,20 +232,14 @@ private class GameWindow : ApplicationWindow
 
     private void show_new_game_screen ()
     {
-        stack.set_visible_child (new_game_box);
-
-        bool headerbar_grabbed_focus = headerbar.show_new_game_screen (game_finished);
-        if (!headerbar_grabbed_focus && start_game_button != null)
-            ((!) start_game_button).grab_focus ();
+        bool grabs_focus = headerbar.show_new_game_screen (game_finished);
+        game_view.show_new_game_box (/* grab focus */ !grabs_focus);
     }
 
     private void show_view ()
     {
-        stack.set_visible_child (view_box);
-
-        headerbar.show_view (game_finished);
-        if (!game_finished)
-            view.grab_focus ();
+        bool grabs_focus = headerbar.show_view (game_finished);
+        game_view.show_game_content (/* grab focus */ !grabs_focus);
     }
 
     /*\
@@ -276,14 +248,12 @@ private class GameWindow : ApplicationWindow
 
     private void new_game_cb ()
     {
-        Widget? stack_child = stack.get_visible_child ();
-        if (stack_child == null || (!) stack_child != view_box)
+        if (!game_view.game_content_visible_if_true ())
             return;
 
         wait ();
 
-        stack.set_transition_type (StackTransitionType.SLIDE_LEFT);
-        stack.set_transition_duration (800);
+        game_view.configure_transition (StackTransitionType.SLIDE_LEFT, 800);
 
         headerbar.new_game ();
         back_action.set_enabled (true);
@@ -293,8 +263,7 @@ private class GameWindow : ApplicationWindow
 
     private void start_game_cb ()
     {
-        Widget? stack_child = stack.get_visible_child ();
-        if (stack_child == null || (!) stack_child != new_game_box)
+        if (game_view.game_content_visible_if_true ())
             return;
 
         game_finished = false;
@@ -306,19 +275,16 @@ private class GameWindow : ApplicationWindow
 
         play ();        // FIXME lag (see in Taquin…)
 
-        stack.set_transition_type (StackTransitionType.SLIDE_DOWN);
-        stack.set_transition_duration (1000);
+        game_view.configure_transition (StackTransitionType.SLIDE_DOWN, 1000);
         show_view ();
     }
 
     private void back_cb ()
     {
-        Widget? stack_child = stack.get_visible_child ();
-        if (stack_child == null || (!) stack_child != new_game_box)
+        if (game_view.game_content_visible_if_true ())
             return;
         // TODO change back headerbar subtitle?
-        stack.set_transition_type (StackTransitionType.SLIDE_RIGHT);
-        stack.set_transition_duration (800);
+        game_view.configure_transition (StackTransitionType.SLIDE_RIGHT, 800);
         show_view ();
 
         back ();
@@ -330,10 +296,7 @@ private class GameWindow : ApplicationWindow
 
     private void undo_cb ()
     {
-        Widget? stack_child = stack.get_visible_child ();
-        if (stack_child == null)
-            return;
-        if ((!) stack_child != view_box)
+        if (!game_view.game_content_visible_if_true ())
         {
             if (back_action.get_enabled ())
                 back_cb ();
@@ -350,8 +313,7 @@ private class GameWindow : ApplicationWindow
 
 /*    private void redo_cb ()
     {
-        Widget? stack_child = stack.get_visible_child ();
-        if (stack_child == null || (!) stack_child != view_box)
+        if (!game_view.game_content_visible_if_true ())
             return;
 
         if (!headerbar.back_button_is_focus ())
@@ -362,8 +324,7 @@ private class GameWindow : ApplicationWindow
 
 /*    private void hint_cb ()
     {
-        Widget? stack_child = stack.get_visible_child ();
-        if (stack_child == null || (!) stack_child != view_box)
+        if (!game_view.game_content_visible_if_true ())
             return;
         hint ();
     } */

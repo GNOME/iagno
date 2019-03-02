@@ -25,7 +25,35 @@ button.unfullscreen-button {
   padding:1.5rem;
 }
 
-/* Labels' tweaks */
+/*\
+* * new-game screen generics
+\*/
+
+                               button.start-game-button { margin-top:1.5rem; margin-bottom:0.5rem;
+                                               transition:margin-top 0 ease, margin-bottom 0 ease; }
+                  .flat-window button.start-game-button { margin-top:0.5rem;                       }
+.extra-flat-window.flat-window button.start-game-button { margin-top:  0rem; margin-bottom:0.4rem; }
+
+.extra-thin-window             button.start-game-button { margin-top:1.0rem; }
+
+/*\
+* * options buttons
+\*/
+
+.extra-flat-window button.start-game-button {
+  min-height:2rem;
+}
+                   button.start-game-button {
+  min-height:3rem;
+  min-width:11rem;
+
+  transition:min-height          0.3s ease 0.01s;
+}
+
+/*\
+* * labels' tweaks
+\*/
+
 label.bold-label {
   font-weight: bold;
 }

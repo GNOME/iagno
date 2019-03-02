@@ -22,35 +22,11 @@
 <interface>
   <requires lib="gtk+" version="3.12"/>
   <template class="GameWindow" parent="GtkApplicationWindow">
+    <property name="width-request">600</property>
+    <property name="height-request">600</property>
     <child>
-      <object class="GtkOverlay">
+      <object class="GtkOverlay" id="main_overlay">
         <property name="visible">True</property>
-        <child>
-          <object class="GtkStack" id="stack">
-            <property name="visible">True</property>
-            <property name="homogeneous">True</property>
-            <child>
-              <object class="GtkBox" id="new_game_box">
-                <property name="orientation">vertical</property>
-                <property name="visible">True</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="margin">25</property>
-                <property name="width-request">350</property>
-                <property name="height-request">350</property>
-                <property name="spacing">6</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="view_box">
-                <property name="visible">True</property>
-                <style>
-                  <class name="main-box"/>
-                </style>
-              </object>
-            </child>
-          </object>
-        </child>
         <child type="overlay">
           <object class="GtkButton" id="unfullscreen_button">
             <property name="visible">False</property>
