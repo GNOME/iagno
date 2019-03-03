@@ -26,6 +26,7 @@ executable(meson.project_name(),
         'game-window.vala',
         'game.vala',
         'iagno.vala',
+        'new-game-screen.vala',
         'player.vala',
         'reversi-view.vala'
     ] + resources,

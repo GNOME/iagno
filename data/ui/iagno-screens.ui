@@ -19,7 +19,7 @@
 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
-  <object class="GtkBox" id="new-game-screen">
+  <template class="NewGameScreen" parent="GtkBox">
     <property name="orientation">vertical</property>
     <property name="visible">True</property>
     <property name="homogeneous">True</property>
@@ -97,7 +97,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkBox" id="difficulty-box">
+          <object class="GtkBox" id="level_box">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <property name="spacing">12</property>
@@ -161,7 +161,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkBox" id="color-box">
+          <object class="GtkBox" id="color_box">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <property name="spacing">12</property>
@@ -196,5 +196,5 @@
         </child>
       </object>
     </child>
-  </object>
+  </template>
 </interface>

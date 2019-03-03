@@ -45,6 +45,7 @@ private class Iagno : Gtk.Application
     /* Widgets */
     private GameWindow window;
     private ReversiView view;
+    private NewGameScreen new_game_screen;
 
     /* Computer player (if there is one) */
     internal ComputerPlayer? computer { internal get; private set; default = null; }
@@ -204,11 +205,11 @@ private class Iagno : Gtk.Application
         }
 
         /* UI parts */
-        Builder builder = new Builder.from_resource ("/org/gnome/Reversi/ui/iagno-screens.ui");
-
         view = new ReversiView (this);
         view.move.connect (player_move_cb);
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
+
+        new_game_screen = new NewGameScreen ();
 
         if (settings.get_boolean ("sound"))
             init_sound ();
@@ -287,7 +288,7 @@ private class Iagno : Gtk.Application
                                  GameWindowFlags.SHOW_START_BUTTON
                                  | GameWindowFlags.SHOW_HELP
                                  | GameWindowFlags.SHOW_UNDO,
-                                 (Box) builder.get_object ("new-game-screen"),
+                                 (Box) new_game_screen,
                                  view,
                                  appearance_menu);
 
@@ -318,16 +319,12 @@ private class Iagno : Gtk.Application
         settings.bind ("highlight-turnable-tiles", view, "show-turnable-tiles", SettingsBindFlags.GET);
         settings.bind ("theme",                    view, "theme",               SettingsBindFlags.GET);
 
-        Box level_box = (Box) builder.get_object ("difficulty-box");
-        Box color_box = (Box) builder.get_object ("color-box");
         settings.changed ["num-players"].connect (() => {
-            bool solo = settings.get_int ("num-players") == 1;
-            level_box.sensitive = solo;
-            color_box.sensitive = solo;
-        });
+                bool solo = settings.get_int ("num-players") == 1;
+                new_game_screen.update_sensitivity (solo);
+            });
         bool solo = settings.get_int ("num-players") == 1;
-        level_box.sensitive = solo;
-        color_box.sensitive = solo;
+        new_game_screen.update_sensitivity (solo);
 
         if (start_now)
             start_game ();
