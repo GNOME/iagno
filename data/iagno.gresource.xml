@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/Reversi/ui">
-    <file preprocess="xml-stripblanks" compressed="true" alias="game-headerbar.ui">ui/game-headerbar.ui</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="game-window.ui"   >ui/iagno.ui</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="iagno-screens.ui" >ui/iagno-screens.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="adaptative-window.ui"       >ui/adaptative-window.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="base-headerbar.ui"          >ui/base-headerbar.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="base-view.ui"               >ui/base-view.ui</file>
+    <file compressed="true">base-window.css</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="base-window.ui"             >ui/base-window.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="game-headerbar.ui"          >ui/game-headerbar.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="game-window.ui"             >ui/iagno.ui</file>
     <file compressed="true">iagno.css</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="iagno-screens.ui"           >ui/iagno-screens.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="notifications-revealer.ui"  >ui/notifications-revealer.ui</file>
     <file>noise.png</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="overlayed-list.ui"          >ui/overlayed-list.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="registry-placeholder.ui"    >ui/registry-placeholder.ui</file>
   </gresource>
 </gresources>

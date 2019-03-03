@@ -19,6 +19,11 @@ endif
 executable(meson.project_name(),
     [
         'vapi/config.vapi',
+        'about-list.vala',
+        'adaptative-window.vala',
+        'base-headerbar.vala',
+        'base-view.vala',
+        'base-window.vala',
         'computer-player.vala',
         'computer-reversi.vala',
         'game-headerbar.vala',
@@ -27,8 +32,13 @@ executable(meson.project_name(),
         'game.vala',
         'iagno.vala',
         'new-game-screen.vala',
+        'night-light-monitor.vala',
+        'notifications-revealer.vala',
+        'overlayed-list.vala',
         'player.vala',
+        'registry-placeholder.vala',
         'reversi-view.vala'
+
     ] + resources,
     install: true,
     c_args: [

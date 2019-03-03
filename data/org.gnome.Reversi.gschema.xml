@@ -1,4 +1,39 @@
 <schemalist>
+  <schema id="org.gnome.Reversi.Lib">
+    <key name="automatic-night-mode" type="b">
+      <default>false</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode' -->
+      <summary>A flag to follow system night light</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode' -->
+      <description>Use GNOME night light setting to activate night-mode.</description>
+    </key>
+    <key name="window-width" type="i">
+      <default>540</default>
+      <!-- see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22 -->
+      <!-- range min="350"/ FIXME -->
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width' -->
+      <summary>The width of the window</summary>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width' -->
+      <description>The width of the main window in pixels.</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>500</default>
+      <!-- see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21 -->
+      <!-- range min="284"/ FIXME -->
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height' -->
+      <summary>The height of the window</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height' -->
+      <description>The height of the main window in pixels.</description>
+    </key>
+    <key name="window-is-maximized" type="b">
+      <default>false</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized' -->
+      <summary>A flag to enable maximized mode</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized' -->
+      <description>If “true”, the main window starts in maximized mode.</description>
+    </key>
+  </schema>
+
   <enum id="org.gnome.Reversi.Color">
     <value value="0" nick="dark"/>
     <value value="1" nick="light"/>
@@ -47,24 +82,6 @@
       <summary>Sound</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound' -->
       <description>Whether or not to play event sounds.</description>
-    </key>
-    <key name="window-width" type="i">
-      <default>675</default>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width' -->
-      <summary>Width of the window in pixels</summary>
-      <!-- TODO add description? -->
-    </key>
-    <key name="window-height" type="i">
-      <default>550</default>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height' -->
-      <summary>Height of the window in pixels</summary>
-      <!-- TODO add description? -->
-    </key>
-    <key name="window-is-maximized" type="b">
-      <default>false</default>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized' -->
-      <summary>true if the window is maximized</summary>
-      <!-- TODO add description? -->
     </key>
   </schema>
 </schemalist>
