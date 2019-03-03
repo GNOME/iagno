@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lv\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
 "POT-Creation-Date: 2019-03-02 10:48+0000\n"
-"PO-Revision-Date: 2019-03-03 13:28+0200\n"
+"PO-Revision-Date: 2019-03-03 13:29+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -342,10 +342,9 @@ msgstr "Izmērs ne mazāks par 4."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
 #: src/iagno.vala:144
-#, fuzzy
 #| msgid "Size must be at least 4."
 msgid "Size must not be more than 16."
-msgstr "Izmērs ne mazāks par 4."
+msgstr "Izmērs nevar būt lielāks par 16."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
 #: src/iagno.vala:204
