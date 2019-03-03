@@ -20,7 +20,7 @@
 
 using Gtk;
 
-private class GameView : Grid
+private class GameView : BaseView, AdaptativeWidget
 {
     private Stack           game_stack;
     private Widget          game_content;
@@ -34,7 +34,7 @@ private class GameView : Grid
         game_stack.hexpand = true;
         game_stack.vexpand = true;
         game_stack.show ();
-        this.add (game_stack);
+        main_grid.add (game_stack);
 
         scrolled = new ScrolledWindow (null, null);
         scrolled.visible = true;

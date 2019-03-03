@@ -17,6 +17,8 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+@import url("base-window.css");
+
 button.unfullscreen-button {
   margin:6px;
 }

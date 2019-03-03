@@ -23,7 +23,7 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/iagno-screens.ui")]
-private class NewGameScreen : Box
+private class NewGameScreen : Box, AdaptativeWidget
 {
     [GtkChild] private Box level_box;
     [GtkChild] private Box color_box;
@@ -32,5 +32,9 @@ private class NewGameScreen : Box
     {
         level_box.sensitive = new_sensitivity;
         color_box.sensitive = new_sensitivity;
+    }
+
+    private void set_window_size (AdaptativeWidget.WindowSize new_size)
+    {
     }
 }

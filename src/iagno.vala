@@ -22,7 +22,7 @@
 
 using Gtk;
 
-private class Iagno : Gtk.Application
+private class Iagno : Gtk.Application, BaseApplication
 {
     /* Translators: application name, as used in the window manager, the window title, the about dialog... */
     internal const string PROGRAM_NAME = _("Iagno");
@@ -93,8 +93,8 @@ private class Iagno : Gtk.Application
 
     private const GLib.ActionEntry app_actions [] =
     {
-        { "help", help_cb },
-        { "about", about_cb },
+        { "set-use-night-mode", set_use_night_mode, "b" },
+
         { "quit", quit }
     };
 
@@ -279,23 +279,27 @@ private class Iagno : Gtk.Application
         appearance_menu.freeze ();
 
         /* Window */
+        init_night_mode ();
         window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
                                  PROGRAM_NAME,
-                                 settings.get_int ("window-width"),
-                                 settings.get_int ("window-height"),
-                                 settings.get_boolean ("window-is-maximized"),
+                                 /* Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt) */
+                                 _("About Iagno"),
                                  start_now,
                                  GameWindowFlags.SHOW_START_BUTTON
+                                 | GameWindowFlags.HAS_SOUND
                                  | GameWindowFlags.SHOW_HELP
                                  | GameWindowFlags.SHOW_UNDO,
                                  (Box) new_game_screen,
                                  view,
-                                 appearance_menu);
+                                 appearance_menu,
+                                 night_light_monitor);
 
         window.play.connect (start_game);
         window.wait.connect (wait_cb);
         window.back.connect (back_cb);
         window.undo.connect (undo_cb);
+
+        window.gtk_theme_changed.connect (view.theme_changed);
 
         /* Actions and preferences */
         add_action_entries (app_actions, this);
@@ -305,10 +309,10 @@ private class Iagno : Gtk.Application
                                                           "<Shift><Primary>q"       });
         set_accels_for_action ("ui.undo",               {        "<Primary>z"       });
      // set_accels_for_action ("ui.redo",               { "<Shift><Primary>z"       });
-        set_accels_for_action ("ui.back",               {                 "Escape"  });
-        set_accels_for_action ("ui.toggle-hamburger",   {                 "F10"     });
-        set_accels_for_action ("app.help",              {                 "F1"      });
-        set_accels_for_action ("app.about",             {          "<Shift>F1"      });
+        set_accels_for_action ("base.escape",           {                 "Escape"  });
+        set_accels_for_action ("base.toggle-hamburger", {                 "F10"     });
+     // set_accels_for_action ("app.help",              {                 "F1"      });
+     // set_accels_for_action ("base.about",            {          "<Shift>F1"      });
         add_action (settings.create_action ("sound"));
         add_action (settings.create_action ("color"));
         add_action (settings.create_action ("num-players"));
@@ -339,49 +343,25 @@ private class Iagno : Gtk.Application
 
     protected override void shutdown ()
     {
-        window.shutdown (settings);
+        window.destroy ();
         base.shutdown ();
     }
 
     /*\
-    * * App-menu callbacks
+    * * Night mode
     \*/
 
-    private void help_cb ()
+    NightLightMonitor night_light_monitor;  // keep it here or it is unrefed
+
+    private void init_night_mode ()
     {
-        try
-        {
-            show_uri (window.get_screen (), "help:iagno", get_current_event_time ());
-        }
-        catch (Error e)
-        {
-            warning ("Failed to show help: %s", e.message);
-        }
+        night_light_monitor = new NightLightMonitor ("/org/gnome/iagno/");
     }
 
-    private void about_cb ()
+    private void set_use_night_mode (SimpleAction action, Variant? gvariant)
+        requires (gvariant != null)
     {
-        string [] authors = { "Ian Peters", "Robert Ancell" };
-        string [] documenters = { "Tiffany Antopolski" };
-
-        show_about_dialog (window,
-                           "name", PROGRAM_NAME,
-                           "version", VERSION,
-                           "copyright",
-                             "Copyright © 1998–2008 Ian Peters\n"+
-                             "Copyright © 2013–2015 Michael Catanzaro\n"+
-                             "Copyright © 2014–2019 Arnaud Bonatti",
-                           "license-type", License.GPL_3_0,
-                           "comments",
-                             /* Translators: about dialog text */
-                             _("A disk flipping game derived from Reversi"),
-                           "authors", authors,
-                           "documenters", documenters,
-                           /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
-                           "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "org.gnome.Reversi",
-                           "website", "https://wiki.gnome.org/Apps/Iagno",
-                           null);
+        night_light_monitor.set_use_night_mode (((!) gvariant).get_boolean ());
     }
 
     /*\
@@ -524,12 +504,12 @@ private class Iagno : Gtk.Application
         if (game.current_color == Player.DARK)
         {
             /* Translators: during a game, notification to display when Light has no possible moves */
-            window.set_subtitle (_("Light must pass, Dark’s move"));
+            window.show_notification (_("Light must pass, Dark’s move"));
         }
         else
         {
             /* Translators: during a game, notification to display when Dark has no possible moves */
-            window.set_subtitle (_("Dark must pass, Light’s move"));
+            window.show_notification (_("Dark must pass, Light’s move"));
         }
     }
 
@@ -541,17 +521,17 @@ private class Iagno : Gtk.Application
         if (game.n_light_tiles > game.n_dark_tiles)
         {
             /* Translators: during a game, notification to display when Light has won the game */
-            window.set_subtitle (_("Light wins!"));
+            window.show_notification (_("Light wins!"));
         }
         else if (game.n_dark_tiles > game.n_light_tiles)
         {
             /* Translators: during a game, notification to display when Dark has won the game */
-            window.set_subtitle (_("Dark wins!"));
+            window.show_notification (_("Dark wins!"));
         }
         else
         {
             /* Translators: during a game, notification to display when the game is a draw */
-            window.set_subtitle (_("The game is draw."));
+            window.show_notification (_("The game is draw."));
         }
 
         if (play_gameover_sound)
@@ -568,7 +548,7 @@ private class Iagno : Gtk.Application
         if (!game.place_tile (x, y))
         {
             /* Translators: during a game, notification to display when the player tries to make an illegal move */
-            window.set_subtitle (_("You can’t move there!"));
+            window.show_notification (_("You can’t move there!"));
         }
     }
 
@@ -656,5 +636,62 @@ private class Iagno : Gtk.Application
         {
             warning (e.message);
         }
+    }
+
+    /*\
+    * * Copy action
+    \*/
+
+    internal void copy (string text)
+    {
+        Gdk.Display? display = Gdk.Display.get_default ();
+        if (display == null)
+            return;
+
+        Gtk.Clipboard clipboard = Gtk.Clipboard.get_default ((!) display);
+        clipboard.set_text (text, text.length);
+    }
+
+    /*\
+    * * about dialog infos
+    \*/
+
+    internal void get_about_dialog_infos (out string [] artists,
+                                          out string [] authors,
+                                          out string    comments,
+                                          out string    copyright,
+                                          out string [] documenters,
+                                          out string    logo_icon_name,
+                                          out string    program_name,
+                                          out string    translator_credits,
+                                          out string    version,
+                                          out string    website,
+                                          out string    website_label)
+    {
+        /* Translators: about dialog text */
+        comments = _("A disk flipping game derived from Reversi");
+
+     // artists = {
+     //     "Masuichi Ito",
+     //     "Arnaud Bonatti",
+     //     "Jakub Steiner"
+     // };
+        authors = { "Ian Peters", "Robert Ancell", "Arnaud Bonatti" };
+
+        /* Translators: about dialog text */
+        copyright = "Copyright © 1998–2008 Ian Peters\n" +
+                    "Copyright © 2013–2015 Michael Catanzaro\n" +
+                    "Copyright © 2014–2019 Arnaud Bonatti";  // TODO translation; autogen, to not change each year?
+        documenters = { "Tiffany Antopolski" };
+        logo_icon_name = "org.gnome.Reversi";
+        program_name = PROGRAM_NAME;
+
+        /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
+        translator_credits = _("translator-credits");
+        version = VERSION;
+
+        website = "https://wiki.gnome.org/Apps/Iagno";
+        /* Translators: about dialog text; label of the website link */
+        website_label = _("Page on GNOME wiki");
     }
 }
