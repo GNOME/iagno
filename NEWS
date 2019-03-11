@@ -1,3 +1,33 @@
+3.32.0 – March 11, 2019
+=============================
+
+New stable release! Since the last one, the animation
+displayed at the end of the game is more reliable and
+can be undone for displaying the final board, and the
+code has seen many improvements, fixing glitches here
+and there; but most of the changes are under the hood
+with a switch to Meson, and the use of the Gitlab-CI.
+
+Since last unstable release, there is an unfullscreen
+button added (the application was not prepared at all
+until now to fullscreen), and some keyboard shortcuts
+to improve the keyboard play when using some locales.
+
+Translations updated:
+  Danish: Ask Hjorth Larsen and Alan Mortensen
+  Dutch: Nathan Follens
+  Esperanto: Kristjan Schmidt
+  Finnish: Jiri Grönroos
+  French: Charles Monzat
+  Friulian: Fabio Tomat
+  German: Tim Sabsch
+  Italian: Milo Casagrande
+  Korean: DaeHyun Sung
+  Latvian: Rūdolfs Mazurs
+  Lithuanian: Aurimas Černius
+  Brazilian Portuguese: Rafael Fontenelle
+  Serbian: Марко Костић
+
 3.31.91 – February 20, 2019
 =============================
 
