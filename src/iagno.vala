@@ -515,7 +515,7 @@ private class Iagno : Gtk.Application
         if ((game.current_color != player_one && computer != null) || !game.current_player_can_move)
             return;
 
-        if (game.place_tile (x, y) == 0)
+        if (!game.place_tile (x, y))
         {
             /* Translators: during a game, notification to display when the player tries to make an illegal move */
             window.set_subtitle (_("You can’t move there!"));

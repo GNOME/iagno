@@ -92,7 +92,7 @@ private class ComputerPlayer : Object
 
     private void complete_move (uint8 x, uint8 y)
     {
-        if (game.place_tile (x, y) == 0)
+        if (!game.place_tile (x, y))
         {
             critical ("Computer chose an invalid move: %d,%d\n%s", x, y, game.to_string ());
 
@@ -100,7 +100,7 @@ private class ComputerPlayer : Object
             uint8 new_x;
             uint8 new_y;
             random_select (game, out new_x, out new_y);
-            if (game.place_tile (new_x, new_y) == 0)
+            if (!game.place_tile (new_x, new_y))
             {
                 critical ("Computer chose an invalid move for the second time: %d,%d\n%s", new_x, new_y, game.to_string ());
                 assert_not_reached ();
@@ -216,7 +216,7 @@ private class ComputerPlayer : Object
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
-        Game g = new Game.copy (game);
+        GameState g = new GameState.copy_simplify (game);
         int depth = difficulty_level * 2;
         /* The -1 is because the search sometimes returns NEGATIVE_INFINITY. */
         int a = NEGATIVE_INFINITY - 1;
@@ -230,13 +230,7 @@ private class ComputerPlayer : Object
             if (move == null)
                 assert_not_reached ();
 
-            Game _g = new Game.copy (g);
-
-            if (_g.place_tile (((!) move).x, ((!) move).y, true) == 0)
-            {
-                critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, ((!) move).x, ((!) move).y, ((!) move).n_tiles, _g.to_string ());
-                assert_not_reached ();
-            }
+            GameState _g = new GameState.copy_and_move (g, ((!) move).x, ((!) move).y);
 
             int a_new = -1 * search (_g, depth, NEGATIVE_INFINITY, -a);
             if (a_new > a)
@@ -248,7 +242,7 @@ private class ComputerPlayer : Object
         }
     }
 
-    private int search (Game g, int depth, int a, int b)
+    private int search (GameState g, int depth, int a, int b)
         requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
@@ -276,13 +270,7 @@ private class ComputerPlayer : Object
                 if (move == null)
                     assert_not_reached ();
 
-                Game _g = new Game.copy (g);
-
-                if (_g.place_tile (((!) move).x, ((!) move).y) == 0)
-                {
-                    critical ("Computer marked move (depth %d, %d,%d, %d flips) as valid, but is invalid when checking.\n%s", depth, ((!) move).x, ((!) move).y, ((!) move).n_tiles, _g.to_string ());
-                    assert_not_reached ();
-                }
+                GameState _g = new GameState.copy_and_move (g, ((!) move).x, ((!) move).y);
 
                 int a_new = -1 * search (_g, depth - 1, -b, -a);
                 if (a_new > a)
@@ -293,11 +281,9 @@ private class ComputerPlayer : Object
                     break;
             }
         }
-        else
+        else // pass
         {
-            Game _g = new Game.copy (g);
-
-            _g.pass ();
+            GameState _g = new GameState.copy_and_pass (g);
 
             int a_new = -1 * search (_g, depth - 1, -b, -a);
             if (a_new > a)
@@ -307,13 +293,13 @@ private class ComputerPlayer : Object
         return a;
     }
 
-    private static void get_possible_moves_sorted (Game g, ref List<PossibleMove?> moves)
+    private static void get_possible_moves_sorted (GameState g, ref List<PossibleMove?> moves)
     {
         for (uint8 x = 0; x < g.size; x++)
         {
             for (uint8 y = 0; y < g.size; y++)
             {
-                uint8 n_tiles = g.place_tile (x, y, false);
+                uint8 n_tiles = g.test_placing_tile (x, y);
                 if (n_tiles == 0)
                     continue;
 
@@ -334,7 +320,7 @@ private class ComputerPlayer : Object
     * * AI
     \*/
 
-    private static int calculate_heuristic (Game g, ref uint8 difficulty_level)
+    private static int calculate_heuristic (GameState g, ref uint8 difficulty_level)
     {
         int tile_difference = (int) g.n_current_tiles - (int) g.n_opponent_tiles;
 
@@ -350,7 +336,7 @@ private class ComputerPlayer : Object
         return tile_difference + eval_heuristic (g) + around (g) ;
     }
 
-    private static int eval_heuristic (Game g)
+    private static int eval_heuristic (GameState g)
     {
         if (g.size != 8)     // TODO
             return 0;
@@ -369,7 +355,7 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int around (Game g)
+    private static int around (GameState g)
     {
         int count = 0;
         for (int8 x = 0; x < (int8) g.size; x++)
@@ -396,7 +382,7 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int is_empty (Game g, int8 x, int8 y)
+    private static int is_empty (GameState g, int8 x, int8 y)
     {
         if (!g.is_valid_location_signed (x, y))
             return 0;

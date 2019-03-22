@@ -20,36 +20,93 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class Game : Object
+private class GameState : Object
 {
-    /* Tiles on the board */
-    private Player [,] tiles;
+    [CCode (notify = false)] public Player current_color { internal get; protected construct set; default = Player.NONE; }
+
+    internal string to_string ()
+    {
+        string s = "\n";
+
+        for (uint8 y = 0; y < size; y++)
+        {
+            for (uint8 x = 0; x < size; x++)
+                s += " " + tiles [x, y].to_string ();
+            s += "\n";
+        }
+
+        return s;
+    }
+
+    /*\
+    * * board
+    \*/
 
     [CCode (notify = false)] public uint8 size { internal get; protected construct; default = 8; }
 
-    /* Undoing */
-    private uint8? [] undo_stack;
-    private int history_index = -1;
+    protected Player [,] tiles;
 
-    /* Color to move next; Dark always plays first;
-     * should be dark if number_of_moves % 2 == 0 */
-    [CCode (notify = false)] internal Player current_color { internal get; private set; default = Player.DARK; }
-    [CCode (notify = false)] internal uint8 number_of_moves { internal get; private set; default = 0; }
+    construct
+    {
+        tiles = new Player [size, size];
+    }
 
-    /* Indicate who's the next player who can move */
-    [CCode (notify = false)] internal bool current_player_can_move { internal get; private set; default = true; }
-    [CCode (notify = true)] internal bool is_complete { internal get; private set; default = false; }
+    internal GameState.copy_simplify (Game game)
+    {
+        Object (size: game.size, current_color: game.current_color);
 
-    /* Indicate that a player should move */
-    internal signal void turn_ended ();
-    /* Indicate a square has changed */
-    internal signal void square_changed (uint8 x, uint8 y, Player new_color);
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                tiles [x, y] = game.tiles [x, y];
+
+        current_player_can_move = game.current_player_can_move;
+        is_complete = game.is_complete;
+        n_current_tiles = game.n_current_tiles;
+        n_opponent_tiles = game.n_opponent_tiles;
+    }
+
+    internal GameState.copy_and_pass (GameState game)
+    {
+        Object (size: game.size, current_color: Player.flip_color (game.current_color));
+
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                tiles [x, y] = game.tiles [x, y];
+
+        n_current_tiles = game.n_opponent_tiles;
+        n_opponent_tiles = game.n_current_tiles;
+
+        // we already know all that, it is just for checking
+        update_who_can_move ();
+        if (!current_player_can_move || is_complete)
+            assert_not_reached ();
+    }
+
+    internal GameState.copy_and_move (GameState game, uint8 move_x, uint8 move_y)
+    {
+        Player move_color = game.current_color;
+        Object (size: game.size, current_color: Player.flip_color (move_color));
+
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                tiles [x, y] = game.tiles [x, y];
+
+        n_current_tiles = game.n_opponent_tiles;
+        n_opponent_tiles = game.n_current_tiles;
+
+        if (_place_tile (move_x, move_y, move_color, /* apply move */ true) == 0)
+        {
+            critical ("Computer marked move (%d, %d) as valid, but is invalid when checking.\n%s", move_x, move_y, to_string ());
+            assert_not_reached ();
+        }
+
+        update_who_can_move ();
+    }
 
     /*\
-    * * Number of tiles on the board
+    * * number of tiles on the board
     \*/
 
-    [CCode (notify = false)] internal uint8 initial_number_of_tiles { internal get; private set; }
     [CCode (notify = false)] internal uint8 n_tiles
     {
         internal get { return n_dark_tiles + n_light_tiles; }
@@ -70,7 +127,7 @@ private class Game : Object
     [CCode (notify = false)] internal uint8 n_current_tiles
     {
         internal get { return current_color == Player.LIGHT ? n_light_tiles : n_dark_tiles; }
-        private set {
+        protected set {
             if (current_color == Player.LIGHT)
                 _n_light_tiles = value;
             else
@@ -81,7 +138,7 @@ private class Game : Object
     [CCode (notify = false)] internal uint8 n_opponent_tiles
     {
         internal get { return current_color == Player.DARK ? n_light_tiles : n_dark_tiles; }
-        private set {
+        protected set {
             if (current_color == Player.DARK)
                 _n_light_tiles = value;
             else
@@ -90,21 +147,199 @@ private class Game : Object
     }
 
     /*\
-    * * Creation / exporting
+    * * public information
+    \*/
+
+    internal Player get_owner (uint8 x, uint8 y)
+        requires (is_valid_location_unsigned (x, y))
+    {
+        return tiles [x, y];
+    }
+ // internal new uint8 get (uint8 x, uint8 y)    // allows calling game [x, y]
+ //     requires (x < size)
+ //     requires (y < size)
+ // {
+ //     return tiles [x, y];
+ // }
+
+    internal inline bool is_valid_location_signed (int8 x, int8 y)
+    {
+        return x >= 0 && x < size
+            && y >= 0 && y < size;
+    }
+
+    internal inline bool is_valid_location_unsigned (uint8 x, uint8 y)
+    {
+        return x < size && y < size;
+    }
+
+    /*\
+    * * ... // completeness
+    \*/
+
+    internal uint8 test_placing_tile (uint8 x, uint8 y)
+    {
+        return _place_tile (x, y, current_color, /* apply move */ false);
+    }
+
+    protected uint8 _place_tile (uint8 x, uint8 y, Player color, bool apply)
+        requires (is_valid_location_unsigned (x, y))
+    {
+        if (tiles [x, y] != Player.NONE)
+            return 0;
+
+        uint8 tiles_turned = 0;
+        tiles_turned += flip_tiles (x, y, color,  1,  0, apply);
+        tiles_turned += flip_tiles (x, y, color,  1,  1, apply);
+        tiles_turned += flip_tiles (x, y, color,  0,  1, apply);
+        tiles_turned += flip_tiles (x, y, color, -1,  1, apply);
+        tiles_turned += flip_tiles (x, y, color, -1,  0, apply);
+        tiles_turned += flip_tiles (x, y, color, -1, -1, apply);
+        tiles_turned += flip_tiles (x, y, color,  0, -1, apply);
+        tiles_turned += flip_tiles (x, y, color,  1, -1, apply);
+
+        if (tiles_turned == 0)
+            return 0;
+
+        if (apply)
+        {
+            set_tile (x, y, color);
+            end_of_turn ();
+        }
+
+        return tiles_turned;
+    }
+
+    protected virtual void end_of_turn () {}
+
+    /*\
+    * * can move
+    \*/
+
+    [CCode (notify = false)] internal bool current_player_can_move { internal get; private set; default = true; }
+    [CCode (notify = true)] internal bool is_complete { internal get; protected set; default = false; }
+
+    protected void update_who_can_move ()
+    {
+        Player enemy = Player.flip_color (current_color);
+        bool opponent_can_move = false;
+        for (uint8 x = 0; x < size; x++)
+        {
+            for (uint8 y = 0; y < size; y++)
+            {
+                if (can_place (x, y, current_color))
+                {
+                    current_player_can_move = true;
+                    return;
+                }
+                if (can_place (x, y, enemy))
+                    opponent_can_move = true;
+            }
+        }
+        current_player_can_move = false;
+        if (!opponent_can_move)
+            is_complete = true;
+    }
+
+    internal bool can_place (uint8 x, uint8 y, Player color)
+        requires (is_valid_location_unsigned (x, y))
+        requires (color != Player.NONE)
+    {
+        if (tiles [x, y] != Player.NONE)
+            return false;
+
+        if (can_flip_tiles (x, y, color,  1,  0) > 0) return true;
+        if (can_flip_tiles (x, y, color,  1,  1) > 0) return true;
+        if (can_flip_tiles (x, y, color,  0,  1) > 0) return true;
+        if (can_flip_tiles (x, y, color, -1,  1) > 0) return true;
+        if (can_flip_tiles (x, y, color, -1,  0) > 0) return true;
+        if (can_flip_tiles (x, y, color, -1, -1) > 0) return true;
+        if (can_flip_tiles (x, y, color,  0, -1) > 0) return true;
+        if (can_flip_tiles (x, y, color,  1, -1) > 0) return true;
+        return false;
+    }
+
+    /*\
+    * * flipping tiles
+    \*/
+
+    private uint8 flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step, bool apply)
+    {
+        uint8 enemy_count = can_flip_tiles (x, y, color, x_step, y_step);
+        if (enemy_count == 0)
+            return 0;
+
+        if (apply)
+        {
+            for (int8 i = 1; i <= enemy_count; i++)
+            {
+                if      (color == Player.DARK)  _n_light_tiles--;
+                else if (color == Player.LIGHT) _n_dark_tiles--;
+                else    assert_not_reached ();
+                set_tile ((uint8) ((int8) x + (i * x_step)),
+                          (uint8) ((int8) y + (i * y_step)),
+                          color);
+            }
+        }
+        return enemy_count;
+    }
+
+    protected uint8 can_flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step)
+    {
+        Player enemy = Player.flip_color (color);
+
+        /* Count number of enemy pieces we are beside */
+        int8 enemy_count = -1;
+        int8 xt = (int8) x;
+        int8 yt = (int8) y;
+        do {
+            enemy_count++;
+            xt += x_step;
+            yt += y_step;
+        } while (is_valid_location_signed (xt, yt) && tiles [xt, yt] == enemy);
+
+        /* Must be a line of enemy pieces then one of ours */
+        if (enemy_count <= 0 || !is_valid_location_signed (xt, yt) || tiles [xt, yt] != color)
+            return 0;
+
+        return (uint8) enemy_count;
+    }
+
+    protected virtual void set_tile (uint8 x, uint8 y, Player color)
+    {
+        if      (color == Player.DARK)  _n_dark_tiles++;
+        else if (color == Player.LIGHT) _n_light_tiles++;
+        else    assert_not_reached ();
+        tiles [x, y] = color;
+    }
+}
+
+private class Game : GameState
+{
+    /* Undoing */
+    private uint8? [] undo_stack;
+    private int history_index = -1;
+
+    [CCode (notify = false)] internal uint8 number_of_moves { internal get; private set; default = 0; }
+
+    /* Indicate that a player should move */
+    internal signal void turn_ended ();
+    /* Indicate a square has changed */
+    internal signal void square_changed (uint8 x, uint8 y, Player new_color);
+
+    [CCode (notify = false)] internal uint8 initial_number_of_tiles { internal get; private set; }
+
+    /*\
+    * * creation
     \*/
 
     [CCode (notify = false)] public bool alternative_start { internal get; protected construct; }
-
-    construct
-    {
-        tiles = new Player [size, size];
-    }
 
     internal Game (bool alternative_start = false, uint8 _size = 8)
         requires (_size >= 4)
         requires (_size <= 16)
     {
-        Object (alternative_start: alternative_start, size: _size);
+        Object (alternative_start: alternative_start, size: _size, current_color: /* Dark always starts */ Player.DARK);
 
         for (uint8 x = 0; x < _size; x++)
             for (uint8 y = 0; y < _size; y++)
@@ -145,13 +380,13 @@ private class Game : Object
         requires (to_move != Player.NONE)
         requires (setup.length == _size)
     {
-        Object (size: _size);
+        Object (size: _size, current_color: to_move);
 
-        initial_number_of_tiles = (size % 2 == 0) ? 4 : 7;
+        initial_number_of_tiles = (_size % 2 == 0) ? 4 : 7;
         init_undo_stack (_size, out undo_stack);
 
-        _n_dark_tiles = 0;
-        _n_light_tiles = 0;
+        uint8 n_dark_tiles = 0;
+        uint8 n_light_tiles = 0;
 
         for (uint8 y = 0; y < _size; y++)
         {
@@ -160,118 +395,33 @@ private class Game : Object
             for (uint8 x = 0; x < _size; x++)
             {
                 Player player = Player.from_char (setup [y][x * 2 + 1]);
-                if      (player == Player.DARK)  _n_dark_tiles++;
-                else if (player == Player.LIGHT) _n_light_tiles++;
+                if      (player == Player.DARK)  n_dark_tiles++;
+                else if (player == Player.LIGHT) n_light_tiles++;
                 tiles [x, y] = player;
             }
         }
 
-        current_color = to_move;
+        if (to_move == Player.DARK)
+        {
+            n_current_tiles  = n_dark_tiles;
+            n_opponent_tiles = n_light_tiles;
+        }
+        else
+        {
+            n_current_tiles  = n_light_tiles;
+            n_opponent_tiles = n_dark_tiles;
+        }
 
         warn_if_fail (string.joinv ("\n", (string?[]) setup).strip () == to_string ().strip ());
     }
 
-    internal string to_string ()
-    {
-        string s = "\n";
-
-        for (uint8 y = 0; y < size; y++)
-        {
-            for (uint8 x = 0; x < size; x++)
-                s += " " + tiles [x, y].to_string ();
-            s += "\n";
-        }
-
-        return s;
-    }
-
-    internal Game.copy (Game game)
-    {
-        Object (size: game.size);
-
-        for (uint8 x = 0; x < size; x++)
-            for (uint8 y = 0; y < size; y++)
-                tiles [x, y] = game.tiles [x, y];
-
-        number_of_moves         = game.number_of_moves;
-        current_color           = game.current_color;
-        n_current_tiles         = game.n_current_tiles;
-        n_opponent_tiles        = game.n_opponent_tiles;
-        current_player_can_move = game.current_player_can_move;
-
-        init_undo_stack (_size, out undo_stack);
-        /* warning: history not copied */
-    }
-
     /*\
-    * * Public information
+    * * actions (apart undo)
     \*/
 
-    internal inline bool is_valid_location_signed (int8 x, int8 y)
+    internal /* success */ bool place_tile (uint8 x, uint8 y)
     {
-        return x >= 0 && x < size
-            && y >= 0 && y < size;
-    }
-
-    internal inline bool is_valid_location_unsigned (uint8 x, uint8 y)
-    {
-        return x < size && y < size;
-    }
-
-    internal Player get_owner (uint8 x, uint8 y)
-        requires (is_valid_location_unsigned (x, y))
-    {
-        return tiles [x, y];
-    }
-
-    internal bool can_place (uint8 x, uint8 y, Player color)
-        requires (is_valid_location_unsigned (x, y))
-        requires (color != Player.NONE)
-    {
-        if (tiles [x, y] != Player.NONE)
-            return false;
-
-        if (can_flip_tiles (x, y,  1,  0, color) > 0) return true;
-        if (can_flip_tiles (x, y,  1,  1, color) > 0) return true;
-        if (can_flip_tiles (x, y,  0,  1, color) > 0) return true;
-        if (can_flip_tiles (x, y, -1,  1, color) > 0) return true;
-        if (can_flip_tiles (x, y, -1,  0, color) > 0) return true;
-        if (can_flip_tiles (x, y, -1, -1, color) > 0) return true;
-        if (can_flip_tiles (x, y,  0, -1, color) > 0) return true;
-        if (can_flip_tiles (x, y,  1, -1, color) > 0) return true;
-        return false;
-    }
-
-    /*\
-    * * Actions (apart undo)
-    \*/
-
-    internal uint8 place_tile (uint8 x, uint8 y, bool apply = true)
-        requires (is_valid_location_unsigned (x, y))
-    {
-        if (tiles [x, y] != Player.NONE)
-            return 0;
-
-        uint8 tiles_turned = 0;
-        tiles_turned += flip_tiles (x, y,  1,  0, apply);
-        tiles_turned += flip_tiles (x, y,  1,  1, apply);
-        tiles_turned += flip_tiles (x, y,  0,  1, apply);
-        tiles_turned += flip_tiles (x, y, -1,  1, apply);
-        tiles_turned += flip_tiles (x, y, -1,  0, apply);
-        tiles_turned += flip_tiles (x, y, -1, -1, apply);
-        tiles_turned += flip_tiles (x, y,  0, -1, apply);
-        tiles_turned += flip_tiles (x, y,  1, -1, apply);
-
-        if (tiles_turned == 0)
-            return 0;
-
-        if (apply)
-        {
-            set_tile (x, y);
-            end_of_turn ();
-        }
-
-        return tiles_turned;
+        return _place_tile (x, y, current_color, /* apply move */ true) != 0;
     }
 
     internal void pass ()
@@ -280,7 +430,7 @@ private class Game : Object
         end_of_turn ();
     }
 
-    private void end_of_turn ()
+    protected override void end_of_turn ()
         requires (history_index >= -1 && history_index < undo_stack.length - 2)
     {
         current_color = Player.flip_color (current_color);
@@ -291,83 +441,8 @@ private class Game : Object
         turn_ended ();
     }
 
-    private void update_who_can_move ()
-    {
-        Player enemy = Player.flip_color (current_color);
-        bool opponent_can_move = false;
-        for (uint8 x = 0; x < size; x++)
-        {
-            for (uint8 y = 0; y < size; y++)
-            {
-                if (can_place (x, y, current_color))
-                {
-                    current_player_can_move = true;
-                    return;
-                }
-                if (can_place (x, y, enemy))
-                    opponent_can_move = true;
-            }
-        }
-        current_player_can_move = false;
-        if (!opponent_can_move)
-            is_complete = true;
-    }
-
     /*\
-    * * Flipping tiles
-    \*/
-
-    private uint8 flip_tiles (uint8 x, uint8 y, int8 x_step, int8 y_step, bool apply)
-    {
-        uint8 enemy_count = can_flip_tiles (x, y, x_step, y_step, current_color);
-        if (enemy_count == 0)
-            return 0;
-
-        if (apply)
-        {
-            for (int8 i = 1; i <= enemy_count; i++)
-            {
-                n_opponent_tiles--;
-                set_tile (x + (uint8) (i * x_step),
-                          y + (uint8) (i * y_step));
-            }
-        }
-        return enemy_count;
-    }
-
-    private uint8 can_flip_tiles (uint8 x, uint8 y, int8 x_step, int8 y_step, Player color)
-    {
-        Player enemy = Player.flip_color (color);
-
-        /* Count number of enemy pieces we are beside */
-        int8 enemy_count = -1;
-        int8 xt = (int8) x;
-        int8 yt = (int8) y;
-        do {
-            enemy_count++;
-            xt += x_step;
-            yt += y_step;
-        } while (is_valid_location_signed (xt, yt) && tiles [xt, yt] == enemy);
-
-        /* Must be a line of enemy pieces then one of ours */
-        if (enemy_count == 0 || !is_valid_location_signed (xt, yt) || tiles [xt, yt] != color)
-            return 0;
-
-        return (uint8) enemy_count;
-    }
-
-    private void set_tile (uint8 x, uint8 y)
-        requires (history_index >= -1 && history_index < undo_stack.length - 2)
-    {
-        n_current_tiles++;
-        history_index++;
-        undo_stack [history_index] = x + y * size;
-        tiles [x, y] = current_color;
-        square_changed (x, y, current_color);
-    }
-
-    /*\
-    * * Undo
+    * * undo
     \*/
 
     internal void undo (uint8 count = 1)
@@ -409,6 +484,15 @@ private class Game : Object
         {
             undo (count - 1);
         }
+    }
+
+    protected override void set_tile (uint8 x, uint8 y, Player color)
+        requires (history_index >= -1 && history_index < undo_stack.length - 2)
+    {
+        history_index++;
+        undo_stack [history_index] = x + y * size;
+        base.set_tile (x, y, color);
+        square_changed (x, y, color);
     }
 
     private void unset_tile (uint8 tile_number, Player replacement_color)
