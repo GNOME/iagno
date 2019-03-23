@@ -322,17 +322,21 @@ private class Game : Object
     * * creation
     \*/
 
-    [CCode (notify = false)] public GameState   current_state           { internal get; private set;         }
-    [CCode (notify = false)] public uint8       initial_number_of_tiles { internal get; protected construct; }
-    [CCode (notify = false)] public uint8       size                    { internal get; protected construct; }
-    [CCode (notify = false)] public bool        alternative_start       { internal get; protected construct; }
+    [CCode (notify = false)] public uint8       size                    { internal get; protected construct;     }
+    [CCode (notify = false)] public GameState   current_state           { internal get; protected construct set; }
+    [CCode (notify = false)] public bool        alternative_start       { internal get; protected construct;     }
+    [CCode (notify = false)] public uint8       initial_number_of_tiles { internal get; protected construct;     }
+
+    construct
+    {
+        undo_stack.append (current_state);
+    }
 
     internal Game (bool _alternative_start = false, uint8 _size = 8)
         requires (_size >= 4)
         requires (_size <= 16)
     {
         bool even_board = (_size % 2 == 0);
-        Object (alternative_start: _alternative_start, size: _size, initial_number_of_tiles: (even_board ? 4 : 7));
 
         Player [,] tiles = new Player [_size, _size];
 
@@ -340,31 +344,37 @@ private class Game : Object
             for (uint8 y = 0; y < _size; y++)
                 tiles [x, y] = Player.NONE;
 
+        uint8 _initial_number_of_tiles;
         if (even_board)
         {
             /* setup board with four tiles by default */
             uint8 half_size = _size / 2;
-            tiles [half_size - 1, half_size - 1] = alternative_start ? Player.DARK : Player.LIGHT;
+            _initial_number_of_tiles = 4;
+            tiles [half_size - 1, half_size - 1] = _alternative_start ? Player.DARK : Player.LIGHT;
             tiles [half_size - 1, half_size    ] = Player.DARK;
-            tiles [half_size    , half_size - 1] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [half_size    , half_size - 1] = _alternative_start ? Player.LIGHT : Player.DARK;
             tiles [half_size    , half_size    ] = Player.LIGHT;
         }
         else
         {
             /* logical starting position for odd board */
             uint8 mid_board = (_size - 1) / 2;
+            _initial_number_of_tiles = 7;
             tiles [mid_board    , mid_board    ] = Player.DARK;
-            tiles [mid_board + 1, mid_board - 1] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [mid_board - 1, mid_board + 1] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [mid_board + 1, mid_board - 1] = _alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [mid_board - 1, mid_board + 1] = _alternative_start ? Player.LIGHT : Player.DARK;
             tiles [mid_board    , mid_board - 1] = Player.LIGHT;
-            tiles [mid_board - 1, mid_board    ] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [mid_board + 1, mid_board    ] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [mid_board - 1, mid_board    ] = _alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [mid_board + 1, mid_board    ] = _alternative_start ? Player.DARK : Player.LIGHT;
             tiles [mid_board    , mid_board + 1] = Player.LIGHT;
         }
 
-        current_state = new GameState.from_grid (_size, tiles, /* Dark always starts */ Player.DARK);
-        undo_stack.append (current_state);
-        completeness_updated (current_state.is_complete);
+        GameState _current_state = new GameState.from_grid (_size, tiles, /* Dark always starts */ Player.DARK);
+
+        Object (size                    : _size,
+                current_state           : _current_state,
+                alternative_start       : _alternative_start,
+                initial_number_of_tiles : _initial_number_of_tiles);
     }
 
     internal Game.from_strings (string [] setup, Player to_move, uint8 _size = 8)
@@ -373,8 +383,6 @@ private class Game : Object
         requires (to_move != Player.NONE)
         requires (setup.length == _size)
     {
-        Object (alternative_start: /* garbage */ false, size: _size, initial_number_of_tiles: (_size % 2 == 0) ? 4 : 7);
-
         Player [,] tiles = new Player [_size, _size];
 
         for (uint8 y = 0; y < _size; y++)
@@ -385,9 +393,12 @@ private class Game : Object
                 tiles [x, y] = Player.from_char (setup [y] [x * 2 + 1]);
         }
 
-        current_state = new GameState.from_grid (_size, tiles, to_move);
-        undo_stack.append (current_state);
-        completeness_updated (current_state.is_complete);
+        GameState _current_state = new GameState.from_grid (_size, tiles, to_move);
+
+        Object (size                    : _size,
+                current_state           : _current_state,
+                alternative_start       : /* garbage */ false,
+                initial_number_of_tiles : (_size % 2 == 0) ? 4 : 7);
 
         warn_if_fail (string.joinv ("\n", (string? []) setup).strip () == to_string ().strip ());
     }
