@@ -99,7 +99,7 @@ private class ComputerPlayer : Object
             /* Has been reached, once. So let's have a fallback. */
             uint8 new_x;
             uint8 new_y;
-            random_select (game, out new_x, out new_y);
+            random_select (game.current_state, out new_x, out new_y);
             if (!game.place_tile (new_x, new_y))
             {
                 critical ("Computer chose an invalid move for the second time: %d,%d\n%s", new_x, new_y, game.to_string ());
@@ -204,9 +204,9 @@ private class ComputerPlayer : Object
         requires (game.current_player_can_move)
     {
         /* For the first/first two moves play randomly so the game is not always the same */
-        if (game.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
+        if (game.current_state.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
         {
-            random_select (game, out x, out y);
+            random_select (game.current_state, out x, out y);
             return;
         }
 
@@ -216,7 +216,7 @@ private class ComputerPlayer : Object
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
-        GameState g = new GameState.copy_simplify (game);
+        GameState g = new GameState.copy (game.current_state);
         int depth = difficulty_level * 2;
         /* The -1 is because the search sometimes returns NEGATIVE_INFINITY. */
         int a = NEGATIVE_INFINITY - 1;
@@ -396,7 +396,7 @@ private class ComputerPlayer : Object
     * * First random moves
     \*/
 
-    private static void random_select (Game g, out uint8 move_x, out uint8 move_y)
+    private static void random_select (GameState g, out uint8 move_x, out uint8 move_y)
     {
         List<uint8> moves = new List<uint8> ();
         uint8 size = g.size;

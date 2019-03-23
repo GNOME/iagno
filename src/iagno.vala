@@ -434,9 +434,12 @@ private class Iagno : Gtk.Application
         view.update_scoreboard ();
     }
 
-    private void turn_ended_cb ()
+    private void turn_ended_cb (bool undoing, bool no_draw)
         requires (game_is_set)
     {
+        if (undoing && no_draw)
+            return;
+
         update_ui ();
         if (game.current_player_can_move)
             prepare_move ();

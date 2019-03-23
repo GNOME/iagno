@@ -128,8 +128,8 @@ private class GameView : Gtk.DrawingArea
             for (uint8 x = 0; x < game_size; x++)
                 for (uint8 y = 0; y < game_size; y++)
                     pixmaps [x, y] = get_pixmap (_game.get_owner (x, y));
-            _game.notify ["is-complete"].connect (game_is_complete_cb);
-            _game.square_changed.connect (square_changed_cb);
+            _game.completeness_updated.connect (game_is_complete_cb);
+            _game.turn_ended.connect (turn_ended_cb);
 
             show_highlight = false;
             bool odd_game = game_size % 2 != 0; // always start on center on odd games
@@ -455,8 +455,17 @@ private class GameView : Gtk.DrawingArea
     * * turning tiles
     \*/
 
-    private inline void update_highlight_after_undo (uint8 x, uint8 y)
+    private bool last_state_set = false;
+    private GameState last_state;
+
+    private inline void update_highlight_after_undo ()
+        requires (last_state_set)
     {
+        // get the tile that was played on and is now empty
+        uint8 x;
+        uint8 y;
+        get_missing_tile (out x, out y);
+
         // clear the previous highlight (if any)
         if (show_highlight)
         {
@@ -476,13 +485,34 @@ private class GameView : Gtk.DrawingArea
         highlight_x = x;
         highlight_y = y;
     }
-
-    private void square_changed_cb (uint8 x, uint8 y, Player replacement)
+    private void get_missing_tile (out uint8 x, out uint8 y)
     {
-        if (replacement == Player.NONE)
-            update_highlight_after_undo (x, y);
+        y = 0;  // avoids a warning
 
-        update_square (x, y);
+        for (x = 0; x < game_size; x++)
+        {
+            for (y = 0; y < game_size; y++)
+            {
+                if (game.get_owner (x, y) != Player.NONE)
+                    continue;
+                if (last_state.get_owner (x, y) == game.current_color)
+                    return;
+            }
+        }
+        assert_not_reached ();
+    }
+
+    private void turn_ended_cb (bool undoing, bool no_draw)
+    {
+        if (!no_draw)
+        {
+            update_squares ();
+            if (undoing)
+                update_highlight_after_undo ();
+        }
+
+        last_state = game.current_state;
+        last_state_set = true;
     }
 
     private inline void update_squares ()
@@ -576,7 +606,7 @@ private class GameView : Gtk.DrawingArea
 
     private void game_is_complete_cb ()
     {
-        if (!game.is_complete)  // we're connecting to a property change, not a signal
+        if (!game.is_complete)
             return;
 
         if (game.n_light_tiles == 0 || game.n_dark_tiles == 0)  // complete win
@@ -656,7 +686,7 @@ private class GameView : Gtk.DrawingArea
         {
             int8 x = (int8) ((event.x - board_x) / paving_size);
             int8 y = (int8) ((event.y - board_y) / paving_size);
-            if (game.is_valid_location_signed (x, y))
+            if (game.current_state.is_valid_location_signed (x, y))
             {
                 show_highlight = false;
                 queue_draw ();
