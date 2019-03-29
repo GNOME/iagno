@@ -236,7 +236,8 @@ private class ComputerPlayer : Object
     {
         /* End of the game, return a near-infinite evaluation */
         if (g.is_complete)
-            return g.n_current_tiles > g.n_opponent_tiles ? POSITIVE_INFINITY - g.n_opponent_tiles : NEGATIVE_INFINITY + g.n_current_tiles;
+            return g.n_current_tiles > g.n_opponent_tiles ? POSITIVE_INFINITY - (int) g.n_opponent_tiles
+                                                          : NEGATIVE_INFINITY + (int) g.n_current_tiles;
 
         /* Checking move_pending here is optional. It helps avoid a long unnecessary search
          * if the move has been cancelled, but is expensive because it requires taking a mutex. */
@@ -318,7 +319,7 @@ private class ComputerPlayer : Object
 
     private static int calculate_heuristic (Game g, ref uint8 difficulty_level)
     {
-        int tile_difference = g.n_current_tiles - g.n_opponent_tiles;
+        int tile_difference = (int) g.n_current_tiles - (int) g.n_opponent_tiles;
 
         /* Try to lose */
         if (difficulty_level == 1)
