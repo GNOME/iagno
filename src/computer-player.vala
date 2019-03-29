@@ -47,16 +47,16 @@ private class ComputerPlayer : Object
     private uint8 difficulty_level;
 
     /* Value of owning each location */
-    private const int [] heuristic =    // TODO make int [,]
+    private const int [,] heuristic =
     {
-        65,  -3, 6, 4, 4, 6,  -3, 65,
-        -3, -29, 3, 1, 1, 3, -29, -3,
-         6,   3, 5, 3, 3, 5,   3,  6,
-         4,   1, 3, 1, 1, 3,   1,  4,
-         4,   1, 3, 1, 1, 3,   1,  4,
-         6,   3, 5, 3, 3, 5,   3,  6,
-        -3, -29, 3, 1, 1, 3, -29, -3,
-        65,  -3, 6, 4, 4, 6,  -3, 65
+        { 65,  -3, 6, 4, 4, 6,  -3, 65 },
+        { -3, -29, 3, 1, 1, 3, -29, -3 },
+        {  6,   3, 5, 3, 3, 5,   3,  6 },
+        {  4,   1, 3, 1, 1, 3,   1,  4 },
+        {  4,   1, 3, 1, 1, 3,   1,  4 },
+        {  6,   3, 5, 3, 3, 5,   3,  6 },
+        { -3, -29, 3, 1, 1, 3, -29, -3 },
+        { 65,  -3, 6, 4, 4, 6,  -3, 65 }
     };
 
     /* Source ID of a pending move timeout */
@@ -343,7 +343,7 @@ private class ComputerPlayer : Object
         {
             for (uint8 y = 0; y < g.size; y++)
             {
-                int h = heuristic [y * g.size + x];
+                int h = heuristic [x, y];
                 if (g.get_owner (x, y) != g.current_color)
                     h = -h;
                 count += h;
@@ -402,7 +402,7 @@ private class ComputerPlayer : Object
                     moves.append (x * g.size + y);
 
         int length = (int) moves.length ();
-        if (length == 0)
+        if (length <= 0)
             assert_not_reached ();
 
         uint8 i = (uint8) Random.int_range (0, length);
