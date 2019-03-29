@@ -325,7 +325,7 @@ private class ComputerPlayer : Object
             return -tile_difference;
 
         /* End of the game: just maximize the number of tokens */
-        if (g.n_tiles >= 54)
+        if (g.n_tiles >= (g.size * g.size) - 10)
             return tile_difference;
 
         /* Normal strategy: try to evaluate the position */
@@ -338,7 +338,6 @@ private class ComputerPlayer : Object
             return 0;
 
         int count = 0;
-
         for (uint8 x = 0; x < g.size; x++)
         {
             for (uint8 y = 0; y < g.size; y++)
@@ -349,7 +348,6 @@ private class ComputerPlayer : Object
                 count += h;
             }
         }
-
         return count;
     }
 
