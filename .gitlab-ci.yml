@@ -4,7 +4,7 @@ variables:
     BUNDLE: "iagno-dev.flatpak"
 
 flatpak:
-    image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
+    image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:3.32'
     variables:
         MANIFEST_PATH: "org.gnome.Reversi.json"
         FLATPAK_MODULE: "iagno"
