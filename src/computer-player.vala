@@ -221,8 +221,8 @@ private class ComputerPlayer : Object
         /* The -1 is because the search sometimes returns NEGATIVE_INFINITY. */
         int a = NEGATIVE_INFINITY - 1;
 
-        List<PossibleMove?> moves = new List<PossibleMove?> ();
-        get_possible_moves_sorted (g, ref moves);
+        List<PossibleMove?> moves;
+        get_possible_moves_sorted (g, out moves);
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
         foreach (PossibleMove? move in moves)
@@ -261,8 +261,8 @@ private class ComputerPlayer : Object
 
         if (g.current_player_can_move)
         {
-            List<PossibleMove?> moves = new List<PossibleMove?> ();
-            get_possible_moves_sorted (g, ref moves);
+            List<PossibleMove?> moves;
+            get_possible_moves_sorted (g, out moves);
 
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
             foreach (PossibleMove? move in moves)
@@ -293,26 +293,33 @@ private class ComputerPlayer : Object
         return a;
     }
 
-    private static void get_possible_moves_sorted (GameState g, ref List<PossibleMove?> moves)
+    private static void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves)
     {
-        for (uint8 x = 0; x < g.size; x++)
+        uint8 size = g.size;
+        moves = new List<PossibleMove?> ();
+
+        for (uint8 x = 0; x < size; x++)
         {
-            for (uint8 y = 0; y < g.size; y++)
+            for (uint8 y = 0; y < size; y++)
             {
                 uint8 n_tiles = g.test_placing_tile (x, y);
                 if (n_tiles == 0)
                     continue;
 
                 PossibleMove move = PossibleMove (x, y, n_tiles);
+                // the g_list_insert_sorted() documentation says: "if you are adding many new elements to
+                // a list, and the number of new elements is much larger than the length of the list, use
+                // g_list_prepend() to add the new items and sort the list afterwards with g_list_sort()"
+                // but the perfs tests on complete games disagree; so let's keep things like that for now
                 moves.insert_sorted (move, compare_move);
             }
         }
     }
 
     private static int compare_move (PossibleMove? a, PossibleMove? b)
+        requires (a != null)
+        requires (b != null)
     {
-        if (a == null || b == null)
-            assert_not_reached ();
         return ((!) b).n_tiles - ((!) a).n_tiles;
     }
 
@@ -338,13 +345,14 @@ private class ComputerPlayer : Object
 
     private static int eval_heuristic (GameState g)
     {
-        if (g.size != 8)     // TODO
+        uint8 size = g.size;
+        if (size != 8)     // TODO
             return 0;
 
         int count = 0;
-        for (uint8 x = 0; x < g.size; x++)
+        for (uint8 x = 0; x < size; x++)
         {
-            for (uint8 y = 0; y < g.size; y++)
+            for (uint8 y = 0; y < size; y++)
             {
                 int h = heuristic [x, y];
                 if (g.get_owner (x, y) != g.current_color)
@@ -358,9 +366,10 @@ private class ComputerPlayer : Object
     private static int around (GameState g)
     {
         int count = 0;
-        for (int8 x = 0; x < (int8) g.size; x++)
+        int8 size = (int8) g.size;
+        for (int8 x = 0; x < size; x++)
         {
-            for (int8 y = 0; y < (int8) g.size; y++)
+            for (int8 y = 0; y < size; y++)
             {
                 int a = 0;
                 a -= is_empty (g, x + 1, y    );

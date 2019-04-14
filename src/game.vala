@@ -441,12 +441,15 @@ private class Game : Object
         return true;
     }
 
-    internal void pass ()
-        requires (!current_player_can_move)
+    internal /* success */ bool pass ()
     {
+        if (current_player_can_move)
+            return false;
+
         current_state = new GameState.copy_and_pass (current_state);
         undo_stack.append (current_state);
         end_of_turn (/* undoing */ false, /* no_draw */ true);
+        return true;
     }
 
     private void end_of_turn (bool undoing, bool no_draw)

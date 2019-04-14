@@ -473,7 +473,9 @@ private class Iagno : Gtk.Application
         play_sound (Sound.FLIP);
         view.update_scoreboard ();
 
-        game.pass ();
+        if (!game.pass ())
+            assert_not_reached ();
+
         if (game.current_color == Player.DARK)
         {
             /* Translators: during a game, notification to display when Light has no possible moves */

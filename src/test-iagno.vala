@@ -93,8 +93,7 @@ private class TestIagno : Object
         assert_true (game.number_of_moves == 0);
         assert_true (game.place_tile (7, 2));
         assert_true (game.number_of_moves == 1);
-        assert_true (!game.current_player_can_move);
-        game.pass ();
+        assert_true (game.pass ());
         assert_true (game.number_of_moves == 2);
         game.undo (2);
         assert_true (game.number_of_moves == 0);
@@ -131,8 +130,7 @@ private class TestIagno : Object
         assert_true (game.current_color == Player.DARK);
         assert_true (game.place_tile (1, 2));
         assert_true (game.current_color == Player.LIGHT);
-        assert_true (!game.current_player_can_move);
-        game.pass ();
+        assert_true (game.pass ());
         assert_true (game.current_color == Player.DARK);
     }
 
@@ -504,13 +502,13 @@ private class TestIagno : Object
         assert_true (game.place_tile (1, 0));
         assert_true (ai.force_moving (1, 6));
         assert_true (game.place_tile (2, 1));
-        game.pass ();
+        assert_true (game.pass ());
         assert_true (game.place_tile (0, 7));
-        game.pass ();
+        assert_true (game.pass ());
         assert_true (game.place_tile (0, 1));
         assert_true (ai.force_moving (1, 1));
         assert_true (game.place_tile (0, 0));
-        game.pass ();
+        assert_true (game.pass ());
         assert_true (game.place_tile (4, 7));
         assert_true (ai.force_moving (5, 7));
     }
