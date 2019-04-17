@@ -107,22 +107,15 @@ private class GameState : Object
     * * number of tiles on the board
     \*/
 
-    [CCode (notify = false)] internal uint8 n_tiles
-    {
-        internal get { return n_dark_tiles + n_light_tiles; }
-    }
-
     private uint8 _n_light_tiles = 2;
-    [CCode (notify = false)] internal uint8 n_light_tiles
-    {
-        internal get { return _n_light_tiles; }
-    }
-
     private uint8 _n_dark_tiles = 2;
+
+    [CCode (notify = false)] internal uint8 n_tiles
+                                            { internal get { return _n_dark_tiles + _n_light_tiles; }}
+    [CCode (notify = false)] internal uint8 n_light_tiles
+                                            { internal get { return _n_light_tiles; }}
     [CCode (notify = false)] internal uint8 n_dark_tiles
-    {
-        internal get { return _n_dark_tiles; }
-    }
+                                            { internal get { return _n_dark_tiles; }}
 
     [CCode (notify = false)] internal uint8 n_current_tiles
     {
@@ -349,26 +342,28 @@ private class Game : GameState
 
         if (_size % 2 == 0)
         {
-            /* Setup board with four tiles by default */
+            /* setup board with four tiles by default */
             initial_number_of_tiles = 4;
-            tiles [_size / 2 - 1, _size / 2 - 1] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [_size / 2 - 1, _size / 2] = Player.DARK;
-            tiles [_size / 2, _size / 2 - 1] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [_size / 2, _size / 2] = Player.LIGHT;
+            uint8 half_size = _size / 2;
+            tiles [half_size - 1, half_size - 1] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [half_size - 1, half_size    ] = Player.DARK;
+            tiles [half_size    , half_size - 1] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [half_size    , half_size    ] = Player.LIGHT;
             n_current_tiles = 2;
             n_opponent_tiles = 2;
         }
         else
         {
-            /* Logical starting position for odd board */
+            /* logical starting position for odd board */
             initial_number_of_tiles = 7;
-            tiles [(_size - 1) / 2, (_size - 1) / 2] = Player.DARK;
-            tiles [(_size + 1) / 2, (_size - 3) / 2] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [(_size - 3) / 2, (_size + 1) / 2] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [(_size - 1) / 2, (_size - 3) / 2] = Player.LIGHT;
-            tiles [(_size - 3) / 2, (_size - 1) / 2] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [(_size + 1) / 2, (_size - 1) / 2] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [(_size - 1) / 2, (_size + 1) / 2] = Player.LIGHT;
+            uint8 mid_board = (_size - 1) / 2;
+            tiles [mid_board    , mid_board    ] = Player.DARK;
+            tiles [mid_board + 1, mid_board - 1] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [mid_board - 1, mid_board + 1] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [mid_board    , mid_board - 1] = Player.LIGHT;
+            tiles [mid_board - 1, mid_board    ] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [mid_board + 1, mid_board    ] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [mid_board    , mid_board + 1] = Player.LIGHT;
             n_current_tiles = 3;
             n_opponent_tiles = 4;
         }

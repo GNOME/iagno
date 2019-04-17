@@ -455,31 +455,41 @@ private class GameView : Gtk.DrawingArea
     * * turning tiles
     \*/
 
+    private inline void update_highlight_after_undo (uint8 x, uint8 y)
+    {
+        // clear the previous highlight (if any)
+        if (show_highlight)
+        {
+            highlight_state = 0;
+            set_square (highlight_x,
+                        highlight_y,
+                        get_pixmap (game.get_owner (x, y)),
+                        /* is final animation */ false,
+                        /* force redraw */ true);
+            // no highlight animation after undo
+            if (!game.is_complete)
+                highlight_state = HIGHLIGHT_MAX;
+        }
+
+        // set highlight on undone play position
+        highlight_set = true;
+        highlight_x = x;
+        highlight_y = y;
+    }
+
     private void square_changed_cb (uint8 x, uint8 y, Player replacement)
     {
         if (replacement == Player.NONE)
-        {
-            // clear the previous highlight (if any)
-            if (show_highlight)
-            {
-                highlight_state = 0;
-                set_square (highlight_x,
-                            highlight_y,
-                            get_pixmap (game.get_owner (x, y)),
-                            /* is final animation */ false,
-                            /* force redraw */ true);
-                // no highliqht animation after undo
-                if (!game.is_complete)
-                    highlight_state = HIGHLIGHT_MAX;
-            }
-
-            // set highlight on undone play position
-            highlight_set = true;
-            highlight_x = x;
-            highlight_y = y;
-        }
+            update_highlight_after_undo (x, y);
 
         update_square (x, y);
+    }
+
+    private inline void update_squares ()
+    {
+        for (uint8 x = 0; x < game_size; x++)
+            for (uint8 y = 0; y < game_size; y++)
+                update_square (x, y);
     }
 
     private inline void update_square (uint8 x, uint8 y)
@@ -628,9 +638,7 @@ private class GameView : Gtk.DrawingArea
             return false;
 
         flip_final_result_now = false;
-        for (uint8 x = 0; x < game_size; x++)
-            for (uint8 y = 0; y < game_size; y++)
-                update_square (x, y);
+        update_squares ();
 
         return true;
     }
