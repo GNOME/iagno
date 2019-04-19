@@ -147,14 +147,23 @@ private class Game : Object
     {
         Object (size: _size);
 
+        initial_number_of_tiles = (size % 2 == 0) ? 4 : 7;
         init_undo_stack (_size, out undo_stack);
+
+        _n_dark_tiles = 0;
+        _n_light_tiles = 0;
 
         for (uint8 y = 0; y < _size; y++)
         {
             if (setup [y].length != _size * 2)
                 warn_if_reached ();
             for (uint8 x = 0; x < _size; x++)
-                tiles [x, y] = Player.from_char (setup [y][x * 2 + 1]);
+            {
+                Player player = Player.from_char (setup [y][x * 2 + 1]);
+                if      (player == Player.DARK)  _n_dark_tiles++;
+                else if (player == Player.LIGHT) _n_light_tiles++;
+                tiles [x, y] = player;
+            }
         }
 
         current_color = to_move;

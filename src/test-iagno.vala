@@ -21,10 +21,25 @@
 
 private class TestIagno : Object
 {
-    private static int main (string [] args) {
+    private static int main (string [] args)
+    {
         Test.init (ref args);
+
         Test.add_func ("/Iagno/test tests",
                             test_tests);
+
+        // if meson is configured with -Dperfs_tests=true,
+        // both tests are performed, else only short_tests
+        if (Test.perf ())
+            perfs_tests ();
+        else
+            short_tests ();
+
+        return Test.run ();
+    }
+
+    private static void short_tests ()
+    {
         Test.add_func ("/Iagno/Pass then Undo",
                             test_undo_after_pass);
         Test.add_func ("/Iagno/Undo at Start",
@@ -41,7 +56,18 @@ private class TestIagno : Object
                             test_ai_search_4);
         Test.add_func ("/Iagno/AI Search 5",
                             test_ai_search_5);
-        return Test.run ();
+    }
+
+    private static void perfs_tests ()
+    {
+        Test.add_func ("/Iagno/Complete game 1",
+                            test_complete_game_1);
+        Test.add_func ("/Iagno/Complete game 2",
+                            test_complete_game_2);
+        Test.add_func ("/Iagno/Complete game 3",
+                            test_complete_game_3);
+        Test.add_func ("/Iagno/Complete game 4",
+                            test_complete_game_4);
     }
 
     private static void test_tests ()
@@ -50,7 +76,7 @@ private class TestIagno : Object
     }
 
     /*\
-    * * tests
+    * * short tests
     \*/
 
     private static void test_undo_after_pass ()
@@ -188,5 +214,304 @@ private class TestIagno : Object
         ComputerPlayer ai = new ComputerPlayer (game);
         ai.move ();
         /* didn't crash */
+    }
+
+    /*\
+    * * perfs tests
+    \*/
+
+    private static void test_complete_game_1 ()
+    {
+        /* human starts              0 1 2 3 4 5 6 7 */
+        string [] board = {/* 0 */ " . . . . . . . .",
+                           /* 1 */ " . . . L . . . .",
+                           /* 2 */ " . . . . L . . .",
+                           /* 3 */ " . . . L D L . .",
+                           /* 4 */ " . . . D D D . .",
+                           /* 5 */ " . . . . . . . .",
+                           /* 6 */ " . . . . . . . .",
+                           /* 7 */ " . . . . . . . ." };
+
+        Game game = new Game.from_strings (board, Player.DARK);
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
+
+        assert_true (game.place_tile (4, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 5));
+        assert_true (game.place_tile (4, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 5));
+        assert_true (game.place_tile (2, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 4));
+        assert_true (game.place_tile (4, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 6));
+        assert_true (game.place_tile (1, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 4));
+        assert_true (game.place_tile (2, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 3));
+        assert_true (game.place_tile (1, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 2));
+        assert_true (game.place_tile (3, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 2));
+        assert_true (game.place_tile (6, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 6));
+        assert_true (game.place_tile (3, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 5));
+        assert_true (game.place_tile (3, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 7));
+        assert_true (game.place_tile (0, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 2));
+        assert_true (game.place_tile (6, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 2));
+        assert_true (game.place_tile (3, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 7));
+        assert_true (game.place_tile (4, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 6));
+        assert_true (game.place_tile (2, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 0));
+        assert_true (game.place_tile (1, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 1));
+        assert_true (game.place_tile (6, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (4, 0));
+        assert_true (game.place_tile (5, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 3));
+        assert_true (game.place_tile (6, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 2));
+        assert_true (game.place_tile (5, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 1));
+        assert_true (game.place_tile (7, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 5));
+        assert_true (game.place_tile (7, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 0));
+        assert_true (game.place_tile (7, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 7));
+        assert_true (game.place_tile (7, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 0));
+        assert_true (game.place_tile (0, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 1));
+        assert_true (game.place_tile (0, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 6));
+        assert_true (game.place_tile (1, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 7));
+    }
+
+    private static void test_complete_game_2 ()
+    {
+        /* human starts              0 1 2 3 4 5 6 7 */
+        string [] board = {/* 0 */ " . . . . . . . .",
+                           /* 1 */ " . . . . . . . .",
+                           /* 2 */ " . . . D . . . .",
+                           /* 3 */ " . . L L L L . .",
+                           /* 4 */ " . . . D D D . .",
+                           /* 5 */ " . . . . . . . .",
+                           /* 6 */ " . . . . . . . .",
+                           /* 7 */ " . . . . . . . ." };
+
+        Game game = new Game.from_strings (board, Player.DARK);
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
+
+        assert_true (game.place_tile (4, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 5));
+        assert_true (game.place_tile (6, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 2));
+        assert_true (game.place_tile (6, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 2));
+        assert_true (game.place_tile (3, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (4, 5));
+        assert_true (game.place_tile (3, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 3));
+        assert_true (game.place_tile (2, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 6));
+        assert_true (game.place_tile (7, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 5));
+        assert_true (game.place_tile (3, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 5));
+        assert_true (game.place_tile (5, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 7));
+        assert_true (game.place_tile (6, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (4, 6));
+        assert_true (game.place_tile (4, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 7));
+        assert_true (game.place_tile (1, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 2));
+        assert_true (game.place_tile (0, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 1));
+        assert_true (game.place_tile (2, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 1));
+        assert_true (game.place_tile (2, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 7));
+        assert_true (game.place_tile (4, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 4));
+        assert_true (game.place_tile (7, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 4));
+        assert_true (game.place_tile (0, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 1));
+        assert_true (game.place_tile (1, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 6));
+        assert_true (game.place_tile (1, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (4, 0));
+        assert_true (game.place_tile (3, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 0));
+        assert_true (game.place_tile (5, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 2));
+        assert_true (game.place_tile (7, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 0));
+        assert_true (game.place_tile (6, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 7));
+        assert_true (game.place_tile (0, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 0));
+        assert_true (game.place_tile (0, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 6));
+        assert_true (game.place_tile (0, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 5));
+        assert_true (game.place_tile (7, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 1));
+    }
+
+    private static void test_complete_game_3 ()
+    {
+        /* AI starts                 0 1 2 3 4 5 6 7 */
+        string [] board = {/* 0 */ " . . . . . . . .",
+                           /* 1 */ " . . . . . . . .",
+                           /* 2 */ " . . . . . D . .",
+                           /* 3 */ " . . . L D D . .",
+                           /* 4 */ " . . . D L D . .",
+                           /* 5 */ " . . . . . L . .",
+                           /* 6 */ " . . . . . . . .",
+                           /* 7 */ " . . . . . . . ." };
+
+        Game game = new Game.from_strings (board, Player.DARK);
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
+
+        assert_true (ai.force_moving (3, 5));
+        assert_true (game.place_tile (6, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 2));
+        assert_true (game.place_tile (2, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 4));
+        assert_true (game.place_tile (4, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 5));
+        assert_true (game.place_tile (2, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 5));
+        assert_true (game.place_tile (3, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 2));
+        assert_true (game.place_tile (0, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 2));
+        assert_true (game.place_tile (1, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 5));
+        assert_true (game.place_tile (4, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 1));
+        assert_true (game.place_tile (6, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 5));
+        assert_true (game.place_tile (5, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 3));
+        assert_true (game.place_tile (2, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 0));
+        assert_true (game.place_tile (4, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 1));
+        assert_true (game.place_tile (0, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 2));
+        assert_true (game.place_tile (1, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (4, 7));
+        assert_true (game.place_tile (2, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 6));
+        assert_true (game.place_tile (4, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 7));
+        assert_true (game.place_tile (5, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 1));
+        assert_true (game.place_tile (2, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 0));
+        assert_true (game.place_tile (7, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 7));
+        assert_true (game.place_tile (7, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 6));
+        assert_true (game.place_tile (7, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 7));
+        assert_true (game.place_tile (7, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 1));
+        assert_true (game.place_tile (6, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 1));
+        assert_true (game.place_tile (0, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 7));
+        assert_true (game.place_tile (4, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 0));
+        assert_true (game.place_tile (0, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 1));
+        assert_true (game.place_tile (1, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 1));
+        assert_true (game.place_tile (7, 0, /* apply */ true) != 0);
+    }
+
+    private static void test_complete_game_4 ()
+    {
+        /* AI starts                 0 1 2 3 4 5 6 7 */
+        string [] board = {/* 0 */ " . . . . . . . .",
+                           /* 1 */ " . . . . . . . .",
+                           /* 2 */ " . . . D . L . .",
+                           /* 3 */ " . . . D L . . .",
+                           /* 4 */ " . . L L D . . .",
+                           /* 5 */ " . . . . D . . .",
+                           /* 6 */ " . . . . . . . .",
+                           /* 7 */ " . . . . . . . ." };
+
+        Game game = new Game.from_strings (board, Player.DARK);
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
+
+        assert_true (ai.force_moving (5, 4));
+        assert_true (game.place_tile (6, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 5));
+        assert_true (game.place_tile (2, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 5));
+        assert_true (game.place_tile (1, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 3));
+        assert_true (game.place_tile (4, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (4, 1));
+        assert_true (game.place_tile (5, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 3));
+        assert_true (game.place_tile (4, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 6));
+        assert_true (game.place_tile (2, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 5));
+        assert_true (game.place_tile (0, 4, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 6));
+        assert_true (game.place_tile (1, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 1));
+        assert_true (game.place_tile (6, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 6));
+        assert_true (game.place_tile (3, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 0));
+        assert_true (game.place_tile (6, 5, /* apply */ true) != 0);
+        assert_true (ai.force_moving (3, 0));
+        assert_true (game.place_tile (3, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 2));
+        assert_true (game.place_tile (5, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 4));
+        assert_true (game.place_tile (7, 2, /* apply */ true) != 0);
+        assert_true (ai.force_moving (7, 5));
+        assert_true (game.place_tile (4, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 2));
+        assert_true (game.place_tile (7, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 2));
+        assert_true (game.place_tile (7, 6, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 7));
+        assert_true (game.place_tile (1, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (2, 0));
+        assert_true (game.place_tile (7, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 6));
+        assert_true (game.place_tile (0, 3, /* apply */ true) != 0);
+        assert_true (ai.force_moving (0, 5));
+        assert_true (game.place_tile (7, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 1));
+        assert_true (game.place_tile (7, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (6, 0));
+        assert_true (game.place_tile (1, 0, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 6));
+        assert_true (game.place_tile (2, 1, /* apply */ true) != 0);
+        game.pass ();
+        assert_true (game.place_tile (0, 7, /* apply */ true) != 0);
+        game.pass ();
+        assert_true (game.place_tile (0, 1, /* apply */ true) != 0);
+        assert_true (ai.force_moving (1, 1));
+        assert_true (game.place_tile (0, 0, /* apply */ true) != 0);
+        game.pass ();
+        assert_true (game.place_tile (4, 7, /* apply */ true) != 0);
+        assert_true (ai.force_moving (5, 7));
     }
 }

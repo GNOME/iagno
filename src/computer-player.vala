@@ -118,6 +118,23 @@ private class ComputerPlayer : Object
         complete_move (x, y);
     }
 
+    internal bool force_moving (uint8 force_x, uint8 force_y)
+    {
+        uint8 x;
+        uint8 y;
+
+        move_pending = true;
+        run_search (out x, out y);
+        complete_move (force_x, force_y);
+
+        print (@"\nx: $x, y: $y");
+
+        return (x == force_x)
+            && (y == force_y);
+    }
+
+    /* real game */
+
     internal async void move_async (double delay_seconds = 0.0)
     {
         Timer timer = new Timer ();

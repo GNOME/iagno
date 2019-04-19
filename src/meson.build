@@ -10,7 +10,10 @@ iagno_tests = executable('iagno_tests',
         gio_dependency
     ]
 )
-test('iagno-tests', iagno_tests)
+test('iagno-short-tests', iagno_tests, timeout : 1)
+if get_option('perfs_tests')
+    test('iagno-perfs-tests', iagno_tests, args : ['-m', 'perf'], timeout : 120)
+endif
 
 executable(meson.project_name(),
     [
