@@ -367,19 +367,29 @@ private class ComputerPlayer : Object
     {
         int count = 0;
         int8 size = (int8) g.size;
+        int8 xpp;
+        int8 xmm;
+        int8 ypp;
+        int8 ymm;
         for (int8 x = 0; x < size; x++)
         {
+            xpp = x + 1;
+            xmm = x - 1;
+
             for (int8 y = 0; y < size; y++)
             {
+                ypp = y + 1;
+                ymm = y - 1;
+
                 int a = 0;
-                a -= is_empty (g, x + 1, y    );
-                a -= is_empty (g, x + 1, y + 1);
-                a -= is_empty (g, x,     y + 1);
-                a -= is_empty (g, x - 1, y + 1);
-                a -= is_empty (g, x - 1, y    );
-                a -= is_empty (g, x - 1, y - 1);
-                a -= is_empty (g, x,     y - 1);
-                a -= is_empty (g, x + 1, y - 1);
+                a -= is_empty (g, xpp, y  );
+                a -= is_empty (g, xpp, ypp);
+                a -= is_empty (g, x,   ypp);
+                a -= is_empty (g, xmm, ypp);
+                a -= is_empty (g, xmm, y  );
+                a -= is_empty (g, xmm, ymm);
+                a -= is_empty (g, x,   ymm);
+                a -= is_empty (g, xpp, ymm);
 
                 /* Two points for completely surrounded tiles */
                 if (a == 0)
