@@ -164,7 +164,7 @@ private class TestIagno : Object
                             " L L L L L L L L",
                             " L L L L L L L L" };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 1);
         assert_true (ai_move (ai, 2, 0));
         /* didn't crash */
     }
@@ -180,7 +180,7 @@ private class TestIagno : Object
                             " . . . D . . . .",
                             " . . D . . . . ." };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 1);
         assert_true (ai_move (ai, 4, 6));
         /* didn't crash */
     }
@@ -196,7 +196,7 @@ private class TestIagno : Object
                             " L L L L L D D D",
                             " D D D D D D D D" };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 1);
         assert_true (ai_move (ai, 2, 0));
         assert_true (game.get_owner (2, 0) == Player.LIGHT);
     }
@@ -212,7 +212,7 @@ private class TestIagno : Object
                             " D D D L L D D D",
                             " D D D L D D D D" };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 1);
         assert_true (ai_move (ai, 1, 0));
         assert_true (game.get_owner (1, 0) == Player.LIGHT);
     }
@@ -228,7 +228,7 @@ private class TestIagno : Object
                             " . L L L D L L L",
                             " . . L L L L L L" };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 1);
         assert_true (ai_move (ai, 0, 5));
         /* didn't crash */
     }
@@ -250,7 +250,7 @@ private class TestIagno : Object
                            /* 7 */ " . . . . . . . ." };
 
         Game game = new Game.from_strings (board, Player.DARK);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 3);
 
         assert_true (game.place_tile (4, 1));
         assert_true (ai_move (ai, 5, 5));
@@ -323,7 +323,7 @@ private class TestIagno : Object
                            /* 7 */ " . . . . . . . ." };
 
         Game game = new Game.from_strings (board, Player.DARK);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 3);
 
         assert_true (game.place_tile (4, 2));
         assert_true (ai_move (ai, 5, 5));
@@ -396,7 +396,7 @@ private class TestIagno : Object
                            /* 7 */ " . . . . . . . ." };
 
         Game game = new Game.from_strings (board, Player.DARK);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 3);
 
         assert_true (ai_move (ai, 3, 5));
         assert_true (game.place_tile (6, 3));
@@ -469,7 +469,7 @@ private class TestIagno : Object
                            /* 7 */ " . . . . . . . ." };
 
         Game game = new Game.from_strings (board, Player.DARK);
-        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
+        ComputerPlayer ai = new ComputerReversi (game, /* AI level */ 3);
 
         assert_true (ai_move (ai, 5, 4));
         assert_true (game.place_tile (6, 4));

@@ -20,47 +20,8 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class ComputerPlayer : Object
+private abstract class ComputerPlayer : Object
 {
-    private struct PossibleMove
-    {
-        public uint8 x;
-        public uint8 y;
-        public uint8 n_tiles;
-
-        private PossibleMove (uint8 x, uint8 y, uint8 n_tiles)
-        {
-            this.x = x;
-            this.y = y;
-            this.n_tiles = n_tiles;
-        }
-    }
-
-    /* Big enough. Don't use int16.MIN / int16.MAX, because int16.MIN ≠ - int16.MAX */
-    private const int16 POSITIVE_INFINITY           =  10000;
-    private const int16 NEGATIVE_INFINITY           = -10000;
-    private const int16 LESS_THAN_NEGATIVE_INFINITY = -10001;
-
-    /* Game being played */
-    private Game game;
-
-    /* Strength */
-    private uint8 difficulty_level;
-    private uint8 initial_depth;
-
-    /* Value of owning each location */
-    private const int16 [,] heuristic =
-    {
-        { 65,  -3, 6, 4, 4, 6,  -3, 65 },
-        { -3, -29, 3, 1, 1, 3, -29, -3 },
-        {  6,   3, 5, 3, 3, 5,   3,  6 },
-        {  4,   1, 3, 1, 1, 3,   1,  4 },
-        {  4,   1, 3, 1, 1, 3,   1,  4 },
-        {  6,   3, 5, 3, 3, 5,   3,  6 },
-        { -3, -29, 3, 1, 1, 3, -29, -3 },
-        { 65,  -3, 6, 4, 4, 6,  -3, 65 }
-    };
-
     /* Source ID of a pending move timeout */
     private uint pending_move_id = 0;
 
@@ -68,9 +29,9 @@ private class ComputerPlayer : Object
      * The mutex is only needed for its memory barrier. */
     private bool _move_pending = false;
     private RecMutex _move_pending_mutex;
-    [CCode (notify = false)] private bool move_pending
+    [CCode (notify = false)] protected bool move_pending
     {
-        get
+        protected get
         {
             _move_pending_mutex.lock ();
             bool result = _move_pending;
@@ -78,36 +39,11 @@ private class ComputerPlayer : Object
             return result;
         }
 
-        set
+        private set
         {
             _move_pending_mutex.lock ();
             _move_pending = value;
             _move_pending_mutex.unlock ();
-        }
-    }
-
-    internal ComputerPlayer (Game game, uint8 difficulty_level = 1)
-    {
-        this.game = game;
-        this.difficulty_level = difficulty_level;
-        this.initial_depth = difficulty_level * 2;
-    }
-
-    private void complete_move (uint8 x, uint8 y)
-    {
-        if (!game.place_tile (x, y))
-        {
-            critical ("Computer chose an invalid move: %d,%d\n%s", x, y, game.to_string ());
-
-            /* Has been reached, once. So let's have a fallback. */
-            uint8 new_x;
-            uint8 new_y;
-            random_select (game.current_state, out new_x, out new_y);
-            if (!game.place_tile (new_x, new_y))
-            {
-                critical ("Computer chose an invalid move for the second time: %d,%d\n%s", new_x, new_y, game.to_string ());
-                assert_not_reached ();
-            }
         }
     }
 
@@ -184,240 +120,6 @@ private class ComputerPlayer : Object
         move_pending = false;
     }
 
-    /*\
-    * * Minimax / Negamax / alpha-beta pruning
-    \*/
-
-    private void run_search (out uint8 x, out uint8 y)
-        requires (game.current_player_can_move)
-    {
-        /* For the first/first two moves play randomly so the game is not always the same */
-        if (game.current_state.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
-        {
-            random_select (game.current_state, out x, out y);
-            return;
-        }
-
-        x = 0;  // garbage
-        y = 0;  // idem
-
-        /* Choose a location to place by building the tree of possible moves and
-         * using the minimax algorithm to pick the best branch with the chosen
-         * strategy. */
-        GameState g = new GameState.copy (game.current_state);
-        /* The search sometimes returns NEGATIVE_INFINITY. */
-        int16 a = LESS_THAN_NEGATIVE_INFINITY;
-
-        List<PossibleMove?> moves;
-        get_possible_moves_sorted (g, out moves);
-
-        /* Try each move using alpha-beta pruning to optimise finding the best branch */
-        foreach (PossibleMove? move in moves)
-        {
-            if (move == null)
-                assert_not_reached ();
-
-            GameState _g = new GameState.copy_and_move (g, ((!) move).x, ((!) move).y);
-
-            int16 a_new = -1 * search (_g, initial_depth, NEGATIVE_INFINITY, -a);
-            if (a_new > a)
-            {
-                a = a_new;
-                x = ((!) move).x;
-                y = ((!) move).y;
-            }
-        }
-    }
-
-    private int16 search (GameState g, uint8 depth, int16 a, int16 b)
-        requires (a <= b)
-    {
-        /* End of the game, return a near-infinite evaluation */
-        if (g.is_complete)
-            return g.n_current_tiles > g.n_opponent_tiles ? POSITIVE_INFINITY - (int16) g.n_opponent_tiles
-                                                          : NEGATIVE_INFINITY + (int16) g.n_current_tiles;
-
-        /* Checking move_pending here is optional. It helps avoid a long unnecessary search
-         * if the move has been cancelled, but is expensive because it requires taking a mutex. */
-        if (!move_pending)
-            return 0;
-
-        /* End of the search, calculate how good a result this is. */
-        if (depth == 0)
-            return calculate_heuristic (g, ref difficulty_level);
-
-        if (g.current_player_can_move)
-        {
-            List<PossibleMove?> moves;
-            get_possible_moves_sorted (g, out moves);
-
-            /* Try each move using alpha-beta pruning to optimise finding the best branch */
-            foreach (PossibleMove? move in moves)
-            {
-                if (move == null)
-                    assert_not_reached ();
-
-                GameState _g = new GameState.copy_and_move (g, ((!) move).x, ((!) move).y);
-
-                int16 a_new = -1 * search (_g, depth - 1, -b, -a);
-                if (a_new > a)
-                    a = a_new;
-
-                /* This branch has worse values, so ignore it */
-                if (b <= a)
-                    break;
-            }
-        }
-        else // pass
-        {
-            GameState _g = new GameState.copy_and_pass (g);
-
-            int16 a_new = -1 * search (_g, depth - 1, -b, -a);
-            if (a_new > a)
-                a = a_new;
-        }
-
-        return a;
-    }
-
-    private static void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves)
-    {
-        uint8 size = g.size;
-        moves = new List<PossibleMove?> ();
-
-        for (uint8 x = 0; x < size; x++)
-        {
-            for (uint8 y = 0; y < size; y++)
-            {
-                uint8 n_tiles = g.test_placing_tile (x, y);
-                if (n_tiles == 0)
-                    continue;
-
-                PossibleMove move = PossibleMove (x, y, n_tiles);
-                // the g_list_insert_sorted() documentation says: "if you are adding many new elements to
-                // a list, and the number of new elements is much larger than the length of the list, use
-                // g_list_prepend() to add the new items and sort the list afterwards with g_list_sort()"
-                // but the perfs tests on complete games disagree; so let's keep things like that for now
-                moves.insert_sorted (move, compare_move);
-            }
-        }
-    }
-
-    private static int compare_move (PossibleMove? a, PossibleMove? b)
-        requires (a != null)
-        requires (b != null)
-    {
-        return ((!) b).n_tiles - ((!) a).n_tiles;
-    }
-
-    /*\
-    * * AI
-    \*/
-
-    private static int16 calculate_heuristic (GameState g, ref uint8 difficulty_level)
-    {
-        int16 tile_difference = (int16) g.n_current_tiles - (int16) g.n_opponent_tiles;
-
-        /* Try to lose */
-        if (difficulty_level == 1)
-            return -tile_difference;
-
-        /* End of the game: just maximize the number of tokens */
-        if (g.n_tiles >= (g.size * g.size) - 10)
-            return tile_difference;
-
-        /* Normal strategy: try to evaluate the position */
-        return tile_difference + eval_heuristic (g) + around (g) ;
-    }
-
-    private static int16 eval_heuristic (GameState g)
-    {
-        uint8 size = g.size;
-        if (size != 8)     // TODO
-            return 0;
-
-        int16 count = 0;
-        for (uint8 x = 0; x < size; x++)
-        {
-            for (uint8 y = 0; y < size; y++)
-            {
-                int16 h = heuristic [x, y];
-                if (g.get_owner (x, y) != g.current_color)
-                    h = -h;
-                count += h;
-            }
-        }
-        return count;
-    }
-
-    private static int16 around (GameState g)
-    {
-        int16 count = 0;
-        int8 size = (int8) g.size;
-        int8 xpp;
-        int8 xmm;
-        int8 ypp;
-        int8 ymm;
-        for (int8 x = 0; x < size; x++)
-        {
-            xpp = x + 1;
-            xmm = x - 1;
-
-            for (int8 y = 0; y < size; y++)
-            {
-                ypp = y + 1;
-                ymm = y - 1;
-
-                int16 a = 0;
-                a -= is_empty (g, xpp, y  );
-                a -= is_empty (g, xpp, ypp);
-                a -= is_empty (g, x,   ypp);
-                a -= is_empty (g, xmm, ypp);
-                a -= is_empty (g, xmm, y  );
-                a -= is_empty (g, xmm, ymm);
-                a -= is_empty (g, x,   ymm);
-                a -= is_empty (g, xpp, ymm);
-
-                /* Two points for completely surrounded tiles */
-                if (a == 0)
-                    a = 2;
-
-                count += (g.get_owner ((uint8) x, (uint8) y) == g.current_color) ? a : -a;
-            }
-        }
-        return count;
-    }
-
-    private static int16 is_empty (GameState g, int8 x, int8 y)
-    {
-        if (!g.is_valid_location_signed (x, y))
-            return 0;
-        if (g.get_owner ((uint8) x, (uint8) y) != Player.NONE)
-            return 0;
-
-        return 1;
-    }
-
-    /*\
-    * * First random moves
-    \*/
-
-    private static void random_select (GameState g, out uint8 move_x, out uint8 move_y)
-    {
-        List<uint8> moves = new List<uint8> ();
-        uint8 size = g.size;
-        for (uint8 x = 0; x < size; x++)
-            for (uint8 y = 0; y < size; y++)
-                if (g.can_place (x, y, g.current_color))
-                    moves.append (x * size + y);
-
-        int length = (int) moves.length ();
-        if (length <= 0)
-            assert_not_reached ();
-
-        uint8 i = (uint8) Random.int_range (0, length);
-        uint8 xy = moves.nth_data (i);
-        move_x = xy / size;
-        move_y = xy % size;
-    }
+    protected abstract void run_search (out uint8 x, out uint8 y);
+    protected abstract void complete_move (uint8 x, uint8 y);
 }

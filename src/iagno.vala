@@ -374,7 +374,7 @@ private class Iagno : Gtk.Application
         if (settings.get_int ("num-players") == 2)
             computer = null;
         else
-            computer = new ComputerPlayer (game, (uint8) settings.get_int ("computer-level"));
+            computer = new ComputerReversi (game, (uint8) settings.get_int ("computer-level"));
 
         if (settings.get_enum ("color") == 1)
             player_one = Player.LIGHT;

@@ -3,6 +3,7 @@ iagno_tests = executable('iagno_tests',
     [
         'test-iagno.vala',
         'computer-player.vala',
+        'computer-reversi.vala',
         'game.vala',
         'player.vala'
     ],
@@ -19,6 +20,7 @@ executable(meson.project_name(),
     [
         'vapi/config.vapi',
         'computer-player.vala',
+        'computer-reversi.vala',
         'game-view.vala',
         'game-window.vala',
         'game.vala',
