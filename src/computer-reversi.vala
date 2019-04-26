@@ -48,24 +48,12 @@ private class ComputerReversi : ComputerPlayer
     private uint8 difficulty_level;
     private uint8 initial_depth;
 
-    /* Value of owning each location */
-    private const int16 [,] heuristic =
-    {
-        { 65,  -3, 6, 4, 4, 6,  -3, 65 },
-        { -3, -29, 3, 1, 1, 3, -29, -3 },
-        {  6,   3, 5, 3, 3, 5,   3,  6 },
-        {  4,   1, 3, 1, 1, 3,   1,  4 },
-        {  4,   1, 3, 1, 1, 3,   1,  4 },
-        {  6,   3, 5, 3, 3, 5,   3,  6 },
-        { -3, -29, 3, 1, 1, 3, -29, -3 },
-        { 65,  -3, 6, 4, 4, 6,  -3, 65 }
-    };
-
     internal ComputerReversi (Game game, uint8 difficulty_level = 1)
     {
         this.game = game;
         this.difficulty_level = difficulty_level;
         this.initial_depth = difficulty_level * 2;
+        init_heuristic (game.size);
     }
 
     protected override void complete_move (uint8 x, uint8 y)
@@ -146,7 +134,7 @@ private class ComputerReversi : ComputerPlayer
 
         /* End of the search, calculate how good a result this is. */
         if (depth == 0)
-            return calculate_heuristic (g, ref difficulty_level);
+            return calculate_heuristic (g, ref difficulty_level, ref heuristic);
 
         if (g.current_player_can_move)
         {
@@ -216,7 +204,7 @@ private class ComputerReversi : ComputerPlayer
     * * AI
     \*/
 
-    private static int16 calculate_heuristic (GameState g, ref uint8 difficulty_level)
+    private static int16 calculate_heuristic (GameState g, ref uint8 difficulty_level, ref int16 [,] heuristic)
     {
         int16 tile_difference = (int16) g.n_current_tiles - (int16) g.n_opponent_tiles;
 
@@ -229,15 +217,12 @@ private class ComputerReversi : ComputerPlayer
             return tile_difference;
 
         /* Normal strategy: try to evaluate the position */
-        return tile_difference + eval_heuristic (g) + around (g) ;
+        return tile_difference + eval_heuristic (g, ref heuristic) + around (g) ;
     }
 
-    private static int16 eval_heuristic (GameState g)
+    private static int16 eval_heuristic (GameState g, ref int16 [,] heuristic)
     {
         uint8 size = g.size;
-        if (size != 8)     // TODO
-            return 0;
-
         int16 count = 0;
         for (uint8 x = 0; x < size; x++)
         {
@@ -321,5 +306,68 @@ private class ComputerReversi : ComputerPlayer
         uint8 xy = moves.nth_data (i);
         move_x = xy / size;
         move_y = xy % size;
+    }
+
+    /*\
+    * * heuristic table
+    \*/
+
+    private int16 [,] heuristic;
+
+    private const int16 [,] heuristic_8 =
+    {
+        { 65,  -3, 6, 4, 4, 6,  -3, 65 },
+        { -3, -29, 3, 1, 1, 3, -29, -3 },
+        {  6,   3, 5, 3, 3, 5,   3,  6 },
+        {  4,   1, 3, 1, 1, 3,   1,  4 },
+        {  4,   1, 3, 1, 1, 3,   1,  4 },
+        {  6,   3, 5, 3, 3, 5,   3,  6 },
+        { -3, -29, 3, 1, 1, 3, -29, -3 },
+        { 65,  -3, 6, 4, 4, 6,  -3, 65 }
+    };
+
+    private void init_heuristic (uint8 size)
+        requires (size >= 4)
+    {
+        if (size == 8)
+            heuristic = heuristic_8;
+        else
+            create_heuristic (size, out heuristic);
+    }
+
+    private static void create_heuristic (uint8 size, out int16 [,] heuristic)
+        requires (size >= 4)
+    {
+        heuristic = new int16 [size, size];
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                heuristic [x, y] = 0;
+
+        // corners
+        uint8 tmp1 = size - 1;
+        heuristic [0   , 0   ] = 65;
+        heuristic [0   , tmp1] = 65;
+        heuristic [tmp1, tmp1] = 65;
+        heuristic [tmp1, 0   ] = 65;
+
+        if (size >= 6)
+        {
+            // corners neighbors
+            uint8 tmp2 = size - 2;
+            heuristic [0   , 1   ] = -3;
+            heuristic [0   , tmp2] = -3;
+            heuristic [tmp1, 1   ] = -3;
+            heuristic [tmp1, tmp2] = -3;
+            heuristic [1   , 0   ] = -3;
+            heuristic [1   , tmp1] = -3;
+            heuristic [tmp2, 0   ] = -3;
+            heuristic [tmp2, tmp1] = -3;
+
+            // corners diagonal neighbors
+            heuristic [1   , 1   ] = -29;
+            heuristic [1   , tmp2] = -29;
+            heuristic [tmp2, tmp2] = -29;
+            heuristic [tmp2, 1   ] = -29;
+        }
     }
 }
