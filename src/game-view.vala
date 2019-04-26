@@ -616,18 +616,19 @@ private class GameView : Gtk.DrawingArea
          * Show the actual final positions of the pieces before flipping the board.
          * Otherwise, it could seem like the final player placed the other's piece.
          */
-        Timeout.add_seconds (2, () => {
-            if (!game.is_complete)  // in case an undo has been called
-                return Source.REMOVE;
+        if (game_size >= 6)
+            Timeout.add_seconds (2, () => {
+                    if (!game.is_complete)  // in case an undo has been called
+                        return Source.REMOVE;
 
-            set_winner_and_loser_variables ();
-            flip_final_result_now = true;
-            for (uint8 x = 0; x < game_size; x++)
-                for (uint8 y = 0; y < game_size; y++)
-                    flip_final_result_tile (x, y);
+                    set_winner_and_loser_variables ();
+                    flip_final_result_now = true;
+                    for (uint8 x = 0; x < game_size; x++)
+                        for (uint8 y = 0; y < game_size; y++)
+                            flip_final_result_tile (x, y);
 
-            return Source.REMOVE;
-        });
+                    return Source.REMOVE;
+                });
     }
 
     private void flip_final_result_tile (uint8 x, uint8 y)
