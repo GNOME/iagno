@@ -36,18 +36,20 @@ private class ComputerPlayer : Object
         }
     }
 
-    /* Big enough. Don't use int.MIN / int.MAX, because int.MIN ≠ - int.MAX */
-    private const int POSITIVE_INFINITY =  10000;
-    private const int NEGATIVE_INFINITY = -10000;
+    /* Big enough. Don't use int16.MIN / int16.MAX, because int16.MIN ≠ - int16.MAX */
+    private const int16 POSITIVE_INFINITY           =  10000;
+    private const int16 NEGATIVE_INFINITY           = -10000;
+    private const int16 LESS_THAN_NEGATIVE_INFINITY = -10001;
 
     /* Game being played */
     private Game game;
 
     /* Strength */
     private uint8 difficulty_level;
+    private uint8 initial_depth;
 
     /* Value of owning each location */
-    private const int [,] heuristic =
+    private const int16 [,] heuristic =
     {
         { 65,  -3, 6, 4, 4, 6,  -3, 65 },
         { -3, -29, 3, 1, 1, 3, -29, -3 },
@@ -88,6 +90,7 @@ private class ComputerPlayer : Object
     {
         this.game = game;
         this.difficulty_level = difficulty_level;
+        this.initial_depth = difficulty_level * 2;
     }
 
     private void complete_move (uint8 x, uint8 y)
@@ -202,9 +205,8 @@ private class ComputerPlayer : Object
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
         GameState g = new GameState.copy (game.current_state);
-        int depth = difficulty_level * 2;
-        /* The -1 is because the search sometimes returns NEGATIVE_INFINITY. */
-        int a = NEGATIVE_INFINITY - 1;
+        /* The search sometimes returns NEGATIVE_INFINITY. */
+        int16 a = LESS_THAN_NEGATIVE_INFINITY;
 
         List<PossibleMove?> moves;
         get_possible_moves_sorted (g, out moves);
@@ -217,7 +219,7 @@ private class ComputerPlayer : Object
 
             GameState _g = new GameState.copy_and_move (g, ((!) move).x, ((!) move).y);
 
-            int a_new = -1 * search (_g, depth, NEGATIVE_INFINITY, -a);
+            int16 a_new = -1 * search (_g, initial_depth, NEGATIVE_INFINITY, -a);
             if (a_new > a)
             {
                 a = a_new;
@@ -227,13 +229,13 @@ private class ComputerPlayer : Object
         }
     }
 
-    private int search (GameState g, int depth, int a, int b)
+    private int16 search (GameState g, uint8 depth, int16 a, int16 b)
         requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
         if (g.is_complete)
-            return g.n_current_tiles > g.n_opponent_tiles ? POSITIVE_INFINITY - (int) g.n_opponent_tiles
-                                                          : NEGATIVE_INFINITY + (int) g.n_current_tiles;
+            return g.n_current_tiles > g.n_opponent_tiles ? POSITIVE_INFINITY - (int16) g.n_opponent_tiles
+                                                          : NEGATIVE_INFINITY + (int16) g.n_current_tiles;
 
         /* Checking move_pending here is optional. It helps avoid a long unnecessary search
          * if the move has been cancelled, but is expensive because it requires taking a mutex. */
@@ -257,7 +259,7 @@ private class ComputerPlayer : Object
 
                 GameState _g = new GameState.copy_and_move (g, ((!) move).x, ((!) move).y);
 
-                int a_new = -1 * search (_g, depth - 1, -b, -a);
+                int16 a_new = -1 * search (_g, depth - 1, -b, -a);
                 if (a_new > a)
                     a = a_new;
 
@@ -270,7 +272,7 @@ private class ComputerPlayer : Object
         {
             GameState _g = new GameState.copy_and_pass (g);
 
-            int a_new = -1 * search (_g, depth - 1, -b, -a);
+            int16 a_new = -1 * search (_g, depth - 1, -b, -a);
             if (a_new > a)
                 a = a_new;
         }
@@ -312,9 +314,9 @@ private class ComputerPlayer : Object
     * * AI
     \*/
 
-    private static int calculate_heuristic (GameState g, ref uint8 difficulty_level)
+    private static int16 calculate_heuristic (GameState g, ref uint8 difficulty_level)
     {
-        int tile_difference = (int) g.n_current_tiles - (int) g.n_opponent_tiles;
+        int16 tile_difference = (int16) g.n_current_tiles - (int16) g.n_opponent_tiles;
 
         /* Try to lose */
         if (difficulty_level == 1)
@@ -328,18 +330,18 @@ private class ComputerPlayer : Object
         return tile_difference + eval_heuristic (g) + around (g) ;
     }
 
-    private static int eval_heuristic (GameState g)
+    private static int16 eval_heuristic (GameState g)
     {
         uint8 size = g.size;
         if (size != 8)     // TODO
             return 0;
 
-        int count = 0;
+        int16 count = 0;
         for (uint8 x = 0; x < size; x++)
         {
             for (uint8 y = 0; y < size; y++)
             {
-                int h = heuristic [x, y];
+                int16 h = heuristic [x, y];
                 if (g.get_owner (x, y) != g.current_color)
                     h = -h;
                 count += h;
@@ -348,9 +350,9 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int around (GameState g)
+    private static int16 around (GameState g)
     {
-        int count = 0;
+        int16 count = 0;
         int8 size = (int8) g.size;
         int8 xpp;
         int8 xmm;
@@ -366,7 +368,7 @@ private class ComputerPlayer : Object
                 ypp = y + 1;
                 ymm = y - 1;
 
-                int a = 0;
+                int16 a = 0;
                 a -= is_empty (g, xpp, y  );
                 a -= is_empty (g, xpp, ypp);
                 a -= is_empty (g, x,   ypp);
@@ -386,7 +388,7 @@ private class ComputerPlayer : Object
         return count;
     }
 
-    private static int is_empty (GameState g, int8 x, int8 y)
+    private static int16 is_empty (GameState g, int8 x, int8 y)
     {
         if (!g.is_valid_location_signed (x, y))
             return 0;
