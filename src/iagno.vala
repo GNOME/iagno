@@ -347,7 +347,7 @@ private class Iagno : Gtk.Application
         requires (game_is_set)
     {
         if (game.current_color != player_one && computer != null && !game.is_complete)
-            ((!) computer).move_async.begin (SLOW_MOVE_DELAY);
+            ((!) computer).move (SLOW_MOVE_DELAY);
         else if (game.is_complete)
             game_complete (/* play sound */ false);
     }
@@ -385,7 +385,7 @@ private class Iagno : Gtk.Application
         update_ui ();
 
         if (player_one != Player.DARK && computer != null)
-            ((!) computer).move_async.begin (MODERATE_MOVE_DELAY);     // TODO MODERATE_MOVE_DELAY = 1.0, but after the sliding animation…
+            ((!) computer).move (MODERATE_MOVE_DELAY);     // TODO MODERATE_MOVE_DELAY = 1.0, but after the sliding animation…
     }
 
     private bool first_player_is_human = false;
@@ -463,7 +463,7 @@ private class Iagno : Gtk.Application
          * but not so long as to become boring.
          */
         if (game.current_color != player_one && computer != null)
-            ((!) computer).move_async.begin (fast_mode ? QUICK_MOVE_DELAY : SLOW_MOVE_DELAY);
+            ((!) computer).move (fast_mode ? QUICK_MOVE_DELAY : SLOW_MOVE_DELAY);
     }
 
     private void pass ()

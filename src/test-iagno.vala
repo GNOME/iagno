@@ -76,6 +76,25 @@ private class TestIagno : Object
     }
 
     /*\
+    * * utilities
+    \*/
+
+    private static bool ai_move (ComputerPlayer ai, uint8 force_x, uint8 force_y)
+    {
+        uint8 x;
+        uint8 y;
+        ai.move_sync (out x, out y);
+
+        bool success = (x == force_x)
+                    && (y == force_y);
+
+        if (!success)
+            print (@"\nwanted: ($force_x, $force_y), result: ($x, $y)");
+
+        return success;
+    }
+
+    /*\
     * * short tests
     \*/
 
@@ -145,8 +164,8 @@ private class TestIagno : Object
                             " L L L L L L L L",
                             " L L L L L L L L" };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game);
-        ai.move ();
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        assert_true (ai_move (ai, 2, 0));
         /* didn't crash */
     }
 
@@ -161,8 +180,8 @@ private class TestIagno : Object
                             " . . . D . . . .",
                             " . . D . . . . ." };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game);
-        ai.move ();
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        assert_true (ai_move (ai, 4, 6));
         /* didn't crash */
     }
 
@@ -177,8 +196,8 @@ private class TestIagno : Object
                             " L L L L L D D D",
                             " D D D D D D D D" };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game);
-        ai.move ();
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        assert_true (ai_move (ai, 2, 0));
         assert_true (game.get_owner (2, 0) == Player.LIGHT);
     }
 
@@ -193,8 +212,8 @@ private class TestIagno : Object
                             " D D D L L D D D",
                             " D D D L D D D D" };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game);
-        ai.move ();
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        assert_true (ai_move (ai, 1, 0));
         assert_true (game.get_owner (1, 0) == Player.LIGHT);
     }
 
@@ -209,8 +228,8 @@ private class TestIagno : Object
                             " . L L L D L L L",
                             " . . L L L L L L" };
         Game game = new Game.from_strings (board, Player.LIGHT);
-        ComputerPlayer ai = new ComputerPlayer (game);
-        ai.move ();
+        ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 1);
+        assert_true (ai_move (ai, 0, 5));
         /* didn't crash */
     }
 
@@ -234,61 +253,61 @@ private class TestIagno : Object
         ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
 
         assert_true (game.place_tile (4, 1));
-        assert_true (ai.force_moving (5, 5));
+        assert_true (ai_move (ai, 5, 5));
         assert_true (game.place_tile (4, 5));
-        assert_true (ai.force_moving (3, 5));
+        assert_true (ai_move (ai, 3, 5));
         assert_true (game.place_tile (2, 5));
-        assert_true (ai.force_moving (2, 4));
+        assert_true (ai_move (ai, 2, 4));
         assert_true (game.place_tile (4, 6));
-        assert_true (ai.force_moving (2, 6));
+        assert_true (ai_move (ai, 2, 6));
         assert_true (game.place_tile (1, 4));
-        assert_true (ai.force_moving (0, 4));
+        assert_true (ai_move (ai, 0, 4));
         assert_true (game.place_tile (2, 3));
-        assert_true (ai.force_moving (1, 3));
+        assert_true (ai_move (ai, 1, 3));
         assert_true (game.place_tile (1, 5));
-        assert_true (ai.force_moving (2, 2));
+        assert_true (ai_move (ai, 2, 2));
         assert_true (game.place_tile (3, 2));
-        assert_true (ai.force_moving (5, 2));
+        assert_true (ai_move (ai, 5, 2));
         assert_true (game.place_tile (6, 4));
-        assert_true (ai.force_moving (5, 6));
+        assert_true (ai_move (ai, 5, 6));
         assert_true (game.place_tile (3, 0));
-        assert_true (ai.force_moving (0, 5));
+        assert_true (ai_move (ai, 0, 5));
         assert_true (game.place_tile (3, 6));
-        assert_true (ai.force_moving (5, 7));
+        assert_true (ai_move (ai, 5, 7));
         assert_true (game.place_tile (0, 3));
-        assert_true (ai.force_moving (0, 2));
+        assert_true (ai_move (ai, 0, 2));
         assert_true (game.place_tile (6, 5));
-        assert_true (ai.force_moving (1, 2));
+        assert_true (ai_move (ai, 1, 2));
         assert_true (game.place_tile (3, 7));
-        assert_true (ai.force_moving (2, 7));
+        assert_true (ai_move (ai, 2, 7));
         assert_true (game.place_tile (4, 7));
-        assert_true (ai.force_moving (6, 6));
+        assert_true (ai_move (ai, 6, 6));
         assert_true (game.place_tile (2, 1));
-        assert_true (ai.force_moving (2, 0));
+        assert_true (ai_move (ai, 2, 0));
         assert_true (game.place_tile (1, 0));
-        assert_true (ai.force_moving (1, 1));
+        assert_true (ai_move (ai, 1, 1));
         assert_true (game.place_tile (6, 2));
-        assert_true (ai.force_moving (4, 0));
+        assert_true (ai_move (ai, 4, 0));
         assert_true (game.place_tile (5, 0));
-        assert_true (ai.force_moving (7, 3));
+        assert_true (ai_move (ai, 7, 3));
         assert_true (game.place_tile (6, 3));
-        assert_true (ai.force_moving (7, 2));
+        assert_true (ai_move (ai, 7, 2));
         assert_true (game.place_tile (5, 1));
-        assert_true (ai.force_moving (6, 1));
+        assert_true (ai_move (ai, 6, 1));
         assert_true (game.place_tile (7, 4));
-        assert_true (ai.force_moving (7, 5));
+        assert_true (ai_move (ai, 7, 5));
         assert_true (game.place_tile (7, 1));
-        assert_true (ai.force_moving (7, 0));
+        assert_true (ai_move (ai, 7, 0));
         assert_true (game.place_tile (7, 7));
-        assert_true (ai.force_moving (6, 7));
+        assert_true (ai_move (ai, 6, 7));
         assert_true (game.place_tile (7, 6));
-        assert_true (ai.force_moving (6, 0));
+        assert_true (ai_move (ai, 6, 0));
         assert_true (game.place_tile (0, 0));
-        assert_true (ai.force_moving (0, 1));
+        assert_true (ai_move (ai, 0, 1));
         assert_true (game.place_tile (0, 6));
-        assert_true (ai.force_moving (1, 6));
+        assert_true (ai_move (ai, 1, 6));
         assert_true (game.place_tile (1, 7));
-        assert_true (ai.force_moving (0, 7));
+        assert_true (ai_move (ai, 0, 7));
     }
 
     private static void test_complete_game_2 ()
@@ -307,61 +326,61 @@ private class TestIagno : Object
         ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
 
         assert_true (game.place_tile (4, 2));
-        assert_true (ai.force_moving (5, 5));
+        assert_true (ai_move (ai, 5, 5));
         assert_true (game.place_tile (6, 4));
-        assert_true (ai.force_moving (5, 2));
+        assert_true (ai_move (ai, 5, 2));
         assert_true (game.place_tile (6, 5));
-        assert_true (ai.force_moving (2, 2));
+        assert_true (ai_move (ai, 2, 2));
         assert_true (game.place_tile (3, 1));
-        assert_true (ai.force_moving (4, 5));
+        assert_true (ai_move (ai, 4, 5));
         assert_true (game.place_tile (3, 5));
-        assert_true (ai.force_moving (6, 3));
+        assert_true (ai_move (ai, 6, 3));
         assert_true (game.place_tile (2, 4));
-        assert_true (ai.force_moving (3, 6));
+        assert_true (ai_move (ai, 3, 6));
         assert_true (game.place_tile (7, 3));
-        assert_true (ai.force_moving (2, 5));
+        assert_true (ai_move (ai, 2, 5));
         assert_true (game.place_tile (3, 7));
-        assert_true (ai.force_moving (7, 5));
+        assert_true (ai_move (ai, 7, 5));
         assert_true (game.place_tile (5, 6));
-        assert_true (ai.force_moving (5, 7));
+        assert_true (ai_move (ai, 5, 7));
         assert_true (game.place_tile (6, 2));
-        assert_true (ai.force_moving (4, 6));
+        assert_true (ai_move (ai, 4, 6));
         assert_true (game.place_tile (4, 7));
-        assert_true (ai.force_moving (2, 7));
+        assert_true (ai_move (ai, 2, 7));
         assert_true (game.place_tile (1, 3));
-        assert_true (ai.force_moving (1, 2));
+        assert_true (ai_move (ai, 1, 2));
         assert_true (game.place_tile (0, 2));
-        assert_true (ai.force_moving (2, 1));
+        assert_true (ai_move (ai, 2, 1));
         assert_true (game.place_tile (2, 0));
-        assert_true (ai.force_moving (1, 1));
+        assert_true (ai_move (ai, 1, 1));
         assert_true (game.place_tile (2, 6));
-        assert_true (ai.force_moving (1, 7));
+        assert_true (ai_move (ai, 1, 7));
         assert_true (game.place_tile (4, 1));
-        assert_true (ai.force_moving (7, 4));
+        assert_true (ai_move (ai, 7, 4));
         assert_true (game.place_tile (7, 6));
-        assert_true (ai.force_moving (0, 4));
+        assert_true (ai_move (ai, 0, 4));
         assert_true (game.place_tile (0, 3));
-        assert_true (ai.force_moving (0, 1));
+        assert_true (ai_move (ai, 0, 1));
         assert_true (game.place_tile (1, 4));
-        assert_true (ai.force_moving (6, 6));
+        assert_true (ai_move (ai, 6, 6));
         assert_true (game.place_tile (1, 6));
-        assert_true (ai.force_moving (4, 0));
+        assert_true (ai_move (ai, 4, 0));
         assert_true (game.place_tile (3, 0));
-        assert_true (ai.force_moving (1, 0));
+        assert_true (ai_move (ai, 1, 0));
         assert_true (game.place_tile (5, 1));
-        assert_true (ai.force_moving (7, 2));
+        assert_true (ai_move (ai, 7, 2));
         assert_true (game.place_tile (7, 7));
-        assert_true (ai.force_moving (6, 0));
+        assert_true (ai_move (ai, 6, 0));
         assert_true (game.place_tile (6, 1));
-        assert_true (ai.force_moving (6, 7));
+        assert_true (ai_move (ai, 6, 7));
         assert_true (game.place_tile (0, 7));
-        assert_true (ai.force_moving (5, 0));
+        assert_true (ai_move (ai, 5, 0));
         assert_true (game.place_tile (0, 0));
-        assert_true (ai.force_moving (0, 6));
+        assert_true (ai_move (ai, 0, 6));
         assert_true (game.place_tile (0, 5));
-        assert_true (ai.force_moving (1, 5));
+        assert_true (ai_move (ai, 1, 5));
         assert_true (game.place_tile (7, 0));
-        assert_true (ai.force_moving (7, 1));
+        assert_true (ai_move (ai, 7, 1));
     }
 
     private static void test_complete_game_3 ()
@@ -379,61 +398,61 @@ private class TestIagno : Object
         Game game = new Game.from_strings (board, Player.DARK);
         ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
 
-        assert_true (ai.force_moving (3, 5));
+        assert_true (ai_move (ai, 3, 5));
         assert_true (game.place_tile (6, 3));
-        assert_true (ai.force_moving (3, 2));
+        assert_true (ai_move (ai, 3, 2));
         assert_true (game.place_tile (2, 3));
-        assert_true (ai.force_moving (1, 4));
+        assert_true (ai_move (ai, 1, 4));
         assert_true (game.place_tile (4, 5));
-        assert_true (ai.force_moving (6, 5));
+        assert_true (ai_move (ai, 6, 5));
         assert_true (game.place_tile (2, 6));
-        assert_true (ai.force_moving (2, 5));
+        assert_true (ai_move (ai, 2, 5));
         assert_true (game.place_tile (3, 6));
-        assert_true (ai.force_moving (2, 2));
+        assert_true (ai_move (ai, 2, 2));
         assert_true (game.place_tile (0, 3));
-        assert_true (ai.force_moving (6, 2));
+        assert_true (ai_move (ai, 6, 2));
         assert_true (game.place_tile (1, 3));
-        assert_true (ai.force_moving (0, 5));
+        assert_true (ai_move (ai, 0, 5));
         assert_true (game.place_tile (4, 1));
-        assert_true (ai.force_moving (5, 1));
+        assert_true (ai_move (ai, 5, 1));
         assert_true (game.place_tile (6, 4));
-        assert_true (ai.force_moving (1, 5));
+        assert_true (ai_move (ai, 1, 5));
         assert_true (game.place_tile (5, 0));
-        assert_true (ai.force_moving (7, 3));
+        assert_true (ai_move (ai, 7, 3));
         assert_true (game.place_tile (2, 4));
-        assert_true (ai.force_moving (3, 0));
+        assert_true (ai_move (ai, 3, 0));
         assert_true (game.place_tile (4, 2));
-        assert_true (ai.force_moving (3, 1));
+        assert_true (ai_move (ai, 3, 1));
         assert_true (game.place_tile (0, 4));
-        assert_true (ai.force_moving (0, 2));
+        assert_true (ai_move (ai, 0, 2));
         assert_true (game.place_tile (1, 2));
-        assert_true (ai.force_moving (4, 7));
+        assert_true (ai_move (ai, 4, 7));
         assert_true (game.place_tile (2, 7));
-        assert_true (ai.force_moving (0, 6));
+        assert_true (ai_move (ai, 0, 6));
         assert_true (game.place_tile (4, 6));
-        assert_true (ai.force_moving (5, 7));
+        assert_true (ai_move (ai, 5, 7));
         assert_true (game.place_tile (5, 6));
-        assert_true (ai.force_moving (2, 1));
+        assert_true (ai_move (ai, 2, 1));
         assert_true (game.place_tile (2, 0));
-        assert_true (ai.force_moving (1, 0));
+        assert_true (ai_move (ai, 1, 0));
         assert_true (game.place_tile (7, 5));
-        assert_true (ai.force_moving (6, 7));
+        assert_true (ai_move (ai, 6, 7));
         assert_true (game.place_tile (7, 2));
-        assert_true (ai.force_moving (7, 6));
+        assert_true (ai_move (ai, 7, 6));
         assert_true (game.place_tile (7, 7));
-        assert_true (ai.force_moving (3, 7));
+        assert_true (ai_move (ai, 3, 7));
         assert_true (game.place_tile (7, 4));
-        assert_true (ai.force_moving (1, 1));
+        assert_true (ai_move (ai, 1, 1));
         assert_true (game.place_tile (6, 6));
-        assert_true (ai.force_moving (6, 1));
+        assert_true (ai_move (ai, 6, 1));
         assert_true (game.place_tile (0, 0));
-        assert_true (ai.force_moving (1, 7));
+        assert_true (ai_move (ai, 1, 7));
         assert_true (game.place_tile (4, 0));
-        assert_true (ai.force_moving (6, 0));
+        assert_true (ai_move (ai, 6, 0));
         assert_true (game.place_tile (0, 7));
-        assert_true (ai.force_moving (0, 1));
+        assert_true (ai_move (ai, 0, 1));
         assert_true (game.place_tile (1, 6));
-        assert_true (ai.force_moving (7, 1));
+        assert_true (ai_move (ai, 7, 1));
         assert_true (game.place_tile (7, 0));
     }
 
@@ -452,64 +471,64 @@ private class TestIagno : Object
         Game game = new Game.from_strings (board, Player.DARK);
         ComputerPlayer ai = new ComputerPlayer (game, /* AI level */ 3);
 
-        assert_true (ai.force_moving (5, 4));
+        assert_true (ai_move (ai, 5, 4));
         assert_true (game.place_tile (6, 4));
-        assert_true (ai.force_moving (1, 5));
+        assert_true (ai_move (ai, 1, 5));
         assert_true (game.place_tile (2, 2));
-        assert_true (ai.force_moving (3, 5));
+        assert_true (ai_move (ai, 3, 5));
         assert_true (game.place_tile (1, 4));
-        assert_true (ai.force_moving (6, 3));
+        assert_true (ai_move (ai, 6, 3));
         assert_true (game.place_tile (4, 2));
-        assert_true (ai.force_moving (4, 1));
+        assert_true (ai_move (ai, 4, 1));
         assert_true (game.place_tile (5, 5));
-        assert_true (ai.force_moving (2, 3));
+        assert_true (ai_move (ai, 2, 3));
         assert_true (game.place_tile (4, 0));
-        assert_true (ai.force_moving (5, 6));
+        assert_true (ai_move (ai, 5, 6));
         assert_true (game.place_tile (2, 6));
-        assert_true (ai.force_moving (2, 5));
+        assert_true (ai_move (ai, 2, 5));
         assert_true (game.place_tile (0, 4));
-        assert_true (ai.force_moving (0, 6));
+        assert_true (ai_move (ai, 0, 6));
         assert_true (game.place_tile (1, 3));
-        assert_true (ai.force_moving (5, 1));
+        assert_true (ai_move (ai, 5, 1));
         assert_true (game.place_tile (6, 7));
-        assert_true (ai.force_moving (3, 6));
+        assert_true (ai_move (ai, 3, 6));
         assert_true (game.place_tile (3, 7));
-        assert_true (ai.force_moving (5, 0));
+        assert_true (ai_move (ai, 5, 0));
         assert_true (game.place_tile (6, 5));
-        assert_true (ai.force_moving (3, 0));
+        assert_true (ai_move (ai, 3, 0));
         assert_true (game.place_tile (3, 1));
-        assert_true (ai.force_moving (0, 2));
+        assert_true (ai_move (ai, 0, 2));
         assert_true (game.place_tile (5, 3));
-        assert_true (ai.force_moving (7, 4));
+        assert_true (ai_move (ai, 7, 4));
         assert_true (game.place_tile (7, 2));
-        assert_true (ai.force_moving (7, 5));
+        assert_true (ai_move (ai, 7, 5));
         assert_true (game.place_tile (4, 6));
-        assert_true (ai.force_moving (1, 2));
+        assert_true (ai_move (ai, 1, 2));
         assert_true (game.place_tile (7, 3));
-        assert_true (ai.force_moving (6, 2));
+        assert_true (ai_move (ai, 6, 2));
         assert_true (game.place_tile (7, 6));
-        assert_true (ai.force_moving (2, 7));
+        assert_true (ai_move (ai, 2, 7));
         assert_true (game.place_tile (1, 7));
-        assert_true (ai.force_moving (2, 0));
+        assert_true (ai_move (ai, 2, 0));
         assert_true (game.place_tile (7, 1));
-        assert_true (ai.force_moving (6, 6));
+        assert_true (ai_move (ai, 6, 6));
         assert_true (game.place_tile (0, 3));
-        assert_true (ai.force_moving (0, 5));
+        assert_true (ai_move (ai, 0, 5));
         assert_true (game.place_tile (7, 7));
-        assert_true (ai.force_moving (6, 1));
+        assert_true (ai_move (ai, 6, 1));
         assert_true (game.place_tile (7, 0));
-        assert_true (ai.force_moving (6, 0));
+        assert_true (ai_move (ai, 6, 0));
         assert_true (game.place_tile (1, 0));
-        assert_true (ai.force_moving (1, 6));
+        assert_true (ai_move (ai, 1, 6));
         assert_true (game.place_tile (2, 1));
         assert_true (game.pass ());
         assert_true (game.place_tile (0, 7));
         assert_true (game.pass ());
         assert_true (game.place_tile (0, 1));
-        assert_true (ai.force_moving (1, 1));
+        assert_true (ai_move (ai, 1, 1));
         assert_true (game.place_tile (0, 0));
         assert_true (game.pass ());
         assert_true (game.place_tile (4, 7));
-        assert_true (ai.force_moving (5, 7));
+        assert_true (ai_move (ai, 5, 7));
     }
 }

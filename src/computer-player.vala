@@ -108,34 +108,19 @@ private class ComputerPlayer : Object
         }
     }
 
-    /* For tests only. */
-    internal void move ()
+    internal void move_sync (out uint8 x, out uint8 y)      // for tests
     {
-        uint8 x;
-        uint8 y;
-
+        move_pending = true;
         run_search (out x, out y);
+        move_pending = false;
         complete_move (x, y);
     }
 
-    internal bool force_moving (uint8 force_x, uint8 force_y)
+    internal void move (double delay_seconds = 0.0)
     {
-        uint8 x;
-        uint8 y;
-
-        move_pending = true;
-        run_search (out x, out y);
-        complete_move (force_x, force_y);
-
-        print (@"\nx: $x, y: $y");
-
-        return (x == force_x)
-            && (y == force_y);
+        move_async.begin (delay_seconds);
     }
-
-    /* real game */
-
-    internal async void move_async (double delay_seconds = 0.0)
+    private async void move_async (double delay_seconds)
     {
         Timer timer = new Timer ();
         uint8 x = 0; // garbage, should not be needed
