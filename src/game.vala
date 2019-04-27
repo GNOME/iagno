@@ -49,21 +49,18 @@ private class GameState : Object
 
     construct
     {
-        tiles           = new Player [size, size];
-        empty_neighbors = new uint8  [size, size];
+        tiles = new Player [size, size];
     }
 
     internal GameState.copy (GameState game)
     {
         Object (size: game.size, current_color: game.current_color);
         neighbor_tiles = game.neighbor_tiles;
+        empty_neighbors = game.empty_neighbors;
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
-            {
                 set_tile (x, y, game.tiles [x, y]);
-                empty_neighbors [x, y] = game.empty_neighbors [x, y];
-            }
 
         update_who_can_move ();
         if (current_player_can_move != game.current_player_can_move
@@ -75,13 +72,11 @@ private class GameState : Object
     {
         Object (size: game.size, current_color: Player.flip_color (game.current_color));
         neighbor_tiles = game.neighbor_tiles;
+        empty_neighbors = game.empty_neighbors;
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
-            {
                 set_tile (x, y, game.tiles [x, y]);
-                empty_neighbors [x, y] = game.empty_neighbors [x, y];
-            }
 
         // we already know all that, it is just for checking
         update_who_can_move ();
@@ -94,13 +89,11 @@ private class GameState : Object
         Player move_color = game.current_color;
         Object (size: game.size, current_color: Player.flip_color (move_color));
         neighbor_tiles = game.neighbor_tiles;
+        empty_neighbors = game.empty_neighbors;
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
-            {
                 set_tile (x, y, game.tiles [x, y]);
-                empty_neighbors [x, y] = game.empty_neighbors [x, y];
-            }
 
         if (place_tile (move_x, move_y, move_color, /* apply move */ true) == 0)
         {
@@ -120,7 +113,7 @@ private class GameState : Object
             for (uint8 y = 0; y < _size; y++)
                 set_tile (x, y, _tiles [x, y]);
 
-        calculate_empty_neighbors ();
+        init_empty_neighbors ();
         update_who_can_move ();
     }
 
@@ -284,8 +277,9 @@ private class GameState : Object
         return empty_neighbors [x, y];
     }
 
-    private void calculate_empty_neighbors ()
+    private void init_empty_neighbors ()
     {
+        empty_neighbors = new uint8 [size, size];
         int8 _size = (int8) size;
 
         int8 xmm; int8 ymm;
