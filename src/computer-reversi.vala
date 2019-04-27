@@ -60,7 +60,7 @@ private class ComputerReversi : ComputerPlayer
     {
         if (!game.place_tile (x, y))
         {
-            critical ("Computer chose an invalid move: %d,%d\n%s", x, y, game.to_string ());
+            critical (@"Computer chose an invalid move: $x,$y\n$game");
 
             /* Has been reached, once. So let's have a fallback. */
             uint8 new_x;
@@ -68,7 +68,7 @@ private class ComputerReversi : ComputerPlayer
             random_select (game.current_state, out new_x, out new_y);
             if (!game.place_tile (new_x, new_y))
             {
-                critical ("Computer chose an invalid move for the second time: %d,%d\n%s", new_x, new_y, game.to_string ());
+                critical (@"Computer chose an invalid move for the second time: $new_x,$new_y\n$game");
                 assert_not_reached ();
             }
         }

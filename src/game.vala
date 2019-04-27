@@ -135,7 +135,7 @@ private class GameState : Object
     [CCode (notify = false)] internal uint8 n_opponent_tiles
                                             { internal get { return current_color == Player.DARK ? _n_light_tiles : _n_dark_tiles; }}
 
-    internal void add_tile_of_color (Player color)
+    private void add_tile_of_color (Player color)
     {
         if (color == Player.DARK)
             _n_dark_tiles++;
@@ -173,7 +173,7 @@ private class GameState : Object
             && y >= 0 && y < size;
     }
 
-    internal inline bool is_valid_location_unsigned (uint8 x, uint8 y)
+    private inline bool is_valid_location_unsigned (uint8 x, uint8 y)
     {
         return x < size && y < size;
     }
