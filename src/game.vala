@@ -45,24 +45,24 @@ private class GameState : Object
     [CCode (notify = false)] public uint8 size { internal get; protected construct; default = 0; }
 
     private Player [,] tiles;
+    private unowned uint8 [,] neighbor_tiles;
 
     construct
     {
         tiles           = new Player [size, size];
         empty_neighbors = new uint8  [size, size];
-        neighbor_tiles  = new uint8  [size, size];
     }
 
     internal GameState.copy (GameState game)
     {
         Object (size: game.size, current_color: game.current_color);
+        neighbor_tiles = game.neighbor_tiles;
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
             {
                 set_tile (x, y, game.tiles [x, y]);
                 empty_neighbors [x, y] = game.empty_neighbors [x, y];
-                neighbor_tiles  [x, y] = game.neighbor_tiles  [x, y];
             }
 
         update_who_can_move ();
@@ -74,13 +74,13 @@ private class GameState : Object
     internal GameState.copy_and_pass (GameState game)
     {
         Object (size: game.size, current_color: Player.flip_color (game.current_color));
+        neighbor_tiles = game.neighbor_tiles;
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
             {
                 set_tile (x, y, game.tiles [x, y]);
                 empty_neighbors [x, y] = game.empty_neighbors [x, y];
-                neighbor_tiles  [x, y] = game.neighbor_tiles  [x, y];
             }
 
         // we already know all that, it is just for checking
@@ -93,13 +93,13 @@ private class GameState : Object
     {
         Player move_color = game.current_color;
         Object (size: game.size, current_color: Player.flip_color (move_color));
+        neighbor_tiles = game.neighbor_tiles;
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
             {
                 set_tile (x, y, game.tiles [x, y]);
                 empty_neighbors [x, y] = game.empty_neighbors [x, y];
-                neighbor_tiles  [x, y] = game.neighbor_tiles  [x, y];
             }
 
         if (place_tile (move_x, move_y, move_color, /* apply move */ true) == 0)
@@ -111,15 +111,16 @@ private class GameState : Object
         update_who_can_move ();
     }
 
-    internal GameState.from_grid (uint8 _size, Player [,] _tiles, Player color)
+    internal GameState.from_grid (uint8 _size, Player [,] _tiles, Player color, uint8 [,] _neighbor_tiles)
     {
         Object (size: _size, current_color: color);
+        neighbor_tiles = _neighbor_tiles;
 
         for (uint8 x = 0; x < _size; x++)
             for (uint8 y = 0; y < _size; y++)
                 set_tile (x, y, _tiles [x, y]);
 
-        calculate_neighbors ();
+        calculate_empty_neighbors ();
         update_who_can_move ();
     }
 
@@ -277,40 +278,10 @@ private class GameState : Object
     \*/
 
     private uint8 [,] empty_neighbors;
-    private uint8 [,] neighbor_tiles;
 
     internal uint8 get_empty_neighbors (uint8 x, uint8 y)
     {
         return empty_neighbors [x, y];
-    }
-
-    private inline void calculate_neighbors ()
-    {
-        calculate_neighbor_tiles (size - 1, ref neighbor_tiles);
-        calculate_empty_neighbors ();
-    }
-
-    private static void calculate_neighbor_tiles (uint8 /* size less one */ max,
-                                              ref uint8 [,] neighbor_tiles)
-    {
-        for (uint8 i = 1; i < max; i++)
-        {
-            // edges
-            neighbor_tiles [i  , 0  ] = 5;
-            neighbor_tiles [i  , max] = 5;
-            neighbor_tiles [0  , i  ] = 5;
-            neighbor_tiles [max, i  ] = 5;
-
-            // center
-            for (uint8 j = 1; j < max; j++)
-                neighbor_tiles [i, j] = 8;
-        }
-
-        // corners
-        neighbor_tiles [0  , 0  ] = 3;
-        neighbor_tiles [0  , max] = 3;
-        neighbor_tiles [max, max] = 3;
-        neighbor_tiles [max, 0  ] = 3;
     }
 
     private void calculate_empty_neighbors ()
@@ -496,12 +467,15 @@ private class Game : Object
             tiles [mid_board    , mid_board + 1] = Player.LIGHT;
         }
 
-        GameState _current_state = new GameState.from_grid (_size, tiles, /* Dark always starts */ Player.DARK);
+        uint8 [,] _neighbor_tiles;
+        init_neighbor_tiles (_size, out _neighbor_tiles);
+        GameState _current_state = new GameState.from_grid (_size, tiles, /* Dark always starts */ Player.DARK, _neighbor_tiles);
 
         Object (size                    : _size,
                 current_state           : _current_state,
                 alternative_start       : _alternative_start,
                 initial_number_of_tiles : _initial_number_of_tiles);
+        neighbor_tiles = (owned) _neighbor_tiles;
     }
 
     internal Game.from_strings (string [] setup, Player to_move, uint8 _size = 8)
@@ -520,12 +494,15 @@ private class Game : Object
                 tiles [x, y] = Player.from_char (setup [y] [x * 2 + 1]);
         }
 
-        GameState _current_state = new GameState.from_grid (_size, tiles, to_move);
+        uint8 [,] _neighbor_tiles;
+        init_neighbor_tiles (_size, out _neighbor_tiles);
+        GameState _current_state = new GameState.from_grid (_size, tiles, to_move, _neighbor_tiles);
 
         Object (size                    : _size,
                 current_state           : _current_state,
                 alternative_start       : /* garbage */ false,
                 initial_number_of_tiles : (_size % 2 == 0) ? 4 : 7);
+        neighbor_tiles = (owned) _neighbor_tiles;
 
         warn_if_fail (string.joinv ("\n", (string? []) setup).strip () == to_string ().strip ());
     }
@@ -610,5 +587,36 @@ private class Game : Object
             end_of_turn (/* undoing */ true, /* no_draw */ true);
             undo (count - 1);
         }
+    }
+
+    /*\
+    * * neighbor tiles
+    \*/
+
+    private uint8 [,] neighbor_tiles;
+
+    private static void init_neighbor_tiles (uint8 size, out uint8 [,] neighbor_tiles)
+    {
+        neighbor_tiles = new uint8 [size, size];
+        uint8 max = size - 1;
+
+        for (uint8 i = 1; i < max; i++)
+        {
+            // edges
+            neighbor_tiles [i  , 0  ] = 5;
+            neighbor_tiles [i  , max] = 5;
+            neighbor_tiles [0  , i  ] = 5;
+            neighbor_tiles [max, i  ] = 5;
+
+            // center
+            for (uint8 j = 1; j < max; j++)
+                neighbor_tiles [i, j] = 8;
+        }
+
+        // corners
+        neighbor_tiles [0  , 0  ] = 3;
+        neighbor_tiles [0  , max] = 3;
+        neighbor_tiles [max, max] = 3;
+        neighbor_tiles [max, 0  ] = 3;
     }
 }
