@@ -217,7 +217,7 @@ private class ComputerReversi : ComputerPlayer
             return tile_difference;
 
         /* Normal strategy: try to evaluate the position */
-        return tile_difference + eval_heuristic (g, ref heuristic) + around (g) ;
+        return tile_difference + eval_heuristic (g, ref heuristic);
     }
 
     private static int16 eval_heuristic (GameState g, ref int16 [,] heuristic)
@@ -228,61 +228,20 @@ private class ComputerReversi : ComputerPlayer
         {
             for (uint8 y = 0; y < size; y++)
             {
+                // heuristic
                 int16 h = heuristic [x, y];
                 if (g.get_owner (x, y) != g.current_color)
                     h = -h;
                 count += h;
+
+                // around
+                int16 a = (int16) g.get_empty_neighbors (x, y);
+                if (a == 0) // completely surrounded
+                    a = -2;
+                count += (g.get_owner ((uint8) x, (uint8) y) == g.current_color) ? -a : a;
             }
         }
         return count;
-    }
-
-    private static int16 around (GameState g)
-    {
-        int16 count = 0;
-        int8 size = (int8) g.size;
-        int8 xpp;
-        int8 xmm;
-        int8 ypp;
-        int8 ymm;
-        for (int8 x = 0; x < size; x++)
-        {
-            xpp = x + 1;
-            xmm = x - 1;
-
-            for (int8 y = 0; y < size; y++)
-            {
-                ypp = y + 1;
-                ymm = y - 1;
-
-                int16 a = 0;
-                a -= is_empty (g, xpp, y  );
-                a -= is_empty (g, xpp, ypp);
-                a -= is_empty (g, x,   ypp);
-                a -= is_empty (g, xmm, ypp);
-                a -= is_empty (g, xmm, y  );
-                a -= is_empty (g, xmm, ymm);
-                a -= is_empty (g, x,   ymm);
-                a -= is_empty (g, xpp, ymm);
-
-                /* Two points for completely surrounded tiles */
-                if (a == 0)
-                    a = 2;
-
-                count += (g.get_owner ((uint8) x, (uint8) y) == g.current_color) ? a : -a;
-            }
-        }
-        return count;
-    }
-
-    private static int16 is_empty (GameState g, int8 x, int8 y)
-    {
-        if (!g.is_valid_location_signed (x, y))
-            return 0;
-        if (g.get_owner ((uint8) x, (uint8) y) != Player.NONE)
-            return 0;
-
-        return 1;
     }
 
     /*\

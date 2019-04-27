@@ -48,7 +48,9 @@ private class GameState : Object
 
     construct
     {
-        tiles = new Player [size, size];
+        tiles           = new Player [size, size];
+        empty_neighbors = new uint8  [size, size];
+        neighbor_tiles  = new uint8  [size, size];
     }
 
     internal GameState.copy (GameState game)
@@ -57,7 +59,11 @@ private class GameState : Object
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
+            {
                 set_tile (x, y, game.tiles [x, y]);
+                empty_neighbors [x, y] = game.empty_neighbors [x, y];
+                neighbor_tiles  [x, y] = game.neighbor_tiles  [x, y];
+            }
 
         update_who_can_move ();
         if (current_player_can_move != game.current_player_can_move
@@ -71,7 +77,11 @@ private class GameState : Object
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
+            {
                 set_tile (x, y, game.tiles [x, y]);
+                empty_neighbors [x, y] = game.empty_neighbors [x, y];
+                neighbor_tiles  [x, y] = game.neighbor_tiles  [x, y];
+            }
 
         // we already know all that, it is just for checking
         update_who_can_move ();
@@ -86,7 +96,11 @@ private class GameState : Object
 
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
+            {
                 set_tile (x, y, game.tiles [x, y]);
+                empty_neighbors [x, y] = game.empty_neighbors [x, y];
+                neighbor_tiles  [x, y] = game.neighbor_tiles  [x, y];
+            }
 
         if (place_tile (move_x, move_y, move_color, /* apply move */ true) == 0)
         {
@@ -105,6 +119,7 @@ private class GameState : Object
             for (uint8 y = 0; y < _size; y++)
                 set_tile (x, y, _tiles [x, y]);
 
+        calculate_neighbors ();
         update_who_can_move ();
     }
 
@@ -183,6 +198,8 @@ private class GameState : Object
     {
         if (tiles [x, y] != Player.NONE)
             return 0;
+        if (empty_neighbors [x, y] == neighbor_tiles [x, y])
+            return 0;
 
         uint8 tiles_turned = 0;
         tiles_turned += flip_tiles (x, y, color,  1,  0, apply);
@@ -198,7 +215,10 @@ private class GameState : Object
             return 0;
 
         if (apply)
+        {
             set_tile (x, y, color);
+            update_empty_neighbors (x, y);
+        }
 
         return tiles_turned;
     }
@@ -238,6 +258,8 @@ private class GameState : Object
     {
         if (tiles [x, y] != Player.NONE)
             return false;
+        if (empty_neighbors [x, y] == neighbor_tiles [x, y])
+            return false;
 
         if (can_flip_tiles (x, y, color,  1,  0) > 0) return true;
         if (can_flip_tiles (x, y, color,  1,  1) > 0) return true;
@@ -248,6 +270,111 @@ private class GameState : Object
         if (can_flip_tiles (x, y, color,  0, -1) > 0) return true;
         if (can_flip_tiles (x, y, color,  1, -1) > 0) return true;
         return false;
+    }
+
+    /*\
+    * * surrounding tiles
+    \*/
+
+    private uint8 [,] empty_neighbors;
+    private uint8 [,] neighbor_tiles;
+
+    internal uint8 get_empty_neighbors (uint8 x, uint8 y)
+    {
+        return empty_neighbors [x, y];
+    }
+
+    private inline void calculate_neighbors ()
+    {
+        calculate_neighbor_tiles (size - 1, ref neighbor_tiles);
+        calculate_empty_neighbors ();
+    }
+
+    private static void calculate_neighbor_tiles (uint8 /* size less one */ max,
+                                              ref uint8 [,] neighbor_tiles)
+    {
+        for (uint8 i = 1; i < max; i++)
+        {
+            // edges
+            neighbor_tiles [i  , 0  ] = 5;
+            neighbor_tiles [i  , max] = 5;
+            neighbor_tiles [0  , i  ] = 5;
+            neighbor_tiles [max, i  ] = 5;
+
+            // center
+            for (uint8 j = 1; j < max; j++)
+                neighbor_tiles [i, j] = 8;
+        }
+
+        // corners
+        neighbor_tiles [0  , 0  ] = 3;
+        neighbor_tiles [0  , max] = 3;
+        neighbor_tiles [max, max] = 3;
+        neighbor_tiles [max, 0  ] = 3;
+    }
+
+    private void calculate_empty_neighbors ()
+    {
+        int8 _size = (int8) size;
+
+        int8 xmm; int8 ymm;
+        int8 xpp; int8 ypp;
+        for (int8 x = 0; x < _size; x++)
+        {
+            xmm = x - 1;
+            xpp = x + 1;
+
+            for (int8 y = 0; y < _size; y++)
+            {
+                ymm = y - 1;
+                ypp = y + 1;
+
+                empty_neighbors [x, y] = is_empty (xpp, y  )
+                                       + is_empty (xpp, ypp)
+                                       + is_empty (x,   ypp)
+                                       + is_empty (xmm, ypp)
+                                       + is_empty (xmm, y  )
+                                       + is_empty (xmm, ymm)
+                                       + is_empty (x,   ymm)
+                                       + is_empty (xpp, ymm);
+            }
+        }
+    }
+
+    private uint8 is_empty (int8 x, int8 y)
+    {
+        if (!is_valid_location_signed (x, y))
+            return 0;
+        if (get_owner ((uint8) x, (uint8) y) != Player.NONE)
+            return 0;
+
+        return 1;
+    }
+
+    private void update_empty_neighbors (uint8 x, uint8 y)
+    {
+        int8 xmm = ((int8) x) - 1;
+        int8 ymm = ((int8) y) - 1;
+        int8 xpp = ((int8) x) + 1;
+        int8 ypp = ((int8) y) + 1;
+
+        bool ymm_is_valid = ymm >= 0;
+        bool ypp_is_valid = ypp < size;
+
+        if (xmm >= 0)
+        {
+                              empty_neighbors [xmm, y  ] -= 1;
+            if (ymm_is_valid) empty_neighbors [xmm, ymm] -= 1;
+            if (ypp_is_valid) empty_neighbors [xmm, ypp] -= 1;
+        }
+        if (ymm_is_valid)     empty_neighbors [x  , ymm] -= 1;
+        if (ypp_is_valid)     empty_neighbors [x  , ypp] -= 1;
+        if (xpp < size)
+        {
+                              empty_neighbors [xpp, y  ] -= 1;
+            if (ymm_is_valid) empty_neighbors [xpp, ymm] -= 1;
+            if (ypp_is_valid) empty_neighbors [xpp, ypp] -= 1;
+        }
     }
 
     /*\
