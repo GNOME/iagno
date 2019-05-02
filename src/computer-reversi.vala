@@ -94,7 +94,7 @@ private class ComputerReversi : ComputerPlayer
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
-        GameState g = new GameState.copy (game.current_state);
+        GameState g = game.current_state;
         /* The search sometimes returns NEGATIVE_INFINITY. */
         int16 a = LESS_THAN_NEGATIVE_INFINITY;
 

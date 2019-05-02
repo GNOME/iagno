@@ -47,22 +47,9 @@ private class GameState : Object
     private Player [,] tiles;
     private unowned uint8 [,] neighbor_tiles;
 
-    internal GameState.copy (GameState game)
-    {
-        Object (size: game.size, current_color: game.current_color);
-        neighbor_tiles = game.neighbor_tiles;
-        empty_neighbors = game.empty_neighbors;
-        tiles = game.tiles;
-        _n_light_tiles = game._n_light_tiles;
-        _n_dark_tiles = game._n_dark_tiles;
-
-        update_who_can_move ();
-        if (current_player_can_move != game.current_player_can_move
-         || is_complete != game.is_complete)
-            assert_not_reached ();
-    }
-
     internal GameState.copy_and_pass (GameState game)
+        requires (!game.current_player_can_move)
+        requires (!game.is_complete)
     {
         Object (size: game.size, current_color: Player.flip_color (game.current_color));
         neighbor_tiles = game.neighbor_tiles;
@@ -70,11 +57,8 @@ private class GameState : Object
         tiles = game.tiles;
         _n_light_tiles = game._n_light_tiles;
         _n_dark_tiles = game._n_dark_tiles;
-
-        // we already know all that, it is just for checking
-        update_who_can_move ();
-        if (!current_player_can_move || is_complete)
-            assert_not_reached ();
+        current_player_can_move = true;
+        is_complete = false;
     }
 
     internal GameState.copy_and_move (GameState game, uint8 move_x, uint8 move_y)
@@ -237,6 +221,8 @@ private class GameState : Object
                     current_player_can_move = true;
                     return;
                 }
+                if (opponent_can_move)
+                    continue;
                 if (can_place (x, y, enemy))
                     opponent_can_move = true;
             }
@@ -254,9 +240,9 @@ private class GameState : Object
 
     private bool can_place (uint8 x, uint8 y, Player color)
     {
-        if (tiles [x, y] != Player.NONE)
-            return false;
         if (empty_neighbors [x, y] == neighbor_tiles [x, y])
+            return false;
+        if (tiles [x, y] != Player.NONE)
             return false;
 
         if (can_flip_tiles (x, y, color,  1,  0) > 0) return true;
