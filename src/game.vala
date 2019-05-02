@@ -120,12 +120,19 @@ private class GameState : Object
             _n_light_tiles++;
     }
 
-    private void remove_tile_of_opponent_color (Player color)
+    private void flip_tile_to_color (Player color)
     {
         if (color == Player.LIGHT)
+        {
             _n_dark_tiles--;
+            _n_light_tiles++;
+        }
         else if (color == Player.DARK)
+        {
             _n_light_tiles--;
+            _n_dark_tiles++;
+        }
+        else assert_not_reached ();
     }
 
     /*\
@@ -173,9 +180,9 @@ private class GameState : Object
     private uint8 place_tile (uint8 x, uint8 y, Player color, bool apply)
         requires (is_valid_location_unsigned (x, y))
     {
-        if (tiles [x, y] != Player.NONE)
-            return 0;
         if (empty_neighbors [x, y] == neighbor_tiles [x, y])
+            return 0;
+        if (tiles [x, y] != Player.NONE)
             return 0;
 
         uint8 tiles_turned = 0;
@@ -300,7 +307,7 @@ private class GameState : Object
     {
         if (!is_valid_location_signed (x, y))
             return 0;
-        if (get_owner ((uint8) x, (uint8) y) != Player.NONE)
+        if (tiles [x, y] != Player.NONE)
             return 0;
 
         return 1;
@@ -310,8 +317,8 @@ private class GameState : Object
     {
         int8 xmm = ((int8) x) - 1;
         int8 ymm = ((int8) y) - 1;
-        int8 xpp = ((int8) x) + 1;
-        int8 ypp = ((int8) y) + 1;
+        int8 xpp = xmm + 2;
+        int8 ypp = ymm + 2;
 
         bool ymm_is_valid = ymm >= 0;
         bool ypp_is_valid = ypp < size;
@@ -346,8 +353,7 @@ private class GameState : Object
         {
             for (int8 i = 1; i <= enemy_count; i++)
             {
-                remove_tile_of_opponent_color (color);
-                add_tile_of_color (color);
+                flip_tile_to_color (color);
                 tiles [(int8) x + (i * x_step),
                        (int8) y + (i * y_step)] = color;
             }
