@@ -167,6 +167,12 @@ private class GameState : Object
  //     return tiles [x, y];
  // }
 
+    internal bool is_current_color (uint8 x, uint8 y)
+        requires (is_valid_location_unsigned (x, y))
+    {
+        return tiles [x, y] == current_color;
+    }
+
     internal inline bool is_valid_location_signed (int8 x, int8 y)
     {
         return x >= 0 && x < size
@@ -246,9 +252,13 @@ private class GameState : Object
             is_complete = true;
     }
 
-    internal bool can_place (uint8 x, uint8 y, Player color)
+    internal bool can_move (uint8 x, uint8 y)
         requires (is_valid_location_unsigned (x, y))
-        requires (color != Player.NONE)
+    {
+        return can_place (x, y, current_color);
+    }
+
+    private bool can_place (uint8 x, uint8 y, Player color)
     {
         if (tiles [x, y] != Player.NONE)
             return false;

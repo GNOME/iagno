@@ -230,7 +230,7 @@ private class ComputerReversi : ComputerPlayer
             {
                 // heuristic
                 int16 h = heuristic [x, y];
-                if (g.get_owner (x, y) != g.current_color)
+                if (!g.is_current_color (x, y))
                     h = -h;
                 count += h;
 
@@ -238,7 +238,7 @@ private class ComputerReversi : ComputerPlayer
                 int16 a = (int16) g.get_empty_neighbors (x, y);
                 if (a == 0) // completely surrounded
                     a = -2;
-                count += (g.get_owner ((uint8) x, (uint8) y) == g.current_color) ? -a : a;
+                count += g.is_current_color (x, y) ? -a : a;
             }
         }
         return count;
@@ -254,7 +254,7 @@ private class ComputerReversi : ComputerPlayer
         uint8 size = g.size;
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
-                if (g.can_place (x, y, g.current_color))
+                if (g.can_move (x, y))
                     moves.append (x * size + y);
 
         int length = (int) moves.length ();
