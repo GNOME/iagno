@@ -47,20 +47,14 @@ private class GameState : Object
     private Player [,] tiles;
     private unowned uint8 [,] neighbor_tiles;
 
-    construct
-    {
-        tiles = new Player [size, size];
-    }
-
     internal GameState.copy (GameState game)
     {
         Object (size: game.size, current_color: game.current_color);
         neighbor_tiles = game.neighbor_tiles;
         empty_neighbors = game.empty_neighbors;
-
-        for (uint8 x = 0; x < size; x++)
-            for (uint8 y = 0; y < size; y++)
-                set_tile (x, y, game.tiles [x, y]);
+        tiles = game.tiles;
+        _n_light_tiles = game._n_light_tiles;
+        _n_dark_tiles = game._n_dark_tiles;
 
         update_who_can_move ();
         if (current_player_can_move != game.current_player_can_move
@@ -73,10 +67,9 @@ private class GameState : Object
         Object (size: game.size, current_color: Player.flip_color (game.current_color));
         neighbor_tiles = game.neighbor_tiles;
         empty_neighbors = game.empty_neighbors;
-
-        for (uint8 x = 0; x < size; x++)
-            for (uint8 y = 0; y < size; y++)
-                set_tile (x, y, game.tiles [x, y]);
+        tiles = game.tiles;
+        _n_light_tiles = game._n_light_tiles;
+        _n_dark_tiles = game._n_dark_tiles;
 
         // we already know all that, it is just for checking
         update_who_can_move ();
@@ -90,10 +83,9 @@ private class GameState : Object
         Object (size: game.size, current_color: Player.flip_color (move_color));
         neighbor_tiles = game.neighbor_tiles;
         empty_neighbors = game.empty_neighbors;
-
-        for (uint8 x = 0; x < size; x++)
-            for (uint8 y = 0; y < size; y++)
-                set_tile (x, y, game.tiles [x, y]);
+        tiles = game.tiles;
+        _n_light_tiles = game._n_light_tiles;
+        _n_dark_tiles = game._n_dark_tiles;
 
         if (place_tile (move_x, move_y, move_color, /* apply move */ true) == 0)
         {
@@ -108,10 +100,11 @@ private class GameState : Object
     {
         Object (size: _size, current_color: color);
         neighbor_tiles = _neighbor_tiles;
+        tiles = _tiles;
 
         for (uint8 x = 0; x < _size; x++)
             for (uint8 y = 0; y < _size; y++)
-                set_tile (x, y, _tiles [x, y]);
+                add_tile_of_color (_tiles [x, y]);
 
         init_empty_neighbors ();
         update_who_can_move ();
@@ -216,7 +209,8 @@ private class GameState : Object
 
         if (apply)
         {
-            set_tile (x, y, color);
+            add_tile_of_color (color);
+            tiles [x, y] = color;
             update_empty_neighbors (x, y);
         }
 
@@ -367,9 +361,9 @@ private class GameState : Object
             for (int8 i = 1; i <= enemy_count; i++)
             {
                 remove_tile_of_opponent_color (color);
-                set_tile ((uint8) ((int8) x + (i * x_step)),
-                          (uint8) ((int8) y + (i * y_step)),
-                          color);
+                add_tile_of_color (color);
+                tiles [(int8) x + (i * x_step),
+                       (int8) y + (i * y_step)] = color;
             }
         }
         return enemy_count;
@@ -394,12 +388,6 @@ private class GameState : Object
             return 0;
 
         return (uint8) enemy_count;
-    }
-
-    private void set_tile (uint8 x, uint8 y, Player color)
-    {
-        add_tile_of_color (color);
-        tiles [x, y] = color;
     }
 }
 
