@@ -176,14 +176,15 @@ private class GameState : Object
     {
         moves = new List<PossibleMove?> ();
 
-        for (uint8 x = 0; x < size; x++)
+        for (; x_saved < size; x_saved++)
         {
-            for (uint8 y = 0; y < size; y++)
+            for (; y_saved < size; y_saved++)
             {
-                uint8 n_tiles = place_tile (x, y, current_color, /* apply move */ false);
+                uint8 n_tiles = place_tile (x_saved, y_saved, current_color, /* apply move */ false);
                 if (n_tiles != 0)
-                    moves.prepend (PossibleMove (x, y, n_tiles));
+                    moves.prepend (PossibleMove (x_saved, y_saved, n_tiles));
             }
+            y_saved = 0;
         }
     }
 
@@ -230,24 +231,27 @@ private class GameState : Object
     [CCode (notify = false)] internal bool current_player_can_move { internal get; private set; default = true; }
     [CCode (notify = true)] internal bool is_complete { internal get; private set; default = false; }
 
+    private uint8 x_saved = 0;
+    private uint8 y_saved = 0;
     private void update_who_can_move ()
     {
         Player enemy = Player.flip_color (current_color);
         bool opponent_can_move = false;
-        for (uint8 x = 0; x < size; x++)
+        for (; x_saved < size; x_saved++)
         {
-            for (uint8 y = 0; y < size; y++)
+            for (; y_saved < size; y_saved++)
             {
-                if (can_place (x, y, current_color))
+                if (can_place (x_saved, y_saved, current_color))
                 {
                     current_player_can_move = true;
                     return;
                 }
                 if (opponent_can_move)
                     continue;
-                if (can_place (x, y, enemy))
+                if (can_place (x_saved, y_saved, enemy))
                     opponent_can_move = true;
             }
+            y_saved = 0;
         }
         current_player_can_move = false;
         if (!opponent_can_move)
@@ -296,24 +300,32 @@ private class GameState : Object
 
         int8 xmm; int8 ymm;
         int8 xpp; int8 ypp;
+        bool xmm_is_valid;
+        bool xpp_is_valid;
         for (int8 x = 0; x < _size; x++)
         {
             xmm = x - 1;
             xpp = x + 1;
+            xmm_is_valid = xmm >= 0;
+            xpp_is_valid = xpp < size;
 
             for (int8 y = 0; y < _size; y++)
             {
                 ymm = y - 1;
                 ypp = y + 1;
 
-                empty_neighbors [x, y] = is_empty (xpp, y  )
-                                       + is_empty (xpp, ypp)
-                                       + is_empty (x,   ypp)
-                                       + is_empty (xmm, ypp)
-                                       + is_empty (xmm, y  )
-                                       + is_empty (xmm, ymm)
-                                       + is_empty (x,   ymm)
-                                       + is_empty (xpp, ymm);
+                uint8 empty_neighbors_x_y   = is_empty (x,   ymm)
+                                            + is_empty (x,   ypp);
+                if (xmm_is_valid)
+                    empty_neighbors_x_y    += is_empty (xmm, y  )
+                                            + is_empty (xmm, ymm)
+                                            + is_empty (xmm, ypp);
+                if (xpp_is_valid)
+                    empty_neighbors_x_y    += is_empty (xpp, y  )
+                                            + is_empty (xpp, ymm)
+                                            + is_empty (xpp, ypp);
+
+                empty_neighbors [x, y] = empty_neighbors_x_y;
             }
         }
     }
