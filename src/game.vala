@@ -172,6 +172,21 @@ private class GameState : Object
     * * ... // completeness
     \*/
 
+    internal void get_possible_moves (out List<PossibleMove?> moves)
+    {
+        moves = new List<PossibleMove?> ();
+
+        for (uint8 x = 0; x < size; x++)
+        {
+            for (uint8 y = 0; y < size; y++)
+            {
+                uint8 n_tiles = place_tile (x, y, current_color, /* apply move */ false);
+                if (n_tiles != 0)
+                    moves.prepend (PossibleMove (x, y, n_tiles));
+            }
+        }
+    }
+
     internal uint8 test_placing_tile (uint8 x, uint8 y)
     {
         return place_tile (x, y, current_color, /* apply move */ false);

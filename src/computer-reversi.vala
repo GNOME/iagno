@@ -20,22 +20,22 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+private struct PossibleMove
+{
+    public uint8 x;
+    public uint8 y;
+    public uint8 n_tiles;
+
+    internal PossibleMove (uint8 x, uint8 y, uint8 n_tiles)
+    {
+        this.x = x;
+        this.y = y;
+        this.n_tiles = n_tiles;
+    }
+}
+
 private class ComputerReversi : ComputerPlayer
 {
-    private struct PossibleMove
-    {
-        public uint8 x;
-        public uint8 y;
-        public uint8 n_tiles;
-
-        private PossibleMove (uint8 x, uint8 y, uint8 n_tiles)
-        {
-            this.x = x;
-            this.y = y;
-            this.n_tiles = n_tiles;
-        }
-    }
-
     /* Game being played */
     private Game game;
 
@@ -99,7 +99,8 @@ private class ComputerReversi : ComputerPlayer
         int16 a = LESS_THAN_NEGATIVE_INFINITY;
 
         List<PossibleMove?> moves;
-        get_possible_moves_sorted (g, out moves);
+        g.get_possible_moves (out moves);
+        moves.sort (compare_move);
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
         foreach (PossibleMove? move in moves)
@@ -139,7 +140,8 @@ private class ComputerReversi : ComputerPlayer
         if (g.current_player_can_move)
         {
             List<PossibleMove?> moves;
-            get_possible_moves_sorted (g, out moves);
+            g.get_possible_moves (out moves);
+            moves.sort (compare_move);
 
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
             foreach (PossibleMove? move in moves)
@@ -170,34 +172,14 @@ private class ComputerReversi : ComputerPlayer
         return a;
     }
 
-    private static void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves)
-    {
-        uint8 size = g.size;
-        moves = new List<PossibleMove?> ();
-
-        for (uint8 x = 0; x < size; x++)
-        {
-            for (uint8 y = 0; y < size; y++)
-            {
-                uint8 n_tiles = g.test_placing_tile (x, y);
-                if (n_tiles == 0)
-                    continue;
-
-                PossibleMove move = PossibleMove (x, y, n_tiles);
-                // the g_list_insert_sorted() documentation says: "if you are adding many new elements to
-                // a list, and the number of new elements is much larger than the length of the list, use
-                // g_list_prepend() to add the new items and sort the list afterwards with g_list_sort()"
-                // but the perfs tests on complete games disagree; so let's keep things like that for now
-                moves.insert_sorted (move, compare_move);
-            }
-        }
-    }
-
     private static int compare_move (PossibleMove? a, PossibleMove? b)
         requires (a != null)
         requires (b != null)
     {
-        return ((!) b).n_tiles - ((!) a).n_tiles;
+        if (((!) a).n_tiles >= ((!) b).n_tiles)
+            return -1;
+        else
+            return 1;
     }
 
     /*\
