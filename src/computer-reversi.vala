@@ -39,10 +39,10 @@ private class ComputerReversi : ComputerPlayer
     /* Game being played */
     private Game game;
 
-    /* Big enough. Don't use int16.MIN / int16.MAX, because int16.MIN ≠ - int16.MAX */
-    private const int16 POSITIVE_INFINITY           =  10000;
-    private const int16 NEGATIVE_INFINITY           = -10000;
-    private const int16 LESS_THAN_NEGATIVE_INFINITY = -10001;
+    /* do not forget int16.MIN ≠ - int16.MAX */
+    private const int16 POSITIVE_INFINITY           =  32000;
+    private const int16 NEGATIVE_INFINITY           = -32000;
+    private const int16 LESS_THAN_NEGATIVE_INFINITY = -32001;
 
     /* Strength */
     private uint8 difficulty_level;
