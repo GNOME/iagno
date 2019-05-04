@@ -210,9 +210,11 @@ private class ComputerReversi : ComputerPlayer
         {
             for (uint8 y = 0; y < size; y++)
             {
+                bool is_current_color = g.is_current_color (x, y);
+
                 // heuristic
                 int16 h = heuristic [x, y];
-                if (!g.is_current_color (x, y))
+                if (!is_current_color)
                     h = -h;
                 count += h;
 
@@ -220,7 +222,7 @@ private class ComputerReversi : ComputerPlayer
                 int16 a = (int16) g.get_empty_neighbors (x, y);
                 if (a == 0) // completely surrounded
                     a = -2;
-                count += g.is_current_color (x, y) ? -a : a;
+                count += is_current_color ? -a : a;
             }
         }
         return count;
