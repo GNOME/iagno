@@ -232,21 +232,20 @@ private class ComputerReversi : ComputerPlayer
 
     private static void random_select (GameState g, out uint8 move_x, out uint8 move_y)
     {
-        List<uint8> moves = new List<uint8> ();
-        uint8 size = g.size;
-        for (uint8 x = 0; x < size; x++)
-            for (uint8 y = 0; y < size; y++)
-                if (g.can_move (x, y))
-                    moves.append (x * size + y);
+        List<PossibleMove?> moves;
+        g.get_possible_moves (out moves);
 
-        int length = (int) moves.length ();
+        int32 length = (int32) moves.length ();
         if (length <= 0)
             assert_not_reached ();
 
-        uint8 i = (uint8) Random.int_range (0, length);
-        uint8 xy = moves.nth_data (i);
-        move_x = xy / size;
-        move_y = xy % size;
+        int32 i = Random.int_range (0, length);
+        unowned PossibleMove? move = moves.nth_data ((uint) i);
+
+        if (move == null)
+            assert_not_reached ();
+        move_x = ((!) move).x;
+        move_y = ((!) move).y;
     }
 
     /*\
