@@ -117,6 +117,11 @@ private class ComputerReversi : ComputerPlayer
                 x = ((!) move).x;
                 y = ((!) move).y;
             }
+
+            /* Checking move_pending here is optional. It helps avoid a long unnecessary search
+             * if the move has been cancelled, but is expensive because it requires taking a mutex. */
+            if (!move_pending)
+                return;
         }
     }
 
@@ -127,11 +132,6 @@ private class ComputerReversi : ComputerPlayer
         if (g.is_complete)
             return g.n_current_tiles > g.n_opponent_tiles ? POSITIVE_INFINITY - (int16) g.n_opponent_tiles
                                                           : NEGATIVE_INFINITY + (int16) g.n_current_tiles;
-
-        /* Checking move_pending here is optional. It helps avoid a long unnecessary search
-         * if the move has been cancelled, but is expensive because it requires taking a mutex. */
-        if (!move_pending)
-            return 0;
 
         /* End of the search, calculate how good a result this is. */
         if (depth == 0)
