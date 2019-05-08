@@ -45,12 +45,13 @@ private class ComputerReversiEasy : ComputerReversi
     * * minimax / negamax / alpha-beta pruning
     \*/
 
-    construct
+    protected override void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves)
     {
-        compare_move = _compare_move;
+        g.get_possible_moves (out moves);
+        moves.sort (compare_move);
     }
 
-    private static int _compare_move (PossibleMove? a, PossibleMove? b)
+    private static int compare_move (PossibleMove? a, PossibleMove? b)
      // requires (a != null)
      // requires (b != null)
     {
@@ -75,6 +76,12 @@ private class ComputerReversiHard : ComputerReversi
 {
     private uint8 end_start;
 
+    construct
+    {
+        end_start = (size * size) - 10;
+        init_heuristic (size, out heuristic);
+    }
+
     internal ComputerReversiHard (Game game, uint8 difficulty_level)
     {
         Object (game: game, initial_depth: difficulty_level * 2);
@@ -84,13 +91,13 @@ private class ComputerReversiHard : ComputerReversi
     * * minimax / negamax / alpha-beta pruning
     \*/
 
-    construct
+    protected override void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves)
     {
-        compare_move = _compare_move;
-        end_start = (size * size) - 10;
+        g.get_possible_moves (out moves);
+        moves.sort_with_data (compare_move);
     }
 
-    private static int _compare_move (PossibleMove? a, PossibleMove? b)
+    private int compare_move (PossibleMove? a, PossibleMove? b)
      // requires (a != null)
      // requires (b != null)
     {
@@ -139,14 +146,77 @@ private class ComputerReversiHard : ComputerReversi
         }
         return count;
     }
+
+    /*\
+    * * heuristic table
+    \*/
+
+    private int16 [,] heuristic;
+
+    private const int16 [,] heuristic_8 =
+    {
+        { 65,  -3, 6, 4, 4, 6,  -3, 65 },
+        { -3, -29, 3, 1, 1, 3, -29, -3 },
+        {  6,   3, 5, 3, 3, 5,   3,  6 },
+        {  4,   1, 3, 1, 1, 3,   1,  4 },
+        {  4,   1, 3, 1, 1, 3,   1,  4 },
+        {  6,   3, 5, 3, 3, 5,   3,  6 },
+        { -3, -29, 3, 1, 1, 3, -29, -3 },
+        { 65,  -3, 6, 4, 4, 6,  -3, 65 }
+    };
+
+    private static void init_heuristic (uint8 size, out int16 [,] heuristic)
+        requires (size >= 4)
+    {
+        if (size == 8)
+            heuristic = heuristic_8;
+        else
+            create_heuristic (size, out heuristic);
+    }
+
+    private static void create_heuristic (uint8 size, out int16 [,] heuristic)
+        requires (size >= 4)
+    {
+        heuristic = new int16 [size, size];
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                heuristic [x, y] = 0;
+
+        // corners
+        uint8 tmp1 = size - 1;
+        heuristic [0   , 0   ] = 65;
+        heuristic [0   , tmp1] = 65;
+        heuristic [tmp1, tmp1] = 65;
+        heuristic [tmp1, 0   ] = 65;
+
+        if (size >= 6)
+        {
+            // corners neighbors
+            uint8 tmp2 = size - 2;
+            heuristic [0   , 1   ] = -3;
+            heuristic [0   , tmp2] = -3;
+            heuristic [tmp1, 1   ] = -3;
+            heuristic [tmp1, tmp2] = -3;
+            heuristic [1   , 0   ] = -3;
+            heuristic [1   , tmp1] = -3;
+            heuristic [tmp2, 0   ] = -3;
+            heuristic [tmp2, tmp1] = -3;
+
+            // corners diagonal neighbors
+            heuristic [1   , 1   ] = -29;
+            heuristic [1   , tmp2] = -29;
+            heuristic [tmp2, tmp2] = -29;
+            heuristic [tmp2, 1   ] = -29;
+        }
+    }
 }
 
 private abstract class ComputerReversi : ComputerPlayer
 {
-    public Game  game           { protected get; protected construct; }
-    public uint8 size           { protected get; private   construct; }
+    public Game  game           { private   get; protected construct; }
+    public uint8 initial_depth  { private   get; protected construct; }
 
-    public uint8 initial_depth  { private get;   protected construct; }
+    public uint8 size           { protected get; private   construct; }
 
     /* do not forget int16.MIN ≠ - int16.MAX */
     private const int16 POSITIVE_INFINITY           =  32000;
@@ -156,8 +226,6 @@ private abstract class ComputerReversi : ComputerPlayer
     construct
     {
         size = game.size;
-
-        init_heuristic (size);
     }
 
     /*\
@@ -225,8 +293,7 @@ private abstract class ComputerReversi : ComputerPlayer
         int16 a = LESS_THAN_NEGATIVE_INFINITY;
 
         List<PossibleMove?> moves;
-        g.get_possible_moves (out moves);
-        moves.sort (compare_move);
+        get_possible_moves_sorted (g, out moves);
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
         foreach (PossibleMove? move in moves)
@@ -266,8 +333,7 @@ private abstract class ComputerReversi : ComputerPlayer
         if (g.current_player_can_move)
         {
             List<PossibleMove?> moves;
-            g.get_possible_moves (out moves);
-            moves.sort (compare_move);
+            get_possible_moves_sorted (g, out moves);
 
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
             foreach (PossibleMove? move in moves)
@@ -299,68 +365,5 @@ private abstract class ComputerReversi : ComputerPlayer
     }
 
     protected abstract int16 calculate_heuristic (GameState g);
-    protected GLib.CompareFunc<PossibleMove?> compare_move;
-
-    /*\
-    * * heuristic table
-    \*/
-
-    protected int16 [,] heuristic;
-
-    private const int16 [,] heuristic_8 =
-    {
-        { 65,  -3, 6, 4, 4, 6,  -3, 65 },
-        { -3, -29, 3, 1, 1, 3, -29, -3 },
-        {  6,   3, 5, 3, 3, 5,   3,  6 },
-        {  4,   1, 3, 1, 1, 3,   1,  4 },
-        {  4,   1, 3, 1, 1, 3,   1,  4 },
-        {  6,   3, 5, 3, 3, 5,   3,  6 },
-        { -3, -29, 3, 1, 1, 3, -29, -3 },
-        { 65,  -3, 6, 4, 4, 6,  -3, 65 }
-    };
-
-    private void init_heuristic (uint8 size)
-        requires (size >= 4)
-    {
-        if (size == 8)
-            heuristic = heuristic_8;
-        else
-            create_heuristic (size, out heuristic);
-    }
-
-    private static void create_heuristic (uint8 size, out int16 [,] heuristic)
-        requires (size >= 4)
-    {
-        heuristic = new int16 [size, size];
-        for (uint8 x = 0; x < size; x++)
-            for (uint8 y = 0; y < size; y++)
-                heuristic [x, y] = 0;
-
-        // corners
-        uint8 tmp1 = size - 1;
-        heuristic [0   , 0   ] = 65;
-        heuristic [0   , tmp1] = 65;
-        heuristic [tmp1, tmp1] = 65;
-        heuristic [tmp1, 0   ] = 65;
-
-        if (size >= 6)
-        {
-            // corners neighbors
-            uint8 tmp2 = size - 2;
-            heuristic [0   , 1   ] = -3;
-            heuristic [0   , tmp2] = -3;
-            heuristic [tmp1, 1   ] = -3;
-            heuristic [tmp1, tmp2] = -3;
-            heuristic [1   , 0   ] = -3;
-            heuristic [1   , tmp1] = -3;
-            heuristic [tmp2, 0   ] = -3;
-            heuristic [tmp2, tmp1] = -3;
-
-            // corners diagonal neighbors
-            heuristic [1   , 1   ] = -29;
-            heuristic [1   , tmp2] = -29;
-            heuristic [tmp2, tmp2] = -29;
-            heuristic [tmp2, 1   ] = -29;
-        }
-    }
+    protected abstract void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves);
 }
