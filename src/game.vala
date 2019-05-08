@@ -71,7 +71,9 @@ private class GameState : Object
         _n_light_tiles = game._n_light_tiles;
         _n_dark_tiles = game._n_dark_tiles;
 
-        if (place_tile (move_x, move_y, move_color, /* apply move */ true) == 0)
+        uint8 n_tiles;
+        place_tile (move_x, move_y, move_color, /* apply move */ true, out n_tiles);
+        if (n_tiles == 0)
         {
             critical ("Computer marked move (%d, %d) as valid, but is invalid when checking.\n%s", move_x, move_y, to_string ());
             assert_not_reached ();
@@ -180,7 +182,8 @@ private class GameState : Object
         {
             for (; y_saved < size; y_saved++)
             {
-                uint8 n_tiles = place_tile (x_saved, y_saved, current_color, /* apply move */ false);
+                uint8 n_tiles;
+                place_tile (x_saved, y_saved, current_color, /* apply move */ false, out n_tiles);
                 if (n_tiles != 0)
                     moves.prepend (PossibleMove (x_saved, y_saved, n_tiles));
             }
@@ -188,31 +191,32 @@ private class GameState : Object
         }
     }
 
-    internal uint8 test_placing_tile (uint8 x, uint8 y)
+    internal void test_placing_tile (uint8 x, uint8 y, out uint8 n_tiles)
     {
-        return place_tile (x, y, current_color, /* apply move */ false);
+        place_tile (x, y, current_color, /* apply move */ false, out n_tiles);
     }
 
-    private uint8 place_tile (uint8 x, uint8 y, Player color, bool apply)
+    private void place_tile (uint8 x, uint8 y, Player color, bool apply, out uint8 n_tiles)
         requires (is_valid_location_unsigned (x, y))
     {
+        n_tiles = 0;
+
         if (empty_neighbors [x, y] == neighbor_tiles [x, y])
-            return 0;
+            return;
         if (tiles [x, y] != Player.NONE)
-            return 0;
+            return;
 
-        uint8 tiles_turned = 0;
-        tiles_turned += flip_tiles (x, y, color,  1,  0, apply);
-        tiles_turned += flip_tiles (x, y, color,  1,  1, apply);
-        tiles_turned += flip_tiles (x, y, color,  0,  1, apply);
-        tiles_turned += flip_tiles (x, y, color, -1,  1, apply);
-        tiles_turned += flip_tiles (x, y, color, -1,  0, apply);
-        tiles_turned += flip_tiles (x, y, color, -1, -1, apply);
-        tiles_turned += flip_tiles (x, y, color,  0, -1, apply);
-        tiles_turned += flip_tiles (x, y, color,  1, -1, apply);
+        n_tiles += flip_tiles (x, y, color,  1,  0, apply);
+        n_tiles += flip_tiles (x, y, color,  1,  1, apply);
+        n_tiles += flip_tiles (x, y, color,  0,  1, apply);
+        n_tiles += flip_tiles (x, y, color, -1,  1, apply);
+        n_tiles += flip_tiles (x, y, color, -1,  0, apply);
+        n_tiles += flip_tiles (x, y, color, -1, -1, apply);
+        n_tiles += flip_tiles (x, y, color,  0, -1, apply);
+        n_tiles += flip_tiles (x, y, color,  1, -1, apply);
 
-        if (tiles_turned == 0)
-            return 0;
+        if (n_tiles == 0)
+            return;
 
         if (apply)
         {
@@ -220,8 +224,6 @@ private class GameState : Object
             tiles [x, y] = color;
             update_empty_neighbors (x, y);
         }
-
-        return tiles_turned;
     }
 
     /*\
@@ -546,7 +548,8 @@ private class Game : Object
 
     internal /* success */ bool place_tile (uint8 x, uint8 y)
     {
-        uint8 n_tiles = current_state.test_placing_tile (x, y);
+        uint8 n_tiles;
+        current_state.test_placing_tile (x, y, out n_tiles);
         if (n_tiles == 0)
             return false;
 
