@@ -34,27 +34,135 @@ private struct PossibleMove
     }
 }
 
-private class ComputerReversi : ComputerPlayer
+private class ComputerReversiEasy : ComputerReversi
 {
-    /* Game being played */
-    private Game game;
+    internal ComputerReversiEasy (Game game)
+    {
+        Object (game: game, initial_depth: 2);
+    }
+
+    /*\
+    * * minimax / negamax / alpha-beta pruning
+    \*/
+
+    construct
+    {
+        compare_move = _compare_move;
+    }
+
+    private static int _compare_move (PossibleMove? a, PossibleMove? b)
+     // requires (a != null)
+     // requires (b != null)
+    {
+        if (((!) a).n_tiles >= ((!) b).n_tiles)
+            return -1;
+        else
+            return 1;
+    }
+
+    /*\
+    * * AI
+    \*/
+
+    protected override int16 calculate_heuristic (GameState g)
+    {
+        /* Try to lose */
+        return (int16) g.n_opponent_tiles - (int16) g.n_current_tiles;
+    }
+}
+
+private class ComputerReversiHard : ComputerReversi
+{
+    private uint8 end_start;
+
+    internal ComputerReversiHard (Game game, uint8 difficulty_level)
+    {
+        Object (game: game, initial_depth: difficulty_level * 2);
+    }
+
+    /*\
+    * * minimax / negamax / alpha-beta pruning
+    \*/
+
+    construct
+    {
+        compare_move = _compare_move;
+        end_start = (size * size) - 10;
+    }
+
+    private static int _compare_move (PossibleMove? a, PossibleMove? b)
+     // requires (a != null)
+     // requires (b != null)
+    {
+        if (((!) a).n_tiles >= ((!) b).n_tiles)
+            return -1;
+        else
+            return 1;
+    }
+
+    /*\
+    * * AI
+    \*/
+
+    protected override int16 calculate_heuristic (GameState g)
+    {
+        /* End of the game: just maximize the number of tokens */
+        if (g.n_tiles >= end_start)
+            return (int16) g.n_current_tiles - (int16) g.n_opponent_tiles;
+
+        /* Normal strategy: try to evaluate the position */
+        return (int16) g.n_current_tiles - (int16) g.n_opponent_tiles + eval_heuristic (g, ref heuristic);
+    }
+
+    private static int16 eval_heuristic (GameState g, ref int16 [,] heuristic)
+    {
+        uint8 size = g.size;
+        int16 count = 0;
+        for (uint8 x = 0; x < size; x++)
+        {
+            for (uint8 y = 0; y < size; y++)
+            {
+                bool is_current_color = g.is_current_color (x, y);
+
+                // heuristic
+                int16 h = heuristic [x, y];
+                if (!is_current_color)
+                    h = -h;
+                count += h;
+
+                // around
+                int16 a = (int16) g.get_empty_neighbors (x, y);
+                if (a == 0) // completely surrounded
+                    a = -2;
+                count += is_current_color ? -a : a;
+            }
+        }
+        return count;
+    }
+}
+
+private abstract class ComputerReversi : ComputerPlayer
+{
+    public Game  game           { protected get; protected construct; }
+    public uint8 size           { protected get; private   construct; }
+
+    public uint8 initial_depth  { private get;   protected construct; }
 
     /* do not forget int16.MIN ≠ - int16.MAX */
     private const int16 POSITIVE_INFINITY           =  32000;
     private const int16 NEGATIVE_INFINITY           = -32000;
     private const int16 LESS_THAN_NEGATIVE_INFINITY = -32001;
 
-    /* Strength */
-    private uint8 difficulty_level;
-    private uint8 initial_depth;
-
-    internal ComputerReversi (Game game, uint8 difficulty_level = 1)
+    construct
     {
-        this.game = game;
-        this.difficulty_level = difficulty_level;
-        this.initial_depth = difficulty_level * 2;
-        init_heuristic (game.size);
+        size = game.size;
+
+        init_heuristic (size);
     }
+
+    /*\
+    * * common methods
+    \*/
 
     protected override void complete_move (uint8 x, uint8 y)
     {
@@ -74,8 +182,26 @@ private class ComputerReversi : ComputerPlayer
         }
     }
 
+    private static void random_select (GameState g, out uint8 move_x, out uint8 move_y)
+    {
+        List<PossibleMove?> moves;
+        g.get_possible_moves (out moves);
+
+        int32 length = (int32) moves.length ();
+        if (length <= 0)
+            assert_not_reached ();
+
+        int32 i = Random.int_range (0, length);
+        unowned PossibleMove? move = moves.nth_data ((uint) i);
+
+        if (move == null)
+            assert_not_reached ();
+        move_x = ((!) move).x;
+        move_y = ((!) move).y;
+    }
+
     /*\
-    * * Minimax / Negamax / alpha-beta pruning
+    * * minimax / negamax / alpha-beta pruning
     \*/
 
     protected override void run_search (out uint8 x, out uint8 y)
@@ -135,7 +261,7 @@ private class ComputerReversi : ComputerPlayer
 
         /* End of the search, calculate how good a result this is. */
         if (depth == 0)
-            return calculate_heuristic (g, ref difficulty_level, ref heuristic);
+            return calculate_heuristic (g);
 
         if (g.current_player_can_move)
         {
@@ -172,89 +298,14 @@ private class ComputerReversi : ComputerPlayer
         return a;
     }
 
-    private static int compare_move (PossibleMove? a, PossibleMove? b)
-        requires (a != null)
-        requires (b != null)
-    {
-        if (((!) a).n_tiles >= ((!) b).n_tiles)
-            return -1;
-        else
-            return 1;
-    }
-
-    /*\
-    * * AI
-    \*/
-
-    private static int16 calculate_heuristic (GameState g, ref uint8 difficulty_level, ref int16 [,] heuristic)
-    {
-        int16 tile_difference = (int16) g.n_current_tiles - (int16) g.n_opponent_tiles;
-
-        /* Try to lose */
-        if (difficulty_level == 1)
-            return -tile_difference;
-
-        /* End of the game: just maximize the number of tokens */
-        if (g.n_tiles >= (g.size * g.size) - 10)
-            return tile_difference;
-
-        /* Normal strategy: try to evaluate the position */
-        return tile_difference + eval_heuristic (g, ref heuristic);
-    }
-
-    private static int16 eval_heuristic (GameState g, ref int16 [,] heuristic)
-    {
-        uint8 size = g.size;
-        int16 count = 0;
-        for (uint8 x = 0; x < size; x++)
-        {
-            for (uint8 y = 0; y < size; y++)
-            {
-                bool is_current_color = g.is_current_color (x, y);
-
-                // heuristic
-                int16 h = heuristic [x, y];
-                if (!is_current_color)
-                    h = -h;
-                count += h;
-
-                // around
-                int16 a = (int16) g.get_empty_neighbors (x, y);
-                if (a == 0) // completely surrounded
-                    a = -2;
-                count += is_current_color ? -a : a;
-            }
-        }
-        return count;
-    }
-
-    /*\
-    * * First random moves
-    \*/
-
-    private static void random_select (GameState g, out uint8 move_x, out uint8 move_y)
-    {
-        List<PossibleMove?> moves;
-        g.get_possible_moves (out moves);
-
-        int32 length = (int32) moves.length ();
-        if (length <= 0)
-            assert_not_reached ();
-
-        int32 i = Random.int_range (0, length);
-        unowned PossibleMove? move = moves.nth_data ((uint) i);
-
-        if (move == null)
-            assert_not_reached ();
-        move_x = ((!) move).x;
-        move_y = ((!) move).y;
-    }
+    protected abstract int16 calculate_heuristic (GameState g);
+    protected GLib.CompareFunc<PossibleMove?> compare_move;
 
     /*\
     * * heuristic table
     \*/
 
-    private int16 [,] heuristic;
+    protected int16 [,] heuristic;
 
     private const int16 [,] heuristic_8 =
     {
