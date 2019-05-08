@@ -45,9 +45,8 @@ private class ComputerReversiEasy : ComputerReversi
     * * minimax / negamax / alpha-beta pruning
     \*/
 
-    protected override void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves)
+    protected override void sort_moves (ref List<PossibleMove?> moves)
     {
-        g.get_possible_moves (out moves);
         moves.sort (compare_move);
     }
 
@@ -91,9 +90,8 @@ private class ComputerReversiHard : ComputerReversi
     * * minimax / negamax / alpha-beta pruning
     \*/
 
-    protected override void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves)
+    protected override void sort_moves (ref List<PossibleMove?> moves)
     {
-        g.get_possible_moves (out moves);
         moves.sort_with_data (compare_move);
     }
 
@@ -293,7 +291,8 @@ private abstract class ComputerReversi : ComputerPlayer
         int16 a = LESS_THAN_NEGATIVE_INFINITY;
 
         List<PossibleMove?> moves;
-        get_possible_moves_sorted (g, out moves);
+        g.get_possible_moves (out moves);
+        sort_moves (ref moves);
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
         foreach (PossibleMove? move in moves)
@@ -333,7 +332,8 @@ private abstract class ComputerReversi : ComputerPlayer
         if (g.current_player_can_move)
         {
             List<PossibleMove?> moves;
-            get_possible_moves_sorted (g, out moves);
+            g.get_possible_moves (out moves);
+            sort_moves (ref moves);
 
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
             foreach (PossibleMove? move in moves)
@@ -365,5 +365,5 @@ private abstract class ComputerReversi : ComputerPlayer
     }
 
     protected abstract int16 calculate_heuristic (GameState g);
-    protected abstract void get_possible_moves_sorted (GameState g, out List<PossibleMove?> moves);
+    protected abstract void sort_moves (ref List<PossibleMove?> moves);
 }
