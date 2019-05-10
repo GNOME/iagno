@@ -61,7 +61,7 @@ private class GameState : Object
         is_complete = false;
     }
 
-    internal GameState.copy_and_move (GameState game, uint8 move_x, uint8 move_y)
+    internal GameState.copy_and_move (GameState game, PossibleMove move)
     {
         Player move_color = game.current_color;
         Object (size: game.size, current_color: Player.flip_color (move_color));
@@ -72,10 +72,10 @@ private class GameState : Object
         _n_dark_tiles = game._n_dark_tiles;
 
         uint8 n_tiles;
-        place_tile (move_x, move_y, move_color, /* apply move */ true, out n_tiles);
+        place_tile (move.x, move.y, move_color, /* apply move */ true, out n_tiles);
         if (n_tiles == 0)
         {
-            critical ("Computer marked move (%d, %d) as valid, but is invalid when checking.\n%s", move_x, move_y, to_string ());
+            critical ("Computer marked move (%d, %d) as valid, but is invalid when checking.\n%s", move.x, move.y, to_string ());
             assert_not_reached ();
         }
 
@@ -553,7 +553,7 @@ private class Game : Object
         if (n_tiles == 0)
             return false;
 
-        current_state = new GameState.copy_and_move (current_state, x, y);
+        current_state = new GameState.copy_and_move (current_state, PossibleMove (x, y, n_tiles));
         undo_stack.append (current_state);
         end_of_turn (/* undoing */ false, /* no_draw */ false);
         return true;

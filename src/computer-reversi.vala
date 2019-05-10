@@ -300,7 +300,7 @@ private abstract class ComputerReversi : ComputerPlayer
             if (move == null)
                 assert_not_reached ();
 
-            GameState _g = new GameState.copy_and_move (g, ((!) move).x, ((!) move).y);
+            GameState _g = new GameState.copy_and_move (g, (!) move);
 
             int16 a_new = -1 * search (_g, initial_depth, NEGATIVE_INFINITY, -a);
             if (a_new > a)
@@ -341,7 +341,7 @@ private abstract class ComputerReversi : ComputerPlayer
                 if (move == null)
                     assert_not_reached ();
 
-                GameState _g = new GameState.copy_and_move (g, ((!) move).x, ((!) move).y);
+                GameState _g = new GameState.copy_and_move (g, (!) move);
 
                 int16 a_new = -1 * search (_g, depth - 1, -b, -a);
                 if (a_new > a)
