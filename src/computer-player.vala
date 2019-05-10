@@ -50,9 +50,12 @@ private abstract class ComputerPlayer : Object
     internal void move_sync (out uint8 x, out uint8 y)      // for tests
     {
         move_pending = true;
-        run_search (out x, out y);
+        PossibleMove best_move;
+        run_search (out best_move);
         move_pending = false;
-        complete_move (x, y);
+        complete_move (best_move);
+        x = best_move.x;
+        y = best_move.y;
     }
 
     internal void move (double delay_seconds = 0.0)
@@ -62,8 +65,7 @@ private abstract class ComputerPlayer : Object
     private async void move_async (double delay_seconds)
     {
         Timer timer = new Timer ();
-        uint8 x = 0; // garbage, should not be needed
-        uint8 y = 0; // idem
+        PossibleMove best_move = PossibleMove (0, 0, 0); // garbage
 
         while (move_pending)
         {
@@ -76,7 +78,7 @@ private abstract class ComputerPlayer : Object
         timer.start ();
         new Thread<void *> ("AI thread", () => {
             move_pending = true;
-            run_search (out x, out y);
+            run_search (out best_move);
             move_async.callback ();
             return null;
         });
@@ -98,7 +100,7 @@ private abstract class ComputerPlayer : Object
 
         /* complete_move() needs to be called on the UI thread. */
         Idle.add (() => {
-            complete_move (x, y);
+            complete_move (best_move);
             return Source.REMOVE;
         });
     }
@@ -120,6 +122,6 @@ private abstract class ComputerPlayer : Object
         move_pending = false;
     }
 
-    protected abstract void run_search (out uint8 x, out uint8 y);
-    protected abstract void complete_move (uint8 x, uint8 y);
+    protected abstract void run_search (out PossibleMove chosen_move);
+    protected abstract void complete_move (PossibleMove chosen_move);
 }

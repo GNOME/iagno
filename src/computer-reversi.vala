@@ -230,25 +230,24 @@ private abstract class ComputerReversi : ComputerPlayer
     * * common methods
     \*/
 
-    protected override void complete_move (uint8 x, uint8 y)
+    protected override void complete_move (PossibleMove chosen_move)
     {
-        if (!game.place_tile (x, y))
+        if (!game.place_tile (chosen_move.x, chosen_move.y))
         {
-            critical (@"Computer chose an invalid move: $x,$y\n$game");
+            critical (@"Computer chose an invalid move: $(chosen_move.x),$(chosen_move.y)\n$game");
 
             /* Has been reached, once. So let's have a fallback. */
-            uint8 new_x;
-            uint8 new_y;
-            random_select (game.current_state, out new_x, out new_y);
-            if (!game.place_tile (new_x, new_y))
+            PossibleMove random_move;
+            random_select (game.current_state, out random_move);
+            if (!game.place_tile (random_move.x, random_move.y))
             {
-                critical (@"Computer chose an invalid move for the second time: $new_x,$new_y\n$game");
+                critical (@"Computer chose an invalid move for the second time: $(random_move.x),$(random_move.y)\n$game");
                 assert_not_reached ();
             }
         }
     }
 
-    private static void random_select (GameState g, out uint8 move_x, out uint8 move_y)
+    private static void random_select (GameState g, out PossibleMove random_move)
     {
         SList<PossibleMove?> moves;
         g.get_possible_moves (out moves);
@@ -262,26 +261,24 @@ private abstract class ComputerReversi : ComputerPlayer
 
         if (move == null)
             assert_not_reached ();
-        move_x = ((!) move).x;
-        move_y = ((!) move).y;
+        random_move = (!) move;
     }
 
     /*\
     * * minimax / negamax / alpha-beta pruning
     \*/
 
-    protected override void run_search (out uint8 x, out uint8 y)
+    protected override void run_search (out PossibleMove best_move)
         requires (game.current_player_can_move)
     {
         /* For the first/first two moves play randomly so the game is not always the same */
         if (game.current_state.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
         {
-            random_select (game.current_state, out x, out y);
+            random_select (game.current_state, out best_move);
             return;
         }
 
-        x = 0;  // garbage
-        y = 0;  // idem
+        best_move = PossibleMove (0, 0, 0); // garbage
 
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
@@ -306,8 +303,7 @@ private abstract class ComputerReversi : ComputerPlayer
             if (a_new > a)
             {
                 a = a_new;
-                x = ((!) move).x;
-                y = ((!) move).y;
+                best_move = (!) move;
             }
 
             /* Checking move_pending here is optional. It helps avoid a long unnecessary search
