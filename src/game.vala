@@ -174,9 +174,9 @@ private class GameState : Object
     * * ... // completeness
     \*/
 
-    internal void get_possible_moves (out List<PossibleMove?> moves)
+    internal void get_possible_moves (out SList<PossibleMove?> moves)
     {
-        moves = new List<PossibleMove?> ();
+        moves = new SList<PossibleMove?> ();
 
         for (; x_saved < size; x_saved++)
         {
