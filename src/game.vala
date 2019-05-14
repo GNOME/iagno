@@ -178,16 +178,19 @@ private class GameState : Object
     {
         moves = new SList<PossibleMove?> ();
 
-        for (; x_saved < size; x_saved++)
+        // use local variables so we can launch the method again with similar results
+        uint8 x = x_saved;
+        uint8 y = y_saved;
+        for (; x < size; x++)
         {
-            for (; y_saved < size; y_saved++)
+            for (; y < size; y++)
             {
                 uint8 n_tiles;
-                place_tile (x_saved, y_saved, current_color, /* apply move */ false, out n_tiles);
+                place_tile (x, y, current_color, /* apply move */ false, out n_tiles);
                 if (n_tiles != 0)
-                    moves.prepend (PossibleMove (x_saved, y_saved, n_tiles));
+                    moves.prepend (PossibleMove (x, y, n_tiles));
             }
-            y_saved = 0;
+            y = 0;
         }
     }
 
@@ -441,6 +444,7 @@ private class Game : Object
     construct
     {
         undo_stack.append (current_state);
+        update_possible_moves ();
     }
 
     internal Game (bool _alternative_start = false, uint8 _size = 8)
@@ -572,6 +576,7 @@ private class Game : Object
 
     private void end_of_turn (bool undoing, bool no_draw)
     {
+        update_possible_moves ();
         completeness_updated (current_state.is_complete);
         turn_ended (undoing, no_draw);
     }
@@ -632,5 +637,25 @@ private class Game : Object
         neighbor_tiles [0  , max] = 3;
         neighbor_tiles [max, max] = 3;
         neighbor_tiles [max, 0  ] = 3;
+    }
+
+    /*\
+    * * possible moves
+    \*/
+
+    private SList<PossibleMove?> possible_moves;
+
+    internal void get_possible_moves (out SList<PossibleMove?> moves)
+    {
+        moves = possible_moves.copy_deep ((a) => {
+                if (a == null)
+                    assert_not_reached ();
+                return (PossibleMove) a;
+            });
+    }
+
+    private inline void update_possible_moves ()
+    {
+        current_state.get_possible_moves (out possible_moves);
     }
 }

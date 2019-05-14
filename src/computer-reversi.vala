@@ -288,7 +288,7 @@ private abstract class ComputerReversi : ComputerPlayer
         int16 a = LESS_THAN_NEGATIVE_INFINITY;
 
         SList<PossibleMove?> moves;
-        g.get_possible_moves (out moves);
+        game.get_possible_moves (out moves);    // like g.get_possible_moves, but pre-calculated
         sort_moves (ref moves);
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
