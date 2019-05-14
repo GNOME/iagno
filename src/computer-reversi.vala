@@ -292,7 +292,7 @@ private abstract class ComputerReversi : ComputerPlayer
         sort_moves (ref moves);
 
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
-        foreach (PossibleMove? move in moves)
+        foreach (unowned PossibleMove? move in moves)
         {
             if (move == null)
                 assert_not_reached ();
@@ -332,7 +332,7 @@ private abstract class ComputerReversi : ComputerPlayer
             sort_moves (ref moves);
 
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
-            foreach (PossibleMove? move in moves)
+            foreach (unowned PossibleMove? move in moves)
             {
                 if (move == null)
                     assert_not_reached ();
