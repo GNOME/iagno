@@ -252,16 +252,18 @@ private abstract class ComputerReversi : ComputerPlayer
         SList<PossibleMove?> moves;
         g.get_possible_moves (out moves);
 
-        int32 length = (int32) moves.length ();
-        if (length <= 0)
-            assert_not_reached ();
+     // int32 length = (int32) moves.length ();
+     // if (length <= 0)
+     //     assert_not_reached ();
+     //
+     // int32 i = Random.int_range (0, length);
+     // unowned PossibleMove? move = moves.nth_data ((uint) i);
+     //
+     // if (move == null)
+     //     assert_not_reached ();
+     // random_move = (!) move;
 
-        int32 i = Random.int_range (0, length);
-        unowned PossibleMove? move = moves.nth_data ((uint) i);
-
-        if (move == null)
-            assert_not_reached ();
-        random_move = (!) move;
+        random_move = (!) moves.nth_data ((uint) Random.int_range (0, (int32) moves.length ()));
     }
 
     /*\
@@ -269,7 +271,7 @@ private abstract class ComputerReversi : ComputerPlayer
     \*/
 
     protected override void run_search (out PossibleMove best_move)
-        requires (game.current_player_can_move)
+     // requires (game.current_player_can_move)
     {
         /* For the first/first two moves play randomly so the game is not always the same */
         if (game.current_state.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
@@ -294,8 +296,8 @@ private abstract class ComputerReversi : ComputerPlayer
         /* Try each move using alpha-beta pruning to optimise finding the best branch */
         foreach (unowned PossibleMove? move in moves)
         {
-            if (move == null)
-                assert_not_reached ();
+         // if (move == null)
+         //     assert_not_reached ();
 
             GameState _g = new GameState.copy_and_move (g, (!) move);
 
@@ -314,7 +316,7 @@ private abstract class ComputerReversi : ComputerPlayer
     }
 
     private int16 search (GameState g, uint8 depth, int16 a, int16 b)
-        requires (a <= b)
+     // requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
         if (g.is_complete)
@@ -334,8 +336,8 @@ private abstract class ComputerReversi : ComputerPlayer
             /* Try each move using alpha-beta pruning to optimise finding the best branch */
             foreach (unowned PossibleMove? move in moves)
             {
-                if (move == null)
-                    assert_not_reached ();
+             // if (move == null)
+             //     assert_not_reached ();
 
                 GameState _g = new GameState.copy_and_move (g, (!) move);
 

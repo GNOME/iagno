@@ -48,8 +48,8 @@ private class GameState : Object
     private unowned uint8 [,] neighbor_tiles;
 
     internal GameState.copy_and_pass (GameState game)
-        requires (!game.current_player_can_move)
-        requires (!game.is_complete)
+     // requires (!game.current_player_can_move)
+     // requires (!game.is_complete)
     {
         Object (size: game.size, current_color: Player.flip_color (game.current_color));
         neighbor_tiles = game.neighbor_tiles;
@@ -73,11 +73,11 @@ private class GameState : Object
 
         uint8 n_tiles;
         place_tile (move.x, move.y, move_color, /* apply move */ true, out n_tiles);
-        if (n_tiles == 0)
-        {
-            critical ("Computer marked move (%d, %d) as valid, but is invalid when checking.\n%s", move.x, move.y, to_string ());
-            assert_not_reached ();
-        }
+     // if (n_tiles == 0)
+     // {
+     //     critical ("Computer marked move (%d, %d) as valid, but is invalid when checking.\n%s", move.x, move.y, to_string ());
+     //     assert_not_reached ();
+     // }
 
         update_who_can_move ();
     }
@@ -134,7 +134,7 @@ private class GameState : Object
             _n_light_tiles--;
             _n_dark_tiles++;
         }
-        else assert_not_reached ();
+     // else assert_not_reached ();
     }
 
     /*\
@@ -142,7 +142,7 @@ private class GameState : Object
     \*/
 
     internal Player get_owner (uint8 x, uint8 y)
-        requires (is_valid_location_unsigned (x, y))
+     // requires (is_valid_location_unsigned (x, y))
     {
         return tiles [x, y];
     }
@@ -154,7 +154,7 @@ private class GameState : Object
  // }
 
     internal bool is_current_color (uint8 x, uint8 y)
-        requires (is_valid_location_unsigned (x, y))
+     // requires (is_valid_location_unsigned (x, y))
     {
         return tiles [x, y] == current_color;
     }
@@ -165,10 +165,10 @@ private class GameState : Object
             && y >= 0 && y < size;
     }
 
-    private inline bool is_valid_location_unsigned (uint8 x, uint8 y)
-    {
-        return x < size && y < size;
-    }
+//    private inline bool is_valid_location_unsigned (uint8 x, uint8 y)
+//    {
+//        return x < size && y < size;
+//    }
 
     /*\
     * * ... // completeness
@@ -200,7 +200,7 @@ private class GameState : Object
     }
 
     private void place_tile (uint8 x, uint8 y, Player color, bool apply, out uint8 n_tiles)
-        requires (is_valid_location_unsigned (x, y))
+     // requires (is_valid_location_unsigned (x, y))
     {
         n_tiles = 0;
 
@@ -264,7 +264,7 @@ private class GameState : Object
     }
 
     internal bool can_move (uint8 x, uint8 y)
-        requires (is_valid_location_unsigned (x, y))
+     // requires (is_valid_location_unsigned (x, y))
     {
         return can_place (x, y, current_color);
     }
@@ -648,9 +648,9 @@ private class Game : Object
     internal void get_possible_moves (out SList<PossibleMove?> moves)
     {
         moves = possible_moves.copy_deep ((a) => {
-                if (a == null)
-                    assert_not_reached ();
-                return (PossibleMove) a;
+             // if (a == null)
+             //     assert_not_reached ();
+                return /* (PossibleMove) */ a;
             });
     }
 
