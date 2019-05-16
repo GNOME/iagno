@@ -57,6 +57,7 @@ private class GameState : Object
         tiles = game.tiles;
         _n_light_tiles = game._n_light_tiles;
         _n_dark_tiles = game._n_dark_tiles;
+
         current_player_can_move = true;
         is_complete = false;
     }
@@ -143,7 +144,7 @@ private class GameState : Object
             _n_dark_tiles  -= count;
             _n_light_tiles += count;
         }
-        else if (color == Player.DARK)
+        else // if (color == Player.DARK)
         {
             _n_light_tiles -= count;
             _n_dark_tiles  += count;
@@ -185,8 +186,39 @@ private class GameState : Object
 //    }
 
     /*\
-    * * ... // completeness
+    * * get possible moves
     \*/
+
+    [CCode (notify = false)] internal bool current_player_can_move { internal get; private set; default = true; }
+    [CCode (notify = true)] internal bool is_complete { internal get; private set; default = false; }
+
+    private uint8 x_saved = 0;
+    private uint8 y_saved = 0;
+
+    private void update_who_can_move ()
+    {
+        Player enemy = Player.flip_color (current_color);
+        bool opponent_can_move = false;
+        for (; x_saved < size; x_saved++)
+        {
+            for (; y_saved < size; y_saved++)
+            {
+                if (can_place (x_saved, y_saved, current_color))
+                {
+                    current_player_can_move = true;
+                    return;
+                }
+                if (opponent_can_move)
+                    continue;
+                if (can_place (x_saved, y_saved, enemy))
+                    opponent_can_move = true;
+            }
+            y_saved = 0;
+        }
+        current_player_can_move = false;
+        if (!opponent_can_move)
+            is_complete = true;
+    }
 
     internal void get_possible_moves (out SList<PossibleMove?> moves)
     {
@@ -206,6 +238,10 @@ private class GameState : Object
             y = 0;
         }
     }
+
+    /*\
+    * * test placing tiles
+    \*/
 
     internal bool test_placing_tile (uint8 x, uint8 y, out PossibleMove move)
     {
@@ -238,46 +274,17 @@ private class GameState : Object
         return move.n_tiles != 0;
     }
 
-    /*\
-    * * can move
-    \*/
-
-    [CCode (notify = false)] internal bool current_player_can_move { internal get; private set; default = true; }
-    [CCode (notify = true)] internal bool is_complete { internal get; private set; default = false; }
-
-    private uint8 x_saved = 0;
-    private uint8 y_saved = 0;
-    private void update_who_can_move ()
-    {
-        Player enemy = Player.flip_color (current_color);
-        bool opponent_can_move = false;
-        for (; x_saved < size; x_saved++)
-        {
-            for (; y_saved < size; y_saved++)
-            {
-                if (can_place (x_saved, y_saved, current_color))
-                {
-                    current_player_can_move = true;
-                    return;
-                }
-                if (opponent_can_move)
-                    continue;
-                if (can_place (x_saved, y_saved, enemy))
-                    opponent_can_move = true;
-            }
-            y_saved = 0;
-        }
-        current_player_can_move = false;
-        if (!opponent_can_move)
-            is_complete = true;
-    }
-
- // internal bool can_move (uint8 x, uint8 y)
-     // requires (is_valid_location_unsigned (x, y))
- // {
- //     return can_place (x, y, current_color);
- // }
-
+    /**
+     * can_place:
+     * @x: the x coordinate of the tile to test
+     * @y: the y coordinate of the tile to test
+     * @color: the player color to test
+     *
+     * This method is faster than place_tile(), as it returns early
+     * when some turnable tiles are found in one of the directions.
+     *
+     * Returns: %true if the given @color can be play there
+     */
     private bool can_place (uint8 x, uint8 y, Player color)
     {
         if (empty_neighbors [x, y] == neighbor_tiles [x, y])
@@ -285,15 +292,47 @@ private class GameState : Object
         if (tiles [x, y] != Player.NONE)
             return false;
 
-        if (can_flip_tiles (x, y, color,  1,  0) > 0) return true;
-        if (can_flip_tiles (x, y, color,  1,  1) > 0) return true;
-        if (can_flip_tiles (x, y, color,  0,  1) > 0) return true;
-        if (can_flip_tiles (x, y, color, -1,  1) > 0) return true;
-        if (can_flip_tiles (x, y, color, -1,  0) > 0) return true;
-        if (can_flip_tiles (x, y, color, -1, -1) > 0) return true;
-        if (can_flip_tiles (x, y, color,  0, -1) > 0) return true;
-        if (can_flip_tiles (x, y, color,  1, -1) > 0) return true;
+        // diagonals first, to return early more often
+        if (can_flip_tiles (x, y, color, -1, -1) > 0) return true;  // no
+        if (can_flip_tiles (x, y, color,  1,  1) > 0) return true;  // se
+        if (can_flip_tiles (x, y, color, -1,  1) > 0) return true;  // so
+        if (can_flip_tiles (x, y, color,  1, -1) > 0) return true;  // ne
+        if (can_flip_tiles (x, y, color,  1,  0) > 0) return true;  // n
+        if (can_flip_tiles (x, y, color, -1,  0) > 0) return true;  // s
+        if (can_flip_tiles (x, y, color,  0,  1) > 0) return true;  // e
+        if (can_flip_tiles (x, y, color,  0, -1) > 0) return true;  // o
         return false;
+    }
+
+    /**
+     * can_flip_tiles:
+     * @x: the x coordinate to start with
+     * @y: the y coordinate to start with
+     * @color: the player color to test
+     * @x_step: the step on the x direction, %1, %0 or %-1
+     * @y_step: the step on the y direction, %1, %0 or %-1
+     *
+     * Returns: the number of turnable tiles in the given direction
+     */
+    private uint8 can_flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step)
+    {
+        Player enemy = Player.flip_color (color);
+
+        /* Count number of enemy pieces we are beside */
+        int8 enemy_count = -1;
+        int8 xt = (int8) x;
+        int8 yt = (int8) y;
+        do {
+            enemy_count++;
+            xt += x_step;
+            yt += y_step;
+        } while (is_valid_location_signed (xt, yt) && tiles [xt, yt] == enemy);
+
+        /* Must be a line of enemy pieces then one of ours */
+        if (enemy_count <= 0 || !is_valid_location_signed (xt, yt) || tiles [xt, yt] != color)
+            return 0;
+
+        return (uint8) enemy_count;
     }
 
     /*\
@@ -378,31 +417,6 @@ private class GameState : Object
             if (ymm_is_valid) empty_neighbors [xpp, ymm] -= 1;
             if (ypp_is_valid) empty_neighbors [xpp, ypp] -= 1;
         }
-    }
-
-    /*\
-    * * flipping tiles
-    \*/
-
-    private uint8 can_flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step)
-    {
-        Player enemy = Player.flip_color (color);
-
-        /* Count number of enemy pieces we are beside */
-        int8 enemy_count = -1;
-        int8 xt = (int8) x;
-        int8 yt = (int8) y;
-        do {
-            enemy_count++;
-            xt += x_step;
-            yt += y_step;
-        } while (is_valid_location_signed (xt, yt) && tiles [xt, yt] == enemy);
-
-        /* Must be a line of enemy pieces then one of ours */
-        if (enemy_count <= 0 || !is_valid_location_signed (xt, yt) || tiles [xt, yt] != color)
-            return 0;
-
-        return (uint8) enemy_count;
     }
 }
 
