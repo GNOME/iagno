@@ -71,13 +71,29 @@ private class GameState : Object
         _n_light_tiles = game._n_light_tiles;
         _n_dark_tiles = game._n_dark_tiles;
 
-        place_tile_real (move, move_color);
-     // {
-     //     critical ("Computer marked move (%d, %d) as valid, but is invalid when checking.\n%s", move.x, move.y, to_string ());
-     //     assert_not_reached ();
-     // }
+        flip_tiles (ref tiles, move.x, move.y, move_color,  0, -1, move.n_tiles_n );
+        flip_tiles (ref tiles, move.x, move.y, move_color,  1, -1, move.n_tiles_ne);
+        flip_tiles (ref tiles, move.x, move.y, move_color,  1,  0, move.n_tiles_e );
+        flip_tiles (ref tiles, move.x, move.y, move_color,  1,  1, move.n_tiles_se);
+        flip_tiles (ref tiles, move.x, move.y, move_color,  0,  1, move.n_tiles_s );
+        flip_tiles (ref tiles, move.x, move.y, move_color, -1,  1, move.n_tiles_so);
+        flip_tiles (ref tiles, move.x, move.y, move_color, -1,  0, move.n_tiles_o );
+        flip_tiles (ref tiles, move.x, move.y, move_color, -1, -1, move.n_tiles_no);
+        flip_n_tiles_to_color (move.n_tiles, move_color);   // updates tiles counter
+
+        add_tile_of_color (move_color);
+        tiles [move.x, move.y] = move_color;
+        update_empty_neighbors (move.x, move.y);
 
         update_who_can_move ();
+    }
+    private static inline void flip_tiles (ref Player [,] tiles, uint8 x, uint8 y, Player color, int8 x_step, int8 y_step, uint8 count)
+    {
+        for (int8 i = 1; i <= (int8) count; i++)
+        {
+            tiles [(int8) x + (i * x_step),
+                   (int8) y + (i * y_step)] = color;
+        }
     }
 
     internal GameState.from_grid (uint8 _size, Player [,] _tiles, Player color, uint8 [,] _neighbor_tiles)
@@ -120,17 +136,17 @@ private class GameState : Object
             _n_light_tiles++;
     }
 
-    private void flip_tile_to_color (Player color)
+    private void flip_n_tiles_to_color (uint8 count, Player color)
     {
         if (color == Player.LIGHT)
         {
-            _n_dark_tiles--;
-            _n_light_tiles++;
+            _n_dark_tiles  -= count;
+            _n_light_tiles += count;
         }
         else if (color == Player.DARK)
         {
-            _n_light_tiles--;
-            _n_dark_tiles++;
+            _n_light_tiles -= count;
+            _n_dark_tiles  += count;
         }
      // else assert_not_reached ();
     }
@@ -220,21 +236,6 @@ private class GameState : Object
                      + move.n_tiles_s + move.n_tiles_so
                      + move.n_tiles_o + move.n_tiles_no;
         return move.n_tiles != 0;
-    }
-
-    private void place_tile_real (PossibleMove move, Player move_color)
-    {
-        flip_tiles (move.x, move.y, move_color,  0, -1, move.n_tiles_n );
-        flip_tiles (move.x, move.y, move_color,  1, -1, move.n_tiles_ne);
-        flip_tiles (move.x, move.y, move_color,  1,  0, move.n_tiles_e );
-        flip_tiles (move.x, move.y, move_color,  1,  1, move.n_tiles_se);
-        flip_tiles (move.x, move.y, move_color,  0,  1, move.n_tiles_s );
-        flip_tiles (move.x, move.y, move_color, -1,  1, move.n_tiles_so);
-        flip_tiles (move.x, move.y, move_color, -1,  0, move.n_tiles_o );
-        flip_tiles (move.x, move.y, move_color, -1, -1, move.n_tiles_no);
-        add_tile_of_color (move_color);
-        tiles [move.x, move.y] = move_color;
-        update_empty_neighbors (move.x, move.y);
     }
 
     /*\
@@ -382,16 +383,6 @@ private class GameState : Object
     /*\
     * * flipping tiles
     \*/
-
-    private void flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step, uint8 count)
-    {
-        for (int8 i = 1; i <= (int8) count; i++)
-        {
-            flip_tile_to_color (color);
-            tiles [(int8) x + (i * x_step),
-                   (int8) y + (i * y_step)] = color;
-        }
-    }
 
     private uint8 can_flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step)
     {
