@@ -320,16 +320,19 @@ private class GameState : Object
 
         /* Count number of enemy pieces we are beside */
         int8 enemy_count = -1;
+        bool is_valid_location = false; // garbage; TODO report bug
         int8 xt = (int8) x;
         int8 yt = (int8) y;
         do {
             enemy_count++;
             xt += x_step;
             yt += y_step;
-        } while (is_valid_location_signed (xt, yt) && tiles [xt, yt] == enemy);
+            is_valid_location = is_valid_location_signed (xt, yt);
+        }
+        while (is_valid_location && tiles [xt, yt] == enemy);
 
         /* Must be a line of enemy pieces then one of ours */
-        if (enemy_count <= 0 || !is_valid_location_signed (xt, yt) || tiles [xt, yt] != color)
+        if (enemy_count <= 0 || !is_valid_location || tiles [xt, yt] != color)
             return 0;
 
         return (uint8) enemy_count;
