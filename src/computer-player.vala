@@ -65,7 +65,7 @@ private abstract class ComputerPlayer : Object
     private async void move_async (double delay_seconds)
     {
         Timer timer = new Timer ();
-        PossibleMove best_move = PossibleMove (0, 0, 0); // garbage
+        PossibleMove best_move = PossibleMove (0, 0); // garbage
 
         while (move_pending)
         {

@@ -71,9 +71,7 @@ private class GameState : Object
         _n_light_tiles = game._n_light_tiles;
         _n_dark_tiles = game._n_dark_tiles;
 
-        uint8 n_tiles;
-        place_tile (move.x, move.y, move_color, /* apply move */ true, out n_tiles);
-     // if (n_tiles == 0)
+        place_tile_real (move, move_color);
      // {
      //     critical ("Computer marked move (%d, %d) as valid, but is invalid when checking.\n%s", move.x, move.y, to_string ());
      //     assert_not_reached ();
@@ -185,48 +183,58 @@ private class GameState : Object
         {
             for (; y < size; y++)
             {
-                uint8 n_tiles;
-                place_tile (x, y, current_color, /* apply move */ false, out n_tiles);
-                if (n_tiles != 0)
-                    moves.prepend (PossibleMove (x, y, n_tiles));
+                PossibleMove move;
+                if (place_tile (x, y, current_color, out move))
+                    moves.prepend (move);
             }
             y = 0;
         }
     }
 
-    internal void test_placing_tile (uint8 x, uint8 y, out uint8 n_tiles)
+    internal bool test_placing_tile (uint8 x, uint8 y, out PossibleMove move)
     {
-        place_tile (x, y, current_color, /* apply move */ false, out n_tiles);
+        return place_tile (x, y, current_color, out move);
     }
 
-    private void place_tile (uint8 x, uint8 y, Player color, bool apply, out uint8 n_tiles)
+    private bool place_tile (uint8 x, uint8 y, Player color, out PossibleMove move)
      // requires (is_valid_location_unsigned (x, y))
     {
-        n_tiles = 0;
+        move = PossibleMove (x, y);
 
         if (empty_neighbors [x, y] == neighbor_tiles [x, y])
-            return;
+            return false;
         if (tiles [x, y] != Player.NONE)
-            return;
+            return false;
 
-        n_tiles += flip_tiles (x, y, color,  1,  0, apply);
-        n_tiles += flip_tiles (x, y, color,  1,  1, apply);
-        n_tiles += flip_tiles (x, y, color,  0,  1, apply);
-        n_tiles += flip_tiles (x, y, color, -1,  1, apply);
-        n_tiles += flip_tiles (x, y, color, -1,  0, apply);
-        n_tiles += flip_tiles (x, y, color, -1, -1, apply);
-        n_tiles += flip_tiles (x, y, color,  0, -1, apply);
-        n_tiles += flip_tiles (x, y, color,  1, -1, apply);
+        move.n_tiles_n  = can_flip_tiles (x, y, color,  0, -1);
+        move.n_tiles_ne = can_flip_tiles (x, y, color,  1, -1);
+        move.n_tiles_e  = can_flip_tiles (x, y, color,  1,  0);
+        move.n_tiles_se = can_flip_tiles (x, y, color,  1,  1);
+        move.n_tiles_s  = can_flip_tiles (x, y, color,  0,  1);
+        move.n_tiles_so = can_flip_tiles (x, y, color, -1,  1);
+        move.n_tiles_o  = can_flip_tiles (x, y, color, -1,  0);
+        move.n_tiles_no = can_flip_tiles (x, y, color, -1, -1);
 
-        if (n_tiles == 0)
-            return;
+        move.n_tiles = move.n_tiles_n + move.n_tiles_ne
+                     + move.n_tiles_e + move.n_tiles_se
+                     + move.n_tiles_s + move.n_tiles_so
+                     + move.n_tiles_o + move.n_tiles_no;
+        return move.n_tiles != 0;
+    }
 
-        if (apply)
-        {
-            add_tile_of_color (color);
-            tiles [x, y] = color;
-            update_empty_neighbors (x, y);
-        }
+    private void place_tile_real (PossibleMove move, Player move_color)
+    {
+        flip_tiles (move.x, move.y, move_color,  0, -1, move.n_tiles_n );
+        flip_tiles (move.x, move.y, move_color,  1, -1, move.n_tiles_ne);
+        flip_tiles (move.x, move.y, move_color,  1,  0, move.n_tiles_e );
+        flip_tiles (move.x, move.y, move_color,  1,  1, move.n_tiles_se);
+        flip_tiles (move.x, move.y, move_color,  0,  1, move.n_tiles_s );
+        flip_tiles (move.x, move.y, move_color, -1,  1, move.n_tiles_so);
+        flip_tiles (move.x, move.y, move_color, -1,  0, move.n_tiles_o );
+        flip_tiles (move.x, move.y, move_color, -1, -1, move.n_tiles_no);
+        add_tile_of_color (move_color);
+        tiles [move.x, move.y] = move_color;
+        update_empty_neighbors (move.x, move.y);
     }
 
     /*\
@@ -263,11 +271,11 @@ private class GameState : Object
             is_complete = true;
     }
 
-    internal bool can_move (uint8 x, uint8 y)
+ // internal bool can_move (uint8 x, uint8 y)
      // requires (is_valid_location_unsigned (x, y))
-    {
-        return can_place (x, y, current_color);
-    }
+ // {
+ //     return can_place (x, y, current_color);
+ // }
 
     private bool can_place (uint8 x, uint8 y, Player color)
     {
@@ -375,22 +383,14 @@ private class GameState : Object
     * * flipping tiles
     \*/
 
-    private uint8 flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step, bool apply)
+    private void flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step, uint8 count)
     {
-        uint8 enemy_count = can_flip_tiles (x, y, color, x_step, y_step);
-        if (enemy_count == 0)
-            return 0;
-
-        if (apply)
+        for (int8 i = 1; i <= (int8) count; i++)
         {
-            for (int8 i = 1; i <= enemy_count; i++)
-            {
-                flip_tile_to_color (color);
-                tiles [(int8) x + (i * x_step),
-                       (int8) y + (i * y_step)] = color;
-            }
+            flip_tile_to_color (color);
+            tiles [(int8) x + (i * x_step),
+                   (int8) y + (i * y_step)] = color;
         }
-        return enemy_count;
     }
 
     private uint8 can_flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step)
@@ -552,12 +552,11 @@ private class Game : Object
 
     internal /* success */ bool place_tile (uint8 x, uint8 y)
     {
-        uint8 n_tiles;
-        current_state.test_placing_tile (x, y, out n_tiles);
-        if (n_tiles == 0)
+        PossibleMove move;
+        if (!current_state.test_placing_tile (x, y, out move))
             return false;
 
-        current_state = new GameState.copy_and_move (current_state, PossibleMove (x, y, n_tiles));
+        current_state = new GameState.copy_and_move (current_state, move);
         undo_stack.append (current_state);
         end_of_turn (/* undoing */ false, /* no_draw */ false);
         return true;

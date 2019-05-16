@@ -24,13 +24,21 @@ private struct PossibleMove
 {
     public uint8 x;
     public uint8 y;
-    public uint8 n_tiles;
 
-    internal PossibleMove (uint8 x, uint8 y, uint8 n_tiles)
+    public uint8 n_tiles;
+    public uint8 n_tiles_n;
+    public uint8 n_tiles_ne;
+    public uint8 n_tiles_e;
+    public uint8 n_tiles_se;
+    public uint8 n_tiles_s;
+    public uint8 n_tiles_so;
+    public uint8 n_tiles_o;
+    public uint8 n_tiles_no;
+
+    internal PossibleMove (uint8 x, uint8 y)
     {
         this.x = x;
         this.y = y;
-        this.n_tiles = n_tiles;
     }
 }
 
@@ -280,7 +288,7 @@ private abstract class ComputerReversi : ComputerPlayer
             return;
         }
 
-        best_move = PossibleMove (0, 0, 0); // garbage
+        best_move = PossibleMove (0, 0); // garbage
 
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
