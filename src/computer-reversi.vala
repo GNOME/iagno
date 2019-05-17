@@ -281,19 +281,20 @@ private abstract class ComputerReversi : ComputerPlayer
     protected override void run_search (out PossibleMove best_move)
      // requires (game.current_player_can_move)
     {
+        /* Choose a location to place by building the tree of possible moves and
+         * using the minimax algorithm to pick the best branch with the chosen
+         * strategy. */
+        GameStateStruct g = game.current_state.game_state_struct;
+
         /* For the first/first two moves play randomly so the game is not always the same */
-        if (game.current_state.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
+        if (g.n_tiles < game.initial_number_of_tiles + (g.size < 6 ? 2 : 4))
         {
-            random_select (game.current_state.game_state_struct, out best_move);
+            random_select (g, out best_move);
             return;
         }
 
         best_move = PossibleMove (0, 0); // garbage
 
-        /* Choose a location to place by building the tree of possible moves and
-         * using the minimax algorithm to pick the best branch with the chosen
-         * strategy. */
-        GameStateStruct g = game.current_state.game_state_struct;
         /* The search sometimes returns NEGATIVE_INFINITY. */
         int16 a = LESS_THAN_NEGATIVE_INFINITY;
 

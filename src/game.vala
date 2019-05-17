@@ -53,16 +53,25 @@ private struct GameStateStruct
      // requires (!game.current_player_can_move)
      // requires (!game.is_complete)
     {
-        size = game.size;
+        // move color
         current_color = Player.flip_color (game.current_color);
+
+        // always given
+        size = game.size;
         neighbor_tiles = game.neighbor_tiles;
-        empty_neighbors = game.empty_neighbors;
+
+        // tiles grid
         tiles = game.tiles;
 
+        // tiles counters
         n_current_tiles = game.n_opponent_tiles;
         n_opponent_tiles = game.n_current_tiles;
         n_tiles = n_current_tiles + n_opponent_tiles;
 
+        // empty neighbors
+        empty_neighbors = game.empty_neighbors;
+
+        // who can move
         current_player_can_move = true;
         is_complete = false;
         x_saved = 0;
@@ -71,18 +80,16 @@ private struct GameStateStruct
 
     internal GameStateStruct.copy_and_move (GameStateStruct game, PossibleMove move)
     {
+        // move color
         Player move_color = game.current_color;
-
-        size = game.size;
         current_color = Player.flip_color (move_color);
+
+        // always given
+        size = game.size;
         neighbor_tiles = game.neighbor_tiles;
-        empty_neighbors = game.empty_neighbors;
+
+        // tiles grid
         tiles = game.tiles;
-
-        n_current_tiles = game.n_opponent_tiles - move.n_tiles;
-        n_opponent_tiles = game.n_current_tiles + move.n_tiles + 1;
-        n_tiles = n_current_tiles + n_opponent_tiles;
-
         flip_tiles (ref tiles, move.x, move.y, move_color,  0, -1, move.n_tiles_n );
         flip_tiles (ref tiles, move.x, move.y, move_color,  1, -1, move.n_tiles_ne);
         flip_tiles (ref tiles, move.x, move.y, move_color,  1,  0, move.n_tiles_e );
@@ -91,10 +98,18 @@ private struct GameStateStruct
         flip_tiles (ref tiles, move.x, move.y, move_color, -1,  1, move.n_tiles_so);
         flip_tiles (ref tiles, move.x, move.y, move_color, -1,  0, move.n_tiles_o );
         flip_tiles (ref tiles, move.x, move.y, move_color, -1, -1, move.n_tiles_no);
-
         tiles [move.x, move.y] = move_color;
+
+        // tiles counters
+        n_current_tiles = game.n_opponent_tiles - move.n_tiles;
+        n_opponent_tiles = game.n_current_tiles + move.n_tiles + 1;
+        n_tiles = n_current_tiles + n_opponent_tiles;
+
+        // empty neighbors
+        empty_neighbors = game.empty_neighbors;
         update_empty_neighbors (move.x, move.y);
 
+        // who can move
         update_who_can_move ();
     }
     private static inline void flip_tiles (ref Player [,] tiles, uint8 x, uint8 y, Player color, int8 x_step, int8 y_step, uint8 count)
@@ -108,11 +123,17 @@ private struct GameStateStruct
 
     internal GameStateStruct.from_grid (uint8 _size, Player [,] _tiles, Player color, uint8 [,] _neighbor_tiles)
     {
-        size = _size;
+        // move color
         current_color = color;
+
+        // always given
+        size = _size;
         neighbor_tiles = _neighbor_tiles;
+
+        // tiles grid
         tiles = _tiles;
 
+        // tiles counters
         n_current_tiles = 0;
         n_opponent_tiles = 0;
         for (uint8 x = 0; x < _size; x++)
@@ -120,7 +141,10 @@ private struct GameStateStruct
                 add_tile_of_color (_tiles [x, y]);
         n_tiles = n_current_tiles + n_opponent_tiles;
 
+        // empty neighbors
         init_empty_neighbors ();
+
+        // who can move
         update_who_can_move ();
     }
     private inline void add_tile_of_color (Player color)
@@ -162,12 +186,10 @@ private struct GameStateStruct
     private void update_who_can_move ()
     {
         Player enemy = Player.flip_color (current_color);
-        x_saved = 0;
-        y_saved = 0;
         bool opponent_can_move = false;
-        for (; x_saved < size; x_saved++)
+        for (x_saved = 0; x_saved < size; x_saved++)
         {
-            for (; y_saved < size; y_saved++)
+            for (y_saved = 0; y_saved < size; y_saved++)
             {
                 if (can_place (x_saved, y_saved, current_color))
                 {
@@ -183,7 +205,6 @@ private struct GameStateStruct
                     is_complete = false;
                 }
             }
-            y_saved = 0;
         }
         current_player_can_move = false;
         if (!opponent_can_move)
@@ -399,9 +420,7 @@ private class GameStateObject : Object
     [CCode (notify = false)] internal GameStateStruct game_state_struct { internal get { return _game_state_struct; }}
 
     [CCode (notify = false)] internal Player current_color              { internal get { return game_state_struct.current_color; }}
-    [CCode (notify = false)] internal uint8  size                       { internal get { return game_state_struct.size; }}
 
-    [CCode (notify = false)] internal uint8  n_tiles                    { internal get { return game_state_struct.n_tiles; }}
     [CCode (notify = false)] internal uint8  n_light_tiles              { internal get {
             if (game_state_struct.current_color == Player.LIGHT)
                 return game_state_struct.n_current_tiles;
@@ -418,7 +437,7 @@ private class GameStateObject : Object
         }}
 
     [CCode (notify = false)] internal bool   current_player_can_move    { internal get { return game_state_struct.current_player_can_move; }}
-    [CCode (notify = true)]  internal bool   is_complete                { internal get { return game_state_struct.is_complete; }}
+    [CCode (notify = false)] internal bool   is_complete                { internal get { return game_state_struct.is_complete; }}
 
     internal string to_string ()
     {
@@ -430,8 +449,6 @@ private class GameStateObject : Object
     \*/
 
     internal GameStateObject.copy_and_pass (GameStateObject game)
-     // requires (!game.current_player_can_move)
-     // requires (!game.is_complete)
     {
         _game_state_struct = GameStateStruct.copy_and_pass (game.game_state_struct);
     }
@@ -458,8 +475,7 @@ private class GameStateObject : Object
 
     internal inline bool is_valid_location_signed (int8 x, int8 y)
     {
-        return x >= 0 && x < size
-            && y >= 0 && y < size;
+        return game_state_struct.is_valid_location_signed (x, y);
     }
 
     /*\
