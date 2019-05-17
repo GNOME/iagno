@@ -72,7 +72,7 @@ private class ComputerReversiEasy : ComputerReversi
     * * AI
     \*/
 
-    protected override int16 calculate_heuristic (GameState g)
+    protected override int16 calculate_heuristic (GameStateStruct g)
     {
         /* Try to lose */
         return (int16) g.n_opponent_tiles - (int16) g.n_current_tiles;
@@ -117,7 +117,7 @@ private class ComputerReversiHard : ComputerReversi
     * * AI
     \*/
 
-    protected override int16 calculate_heuristic (GameState g)
+    protected override int16 calculate_heuristic (GameStateStruct g)
     {
         /* End of the game: just maximize the number of tokens */
         if (g.n_tiles >= end_start)
@@ -127,7 +127,7 @@ private class ComputerReversiHard : ComputerReversi
         return (int16) g.n_current_tiles - (int16) g.n_opponent_tiles + eval_heuristic (g, ref heuristic);
     }
 
-    private static int16 eval_heuristic (GameState g, ref int16 [,] heuristic)
+    private static int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic)
     {
         uint8 size = g.size;
         int16 count = 0;
@@ -246,7 +246,7 @@ private abstract class ComputerReversi : ComputerPlayer
 
             /* Has been reached, once. So let's have a fallback. */
             PossibleMove random_move;
-            random_select (game.current_state, out random_move);
+            random_select (game.current_state.game_state_struct, out random_move);
             if (!game.place_tile (random_move.x, random_move.y))
             {
                 critical (@"Computer chose an invalid move for the second time: $(random_move.x),$(random_move.y)\n$game");
@@ -255,7 +255,7 @@ private abstract class ComputerReversi : ComputerPlayer
         }
     }
 
-    private static void random_select (GameState g, out PossibleMove random_move)
+    private static void random_select (GameStateStruct g, out PossibleMove random_move)
     {
         SList<PossibleMove?> moves;
         g.get_possible_moves (out moves);
@@ -284,7 +284,7 @@ private abstract class ComputerReversi : ComputerPlayer
         /* For the first/first two moves play randomly so the game is not always the same */
         if (game.current_state.n_tiles < game.initial_number_of_tiles + (game.size < 6 ? 2 : 4))
         {
-            random_select (game.current_state, out best_move);
+            random_select (game.current_state.game_state_struct, out best_move);
             return;
         }
 
@@ -293,7 +293,7 @@ private abstract class ComputerReversi : ComputerPlayer
         /* Choose a location to place by building the tree of possible moves and
          * using the minimax algorithm to pick the best branch with the chosen
          * strategy. */
-        GameState g = game.current_state;
+        GameStateStruct g = game.current_state.game_state_struct;
         /* The search sometimes returns NEGATIVE_INFINITY. */
         int16 a = LESS_THAN_NEGATIVE_INFINITY;
 
@@ -307,7 +307,7 @@ private abstract class ComputerReversi : ComputerPlayer
          // if (move == null)
          //     assert_not_reached ();
 
-            GameState _g = new GameState.copy_and_move (g, (!) move);
+            GameStateStruct _g = GameStateStruct.copy_and_move (g, (!) move);
 
             int16 a_new = -1 * search (_g, initial_depth, NEGATIVE_INFINITY, -a);
             if (a_new > a)
@@ -323,7 +323,7 @@ private abstract class ComputerReversi : ComputerPlayer
         }
     }
 
-    private int16 search (GameState g, uint8 depth, int16 a, int16 b)
+    private int16 search (GameStateStruct g, uint8 depth, int16 a, int16 b)
      // requires (a <= b)
     {
         /* End of the game, return a near-infinite evaluation */
@@ -347,7 +347,7 @@ private abstract class ComputerReversi : ComputerPlayer
              // if (move == null)
              //     assert_not_reached ();
 
-                GameState _g = new GameState.copy_and_move (g, (!) move);
+                GameStateStruct _g = GameStateStruct.copy_and_move (g, (!) move);
 
                 int16 a_new = -1 * search (_g, depth - 1, -b, -a);
                 if (a_new > a)
@@ -360,7 +360,7 @@ private abstract class ComputerReversi : ComputerPlayer
         }
         else // pass
         {
-            GameState _g = new GameState.copy_and_pass (g);
+            GameStateStruct _g = GameStateStruct.copy_and_pass (g);
 
             int16 a_new = -1 * search (_g, depth - 1, -b, -a);
             if (a_new > a)
@@ -370,6 +370,6 @@ private abstract class ComputerReversi : ComputerPlayer
         return a;
     }
 
-    protected abstract int16 calculate_heuristic (GameState g);
+    protected abstract int16 calculate_heuristic (GameStateStruct g);
     protected abstract void sort_moves (ref SList<PossibleMove?> moves);
 }

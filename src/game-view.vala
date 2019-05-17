@@ -456,7 +456,7 @@ private class GameView : Gtk.DrawingArea
     \*/
 
     private bool last_state_set = false;
-    private GameState last_state;
+    private GameStateObject last_state;
 
     private inline void update_highlight_after_undo ()
         requires (last_state_set)
