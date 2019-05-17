@@ -22,8 +22,20 @@
 
 private class GameState : Object
 {
-    private Player __current_color;
-    [CCode (notify = false)] internal Player current_color { internal get { return __current_color; }}
+    private struct GameStateStruct
+    {
+        public Player   current_color;
+        public uint8    size;
+
+        public uint8    n_light_tiles;
+        public uint8    n_dark_tiles;
+
+        public bool     current_player_can_move;
+        public bool     is_complete;
+    }
+    private GameStateStruct game_state_struct = GameStateStruct ();
+
+    [CCode (notify = false)] internal Player current_color { internal get { return game_state_struct.current_color; }}
 
     internal string to_string ()
     {
@@ -43,8 +55,7 @@ private class GameState : Object
     * * board
     \*/
 
-    private uint8 __size;
-    [CCode (notify = false)] internal uint8 size { internal get { return __size; }}
+    [CCode (notify = false)] internal uint8 size { internal get { return game_state_struct.size; }}
 
     private Player [,] tiles;
     private unowned uint8 [,] neighbor_tiles;
@@ -53,28 +64,28 @@ private class GameState : Object
      // requires (!game.current_player_can_move)
      // requires (!game.is_complete)
     {
-        __size = game.size;
-        __current_color = Player.flip_color (game.current_color);
+        game_state_struct.size = game.size;
+        game_state_struct.current_color = Player.flip_color (game.current_color);
         neighbor_tiles = game.neighbor_tiles;
         empty_neighbors = game.empty_neighbors;
         tiles = game.tiles;
-        __n_light_tiles = game.__n_light_tiles;
-        __n_dark_tiles = game.__n_dark_tiles;
+        game_state_struct.n_light_tiles = game.n_light_tiles;
+        game_state_struct.n_dark_tiles = game.n_dark_tiles;
 
-        __current_player_can_move = true;
-        __is_complete = false;
+        game_state_struct.current_player_can_move = true;
+        game_state_struct.is_complete = false;
     }
 
     internal GameState.copy_and_move (GameState game, PossibleMove move)
     {
         Player move_color = game.current_color;
-        __size = game.size;
-        __current_color = Player.flip_color (move_color);
+        game_state_struct.size = game.size;
+        game_state_struct.current_color = Player.flip_color (move_color);
         neighbor_tiles = game.neighbor_tiles;
         empty_neighbors = game.empty_neighbors;
         tiles = game.tiles;
-        __n_light_tiles = game.__n_light_tiles;
-        __n_dark_tiles = game.__n_dark_tiles;
+        game_state_struct.n_light_tiles = game.game_state_struct.n_light_tiles;
+        game_state_struct.n_dark_tiles = game.game_state_struct.n_dark_tiles;
 
         flip_tiles (ref tiles, move.x, move.y, move_color,  0, -1, move.n_tiles_n );
         flip_tiles (ref tiles, move.x, move.y, move_color,  1, -1, move.n_tiles_ne);
@@ -103,8 +114,8 @@ private class GameState : Object
 
     internal GameState.from_grid (uint8 _size, Player [,] _tiles, Player color, uint8 [,] _neighbor_tiles)
     {
-        __size = _size;
-        __current_color = color;
+        game_state_struct.size = _size;
+        game_state_struct.current_color = color;
         neighbor_tiles = _neighbor_tiles;
         tiles = _tiles;
 
@@ -120,39 +131,36 @@ private class GameState : Object
     * * number of tiles on the board
     \*/
 
-    private uint8 __n_light_tiles = 0;
-    private uint8 __n_dark_tiles = 0;
-
     [CCode (notify = false)] internal uint8 n_tiles
-                                            { internal get { return __n_dark_tiles + __n_light_tiles; }}
+                                            { internal get { return game_state_struct.n_dark_tiles + game_state_struct.n_light_tiles; }}
     [CCode (notify = false)] internal uint8 n_light_tiles
-                                            { internal get { return __n_light_tiles; }}
+                                            { internal get { return game_state_struct.n_light_tiles; }}
     [CCode (notify = false)] internal uint8 n_dark_tiles
-                                            { internal get { return __n_dark_tiles; }}
+                                            { internal get { return game_state_struct.n_dark_tiles; }}
     [CCode (notify = false)] internal uint8 n_current_tiles
-                                            { internal get { return current_color == Player.LIGHT ? __n_light_tiles : __n_dark_tiles; }}
+                                            { internal get { return current_color == Player.LIGHT ? game_state_struct.n_light_tiles : game_state_struct.n_dark_tiles; }}
     [CCode (notify = false)] internal uint8 n_opponent_tiles
-                                            { internal get { return current_color == Player.DARK ? __n_light_tiles : __n_dark_tiles; }}
+                                            { internal get { return current_color == Player.DARK ? game_state_struct.n_light_tiles : game_state_struct.n_dark_tiles; }}
 
     private void add_tile_of_color (Player color)
     {
         if (color == Player.DARK)
-            __n_dark_tiles++;
+            game_state_struct.n_dark_tiles++;
         else if (color == Player.LIGHT)
-            __n_light_tiles++;
+            game_state_struct.n_light_tiles++;
     }
 
     private void flip_n_tiles_to_color (uint8 count, Player color)
     {
         if (color == Player.LIGHT)
         {
-            __n_dark_tiles  -= count;
-            __n_light_tiles += count;
+            game_state_struct.n_dark_tiles  -= count;
+            game_state_struct.n_light_tiles += count;
         }
         else // if (color == Player.DARK)
         {
-            __n_light_tiles -= count;
-            __n_dark_tiles  += count;
+            game_state_struct.n_light_tiles -= count;
+            game_state_struct.n_dark_tiles  += count;
         }
      // else assert_not_reached ();
     }
@@ -194,11 +202,8 @@ private class GameState : Object
     * * get possible moves
     \*/
 
-    private bool __current_player_can_move; // init done in construct method or in update_who_can_move()
-    [CCode (notify = false)] internal bool current_player_can_move { internal get { return __current_player_can_move; }}
-
-    private bool __is_complete = false;     // update_who_can_move() needs init
-    [CCode (notify = true)] internal bool is_complete { internal get { return __is_complete; }}
+    [CCode (notify = false)] internal bool current_player_can_move  { internal get { return game_state_struct.current_player_can_move; }}
+    [CCode (notify = true)]  internal bool is_complete              { internal get { return game_state_struct.is_complete; }}
 
     private uint8 x_saved = 0;
     private uint8 y_saved = 0;
@@ -213,19 +218,23 @@ private class GameState : Object
             {
                 if (can_place (x_saved, y_saved, current_color))
                 {
-                    __current_player_can_move = true;
+                    game_state_struct.current_player_can_move = true;
+                    game_state_struct.is_complete = false;
                     return;
                 }
                 if (opponent_can_move)
                     continue;
                 if (can_place (x_saved, y_saved, enemy))
+                {
                     opponent_can_move = true;
+                    game_state_struct.is_complete = false;
+                }
             }
             y_saved = 0;
         }
-        __current_player_can_move = false;
+        game_state_struct.current_player_can_move = false;
         if (!opponent_can_move)
-            __is_complete = true;
+            game_state_struct.is_complete = true;
     }
 
     internal void get_possible_moves (out SList<PossibleMove?> moves)
