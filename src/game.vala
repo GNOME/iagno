@@ -191,6 +191,8 @@ private struct GameStateStruct
         {
             for (y_saved = 0; y_saved < size; y_saved++)
             {
+                if (is_unplayable_basic (x_saved, y_saved))
+                    continue;
                 if (can_place (x_saved, y_saved, current_color))
                 {
                     current_player_can_move = true;
@@ -239,14 +241,21 @@ private struct GameStateStruct
         return place_tile (x, y, current_color, out move);
     }
 
+    private inline bool is_unplayable_basic (uint8 x, uint8 y)
+    {
+        if (empty_neighbors [x, y] == neighbor_tiles [x, y])
+            return true;
+        if (tiles [x, y] != Player.NONE)
+            return true;
+        return false;
+    }
+
     private bool place_tile (uint8 x, uint8 y, Player color, out PossibleMove move)
      // requires (is_valid_location_unsigned (x, y))
     {
         move = PossibleMove (x, y);
 
-        if (empty_neighbors [x, y] == neighbor_tiles [x, y])
-            return false;
-        if (tiles [x, y] != Player.NONE)
+        if (is_unplayable_basic (x, y))
             return false;
 
         move.n_tiles_n  = can_flip_tiles (x, y, color,  0, -1);
@@ -271,6 +280,8 @@ private struct GameStateStruct
      * @y: the y coordinate of the tile to test
      * @color: the player color to test
      *
+     * You should test is_unplayable_basic() before launching this.
+     *
      * This method is faster than place_tile(), as it returns early
      * when some turnable tiles are found in one of the directions.
      *
@@ -278,11 +289,6 @@ private struct GameStateStruct
      */
     private bool can_place (uint8 x, uint8 y, Player color)
     {
-        if (empty_neighbors [x, y] == neighbor_tiles [x, y])
-            return false;
-        if (tiles [x, y] != Player.NONE)
-            return false;
-
         // diagonals first, to return early more often
         if (can_flip_tiles (x, y, color, -1, -1) > 0) return true;  // no
         if (can_flip_tiles (x, y, color,  1,  1) > 0) return true;  // se
