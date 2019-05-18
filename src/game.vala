@@ -159,7 +159,7 @@ private struct GameStateStruct
     * * public information
     \*/
 
-    internal bool is_current_color (uint8 x, uint8 y)
+    internal inline bool is_current_color (uint8 x, uint8 y)
      // requires (is_valid_location_unsigned (x, y))
     {
         return tiles [x, y] == current_color;
@@ -236,7 +236,7 @@ private struct GameStateStruct
     * * test placing tiles
     \*/
 
-    internal bool test_placing_tile (uint8 x, uint8 y, out PossibleMove move)
+    internal inline bool test_placing_tile (uint8 x, uint8 y, out PossibleMove move)
     {
         return place_tile (x, y, current_color, out move);
     }
@@ -250,7 +250,7 @@ private struct GameStateStruct
         return false;
     }
 
-    private bool place_tile (uint8 x, uint8 y, Player color, out PossibleMove move)
+    private inline bool place_tile (uint8 x, uint8 y, Player color, out PossibleMove move)
      // requires (is_valid_location_unsigned (x, y))
     {
         move = PossibleMove (x, y);
@@ -287,7 +287,7 @@ private struct GameStateStruct
      *
      * Returns: %true if the given @color can be play there
      */
-    private bool can_place (uint8 x, uint8 y, Player color)
+    private inline bool can_place (uint8 x, uint8 y, Player color)
     {
         // diagonals first, to return early more often
         if (can_flip_tiles (x, y, color, -1, -1) > 0) return true;  // no
@@ -311,7 +311,7 @@ private struct GameStateStruct
      *
      * Returns: the number of turnable tiles in the given direction
      */
-    private uint8 can_flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step)
+    private inline uint8 can_flip_tiles (uint8 x, uint8 y, Player color, int8 x_step, int8 y_step)
     {
         Player enemy = Player.flip_color (color);
 
@@ -346,7 +346,7 @@ private struct GameStateStruct
         return empty_neighbors [x, y];
     }
 
-    private void init_empty_neighbors ()
+    private inline void init_empty_neighbors ()
     {
         empty_neighbors = new uint8 [size, size];
         int8 _size = (int8) size;
@@ -383,7 +383,7 @@ private struct GameStateStruct
         }
     }
 
-    private uint8 is_empty (int8 x, int8 y)
+    private inline uint8 is_empty (int8 x, int8 y)
     {
         if (!is_valid_location_signed (x, y))
             return 0;
@@ -393,7 +393,7 @@ private struct GameStateStruct
         return 1;
     }
 
-    private void update_empty_neighbors (uint8 x, uint8 y)
+    private inline void update_empty_neighbors (uint8 x, uint8 y)
     {
         int8 xmm = ((int8) x) - 1;
         int8 ymm = ((int8) y) - 1;

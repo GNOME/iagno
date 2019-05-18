@@ -58,7 +58,7 @@ private class ComputerReversiEasy : ComputerReversi
         moves.sort (compare_move);
     }
 
-    private static int compare_move (PossibleMove? a, PossibleMove? b)
+    private static inline int compare_move (PossibleMove? a, PossibleMove? b)
      // requires (a != null)
      // requires (b != null)
     {
@@ -103,7 +103,7 @@ private class ComputerReversiHard : ComputerReversi
         moves.sort_with_data (compare_move);
     }
 
-    private int compare_move (PossibleMove? a, PossibleMove? b)
+    private inline int compare_move (PossibleMove? a, PossibleMove? b)
      // requires (a != null)
      // requires (b != null)
     {
@@ -127,7 +127,7 @@ private class ComputerReversiHard : ComputerReversi
         return (int16) g.n_current_tiles - (int16) g.n_opponent_tiles + eval_heuristic (g, ref heuristic);
     }
 
-    private static int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic)
+    private static inline int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic)
     {
         uint8 size = g.size;
         int16 count = 0;
