@@ -379,7 +379,7 @@ private class Iagno : Gtk.Application
             if (computer_level == 1)
                 computer = new ComputerReversiEasy (game);
             else
-                computer = new ComputerReversiHard (game, computer_level);
+                computer = new ComputerReversiHard (game, /* depth */ computer_level * 2);
         }
 
         if (settings.get_enum ("color") == 1)

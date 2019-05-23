@@ -250,7 +250,7 @@ private class TestIagno : Object
                            /* 7 */ " . . . . . . . ." };
 
         Game game = new Game.from_strings (board, Player.DARK);
-        ComputerPlayer ai = new ComputerReversiHard (game, /* AI level */ 3);
+        ComputerPlayer ai = new ComputerReversiHard (game, /* depth */ 6);
 
         assert_true (game.place_tile (4, 1));
         assert_true (ai_move (ai, 5, 5));
@@ -323,7 +323,7 @@ private class TestIagno : Object
                            /* 7 */ " . . . . . . . ." };
 
         Game game = new Game.from_strings (board, Player.DARK);
-        ComputerPlayer ai = new ComputerReversiHard (game, /* AI level */ 3);
+        ComputerPlayer ai = new ComputerReversiHard (game, /* depth */ 6);
 
         assert_true (game.place_tile (4, 2));
         assert_true (ai_move (ai, 5, 5));
@@ -396,7 +396,7 @@ private class TestIagno : Object
                            /* 7 */ " . . . . . . . ." };
 
         Game game = new Game.from_strings (board, Player.DARK);
-        ComputerPlayer ai = new ComputerReversiHard (game, /* AI level */ 3);
+        ComputerPlayer ai = new ComputerReversiHard (game, /* depth */ 6);
 
         assert_true (ai_move (ai, 3, 5));
         assert_true (game.place_tile (6, 3));
@@ -469,7 +469,7 @@ private class TestIagno : Object
                            /* 7 */ " . . . . . . . ." };
 
         Game game = new Game.from_strings (board, Player.DARK);
-        ComputerPlayer ai = new ComputerReversiHard (game, /* AI level */ 3);
+        ComputerPlayer ai = new ComputerReversiHard (game, /* depth */ 6);
 
         assert_true (ai_move (ai, 5, 4));
         assert_true (game.place_tile (6, 4));

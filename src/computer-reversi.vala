@@ -89,9 +89,9 @@ private class ComputerReversiHard : ComputerReversi
         init_heuristic (size, out heuristic);
     }
 
-    internal ComputerReversiHard (Game game, uint8 difficulty_level)
+    internal ComputerReversiHard (Game game, uint8 initial_depth)
     {
-        Object (game: game, initial_depth: difficulty_level * 2);
+        Object (game: game, initial_depth: initial_depth);
     }
 
     /*\
