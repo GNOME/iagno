@@ -223,6 +223,7 @@ private abstract class ComputerReversi : ComputerPlayer
     public uint8 initial_depth  { private   get; protected construct; }
 
     public uint8 size           { protected get; private   construct; }
+    public uint8 move_randomly  { protected get; private   construct; } // TODO getter should be private, but...
 
     /* do not forget int16.MIN ≠ - int16.MAX */
     private const int16 POSITIVE_INFINITY           =  32000;
@@ -232,6 +233,7 @@ private abstract class ComputerReversi : ComputerPlayer
     construct
     {
         size = game.size;
+        move_randomly = game.initial_number_of_tiles + (size < 6 ? 2 : 4);
     }
 
     /*\
@@ -287,7 +289,7 @@ private abstract class ComputerReversi : ComputerPlayer
         GameStateStruct g = game.current_state.game_state_struct;
 
         /* For the first/first two moves play randomly so the game is not always the same */
-        if (g.n_tiles < game.initial_number_of_tiles + (g.size < 6 ? 2 : 4))
+        if (g.n_tiles < move_randomly)
         {
             random_select (g, out best_move);
             return;
