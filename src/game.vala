@@ -114,10 +114,10 @@ private struct GameStateStruct
     }
     private static inline void flip_tiles (ref Player [,] tiles, uint8 x, uint8 y, Player color, int8 x_step, int8 y_step, uint8 count)
     {
-        for (int8 i = 1; i <= (int8) count; i++)
+        for (; count > 0; count--)
         {
-            tiles [(int8) x + (i * x_step),
-                   (int8) y + (i * y_step)] = color;
+            tiles [(int8) x + ((int8) count * x_step),
+                   (int8) y + ((int8) count * y_step)] = color;
         }
     }
 
