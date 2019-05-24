@@ -81,11 +81,8 @@ private class ComputerReversiEasy : ComputerReversi
 
 private class ComputerReversiHard : ComputerReversi
 {
-    private uint8 end_start;
-
     construct
     {
-        end_start = (size * size) - 10;
         init_heuristic (size, out heuristic);
     }
 
@@ -107,10 +104,10 @@ private class ComputerReversiHard : ComputerReversi
      // requires (a != null)
      // requires (b != null)
     {
-        if (((!) a).n_tiles >= ((!) b).n_tiles)
-            return -1;
-        else
-            return 1;
+        return (int) (heuristic [ ((!) b).x, ((!) b).y ]
+             -        heuristic [ ((!) a).x, ((!) a).y ])
+             + 16 * ((int) ((!) b).n_tiles
+             -       (int) ((!) a).n_tiles);
     }
 
     /*\
@@ -119,12 +116,7 @@ private class ComputerReversiHard : ComputerReversi
 
     protected override int16 calculate_heuristic (GameStateStruct g)
     {
-        /* End of the game: just maximize the number of tokens */
-        if (g.n_tiles >= end_start)
-            return (int16) g.n_current_tiles - (int16) g.n_opponent_tiles;
-
-        /* Normal strategy: try to evaluate the position */
-        return (int16) g.n_current_tiles - (int16) g.n_opponent_tiles + eval_heuristic (g, ref heuristic);
+        return eval_heuristic (g, ref heuristic);
     }
 
     private static inline int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic)
@@ -146,8 +138,8 @@ private class ComputerReversiHard : ComputerReversi
                 // around
                 int16 a = (int16) g.get_empty_neighbors (x, y);
                 if (a == 0) // completely surrounded
-                    a = -2;
-                count += is_current_color ? -a : a;
+                    a = -7;
+                count += 4 * (is_current_color ? -a : a);
             }
         }
         return count;
@@ -161,14 +153,14 @@ private class ComputerReversiHard : ComputerReversi
 
     private const int16 [,] heuristic_8 =
     {
-        { 65,  -3, 6, 4, 4, 6,  -3, 65 },
-        { -3, -29, 3, 1, 1, 3, -29, -3 },
-        {  6,   3, 5, 3, 3, 5,   3,  6 },
-        {  4,   1, 3, 1, 1, 3,   1,  4 },
-        {  4,   1, 3, 1, 1, 3,   1,  4 },
-        {  6,   3, 5, 3, 3, 5,   3,  6 },
-        { -3, -29, 3, 1, 1, 3, -29, -3 },
-        { 65,  -3, 6, 4, 4, 6,  -3, 65 }
+        { 110,  35,  15,   5,   5,  15,  35, 110 },
+        {  35,  15,   5, -20, -20,   5,  15,  35 },
+        {  15,   5,  26,   7,   7,  26,   5,  15 },
+        {   5, -20,   7, -27, -27,   7, -20,   5 },
+        {   5, -20,   7, -27, -27,   7, -20,   5 },
+        {  15,   5,  26,   7,   7,  26,   5,  15 },
+        {  35,  15,   5, -20, -20,   5,  15,  35 },
+        { 110,  35,  15,   5,   5,  15,  35, 110 }
     };
 
     private static void init_heuristic (uint8 size, out int16 [,] heuristic)
@@ -190,29 +182,29 @@ private class ComputerReversiHard : ComputerReversi
 
         // corners
         uint8 tmp1 = size - 1;
-        heuristic [0   , 0   ] = 65;
-        heuristic [0   , tmp1] = 65;
-        heuristic [tmp1, tmp1] = 65;
-        heuristic [tmp1, 0   ] = 65;
+        heuristic [0   , 0   ] = 110;
+        heuristic [0   , tmp1] = 110;
+        heuristic [tmp1, tmp1] = 110;
+        heuristic [tmp1, 0   ] = 110;
 
         if (size >= 6)
         {
             // corners neighbors
             uint8 tmp2 = size - 2;
-            heuristic [0   , 1   ] = -3;
-            heuristic [0   , tmp2] = -3;
-            heuristic [tmp1, 1   ] = -3;
-            heuristic [tmp1, tmp2] = -3;
-            heuristic [1   , 0   ] = -3;
-            heuristic [1   , tmp1] = -3;
-            heuristic [tmp2, 0   ] = -3;
-            heuristic [tmp2, tmp1] = -3;
+            heuristic [0   , 1   ] = 35;
+            heuristic [0   , tmp2] = 35;
+            heuristic [tmp1, 1   ] = 35;
+            heuristic [tmp1, tmp2] = 35;
+            heuristic [1   , 0   ] = 35;
+            heuristic [1   , tmp1] = 35;
+            heuristic [tmp2, 0   ] = 35;
+            heuristic [tmp2, tmp1] = 35;
 
             // corners diagonal neighbors
-            heuristic [1   , 1   ] = -29;
-            heuristic [1   , tmp2] = -29;
-            heuristic [tmp2, tmp2] = -29;
-            heuristic [tmp2, 1   ] = -29;
+            heuristic [1   , 1   ] = 15;
+            heuristic [1   , tmp2] = 15;
+            heuristic [tmp2, tmp2] = 15;
+            heuristic [tmp2, 1   ] = 15;
         }
     }
 }

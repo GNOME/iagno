@@ -376,10 +376,13 @@ private class Iagno : Gtk.Application
         else
         {
             uint8 computer_level = (uint8) settings.get_int ("computer-level");
-            if (computer_level == 1)
-                computer = new ComputerReversiEasy (game);
-            else
-                computer = new ComputerReversiHard (game, /* depth */ computer_level * 2);
+            switch (computer_level)
+            {
+                case 1 : computer = new ComputerReversiEasy (game);                break;
+                case 2 : computer = new ComputerReversiHard (game, /* depth */ 2); break;
+                case 3 : computer = new ComputerReversiHard (game, /* depth */ 4); break;
+                default: assert_not_reached ();
+            }
         }
 
         if (settings.get_enum ("color") == 1)
