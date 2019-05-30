@@ -23,6 +23,7 @@
 private struct GameStateStruct
 {
     public Player   current_color;
+    public Player   opponent_color;
     public uint8    size;
 
     public uint8    n_current_tiles;
@@ -54,7 +55,8 @@ private struct GameStateStruct
      // requires (!game.is_complete)
     {
         // move color
-        current_color = Player.flip_color (game.current_color);
+        opponent_color = game.current_color;
+        current_color = Player.flip_color (opponent_color);
 
         // always given
         size = game.size;
@@ -81,8 +83,8 @@ private struct GameStateStruct
     internal GameStateStruct.copy_and_move (GameStateStruct game, PossibleMove move)
     {
         // move color
-        Player move_color = game.current_color;
-        current_color = Player.flip_color (move_color);
+        opponent_color = game.current_color;
+        current_color = Player.flip_color (opponent_color);
 
         // always given
         size = game.size;
@@ -90,15 +92,15 @@ private struct GameStateStruct
 
         // tiles grid
         tiles = game.tiles;
-        flip_tiles (ref tiles, move.x, move.y, move_color,  0, -1, move.n_tiles_n );
-        flip_tiles (ref tiles, move.x, move.y, move_color,  1, -1, move.n_tiles_ne);
-        flip_tiles (ref tiles, move.x, move.y, move_color,  1,  0, move.n_tiles_e );
-        flip_tiles (ref tiles, move.x, move.y, move_color,  1,  1, move.n_tiles_se);
-        flip_tiles (ref tiles, move.x, move.y, move_color,  0,  1, move.n_tiles_s );
-        flip_tiles (ref tiles, move.x, move.y, move_color, -1,  1, move.n_tiles_so);
-        flip_tiles (ref tiles, move.x, move.y, move_color, -1,  0, move.n_tiles_o );
-        flip_tiles (ref tiles, move.x, move.y, move_color, -1, -1, move.n_tiles_no);
-        tiles [move.x, move.y] = move_color;
+        flip_tiles (ref tiles, move.x, move.y, opponent_color,  0, -1, move.n_tiles_n );
+        flip_tiles (ref tiles, move.x, move.y, opponent_color,  1, -1, move.n_tiles_ne);
+        flip_tiles (ref tiles, move.x, move.y, opponent_color,  1,  0, move.n_tiles_e );
+        flip_tiles (ref tiles, move.x, move.y, opponent_color,  1,  1, move.n_tiles_se);
+        flip_tiles (ref tiles, move.x, move.y, opponent_color,  0,  1, move.n_tiles_s );
+        flip_tiles (ref tiles, move.x, move.y, opponent_color, -1,  1, move.n_tiles_so);
+        flip_tiles (ref tiles, move.x, move.y, opponent_color, -1,  0, move.n_tiles_o );
+        flip_tiles (ref tiles, move.x, move.y, opponent_color, -1, -1, move.n_tiles_no);
+        tiles [move.x, move.y] = opponent_color;
 
         // tiles counters
         n_current_tiles = game.n_opponent_tiles - move.n_tiles;
@@ -125,6 +127,7 @@ private struct GameStateStruct
     {
         // move color
         current_color = color;
+        opponent_color = Player.flip_color (color);
 
         // always given
         size = _size;
@@ -163,6 +166,12 @@ private struct GameStateStruct
      // requires (is_valid_location_unsigned (x, y))
     {
         return tiles [x, y] == current_color;
+    }
+
+    internal inline bool is_opponent_color (uint8 x, uint8 y)
+     // requires (is_valid_location_unsigned (x, y))
+    {
+        return tiles [x, y] == opponent_color;
     }
 
     internal inline bool is_valid_location_signed (int8 x, int8 y)

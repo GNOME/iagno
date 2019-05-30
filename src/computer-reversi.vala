@@ -81,6 +81,8 @@ private class ComputerReversiEasy : ComputerReversi
 
 private class ComputerReversiHard : ComputerReversi
 {
+    public bool even_depth { private get; protected construct; }
+
     construct
     {
         init_heuristic (size, out heuristic);
@@ -88,7 +90,7 @@ private class ComputerReversiHard : ComputerReversi
 
     internal ComputerReversiHard (Game game, uint8 initial_depth)
     {
-        Object (game: game, initial_depth: initial_depth);
+        Object (game: game, even_depth: initial_depth % 2 == 0, initial_depth: initial_depth);
     }
 
     /*\
@@ -116,10 +118,10 @@ private class ComputerReversiHard : ComputerReversi
 
     protected override int16 calculate_heuristic (GameStateStruct g)
     {
-        return eval_heuristic (g, ref heuristic);
+        return eval_heuristic (g, ref heuristic, even_depth);
     }
 
-    private static inline int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic)
+    private static inline int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic, bool even_depth)
     {
         uint8 size = g.size;
         int16 count = 0;
@@ -127,19 +129,23 @@ private class ComputerReversiHard : ComputerReversi
         {
             for (uint8 y = 0; y < size; y++)
             {
-                bool is_current_color = g.is_current_color (x, y);
+                bool is_move_color = (even_depth && !g.is_current_color (x, y)) || g.is_opponent_color (x, y);
 
                 // heuristic
                 int16 h = heuristic [x, y];
-                if (!is_current_color)
-                    h = -h;
-                count += h;
+                if (is_move_color)
+                    count -= h;
+                else
+                    count += h;
 
                 // around
                 int16 a = (int16) g.get_empty_neighbors (x, y);
                 if (a == 0) // completely surrounded
                     a = -7;
-                count += 4 * (is_current_color ? -a : a);
+                if (is_move_color)
+                    count += 4 * a;
+                else
+                    count -= 4 * a;
             }
         }
         return count;

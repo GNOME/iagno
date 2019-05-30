@@ -380,7 +380,7 @@ private class Iagno : Gtk.Application
             {
                 case 1 : computer = new ComputerReversiEasy (game);                break;
                 case 2 : computer = new ComputerReversiHard (game, /* depth */ 2); break;
-                case 3 : computer = new ComputerReversiHard (game, /* depth */ 4); break;
+                case 3 : computer = new ComputerReversiHard (game, /* depth */ 3); break;
                 default: assert_not_reached ();
             }
         }
