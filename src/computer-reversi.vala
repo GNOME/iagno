@@ -106,10 +106,28 @@ private class ComputerReversiHard : ComputerReversi
      // requires (a != null)
      // requires (b != null)
     {
-        return (int) (heuristic [ ((!) b).x, ((!) b).y ]
-             -        heuristic [ ((!) a).x, ((!) a).y ])
-             + 16 * ((int) ((!) b).n_tiles
-             -       (int) ((!) a).n_tiles);
+        return calculate_move_heuristic ((!) b) - calculate_move_heuristic ((!) a);
+    }
+
+    private inline int calculate_move_heuristic (PossibleMove move)
+    {
+        int comparator = 0;
+        calculate_dir_heuristic (ref comparator, move.x, move.y,  0, -1, move.n_tiles_n );
+        calculate_dir_heuristic (ref comparator, move.x, move.y,  1, -1, move.n_tiles_ne);
+        calculate_dir_heuristic (ref comparator, move.x, move.y,  1,  0, move.n_tiles_e );
+        calculate_dir_heuristic (ref comparator, move.x, move.y,  1,  1, move.n_tiles_se);
+        calculate_dir_heuristic (ref comparator, move.x, move.y,  0,  1, move.n_tiles_s );
+        calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  1, move.n_tiles_so);
+        calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  0, move.n_tiles_o );
+        calculate_dir_heuristic (ref comparator, move.x, move.y, -1, -1, move.n_tiles_no);
+        return 2 * comparator + (int) heuristic [move.x, move.y];
+    }
+
+    private inline void calculate_dir_heuristic (ref int comparator, uint8 x, uint8 y, int8 x_step, int8 y_step, uint8 count)
+    {
+        for (; count > 0; count--)
+            comparator += (int) heuristic [(int8) x + ((int8) count * x_step),
+                                           (int8) y + ((int8) count * y_step)];
     }
 
     /*\
