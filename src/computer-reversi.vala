@@ -120,7 +120,7 @@ private class ComputerReversiHard : ComputerReversi
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  1, move.n_tiles_so);
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  0, move.n_tiles_o );
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1, -1, move.n_tiles_no);
-        return 2 * comparator + (int) heuristic [move.x, move.y];
+        return 2 * comparator + (int) heuristic [move.x, move.y] - 9 * (int) neighbor_tiles [move.x, move.y];
     }
 
     private inline void calculate_dir_heuristic (ref int comparator, uint8 x, uint8 y, int8 x_step, int8 y_step, uint8 count)
@@ -245,10 +245,13 @@ private abstract class ComputerReversi : ComputerPlayer
     private const int16 NEGATIVE_INFINITY           = -32000;
     private const int16 LESS_THAN_NEGATIVE_INFINITY = -32001;
 
+    protected uint8 [,] neighbor_tiles;
+
     construct
     {
         size = game.size;
         move_randomly = game.initial_number_of_tiles + (size < 6 ? 2 : 4);
+        neighbor_tiles = game.copy_neighbor_tiles ();
     }
 
     /*\

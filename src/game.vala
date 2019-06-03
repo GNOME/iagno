@@ -706,6 +706,11 @@ private class Game : Object
 
     private uint8 [,] neighbor_tiles;
 
+    internal uint8 [,] copy_neighbor_tiles ()
+    {
+        return neighbor_tiles;
+    }
+
     private static void init_neighbor_tiles (uint8 size, out uint8 [,] neighbor_tiles)
     {
         neighbor_tiles = new uint8 [size, size];
