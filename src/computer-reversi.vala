@@ -132,20 +132,19 @@ private class ComputerReversiHard : ComputerReversi
                 bool is_move_color = (even_depth && !g.is_current_color (x, y)) || g.is_opponent_color (x, y);
 
                 // heuristic
-                int16 h = heuristic [x, y];
                 if (is_move_color)
-                    count -= h;
+                    count -= heuristic [x, y];
                 else
-                    count += h;
+                    count += heuristic [x, y];
 
                 // around
                 int16 a = (int16) g.get_empty_neighbors (x, y);
                 if (a == 0) // completely surrounded
-                    a = -7;
+                    a = -6;
                 if (is_move_color)
-                    count += 4 * a;
+                    count += 9 * a;
                 else
-                    count -= 4 * a;
+                    count -= 9 * a;
             }
         }
         return count;
@@ -159,14 +158,14 @@ private class ComputerReversiHard : ComputerReversi
 
     private const int16 [,] heuristic_8 =
     {
-        { 110,  35,  15,   5,   5,  15,  35, 110 },
-        {  35,  15,   5, -20, -20,   5,  15,  35 },
-        {  15,   5,  26,   7,   7,  26,   5,  15 },
-        {   5, -20,   7, -27, -27,   7, -20,   5 },
-        {   5, -20,   7, -27, -27,   7, -20,   5 },
-        {  15,   5,  26,   7,   7,  26,   5,  15 },
-        {  35,  15,   5, -20, -20,   5,  15,  35 },
-        { 110,  35,  15,   5,   5,  15,  35, 110 }
+        { 420,  33,  23,  18,  18,  23,  33, 420 },
+        {  33, -65, -12, -41, -41, -12, -65,  33 },
+        {  23, -12,  53,  13,  13,  53, -12,  23 },
+        {  18, -41,  13, -84, -84,  13, -41,  18 },
+        {  18, -41,  13, -84, -84,  13, -41,  18 },
+        {  23, -12,  53,  13,  13,  53, -12,  23 },
+        {  33, -65, -12, -41, -41, -12, -65,  33 },
+        { 420,  33,  23,  18,  18,  23,  33, 420 }
     };
 
     private static void init_heuristic (uint8 size, out int16 [,] heuristic)
