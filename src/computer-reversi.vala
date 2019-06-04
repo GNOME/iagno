@@ -309,7 +309,17 @@ private abstract class ComputerReversi : ComputerPlayer
         /* For the first/first two moves play randomly so the game is not always the same */
         if (g.n_tiles < move_randomly)
         {
-            random_select (g, out best_move);
+            if (size != 8)
+                random_select (g, out best_move);
+            else
+            {
+                do
+                {
+                    random_select (g, out best_move);
+                }
+                while ((best_move.x == 1 || best_move.x == 6)
+                    && (best_move.y == 1 || best_move.y == 6));
+            }
             return;
         }
 
