@@ -572,10 +572,7 @@ private class GameView : Gtk.DrawingArea
                         }
                     });
         }
-        queue_draw_area ((int) (board_x + x * paving_size),
-                         (int) (board_y + y * paving_size),
-                         tile_size,
-                         tile_size);
+        queue_draw_tile (x, y);
     }
 
     private static int get_pixmap (Player color)
@@ -814,17 +811,21 @@ private class GameView : Gtk.DrawingArea
         else
             show_highlight = true;
 
-        queue_draw_area ((int) (board_x + old_highlight_x * paving_size),
-                         (int) (board_y + old_highlight_y * paving_size),
-                         tile_size,
-                         tile_size);
+        queue_draw_tile (old_highlight_x, old_highlight_y);
         if ((old_highlight_x != highlight_x)
          || (old_highlight_y != highlight_y))
-            queue_draw_area ((int) (board_x + highlight_x * paving_size),
-                             (int) (board_y + highlight_y * paving_size),
-                             tile_size,
-                             tile_size);
+            queue_draw_tile (highlight_x, highlight_y);
         return true;
+    }
+
+    private void queue_draw_tile (uint8 x, uint8 y)
+        requires (x < game_size)
+        requires (y < game_size)
+    {
+        queue_draw_area (board_x + paving_size * (int) x,
+                         board_y + paving_size * (int) y,
+                         tile_size,
+                         tile_size);
     }
 
     /*\
