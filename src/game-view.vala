@@ -72,11 +72,11 @@ private class GameView : Gtk.DrawingArea
     [CCode (notify = false)] private int board_y { private get { return (get_allocated_height () - board_size) / 2; }}
 
     /* Keyboard */
-    private bool show_highlight;
-    private bool highlight_set;
-    private uint8 highlight_x;
-    private uint8 highlight_y;
-    private uint8 highlight_state;
+    private bool show_highlight = false;
+    private bool highlight_set = false;
+    private uint8 highlight_x = uint8.MAX;
+    private uint8 highlight_y = uint8.MAX;
+    private uint8 highlight_state = 0;
     private const uint8 HIGHLIGHT_MAX = 5;
 
     /* Delay in milliseconds between tile flip frames */
@@ -144,7 +144,9 @@ private class GameView : Gtk.DrawingArea
 
     construct
     {
-        set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK);
+        set_events (Gdk.EventMask.EXPOSURE_MASK
+                  | Gdk.EventMask.BUTTON_PRESS_MASK
+                  | Gdk.EventMask.BUTTON_RELEASE_MASK);
         set_size_request (350, 350);
     }
 
@@ -353,9 +355,9 @@ private class GameView : Gtk.DrawingArea
                 }
                 cr.fill ();
 
-                if ((highlight_x == x && highlight_y == y)
-                 && (show_highlight || highlight_state != 0)
-                 && !game.is_complete)  // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
+                if (!game.is_complete   // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
+                 && (highlight_x == x && highlight_y == y)
+                 && (show_highlight || highlight_state != 0))
                 {
                     /* manage animated highlight */
                     if (show_highlight && highlight_state != HIGHLIGHT_MAX)
