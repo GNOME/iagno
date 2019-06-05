@@ -355,30 +355,7 @@ private class GameView : Gtk.DrawingArea
                 }
                 cr.fill ();
 
-                if (!game.is_complete   // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
-                 && (highlight_x == x && highlight_y == y)
-                 && (show_highlight || highlight_state != 0))
-                {
-                    /* manage animated highlight */
-                    if (show_highlight && highlight_state != HIGHLIGHT_MAX)
-                    {
-                        highlight_state ++;
-                        queue_draw_area (board_x + tile_x, board_y + tile_y, tile_size, tile_size);
-                    }
-                    else if (!show_highlight && highlight_state != 0)
-                        highlight_state = 0;    // TODO highlight_state--; on mouse click, conflict updating coords & showing the anim on previous place
-
-                    /* draw animated highlight */
-                    cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
-                    rounded_square (cr,
-                                    // TODO odd/even sizes problem
-                                    tile_x + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
-                                    tile_y + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
-                                    tile_size * highlight_state / HIGHLIGHT_MAX,
-                                    0,
-                                    background_radius);
-                    cr.fill ();
-                }
+                draw_highlight (cr, x, y, tile_x, tile_y);
 
                 /* draw pieces */
                 if (pixmaps [x, y] == 0)
@@ -396,6 +373,36 @@ private class GameView : Gtk.DrawingArea
             }
         }
         return false;
+    }
+
+    private void draw_highlight (Cairo.Context cr, uint8 x, uint8 y, int tile_x, int tile_y)
+    {
+        if (game.is_complete)   // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
+            return;
+        if (highlight_x != x || highlight_y != y)
+            return;
+        if (!show_highlight && highlight_state == 0)
+            return;
+
+        /* manage animated highlight */
+        if (show_highlight && highlight_state != HIGHLIGHT_MAX)
+        {
+            highlight_state ++;
+            queue_draw_area (board_x + tile_x, board_y + tile_y, tile_size, tile_size);
+        }
+        else if (!show_highlight && highlight_state != 0)
+            highlight_state = 0;    // TODO highlight_state--; on mouse click, conflict updating coords & showing the anim on previous place
+
+        /* draw animated highlight */
+        cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
+        rounded_square (cr,
+                        // TODO odd/even sizes problem
+                        tile_x + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
+                        tile_y + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
+                        tile_size * highlight_state / HIGHLIGHT_MAX,
+                        0,
+                        background_radius);
+        cr.fill ();
     }
 
     private const double HALF_PI = Math.PI / 2.0;
