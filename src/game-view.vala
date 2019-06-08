@@ -284,7 +284,7 @@ private class GameView : Gtk.DrawingArea
     private int tile_size;
     private int board_size;
 
-    private void calculate ()
+    private inline void calculate ()
         requires (game_is_set)
     {
         int size = int.min (get_allocated_width (), get_allocated_height ());
@@ -302,75 +302,20 @@ private class GameView : Gtk.DrawingArea
         calculate ();
 
         if (tiles_pattern == null || render_size != tile_size)
-        {
-            render_size = tile_size;
-
-            Cairo.Surface surface;
-            Cairo.Context context;
-
-            surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8,
-                                                                                              tile_size * 4);
-            context = new Cairo.Context (surface);
-            load_image (context, tile_size * 8, tile_size * 4);
-            tiles_pattern = new Cairo.Pattern.for_surface (surface);
-
-            if (apply_texture)
-            {
-                try
-                {
-                    noise_pixbuf = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/Reversi/ui/noise.png",
-                                                                          /* x */ tile_size,
-                                                                          /* y */ tile_size,
-                                                                          /* preserve aspect ratio */ false);
-                }
-                catch (Error e) { warning (e.message); }
-                noise_pixbuf_loaded = noise_pixbuf != null;
-                if (noise_pixbuf_loaded)
-                {
-                    surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size,
-                                                                                                      tile_size);
-                    context = new Cairo.Context (surface);
-                    Gdk.cairo_set_source_pixbuf (context, (!) noise_pixbuf, 0, 0);
-                    context.paint_with_alpha (texture_alpha);
-                    // or  surface = Gdk.cairo_surface_create_from_pixbuf ((!) noise_pixbuf, 0, null); ?
-
-                    noise_pattern = new Cairo.Pattern.for_surface (surface);
-                    // ((!) noise_pattern).set_extend (Cairo.Extend.REPEAT);
-                }
-            }
-        }
+            init_patterns (cr);
 
         cr.translate (board_x, board_y);
 
-        /* draw board */
-        cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
-        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size + border_width, board_size + border_width);
-        cr.fill_preserve ();
-        cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
-        cr.set_line_width (border_width);
-        cr.stroke ();
+        draw_board_background (cr);
+        draw_tiles_background (cr);
+        // TODO save result
 
-        /* draw tiles */
         for (uint8 x = 0; x < game_size; x++)
         {
             for (uint8 y = 0; y < game_size; y++)
             {
                 int tile_x = (int) x * paving_size;
                 int tile_y = (int) y * paving_size;
-
-                /* draw background */
-                cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
-                rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
-                if (apply_texture && noise_pixbuf_loaded)
-                {
-                    cr.fill_preserve ();
-
-                    var matrix = Cairo.Matrix.identity ();
-                    matrix.translate (-tile_x, -tile_y);
-                    ((!) noise_pattern).set_matrix (matrix);
-                    cr.set_source ((!) noise_pattern);
-                }
-                cr.fill ();
 
                 draw_highlight (cr, x, y, tile_x, tile_y);
 
@@ -392,7 +337,81 @@ private class GameView : Gtk.DrawingArea
         return false;
     }
 
-    private void draw_highlight (Cairo.Context cr, uint8 x, uint8 y, int tile_x, int tile_y)
+    private inline void init_patterns (Cairo.Context cr)
+    {
+        render_size = tile_size;
+
+        Cairo.Surface surface;
+        Cairo.Context context;
+
+        surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8,
+                                                                                          tile_size * 4);
+        context = new Cairo.Context (surface);
+        load_image (context, tile_size * 8, tile_size * 4);
+        tiles_pattern = new Cairo.Pattern.for_surface (surface);
+
+        if (apply_texture)
+        {
+            try
+            {
+                noise_pixbuf = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/Reversi/ui/noise.png",
+                                                                      /* x */ tile_size,
+                                                                      /* y */ tile_size,
+                                                                      /* preserve aspect ratio */ false);
+            }
+            catch (Error e) { warning (e.message); }
+            noise_pixbuf_loaded = noise_pixbuf != null;
+            if (noise_pixbuf_loaded)
+            {
+                surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size,
+                                                                                                  tile_size);
+                context = new Cairo.Context (surface);
+                Gdk.cairo_set_source_pixbuf (context, (!) noise_pixbuf, 0, 0);
+                context.paint_with_alpha (texture_alpha);
+                // or  surface = Gdk.cairo_surface_create_from_pixbuf ((!) noise_pixbuf, 0, null); ?
+
+                noise_pattern = new Cairo.Pattern.for_surface (surface);
+                // ((!) noise_pattern).set_extend (Cairo.Extend.REPEAT);
+            }
+        }
+    }
+
+    private inline void draw_board_background (Cairo.Context cr)
+    {
+        cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
+        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size + border_width, board_size + border_width);
+        cr.fill_preserve ();
+        cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
+        cr.set_line_width (border_width);
+        cr.stroke ();
+    }
+
+    private inline void draw_tiles_background (Cairo.Context cr)
+    {
+        for (uint8 x = 0; x < game_size; x++)
+        {
+            for (uint8 y = 0; y < game_size; y++)
+            {
+                int tile_x = (int) x * paving_size;
+                int tile_y = (int) y * paving_size;
+
+                cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
+                rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
+                if (apply_texture && noise_pixbuf_loaded)
+                {
+                    cr.fill_preserve ();
+
+                    var matrix = Cairo.Matrix.identity ();
+                    matrix.translate (-tile_x, -tile_y);
+                    ((!) noise_pattern).set_matrix (matrix);
+                    cr.set_source ((!) noise_pattern);
+                }
+                cr.fill ();
+            }
+        }
+    }
+
+    private inline void draw_highlight (Cairo.Context cr, uint8 x, uint8 y, int tile_x, int tile_y)
     {
         if (game.is_complete)   // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
             return;
