@@ -52,6 +52,7 @@ private class GameView : Gtk.DrawingArea
     private double border_green = 0.1;
     private double border_blue = 0.1;
     private int border_width = 3;
+    private double half_border_width = 1.5;
 
     private double spacing_red = 0.1;
     private double spacing_green = 0.3;
@@ -96,6 +97,7 @@ private class GameView : Gtk.DrawingArea
     private uint render_size = 0;
     private Cairo.Pattern? tiles_pattern = null;
     private Cairo.Pattern? scoreboard_tiles_pattern = null;
+    private Cairo.Pattern? board_pattern = null;
 
     private bool noise_pixbuf_loaded = false;
     private Gdk.Pixbuf? noise_pixbuf = null;
@@ -254,6 +256,7 @@ private class GameView : Gtk.DrawingArea
             border_green      = key.get_double  ("Border", "Green");
             border_blue       = key.get_double  ("Border", "Blue");
             border_width      = key.get_integer ("Border", "Width");
+            half_border_width = (double) border_width / 2.0;
 
             spacing_red       = key.get_double  ("Spacing", "Red");
             spacing_green     = key.get_double  ("Spacing", "Green");
@@ -283,6 +286,7 @@ private class GameView : Gtk.DrawingArea
     private int paving_size;
     private int tile_size;
     private int board_size;
+    private int board_size_with_borders;
 
     private inline void calculate ()
         requires (game_is_set)
@@ -292,6 +296,7 @@ private class GameView : Gtk.DrawingArea
         tile_size = paving_size - spacing_width;
         /* board_size excludes its borders */
         board_size = paving_size * game_size - spacing_width;
+        board_size_with_borders = board_size + 2 * border_width;
     }
 
     internal override bool draw (Cairo.Context cr)
@@ -299,16 +304,21 @@ private class GameView : Gtk.DrawingArea
         if (!game_is_set)
             return false;
 
+        // initialize
         calculate ();
 
-        if (tiles_pattern == null || render_size != tile_size)
+        if (board_pattern == null || tiles_pattern == null || render_size != tile_size)
             init_patterns (cr);
 
-        cr.translate (board_x, board_y);
+        // draw board
+        cr.translate (board_x - border_width, board_y - border_width);
 
-        draw_board_background (cr);
-        draw_tiles_background (cr);
-        // TODO save result
+        cr.set_source ((!) board_pattern);
+        cr.rectangle (0, 0, board_size_with_borders, board_size_with_borders);
+        cr.fill ();
+
+        // draw tiles (and highlight)
+        cr.translate (border_width, border_width);
 
         for (uint8 x = 0; x < game_size; x++)
         {
@@ -344,12 +354,14 @@ private class GameView : Gtk.DrawingArea
         Cairo.Surface surface;
         Cairo.Context context;
 
+        // tiles pattern
         surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8,
                                                                                           tile_size * 4);
         context = new Cairo.Context (surface);
         load_image (context, tile_size * 8, tile_size * 4);
         tiles_pattern = new Cairo.Pattern.for_surface (surface);
 
+        // noise pattern
         if (apply_texture)
         {
             try
@@ -374,12 +386,23 @@ private class GameView : Gtk.DrawingArea
                 // ((!) noise_pattern).set_extend (Cairo.Extend.REPEAT);
             }
         }
+
+        // board pattern
+        surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, board_size_with_borders,
+                                                                                          board_size_with_borders);
+        context = new Cairo.Context (surface);
+
+        draw_board_background (context);
+        draw_tiles_background (context);
+
+        board_pattern = new Cairo.Pattern.for_surface (surface);
     }
 
     private inline void draw_board_background (Cairo.Context cr)
     {
         cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
-        cr.rectangle (-border_width / 2.0, -border_width / 2.0, board_size + border_width, board_size + border_width);
+        cr.rectangle (/* x and y */ half_border_width, half_border_width,
+                      /* width and height */ board_size + border_width, board_size + border_width);
         cr.fill_preserve ();
         cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
         cr.set_line_width (border_width);
@@ -388,6 +411,7 @@ private class GameView : Gtk.DrawingArea
 
     private inline void draw_tiles_background (Cairo.Context cr)
     {
+        cr.translate (border_width, border_width);
         for (uint8 x = 0; x < game_size; x++)
         {
             for (uint8 y = 0; y < game_size; y++)
