@@ -405,27 +405,25 @@ private class GameView : Gtk.DrawingArea
     private inline void draw_tiles_background (Cairo.Context cr, ref Cairo.Pattern? noise_pattern)
     {
         cr.translate (border_width, border_width);
+
         for (uint8 x = 0; x < game_size; x++)
-        {
             for (uint8 y = 0; y < game_size; y++)
-            {
-                int tile_x = tile_xs [x, y];
-                int tile_y = tile_ys [x, y];
+                draw_tile_background (cr, ref noise_pattern, tile_xs [x, y], tile_ys [x, y]);
+    }
+    private inline void draw_tile_background (Cairo.Context cr, ref Cairo.Pattern? noise_pattern, int tile_x, int tile_y)
+    {
+        cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
+        rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
+        if (apply_texture && noise_pixbuf_loaded)
+        {
+            cr.fill_preserve ();
 
-                cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
-                rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
-                if (apply_texture && noise_pixbuf_loaded)
-                {
-                    cr.fill_preserve ();
-
-                    var matrix = Cairo.Matrix.identity ();
-                    matrix.translate (-tile_x, -tile_y);
-                    ((!) noise_pattern).set_matrix (matrix);
-                    cr.set_source ((!) noise_pattern);
-                }
-                cr.fill ();
-            }
+            var matrix = Cairo.Matrix.identity ();
+            matrix.translate (-tile_x, -tile_y);
+            ((!) noise_pattern).set_matrix (matrix);
+            cr.set_source ((!) noise_pattern);
         }
+        cr.fill ();
     }
 
     private inline void draw_highlight (Cairo.Context cr)
