@@ -100,8 +100,6 @@ private class GameView : Gtk.DrawingArea
     private Cairo.Pattern? board_pattern = null;
 
     private bool noise_pixbuf_loaded = false;
-    private Gdk.Pixbuf? noise_pixbuf = null;
-    private Cairo.Pattern? noise_pattern = null;
 
     /* The images being showed on each location */
     private int [,] pixmaps;
@@ -362,6 +360,9 @@ private class GameView : Gtk.DrawingArea
         tiles_pattern = new Cairo.Pattern.for_surface (surface);
 
         // noise pattern
+        Gdk.Pixbuf? noise_pixbuf = null;
+        Cairo.Pattern? noise_pattern = null;
+
         if (apply_texture)
         {
             try
@@ -393,7 +394,7 @@ private class GameView : Gtk.DrawingArea
         context = new Cairo.Context (surface);
 
         draw_board_background (context);
-        draw_tiles_background (context);
+        draw_tiles_background (context, ref noise_pattern);
 
         board_pattern = new Cairo.Pattern.for_surface (surface);
     }
@@ -409,7 +410,7 @@ private class GameView : Gtk.DrawingArea
         cr.stroke ();
     }
 
-    private inline void draw_tiles_background (Cairo.Context cr)
+    private inline void draw_tiles_background (Cairo.Context cr, ref Cairo.Pattern? noise_pattern)
     {
         cr.translate (border_width, border_width);
         for (uint8 x = 0; x < game_size; x++)
