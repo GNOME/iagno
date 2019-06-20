@@ -286,7 +286,6 @@ private class GameView : Gtk.DrawingArea
     private int paving_size;
     private int tile_size;
     private int board_size;
-    private int board_size_with_borders;
     private int [,] tile_xs;
     private int [,] tile_ys;
 
@@ -298,11 +297,9 @@ private class GameView : Gtk.DrawingArea
         int size = int.min (allocated_width, allocated_height);
         paving_size = (size - 2 * border_width + spacing_width) / game_size;
         tile_size = paving_size - spacing_width;
-        /* board_size excludes its borders */
-        board_size = paving_size * game_size - spacing_width;
-        board_size_with_borders = board_size + 2 * border_width;
-        board_x = (allocated_width  - board_size) / 2;
-        board_y = (allocated_height - board_size) / 2;
+        board_size = paving_size * game_size - spacing_width + 2 * border_width;
+        board_x = (allocated_width  - board_size) / 2 + border_width;
+        board_y = (allocated_height - board_size) / 2 + border_width;
 
         for (uint8 x = 0; x < game_size; x++)
         {
@@ -329,7 +326,7 @@ private class GameView : Gtk.DrawingArea
         cr.translate (board_x - border_width, board_y - border_width);
 
         cr.set_source ((!) board_pattern);
-        cr.rectangle (0, 0, /* width and height */ board_size_with_borders, board_size_with_borders);
+        cr.rectangle (0, 0, /* width and height */ board_size, board_size);
         cr.fill ();
 
         // draw tiles (and highlight)
@@ -406,8 +403,8 @@ private class GameView : Gtk.DrawingArea
         }
 
         // board pattern
-        surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, board_size_with_borders,
-                                                                                          board_size_with_borders);
+        surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, board_size,
+                                                                                          board_size);
         context = new Cairo.Context (surface);
 
         draw_board_background (context);
@@ -419,7 +416,7 @@ private class GameView : Gtk.DrawingArea
     private inline void draw_board_background (Cairo.Context cr)
     {
         cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
-        cr.rectangle (half_border_width, half_border_width, /* width and height */ board_size + border_width, board_size + border_width);
+        cr.rectangle (half_border_width, half_border_width, /* width and height */ board_size - border_width, board_size - border_width);
         cr.fill_preserve ();
         cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
         cr.set_line_width (border_width);
