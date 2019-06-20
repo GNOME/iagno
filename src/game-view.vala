@@ -361,8 +361,7 @@ private class GameView : Gtk.DrawingArea
             try
             {
                 noise_pixbuf = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/Reversi/ui/noise.png",
-                                                                      /* x */ tile_size,
-                                                                      /* y */ tile_size,
+                                                                      /* x and y */ tile_size, tile_size,
                                                                       /* preserve aspect ratio */ false);
             }
             catch (Error e) { warning (e.message); }
@@ -442,7 +441,9 @@ private class GameView : Gtk.DrawingArea
         // disappearing keyboard highlight after Escape pressed, if mouse hovered tile is not playable (else it is selected)
         bool display_ghost_highlight = !show_highlight
                                     && !show_mouse_highlight
-                                    && highlight_state != 0;
+                                    && highlight_state != 0
+                                    && old_highlight_x != uint8.MAX
+                                    && old_highlight_y != uint8.MAX;
 
         if (display_ghost_highlight)
             draw_tile_highlight (cr, old_highlight_x, old_highlight_y);
@@ -453,13 +454,13 @@ private class GameView : Gtk.DrawingArea
     }
     private inline void draw_tile_highlight (Cairo.Context cr, uint8 x, uint8 y)
     {
-        bool highlight_on = show_highlight || (show_mouse_highlight && (game.get_owner (x, y) == Player.NONE));
+        bool highlight_on = show_highlight || (show_mouse_highlight && game.test_placing_tile (x, y));
 
         /* manage animated highlight */
         if (highlight_on && highlight_state != HIGHLIGHT_MAX)
         {
             highlight_state++;
-            queue_draw_area (board_x + tile_xs [x, y], board_y + tile_ys [x, y], tile_size, tile_size);
+            queue_draw_tile (x, y);
         }
         else if (!highlight_on && highlight_state != 0)
         {
@@ -468,7 +469,7 @@ private class GameView : Gtk.DrawingArea
             // highlight state and redraw for the mouse highlight to re-animate when re-entering a playable
             // tile, or for the keyboard highlight to animate when disappearing; the first displays nothing
             highlight_state--;
-            queue_draw_area (board_x + tile_xs [x, y], board_y + tile_ys [x, y], tile_size, tile_size);
+            queue_draw_tile (x, y);
             if (old_highlight_x != x || old_highlight_y != y)   // is not a keyboard highlight disappearing
                 return;
         }
@@ -496,11 +497,9 @@ private class GameView : Gtk.DrawingArea
         if (pixmap == 0)
             return;
 
-        int texture_x = (pixmap % 8) * tile_size;
-        int texture_y = (pixmap / 8) * tile_size;
-
         var matrix = Cairo.Matrix.identity ();
-        matrix.translate (texture_x - tile_x, texture_y - tile_y);
+        matrix.translate (/* texture x */ (pixmap % 8) * tile_size - /* x position */ tile_x,
+                          /* texture y */ (pixmap / 8) * tile_size - /* y position */ tile_y);
         ((!) tiles_pattern).set_matrix (matrix);
         cr.set_source ((!) tiles_pattern);
         cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
