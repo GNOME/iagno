@@ -135,6 +135,8 @@ private class GameView : Gtk.DrawingArea
             game_is_set = true;
             game_size = _game.size;
             pixmaps = new int [game_size, game_size];
+            tile_xs = new int [game_size, game_size];
+            tile_ys = new int [game_size, game_size];
             for (uint8 x = 0; x < game_size; x++)
                 for (uint8 y = 0; y < game_size; y++)
                     pixmaps [x, y] = get_pixmap (_game.get_owner (x, y));
@@ -285,6 +287,8 @@ private class GameView : Gtk.DrawingArea
     private int tile_size;
     private int board_size;
     private int board_size_with_borders;
+    private int [,] tile_xs;
+    private int [,] tile_ys;
 
     private inline void calculate ()
         requires (game_is_set)
@@ -299,6 +303,15 @@ private class GameView : Gtk.DrawingArea
         board_size_with_borders = board_size + 2 * border_width;
         board_x = (allocated_width  - board_size) / 2;
         board_y = (allocated_height - board_size) / 2;
+
+        for (uint8 x = 0; x < game_size; x++)
+        {
+            for (uint8 y = 0; y < game_size; y++)
+            {
+                tile_xs [x, y] = paving_size * (int) x;
+                tile_ys [x, y] = paving_size * (int) y;
+            }
+        }
     }
 
     internal override bool draw (Cairo.Context cr)
@@ -326,8 +339,8 @@ private class GameView : Gtk.DrawingArea
         {
             for (uint8 y = 0; y < game_size; y++)
             {
-                int tile_x = (int) x * paving_size;
-                int tile_y = (int) y * paving_size;
+                int tile_x = tile_xs [x, y];
+                int tile_y = tile_ys [x, y];
 
                 draw_highlight (cr, x, y, tile_x, tile_y);
 
@@ -420,8 +433,8 @@ private class GameView : Gtk.DrawingArea
         {
             for (uint8 y = 0; y < game_size; y++)
             {
-                int tile_x = (int) x * paving_size;
-                int tile_y = (int) y * paving_size;
+                int tile_x = tile_xs [x, y];
+                int tile_y = tile_ys [x, y];
 
                 cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
                 rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
@@ -1033,8 +1046,8 @@ private class GameView : Gtk.DrawingArea
         requires (x < game_size)
         requires (y < game_size)
     {
-        queue_draw_area (board_x + paving_size * (int) x,
-                         board_y + paving_size * (int) y,
+        queue_draw_area (board_x + tile_xs [x, y],
+                         board_y + tile_ys [x, y],
                          tile_size,
                          tile_size);
     }
