@@ -312,7 +312,7 @@ private class GameView : Gtk.DrawingArea
         cr.translate (board_x - border_width, board_y - border_width);
 
         cr.set_source ((!) board_pattern);
-        cr.rectangle (0, 0, board_size_with_borders, board_size_with_borders);
+        cr.rectangle (0, 0, /* width and height */ board_size_with_borders, board_size_with_borders);
         cr.fill ();
 
         // draw tiles (and highlight)
@@ -338,7 +338,7 @@ private class GameView : Gtk.DrawingArea
                 matrix.translate (texture_x - tile_x, texture_y - tile_y);
                 ((!) tiles_pattern).set_matrix (matrix);
                 cr.set_source ((!) tiles_pattern);
-                cr.rectangle (tile_x, tile_y, tile_size, tile_size);
+                cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
                 cr.fill ();
             }
         }
@@ -402,8 +402,7 @@ private class GameView : Gtk.DrawingArea
     private inline void draw_board_background (Cairo.Context cr)
     {
         cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
-        cr.rectangle (/* x and y */ half_border_width, half_border_width,
-                      /* width and height */ board_size + border_width, board_size + border_width);
+        cr.rectangle (half_border_width, half_border_width, /* width and height */ board_size + border_width, board_size + border_width);
         cr.fill_preserve ();
         cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
         cr.set_line_width (border_width);
@@ -500,7 +499,7 @@ private class GameView : Gtk.DrawingArea
     {
         if (radius_percent <= 0)
         {
-            cr.rectangle (x + width / 2.0, y + width / 2.0, size + width, size + width);
+            cr.rectangle (x + width / 2.0, y + width / 2.0, /* width and height */ size + width, size + width);
             return;
         }
 
@@ -1044,6 +1043,7 @@ private class GameView : Gtk.DrawingArea
     {
         int height = scoreboard.get_allocated_height ();
         int width = scoreboard.get_allocated_width ();
+        double half_height = height / 2.0;
 
         cr.set_line_cap (Cairo.LineCap.ROUND);
         cr.set_line_join (Cairo.LineJoin.ROUND);
@@ -1053,7 +1053,7 @@ private class GameView : Gtk.DrawingArea
         cr.set_source_rgba (mark_red, mark_green, mark_blue, 1.0);
         cr.set_line_width (mark_width);
 
-        cr.translate (0, current_player_number * height / 2.0);
+        cr.translate (0, current_player_number * half_height);
         cr.move_to (height / 4.0, height / 8.0);
         cr.line_to (width - 5.0 * height / 8.0, height / 4.0);
         cr.line_to (height / 4.0, 3.0 * height / 8.0);
@@ -1069,21 +1069,21 @@ private class GameView : Gtk.DrawingArea
             load_image (c, height * 4, height * 2);
             scoreboard_tiles_pattern = new Cairo.Pattern.for_surface (surface);
 
-            cr.translate (width - height / 2.0, 0);
+            cr.translate (width - half_height, 0);
             var matrix = Cairo.Matrix.identity ();
 
             /* draw dark piece */
-            matrix.translate (height / 2.0, 0);
+            matrix.translate (half_height, 0);
             ((!) scoreboard_tiles_pattern).set_matrix (matrix);
             cr.set_source ((!) scoreboard_tiles_pattern);
-            cr.rectangle (0, 0, height / 2.0, height / 2.0);
+            cr.rectangle (0, 0, /* width and height */ half_height, half_height);
             cr.fill ();
 
             /* draw white piece */
             matrix.translate (3 * height, height);
             ((!) scoreboard_tiles_pattern).set_matrix (matrix);
             cr.set_source ((!) scoreboard_tiles_pattern);
-            cr.rectangle (0, height / 2.0, height / 2.0, height / 2.0);
+            cr.rectangle (0, half_height, /* width and height */ half_height, half_height);
             cr.fill ();
         // }
 
