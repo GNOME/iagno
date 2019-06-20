@@ -496,26 +496,23 @@ private class GameView : Gtk.DrawingArea
     private inline void draw_playables (Cairo.Context cr)
     {
         for (uint8 x = 0; x < game_size; x++)
-        {
             for (uint8 y = 0; y < game_size; y++)
-            {
-                if (pixmaps [x, y] == 0)
-                    continue;
+                draw_playable (cr, pixmaps [x, y], tile_xs [x, y], tile_ys [x, y]);
+    }
+    private inline void draw_playable (Cairo.Context cr, int pixmap, int tile_x, int tile_y)
+    {
+        if (pixmap == 0)
+            return;
 
-                int tile_x = tile_xs [x, y];
-                int tile_y = tile_ys [x, y];
+        int texture_x = (pixmap % 8) * tile_size;
+        int texture_y = (pixmap / 8) * tile_size;
 
-                int texture_x = (pixmaps [x, y] % 8) * tile_size;
-                int texture_y = (pixmaps [x, y] / 8) * tile_size;
-
-                var matrix = Cairo.Matrix.identity ();
-                matrix.translate (texture_x - tile_x, texture_y - tile_y);
-                ((!) tiles_pattern).set_matrix (matrix);
-                cr.set_source ((!) tiles_pattern);
-                cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
-                cr.fill ();
-            }
-        }
+        var matrix = Cairo.Matrix.identity ();
+        matrix.translate (texture_x - tile_x, texture_y - tile_y);
+        ((!) tiles_pattern).set_matrix (matrix);
+        cr.set_source ((!) tiles_pattern);
+        cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
+        cr.fill ();
     }
 
     /*\
