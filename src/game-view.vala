@@ -332,30 +332,9 @@ private class GameView : Gtk.DrawingArea
         // draw tiles (and highlight)
         cr.translate (border_width, border_width);
 
-        for (uint8 x = 0; x < game_size; x++)
-        {
-            for (uint8 y = 0; y < game_size; y++)
-            {
-                int tile_x = tile_xs [x, y];
-                int tile_y = tile_ys [x, y];
+        draw_highlight (cr);
+        draw_playables (cr);
 
-                draw_highlight (cr, x, y, tile_x, tile_y);
-
-                /* draw pieces */
-                if (pixmaps [x, y] == 0)
-                    continue;
-
-                int texture_x = (pixmaps [x, y] % 8) * tile_size;
-                int texture_y = (pixmaps [x, y] / 8) * tile_size;
-
-                var matrix = Cairo.Matrix.identity ();
-                matrix.translate (texture_x - tile_x, texture_y - tile_y);
-                ((!) tiles_pattern).set_matrix (matrix);
-                cr.set_source ((!) tiles_pattern);
-                cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
-                cr.fill ();
-            }
-        }
         return false;
     }
 
@@ -449,11 +428,17 @@ private class GameView : Gtk.DrawingArea
         }
     }
 
-    private inline void draw_highlight (Cairo.Context cr, uint8 x, uint8 y, int tile_x, int tile_y)
+    private inline void draw_highlight (Cairo.Context cr)
     {
         if (game.is_complete)   // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
             return;
 
+        for (uint8 x = 0; x < game_size; x++)
+            for (uint8 y = 0; y < game_size; y++)
+                draw_tile_highlight (cr, x, y);
+    }
+    private inline void draw_tile_highlight (Cairo.Context cr, uint8 x, uint8 y)
+    {
         bool display_mouse_highlight = !show_highlight  // no mouse highlight if keyboard one
                                     && (show_mouse_highlight    || highlight_state != 0)
                                     && (mouse_highlight_x == x)
@@ -482,7 +467,7 @@ private class GameView : Gtk.DrawingArea
         if (highlight_on && highlight_state != HIGHLIGHT_MAX)
         {
             highlight_state++;
-            queue_draw_area (board_x + tile_x, board_y + tile_y, tile_size, tile_size);
+            queue_draw_area (board_x + tile_xs [x, y], board_y + tile_ys [x, y], tile_size, tile_size);
         }
         else if (!highlight_on && highlight_state != 0)
         {
@@ -491,7 +476,7 @@ private class GameView : Gtk.DrawingArea
             // highlight state and redraw for the mouse highlight to re-animate when re-entering a playable
             // tile, or for the keyboard highlight to animate when disappearing; the first displays nothing
             highlight_state--;
-            queue_draw_area (board_x + tile_x, board_y + tile_y, tile_size, tile_size);
+            queue_draw_area (board_x + tile_xs [x, y], board_y + tile_ys [x, y], tile_size, tile_size);
             if (old_highlight_x != x || old_highlight_y != y)   // is not a keyboard highlight disappearing
                 return;
         }
@@ -500,13 +485,42 @@ private class GameView : Gtk.DrawingArea
         cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
         rounded_square (cr,
                         // TODO odd/even sizes problem
-                        tile_x + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
-                        tile_y + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
+                        tile_xs [x, y] + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
+                        tile_ys [x, y] + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
                         tile_size * highlight_state / HIGHLIGHT_MAX,
                         0,
                         background_radius);
         cr.fill ();
     }
+
+    private inline void draw_playables (Cairo.Context cr)
+    {
+        for (uint8 x = 0; x < game_size; x++)
+        {
+            for (uint8 y = 0; y < game_size; y++)
+            {
+                if (pixmaps [x, y] == 0)
+                    continue;
+
+                int tile_x = tile_xs [x, y];
+                int tile_y = tile_ys [x, y];
+
+                int texture_x = (pixmaps [x, y] % 8) * tile_size;
+                int texture_y = (pixmaps [x, y] / 8) * tile_size;
+
+                var matrix = Cairo.Matrix.identity ();
+                matrix.translate (texture_x - tile_x, texture_y - tile_y);
+                ((!) tiles_pattern).set_matrix (matrix);
+                cr.set_source ((!) tiles_pattern);
+                cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
+                cr.fill ();
+            }
+        }
+    }
+
+    /*\
+    * * drawing utilities
+    \*/
 
     private const double HALF_PI = Math.PI / 2.0;
     private void rounded_square (Cairo.Context cr, double x, double y, int size, double width, double radius_percent)
