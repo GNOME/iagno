@@ -431,34 +431,28 @@ private class GameView : Gtk.DrawingArea
         if (game.is_complete)   // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
             return;
 
-        for (uint8 x = 0; x < game_size; x++)
-            for (uint8 y = 0; y < game_size; y++)
-                draw_tile_highlight (cr, x, y);
-    }
-    private inline void draw_tile_highlight (Cairo.Context cr, uint8 x, uint8 y)
-    {
         bool display_mouse_highlight = !show_highlight  // no mouse highlight if keyboard one
-                                    && (show_mouse_highlight    || highlight_state != 0)
-                                    && (mouse_highlight_x == x)
-                                    && (mouse_highlight_y == y)
+                                    && (show_mouse_highlight || highlight_state != 0)
                                     // disable the hover if the computer is thinking; that should not happen with current AI
                                     && (iagno_instance.player_one == game.current_color || iagno_instance.computer == null);
 
         bool display_keybd_highlight = show_highlight
-                                    && !show_mouse_highlight
-                                    && (highlight_x == x)
-                                    && (highlight_y == y);
+                                    && !show_mouse_highlight;
 
         // disappearing keyboard highlight after Escape pressed, if mouse hovered tile is not playable (else it is selected)
         bool display_ghost_highlight = !show_highlight
                                     && !show_mouse_highlight
-                                    && highlight_state != 0
-                                    && (old_highlight_x == x)
-                                    && (old_highlight_y == y);
+                                    && highlight_state != 0;
 
-        if (!display_mouse_highlight && !display_keybd_highlight && !display_ghost_highlight)
-            return;
-
+        if (display_ghost_highlight)
+            draw_tile_highlight (cr, old_highlight_x, old_highlight_y);
+        else if (display_mouse_highlight)
+            draw_tile_highlight (cr, mouse_highlight_x, mouse_highlight_y);
+        else if (display_keybd_highlight)
+            draw_tile_highlight (cr, highlight_x, highlight_y);
+    }
+    private inline void draw_tile_highlight (Cairo.Context cr, uint8 x, uint8 y)
+    {
         bool highlight_on = show_highlight || (show_mouse_highlight && (game.get_owner (x, y) == Player.NONE));
 
         /* manage animated highlight */
