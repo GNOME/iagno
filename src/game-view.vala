@@ -69,8 +69,8 @@ private class GameView : Gtk.DrawingArea
     [CCode (notify = false)] internal string sound_flip     { internal get; private set; }
     [CCode (notify = false)] internal string sound_gameover { internal get; private set; }
 
-    [CCode (notify = false)] private int board_x { private get { return (get_allocated_width ()  - board_size) / 2; }}
-    [CCode (notify = false)] private int board_y { private get { return (get_allocated_height () - board_size) / 2; }}
+    private int board_x;
+    private int board_y;
 
     /* Keyboard */
     private bool show_highlight = false;
@@ -289,12 +289,16 @@ private class GameView : Gtk.DrawingArea
     private inline void calculate ()
         requires (game_is_set)
     {
-        int size = int.min (get_allocated_width (), get_allocated_height ());
+        int allocated_width  = get_allocated_width ();
+        int allocated_height = get_allocated_height ();
+        int size = int.min (allocated_width, allocated_height);
         paving_size = (size - 2 * border_width + spacing_width) / game_size;
         tile_size = paving_size - spacing_width;
         /* board_size excludes its borders */
         board_size = paving_size * game_size - spacing_width;
         board_size_with_borders = board_size + 2 * border_width;
+        board_x = (allocated_width  - board_size) / 2;
+        board_y = (allocated_height - board_size) / 2;
     }
 
     internal override bool draw (Cairo.Context cr)
