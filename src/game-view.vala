@@ -137,6 +137,7 @@ private class GameView : Gtk.DrawingArea
             pixmaps = new int [game_size, game_size];
             tile_xs = new int [game_size, game_size];
             tile_ys = new int [game_size, game_size];
+            init_possible_moves ();
             for (uint8 x = 0; x < game_size; x++)
                 for (uint8 y = 0; y < game_size; y++)
                     pixmaps [x, y] = get_pixmap (_game.get_owner (x, y));
@@ -333,6 +334,7 @@ private class GameView : Gtk.DrawingArea
         cr.translate (border_width, border_width);
 
         draw_highlight (cr);
+        add_highlights (cr);
         draw_playables (cr);
 
         return false;
@@ -473,17 +475,42 @@ private class GameView : Gtk.DrawingArea
             if (old_highlight_x != x || old_highlight_y != y)   // is not a keyboard highlight disappearing
                 return;
         }
+        highlight_tile (cr, x, y, highlight_state);
+    }
 
-        /* draw animated highlight */
-        cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
-        rounded_square (cr,
-                        // TODO odd/even sizes problem
-                        tile_xs [x, y] + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
-                        tile_ys [x, y] + tile_size * (HIGHLIGHT_MAX - highlight_state) / (2 * HIGHLIGHT_MAX),
-                        tile_size * highlight_state / HIGHLIGHT_MAX,
-                        0,
-                        background_radius);
-        cr.fill ();
+    private inline void add_highlights (Cairo.Context cr)
+    {
+        if (playable_tiles_highlight_state == 0)
+            return;
+        if (iagno_instance.computer != null && iagno_instance.player_one != game.current_color)
+        {
+            init_possible_moves ();
+            return;
+        }
+
+        bool decreasing = playable_tiles_highlight_state > HIGHLIGHT_MAX;
+        uint8 intensity;
+        if (decreasing)
+            intensity = 2 * HIGHLIGHT_MAX + 1 - playable_tiles_highlight_state;
+        else
+            intensity = playable_tiles_highlight_state;
+
+        for (uint8 x = 0; x < game_size; x++)
+            for (uint8 y = 0; y < game_size; y++)
+                add_highlight (cr, x, y, intensity);
+
+        if (decreasing && intensity == 1)
+            init_possible_moves ();
+        else
+            playable_tiles_highlight_state++;
+    }
+    private inline void add_highlight (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity)
+    {
+        if (possible_moves [x, y] == false)
+            return;
+
+        queue_draw_tile (x, y);
+        highlight_tile (cr, x, y, intensity);
     }
 
     private inline void draw_playables (Cairo.Context cr)
@@ -563,6 +590,19 @@ private class GameView : Gtk.DrawingArea
         {
             warning ("Failed to load theme image %s: %s", pieces_file, e.message);
         }
+    }
+
+    private void highlight_tile (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity)
+    {
+        cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
+        rounded_square (cr,
+                        // TODO odd/even sizes problem
+                        tile_xs [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
+                        tile_ys [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
+                        tile_size * intensity / HIGHLIGHT_MAX,
+                        0,
+                        background_radius);
+        cr.fill ();
     }
 
     /*\
@@ -829,7 +869,7 @@ private class GameView : Gtk.DrawingArea
                 highlight_set = true;
                 highlight_x = (uint8) x;
                 highlight_y = (uint8) y;
-                move (highlight_x, highlight_y);
+                move_if_possible (highlight_x, highlight_y);
                 if (game.test_placing_tile (highlight_x, highlight_y))
                     queue_draw_tile (highlight_x, highlight_y);
             }
@@ -903,7 +943,7 @@ private class GameView : Gtk.DrawingArea
 
         if (show_highlight && (key == "space" || key == "Return" || key == "KP_Enter"))
         {
-            move (highlight_x, highlight_y);
+            move_if_possible (highlight_x, highlight_y);
             return true;
         }
 
@@ -957,7 +997,7 @@ private class GameView : Gtk.DrawingArea
             case "KP_Enter":
                 if (show_mouse_highlight)
                 {
-                    move (mouse_highlight_x, mouse_highlight_y);
+                    move_if_possible (mouse_highlight_x, mouse_highlight_y);
                     return true;
                 }
                 else if (mouse_position_set)
@@ -1052,7 +1092,49 @@ private class GameView : Gtk.DrawingArea
     }
 
     /*\
-    * * Scoreboard
+    * * testing move
+    \*/
+
+    private uint8 playable_tiles_highlight_state;
+    private bool [,] possible_moves;
+
+    private void init_possible_moves ()
+    {
+        playable_tiles_highlight_state = 0;
+        possible_moves = new bool [game_size, game_size];
+
+        for (uint8 x = 0; x < game_size; x++)
+            for (uint8 y = 0; y < game_size; y++)
+                possible_moves [x, y] = false;
+    }
+
+    private inline void move_if_possible (uint8 x, uint8 y)
+    {
+        if ((iagno_instance.computer == null || iagno_instance.player_one == game.current_color)
+         && (game.get_owner (x, y) != Player.NONE))
+            highlight_playable_tiles ();
+        else
+            move (x, y);
+    }
+
+    private inline void highlight_playable_tiles ()
+    {
+        if (playable_tiles_highlight_state != 0)
+            return;
+
+        SList<PossibleMove?> moves;
+        game.get_possible_moves (out moves);
+        playable_tiles_highlight_state = 1;
+        moves.@foreach ((move) => {
+                uint8 x = ((!) move).x;
+                uint8 y = ((!) move).y;
+                possible_moves [x, y] = true;
+                queue_draw_tile (x, y);
+            });
+    }
+
+    /*\
+    * * scoreboard
     \*/
 
     private bool draw_scoreboard (Cairo.Context cr)
