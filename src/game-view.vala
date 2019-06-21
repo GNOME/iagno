@@ -111,6 +111,7 @@ private class GameView : Gtk.DrawingArea
     private int current_player_number = 0;
 
     internal signal void move (uint8 x, uint8 y);
+    internal signal void clear_impossible_to_move_here_warning ();
 
     private bool game_is_set = false;
     private uint8 game_size;
@@ -908,6 +909,9 @@ private class GameView : Gtk.DrawingArea
         bool old_show_mouse_highlight = show_mouse_highlight;
         show_mouse_highlight = game.test_placing_tile (x, y);
 
+        if (show_mouse_highlight)
+            clear_impossible_to_move_here_warning ();
+
         if (old_show_mouse_highlight && !show_mouse_highlight)
         {
             old_highlight_x = uint8.MAX;
@@ -1054,6 +1058,9 @@ private class GameView : Gtk.DrawingArea
         }
 
         highlight_set = true;
+
+        if (key != "space" && key != "Return" && key != "KP_Enter")
+            clear_impossible_to_move_here_warning ();
 
         if (key == "Escape")
             show_highlight = false;

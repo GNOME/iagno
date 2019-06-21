@@ -214,6 +214,7 @@ private class Iagno : Gtk.Application
 
         view = new GameView (this);
         view.move.connect (player_move_cb);
+        view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
         DrawingArea scoredrawing = (DrawingArea) builder.get_object ("scoredrawing");
         view.scoreboard = scoredrawing;
@@ -534,6 +535,12 @@ private class Iagno : Gtk.Application
             /* Translators: during a game, notification to display when the player tries to make an illegal move */
             window.set_subtitle (_("You can’t move there!"));
         }
+    }
+
+    private void clear_impossible_to_move_here_warning ()
+        requires (game_is_set)
+    {
+        window.clear_subtitle ();
     }
 
     /*\

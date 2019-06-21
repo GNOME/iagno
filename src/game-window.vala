@@ -270,6 +270,11 @@ private class GameWindow : ApplicationWindow
         headerbar.set_subtitle (subtitle);
     }
 
+    internal void clear_subtitle ()
+    {
+        headerbar.set_subtitle (null);
+    }
+
     internal void finish_game ()
     {
         game_finished = true;
