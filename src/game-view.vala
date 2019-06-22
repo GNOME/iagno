@@ -909,9 +909,6 @@ private class GameView : Gtk.DrawingArea
                 highlight_x = (uint8) x;
                 highlight_y = (uint8) y;
                 move_if_possible (highlight_x, highlight_y);
-                unowned PossibleMove move;
-                if (game.test_placing_tile (highlight_x, highlight_y, out move))
-                    queue_draw_tile (highlight_x, highlight_y);
             }
         }
 
