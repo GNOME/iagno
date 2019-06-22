@@ -902,6 +902,8 @@ private class GameView : Gtk.DrawingArea
             if (game.current_state.is_valid_location_signed (x, y))
             {
                 show_highlight = false;
+                old_highlight_x = highlight_x;
+                old_highlight_y = highlight_y;
                 queue_draw ();
                 highlight_set = true;
                 highlight_x = (uint8) x;
