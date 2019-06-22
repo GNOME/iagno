@@ -50,11 +50,17 @@ Green=0.3
 Blue=0.2
 Width=2
 
-[Highlight]
+[Highlight hard]
 Red=0.1
 Green=0.3
 Blue=0.2
 Alpha=0.4
+
+[Highlight soft]
+Red=0.1
+Green=0.3
+Blue=0.2
+Alpha=0.2
 
 [Margin]
 #Width=0

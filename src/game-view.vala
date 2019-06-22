@@ -59,10 +59,15 @@ private class GameView : Gtk.DrawingArea
     private double spacing_blue = 0.2;
     private int spacing_width = 2;
 
-    private double highlight_red = 0.1;
-    private double highlight_green = 0.3;
-    private double highlight_blue = 0.2;
-    private double highlight_alpha = 0.4;
+    private double highlight_hard_red = 0.1;
+    private double highlight_hard_green = 0.3;
+    private double highlight_hard_blue = 0.2;
+    private double highlight_hard_alpha = 0.4;
+
+    private double highlight_soft_red = 0.1;
+    private double highlight_soft_green = 0.3;
+    private double highlight_soft_blue = 0.2;
+    private double highlight_soft_alpha = 0.2;
 
     // private int margin_width = 0;
 
@@ -241,39 +246,44 @@ private class GameView : Gtk.DrawingArea
             if (Path.get_dirname (pieces_file) != svg_path)
                 pieces_file = Path.build_filename (svg_path, "black_and_white.svg");
 
-            background_red    = key.get_double  ("Background", "Red");
-            background_green  = key.get_double  ("Background", "Green");
-            background_blue   = key.get_double  ("Background", "Blue");
-            background_radius = key.get_integer ("Background", "Radius");
+            background_red       = key.get_double  ("Background", "Red");
+            background_green     = key.get_double  ("Background", "Green");
+            background_blue      = key.get_double  ("Background", "Blue");
+            background_radius    = key.get_integer ("Background", "Radius");
 
-            texture_alpha     = key.get_double  ("Background", "TextureAlpha");
-            apply_texture     = (texture_alpha > 0.0) && (texture_alpha <= 1.0);
+            texture_alpha        = key.get_double  ("Background", "TextureAlpha");
+            apply_texture        = (texture_alpha > 0.0) && (texture_alpha <= 1.0);
 
-            mark_red          = key.get_double  ("Mark", "Red");
-            mark_green        = key.get_double  ("Mark", "Green");
-            mark_blue         = key.get_double  ("Mark", "Blue");
-            mark_width        = key.get_integer ("Mark", "Width");
+            mark_red             = key.get_double  ("Mark", "Red");
+            mark_green           = key.get_double  ("Mark", "Green");
+            mark_blue            = key.get_double  ("Mark", "Blue");
+            mark_width           = key.get_integer ("Mark", "Width");
 
-            border_red        = key.get_double  ("Border", "Red");
-            border_green      = key.get_double  ("Border", "Green");
-            border_blue       = key.get_double  ("Border", "Blue");
-            border_width      = key.get_integer ("Border", "Width");
-            half_border_width = (double) border_width / 2.0;
+            border_red           = key.get_double  ("Border", "Red");
+            border_green         = key.get_double  ("Border", "Green");
+            border_blue          = key.get_double  ("Border", "Blue");
+            border_width         = key.get_integer ("Border", "Width");
+            half_border_width    = (double) border_width / 2.0;
 
-            spacing_red       = key.get_double  ("Spacing", "Red");
-            spacing_green     = key.get_double  ("Spacing", "Green");
-            spacing_blue      = key.get_double  ("Spacing", "Blue");
-            spacing_width     = key.get_integer ("Spacing", "Width");
+            spacing_red          = key.get_double  ("Spacing", "Red");
+            spacing_green        = key.get_double  ("Spacing", "Green");
+            spacing_blue         = key.get_double  ("Spacing", "Blue");
+            spacing_width        = key.get_integer ("Spacing", "Width");
 
-            highlight_red     = key.get_double  ("Highlight", "Red");
-            highlight_green   = key.get_double  ("Highlight", "Green");
-            highlight_blue    = key.get_double  ("Highlight", "Blue");
-            highlight_alpha   = key.get_double  ("Highlight", "Alpha");
+            highlight_hard_red   = key.get_double  ("Highlight hard", "Red");
+            highlight_hard_green = key.get_double  ("Highlight hard", "Green");
+            highlight_hard_blue  = key.get_double  ("Highlight hard", "Blue");
+            highlight_hard_alpha = key.get_double  ("Highlight hard", "Alpha");
 
-            // margin_width     = key.get_integer  ("Margin", "Width");
+            highlight_soft_red   = key.get_double  ("Highlight soft", "Red");
+            highlight_soft_green = key.get_double  ("Highlight soft", "Green");
+            highlight_soft_blue  = key.get_double  ("Highlight soft", "Blue");
+            highlight_soft_alpha = key.get_double  ("Highlight soft", "Alpha");
 
-            sound_flip          = key.get_string  ("Sound", "Flip");
-            sound_gameover      = key.get_string  ("Sound", "GameOver");
+         // margin_width         = key.get_integer ("Margin", "Width");
+
+            sound_flip           = key.get_string  ("Sound", "Flip");
+            sound_gameover       = key.get_string  ("Sound", "GameOver");
         }
         catch (KeyFileError e)      // TODO better
         {
@@ -457,7 +467,9 @@ private class GameView : Gtk.DrawingArea
     }
     private inline void draw_tile_highlight (Cairo.Context cr, uint8 x, uint8 y)
     {
-        bool highlight_on = show_highlight || (show_mouse_highlight && game.test_placing_tile (x, y));
+        unowned PossibleMove move;
+        bool test_placing_tile = game.test_placing_tile (x, y, out move);
+        bool highlight_on = show_highlight || (show_mouse_highlight && test_placing_tile);
 
         /* manage animated highlight */
         if (highlight_on && highlight_state != HIGHLIGHT_MAX)
@@ -476,7 +488,28 @@ private class GameView : Gtk.DrawingArea
             if (old_highlight_x != x || old_highlight_y != y)   // is not a keyboard highlight disappearing
                 return;
         }
-        highlight_tile (cr, x, y, highlight_state);
+        highlight_tile (cr, x, y, highlight_state, /* soft highlight */ false);
+        if (test_placing_tile && !(iagno_instance.computer != null && iagno_instance.player_one != game.current_color))
+        {
+            highlight_turnable_tiles (cr, move.x, move.y,  0, -1, move.n_tiles_n );
+            highlight_turnable_tiles (cr, move.x, move.y,  1, -1, move.n_tiles_ne);
+            highlight_turnable_tiles (cr, move.x, move.y,  1,  0, move.n_tiles_e );
+            highlight_turnable_tiles (cr, move.x, move.y,  1,  1, move.n_tiles_se);
+            highlight_turnable_tiles (cr, move.x, move.y,  0,  1, move.n_tiles_s );
+            highlight_turnable_tiles (cr, move.x, move.y, -1,  1, move.n_tiles_so);
+            highlight_turnable_tiles (cr, move.x, move.y, -1,  0, move.n_tiles_o );
+            highlight_turnable_tiles (cr, move.x, move.y, -1, -1, move.n_tiles_no);
+        }
+    }
+    private inline void highlight_turnable_tiles (Cairo.Context cr, uint8 x, uint8 y, int8 x_step, int8 y_step, uint8 count)
+    {
+        for (; count > 0; count--)
+        {
+            int8 _x = (int8) x + ((int8) count * x_step);
+            int8 _y = (int8) y + ((int8) count * y_step);
+            queue_draw_tile (_x, _y);
+            highlight_tile (cr, _x, _y, highlight_state, /* soft highlight */ true);
+        }
     }
 
     private inline void add_highlights (Cairo.Context cr)
@@ -511,7 +544,7 @@ private class GameView : Gtk.DrawingArea
             return;
 
         queue_draw_tile (x, y);
-        highlight_tile (cr, x, y, intensity);
+        highlight_tile (cr, x, y, intensity, /* soft highlight */ true);
     }
 
     private inline void draw_playables (Cairo.Context cr)
@@ -593,9 +626,12 @@ private class GameView : Gtk.DrawingArea
         }
     }
 
-    private void highlight_tile (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity)
+    private void highlight_tile (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity, bool soft_highlight)
     {
-        cr.set_source_rgba (highlight_red, highlight_green, highlight_blue, highlight_alpha);
+        if (soft_highlight)
+            cr.set_source_rgba (highlight_soft_red, highlight_soft_green, highlight_soft_blue, highlight_soft_alpha);
+        else
+            cr.set_source_rgba (highlight_hard_red, highlight_hard_green, highlight_hard_blue, highlight_hard_alpha);
         rounded_square (cr,
                         // TODO odd/even sizes problem
                         tile_xs [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
@@ -871,7 +907,8 @@ private class GameView : Gtk.DrawingArea
                 highlight_x = (uint8) x;
                 highlight_y = (uint8) y;
                 move_if_possible (highlight_x, highlight_y);
-                if (game.test_placing_tile (highlight_x, highlight_y))
+                unowned PossibleMove move;
+                if (game.test_placing_tile (highlight_x, highlight_y, out move))
                     queue_draw_tile (highlight_x, highlight_y);
             }
         }
@@ -907,7 +944,8 @@ private class GameView : Gtk.DrawingArea
             return;
 
         bool old_show_mouse_highlight = show_mouse_highlight;
-        show_mouse_highlight = game.test_placing_tile (x, y);
+        unowned PossibleMove move;
+        show_mouse_highlight = game.test_placing_tile (x, y, out move);
 
         if (show_mouse_highlight)
             clear_impossible_to_move_here_warning ();
