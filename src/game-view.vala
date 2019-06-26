@@ -168,6 +168,8 @@ private class GameView : Gtk.DrawingArea
                   | Gdk.EventMask.BUTTON_RELEASE_MASK
                   | Gdk.EventMask.POINTER_MOTION_MASK);
         set_size_request (350, 350);
+
+        init_mouse ();
     }
 
     private Iagno iagno_instance;
@@ -642,6 +644,16 @@ private class GameView : Gtk.DrawingArea
         cr.fill ();
     }
 
+    private void queue_draw_tile (uint8 x, uint8 y)
+        requires (x < game_size)
+        requires (y < game_size)
+    {
+        queue_draw_area (board_x + tile_xs [x, y],
+                         board_y + tile_ys [x, y],
+                         tile_size,
+                         tile_size);
+    }
+
     /*\
     * * turning tiles
     \*/
@@ -782,7 +794,7 @@ private class GameView : Gtk.DrawingArea
                         {
                             animate_timeout = 0;
                             if (!show_highlight)
-                                _motion_notify_event (mouse_position_x, mouse_position_y, /* force redraw */ true);
+                                _on_motion (mouse_position_x, mouse_position_y, /* force redraw */ true);
                             return Source.REMOVE;
                         }
                     });
@@ -890,35 +902,18 @@ private class GameView : Gtk.DrawingArea
     * * user actions
     \*/
 
-    internal override bool button_press_event (Gdk.EventButton event)
+    private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
+
+    private void init_mouse ()  // called on construct
     {
-        if (!game_is_set)
-            return false;
-
-        if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
-        {
-            int8 x = (int8) ((event.x - board_x) / paving_size);
-            int8 y = (int8) ((event.y - board_y) / paving_size);
-            if (game.current_state.is_valid_location_signed (x, y))
-            {
-                show_highlight = false;
-                old_highlight_x = highlight_x;
-                old_highlight_y = highlight_y;
-                queue_draw ();
-                highlight_set = true;
-                highlight_x = (uint8) x;
-                highlight_y = (uint8) y;
-                move_if_possible (highlight_x, highlight_y);
-            }
-        }
-
-        return true;
+        motion_controller = new Gtk.EventControllerMotion (this);
+        motion_controller.motion.connect (on_motion);
     }
 
-    internal override bool motion_notify_event (Gdk.EventMotion event)
+    private void on_motion (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)
     {
-        uint8 x = (uint8) ((event.x - board_x) / paving_size);
-        uint8 y = (uint8) ((event.y - board_y) / paving_size);
+        uint8 x = (uint8) ((event_x - board_x) / paving_size);
+        uint8 y = (uint8) ((event_y - board_y) / paving_size);
         if ((x >= 0 && x < game_size)
          && (y >= 0 && y < game_size)
          && ((x != mouse_position_x)
@@ -930,12 +925,10 @@ private class GameView : Gtk.DrawingArea
             if (show_highlight
              || (x != mouse_highlight_x)
              || (y != mouse_highlight_y))
-                Timeout.add (200, () => { _motion_notify_event (x, y); return Source.REMOVE; });
+                Timeout.add (200, () => { _on_motion (x, y); return Source.REMOVE; });
         }
-
-        return base.motion_notify_event (event);
     }
-    private void _motion_notify_event (uint8 x, uint8 y, bool force_redraw = false)
+    private void _on_motion (uint8 x, uint8 y, bool force_redraw = false)
     {
         if (!force_redraw
          && ((x != mouse_position_x)
@@ -973,6 +966,31 @@ private class GameView : Gtk.DrawingArea
         {
             queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
         }
+    }
+
+    internal override bool button_press_event (Gdk.EventButton event)
+    {
+        if (!game_is_set)
+            return false;
+
+        if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
+        {
+            int8 x = (int8) ((event.x - board_x) / paving_size);
+            int8 y = (int8) ((event.y - board_y) / paving_size);
+            if (game.current_state.is_valid_location_signed (x, y))
+            {
+                show_highlight = false;
+                old_highlight_x = highlight_x;
+                old_highlight_y = highlight_y;
+                queue_draw ();
+                highlight_set = true;
+                highlight_x = (uint8) x;
+                highlight_y = (uint8) y;
+                move_if_possible (highlight_x, highlight_y);
+            }
+        }
+
+        return true;
     }
 
     internal override bool key_press_event (Gdk.EventKey event)
@@ -1120,19 +1138,9 @@ private class GameView : Gtk.DrawingArea
         {
             highlight_x = mouse_position_x;
             highlight_y = mouse_position_y;
-            _motion_notify_event (highlight_x, highlight_y, /* force redraw */ true);
+            _on_motion (highlight_x, highlight_y, /* force redraw */ true);
         }
         return true;
-    }
-
-    private void queue_draw_tile (uint8 x, uint8 y)
-        requires (x < game_size)
-        requires (y < game_size)
-    {
-        queue_draw_area (board_x + tile_xs [x, y],
-                         board_y + tile_ys [x, y],
-                         tile_size,
-                         tile_size);
     }
 
     /*\
