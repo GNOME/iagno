@@ -174,7 +174,7 @@ private struct GameStateStruct
         return tiles [x, y] == opponent_color;
     }
 
-    internal inline bool is_valid_location_signed (int8 x, int8 y)
+    private inline bool is_valid_location_signed (int8 x, int8 y)
     {
         return x >= 0 && x < size
             && y >= 0 && y < size;
@@ -486,11 +486,6 @@ private class GameStateObject : Object
      // requires (is_valid_location_unsigned (x, y))
     {
         return game_state_struct.tiles [x, y];
-    }
-
-    internal inline bool is_valid_location_signed (int8 x, int8 y)
-    {
-        return game_state_struct.is_valid_location_signed (x, y);
     }
 
     /*\

@@ -166,7 +166,9 @@ private class GameView : Gtk.DrawingArea
         set_events (Gdk.EventMask.EXPOSURE_MASK
                   | Gdk.EventMask.BUTTON_PRESS_MASK
                   | Gdk.EventMask.BUTTON_RELEASE_MASK
-                  | Gdk.EventMask.POINTER_MOTION_MASK);
+                  | Gdk.EventMask.POINTER_MOTION_MASK
+                  | Gdk.EventMask.ENTER_NOTIFY_MASK
+                  | Gdk.EventMask.LEAVE_NOTIFY_MASK);
         set_size_request (350, 350);
 
         init_mouse ();
@@ -471,7 +473,7 @@ private class GameView : Gtk.DrawingArea
     {
         unowned PossibleMove move;
         bool test_placing_tile = game.test_placing_tile (x, y, out move);
-        bool highlight_on = show_highlight || (show_mouse_highlight && test_placing_tile);
+        bool highlight_on = show_highlight || (mouse_is_in && show_mouse_highlight && test_placing_tile);
 
         /* manage animated highlight */
         if (highlight_on && highlight_state != HIGHLIGHT_MAX)
@@ -488,6 +490,7 @@ private class GameView : Gtk.DrawingArea
             highlight_state--;
             queue_draw_tile (x, y);
             if (old_highlight_x != x || old_highlight_y != y)   // is not a keyboard highlight disappearing
+        // TODO && mouse_is_in) for having an animation when the cursor quits the board; currently causes glitches
                 return;
         }
         highlight_tile (cr, x, y, highlight_state, /* soft highlight */ false);
@@ -573,7 +576,7 @@ private class GameView : Gtk.DrawingArea
     * * drawing utilities
     \*/
 
-    private const double HALF_PI = Math.PI / 2.0;
+    private const double HALF_PI = Math.PI_2;
     private void rounded_square (Cairo.Context cr, double x, double y, int size, double width, double radius_percent)
     {
         if (radius_percent <= 0)
@@ -707,7 +710,9 @@ private class GameView : Gtk.DrawingArea
         highlight_y = y;
         mouse_highlight_x = x;
         mouse_highlight_y = y;
-        if (!show_highlight)
+        if (!mouse_is_in)
+            show_highlight = true;
+        else if (!show_highlight)
             show_mouse_highlight = true;
     }
     private void get_missing_tile (out uint8 x, out uint8 y)
@@ -903,32 +908,107 @@ private class GameView : Gtk.DrawingArea
     \*/
 
     private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
+    private bool mouse_is_in = false;
 
     private void init_mouse ()  // called on construct
     {
         motion_controller = new Gtk.EventControllerMotion (this);
         motion_controller.motion.connect (on_motion);
+//        motion_controller.enter.connect (on_mouse_in);    // FIXME should work                                //  1/10
+//        motion_controller.leave.connect (on_mouse_out);   // FIXME should work                                //  2/10
     }
 
-    private void on_motion (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)
+//    private void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)   //  3/10
+    internal override bool enter_notify_event (Gdk.EventCrossing event)                                         //  4/10
     {
-        uint8 x = (uint8) ((event_x - board_x) / paving_size);
-        uint8 y = (uint8) ((event_y - board_y) / paving_size);
-        if ((x >= 0 && x < game_size)
-         && (y >= 0 && y < game_size)
-         && ((x != mouse_position_x)
-          || (y != mouse_position_y)))
+        uint8 x;
+        uint8 y;
+        if (pointer_is_in_board (event.x, event.y, out x, out y))                                               //  5/10
+//        if (pointer_is_in_board (event_x, event_y, out x, out y))                                             //  6/10
+            on_cursor_moving_in (x, y);
+        else if (mouse_is_in)
+            assert_not_reached ();
+        return false;                                                                                           //  7/10
+    }
+
+    private void on_cursor_moving_in (uint8 x, uint8 y)
+    {
+        mouse_position_x = x;
+        mouse_position_y = y;
+        mouse_position_set = true;
+        mouse_is_in = true;
+        _on_motion (x, y, /* force redraw */ true);
+    }
+
+//    private void on_mouse_out (Gtk.EventControllerMotion _motion_controller)                                  //  8/10
+    internal override bool leave_notify_event (Gdk.EventCrossing event)                                         //  9/10
+    {
+        mouse_is_in = false;
+        if (mouse_position_set)
+            queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
+        return false;                                                                                           // 10/10
+    }
+
+    private bool pointer_is_in_board (double pos_x, double pos_y, out uint8 x, out uint8 y)
+    {
+        int _x = (int) Math.floor ((pos_x - (double) board_x) / (double) paving_size);
+        int _y = (int) Math.floor ((pos_y - (double) board_y) / (double) paving_size);
+        if (_x >= 0 && _x < game_size
+         && _y >= 0 && _y < game_size)
         {
-            mouse_position_x = x;
-            mouse_position_y = y;
-            mouse_position_set = true;
-            if (show_highlight
-             || (x != mouse_highlight_x)
-             || (y != mouse_highlight_y))
-                Timeout.add (200, () => { _on_motion (x, y); return Source.REMOVE; });
+            x = (uint8) _x;
+            y = (uint8) _y;
+            return true;
+        }
+        else
+        {
+            x = uint8.MAX;  // garbage
+            y = uint8.MAX;  // garbage
+            return false;
         }
     }
-    private void _on_motion (uint8 x, uint8 y, bool force_redraw = false)
+
+    uint timeout_id = 0;
+    private void on_motion (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)
+    {
+        uint8 x;
+        uint8 y;
+        if (pointer_is_in_board (event_x, event_y, out x, out y))
+        {
+            if (!mouse_is_in)
+                on_cursor_moving_in (x, y);
+            else if (x != mouse_position_x || y != mouse_position_y)
+            {
+                mouse_position_x = x;
+                mouse_position_y = y;
+                mouse_position_set = true;
+                if (show_highlight
+                 || (x != mouse_highlight_x)
+                 || (y != mouse_highlight_y))
+                {
+                    if (timeout_id != 0)
+                    {
+                        Source.remove (timeout_id);
+                        timeout_id = 0;
+                    }
+                    timeout_id = Timeout.add (200, () => {
+                            if (mouse_is_in)
+                                _on_motion (x, y, /* force redraw */ false);
+                            timeout_id = 0;
+                            return Source.REMOVE;
+                        });
+                }
+            }
+        }
+        else
+        {
+            mouse_is_in = false;
+            show_mouse_highlight = false;
+            if (mouse_position_set)
+                queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
+        }
+    }
+    private void _on_motion (uint8 x, uint8 y, bool force_redraw)
     {
         if (!force_redraw
          && ((x != mouse_position_x)
@@ -937,7 +1017,7 @@ private class GameView : Gtk.DrawingArea
 
         bool old_show_mouse_highlight = show_mouse_highlight;
         unowned PossibleMove move;
-        show_mouse_highlight = game.test_placing_tile (x, y, out move);
+        show_mouse_highlight = mouse_is_in && game.test_placing_tile (x, y, out move);
 
         if (show_mouse_highlight)
             clear_impossible_to_move_here_warning ();
@@ -975,17 +1055,18 @@ private class GameView : Gtk.DrawingArea
 
         if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
         {
-            int8 x = (int8) ((event.x - board_x) / paving_size);
-            int8 y = (int8) ((event.y - board_y) / paving_size);
-            if (game.current_state.is_valid_location_signed (x, y))
+            uint8 x;
+            uint8 y;
+            if (pointer_is_in_board (event.x, event.y, out x, out y))
             {
+                mouse_is_in = true;
                 show_highlight = false;
                 old_highlight_x = highlight_x;
                 old_highlight_y = highlight_y;
                 queue_draw ();
                 highlight_set = true;
-                highlight_x = (uint8) x;
-                highlight_y = (uint8) y;
+                highlight_x = x;
+                highlight_y = y;
                 move_if_possible (highlight_x, highlight_y);
             }
         }
@@ -1134,7 +1215,7 @@ private class GameView : Gtk.DrawingArea
             if (mouse_position_set)
                 queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
         }
-        else if (mouse_position_set)
+        else if (mouse_position_set && mouse_is_in)
         {
             highlight_x = mouse_position_x;
             highlight_y = mouse_position_y;
