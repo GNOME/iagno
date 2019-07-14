@@ -22,6 +22,8 @@
 
 private class GameView : Gtk.DrawingArea
 {
+    internal bool show_turnable_tiles { private get; internal set; default = false; }
+
     private Gtk.DrawingArea _scoreboard;
     [CCode (notify = false)] internal Gtk.DrawingArea scoreboard {
         private get { return _scoreboard; }
@@ -494,7 +496,9 @@ private class GameView : Gtk.DrawingArea
                 return;
         }
         highlight_tile (cr, x, y, highlight_state, /* soft highlight */ false);
-        if (test_placing_tile && !(iagno_instance.computer != null && iagno_instance.player_one != game.current_color))
+        if (test_placing_tile
+         && show_turnable_tiles
+         && !(iagno_instance.computer != null && iagno_instance.player_one != game.current_color))
         {
             highlight_turnable_tiles (cr, move.x, move.y,  0, -1, move.n_tiles_n );
             highlight_turnable_tiles (cr, move.x, move.y,  1, -1, move.n_tiles_ne);

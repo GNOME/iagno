@@ -27,6 +27,13 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color' -->
       <description>Whether to play as Dark or Light. Ignored for two-player games.</description>
     </key>
+    <key name="highlight-turnable-tiles" type="b">
+      <default>false</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles' -->
+      <summary>A flag to highlight turnable tiles</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles' -->
+      <description>If “true”, the tiles that will be captured to the opponent by a ply are highlighted.</description>
+    </key>
     <key name="theme" type="s">
       <default>'default'</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme' -->

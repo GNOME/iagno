@@ -254,6 +254,8 @@ private class Iagno : Gtk.Application
         add_action (settings.create_action ("color"));
         add_action (settings.create_action ("num-players"));
         add_action (settings.create_action ("computer-level"));
+        add_action (settings.create_action ("highlight-turnable-tiles"));
+        settings.bind ("highlight-turnable-tiles", view, "show-turnable-tiles", SettingsBindFlags.GET);
 
         Box level_box = (Box) builder.get_object ("difficulty-box");
         Box color_box = (Box) builder.get_object ("color-box");
