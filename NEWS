@@ -1,3 +1,25 @@
+3.33.4 – July 15, 2019
+=============================
+
+Many changes; please, have fun testing. First of all,
+there is a new AI (for Medium and Hard); it is only a
+depth 3 (for Hard) instead of a depth 6, and so there
+should never be a lag again; and it is a bit harder I
+think –at least, it defeats usually the old AI– while
+using mostly the same tricks, as its strategy feels a
+bit more obscure. Secondly, if you play with a mouse,
+the currently targetted tile is highlighted, if it is
+playable; that feels not too much disturbing, but may
+be a bit reassuring sometimes. Thirdly, an option has
+been added to highlight the opponent tiles that might
+be turned by a ply; that should be helpful for casual
+players and newbies. And, trying to play (using mouse
+or keyboard) on an occupied tile (briefly) highlights
+the playable tiles (this might evolve in the future).
+
+Translation updated:
+  Greek: Efstathios Iosifidis
+
 3.33.2 – May 22, 2019
 =============================
 
