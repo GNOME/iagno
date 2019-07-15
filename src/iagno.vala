@@ -40,7 +40,7 @@ private class Iagno : Gtk.Application
     /* Seconds */
     private const double QUICK_MOVE_DELAY = 0.4;
     private const double MODERATE_MOVE_DELAY = 1.7;
-    private const double SLOW_MOVE_DELAY = 2.0;
+    private const double SLOW_MOVE_DELAY = 1.9;
 
     /* Widgets */
     private GameWindow window;
