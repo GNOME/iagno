@@ -1042,7 +1042,9 @@ private class GameView : Gtk.DrawingArea
             if (highlight_x != x || highlight_y != y)
                 queue_draw_tile (highlight_x, highlight_y);
         }
-        if (show_mouse_highlight || force_redraw)
+        if ((show_mouse_highlight || force_redraw)
+         // happens if the mouse is out of the board and the computer starts
+         && (mouse_highlight_x != uint8.MAX && mouse_highlight_y != uint8.MAX))
         {
             queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
         }
