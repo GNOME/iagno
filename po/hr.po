@@ -5,10 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games 0\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-03-12 17:02+0000\n"
-"PO-Revision-Date: 2019-03-26 19:28+0100\n"
-"Last-Translator: Launchpad Translations Administrators <rosetta@launchpad."
-"net>\n"
+"POT-Creation-Date: 2019-07-15 21:43+0000\n"
+"PO-Revision-Date: 2019-07-19 23:51+0200\n"
+"Last-Translator: gogo <linux.hr@protonmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Launchpad-Export-Date: 2008-05-28 02:59+0000\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
 #: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:5
@@ -59,11 +58,6 @@ msgstr "A GNOME Iagno pregled igre"
 #: data/org.gnome.Reversi.appdata.xml.in:41
 msgid "The GNOME Project"
 msgstr "GNOME projekt"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Reversi.desktop.in:4
-msgid "org.gnome.Reversi"
-msgstr "org.gnome.Reversi"
 
 #. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
 #: data/org.gnome.Reversi.desktop.in:7
@@ -155,33 +149,38 @@ msgstr "Zadana"
 msgid "A_ppearance"
 msgstr "I_zgled"
 
-#. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
+#. Translators: hamburger menu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno.ui:33
+msgid "Highlight _turnable tiles"
+msgstr "Istakni _okretne pločice"
+
+#. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
+#: data/ui/iagno.ui:38
 msgid "_Sound"
 msgstr "_Zvuk"
 
 #. Translators: hamburger menu entry; open help (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:40
+#: data/ui/iagno.ui:45
 msgid "_Help"
 msgstr "_Priručnik"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:45
+#: data/ui/iagno.ui:50
 msgid "_About Iagno"
 msgstr "_O Iagnu"
 
 #. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
-#: data/ui/iagno.ui:68
+#: data/ui/iagno.ui:73
 msgid "Go back to the current game"
 msgstr "Vrati se natrag na trenutnu igru"
 
 #. Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:150
+#: data/ui/iagno.ui:155
 msgid "_New Game"
 msgstr "_Nova igra"
 
 #. Translators: during a game, tooltip text of the Start Over button
-#: data/ui/iagno.ui:155
+#: data/ui/iagno.ui:160
 msgid "Start a new game"
 msgstr "Pokreni novu igru"
 
@@ -231,13 +230,27 @@ msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "Treba li igrati kao taman ili svjetao. Zanemareno za igru s dva igrača."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:33
+msgid "A flag to highlight turnable tiles"
+msgstr "Oznaka za isticanje okretne pločice"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:35
+msgid ""
+"If “true”, the tiles that will be captured to the opponent by a ply are "
+"highlighted."
+msgstr ""
+"Ako je “true”, pločice koje će biti uhvaćene protivniku u potezu su "
+"istaknute."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#: data/org.gnome.Reversi.gschema.xml:40
 msgid "Theme"
 msgstr "Tema"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
-#: data/org.gnome.Reversi.gschema.xml:35
+#: data/org.gnome.Reversi.gschema.xml:42
 msgid ""
 "Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
 "\"high_contrast.theme\" and \"sun_and_star.theme\"."
@@ -246,27 +259,27 @@ msgstr ""
 "theme\", \"high_contrast.theme\" i \"sun_and_star.theme\"."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
-#: data/org.gnome.Reversi.gschema.xml:40
+#: data/org.gnome.Reversi.gschema.xml:47
 msgid "Sound"
 msgstr "Zvuk"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
-#: data/org.gnome.Reversi.gschema.xml:42
+#: data/org.gnome.Reversi.gschema.xml:49
 msgid "Whether or not to play event sounds."
 msgstr "Treba li ili ne reproducirati zvukove događaja."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
-#: data/org.gnome.Reversi.gschema.xml:47
+#: data/org.gnome.Reversi.gschema.xml:54
 msgid "Width of the window in pixels"
 msgstr "Širina prozora u pikselima"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
-#: data/org.gnome.Reversi.gschema.xml:53
+#: data/org.gnome.Reversi.gschema.xml:60
 msgid "Height of the window in pixels"
 msgstr "Visina prozora u pikselima"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
-#: data/org.gnome.Reversi.gschema.xml:59
+#: data/org.gnome.Reversi.gschema.xml:66
 msgid "true if the window is maximized"
 msgstr "istinito ako je prozor uvećan"
 
@@ -348,12 +361,12 @@ msgstr ""
 "nepromijenjene."
 
 #. Translators: about dialog text
-#: src/iagno.vala:332
+#: src/iagno.vala:335
 msgid "A disk flipping game derived from Reversi"
 msgstr "Igra zamjene diskova izvedena iz Reversi igre"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:336
+#: src/iagno.vala:339
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -361,40 +374,43 @@ msgstr ""
 
 #. can undo
 #. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:398 src/iagno.vala:399
+#: src/iagno.vala:410 src/iagno.vala:411
 #, c-format
 msgid "%.2d"
 msgstr "%.2d"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:477
+#: src/iagno.vala:494
 msgid "Light must pass, Dark’s move"
 msgstr "Svjetli mora propustiti, na potezu je tamni"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:482
+#: src/iagno.vala:499
 msgid "Dark must pass, Light’s move"
 msgstr "Tamni mora propustiti, na potezu je svjetli"
 
 #. Translators: during a game, notification to display when Light has won the game
-#: src/iagno.vala:494
+#: src/iagno.vala:511
 msgid "Light wins!"
 msgstr "Svjetli igrač je pobijedo!"
 
 #. Translators: during a game, notification to display when Dark has won the game
-#: src/iagno.vala:499
+#: src/iagno.vala:516
 msgid "Dark wins!"
 msgstr "Tamni igrač je pobijedo!"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:504
+#: src/iagno.vala:521
 msgid "The game is draw."
 msgstr "Igra je neriješena."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:521
+#: src/iagno.vala:538
 msgid "You can’t move there!"
 msgstr "Ne možete pomaknuti tamo!"
+
+#~ msgid "org.gnome.Reversi"
+#~ msgstr "org.gnome.Reversi"
 
 #~ msgid "iagno"
 #~ msgstr "iagno"
