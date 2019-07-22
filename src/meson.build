@@ -43,6 +43,7 @@ executable(meson.project_name(),
         gio_dependency,
         glib_dependency,
         gtk_dependency,
+        libm_dependency,
         posix_dependency,
         rsvg_dependency
     ]
