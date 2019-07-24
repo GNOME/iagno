@@ -32,6 +32,16 @@
     ],
     "modules" : [
         {
+            "name" : "gsound",
+            "buildsystem" : "autotools",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/gsound.git"
+                }
+            ]
+        },
+        {
             "name" : "iagno",
             "buildsystem": "meson",
             "sources" : [
