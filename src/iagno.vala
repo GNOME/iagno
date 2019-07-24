@@ -220,6 +220,9 @@ private class Iagno : Gtk.Application
         view.scoreboard = scoredrawing;
         view.theme = settings.get_string ("theme");
 
+        if (settings.get_boolean ("sound"))
+            init_sound ();
+
         /* Window */
         window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
                                  PROGRAM_NAME,
@@ -549,19 +552,50 @@ private class Iagno : Gtk.Application
     * * Sound
     \*/
 
+    private GSound.Context sound_context;
+    private SoundContextState sound_context_state = SoundContextState.INITIAL;
+
     private enum Sound
     {
         FLIP,
         GAMEOVER;
     }
 
+    private enum SoundContextState
+    {
+        INITIAL,
+        WORKING,
+        ERRORED
+    }
+
+    private void init_sound ()
+     // requires (sound_context_state == SoundContextState.INITIAL)
+    {
+        try
+        {
+            sound_context = new GSound.Context ();
+            sound_context_state = SoundContextState.WORKING;
+        }
+        catch (Error e)
+        {
+            warning (e.message);
+            sound_context_state = SoundContextState.ERRORED;
+        }
+    }
+
     private void play_sound (Sound sound)
     {
         if (settings.get_boolean ("sound"))
-            _play_sound (sound, ref view);
+        {
+            if (sound_context_state == SoundContextState.INITIAL)
+                init_sound ();
+            if (sound_context_state == SoundContextState.WORKING)
+                _play_sound (sound, sound_context, ref view);
+        }
     }
 
-    private static void _play_sound (Sound sound, ref GameView view)
+    private static void _play_sound (Sound sound, GSound.Context sound_context, ref GameView view)
+     // requires (sound_context_state == SoundContextState.WORKING)
     {
         string name;
         switch (sound)
@@ -576,13 +610,14 @@ private class Iagno : Gtk.Application
                 return;
         }
         string path = Path.build_filename (SOUND_DIRECTORY, name);
-        int r = CanberraGtk.play_for_widget (view, 0,
-                                             Canberra.PROP_MEDIA_NAME, name,
-                                             Canberra.PROP_MEDIA_FILENAME, path);
-        if (r != 0)
+        try
         {
-            string? error = Canberra.strerror (r);
-            warning ("Error playing %s: %s", path, error ?? "unknown error");
+            sound_context.play_simple (null, GSound.Attribute.MEDIA_NAME, name,
+                                             GSound.Attribute.MEDIA_FILENAME, path);
+        }
+        catch (Error e)
+        {
+            warning (e.message);
         }
     }
 }

@@ -38,10 +38,9 @@ executable(meson.project_name(),
         '--enable-experimental-non-null'
     ],
     dependencies: [
-        canberra_dependency,
-        canberra_gtk3_dependency,
         gio_dependency,
         glib_dependency,
+        gsound_dependency,
         gtk_dependency,
         libm_dependency,
         posix_dependency,
