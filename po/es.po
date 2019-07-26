@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-07-15 21:43+0000\n"
-"PO-Revision-Date: 2019-07-24 10:40+0200\n"
+"POT-Creation-Date: 2019-07-24 08:49+0000\n"
+"PO-Revision-Date: 2019-07-26 09:05+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -238,14 +238,14 @@ msgstr ""
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:33
 msgid "A flag to highlight turnable tiles"
-msgstr ""
+msgstr "Un indicador para resaltar fichas movibles"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:35
 msgid ""
 "If “true”, the tiles that will be captured to the opponent by a ply are "
 "highlighted."
-msgstr ""
+msgstr "Si es cierto, las fichas del oponente que se capturen se resaltan"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
 #: data/org.gnome.Reversi.gschema.xml:40
