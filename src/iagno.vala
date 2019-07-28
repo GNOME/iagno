@@ -214,7 +214,6 @@ private class Iagno : Gtk.Application
 
         DrawingArea scoredrawing = (DrawingArea) builder.get_object ("scoredrawing");
         view.scoreboard = scoredrawing;
-        view.theme = settings.get_string ("theme");
 
         if (settings.get_boolean ("sound"))
             init_sound ();
@@ -271,6 +270,7 @@ private class Iagno : Gtk.Application
             warning (@"Theme $wanted_theme_id not found, using default.");
             settings.set_string ("theme", "default");
             wanted_theme_id = "default";
+         // view.theme defaults on "default" (in fact, on null)
         }
         section.freeze ();
         appearance_menu.append_section (null, section);
