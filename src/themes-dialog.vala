@@ -21,7 +21,7 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/themes.ui")]
-private class ThemesDialog : Dialog
+private class ThemesDialog : Hdy.Dialog
 {
     private const string PREFIX = "theme-";
 

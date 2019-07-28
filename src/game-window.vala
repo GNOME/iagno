@@ -96,7 +96,7 @@ private class GameWindow : ApplicationWindow
         {
             /* Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt) */
             Button _start_game_button = new Button.with_mnemonic (_("_Start Game"));
-            _start_game_button.width_request = 222;
+            _start_game_button.width_request = 122;
             _start_game_button.height_request = 60;
             _start_game_button.halign = Align.CENTER;
             _start_game_button.set_action_name ("ui.start-game");

@@ -171,7 +171,7 @@ private class GameView : Gtk.DrawingArea
                   | Gdk.EventMask.POINTER_MOTION_MASK
                   | Gdk.EventMask.ENTER_NOTIFY_MASK
                   | Gdk.EventMask.LEAVE_NOTIFY_MASK);
-        set_size_request (350, 350);
+        set_size_request (100, 100);
 
         init_mouse ();
     }

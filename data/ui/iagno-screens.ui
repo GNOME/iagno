@@ -26,8 +26,8 @@
     <property name="valign">fill</property>
     <property name="spacing">18</property>
     <property name="margin-bottom">25</property><!-- TODO better -->
-    <property name="height-request">263</property>
-    <property name="width-request">400</property>
+    <property name="height-request">268</property>  <!-- window should be 288px max for Purism Librem 5 landscape, for 720px width -->
+    <property name="width-request">340</property>   <!-- window should be 360px max for Purism Librem 5 portrait, for 648px height -->
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>

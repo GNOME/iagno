@@ -30,7 +30,8 @@ executable(meson.project_name(),
     ] + resources,
     install: true,
     c_args: [
-        '-include', 'config.h'
+        '-include', 'config.h',
+        '-D', 'HANDY_USE_UNSTABLE_API'
     ],
     vala_args: [
         '--target-glib', '2.44',
@@ -42,6 +43,7 @@ executable(meson.project_name(),
         glib_dependency,
         gsound_dependency,
         gtk_dependency,
+        hdy_dependency,
         libm_dependency,
         posix_dependency,
         rsvg_dependency
