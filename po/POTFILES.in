@@ -3,7 +3,6 @@
 data/org.gnome.Reversi.appdata.xml.in
 data/org.gnome.Reversi.desktop.in
 data/ui/iagno-screens.ui
-data/ui/iagno-themes.ui
 data/ui/iagno.ui
 data/themes/adwaita.theme.desktop.in
 data/themes/classic.theme.desktop.in
@@ -16,4 +15,3 @@ src/game-view.vala
 src/game-window.vala
 src/iagno.vala
 src/player.vala
-src/themes-dialog.vala

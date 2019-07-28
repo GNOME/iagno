@@ -32,18 +32,9 @@ grid#scoreboard label {
   padding: 4px 7px 4px 0;
 }
 
-/* Themes' dialog listbox */
-list#themes-listbox image {
-  transition-duration: 200ms;
-  opacity: 0;
-}
-
-list#themes-listbox row:selected * {
-  opacity: 1;
-  color:@theme_selected_fg_color;
-}
-list#themes-listbox row:selected image:backdrop {
-  color:@theme_unfocused_selected_fg_color;
+/* "Default" theme is in italic */
+popover > stack > box:nth-child(2) > box > box > box:first-child > modelbutton:first-child > box > label {
+  font-style:italic;
 }
 
 /* make all widgets change font-size at same time */

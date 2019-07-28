@@ -24,16 +24,6 @@
   <menu id="primary-menu">
     <section>
       <item>
-        <!-- Translators: hamburger menu entry; open theme dialog button (with a mnemonic that appears pressing Alt) -->
-        <attribute name="label" translatable="yes">A_ppearance</attribute>
-        <attribute name="action">app.theme</attribute>
-      </item>
-      <item>
-        <!-- Translators: hamburger menu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt) -->
-        <attribute name="label" translatable="yes">Highlight _turnable tiles</attribute>
-        <attribute name="action">app.highlight-turnable-tiles</attribute>
-      </item>
-      <item>
         <!-- Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt) -->
         <attribute name="label" translatable="yes">_Sound</attribute>
         <attribute name="action">app.sound</attribute>

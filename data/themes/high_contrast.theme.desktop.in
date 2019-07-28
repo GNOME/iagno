@@ -18,7 +18,7 @@
 
 [Theme]
 Id=high_contrast
-# Translators: name of a board graphical theme; uses only two colors, one really dark and one really light
+# Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; uses only two colors, one really dark and one really light
 Name=Black and White
 
 [Pieces]

@@ -25,8 +25,7 @@ executable(meson.project_name(),
         'game-window.vala',
         'game.vala',
         'iagno.vala',
-        'player.vala',
-        'themes-dialog.vala'
+        'player.vala'
     ] + resources,
     install: true,
     c_args: [

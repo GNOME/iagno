@@ -4,4 +4,3 @@ src/game-view.c
 src/game-window.c
 src/iagno.c
 src/player.c
-src/themes-dialog.c

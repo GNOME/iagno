@@ -65,7 +65,7 @@ private class GameWindow : ApplicationWindow
  // internal signal void redo ();
  // internal signal void hint ();
 
-    internal GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view)
+    internal GameWindow (string? css_resource, string name, int width, int height, bool maximized, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget _view, GLib.Menu? appearance_menu)
     {
         if (css_resource != null)
         {
@@ -82,6 +82,15 @@ private class GameWindow : ApplicationWindow
         install_ui_action_entries ();
         set_title (name);
         headerbar.set_title (name);
+
+        GLib.MenuModel hamburger_menu = (!) info_button.get_menu_model ();
+        if (appearance_menu != null)
+        {
+            GLib.Menu first_section = (GLib.Menu) (!) hamburger_menu.get_item_link (0, "section");
+            /* Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt) */
+            first_section.prepend_submenu (_("A_ppearance"), (!) appearance_menu);
+        }
+        ((GLib.Menu) hamburger_menu).freeze ();
 
         set_default_size (width, height);
         if (maximized)

@@ -17,7 +17,7 @@
 
 [Theme]
 Id=classic
-# Translators: name of a board graphical theme; copies the look of the most common physical board
+# Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; copies the look of the most common physical board
 Name=Classic
 
 [Pieces]

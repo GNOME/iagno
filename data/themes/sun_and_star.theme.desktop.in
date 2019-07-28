@@ -17,7 +17,7 @@
 
 [Theme]
 Id=sun_and_star
-# Translators: name of a board graphical theme; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
+# Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
 Name=Sun and Star
 
 [Pieces]

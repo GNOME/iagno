@@ -48,9 +48,6 @@ private class Iagno : Gtk.Application
     private Label dark_score_label;
     private Label light_score_label;
 
-    private bool should_init_themes_dialog = true;
-    private ThemesDialog themes_dialog;
-
     /* Computer player (if there is one) */
     internal ComputerPlayer? computer { internal get; private set; default = null; }
 
@@ -97,10 +94,9 @@ private class Iagno : Gtk.Application
 
     private const GLib.ActionEntry app_actions [] =
     {
-        {"theme", theme_cb},
-        {"help", help_cb},
-        {"about", about_cb},
-        {"quit", quit}
+        { "help", help_cb },
+        { "about", about_cb },
+        { "quit", quit }
     };
 
     private static int main (string [] args)
@@ -223,6 +219,69 @@ private class Iagno : Gtk.Application
         if (settings.get_boolean ("sound"))
             init_sound ();
 
+        GLib.Menu appearance_menu = new GLib.Menu ();
+        GLib.Menu section = new GLib.Menu ();
+        /* Translators: hamburger menu "Appearance" submenu entry; a name for the default theme */
+        section.append (_("Default"), "app.theme('default')");
+        Dir dir;
+        string wanted_theme_id = settings.get_string ("theme");
+        bool theme_name_found = false;
+        try
+        {
+            dir = Dir.open (Path.build_filename (DATA_DIRECTORY, "themes", "key"));
+            while (true)
+            {
+                string? filename = dir.read_name ();
+                if (filename == null)
+                    break;
+                if (filename == "default")
+                {
+                    warning ("There should not be a theme filename named \"default\", ignoring it.");
+                    continue;
+                }
+
+                string path = Path.build_filename (DATA_DIRECTORY, "themes", "key", (!) filename);
+                GLib.KeyFile key = new GLib.KeyFile ();
+                string theme_name;
+                try
+                {
+                    key.load_from_file (path, GLib.KeyFileFlags.NONE);
+                    theme_name = key.get_locale_string ("Theme", "Name");
+                }
+                catch (GLib.KeyFileError e)
+                {
+                    warning ("oops: %s", e.message);
+                    continue;
+                }
+                section.append (theme_name, @"app.theme('$((!) filename)')");
+
+                if (wanted_theme_id == (!) filename)
+                {
+                    theme_name_found = true;
+                    view.theme = wanted_theme_id;
+                }
+            }
+        }
+        catch (FileError e)
+        {
+            warning ("Failed to load themes: %s", e.message);
+        }
+        if (!theme_name_found && wanted_theme_id != "default")
+        {
+            warning (@"Theme $wanted_theme_id not found, using default.");
+            settings.set_string ("theme", "default");
+            wanted_theme_id = "default";
+        }
+        section.freeze ();
+        appearance_menu.append_section (null, section);
+
+        section = new GLib.Menu ();
+        /* Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt) */
+        section.append (_("Highlight _turnable tiles"), "app.highlight-turnable-tiles");
+        section.freeze ();
+        appearance_menu.append_section (null, section);
+        appearance_menu.freeze ();
+
         /* Window */
         window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
                                  PROGRAM_NAME,
@@ -232,7 +291,8 @@ private class Iagno : Gtk.Application
                                  start_now,
                                  GameWindowFlags.SHOW_UNDO | GameWindowFlags.SHOW_START_BUTTON,
                                  (Box) builder.get_object ("new-game-screen"),
-                                 view);
+                                 view,
+                                 appearance_menu);
 
         Widget scoregrid = (Widget) builder.get_object ("scoregrid");
         window.add_to_sidebox (scoregrid);
@@ -258,7 +318,10 @@ private class Iagno : Gtk.Application
         add_action (settings.create_action ("num-players"));
         add_action (settings.create_action ("computer-level"));
         add_action (settings.create_action ("highlight-turnable-tiles"));
+        add_action (settings.create_action ("theme"));
+
         settings.bind ("highlight-turnable-tiles", view, "show-turnable-tiles", SettingsBindFlags.GET);
+        settings.bind ("theme",                    view, "theme",               SettingsBindFlags.GET);
 
         Box level_box = (Box) builder.get_object ("difficulty-box");
         Box color_box = (Box) builder.get_object ("color-box");
@@ -295,18 +358,6 @@ private class Iagno : Gtk.Application
     /*\
     * * App-menu callbacks
     \*/
-
-    private void theme_cb ()
-    {
-        /* Don’t permit to open more than one dialog */
-        if (should_init_themes_dialog)
-        {
-            themes_dialog = new ThemesDialog (settings, view);
-            themes_dialog.set_transient_for (window);
-            should_init_themes_dialog = false;
-        }
-        themes_dialog.present ();
-    }
 
     private void help_cb ()
     {

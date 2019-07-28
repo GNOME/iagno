@@ -17,7 +17,7 @@
 
 [Theme]
 Id=adwaita
-# Translators: name of a board graphical theme; similar to Gtk theme name, should probably be kept unchanged
+# Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
 Name=Adwaita
 
 [Pieces]
