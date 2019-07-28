@@ -25,6 +25,9 @@
       <caption>A GNOME Iagno game preview</caption>
     </screenshot>
   </screenshots>
+  <provides>
+    <id>org.gnome.iagno.desktop</id>
+  </provides>
   <url type="homepage">https://wiki.gnome.org/Apps/Iagno</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/iagno/issues</url>
   <url type="donation">https://www.gnome.org/friends/</url>
