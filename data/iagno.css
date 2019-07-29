@@ -25,9 +25,6 @@ button.unfullscreen-button {
 label.bold-label {
   font-weight: bold;
 }
-label.italic-label {
-  font-style: italic;
-}
 grid#scoreboard label {
   padding: 4px 7px 4px 0;
 }
@@ -47,10 +44,6 @@ popover modelbutton {
              padding   0.3s ease,
              margin    0.3s ease;
 }
-
-/* bug #746210: HighContrast doesn't update correctly on ListBoxRow selection
-   hicolor is preserved because of a "*:selected *:link:visited" declaration */
-#fake-example *:selected *:visited { opacity: 1; }
 
 /*\
 * * the end
