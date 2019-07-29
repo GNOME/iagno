@@ -14,4 +14,7 @@
     <file preprocess="xml-stripblanks" compressed="true" alias="overlayed-list.ui"          >ui/overlayed-list.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="registry-placeholder.ui"    >ui/registry-placeholder.ui</file>
   </gresource>
+  <gresource prefix="/org/gnome/Reversi/gtk">
+    <file preprocess="xml-stripblanks" alias="help-overlay.ui">ui/help-overlay.ui</file>
+  </gresource>
 </gresources>
