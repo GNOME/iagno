@@ -270,10 +270,25 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
     {
         switch (player)
         {
-            case Player.LIGHT:  history_button.set_label (history_button_light_label);  return;
-            case Player.DARK:   history_button.set_label (history_button_dark_label);   return;
-            case Player.NONE:   history_button.set_label (_("Finished!"));              return;
+            case Player.LIGHT:
+                    history_button.set_label (history_button_light_label);  break;
+            case Player.DARK:
+                    history_button.set_label (history_button_dark_label);   break;
+            case Player.NONE:
+                if (is_extra_thin)
+                    /* Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game; this string is for when the window is really small, so keep the string as small as possible (3~5 characters) */
+                    history_button.set_label (_("End!"));
+
+                else
+                    /* Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game, if the window is not too thin */
+                    history_button.set_label (_("Finished!"));              break;
             default: assert_not_reached ();
         }
+
+        Widget? history_label = history_button.get_child ();
+        if ((history_label != null)
+         && (!) history_label is Label)
+            ((Label) (!) history_label).set_ellipsize (Pango.EllipsizeMode.END);
+     // else assert_not_reached ();
     }
 }

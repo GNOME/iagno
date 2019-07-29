@@ -25,11 +25,79 @@
     <property name="homogeneous">True</property>
     <property name="valign">fill</property>
     <property name="spacing">18</property>
-    <property name="margin-bottom">25</property><!-- TODO better -->
-    <property name="height-request">263</property>
-    <property name="width-request">400</property>
+    <property name="margin-bottom">22</property><!-- TODO better -->
+    <property name="margin-top">4</property>
     <child>
-      <object class="GtkBox">
+      <object class="GtkBox" id="infos_section">
+        <property name="orientation">vertical</property>
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="halign">start</property>
+            <!-- Translators: when configuring a new game, on a thin window, header of the row for choosing the number of players -->
+            <property name="label" translatable="yes">Game type</property>
+            <style>
+              <class name="bold-label"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="vexpand">True</property>
+            <property name="homogeneous">True</property>
+            <property name="spacing">0</property>
+            <property name="orientation">vertical</property>
+            <style>
+              <class name="linked"/>
+            </style>
+            <child>
+              <object class="GtkModelButton">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play first (with a mnemonic that appears pressing Alt) -->
+                <property name="text" translatable="yes">Play _first</property>
+                <property name="action-name">app.game-type</property>
+                <property name="action-target">'dark'</property>
+                <property name="iconic">True</property>
+                <property name="centered">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkModelButton">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play second (with a mnemonic that appears pressing Alt) -->
+                <property name="text" translatable="yes">Play _second</property>
+                <property name="action-name">app.game-type</property>
+                <property name="action-target">'light'</property>
+                <property name="iconic">True</property>
+                <property name="centered">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkModelButton">
+                <property name="visible">True</property>
+                <property name="use_underline">True</property>
+                <!-- Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose a two-players game (with a mnemonic that appears pressing Alt) -->
+                <property name="text" translatable="yes">_Two players</property>
+                <property name="action-name">app.game-type</property>
+                <property name="action-target">'two'</property>
+                <property name="iconic">True</property>
+                <property name="centered">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox" id="users_section">
         <property name="orientation">vertical</property>
         <property name="visible">True</property>
         <property name="spacing">6</property>
@@ -45,8 +113,9 @@
           </object>
         </child>
         <child>
-          <object class="GtkBox">
+          <object class="GtkBox" id="users_box">
             <property name="visible">True</property>
+            <property name="vexpand">True</property>
             <property name="homogeneous">True</property>
             <property name="spacing">12</property>
             <child>
@@ -99,6 +168,7 @@
         <child>
           <object class="GtkBox" id="level_box">
             <property name="visible">True</property>
+            <property name="vexpand">True</property>
             <property name="homogeneous">True</property>
             <property name="spacing">12</property>
             <child>
@@ -145,7 +215,7 @@
       </object>
     </child>
     <child>
-      <object class="GtkBox">
+      <object class="GtkBox" id="color_section">
         <property name="orientation">vertical</property>
         <property name="visible">True</property>
         <property name="spacing">6</property>
@@ -163,6 +233,7 @@
         <child>
           <object class="GtkBox" id="color_box">
             <property name="visible">True</property>
+            <property name="vexpand">True</property>
             <property name="homogeneous">True</property>
             <property name="spacing">12</property>
             <child>

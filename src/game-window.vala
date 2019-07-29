@@ -40,12 +40,6 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     private GameView        game_view;
     private Box             new_game_screen;
 
-    construct
-    {
-        height_request = 560;
-        width_request = 560;
-    }
-
     internal GameWindow (string? css_resource, string name, string about_action_label, bool start_now, GameWindowFlags flags, Box _new_game_screen, Widget view_content, GLib.Menu? appearance_menu, NightLightMonitor night_light_monitor)
     {
         GameHeaderBar _headerbar = new GameHeaderBar (name, about_action_label, flags, appearance_menu, night_light_monitor);

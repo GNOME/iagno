@@ -93,6 +93,7 @@ private class Iagno : Gtk.Application, BaseApplication
 
     private const GLib.ActionEntry app_actions [] =
     {
+        { "game-type", null, "s", "'dark'", change_game_type },
         { "set-use-night-mode", set_use_night_mode, "b" },
 
         { "quit", quit }
@@ -324,12 +325,36 @@ private class Iagno : Gtk.Application, BaseApplication
         settings.bind ("highlight-turnable-tiles", view, "show-turnable-tiles", SettingsBindFlags.GET);
         settings.bind ("theme",                    view, "theme",               SettingsBindFlags.GET);
 
+        game_type_action = (SimpleAction) lookup_action ("game-type");
+
+        settings.changed ["color"].connect (() => {
+                if (settings.get_int ("num-players") == 2)
+                    return;
+                if (settings.get_string ("color") == "dark")
+                    game_type_action.set_state (new Variant.string ("dark"));
+                else
+                    game_type_action.set_state (new Variant.string ("light"));
+            });
+
         settings.changed ["num-players"].connect (() => {
                 bool solo = settings.get_int ("num-players") == 1;
                 new_game_screen.update_sensitivity (solo);
+                if (!solo)
+                    game_type_action.set_state (new Variant.string ("two"));
+                else if (settings.get_string ("color") == "dark")
+                    game_type_action.set_state (new Variant.string ("dark"));
+                else
+                    game_type_action.set_state (new Variant.string ("light"));
             });
         bool solo = settings.get_int ("num-players") == 1;
         new_game_screen.update_sensitivity (solo);
+
+        if (settings.get_int ("num-players") == 2)
+            game_type_action.set_state (new Variant.string ("two"));
+        else if (settings.get_string ("color") == "dark")
+            game_type_action.set_state (new Variant.string ("dark"));
+        else
+            game_type_action.set_state (new Variant.string ("light"));
 
         if (start_now)
             start_game ();
@@ -368,6 +393,23 @@ private class Iagno : Gtk.Application, BaseApplication
     /*\
     * * Internal calls
     \*/
+
+    private SimpleAction game_type_action;
+    private void change_game_type (SimpleAction action, Variant? gvariant)
+        requires (gvariant != null)
+    {
+        string type = ((!) gvariant).get_string ();
+//        game_type_action.set_state ((!) gvariant);
+        switch (type)
+        {
+            case "dark":  settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
+                          settings.set_string ("color",  "dark");                                             return;
+            case "light": settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
+                          settings.set_string ("color", "light");                                             return;
+            case "two":   settings.set_int    ("num-players", 2); new_game_screen.update_sensitivity (false); return;
+            default: assert_not_reached ();
+        }
+    }
 
     private void back_cb ()
         requires (game_is_set)

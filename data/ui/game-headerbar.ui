@@ -36,6 +36,9 @@
         <property name="can-default">True</property>
         <!-- Translators: during a game, tooltip text of the Start Over button -->
         <property name="tooltip-text" translatable="yes">Start a new game</property>
+        <style>
+          <class name="new-game-button"/>
+        </style>
       </object>
     </child>
     <child>
@@ -66,13 +69,9 @@
         <property name="valign">center</property>
         <property name="can-focus">True</property>
         <property name="focus-on-click">False</property>
-        <child>
-          <object class="GtkImage">
-            <property name="visible">True</property>
-            <property name="icon-name">document-open-recent-symbolic</property> <!-- or content-loading-symbolic -->
-            <property name="icon-size">1</property>
-          </object>
-        </child>
+        <style>
+          <class name="history-button"/>
+        </style>
       </object>
       <packing>
         <property name="pack-type">end</property>

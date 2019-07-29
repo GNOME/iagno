@@ -69,7 +69,6 @@ private class GameView : BaseView, AdaptativeWidget
         }
 
         game_content = content;
-        game_content.margin = 20;   // FIXME
         game_stack.add (content);
         content.can_focus = true;
         content.show ();
