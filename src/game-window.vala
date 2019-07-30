@@ -177,7 +177,6 @@ private class GameWindow : BaseWindow, AdaptativeWidget
      // restart_action.set_enabled (false);
            undo_action.set_enabled (false);
            redo_action.set_enabled (false);
-     //    hint_action.set_enabled (false);
     }
 
     private const GLib.ActionEntry [] ui_action_entries =
@@ -208,15 +207,15 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         if (!game_view.game_content_visible_if_true ())
         {
             if (!back_action_disabled)
-                back_cb ();
+                back_cb ();     // FIXME not reached if undo_action is disabled, so at game start or finish
             return;
         }
 
         game_finished = false;
-     // hide_notification ();   // why? bad behaviour when showing the final board, for no reason?
 
         game_view.show_game_content (/* grab focus */ true);
      // redo_action.set_enabled (true);
+
         undo ();
     }
 
