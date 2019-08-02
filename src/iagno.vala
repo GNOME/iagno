@@ -562,20 +562,16 @@ private class Iagno : Gtk.Application, BaseApplication
         window.finish_game ();
 
         if (game.n_light_tiles > game.n_dark_tiles)
-        {
-            /* Translators: during a game, notification to display when Light has won the game */
-            window.show_notification (_("Light wins!"));
-        }
+            /* Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles */
+            window.show_notification (_("Light wins! (%u-%u)").printf (game.n_light_tiles, game.n_dark_tiles));
+
         else if (game.n_dark_tiles > game.n_light_tiles)
-        {
-            /* Translators: during a game, notification to display when Dark has won the game */
-            window.show_notification (_("Dark wins!"));
-        }
+            /* Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles */
+            window.show_notification (_("Dark wins! (%u-%u)").printf (game.n_light_tiles, game.n_dark_tiles));
+
         else
-        {
             /* Translators: during a game, notification to display when the game is a draw */
             window.show_notification (_("The game is draw."));
-        }
 
         if (play_gameover_sound)
             play_sound (Sound.GAMEOVER);
