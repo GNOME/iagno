@@ -143,28 +143,51 @@ private class ComputerReversiHard : ComputerReversi
     {
         uint8 size = g.size;
         int16 count = 0;
-        for (uint8 x = 0; x < size; x++)
-        {
-            for (uint8 y = 0; y < size; y++)
-            {
-                bool is_move_color = (even_depth && !g.is_current_color (x, y)) || g.is_opponent_color (x, y);
 
-                // heuristic
-                if (is_move_color)
-                    count -= heuristic [x, y];
-                else
-                    count += heuristic [x, y];
+        bool is_move_color;
+        if (even_depth)
+            for (uint8 x = 0; x < size; x++)
+                for (uint8 y = 0; y < size; y++)
+                {
+                    is_move_color = !g.is_current_color (x, y);
 
-                // around
-                int16 a = (int16) g.get_empty_neighbors (x, y);
-                if (a == 0) // completely surrounded
-                    a = -6;
-                if (is_move_color)
-                    count += 9 * a;
-                else
-                    count -= 9 * a;
-            }
-        }
+                    // heuristic
+                    if (is_move_color)
+                        count -= heuristic [x, y];
+                    else
+                        count += heuristic [x, y];
+
+                    // around
+                    int16 a = (int16) g.get_empty_neighbors (x, y);
+                    if (a == 0) // completely surrounded
+                        a = -6;
+                    if (is_move_color)
+                        count += 9 * a;
+                    else
+                        count -= 9 * a;
+                }
+        else
+            for (uint8 x = 0; x < size; x++)
+                for (uint8 y = 0; y < size; y++)
+                {
+                    is_move_color = g.is_opponent_color (x, y);
+
+                    // heuristic
+                    if (is_move_color)
+                        count -= heuristic [x, y];
+                    else
+                        count += heuristic [x, y];
+
+                    // around
+                    int16 a = (int16) g.get_empty_neighbors (x, y);
+                    if (a == 0) // completely surrounded
+                        a = -6;
+                    if (is_move_color)
+                        count += 9 * a;
+                    else
+                        count -= 9 * a;
+                }
+
         return count;
     }
 
