@@ -567,7 +567,7 @@ private class Iagno : Gtk.Application, BaseApplication
 
         else if (game.n_dark_tiles > game.n_light_tiles)
             /* Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles */
-            window.show_notification (_("Dark wins! (%u-%u)").printf (game.n_light_tiles, game.n_dark_tiles));
+            window.show_notification (_("Dark wins! (%u-%u)").printf (game.n_dark_tiles, game.n_light_tiles));
 
         else
             /* Translators: during a game, notification to display when the game is a draw */
