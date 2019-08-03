@@ -388,6 +388,7 @@ private class Iagno : Gtk.Application, BaseApplication
         requires (gvariant != null)
     {
         night_light_monitor.set_use_night_mode (((!) gvariant).get_boolean ());
+        view.theme_changed ();
     }
 
     /*\
