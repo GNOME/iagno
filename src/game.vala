@@ -168,10 +168,10 @@ private struct GameStateStruct
         return tiles [x, y] == current_color;
     }
 
-    internal inline bool is_opponent_color (uint8 x, uint8 y)
+    internal inline bool is_empty_tile (uint8 x, uint8 y)
      // requires (is_valid_location_unsigned (x, y))
     {
-        return tiles [x, y] == opponent_color;
+        return tiles [x, y] == Player.NONE;
     }
 
     private inline bool is_valid_location_signed (int8 x, int8 y)

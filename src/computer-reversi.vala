@@ -144,49 +144,27 @@ private class ComputerReversiHard : ComputerReversi
         uint8 size = g.size;
         int16 count = 0;
 
-        bool is_move_color;
-        if (even_depth)
-            for (uint8 x = 0; x < size; x++)
-                for (uint8 y = 0; y < size; y++)
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+            {
+                int16 a = (int16) g.get_empty_neighbors (x, y);
+                if (a == 0) // completely surrounded
+                    a = -6;
+
+                int16 tile_heuristic = heuristic [x, y] - 9 * a;
+                if (g.is_empty_tile (x, y))
                 {
-                    is_move_color = !g.is_current_color (x, y);
-
-                    // heuristic
-                    if (is_move_color)
-                        count -= heuristic [x, y];
+                    tile_heuristic /= 2;
+                    if (even_depth)
+                        count -= tile_heuristic;
                     else
-                        count += heuristic [x, y];
-
-                    // around
-                    int16 a = (int16) g.get_empty_neighbors (x, y);
-                    if (a == 0) // completely surrounded
-                        a = -6;
-                    if (is_move_color)
-                        count += 9 * a;
-                    else
-                        count -= 9 * a;
+                        count += tile_heuristic;
                 }
-        else
-            for (uint8 x = 0; x < size; x++)
-                for (uint8 y = 0; y < size; y++)
-                {
-                    is_move_color = g.is_opponent_color (x, y);
-
-                    // heuristic
-                    if (is_move_color)
-                        count -= heuristic [x, y];
-                    else
-                        count += heuristic [x, y];
-
-                    // around
-                    int16 a = (int16) g.get_empty_neighbors (x, y);
-                    if (a == 0) // completely surrounded
-                        a = -6;
-                    if (is_move_color)
-                        count += 9 * a;
-                    else
-                        count -= 9 * a;
-                }
+                else if (g.is_current_color (x, y))
+                    count += tile_heuristic;
+                else
+                    count -= tile_heuristic;
+            }
 
         return count;
     }
