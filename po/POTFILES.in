@@ -2,15 +2,22 @@
 # Please keep this file in alphabetical order.
 data/org.gnome.Reversi.appdata.xml.in
 data/org.gnome.Reversi.desktop.in
+data/ui/base-headerbar.ui
+data/ui/game-headerbar.ui
+data/ui/help-overlay.ui
 data/ui/iagno-screens.ui
-data/ui/iagno.ui
 data/themes/adwaita.theme.desktop.in
 data/themes/classic.theme.desktop.in
 data/themes/high_contrast.theme.desktop.in
 data/themes/sun_and_star.theme.desktop.in
 data/org.gnome.Reversi.gschema.xml
+src/about-list.vala
+src/adaptative-window.vala
+src/base-headerbar.vala
 src/computer-player.vala
+src/game-headerbar.vala
 src/game.vala
+src/game-view.vala
 src/game-window.vala
 src/iagno.vala
 src/player.vala
