@@ -711,11 +711,15 @@ private class Iagno : Gtk.Application, BaseApplication
         /* Translators: about dialog text */
         comments = _("A disk flipping game derived from Reversi");
 
-     // artists = {
-     //     "Masuichi Ito",
-     //     "Arnaud Bonatti",
-     //     "Jakub Steiner"
-     // };
+        artists = {
+        /* Translators: text crediting an artist, in the about dialog */
+            _("Masuichi Ito (pieces)"),
+
+
+        /* Translators: text crediting an artist, in the about dialog */
+            _("Arnaud Bonatti (themes)")
+        };
+
         authors = { "Ian Peters", "Robert Ancell", "Arnaud Bonatti" };
 
         /* Translators: about dialog text */
