@@ -154,11 +154,10 @@ private class ComputerReversiHard : ComputerReversi
                 int16 tile_heuristic = heuristic [x, y] - 9 * a;
                 if (g.is_empty_tile (x, y))
                 {
-                    tile_heuristic /= 2;
                     if (even_depth)
-                        count -= tile_heuristic;
+                        count -= tile_heuristic /* / 2 */; // half is harder, but we artificially decrease the medium difficulty level
                     else
-                        count += tile_heuristic;
+                        count += tile_heuristic / 2;
                 }
                 else if (g.is_current_color (x, y))
                     count += tile_heuristic;
