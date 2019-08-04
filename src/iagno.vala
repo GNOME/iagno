@@ -720,13 +720,17 @@ private class Iagno : Gtk.Application, BaseApplication
             _("Arnaud Bonatti (themes)")
         };
 
-        authors = { "Ian Peters", "Robert Ancell", "Arnaud Bonatti" };
+        /* Translators: text crediting an author, in the about dialog */
+        authors = { _("Ian Peters"), _("Robert Ancell"), _("Arnaud Bonatti") };
 
-        /* Translators: about dialog text */
-        copyright = "Copyright © 1998–2008 Ian Peters\n" +
-                    "Copyright © 2013–2015 Michael Catanzaro\n" +
-                    "Copyright © 2014–2019 Arnaud Bonatti";  // TODO translation; autogen, to not change each year?
-        documenters = { "Tiffany Antopolski" };
+
+        /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
+        copyright = _("Copyright \xc2\xa9 %u-%u – Ian Peters").printf (1998, 2008) + "\n" +
+                    _("Copyright \xc2\xa9 %u-%u – Michael Catanzaro").printf (2013, 2015) + "\n" +
+                    _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2014, 2019);
+
+        /* Translators: text crediting a documenter, in the about dialog */
+        documenters = { _("Tiffany Antopolski") };
         logo_icon_name = "org.gnome.Reversi";
         program_name = PROGRAM_NAME;
 
