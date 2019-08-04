@@ -72,13 +72,15 @@ private class GameView : BaseView, AdaptativeWidget
         game_content = content;
 
         game_box = new Box (Orientation.HORIZONTAL, 0);
+        game_content.hexpand = true;
+        game_content.vexpand = true;
+        game_content.show ();
         game_box.add (game_content);
         game_box.show ();
         game_box.get_style_context ().add_class ("game-box");
 
         game_stack.add (game_box);
         content.can_focus = true;
-        content.show ();
     }
 
     internal void show_new_game_box (bool grab_focus)
