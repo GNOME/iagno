@@ -27,9 +27,6 @@
           <object class="GtkGrid" id="main_grid">
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
-            <style>
-              <class name="main-grid"/>
-            </style>
           </object>
         </child>
       </object>
