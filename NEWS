@@ -1,3 +1,23 @@
+3.33.90 – August 5, 2019
+=============================
+
+The UI has changed a bit. The scorer is not displayed
+anymore, as it was suggesting the good strategy would
+be to turn as many pieces of the opponent as possible
+during a game (hint: it is not); it has been replaced
+by a simple indication of the current player, visible
+in the headerbar. The New Game button was moved also,
+allowing to draw the board centered. All this permits
+to make the game able to run on small screens, and it
+probably makes the window layout a bit cleaner. For a
+similar reason, the themes dialog has gone and is now
+replaced by a submenu of the hamburger menu. Note, if
+you are a packager: GSound replaced the old Canberra.
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Spanish: Daniel Mustieles
+
 3.33.5 – July 22, 2019
 =============================
 

@@ -1,11 +1,12 @@
 project('iagno', ['vala', 'c'],
-    version: '3.33.5')
-
+    version: '3.33.90')
 
 project_id = 'org.gnome.Reversi'
-i18n = import('i18n')
+
 # used to install help
 gnome = import('gnome')
+# used for internationalization
+i18n = import('i18n')
 # used to run post install script
 python3 = import('python3')
 
