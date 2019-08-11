@@ -23,16 +23,12 @@ button.unfullscreen-button {
   margin:6px;
 }
 
-.main-box {
-  padding:1.5rem;
-}
-
 .extra-thin-window.thin-window button.history-button  { padding-left:12px; padding-right:12px; transition: padding 0 ease; }
 .extra-thin-window.thin-window button.new-game-button { padding-left:12px; padding-right:12px; transition: padding 0 ease;
 /* hack: fix the double spacing around the centerwidget box, on extra-thin window */
                                                         margin-right:-12px; }
 /*\
-* * new-game screen generics
+* * board generics; TODO move in game-window.css
 \*/
 
                                .game-box                { transition:padding 0.3s; padding:1.5rem; }
@@ -41,16 +37,16 @@ button.unfullscreen-button {
                   .flat-window .game-box                {                          padding:0.5rem; }
 .extra-flat-window.flat-window .game-box                {                          padding:0.4rem; }
 
+/*\
+* * start-game button; TODO move in game-window.css
+\*/
+
                                button.start-game-button { margin-top:1.5rem; margin-bottom:0.5rem;
                                                transition:margin-top 0 ease, margin-bottom 0 ease; }
                   .flat-window button.start-game-button { margin-top:0.5rem;                       }
 .extra-flat-window.flat-window button.start-game-button { margin-top:  0rem; margin-bottom:0.4rem; }
 
 .extra-thin-window             button.start-game-button { margin-top:1.0rem; }
-
-/*\
-* * options buttons
-\*/
 
 .extra-flat-window button.start-game-button {
   min-height:2rem;
@@ -65,10 +61,6 @@ button.unfullscreen-button {
 /*\
 * * labels' tweaks
 \*/
-
-label.bold-label {
-  font-weight: bold;
-}
 
 /* "Default" theme is in italic */
 popover > stack > box:nth-child(2) > box > box > box:first-child > modelbutton:first-child > box > label {
@@ -85,6 +77,13 @@ popover modelbutton {
              padding   0.3s ease,
              margin    0.3s ease;
 }
+
+/*\
+* * games buttons
+\*/
+
+button.radio-like-toggle#radio-one { background-image: url("resource://org/gnome/Reversi/images/reversi.png"); }
+button.radio-like-toggle#radio-two { background-image: url("resource://org/gnome/Reversi/images/reverse.png"); }
 
 /*\
 * * the end

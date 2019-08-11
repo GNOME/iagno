@@ -34,6 +34,10 @@
     </key>
   </schema>
 
+  <enum id="org.gnome.Reversi.GameType">
+    <value value="0" nick="classic"/>
+    <value value="1" nick="reverse"/>
+  </enum>
   <enum id="org.gnome.Reversi.Color">
     <value value="0" nick="dark"/>
     <value value="1" nick="light"/>
@@ -82,6 +86,13 @@
       <summary>Sound</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound' -->
       <description>Whether or not to play event sounds.</description>
+    </key>
+    <key name="type" enum="org.gnome.Reversi.GameType">
+      <default>'classic'</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type' -->
+      <summary>Name of the game</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type' -->
+      <description>The name of the game that will be played. It could be “classic” (the usual game, where you try to have more pieces), or “reverse” (the opposite game, where you try to have less pieces).</description>
     </key>
   </schema>
 </schemalist>

@@ -1,0 +1,128 @@
+/*
+  This file is part of a GNOME game.
+
+  This application is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This application is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this application.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+                               .new-game-screen { padding:0.5rem; }
+.extra-flat-window.flat-window .new-game-screen { padding:0.4rem; }
+
+button.radio-like-toggle,
+button.menubutton-like-combo {
+  border-radius:15px;
+  -gtk-outline-radius:13px;
+}
+
+.extra-thin-window label.section-header { margin-top:1.0rem; }  /* like start-game button */
+
+/*\
+* * games buttons
+\*/
+
+                                                       button.radio-like-toggle:backdrop { color: @theme_unfocused_fg_color; }
+                                                       button.radio-like-toggle          { color: @theme_fg_color;
+
+  background-repeat:no-repeat;
+  background-color:transparent;
+  min-width:10rem;
+
+  background-size:12rem;
+  background-position:center bottom;
+  min-height:13rem;
+  padding:0.5rem 1rem 1rem 1rem;
+}
+
+                                   .extra-thin-window  button.radio-like-toggle {
+  background-size:5rem;
+  background-position:0.4rem center;
+  min-height:3rem;
+  padding:1.8rem 0.6rem 1rem 5rem;
+}
+
+                  .flat-window:not(.extra-thin-window) button.radio-like-toggle {
+  background-size:8rem;              /*
+  background-position:center bottom; */
+  min-height:9rem;                   /*
+  padding:0.5rem 1rem 1rem 1rem;     */
+}
+
+.extra-flat-window.flat-window                         button.radio-like-toggle {
+  background-size:3rem;
+  background-position:0.3rem center;
+  min-height:2rem;
+  padding:0.6rem 0.5rem 0.5rem 4rem;
+}
+
+                                                       button.radio-like-toggle label { padding-bottom:10rem; }
+                                   .extra-thin-window  button.radio-like-toggle label { padding-bottom: 1rem; }
+                  .flat-window:not(.extra-thin-window) button.radio-like-toggle label { padding-bottom: 6rem; }
+.extra-flat-window.flat-window                         button.radio-like-toggle label { padding-bottom: 0rem; }
+
+/* transitions */
+
+                                   .extra-thin-window  button.radio-like-toggle,
+                       .flat-window.extra-thin-window  button.radio-like-toggle,
+     .extra-flat-window.flat-window.extra-thin-window  button.radio-like-toggle,
+                 .flat-window                          button.radio-like-toggle,
+      window:not(.flat-window):not(.extra-thin-window) button.radio-like-toggle {
+  transition:background-size     0.3s,
+             min-height          0.3s,
+             padding             0.3s;
+}
+                                   .extra-thin-window  button.radio-like-toggle label,
+                       .flat-window.extra-thin-window  button.radio-like-toggle label,
+     .extra-flat-window.flat-window.extra-thin-window  button.radio-like-toggle label,
+                 .flat-window                          button.radio-like-toggle label,
+      window:not(.flat-window):not(.extra-thin-window) button.radio-like-toggle label {
+  transition:padding-bottom      0.3s ease 0.01s;
+}
+
+/* hack: 0.01s delay helps fixing the race between CSS and box orientation changes (warning if a label gets out of view) */
+                                                       button.radio-like-toggle {
+  transition-delay:                        0.01s;
+  transition-timing-function:         ease;
+}
+
+/*\
+* * menubuttons
+\*/
+
+/* copying start-game button */
+
+.extra-flat-window button.menubutton-like-combo {
+  min-height:2rem;
+}
+                   button.menubutton-like-combo {
+  min-height:3rem;
+  min-width:11rem;
+
+  transition:min-height          0.3s ease 0.01s;
+}
+
+/* styling */
+
+button.menubutton-like-combo:checked,
+button.menubutton-like-combo:hover {
+  color:#2e3436; /* gtk-contained.css’ theme_fg_color */
+  background:-gtk-gradient (radial, center center, 0, center center, 0.5, from(rgba (255, 255, 255, 1)), to(rgba (255, 255, 255, 0)));
+}
+button.menubutton-like-combo:checked:backdrop,
+button.menubutton-like-combo:hover:backdrop {
+  color:@theme_unfocused_fg_color;
+  background:-gtk-gradient (radial, center center, 0, center center, 0.5, from(rgba (255, 255, 255, 0.3)), to(rgba (255, 255, 255, 0)));
+}
+
+/*\
+* * the end
+\*/

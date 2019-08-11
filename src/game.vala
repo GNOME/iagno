@@ -555,6 +555,7 @@ private class Game : Object
     \*/
 
     [CCode (notify = false)] public uint8           size                    { internal get; protected construct;     }
+    [CCode (notify = false)] public bool            reverse                 { internal get; protected construct;     }
     [CCode (notify = false)] public GameStateObject current_state           { internal get; protected construct set; }
     [CCode (notify = false)] public bool            alternative_start       { internal get; protected construct;     }
     [CCode (notify = false)] public uint8           initial_number_of_tiles { internal get; protected construct;     }
@@ -565,7 +566,7 @@ private class Game : Object
         update_possible_moves ();
     }
 
-    internal Game (bool _alternative_start = false, uint8 _size = 8)
+    internal Game (bool _reverse, bool _alternative_start = false, uint8 _size = 8)
         requires (_size >= 4)
         requires (_size <= 16)
     {
@@ -607,13 +608,14 @@ private class Game : Object
         GameStateObject _current_state = new GameStateObject.from_grid (_size, tiles, /* Dark always starts */ Player.DARK, _neighbor_tiles);
 
         Object (size                    : _size,
+                reverse                 : _reverse,
                 current_state           : _current_state,
                 alternative_start       : _alternative_start,
                 initial_number_of_tiles : _initial_number_of_tiles);
         neighbor_tiles = (owned) _neighbor_tiles;
     }
 
-    internal Game.from_strings (string [] setup, Player to_move, uint8 _size = 8)
+    internal Game.from_strings (string [] setup, Player to_move, bool _reverse = false, uint8 _size = 8)
         requires (_size >= 4)
         requires (_size <= 16)
         requires (to_move != Player.NONE)
@@ -634,6 +636,7 @@ private class Game : Object
         GameStateObject _current_state = new GameStateObject.from_grid (_size, tiles, to_move, _neighbor_tiles);
 
         Object (size                    : _size,
+                reverse                 : _reverse,
                 current_state           : _current_state,
                 alternative_start       : /* garbage */ false,
                 initial_number_of_tiles : (_size % 2 == 0) ? 4 : 7);

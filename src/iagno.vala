@@ -93,9 +93,10 @@ private class Iagno : Gtk.Application, BaseApplication
 
     private const GLib.ActionEntry app_actions [] =
     {
-        { "game-type", null, "s", "'dark'", change_game_type },
-        { "set-use-night-mode", set_use_night_mode, "b" },
+        { "game-type", change_game_type, "s" },
+        { "change-level", change_level_cb, "s" },
 
+        { "set-use-night-mode", set_use_night_mode, "b" },
         { "quit", quit }
     };
 
@@ -210,7 +211,42 @@ private class Iagno : Gtk.Application, BaseApplication
         view.move.connect (player_move_cb);
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
-        new_game_screen = new NewGameScreen ();
+        GLib.Menu size_menu = new GLib.Menu ();
+        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt) */
+        size_menu.append (_("Play _first (Dark)"),  "app.game-type('dark')");
+
+
+        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt) */
+        size_menu.append (_("Play _second (Light)"), "app.game-type('light')");
+
+
+        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt) */
+        size_menu.append (_("_Two players"), "app.game-type('two')");
+        size_menu.freeze ();
+
+        GLib.Menu theme_menu = new GLib.Menu ();
+        /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt) */
+        theme_menu.append (_("_Easy"),   "app.change-level('1')");
+
+
+        /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt) */
+        theme_menu.append (_("_Medium"), "app.change-level('2')");
+
+
+        /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt) */
+        theme_menu.append (_("_Hard"),   "app.change-level('3')");
+        theme_menu.freeze ();
+
+        /* Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces */
+        new_game_screen = new NewGameScreen (_("Classic Reversi"),
+                                             "app.type('classic')",
+
+        /* Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces */
+                                             _("Reverse Reversi"),
+                                             "app.type('reverse')",
+
+                                             size_menu,
+                                             theme_menu);
 
         if (settings.get_boolean ("sound"))
             init_sound ();
@@ -316,45 +352,61 @@ private class Iagno : Gtk.Application, BaseApplication
      // set_accels_for_action ("app.help",              {                 "F1"      });
      // set_accels_for_action ("base.about",            {          "<Shift>F1"      });
         add_action (settings.create_action ("sound"));
-        add_action (settings.create_action ("color"));
-        add_action (settings.create_action ("num-players"));
-        add_action (settings.create_action ("computer-level"));
+        add_action (settings.create_action ("type"));        // TODO window action?
         add_action (settings.create_action ("highlight-turnable-tiles"));
         add_action (settings.create_action ("theme"));
 
         settings.bind ("highlight-turnable-tiles", view, "show-turnable-tiles", SettingsBindFlags.GET);
         settings.bind ("theme",                    view, "theme",               SettingsBindFlags.GET);
 
-        game_type_action = (SimpleAction) lookup_action ("game-type");
+        /* New-game screen signals */
+        settings.changed ["computer-level"].connect (() => {
+            if (!level_changed)
+                update_level_button_label (settings.get_int ("computer-level") /* 1 <= level <= 3 */);
+            level_changed = false;
+        });
+        update_level_button_label (settings.get_int ("computer-level") /* 1 <= level <= 3 */);
 
         settings.changed ["color"].connect (() => {
+                if (game_type_changed_1)
+                {
+                    game_type_changed_1 = false;
+                    return;
+                }
+
                 if (settings.get_int ("num-players") == 2)
                     return;
                 if (settings.get_string ("color") == "dark")
-                    game_type_action.set_state (new Variant.string ("dark"));
+                    update_game_type_button_label ("dark");
                 else
-                    game_type_action.set_state (new Variant.string ("light"));
+                    update_game_type_button_label ("light");
             });
 
         settings.changed ["num-players"].connect (() => {
+                if (game_type_changed_2)
+                {
+                    game_type_changed_2 = false;
+                    return;
+                }
+
                 bool solo = settings.get_int ("num-players") == 1;
                 new_game_screen.update_sensitivity (solo);
                 if (!solo)
-                    game_type_action.set_state (new Variant.string ("two"));
+                    update_game_type_button_label ("two");
                 else if (settings.get_string ("color") == "dark")
-                    game_type_action.set_state (new Variant.string ("dark"));
+                    update_game_type_button_label ("dark");
                 else
-                    game_type_action.set_state (new Variant.string ("light"));
+                    update_game_type_button_label ("light");
             });
         bool solo = settings.get_int ("num-players") == 1;
         new_game_screen.update_sensitivity (solo);
 
         if (settings.get_int ("num-players") == 2)
-            game_type_action.set_state (new Variant.string ("two"));
+            update_game_type_button_label ("two");
         else if (settings.get_string ("color") == "dark")
-            game_type_action.set_state (new Variant.string ("dark"));
+            update_game_type_button_label ("dark");
         else
-            game_type_action.set_state (new Variant.string ("light"));
+            update_game_type_button_label ("light");
 
         if (start_now)
             start_game ();
@@ -395,20 +447,72 @@ private class Iagno : Gtk.Application, BaseApplication
     * * Internal calls
     \*/
 
-    private SimpleAction game_type_action;
+    private bool game_type_changed_1 = false;
+    private bool game_type_changed_2 = false;
     private void change_game_type (SimpleAction action, Variant? gvariant)
         requires (gvariant != null)
     {
         string type = ((!) gvariant).get_string ();
-//        game_type_action.set_state ((!) gvariant);
+        update_game_type_button_label (type);
+        game_type_changed_1 = true;
+        game_type_changed_2 = true;
         switch (type)
         {
-            case "dark":  settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
-                          settings.set_string ("color",  "dark");                                             return;
-            case "light": settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
-                          settings.set_string ("color", "light");                                             return;
             case "two":   settings.set_int    ("num-players", 2); new_game_screen.update_sensitivity (false); return;
+            case "dark":  settings.delay ();
+                          settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
+                          settings.set_string ("color",  "dark"); settings.apply ();                          return;
+            case "light": settings.delay ();
+                          settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
+                          settings.set_string ("color", "light"); settings.apply ();                          return;
             default: assert_not_reached ();
+        }
+    }
+    private void update_game_type_button_label (string type)
+    {
+        switch (type)
+        {
+            case "two":
+                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                /* Translators: when configuring a new game, button label if a two-players game is chosen */
+                                                         _("Two players"));     return;
+            case "dark":
+                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                /* Translators: when configuring a new game, button label if the player choose to start */
+                                                         _("Color: Dark"));     return;
+            case "light":
+                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                /* Translators: when configuring a new game, button label if the player choose let computer start */
+                                                         _("Color: Light"));    return;
+            default: assert_not_reached ();
+        }
+    }
+
+    private bool level_changed = false;
+    private void change_level_cb (SimpleAction action, Variant? gvariant)
+        requires (gvariant != null)
+    {
+        level_changed = true;
+        int level = int.parse (((!) gvariant).get_string ());
+        update_level_button_label (level /* 1 <= level <= 3 */);
+        settings.set_int ("computer-level", level);
+    }
+    private void update_level_button_label (int level)
+    {
+        switch (level)
+        {
+            case 1:
+                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                /* Translators: when configuring a new game, button label for the AI level, if easy */
+                                                         _("Difficulty: Easy"));                return;
+            case 2:
+                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                /* Translators: when configuring a new game, button label for the AI level, if medium */
+                                                         _("Difficulty: Medium"));              return;
+            case 3:
+                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                /* Translators: when configuring a new game, button label for the AI level, if hard */
+                                                         _("Difficulty: Hard"));                return;
         }
     }
 
@@ -435,7 +539,8 @@ private class Iagno : Gtk.Application, BaseApplication
         if (computer != null)
             ((!) computer).cancel_move ();
 
-        game = new Game (alternative_start, (uint8) size /* 4 <= size <= 16 */);
+        bool reverse = settings.get_string ("type") == "reverse";
+        game = new Game (reverse, alternative_start, (uint8) size /* 4 <= size <= 16 */);
         game_is_set = true;
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
@@ -445,13 +550,22 @@ private class Iagno : Gtk.Application, BaseApplication
         else
         {
             uint8 computer_level = (uint8) settings.get_int ("computer-level");
-            switch (computer_level)
-            {
-                case 1 : computer = new ComputerReversiEasy (game);                break;
-                case 2 : computer = new ComputerReversiHard (game, /* depth */ 0); break;
-                case 3 : computer = new ComputerReversiHard (game, /* depth */ 1); break;
-                default: assert_not_reached ();
-            }
+            if (reverse)
+                switch (computer_level)
+                {
+                    case 1 : computer = new ComputerReverseEasy (game);                break;
+                    case 2 : computer = new ComputerReverseHard (game, /* depth */ 1); break;
+                    case 3 : computer = new ComputerReverseHard (game, /* depth */ 2); break;
+                    default: assert_not_reached ();
+                }
+            else
+                switch (computer_level)
+                {
+                    case 1 : computer = new ComputerReversiEasy (game);                break;
+                    case 2 : computer = new ComputerReversiHard (game, /* depth */ 0); break;
+                    case 3 : computer = new ComputerReversiHard (game, /* depth */ 1); break;
+                    default: assert_not_reached ();
+                }
         }
 
         if (settings.get_enum ("color") == 1)
@@ -562,11 +676,13 @@ private class Iagno : Gtk.Application, BaseApplication
     {
         window.finish_game ();
 
-        if (game.n_light_tiles > game.n_dark_tiles)
+        if ((!game.reverse && game.n_light_tiles > game.n_dark_tiles)
+         || ( game.reverse && game.n_light_tiles < game.n_dark_tiles))
             /* Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles */
             window.show_notification (_("Light wins! (%u-%u)").printf (game.n_light_tiles, game.n_dark_tiles));
 
-        else if (game.n_dark_tiles > game.n_light_tiles)
+        else if ((!game.reverse && game.n_light_tiles < game.n_dark_tiles)
+              || ( game.reverse && game.n_light_tiles > game.n_dark_tiles))
             /* Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles */
             window.show_notification (_("Dark wins! (%u-%u)").printf (game.n_dark_tiles, game.n_light_tiles));
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
+  <gresource prefix="/org/gnome/Reversi/images">
+    <file preprocess="to-pixdata" alias="reverse.png">../data/reverse.png</file>
+    <file preprocess="to-pixdata" alias="reversi.png">../data/reversi.png</file>
+  </gresource>
   <gresource prefix="/org/gnome/Reversi/ui">
     <file preprocess="xml-stripblanks" compressed="true" alias="adaptative-window.ui"       >ui/adaptative-window.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="base-headerbar.ui"          >ui/base-headerbar.ui</file>
@@ -8,7 +12,8 @@
     <file preprocess="xml-stripblanks" compressed="true" alias="base-window.ui"             >ui/base-window.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="game-headerbar.ui"          >ui/game-headerbar.ui</file>
     <file compressed="true">iagno.css</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="iagno-screens.ui"           >ui/iagno-screens.ui</file>
+    <file compressed="true">new-game-screen.css</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="new-game-screen.ui"         >ui/new-game-screen.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="notifications-revealer.ui"  >ui/notifications-revealer.ui</file>
     <file>noise.png</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="overlayed-list.ui"          >ui/overlayed-list.ui</file>

@@ -127,7 +127,7 @@ private class TestIagno : Object
 
     private static void test_undo_at_start ()
     {
-        Game game = new Game ();
+        Game game = new Game (/* reverse */ false);
         assert_true (game.number_of_moves == 0);
         assert_true (game.place_tile (2, 3));
         assert_true (game.number_of_moves == 1);
