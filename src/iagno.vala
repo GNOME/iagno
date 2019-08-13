@@ -448,8 +448,8 @@ private class Iagno : Gtk.Application, BaseApplication
             switch (computer_level)
             {
                 case 1 : computer = new ComputerReversiEasy (game);                break;
-                case 2 : computer = new ComputerReversiHard (game, /* depth */ 2); break;
-                case 3 : computer = new ComputerReversiHard (game, /* depth */ 3); break;
+                case 2 : computer = new ComputerReversiHard (game, /* depth */ 1); break;
+                case 3 : computer = new ComputerReversiHard (game, /* depth */ 2); break; /* FIXME AI makes mistakes like #LLL#LL# on a border */
                 default: assert_not_reached ();
             }
         }

@@ -82,15 +82,19 @@ private class ComputerReversiEasy : ComputerReversi
 private class ComputerReversiHard : ComputerReversi
 {
     public bool even_depth { private get; protected construct; }
+    public bool medium_ai  { private get; protected construct; }
 
     construct
     {
-        init_heuristic (size, out heuristic);
+        init_heuristic (size, out heuristic, medium_ai);
     }
 
     internal ComputerReversiHard (Game game, uint8 initial_depth)
     {
-        Object (game: game, even_depth: initial_depth % 2 == 0, initial_depth: initial_depth);
+        Object (game            : game,
+                even_depth      : initial_depth % 2 == 0,
+                medium_ai       : initial_depth == 1,
+                initial_depth   : initial_depth);
     }
 
     /*\
@@ -120,7 +124,10 @@ private class ComputerReversiHard : ComputerReversi
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  1, move.n_tiles_so);
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  0, move.n_tiles_o );
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1, -1, move.n_tiles_no);
-        return 2 * comparator + (int) heuristic [move.x, move.y] - 9 * (int) neighbor_tiles [move.x, move.y];
+        if (medium_ai)  /* we artificially decrease the medium difficulty level 1/3 */
+            return comparator + (int) heuristic [move.x, move.y] - 8 * (int) neighbor_tiles [move.x, move.y];
+        else
+            return 2 * comparator + (int) heuristic [move.x, move.y] - 8 * (int) neighbor_tiles [move.x, move.y];
     }
 
     private inline void calculate_dir_heuristic (ref int comparator, uint8 x, uint8 y, int8 x_step, int8 y_step, uint8 count)
@@ -136,10 +143,10 @@ private class ComputerReversiHard : ComputerReversi
 
     protected override int16 calculate_heuristic (GameStateStruct g)
     {
-        return eval_heuristic (g, ref heuristic, even_depth);
+        return eval_heuristic (g, ref heuristic, even_depth, medium_ai);
     }
 
-    private static inline int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic, bool even_depth)
+    private static inline int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic, bool even_depth, bool medium_ai)
     {
         uint8 size = g.size;
         int16 count = 0;
@@ -151,12 +158,12 @@ private class ComputerReversiHard : ComputerReversi
                 if (a == 0) // completely surrounded
                     a = -6;
 
-                int16 tile_heuristic = heuristic [x, y] - 9 * a;
+                int16 tile_heuristic = heuristic [x, y] - 8 * a;
                 if (g.is_empty_tile (x, y))
                 {
                     if (even_depth)
-                        count -= tile_heuristic /* / 2 */; // half is harder, but we artificially decrease the medium difficulty level
-                    else
+                        count -= tile_heuristic / 2;
+                    else if (!medium_ai)    /* we artificially decrease the medium difficulty level 2/3 */
                         count += tile_heuristic / 2;
                 }
                 else if (g.is_current_color (x, y))
@@ -176,23 +183,40 @@ private class ComputerReversiHard : ComputerReversi
 
     private const int16 [,] heuristic_8 =
     {
-        { 420,  33,  23,  18,  18,  23,  33, 420 },
-        {  33, -65, -12, -41, -41, -12, -65,  33 },
-        {  23, -12,  53,  13,  13,  53, -12,  23 },
-        {  18, -41,  13, -84, -84,  13, -41,  18 },
-        {  18, -41,  13, -84, -84,  13, -41,  18 },
-        {  23, -12,  53,  13,  13,  53, -12,  23 },
-        {  33, -65, -12, -41, -41, -12, -65,  33 },
-        { 420,  33,  23,  18,  18,  23,  33, 420 }
+        { 410,  23,  13,   8,   8,  13,  23, 410 },
+        {  23, -75, -22, -51, -51, -22, -75,  23 },
+        {  13, -22,  41,   3,   3,  41, -22,  13 },
+        {   8, -51,   3, -87, -87,   3, -51,   8 },
+        {   8, -51,   3, -87, -87,   3, -51,   8 },
+        {  13, -22,  41,   3,   3,  41, -22,  13 },
+        {  23, -75, -22, -51, -51, -22, -75,  23 },
+        { 410,  23,  13,   8,   8,  13,  23, 410 }
     };
 
-    private static void init_heuristic (uint8 size, out int16 [,] heuristic)
+    private static inline void init_heuristic (uint8 size, out int16 [,] heuristic, bool medium_ai)
         requires (size >= 4)
     {
         if (size == 8)
             heuristic = heuristic_8;
         else
             create_heuristic (size, out heuristic);
+
+        if (medium_ai)  /* we artificially decrease the medium difficulty level 3/3 */
+            return;
+
+        /* that part is fun */
+        for (uint8 i = 0; i < 5; i++)
+        {
+            heuristic [Random.int_range (0, (int32) size),
+                       Random.int_range (0, (int32) size)]
+                    += Random.boolean () ? -1 : 1;
+
+            uint8 x = (uint8) Random.int_range (0, (int32) size);
+            uint8 y = (uint8) Random.int_range (0, (int32) size);
+            bool minus = Random.boolean ();
+            heuristic [x, y]                       += minus ? -1 : 1;
+            heuristic [size - 1 - x, size - 1 - y] += minus ? -1 : 1;
+        }
     }
 
     private static void create_heuristic (uint8 size, out int16 [,] heuristic)
