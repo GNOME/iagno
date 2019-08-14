@@ -124,7 +124,7 @@ private class ComputerReversiHard : ComputerReversi
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  1, move.n_tiles_so);
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  0, move.n_tiles_o );
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1, -1, move.n_tiles_no);
-        if (medium_ai)  /* we artificially decrease the medium difficulty level 1/3 */
+        if (medium_ai)  /* we artificially decrease the medium difficulty level 1/4 */
             return comparator + (int) heuristic [move.x, move.y] - 8 * (int) neighbor_tiles [move.x, move.y];
         else
             return 2 * comparator + (int) heuristic [move.x, move.y] - 8 * (int) neighbor_tiles [move.x, move.y];
@@ -163,7 +163,7 @@ private class ComputerReversiHard : ComputerReversi
                 {
                     if (even_depth)
                         count -= tile_heuristic / 2;
-                    else if (!medium_ai)    /* we artificially decrease the medium difficulty level 2/3 */
+                    else if (!medium_ai)    /* we artificially decrease the medium difficulty level 2/4 */
                         count += tile_heuristic / 2;
                 }
                 else if (g.is_current_color (x, y))
@@ -172,7 +172,76 @@ private class ComputerReversiHard : ComputerReversi
                     count -= tile_heuristic;
             }
 
+        if (medium_ai)
+            return count;   /* we artificially decrease the medium difficulty level 3/4 */
+
+        mainline_penalty (g, border_penalty, ref count, MainLine.TOP);
+        mainline_penalty (g, border_penalty, ref count, MainLine.LEFT);
+        mainline_penalty (g, border_penalty, ref count, MainLine.RIGHT);
+        mainline_penalty (g, border_penalty, ref count, MainLine.BOTTOM);
+        mainline_penalty (g, corner_penalty, ref count, MainLine.TOPLEFT);
+        mainline_penalty (g, corner_penalty, ref count, MainLine.TOPRIGHT);
+
         return count;
+    }
+
+    private const int16 border_penalty = 22;
+    private const int16 corner_penalty = 23;
+    private static void mainline_penalty (GameStateStruct g, int16 penalty, ref int16 count, MainLine mainline_id)
+    {
+        Player [] mainline = g.get_mainline (mainline_id);
+        if (mainline [1] == g.current_color
+         && mainline [0] == Player.NONE)
+        {
+            uint8 i = 1;
+            do { i++; if (i == g.size - 2) break; }
+            while (mainline [i] == g.current_color);
+            if (i != g.size - 2)
+            {
+                count -= penalty;
+                if (mainline [i + 1] == g.current_color)
+                    count -= penalty;
+            }
+        }
+        else if (mainline [1] == g.opponent_color
+              && mainline [0] == Player.NONE)
+        {
+            uint8 i = 1;
+            do { i++; if (i == g.size - 2) break; }
+            while (mainline [i] == g.opponent_color);
+            if (i != g.size - 2)
+            {
+                count += penalty;
+                if (mainline [i + 1] == g.opponent_color)
+                    count += penalty;
+            }
+        }
+        if (mainline [g.size - 2] == g.current_color
+         && mainline [g.size - 1] == Player.NONE)
+        {
+            uint8 i = 1;
+            do { i++; if (i == g.size - 2) break; }
+            while (mainline [g.size - 1 - i] == g.current_color);
+            if (i != g.size - 2)
+            {
+                count -= penalty;
+                if (mainline [g.size - 2 - i] == g.current_color)
+                    count -= penalty;
+            }
+        }
+        else if (mainline [g.size - 2] == g.opponent_color
+              && mainline [g.size - 1] == Player.NONE)
+        {
+            uint8 i = 1;
+            do { i++; if (i == g.size - 2) break; }
+            while (mainline [g.size - 1 - i] == g.opponent_color);
+            if (i != g.size - 2)
+            {
+                count += penalty;
+                if (mainline [g.size - 2 - i] == g.opponent_color)
+                    count += penalty;
+            }
+        }
     }
 
     /*\
@@ -201,7 +270,7 @@ private class ComputerReversiHard : ComputerReversi
         else
             create_heuristic (size, out heuristic);
 
-        if (medium_ai)  /* we artificially decrease the medium difficulty level 3/3 */
+        if (medium_ai)  /* we artificially decrease the medium difficulty level 4/4 */
             return;
 
         /* that part is fun */

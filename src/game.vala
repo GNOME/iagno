@@ -20,6 +20,16 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+private enum MainLine
+{
+    TOP,
+    LEFT,
+    RIGHT,
+    BOTTOM,
+    TOPLEFT,
+    TOPRIGHT;
+}
+
 private struct GameStateStruct
 {
     public Player   current_color;
@@ -426,6 +436,26 @@ private struct GameStateStruct
             if (ymm_is_valid) empty_neighbors [xpp, ymm] -= 1;
             if (ypp_is_valid) empty_neighbors [xpp, ypp] -= 1;
         }
+    }
+
+    /*\
+    * * mainlines
+    \*/
+
+    internal Player [] get_mainline (MainLine mainline_id)  // keeping an updated copy of each mainline is a bit slower
+    {
+        Player [] mainline = new Player [size];
+        switch (mainline_id)
+        {
+            case MainLine.TOP:      for (uint8 i = 0; i < size; i++) mainline [i] = tiles [i, 0];            break;
+            case MainLine.LEFT:     for (uint8 i = 0; i < size; i++) mainline [i] = tiles [0, i];            break;
+            case MainLine.RIGHT:    for (uint8 i = 0; i < size; i++) mainline [i] = tiles [size - 1, i];     break;
+            case MainLine.BOTTOM:   for (uint8 i = 0; i < size; i++) mainline [i] = tiles [i, size - 1];     break;
+            case MainLine.TOPLEFT:  for (uint8 i = 0; i < size; i++) mainline [i] = tiles [i, i];            break;
+            case MainLine.TOPRIGHT: for (uint8 i = 0; i < size; i++) mainline [i] = tiles [size - 1 - i, i]; break;
+            default: assert_not_reached ();
+        }
+        return mainline;
     }
 }
 
