@@ -82,18 +82,16 @@ private class ComputerReversiEasy : ComputerReversi
 private class ComputerReversiHard : ComputerReversi
 {
     public bool even_depth { private get; protected construct; }
-    public bool medium_ai  { private get; protected construct; }
 
     construct
     {
-        init_heuristic (size, out heuristic, medium_ai);
+        init_heuristic (size, out heuristic);
     }
 
     internal ComputerReversiHard (Game game, uint8 initial_depth)
     {
         Object (game            : game,
                 even_depth      : initial_depth % 2 == 0,
-                medium_ai       : initial_depth == 1,
                 initial_depth   : initial_depth);
     }
 
@@ -124,10 +122,7 @@ private class ComputerReversiHard : ComputerReversi
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  1, move.n_tiles_so);
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1,  0, move.n_tiles_o );
         calculate_dir_heuristic (ref comparator, move.x, move.y, -1, -1, move.n_tiles_no);
-        if (medium_ai)  /* we artificially decrease the medium difficulty level 1/4 */
-            return comparator + (int) heuristic [move.x, move.y] - 8 * (int) neighbor_tiles [move.x, move.y];
-        else
-            return 2 * comparator + (int) heuristic [move.x, move.y] - 8 * (int) neighbor_tiles [move.x, move.y];
+        return 2 * comparator + (int) heuristic [move.x, move.y] - 8 * (int) neighbor_tiles [move.x, move.y];
     }
 
     private inline void calculate_dir_heuristic (ref int comparator, uint8 x, uint8 y, int8 x_step, int8 y_step, uint8 count)
@@ -143,10 +138,10 @@ private class ComputerReversiHard : ComputerReversi
 
     protected override int16 calculate_heuristic (GameStateStruct g)
     {
-        return eval_heuristic (g, ref heuristic, even_depth, medium_ai);
+        return eval_heuristic (g, ref heuristic, even_depth);
     }
 
-    private static inline int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic, bool even_depth, bool medium_ai)
+    private static inline int16 eval_heuristic (GameStateStruct g, ref int16 [,] heuristic, bool even_depth)
     {
         uint8 size = g.size;
         int16 count = 0;
@@ -163,7 +158,7 @@ private class ComputerReversiHard : ComputerReversi
                 {
                     if (even_depth)
                         count -= tile_heuristic / 2;
-                    else if (!medium_ai)    /* we artificially decrease the medium difficulty level 2/4 */
+                    else
                         count += tile_heuristic / 2;
                 }
                 else if (g.is_current_color (x, y))
@@ -171,9 +166,6 @@ private class ComputerReversiHard : ComputerReversi
                 else
                     count -= tile_heuristic;
             }
-
-        if (medium_ai)
-            return count;   /* we artificially decrease the medium difficulty level 3/4 */
 
         mainline_penalty (g, border_penalty, ref count, MainLine.TOP);
         mainline_penalty (g, border_penalty, ref count, MainLine.LEFT);
@@ -185,8 +177,8 @@ private class ComputerReversiHard : ComputerReversi
         return count;
     }
 
-    private const int16 border_penalty = 22;
-    private const int16 corner_penalty = 23;
+    private const int16 border_penalty = 206;
+    private const int16 corner_penalty = 206;
     private static void mainline_penalty (GameStateStruct g, int16 penalty, ref int16 count, MainLine mainline_id)
     {
         Player [] mainline = g.get_mainline (mainline_id);
@@ -262,16 +254,13 @@ private class ComputerReversiHard : ComputerReversi
         { 410,  23,  13,   8,   8,  13,  23, 410 }
     };
 
-    private static inline void init_heuristic (uint8 size, out int16 [,] heuristic, bool medium_ai)
+    private static inline void init_heuristic (uint8 size, out int16 [,] heuristic)
         requires (size >= 4)
     {
         if (size == 8)
             heuristic = heuristic_8;
         else
             create_heuristic (size, out heuristic);
-
-        if (medium_ai)  /* we artificially decrease the medium difficulty level 4/4 */
-            return;
 
         /* that part is fun */
         for (uint8 i = 0; i < 5; i++)
