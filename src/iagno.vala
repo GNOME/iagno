@@ -33,6 +33,8 @@ private class Iagno : Gtk.Application, BaseApplication
     private static bool alternative_start;
     private static bool random_start;
     private static bool usual_start;
+    private static bool classic_game;
+    private static bool reverse_game;
     private static string? level = null;
     private static int size = 8;
     private static bool? sound = null;
@@ -65,6 +67,9 @@ private class Iagno : Gtk.Application, BaseApplication
         { "alternative-start", 0, 0, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
+        { "classic", 0, 0, OptionArg.NONE, ref classic_game,                N_("Play Classic Reversi"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
         { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,               N_("Reduce delay before AI moves"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
@@ -78,6 +83,9 @@ private class Iagno : Gtk.Application, BaseApplication
 
         /* Translators: command-line option description, see 'iagno --help' */
         { "random-start", 0, 0, OptionArg.NONE, ref random_start,           N_("Start with a random position"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "reverse", 0, 0, OptionArg.NONE, ref reverse_game,                N_("Play Reverse Reversi"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
         { "second", 0, 0, OptionArg.NONE, null,                             N_("Play second"), null},
@@ -146,6 +154,13 @@ private class Iagno : Gtk.Application, BaseApplication
             return Posix.EXIT_FAILURE;
         }
 
+        if (classic_game && reverse_game)
+        {
+            /* Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic' */
+            stderr.printf ("%s\n", _("The “--classic” and “--reverse” arguments are mutually exclusive."));
+            return Posix.EXIT_FAILURE;
+        }
+
         if (size < 4)
         {
             /* Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2' */
@@ -183,9 +198,15 @@ private class Iagno : Gtk.Application, BaseApplication
         settings = new GLib.Settings ("org.gnome.Reversi");
 
         bool start_now = (two_players == true) || (play_first != null);
-        if ((sound != null) || start_now || (level != null))
+        if ((sound != null) || start_now || (level != null) || classic_game || reverse_game)
         {
             settings.delay ();
+
+            if (classic_game)
+                settings.set_string ("type", "classic");
+            else if (reverse_game)
+                settings.set_string ("type", "reverse");
+
             if (sound != null)
                 settings.set_boolean ("sound", (!) sound);
 
