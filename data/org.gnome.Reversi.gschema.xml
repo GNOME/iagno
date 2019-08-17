@@ -44,6 +44,13 @@
   </enum>
 
   <schema id="org.gnome.Reversi" path="/org/gnome/iagno/" gettext-domain="iagno">
+    <key name="color" enum="org.gnome.Reversi.Color">
+      <default>'dark'</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color' -->
+      <summary>Color to play as</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color' -->
+      <description>Whether to play as Dark or Light. Ignored for two-player games.</description>
+    </key>
     <key name="computer-level" type="i">
       <default>1</default>
       <range min="1" max="3" />
@@ -52,20 +59,6 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level' -->
       <description>From 1, the easiest, to 3, the hardest.</description>
     </key>
-    <key name="num-players" type="i">
-      <default>1</default>
-      <range min="1" max="2" />
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players' -->
-      <summary>Whether to play against the computer or another human.</summary>
-      <!-- TODO add description? -->
-    </key>
-    <key name="color" enum="org.gnome.Reversi.Color">
-      <default>'dark'</default>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color' -->
-      <summary>Color to play as</summary>
-      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color' -->
-      <description>Whether to play as Dark or Light. Ignored for two-player games.</description>
-    </key>
     <key name="highlight-turnable-tiles" type="b">
       <default>false</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles' -->
@@ -73,12 +66,19 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there -->
       <description>If “true”, the tiles that will be captured to the opponent by a ply are highlighted.</description>
     </key>
-    <key name="theme" type="s">
-      <default>'default'</default>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme' -->
-      <summary>Theme</summary>
-      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now -->
-      <description>Filename of the theme used, or "default". Are provided "adwaita.theme", "high_contrast.theme" and "sun_and_star.theme".</description>
+    <key name="num-players" type="i">
+      <default>1</default>
+      <range min="1" max="2" />
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players' -->
+      <summary>Whether to play against the computer or another human.</summary>
+      <!-- TODO add description? -->
+    </key>
+    <key name="random-start-position" type="b">
+      <default>false</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position' -->
+      <summary>A flag to randomize start position</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position' -->
+      <description>Reversi can be played with two different initial positions (and their variants). If “true”, the game will randomly start with one or the other position; if “false”, only the most common initial position is used. You can force the game to use the alternative position by using the “--alternative-start” argument on the command-line; also, if either “--usual-start” or “--random-start” is given instead on the command-line, this flag will be ignored.</description>
     </key>
     <key name="sound" type="b">
       <default>true</default>
@@ -86,6 +86,13 @@
       <summary>Sound</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound' -->
       <description>Whether or not to play event sounds.</description>
+    </key>
+    <key name="theme" type="s">
+      <default>'default'</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme' -->
+      <summary>Theme</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now -->
+      <description>Filename of the theme used, or "default". Are provided "adwaita.theme", "high_contrast.theme" and "sun_and_star.theme".</description>
     </key>
     <key name="type" enum="org.gnome.Reversi.GameType">
       <default>'classic'</default>

@@ -30,9 +30,24 @@ your color as possible without your opponent flipping your tiles.
 This is done by trapping your opponent's tiles between two tiles of
 your own color.
 .SH OPTIONS
-.TP
+.PP
 .B \-\-alternative\-start
-Start the game with an alternative position.
+.br
+.B \-\-random\-start
+.br
+.B \-\-usual\-start
+.RS 7
+Reversi can be played with two different initial positions.
+.br
+The options --usual-start and --alternative-start permit
+to directly choose which initial position will be used.
+.br
+The option --random-start is for choosing one randomly.
+.br
+The three options disable setting the mode from the window.
+.br
+You should only use one of these options at the same time.
+.RE
 .TP
 .B \-f, \-\-fast\-moves
 Play with reduced delay before the computer moves.

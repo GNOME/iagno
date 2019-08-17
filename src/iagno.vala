@@ -31,6 +31,8 @@ private class Iagno : Gtk.Application, BaseApplication
     private GLib.Settings settings;
     private static bool fast_mode;
     private static bool alternative_start;
+    private static bool random_start;
+    private static bool usual_start;
     private static string? level = null;
     private static int size = 8;
     private static bool? sound = null;
@@ -75,6 +77,9 @@ private class Iagno : Gtk.Application, BaseApplication
         { "mute", 0, 0, OptionArg.NONE, null,                               N_("Turn off the sound"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
+        { "random-start", 0, 0, OptionArg.NONE, ref random_start,           N_("Start with a random position"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
         { "second", 0, 0, OptionArg.NONE, null,                             N_("Play second"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
@@ -85,6 +90,9 @@ private class Iagno : Gtk.Application, BaseApplication
 
         /* Translators: command-line option description, see 'iagno --help' */
         { "unmute", 0, 0, OptionArg.NONE, null,                             N_("Turn on the sound"), null},
+
+        /* Translators: command-line option description, see 'iagno --help' */
+        { "usual-start", 0, 0, OptionArg.NONE, ref usual_start,             N_("Start with the usual position"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
         { "version", 'v', 0, OptionArg.NONE, null,                          N_("Print release version and exit"), null},
@@ -127,6 +135,15 @@ private class Iagno : Gtk.Application, BaseApplication
             /* NOTE: Is not translated so can be easily parsed */
             stdout.printf ("%1$s %2$s\n", "iagno", VERSION);
             return Posix.EXIT_SUCCESS;
+        }
+
+        if ((usual_start && random_start)
+         || (random_start && alternative_start)
+         || (alternative_start && usual_start))
+        {
+            /* Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start' */
+            stderr.printf ("%s\n", _("The “--alternative-start”, “--random-start” and “--usual-start” arguments are mutually exclusive."));
+            return Posix.EXIT_FAILURE;
         }
 
         if (size < 4)
@@ -212,16 +229,29 @@ private class Iagno : Gtk.Application, BaseApplication
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
         GLib.Menu size_menu = new GLib.Menu ();
+        GLib.Menu section = new GLib.Menu ();
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt) */
-        size_menu.append (_("Play _first (Dark)"),  "app.game-type('dark')");
+        section.append (_("Play _first (Dark)"),  "app.game-type('dark')");
 
 
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt) */
-        size_menu.append (_("Play _second (Light)"), "app.game-type('light')");
+        section.append (_("Play _second (Light)"), "app.game-type('light')");
 
 
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt) */
-        size_menu.append (_("_Two players"), "app.game-type('two')");
+        section.append (_("_Two players"), "app.game-type('two')");
+        section.freeze ();
+        size_menu.append_section (null, section);
+
+        if (!alternative_start && !random_start && !usual_start)
+        {
+            section = new GLib.Menu ();
+            /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt) */
+            section.append (_("_Random start position"), "app.random-start-position");
+            section.freeze ();
+            size_menu.append_section (null, section);
+        }
+
         size_menu.freeze ();
 
         GLib.Menu theme_menu = new GLib.Menu ();
@@ -252,7 +282,7 @@ private class Iagno : Gtk.Application, BaseApplication
             init_sound ();
 
         GLib.Menu appearance_menu = new GLib.Menu ();
-        GLib.Menu section = new GLib.Menu ();
+        section = new GLib.Menu ();
         /* Translators: hamburger menu "Appearance" submenu entry; a name for the default theme */
         section.append (_("Default"), "app.theme('default')");
         Dir dir;
@@ -351,10 +381,12 @@ private class Iagno : Gtk.Application, BaseApplication
         set_accels_for_action ("base.toggle-hamburger", {                 "F10"     });
      // set_accels_for_action ("app.help",              {                 "F1"      });
      // set_accels_for_action ("base.about",            {          "<Shift>F1"      });
-        add_action (settings.create_action ("sound"));
-        add_action (settings.create_action ("type"));        // TODO window action?
         add_action (settings.create_action ("highlight-turnable-tiles"));
+        if (!alternative_start && !random_start && !usual_start)
+            add_action (settings.create_action ("random-start-position"));
+        add_action (settings.create_action ("sound"));
         add_action (settings.create_action ("theme"));
+        add_action (settings.create_action ("type"));        // TODO window action?
 
         settings.bind ("highlight-turnable-tiles", view, "show-turnable-tiles", SettingsBindFlags.GET);
         settings.bind ("theme",                    view, "theme",               SettingsBindFlags.GET);
@@ -539,8 +571,18 @@ private class Iagno : Gtk.Application, BaseApplication
         if (computer != null)
             ((!) computer).cancel_move ();
 
+        bool use_alternative;
+        if (alternative_start)
+            use_alternative = true;
+        else if (usual_start)
+            use_alternative = false;
+        else if (random_start || settings.get_boolean ("random-start-position"))
+            use_alternative = Random.boolean ();
+        else
+            use_alternative = false;
+
         bool reverse = settings.get_string ("type") == "reverse";
-        game = new Game (reverse, alternative_start, (uint8) size /* 4 <= size <= 16 */);
+        game = new Game (reverse, use_alternative, (uint8) size /* 4 <= size <= 16 */);
         game_is_set = true;
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
