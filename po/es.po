@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-08-12 06:26+0000\n"
-"PO-Revision-Date: 2019-08-19 10:20+0200\n"
+"POT-Creation-Date: 2019-08-19 12:53+0000\n"
+"PO-Revision-Date: 2019-08-20 12:17+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -96,7 +96,7 @@ msgstr "Acciones"
 #. Translators: accessible description of the hamburger menu
 #: data/ui/base-headerbar.ui:115
 msgid "Current view actions"
-msgstr ""
+msgstr "Acciones de la vista actual"
 
 #. Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt)
 #: data/ui/game-headerbar.ui:32
@@ -116,10 +116,9 @@ msgstr "Volver al juego actual"
 #: data/ui/help-overlay.ui:30
 msgctxt "shortcut window"
 msgid "During game selection"
-msgstr ""
+msgstr "Durante la selección del juego"
 
 #: data/ui/help-overlay.ui:34
-#| msgid "Start a new game"
 msgctxt "shortcut window"
 msgid "Start new game"
 msgstr "Iniciar un juego nuevo"
@@ -132,45 +131,41 @@ msgstr "Retroceder"
 #: data/ui/help-overlay.ui:50
 msgctxt "shortcut window"
 msgid "Play with keyboard"
-msgstr ""
+msgstr "Jugar con el teclado"
 
 #: data/ui/help-overlay.ui:54
-#, fuzzy
 #| msgid "Select Theme"
 msgctxt "shortcut window"
 msgid "Select where to play"
-msgstr "Seleccionar tema"
+msgstr "Seleccionar donde jugar"
 
 #: data/ui/help-overlay.ui:61
-#, fuzzy
 #| msgid "Select Theme"
 msgctxt "shortcut window"
 msgid "Select the given row"
-msgstr "Seleccionar tema"
+msgstr "Seleccionar la fila dada"
 
 #: data/ui/help-overlay.ui:68
 msgctxt "shortcut window"
 msgid "Select the given column"
-msgstr ""
+msgstr "Seleccionar la columna dada"
 
 #: data/ui/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Play on selected tile"
-msgstr ""
+msgstr "Jugar en la casilla seleccionada"
 
 #: data/ui/help-overlay.ui:84
 msgctxt "shortcut window"
 msgid "During a game"
-msgstr ""
+msgstr "Durante la partida"
 
 #: data/ui/help-overlay.ui:88
-#| msgid "_New Game"
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Juego nuevo"
 
 #: data/ui/help-overlay.ui:95
-#| msgid "Undo your most recent move"
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Deshacer el último movimiento"
@@ -186,7 +181,6 @@ msgid "Keyboard shortcuts"
 msgstr "Atajos del teclado"
 
 #: data/ui/help-overlay.ui:115
-#| msgid "_Help"
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Ayuda"
@@ -197,7 +191,6 @@ msgid "About"
 msgstr "Acerca de"
 
 #: data/ui/help-overlay.ui:129
-#| msgid "_Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Salir"
@@ -209,24 +202,21 @@ msgstr "Tipo de juego"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play first (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:61
-#, fuzzy
 #| msgid "Play first"
 msgid "Play _first"
-msgstr "Mover el primero"
+msgstr "Mover el _primero"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play second (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:73
-#, fuzzy
 #| msgid "Play second"
 msgid "Play _second"
-msgstr "Mover el segundo"
+msgstr "Mover el _segundo"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose a two-players game (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:85
-#, fuzzy
 #| msgid "Two players game"
 msgid "_Two players"
-msgstr "Partida de dos jugadores"
+msgstr "_Dos jugadores"
 
 #. Translators: when configuring a new game, header of the row for choosing the number of players
 #: data/ui/iagno-screens.ui:109
@@ -301,24 +291,23 @@ msgstr "Sol y estrella"
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:6
 msgid "A flag to follow system night light"
-msgstr ""
+msgstr "Una opción para seguir la luz nocturna del sistema"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:8
 msgid "Use GNOME night light setting to activate night-mode."
 msgstr ""
+"Usar la configuración de luz nocturna de GNOME para activar el modo noche."
 
 #. see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
 #. range min="350"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
-#| msgid "Width of the window in pixels"
 msgid "The width of the window"
 msgstr "La anchura de la ventana"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:17
-#| msgid "Width of the window in pixels"
 msgid "The width of the main window in pixels."
 msgstr "La anchura de la ventana principal, en píxeles."
 
@@ -326,27 +315,24 @@ msgstr "La anchura de la ventana principal, en píxeles."
 #. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
-#| msgid "Height of the window in pixels"
 msgid "The height of the window"
 msgstr "La altura de la ventana"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:26
-#| msgid "Height of the window in pixels"
 msgid "The height of the main window in pixels."
 msgstr "La altura de la ventana principal, en píxeles."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:31
 msgid "A flag to enable maximized mode"
-msgstr ""
+msgstr "Una opción para activar el modo maximizado"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:33
-#, fuzzy
 #| msgid "true if the window is maximized"
 msgid "If “true”, the main window starts in maximized mode."
-msgstr "cierto si la ventana está maximizada"
+msgstr "Si es cierto la ventana se inicia en modo maximizado."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
 #: data/org.gnome.Reversi.gschema.xml:47
@@ -443,7 +429,6 @@ msgstr "Documentadores"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
 #: src/about-list.vala:166
-#| msgid "translator-credits"
 msgid "Translators"
 msgstr "Traductores"
 
@@ -455,17 +440,17 @@ msgstr "Artistas"
 #. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
 #: src/adaptative-window.vala:149
 msgid "Pause night mode"
-msgstr ""
+msgstr "Pausar modo nocturno"
 
 #. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
 #: src/adaptative-window.vala:153
 msgid "Reuse night mode"
-msgstr ""
+msgstr "Reanudar el modo nocturno"
 
 #. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
 #: src/adaptative-window.vala:157
 msgid "Use night mode"
-msgstr ""
+msgstr "Usar el modo nocturno"
 
 #. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
 #: src/base-headerbar.vala:116
@@ -495,7 +480,7 @@ msgstr "_Deshacer el último movimiento"
 #. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
 #: src/game-headerbar.vala:248
 msgid "_Show final board"
-msgstr ""
+msgstr "_Mostrar el tablero final"
 
 #. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game; this string is for when the window is really small, so keep the string as small as possible (3~5 characters)
 #: src/game-headerbar.vala:280
@@ -591,7 +576,6 @@ msgstr "Resaltar las fichas _movibles"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:287
-#| msgid "_About Iagno"
 msgid "About Iagno"
 msgstr "Acerca de Iagno"
 
@@ -608,14 +592,12 @@ msgstr "Negras pasan turno, mueven las blancas"
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
 #: src/iagno.vala:567
 #, c-format
-#| msgid "Light wins!"
 msgid "Light wins! (%u-%u)"
 msgstr "Ganan las blancas (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
 #: src/iagno.vala:571
 #, c-format
-#| msgid "Dark wins!"
 msgid "Dark wins! (%u-%u)"
 msgstr "Ganan las negras (%u-%u)"
 
