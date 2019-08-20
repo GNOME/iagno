@@ -22,7 +22,7 @@
 
 private class ReversiView : Gtk.DrawingArea
 {
-    internal bool show_turnable_tiles { private get; internal set; default = false; }
+    [CCode (notify = false)] internal bool show_turnable_tiles { private get; internal set; default = false; }
 
     /* Theme */
     private string pieces_file;
@@ -126,11 +126,14 @@ private class ReversiView : Gtk.DrawingArea
             if (game_is_set)
                 SignalHandler.disconnect_by_func (_game, null, this);
             _game = value;
-            game_is_set = true;
             game_size = _game.size;
-            pixmaps = new int [game_size, game_size];
-            tile_xs = new int [game_size, game_size];
-            tile_ys = new int [game_size, game_size];
+            if (!game_is_set)
+            {
+                pixmaps = new int [game_size, game_size];
+                tile_xs = new int [game_size, game_size];
+                tile_ys = new int [game_size, game_size];
+                game_is_set = true;
+            }
             init_possible_moves ();
             for (uint8 x = 0; x < game_size; x++)
                 for (uint8 y = 0; y < game_size; y++)
@@ -159,7 +162,8 @@ private class ReversiView : Gtk.DrawingArea
                   | Gdk.EventMask.BUTTON_RELEASE_MASK
                   | Gdk.EventMask.POINTER_MOTION_MASK
                   | Gdk.EventMask.ENTER_NOTIFY_MASK
-                  | Gdk.EventMask.LEAVE_NOTIFY_MASK);
+                  | Gdk.EventMask.LEAVE_NOTIFY_MASK
+                  | Gdk.EventMask.STRUCTURE_MASK);
         init_mouse ();
     }
 
@@ -298,7 +302,7 @@ private class ReversiView : Gtk.DrawingArea
     private int [,] tile_xs;
     private int [,] tile_ys;
 
-    private inline void calculate ()
+    protected override bool configure_event (Gdk.EventConfigure e)
         requires (game_is_set)
     {
         int allocated_width  = get_allocated_width ();
@@ -318,15 +322,13 @@ private class ReversiView : Gtk.DrawingArea
                 tile_ys [x, y] = paving_size * (int) y;
             }
         }
+        return true;
     }
 
-    internal override bool draw (Cairo.Context cr)
+    protected override bool draw (Cairo.Context cr)
     {
         if (!game_is_set)
             return false;
-
-        // initialize
-        calculate ();
 
         if (board_pattern == null || tiles_pattern == null || render_size != tile_size)
             init_patterns (cr);
@@ -918,7 +920,7 @@ private class ReversiView : Gtk.DrawingArea
     }
 
 //    private void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)   //  3/10
-    internal override bool enter_notify_event (Gdk.EventCrossing event)                                         //  4/10
+    protected override bool enter_notify_event (Gdk.EventCrossing event)                                        //  4/10
     {
         uint8 x;
         uint8 y;
@@ -940,7 +942,7 @@ private class ReversiView : Gtk.DrawingArea
     }
 
 //    private void on_mouse_out (Gtk.EventControllerMotion _motion_controller)                                  //  8/10
-    internal override bool leave_notify_event (Gdk.EventCrossing event)                                         //  9/10
+    protected override bool leave_notify_event (Gdk.EventCrossing event)                                        //  9/10
     {
         mouse_is_in = false;
         if (mouse_position_set)
@@ -1049,7 +1051,7 @@ private class ReversiView : Gtk.DrawingArea
         }
     }
 
-    internal override bool button_press_event (Gdk.EventButton event)
+    protected override bool button_press_event (Gdk.EventButton event)
     {
         if (!game_is_set)
             return false;
@@ -1075,7 +1077,7 @@ private class ReversiView : Gtk.DrawingArea
         return true;
     }
 
-    internal override bool key_press_event (Gdk.EventKey event)
+    protected override bool key_press_event (Gdk.EventKey event)
     {
         if (!game_is_set)
             return false;
