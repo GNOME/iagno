@@ -64,46 +64,46 @@ private class Iagno : Gtk.Application, BaseApplication
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'iagno --help' */
-        { "alternative-start", 0, 0, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
+        { "alternative-start", 0, OptionFlags.NONE, OptionArg.NONE, ref alternative_start, N_("Start with an alternative position"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "classic", 0, 0, OptionArg.NONE, ref classic_game,                N_("Play Classic Reversi"), null},
+        { "classic", 0, OptionFlags.NONE, OptionArg.NONE, ref classic_game,                N_("Play Classic Reversi"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "fast-mode", 'f', 0, OptionArg.NONE, ref fast_mode,               N_("Reduce delay before AI moves"), null},
+        { "fast-mode", 'f', OptionFlags.NONE, OptionArg.NONE, ref fast_mode,               N_("Reduce delay before AI moves"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "first", 0, 0, OptionArg.NONE, null,                              N_("Play first"), null},
+        { "first", 0, OptionFlags.NONE, OptionArg.NONE, null,                              N_("Play first"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "level", 'l', 0, OptionArg.STRING, ref level,                     N_("Set the level of the computer’s AI"), "LEVEL"},
+        { "level", 'l', OptionFlags.NONE, OptionArg.STRING, ref level,                     N_("Set the level of the computer’s AI"), "LEVEL"},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "mute", 0, 0, OptionArg.NONE, null,                               N_("Turn off the sound"), null},
+        { "mute", 0, OptionFlags.NONE, OptionArg.NONE, null,                               N_("Turn off the sound"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "random-start", 0, 0, OptionArg.NONE, ref random_start,           N_("Start with a random position"), null},
+        { "random-start", 0, OptionFlags.NONE, OptionArg.NONE, ref random_start,           N_("Start with a random position"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "reverse", 0, 0, OptionArg.NONE, ref reverse_game,                N_("Play Reverse Reversi"), null},
+        { "reverse", 0, OptionFlags.NONE, OptionArg.NONE, ref reverse_game,                N_("Play Reverse Reversi"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "second", 0, 0, OptionArg.NONE, null,                             N_("Play second"), null},
+        { "second", 0, OptionFlags.NONE, OptionArg.NONE, null,                             N_("Play second"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "size", 's', 0, OptionArg.INT, ref size,                          N_("Size of the board (debug only)"), "SIZE"},
+        { "size", 's', OptionFlags.NONE, OptionArg.INT, ref size,                          N_("Size of the board (debug only)"), "SIZE"},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "two-players", 0, 0, OptionArg.NONE, null,                        N_("Two-players mode"), null},
+        { "two-players", 0, OptionFlags.NONE, OptionArg.NONE, null,                        N_("Two-players mode"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "unmute", 0, 0, OptionArg.NONE, null,                             N_("Turn on the sound"), null},
+        { "unmute", 0, OptionFlags.NONE, OptionArg.NONE, null,                             N_("Turn on the sound"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "usual-start", 0, 0, OptionArg.NONE, ref usual_start,             N_("Start with the usual position"), null},
+        { "usual-start", 0, OptionFlags.NONE, OptionArg.NONE, ref usual_start,             N_("Start with the usual position"), null},
 
         /* Translators: command-line option description, see 'iagno --help' */
-        { "version", 'v', 0, OptionArg.NONE, null,                          N_("Print release version and exit"), null},
+        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null,                          N_("Print release version and exit"), null},
         {}
     };
 

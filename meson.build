@@ -13,8 +13,8 @@ python3 = import('python3')
 cc = meson.get_compiler('c')
 valac = meson.get_compiler('vala')
 
-gio_dependency = dependency('gio-2.0', version: '>= 2.40.0')
-glib_dependency = dependency('glib-2.0', version: '>= 2.40.0')
+gio_dependency = dependency('gio-2.0', version: '>= 2.42.0')
+glib_dependency = dependency('glib-2.0', version: '>= 2.42.0')
 gsound_dependency = dependency('gsound', version: '>= 1.0.2')
 gtk_dependency = dependency('gtk+-3.0', version: '>= 3.24.0')
 libm_dependency = cc.find_library('m', required: false) # some platforms do not have libm separated from libc
