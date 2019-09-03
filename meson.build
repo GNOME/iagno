@@ -1,5 +1,5 @@
 project('iagno', ['vala', 'c'],
-    version: '3.33.91')
+    version: '3.33.92')
 
 project_id = 'org.gnome.Reversi'
 
