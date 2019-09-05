@@ -99,7 +99,7 @@
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme' -->
       <summary>Theme</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now -->
-      <description>Filename of the theme used, or "default". Are provided "adwaita.theme", "high_contrast.theme" and "sun_and_star.theme".</description>
+      <description>Filename of the theme used, or “default”. Are provided “adwaita.theme”, “high_contrast.theme” and “sun_and_star.theme”.</description>
     </key>
     <key name="type" enum="org.gnome.Reversi.GameType">
       <default>'classic'</default>
