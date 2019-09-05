@@ -109,6 +109,7 @@ private class Iagno : Gtk.Application, BaseApplication
 
     private const GLib.ActionEntry app_actions [] =
     {
+        { "alternate-who-starts", null, null, "false", change_alternate_who_starts },  // need to be able to disable the action, so no settings.create_action()
         { "game-type", change_game_type, "s" },
         { "change-level", change_level_cb, "s" },
 
@@ -264,14 +265,17 @@ private class Iagno : Gtk.Application, BaseApplication
         section.freeze ();
         size_menu.append_section (null, section);
 
+        section = new GLib.Menu ();
         if (!alternative_start && !random_start && !usual_start)
         {
-            section = new GLib.Menu ();
             /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt) */
             section.append (_("_Random start position"), "app.random-start-position");
-            section.freeze ();
-            size_menu.append_section (null, section);
         }
+
+        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt) */
+        section.append (_("_Alternate who starts"), "app.alternate-who-starts");
+        section.freeze ();
+        size_menu.append_section (null, section);
 
         size_menu.freeze ();
 
@@ -413,11 +417,18 @@ private class Iagno : Gtk.Application, BaseApplication
         settings.bind ("theme",                    view, "theme",               SettingsBindFlags.GET);
 
         /* New-game screen signals */
+        alternate_who_starts_action = (SimpleAction) lookup_action ("alternate-who-starts");
+        settings.changed ["alternate-who-starts"].connect ((_settings, key_name) => {
+                alternate_who_starts_action.set_state (_settings.get_value (key_name));
+            });
+        alternate_who_starts_action.set_state (settings.get_value ("alternate-who-starts"));
+
         settings.changed ["computer-level"].connect (() => {
-            if (!level_changed)
-                update_level_button_label (settings.get_int ("computer-level") /* 1 <= level <= 3 */);
-            level_changed = false;
-        });
+                if (level_changed)
+                    level_changed = false;
+                else
+                    update_level_button_label (settings.get_int ("computer-level") /* 1 <= level <= 3 */);
+            });
         update_level_button_label (settings.get_int ("computer-level") /* 1 <= level <= 3 */);
 
         settings.changed ["color"].connect (() => {
@@ -455,7 +466,10 @@ private class Iagno : Gtk.Application, BaseApplication
         new_game_screen.update_sensitivity (solo);
 
         if (settings.get_int ("num-players") == 2)
+        {
             update_game_type_button_label ("two");
+            alternate_who_starts_action.set_enabled (false);
+        }
         else if (settings.get_string ("color") == "dark")
             update_game_type_button_label ("dark");
         else
@@ -500,6 +514,14 @@ private class Iagno : Gtk.Application, BaseApplication
     * * Internal calls
     \*/
 
+    private SimpleAction alternate_who_starts_action;
+    private void change_alternate_who_starts (SimpleAction action, Variant? gvariant)
+        requires (gvariant != null)
+    {
+        // the state will be updated in response to the settings change
+        settings.set_value ("alternate-who-starts", (!) gvariant);
+    }
+
     private bool game_type_changed_1 = false;
     private bool game_type_changed_2 = false;
     private void change_game_type (SimpleAction action, Variant? gvariant)
@@ -511,13 +533,14 @@ private class Iagno : Gtk.Application, BaseApplication
         game_type_changed_2 = true;
         switch (type)
         {
-            case "two":   settings.set_int    ("num-players", 2); new_game_screen.update_sensitivity (false); return;
-            case "dark":  settings.delay ();
-                          settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
-                          settings.set_string ("color",  "dark"); settings.apply ();                          return;
-            case "light": settings.delay ();
-                          settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
-                          settings.set_string ("color", "light"); settings.apply ();                          return;
+            case "two":   settings.set_int    ("num-players", 2); new_game_screen.update_sensitivity (false);
+                          /* no change to the color of course; */ alternate_who_starts_action.set_enabled (false);  return;
+            // DO NOT delay/apply or you lose sync between alternate_who_starts_action and the settings after switching to one-player mode
+            case "dark":  settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
+                          settings.set_string ("color",  "dark"); alternate_who_starts_action.set_enabled (true);   return;
+            // DO NOT delay/apply or you lose sync between alternate_who_starts_action and the settings after switching to one-player mode
+            case "light": settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
+                          settings.set_string ("color", "light"); alternate_who_starts_action.set_enabled (true);   return;
             default: assert_not_reached ();
         }
     }
@@ -639,8 +662,20 @@ private class Iagno : Gtk.Application, BaseApplication
         first_player_is_human = (player_one == Player.DARK) || (computer == null);
         update_ui ();
 
-        if (player_one != Player.DARK && computer != null)
-            ((!) computer).move (MODERATE_MOVE_DELAY);     // TODO MODERATE_MOVE_DELAY = 1.0, but after the sliding animation…
+        if (computer != null)
+        {
+            if (player_one == Player.DARK)
+            {
+                if (settings.get_boolean ("alternate-who-starts"))
+                    settings.set_string ("color", "light");
+            }
+            else
+            {
+                if (settings.get_boolean ("alternate-who-starts"))
+                    settings.set_string ("color", "dark");
+                ((!) computer).move (MODERATE_MOVE_DELAY);     // TODO MODERATE_MOVE_DELAY = 1.0, but after the sliding animation…
+            }
+        }
     }
 
     private bool first_player_is_human = false;

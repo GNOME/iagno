@@ -44,6 +44,13 @@
   </enum>
 
   <schema id="org.gnome.Reversi" path="/org/gnome/iagno/" gettext-domain="iagno">
+    <key name="alternate-who-starts" type="b">
+      <default>false</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts' -->
+      <summary>A flag to alternate who starts</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts' -->
+      <description>If “true”, when playing against AI, the “color” settings is toggled after every new game request, making the next game being started with inverted roles (previous Dark player playing Light). Ignored for two-player games.</description>
+    </key>
     <key name="color" enum="org.gnome.Reversi.Color">
       <default>'dark'</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color' -->
