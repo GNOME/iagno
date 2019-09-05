@@ -5,15 +5,15 @@
 # Elnaz Sarbar <elnaz@farsiweb.info>, 2005, 2006.
 # Meelad Zakaria <meelad@farsiweb.info>, 2005.
 # Farzaneh Sarafraz <farzaneh@farsiweb.info>, 2006.
-# Danial Behzadi <dani.behzi@gmail.com>, 2012.
 # Arash Mousavi <mousavi.arash@gmail.com>, 2012, 2016.
+# Danial Behzadi <dani.behzi@gmail.com>, 2012, 2014, 2017, 2018, 2019
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-08-04 14:44+0000\n"
-"PO-Revision-Date: 2019-09-04 15:09+0000\n"
+"POT-Creation-Date: 2019-09-04 15:10+0000\n"
+"PO-Revision-Date: 2019-09-05 07:55+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -21,8 +21,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-DamnedLies-Scope: partial\n"
-"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
@@ -34,7 +34,7 @@ msgstr "ایاگنو"
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
 #: data/org.gnome.Reversi.appdata.xml.in:8 data/org.gnome.Reversi.desktop.in:9
 msgid "Dominate the board in a classic version of Reversi"
-msgstr "با نسخه‌ی کلاسیکی از رورسی مالک  صفحه شوید"
+msgstr "با نسخهٔ کلاسیکی از رورسی مالک صفحه شوید"
 
 #: data/org.gnome.Reversi.appdata.xml.in:10
 msgid ""
@@ -58,11 +58,11 @@ msgstr ""
 
 #: data/org.gnome.Reversi.appdata.xml.in:25
 msgid "A GNOME Iagno game preview"
-msgstr "یک پیش‌نمایش بازی ایاگنو گنوم"
+msgstr "یک پیش‌نمایش بازی ایاگنوی گنوم"
 
 #: data/org.gnome.Reversi.appdata.xml.in:44
 msgid "The GNOME Project"
-msgstr "پروژه گنوم"
+msgstr "پروژهٔ گنوم"
 
 #. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
 #: data/org.gnome.Reversi.desktop.in:7
@@ -288,45 +288,33 @@ msgstr "خورشید و ستاره"
 #. range min="350"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
-#, fuzzy
-#| msgid "Width of the window in pixels"
 msgid "The width of the window"
-msgstr "عرض پنجره به پیکسل"
+msgstr "پهنای پنجره"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:17
-#, fuzzy
-#| msgid "Width of the window in pixels"
 msgid "The width of the main window in pixels."
-msgstr "عرض پنجره به پیکسل"
+msgstr "پهنای پنجرهٔ اصلی به پیکسل."
 
 #. see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
 #. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
-#, fuzzy
-#| msgid "Height of the window in pixels"
 msgid "The height of the window"
-msgstr "ارتفاع پنجره به پیکسل"
+msgstr "بلندای پنجره"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:26
-#, fuzzy
-#| msgid "Height of the window in pixels"
 msgid "The height of the main window in pixels."
-msgstr "ارتفاع پنجره به پیکسل"
+msgstr "بلندای پنجرهٔ اصلی به پیکسل."
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:33
-#, fuzzy
-#| msgid "true if the window is maximized"
 msgid "If “true”, the main window starts in maximized mode."
-msgstr "درست اگر پنجره بیشینه باشد"
+msgstr "اگر درست باشد، پنجرهٔ اصلی در حال بیشینه شروع خواهد شد."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
 #: data/org.gnome.Reversi.gschema.xml:47
-#, fuzzy
-#| msgid "Computer's AI level"
 msgid "Computer’s AI level"
 msgstr "سطح هوش‌مصنوعی رایانه"
 
@@ -349,12 +337,17 @@ msgstr "رنگ که با آن بازی می‌کنید"
 #: data/org.gnome.Reversi.gschema.xml:63
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
-"اینکه آیا با سفید بازی می‌کنید یا سیاه. برای بازی‌های دو نفره نادیده گرفته می‌شود."
+"این که با سفید بازی می‌کنید یا سیاه. برای بازی‌های دو نفره نادیده گرفته می‌شود."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:68
+msgid "A flag to highlight turnable tiles"
+msgstr "پرچمی برای نشانه‌گذاری مهره‌های قابل برگرداندن"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
 #: data/org.gnome.Reversi.gschema.xml:75
 msgid "Theme"
-msgstr "تم"
+msgstr "زمینه"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
 #: data/org.gnome.Reversi.gschema.xml:77
@@ -378,15 +371,13 @@ msgstr "این که صدای رویدادهای پخش شود یا نه."
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
 #: src/about-list.vala:44 src/base-headerbar.vala:288
-#, fuzzy
-#| msgid "_About"
 msgid "About"
-msgstr "_درباره"
+msgstr "درباره"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the first is "About"
 #: src/about-list.vala:46
 msgid "Credits"
-msgstr "دانیال بهزادی <dani.behzi@Ubuntu.com>"
+msgstr "دست‌اندرکاران"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of the link to the GPL license; TODO better text, as in the usual about dialog
 #: src/about-list.vala:135
@@ -409,12 +400,8 @@ msgstr "مستندسازان"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
 #: src/about-list.vala:166
-#, fuzzy
-#| msgid "translator-credits"
 msgid "Translators"
-msgstr ""
-"آرش موسوی <mousavi.arash@gmail.com>\n"
-"دانیال بهزادی <dani.behzi@gmail.com>"
+msgstr "بازگردانان"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the pictural artists names
 #: src/about-list.vala:172
@@ -498,8 +485,6 @@ msgstr "بازیکن اول"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:72
-#, fuzzy
-#| msgid "Set the level of the computer's AI"
 msgid "Set the level of the computer’s AI"
 msgstr "تنظیم سطح هوش مصنوعی رایانه"
 
@@ -516,7 +501,7 @@ msgstr "بازیکن دوم"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:81
 msgid "Size of the board (debug only)"
-msgstr "اندازه‌ی تخته (فقط برای رفع‌اشکال)"
+msgstr "اندازهٔ تخته (فقط برای رفع‌اشکال)"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:84
@@ -531,7 +516,7 @@ msgstr "روشن کردن صدا"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:90
 msgid "Print release version and exit"
-msgstr "نمایش نسخه‌ی انتشار و خروج"
+msgstr "نمایش نسخهٔ انتشار و خروج"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
 #: src/iagno.vala:134
@@ -540,10 +525,8 @@ msgstr "اندازه باید حداقل ۴ باشد."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
 #: src/iagno.vala:140
-#, fuzzy
-#| msgid "Size must be at least 4."
 msgid "Size must not be more than 16."
-msgstr "اندازه باید حداقل ۴ باشد."
+msgstr "اندازه نباید بیش از ۱۶ باشد."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
 #: src/iagno.vala:200
@@ -562,10 +545,8 @@ msgstr "نشانه‌گذاری کاشی‌های قابل برگرداندن"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:287
-#, fuzzy
-#| msgid "Iagno"
 msgid "About Iagno"
-msgstr "ایاگنو"
+msgstr "دربارهٔ ایاگنو"
 
 #. Translators: during a game, notification to display when Light has no possible moves
 #: src/iagno.vala:551
@@ -579,17 +560,15 @@ msgstr "سیاه باید رد کند، حرکتِ سفید"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
 #: src/iagno.vala:567
-#, fuzzy, c-format
-#| msgid "Light wins!"
+#, c-format
 msgid "Light wins! (%u-%u)"
-msgstr "بازیکن سفید برد!"
+msgstr "بازیکن سفید برد! (%Iu-%Iu)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
 #: src/iagno.vala:571
-#, fuzzy, c-format
-#| msgid "Dark wins!"
+#, c-format
 msgid "Dark wins! (%u-%u)"
-msgstr "بازیکن سیاه برد!"
+msgstr "بازیکن سیاه برد! (%Iu-%Iu)"
 
 #. Translators: during a game, notification to display when the game is a draw
 #: src/iagno.vala:575
@@ -599,7 +578,7 @@ msgstr "بازی مساوی شد."
 #. Translators: during a game, notification to display when the player tries to make an illegal move
 #: src/iagno.vala:591
 msgid "You can’t move there!"
-msgstr "نمی‌توانید به آنجا بروید!"
+msgstr "نمی‌توانید به آن‌جا بروید!"
 
 #. Translators: about dialog text
 #: src/iagno.vala:712
@@ -619,7 +598,7 @@ msgstr "آرناد بوناتی (زمینه‌ها)"
 #. Translators: text crediting an author, in the about dialog
 #: src/iagno.vala:724
 msgid "Ian Peters"
-msgstr "یا پیترز"
+msgstr "یان پیترز"
 
 #: src/iagno.vala:724
 msgid "Robert Ancell"
