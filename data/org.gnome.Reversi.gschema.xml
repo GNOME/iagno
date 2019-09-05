@@ -8,18 +8,18 @@
       <description>Use GNOME night light setting to activate night-mode.</description>
     </key>
     <key name="window-width" type="i">
+      <!-- see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
+      <range min="350"/> FIXME -->
       <default>540</default>
-      <!-- see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22 -->
-      <!-- range min="350"/ FIXME -->
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width' -->
       <summary>The width of the window</summary>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width' -->
       <description>The width of the main window in pixels.</description>
     </key>
     <key name="window-height" type="i">
+      <!-- see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
+      <range min="284"/> FIXME -->
       <default>500</default>
-      <!-- see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21 -->
-      <!-- range min="284"/ FIXME -->
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height' -->
       <summary>The height of the window</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height' -->

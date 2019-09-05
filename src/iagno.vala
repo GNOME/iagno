@@ -934,14 +934,31 @@ private class Iagno : Gtk.Application, BaseApplication
             _("Arnaud Bonatti (themes)")
         };
 
+        authors = {
         /* Translators: text crediting an author, in the about dialog */
-        authors = { _("Ian Peters"), _("Robert Ancell"), _("Arnaud Bonatti") };
+            _("Ian Peters"),
+
+
+        /* Translators: text crediting an author, in the about dialog */
+            _("Robert Ancell"),
+
+
+        /* Translators: text crediting an author, in the about dialog */
+            _("Arnaud Bonatti")
+        };
 
 
         /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
         copyright = _("Copyright \xc2\xa9 %u-%u – Ian Peters").printf (1998, 2008) + "\n" +
+
+
+        /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
                     _("Copyright \xc2\xa9 %u-%u – Michael Catanzaro").printf (2013, 2015) + "\n" +
+
+
+        /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
                     _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2014, 2019);
+
 
         /* Translators: text crediting a documenter, in the about dialog */
         documenters = { _("Tiffany Antopolski") };
