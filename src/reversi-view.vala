@@ -142,11 +142,27 @@ private class ReversiView : Gtk.DrawingArea
             _game.turn_ended.connect (turn_ended_cb);
 
             show_highlight = false;
-            bool odd_game = game_size % 2 != 0; // always start on center on odd games
-            highlight_set = _game.alternative_start || odd_game;
-            highlight_x = odd_game ? (uint8) (game_size / 2) : (uint8) (game_size / 2 - 1);
+            if (game_size % 2 != 0) // always start on center on odd games
+            {
+                highlight_set = true;
+                highlight_x = (uint8) (game_size / 2);
+            }
+            else
+            {
+                highlight_set = false;
+                highlight_x = (uint8) (game_size / 2 - 1);
+            }
             highlight_y = highlight_x;
+            old_highlight_x = uint8.MAX;
+            old_highlight_y = uint8.MAX;
             highlight_state = 0;
+
+            show_mouse_highlight = false;
+            mouse_position_set = false;
+            mouse_highlight_x = uint8.MAX;
+            mouse_highlight_y = uint8.MAX;
+            mouse_position_x = uint8.MAX;
+            mouse_position_y = uint8.MAX;
 
             queue_draw ();
         }
@@ -1102,36 +1118,24 @@ private class ReversiView : Gtk.DrawingArea
         old_highlight_y = highlight_y;
         switch (key)
         {
+            case "Up":
+            case "KP_Up":
+                set_highlight_position_if_needed (Direction.TOP);
+                if (highlight_y > 0) highlight_y--;
+                break;
             case "Left":
             case "KP_Left":
-                if (mouse_position_set && show_mouse_highlight) { highlight_x = mouse_highlight_x; highlight_y = mouse_highlight_y; }
-                else if (!highlight_set && game.current_color == Player.LIGHT) highlight_y = game_size / 2;
+                set_highlight_position_if_needed (Direction.LEFT);
                 if (highlight_x > 0) highlight_x--;
                 break;
             case "Right":
             case "KP_Right":
-                if (mouse_position_set && show_mouse_highlight) { highlight_x = mouse_highlight_x; highlight_y = mouse_highlight_y; }
-                else if (!highlight_set)
-                {
-                    highlight_x = game_size / 2;
-                    if (game.current_color == Player.DARK) highlight_y = highlight_x;
-                }
+                set_highlight_position_if_needed (Direction.RIGHT);
                 if (highlight_x < game_size - 1) highlight_x++;
-                break;
-            case "Up":
-            case "KP_Up":
-                if (mouse_position_set && show_mouse_highlight) { highlight_x = mouse_highlight_x; highlight_y = mouse_highlight_y; }
-                else if (!highlight_set && game.current_color == Player.LIGHT) highlight_x = game_size / 2;
-                if (highlight_y > 0) highlight_y--;
                 break;
             case "Down":
             case "KP_Down":
-                if (mouse_position_set && show_mouse_highlight) { highlight_x = mouse_highlight_x; highlight_y = mouse_highlight_y; }
-                else if (!highlight_set)
-                {
-                    highlight_y = game_size / 2;
-                    if (game.current_color == Player.DARK) highlight_x = highlight_y;
-                }
+                set_highlight_position_if_needed (Direction.BOTTOM);
                 if (highlight_y < game_size - 1) highlight_y++;
                 break;
 
@@ -1148,46 +1152,51 @@ private class ReversiView : Gtk.DrawingArea
                     highlight_x = mouse_position_x;
                     highlight_y = mouse_position_y;
                 }
+                else init_highlight_on_light_tile_if_needed ();
                 break;
 
             case "Escape": break;
 
-            case "a": case "A": highlight_x = 0; break;
-            case "b": case "B": highlight_x = 1; break;
-            case "c": case "C": highlight_x = 2; break;
-            case "d": case "D": highlight_x = 3; break;
-            case "e": case "E": highlight_x = 4; break;
-            case "f": case "F": highlight_x = 5; break;
-            case "g": case "G": highlight_x = 6; break;
-            case "h": case "H": highlight_x = 7; break;
-            case "i": case "I": highlight_x = 8; break;
-            case "j": case "J": highlight_x = 9; break;
+            case "a": case "A": init_highlight_on_light_tile_if_needed (); highlight_x = 0; break;
+            case "b": case "B": init_highlight_on_light_tile_if_needed (); highlight_x = 1; break;
+            case "c": case "C": init_highlight_on_light_tile_if_needed (); highlight_x = 2; break;
+            case "d": case "D": init_highlight_on_light_tile_if_needed (); highlight_x = 3; break;
+            case "e": case "E": init_highlight_on_light_tile_if_needed (); highlight_x = 4; break;
+            case "f": case "F": init_highlight_on_light_tile_if_needed (); highlight_x = 5; break;
+            case "g": case "G": init_highlight_on_light_tile_if_needed (); highlight_x = 6; break;
+            case "h": case "H": init_highlight_on_light_tile_if_needed (); highlight_x = 7; break;
+            case "i": case "I": init_highlight_on_light_tile_if_needed (); highlight_x = 8; break;
+            case "j": case "J": init_highlight_on_light_tile_if_needed (); highlight_x = 9; break;
 
-            case "1": case "KP_1": highlight_y = 0; break;
-            case "2": case "KP_2": highlight_y = 1; break;
-            case "3": case "KP_3": highlight_y = 2; break;
-            case "4": case "KP_4": highlight_y = 3; break;
-            case "5": case "KP_5": highlight_y = 4; break;
-            case "6": case "KP_6": highlight_y = 5; break;
-            case "7": case "KP_7": highlight_y = 6; break;
-            case "8": case "KP_8": highlight_y = 7; break;
-            case "9": case "KP_9": highlight_y = 8; break;
-            case "0": case "KP_0": highlight_y = 9; break;
+            case "1": case "KP_1": init_highlight_on_light_tile_if_needed (); highlight_y = 0; break;
+            case "2": case "KP_2": init_highlight_on_light_tile_if_needed (); highlight_y = 1; break;
+            case "3": case "KP_3": init_highlight_on_light_tile_if_needed (); highlight_y = 2; break;
+            case "4": case "KP_4": init_highlight_on_light_tile_if_needed (); highlight_y = 3; break;
+            case "5": case "KP_5": init_highlight_on_light_tile_if_needed (); highlight_y = 4; break;
+            case "6": case "KP_6": init_highlight_on_light_tile_if_needed (); highlight_y = 5; break;
+            case "7": case "KP_7": init_highlight_on_light_tile_if_needed (); highlight_y = 6; break;
+            case "8": case "KP_8": init_highlight_on_light_tile_if_needed (); highlight_y = 7; break;
+            case "9": case "KP_9": init_highlight_on_light_tile_if_needed (); highlight_y = 8; break;
+            case "0": case "KP_0": init_highlight_on_light_tile_if_needed (); highlight_y = 9; break;
 
             case "Home":
             case "KP_Home":
+                init_highlight_on_light_tile_if_needed ();
                 highlight_x = 0;
                 break;
             case "End":
             case "KP_End":
+                init_highlight_on_light_tile_if_needed ();
                 highlight_x = game_size - 1;
                 break;
             case "Page_Up":
             case "KP_Page_Up":
+                init_highlight_on_light_tile_if_needed ();
                 highlight_y = 0;
                 break;
             case "Page_Down":
             case "KP_Next":     // TODO use KP_Page_Down instead of KP_Next, probably a gtk+ or vala bug; check also KP_Prior
+                init_highlight_on_light_tile_if_needed ();
                 highlight_y = game_size - 1;
                 break;
 
@@ -1225,6 +1234,170 @@ private class ReversiView : Gtk.DrawingArea
             _on_motion (highlight_x, highlight_y, /* force redraw */ true);
         }
         return true;
+    }
+
+    private void set_highlight_position_if_needed (Direction direction)
+    {
+        if (mouse_position_set && show_mouse_highlight)
+        {
+            /* If mouse highlight is visible, use it for the keyboard highlight. */
+
+            highlight_x = mouse_highlight_x;
+            highlight_y = mouse_highlight_y;
+            return;
+        }
+
+        if (highlight_set)
+            /* If keyboard highlight is already set (and visible), this is good. */
+            return;
+
+        if (game.current_color == Player.LIGHT)
+        {
+            /* This section is for when computer started, so then is human turn. */
+
+            init_highlight_on_light_tile ();
+            return;
+        }
+
+        if (iagno_instance.computer != null && iagno_instance.player_one == Player.LIGHT)
+        {
+            /* This section is for when computer starts but player moves before.
+               The starting [highlight_x, highlight_y] tile is the top-left one.
+               The target tile is the one that will give correct highlight after
+               a move in the given direction, not directly the one to highlight. */
+
+            if (Gtk.get_locale_direction () == Gtk.TextDirection.LTR)
+                switch (direction)
+                {
+                    case Direction.TOP:                       highlight_y++;    break;
+                    case Direction.LEFT:    highlight_x++;    highlight_y++;    break;
+                    case Direction.RIGHT:                                       break;
+                    case Direction.BOTTOM:  highlight_x++;                      break;
+                }
+            else
+                switch (direction)
+                {
+                    case Direction.TOP:     highlight_x++;    highlight_y++;    break;
+                    case Direction.LEFT:    highlight_x++;                      break;
+                    case Direction.RIGHT:                     highlight_y++;    break;
+                    case Direction.BOTTOM:                                      break;
+                }
+            return;
+        }
+
+        switch (game.opening)
+        {
+            /* This section is for when a human starts (for one or two players).
+               The starting [highlight_x, highlight_y] tile is the top-left one.
+               The target tile is the one that will give correct highlight after
+               a move in the given direction, not directly the one to highlight. */
+
+            case Opening.REVERSI:
+                switch (direction)
+                {
+                    case Direction.TOP:                                         break;
+                    case Direction.LEFT:                                        break;
+                    case Direction.RIGHT:   highlight_x++;    highlight_y++;    break;
+                    case Direction.BOTTOM:  highlight_x++;    highlight_y++;    break;
+                }
+                return;
+
+            case Opening.INVERTED:
+                switch (direction)
+                {
+                    case Direction.TOP:     highlight_x++;                      break;
+                    case Direction.LEFT:                      highlight_y++;    break;
+                    case Direction.RIGHT:   highlight_x++;                      break;
+                    case Direction.BOTTOM:                    highlight_y++;    break;
+                }
+                return;
+
+            case Opening.ALTER_TOP:
+                switch (direction)
+                {
+                    case Direction.TOP:     highlight_x++;    highlight_y += 3; break;
+                    case Direction.LEFT:                      highlight_y += 2; break;
+                    case Direction.RIGHT:   highlight_x++;    highlight_y += 2; break;
+                    case Direction.BOTTOM:                    highlight_y++;    break;
+                }
+                return;
+
+            case Opening.ALTER_LEFT:
+                switch (direction)
+                {
+                    case Direction.TOP:     highlight_x += 2;                   break;
+                    case Direction.LEFT:    highlight_x += 3; highlight_y++;    break;
+                    case Direction.RIGHT:   highlight_x++;                      break;
+                    case Direction.BOTTOM:  highlight_x += 2; highlight_y++;    break;
+                }
+                return;
+
+            case Opening.ALTER_RIGHT:
+                switch (direction)
+                {
+                    case Direction.TOP:     highlight_x--;                      break;
+                    case Direction.LEFT:                                        break;
+                    case Direction.RIGHT:   highlight_x -= 2; highlight_y++;    break;
+                    case Direction.BOTTOM:  highlight_x--;    highlight_y++;    break;
+                }
+                return;
+
+            case Opening.ALTER_BOTTOM:
+                switch (direction)
+                {
+                    case Direction.TOP:                                         break;
+                    case Direction.LEFT:                      highlight_y--;    break;
+                    case Direction.RIGHT:   highlight_x++;    highlight_y--;    break;
+                    case Direction.BOTTOM:  highlight_x++;    highlight_y -= 2; break;
+                }
+                return;
+        }
+        assert_not_reached ();
+    }
+
+    private void init_highlight_on_light_tile_if_needed ()
+    {
+        if (!highlight_set && game.current_color == Player.LIGHT)
+            init_highlight_on_light_tile ();
+    }
+
+    private void init_highlight_on_light_tile ()
+      // requires (!highlight_set)
+      // requires (game.current_color == Player.LIGHT)
+    {
+        uint8 half_size = (uint8) (game_size / 2);
+        if (game.get_owner (half_size - 1, half_size - 1) == Player.LIGHT)
+        {
+            highlight_x = half_size - 1;
+            highlight_y = highlight_x;
+            return;
+        }
+        if (game.get_owner (half_size, half_size) == Player.LIGHT)
+        {
+            highlight_x = half_size;
+            highlight_y = half_size;
+            return;
+        }
+        if (game.get_owner (half_size - 1, half_size) == Player.LIGHT)
+        {
+            highlight_x = half_size - 1;
+            highlight_y = half_size;
+            return;
+        }
+        if (game.get_owner (half_size, half_size - 1) == Player.LIGHT)
+        {
+            highlight_x = half_size;
+            highlight_y = half_size - 1;
+            return;
+        }
+        assert_not_reached ();
+    }
+
+    private enum Direction {
+        TOP,
+        LEFT,
+        RIGHT,
+        BOTTOM;
     }
 
     /*\

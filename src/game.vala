@@ -556,8 +556,8 @@ private class Game : Object
 
     [CCode (notify = false)] public uint8           size                    { internal get; protected construct;     }
     [CCode (notify = false)] public bool            reverse                 { internal get; protected construct;     }
+    [CCode (notify = false)] public Opening         opening                 { internal get; protected construct;     }
     [CCode (notify = false)] public GameStateObject current_state           { internal get; protected construct set; }
-    [CCode (notify = false)] public bool            alternative_start       { internal get; protected construct;     }
     [CCode (notify = false)] public uint8           initial_number_of_tiles { internal get; protected construct;     }
 
     construct
@@ -566,7 +566,7 @@ private class Game : Object
         update_possible_moves ();
     }
 
-    internal Game (bool _reverse, bool _alternative_start = false, uint8 _size = 8)
+    internal Game (bool _reverse, Opening _opening = Opening.REVERSI, uint8 _size = 8)
         requires (_size >= 4)
         requires (_size <= 16)
     {
@@ -584,22 +584,34 @@ private class Game : Object
             /* setup board with four tiles by default */
             uint8 half_size = _size / 2;
             _initial_number_of_tiles = 4;
-            tiles [half_size - 1, half_size - 1] = _alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [half_size - 1, half_size    ] = Player.DARK;
-            tiles [half_size    , half_size - 1] = _alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [half_size    , half_size    ] = Player.LIGHT;
+            Player [,] start_position;
+            switch (_opening)
+            {
+                case Opening.REVERSI:      start_position = {{ Player.LIGHT, Player.DARK  }, { Player.DARK , Player.LIGHT }}; break;
+                case Opening.INVERTED:     start_position = {{ Player.DARK , Player.LIGHT }, { Player.LIGHT, Player.DARK  }}; break;
+                case Opening.ALTER_TOP:    start_position = {{ Player.DARK , Player.DARK  }, { Player.LIGHT, Player.LIGHT }}; break;
+                case Opening.ALTER_LEFT:   start_position = {{ Player.DARK , Player.LIGHT }, { Player.DARK , Player.LIGHT }}; break;
+                case Opening.ALTER_RIGHT:  start_position = {{ Player.LIGHT, Player.DARK  }, { Player.LIGHT, Player.DARK  }}; break;
+                case Opening.ALTER_BOTTOM: start_position = {{ Player.LIGHT, Player.LIGHT }, { Player.DARK , Player.DARK  }}; break;
+                default: assert_not_reached ();
+            }
+            tiles [half_size - 1, half_size - 1] = start_position [0, 0];
+            tiles [half_size    , half_size - 1] = start_position [0, 1];
+            tiles [half_size - 1, half_size    ] = start_position [1, 0];
+            tiles [half_size    , half_size    ] = start_position [1, 1];
         }
         else
         {
             /* logical starting position for odd board */
+            bool alternative_start = Opening.is_alter (_opening);   // TODO better
             uint8 mid_board = (_size - 1) / 2;
             _initial_number_of_tiles = 7;
             tiles [mid_board    , mid_board    ] = Player.DARK;
-            tiles [mid_board + 1, mid_board - 1] = _alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [mid_board - 1, mid_board + 1] = _alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [mid_board + 1, mid_board - 1] = alternative_start ? Player.LIGHT : Player.DARK;
+            tiles [mid_board - 1, mid_board + 1] = alternative_start ? Player.LIGHT : Player.DARK;
             tiles [mid_board    , mid_board - 1] = Player.LIGHT;
-            tiles [mid_board - 1, mid_board    ] = _alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [mid_board + 1, mid_board    ] = _alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [mid_board - 1, mid_board    ] = alternative_start ? Player.DARK : Player.LIGHT;
+            tiles [mid_board + 1, mid_board    ] = alternative_start ? Player.DARK : Player.LIGHT;
             tiles [mid_board    , mid_board + 1] = Player.LIGHT;
         }
 
@@ -609,8 +621,8 @@ private class Game : Object
 
         Object (size                    : _size,
                 reverse                 : _reverse,
+                opening                 : _opening,
                 current_state           : _current_state,
-                alternative_start       : _alternative_start,
                 initial_number_of_tiles : _initial_number_of_tiles);
         neighbor_tiles = (owned) _neighbor_tiles;
     }
@@ -637,8 +649,8 @@ private class Game : Object
 
         Object (size                    : _size,
                 reverse                 : _reverse,
+                opening                 : /* garbage */ Opening.REVERSI,
                 current_state           : _current_state,
-                alternative_start       : /* garbage */ false,
                 initial_number_of_tiles : (_size % 2 == 0) ? 4 : 7);
         neighbor_tiles = (owned) _neighbor_tiles;
 
@@ -795,5 +807,20 @@ private class Game : Object
     private inline void update_possible_moves ()
     {
         current_state.get_possible_moves (out possible_moves);
+    }
+}
+
+private enum Opening {
+    REVERSI,
+    INVERTED,
+    ALTER_TOP,
+    ALTER_LEFT,
+    ALTER_RIGHT,
+    ALTER_BOTTOM;
+
+    internal static inline bool is_alter (Opening opening)
+    {
+        return opening != REVERSI
+            && opening != INVERTED;
     }
 }

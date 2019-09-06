@@ -615,23 +615,36 @@ private class Iagno : Gtk.Application, BaseApplication
         if (computer != null)
             ((!) computer).cancel_move ();
 
-        bool use_alternative;
+        bool two_players = settings.get_int ("num-players") == 2;
+
+        Opening opening;
         if (alternative_start)
-            use_alternative = true;
+            opening = get_locale_direction () == TextDirection.LTR ? Opening.ALTER_LEFT : Opening.ALTER_RIGHT;
         else if (usual_start)
-            use_alternative = false;
+            opening = Opening.REVERSI;
         else if (random_start || settings.get_boolean ("random-start-position"))
-            use_alternative = Random.boolean ();
+        {
+            switch (Random.int_range (0, 8))
+            {
+                case 0: case 1: opening = Opening.REVERSI;      break;
+                case 2: case 3: opening = Opening.INVERTED;     break;
+                case 4:         opening = Opening.ALTER_TOP;    break;
+                case 5:         opening = Opening.ALTER_LEFT;   break;
+                case 6:         opening = Opening.ALTER_RIGHT;  break;
+                case 7:         opening = Opening.ALTER_BOTTOM; break;
+                default: assert_not_reached ();
+            }
+        }
         else
-            use_alternative = false;
+            opening = Opening.REVERSI;
 
         bool reverse = settings.get_string ("type") == "reverse";
-        game = new Game (reverse, use_alternative, (uint8) size /* 4 <= size <= 16 */);
+        game = new Game (reverse, opening, (uint8) size /* 4 <= size <= 16 */);
         game_is_set = true;
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
 
-        if (settings.get_int ("num-players") == 2)
+        if (two_players)
             computer = null;
         else
         {
@@ -659,10 +672,10 @@ private class Iagno : Gtk.Application, BaseApplication
         else
             player_one = Player.DARK;
 
-        first_player_is_human = (player_one == Player.DARK) || (computer == null);
+        first_player_is_human = two_players || (player_one == Player.DARK);
         update_ui ();
 
-        if (computer != null)
+        if (!two_players)
         {
             if (player_one == Player.DARK)
             {
