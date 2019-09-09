@@ -1,5 +1,5 @@
 # gnome-games ja.po.
-# Copyright (C) 1998-2010 Free Software Foundation, Inc.
+# Copyright (C) 1998-2019 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@technologist.com>, 1998.
 # Akira Higuchi <a-higuti@math.sci.hokudai.ac.jp>, 1999.
 # Yuusuke Tahara <tahara@gnome.gr.jp>, 2000.
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gnome-games gnome-2-32\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
 "POT-Creation-Date: 2019-09-04 15:10+0000\n"
-"PO-Revision-Date: 2019-09-08 18:00+0900\n"
+"PO-Revision-Date: 2019-09-09 18:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -107,7 +107,7 @@ msgstr "新しいゲームを開始します"
 #. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
 #: data/ui/game-headerbar.ui:50
 msgid "Go back to the current game"
-msgstr "今のゲームに戻る"
+msgstr "今のゲームに戻ります"
 
 #: data/ui/help-overlay.ui:30
 msgctxt "shortcut window"
@@ -192,7 +192,7 @@ msgstr "終了する"
 #. Translators: when configuring a new game, on a thin window, header of the row for choosing the number of players
 #: data/ui/iagno-screens.ui:40
 msgid "Game type"
-msgstr "ゲームのタイプ"
+msgstr "ゲームの形式"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play first (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:61
@@ -515,7 +515,7 @@ msgstr "後手で始める"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:81
 msgid "Size of the board (debug only)"
-msgstr "マス目の数を指定する (デバッグオンリー)"
+msgstr "マス目の数を指定する (デバッグ用)"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:84
