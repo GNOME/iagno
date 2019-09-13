@@ -64,7 +64,7 @@
     </key>
     <key name="highlight-turnable-tiles" type="b">
       <default>false</default>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles' -->
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play -->
       <summary>A flag to highlight turnable tiles</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there -->
       <description>If “true”, the tiles that will be captured to the opponent by a ply are highlighted.</description>

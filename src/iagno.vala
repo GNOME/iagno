@@ -273,7 +273,7 @@ private class Iagno : Gtk.Application, BaseApplication
         appearance_menu.append_section (null, section);
 
         section = new GLib.Menu ();
-        /* Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt) */
+        /* Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play */
         section.append (_("Highlight _turnable tiles"), "app.highlight-turnable-tiles");
         section.freeze ();
         appearance_menu.append_section (null, section);
