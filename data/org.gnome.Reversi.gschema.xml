@@ -85,7 +85,7 @@
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position' -->
       <summary>A flag to randomize start position</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position' -->
-      <description>Reversi can be played with two different initial positions (and their variants). If “true”, the game will randomly start with one or the other position; if “false”, only the most common initial position is used. You can force the game to use the alternative position by using the “--alternative-start” argument on the command-line; also, if either “--usual-start” or “--random-start” is given instead on the command-line, this flag will be ignored.</description>
+      <description>Reversi can be played with two different initial positions (and their symmetries). If “true”, the game will randomly start with one or the other position; if “false”, only the most common initial position is used. You can force the game to use the alternative position by using the “--alternative-start” argument on the command-line; also, if either “--usual-start” or “--random-start” is given instead on the command-line, this flag will be ignored.</description>
     </key>
     <key name="sound" type="b">
       <default>true</default>
