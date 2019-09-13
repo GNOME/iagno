@@ -841,10 +841,4 @@ private enum Opening {
     ALTER_LEFT,
     ALTER_RIGHT,
     ALTER_BOTTOM;
-
-    internal static inline bool is_alter (Opening opening)
-    {
-        return opening != REVERSI
-            && opening != INVERTED;
-    }
 }
