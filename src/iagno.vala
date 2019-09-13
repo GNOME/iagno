@@ -619,7 +619,12 @@ private class Iagno : Gtk.Application, BaseApplication
 
         Opening opening;
         if (alternative_start)
-            opening = get_locale_direction () == TextDirection.LTR ? Opening.ALTER_LEFT : Opening.ALTER_RIGHT;
+        {
+            if (size % 2 == 0)
+                opening = get_locale_direction () == TextDirection.LTR ? Opening.ALTER_LEFT : Opening.ALTER_RIGHT;
+            else
+                opening = get_locale_direction () == TextDirection.LTR ? Opening.ALTER_RIGHT : Opening.ALTER_LEFT;
+        }
         else if (usual_start)
             opening = Opening.REVERSI;
         else if (random_start || settings.get_boolean ("random-start-position"))

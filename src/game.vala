@@ -603,16 +603,40 @@ private class Game : Object
         else
         {
             /* logical starting position for odd board */
-            bool alternative_start = Opening.is_alter (_opening);   // TODO better
             uint8 mid_board = (_size - 1) / 2;
             _initial_number_of_tiles = 7;
+            Player [,] start_position;
+            switch (_opening)
+            {
+                case Opening.REVERSI:      start_position = {{ Player.NONE , Player.LIGHT, Player.DARK  },
+                                                             { Player.LIGHT, Player.DARK , Player.LIGHT },
+                                                             { Player.DARK , Player.LIGHT, Player.NONE  }}; break;
+                case Opening.INVERTED:     start_position = {{ Player.DARK , Player.LIGHT, Player.NONE  },
+                                                             { Player.LIGHT, Player.DARK , Player.LIGHT },
+                                                             { Player.NONE , Player.LIGHT, Player.DARK  }}; break;
+                case Opening.ALTER_TOP:    start_position = {{ Player.NONE , Player.DARK , Player.LIGHT },
+                                                             { Player.LIGHT, Player.DARK , Player.LIGHT },
+                                                             { Player.LIGHT, Player.DARK , Player.NONE  }}; break;
+                case Opening.ALTER_LEFT:   start_position = {{ Player.LIGHT, Player.LIGHT, Player.NONE  },
+                                                             { Player.DARK , Player.DARK , Player.DARK  },
+                                                             { Player.NONE , Player.LIGHT, Player.LIGHT }}; break;
+                case Opening.ALTER_RIGHT:  start_position = {{ Player.NONE , Player.LIGHT, Player.LIGHT },
+                                                             { Player.DARK , Player.DARK , Player.DARK  },
+                                                             { Player.LIGHT, Player.LIGHT, Player.NONE  }}; break;
+                case Opening.ALTER_BOTTOM: start_position = {{ Player.LIGHT, Player.DARK , Player.NONE  },
+                                                             { Player.LIGHT, Player.DARK , Player.LIGHT },
+                                                             { Player.NONE , Player.DARK , Player.LIGHT }}; break;
+                default: assert_not_reached ();
+            }
+            tiles [mid_board - 1, mid_board - 1] = start_position [0, 0];
+            tiles [mid_board    , mid_board - 1] = start_position [0, 1];
+            tiles [mid_board + 1, mid_board - 1] = start_position [0, 2];
+            tiles [mid_board - 1, mid_board    ] = start_position [1, 0];
             tiles [mid_board    , mid_board    ] = Player.DARK;
-            tiles [mid_board + 1, mid_board - 1] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [mid_board - 1, mid_board + 1] = alternative_start ? Player.LIGHT : Player.DARK;
-            tiles [mid_board    , mid_board - 1] = Player.LIGHT;
-            tiles [mid_board - 1, mid_board    ] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [mid_board + 1, mid_board    ] = alternative_start ? Player.DARK : Player.LIGHT;
-            tiles [mid_board    , mid_board + 1] = Player.LIGHT;
+            tiles [mid_board + 1, mid_board    ] = start_position [1, 2];
+            tiles [mid_board - 1, mid_board + 1] = start_position [2, 0];
+            tiles [mid_board    , mid_board + 1] = start_position [2, 1];
+            tiles [mid_board + 1, mid_board + 1] = start_position [2, 2];
         }
 
         uint8 [,] _neighbor_tiles;
