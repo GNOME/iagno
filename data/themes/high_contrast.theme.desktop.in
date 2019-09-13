@@ -53,16 +53,16 @@ Blue=0.0
 Width=3
 
 [Highlight hard]
-Red=0.7
-Green=0.7
-Blue=0.7
-Alpha=1.0
+Red=0.35
+Green=0.35
+Blue=0.35
+Alpha=0.5
 
 [Highlight soft]
-Red=0.7
-Green=0.7
-Blue=0.7
-Alpha=0.6
+Red=0.35
+Green=0.35
+Blue=0.35
+Alpha=0.3
 
 [Margin]
 #Width=0

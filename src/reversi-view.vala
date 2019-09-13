@@ -103,6 +103,10 @@ private class ReversiView : Gtk.DrawingArea
     /* Animation timer */
     private uint animate_timeout = 0;
 
+    /* Humans opening */
+    private const uint8 HUMANS_OPENING_INTENSITY_MAX = 15;
+    private uint8 humans_opening_intensity = 0;
+
     internal signal void move (uint8 x, uint8 y);
     internal signal void clear_impossible_to_move_here_warning ();
 
@@ -125,6 +129,7 @@ private class ReversiView : Gtk.DrawingArea
 
             if (game_is_set)
                 SignalHandler.disconnect_by_func (_game, null, this);
+
             _game = value;
             game_size = _game.size;
             if (!game_is_set)
@@ -142,15 +147,16 @@ private class ReversiView : Gtk.DrawingArea
             _game.turn_ended.connect (turn_ended_cb);
 
             show_highlight = false;
-            if (game_size % 2 != 0) // always start on center on odd games
-            {
-                highlight_set = true;
-                highlight_x = (uint8) (game_size / 2);
-            }
-            else
+            bool even_board = game_size % 2 == 0;
+            if (even_board)
             {
                 highlight_set = false;
                 highlight_x = (uint8) (game_size / 2 - 1);
+            }
+            else    // always start on center on odd games
+            {
+                highlight_set = true;
+                highlight_x = (uint8) (game_size / 2);
             }
             highlight_y = highlight_x;
             old_highlight_x = uint8.MAX;
@@ -163,6 +169,15 @@ private class ReversiView : Gtk.DrawingArea
             mouse_highlight_y = uint8.MAX;
             mouse_position_x = uint8.MAX;
             mouse_position_y = uint8.MAX;
+
+            if (_game.opening == Opening.HUMANS)
+            {
+                if (!even_board)
+                    assert_not_reached ();
+                humans_opening_intensity = HUMANS_OPENING_INTENSITY_MAX;
+            }
+            else
+                humans_opening_intensity = 0;
 
             queue_draw ();
         }
@@ -359,6 +374,9 @@ private class ReversiView : Gtk.DrawingArea
         // draw tiles (and highlight)
         cr.translate (border_width, border_width);
 
+        if (humans_opening_intensity != 0)
+            draw_overture (cr);
+
         draw_highlight (cr);
         add_highlights (cr);
         draw_playables (cr);
@@ -451,6 +469,27 @@ private class ReversiView : Gtk.DrawingArea
             cr.set_source ((!) noise_pattern);
         }
         cr.fill ();
+    }
+
+    private inline void draw_overture (Cairo.Context cr)
+     // requires (game_size % 2 == 0)
+    {
+        uint8 half_game_size = game_size / 2;
+        for (uint8 x = 0; x < game_size; x++)
+            for (uint8 y = 0; y < game_size; y++)
+            {
+                if ((x == half_game_size || x == half_game_size - 1)
+                 && (y == half_game_size || y == half_game_size - 1))
+                    continue;
+
+                darken_tile (cr, x, y);
+            }
+
+        if (game.opening != Opening.HUMANS)
+        {
+            humans_opening_intensity--;
+            queue_draw ();
+        }
     }
 
     private inline void draw_highlight (Cairo.Context cr)
@@ -655,6 +694,20 @@ private class ReversiView : Gtk.DrawingArea
                         tile_xs [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
                         tile_ys [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
                         tile_size * intensity / HIGHLIGHT_MAX,
+                        0,
+                        background_radius);
+        cr.fill ();
+    }
+
+    private void darken_tile (Cairo.Context cr, uint8 x, uint8 y)
+    {
+        double alpha = highlight_hard_alpha * 1.6 * (double) humans_opening_intensity / (double) HUMANS_OPENING_INTENSITY_MAX;
+        cr.set_source_rgba (highlight_hard_red, highlight_hard_green, highlight_hard_blue, alpha);
+        rounded_square (cr,
+                        // TODO odd/even sizes problem
+                        tile_xs [x, y],
+                        tile_ys [x, y],
+                        tile_size,
                         0,
                         background_radius);
         cr.fill ();
@@ -1262,6 +1315,7 @@ private class ReversiView : Gtk.DrawingArea
         if (iagno_instance.computer != null && iagno_instance.player_one == Player.LIGHT)
         {
             /* This section is for when computer starts but player moves before.
+               It is similar to the case of a two-players game, with an opening.
                The starting [highlight_x, highlight_y] tile is the top-left one.
                The target tile is the one that will give correct highlight after
                a move in the given direction, not directly the one to highlight. */
@@ -1291,6 +1345,25 @@ private class ReversiView : Gtk.DrawingArea
                The starting [highlight_x, highlight_y] tile is the top-left one.
                The target tile is the one that will give correct highlight after
                a move in the given direction, not directly the one to highlight. */
+
+            case Opening.HUMANS:
+                if (Gtk.get_locale_direction () == Gtk.TextDirection.LTR)
+                    switch (direction)
+                    {
+                        case Direction.TOP:                       highlight_y++;    break;
+                        case Direction.LEFT:    highlight_x++;    highlight_y++;    break;
+                        case Direction.RIGHT:                                       break;
+                        case Direction.BOTTOM:  highlight_x++;                      break;
+                    }
+                else
+                    switch (direction)
+                    {
+                        case Direction.TOP:     highlight_x++;    highlight_y++;    break;
+                        case Direction.LEFT:    highlight_x++;                      break;
+                        case Direction.RIGHT:                     highlight_y++;    break;
+                        case Direction.BOTTOM:                                      break;
+                    }
+                return;
 
             case Opening.REVERSI:
                 switch (direction)

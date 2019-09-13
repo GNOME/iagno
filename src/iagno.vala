@@ -266,12 +266,6 @@ private class Iagno : Gtk.Application, BaseApplication
         size_menu.append_section (null, section);
 
         section = new GLib.Menu ();
-        if (!alternative_start && !random_start && !usual_start)
-        {
-            /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt) */
-            section.append (_("_Random start position"), "app.random-start-position");
-        }
-
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt) */
         section.append (_("_Alternate who starts"), "app.alternate-who-starts");
         section.freeze ();
@@ -280,6 +274,7 @@ private class Iagno : Gtk.Application, BaseApplication
         size_menu.freeze ();
 
         GLib.Menu theme_menu = new GLib.Menu ();
+        section = new GLib.Menu ();
         /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt) */
         theme_menu.append (_("_Easy"),   "app.change-level('1')");
 
@@ -290,6 +285,17 @@ private class Iagno : Gtk.Application, BaseApplication
 
         /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt) */
         theme_menu.append (_("_Hard"),   "app.change-level('3')");
+        section.freeze ();
+        theme_menu.append_section (null, section);
+
+        if (!alternative_start && !random_start && !usual_start)
+        {
+            section = new GLib.Menu ();
+            /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt) */
+            section.append (_("_Vary start position"), "app.random-start-position");
+            section.freeze ();
+            theme_menu.append_section (null, section);
+        }
         theme_menu.freeze ();
 
         /* Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces */
@@ -616,18 +622,23 @@ private class Iagno : Gtk.Application, BaseApplication
             ((!) computer).cancel_move ();
 
         bool two_players = settings.get_int ("num-players") == 2;
+        bool even_board = size % 2 == 0;
 
         Opening opening;
         if (alternative_start)
         {
-            if (size % 2 == 0)
+            if (even_board)
                 opening = get_locale_direction () == TextDirection.LTR ? Opening.ALTER_LEFT : Opening.ALTER_RIGHT;
             else
                 opening = get_locale_direction () == TextDirection.LTR ? Opening.ALTER_RIGHT : Opening.ALTER_LEFT;
         }
         else if (usual_start)
             opening = Opening.REVERSI;
-        else if (random_start || settings.get_boolean ("random-start-position"))
+        else if (two_players && even_board && !random_start) // TODO make work on odd board
+            opening = Opening.HUMANS;
+        else if (random_start
+              || settings.get_boolean ("random-start-position")
+              || two_players /* && !even_board */)
         {
             switch (Random.int_range (0, 8))
             {
