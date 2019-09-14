@@ -5,7 +5,7 @@ data/org.gnome.Reversi.desktop.in
 data/ui/base-headerbar.ui
 data/ui/game-headerbar.ui
 data/ui/help-overlay.ui
-data/ui/iagno-screens.ui
+data/ui/new-game-screen.ui
 data/themes/adwaita.theme.desktop.in
 data/themes/classic.theme.desktop.in
 data/themes/high_contrast.theme.desktop.in
@@ -20,5 +20,6 @@ src/game.vala
 src/game-view.vala
 src/game-window.vala
 src/iagno.vala
+src/new-game-screen.vala
 src/player.vala
 src/reversi-view.vala
