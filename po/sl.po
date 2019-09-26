@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
 "POT-Creation-Date: 2019-08-23 16:20+0000\n"
-"PO-Revision-Date: 2019-08-25 22:20+0200\n"
+"PO-Revision-Date: 2019-09-26 21:07+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -364,7 +364,7 @@ msgstr "Zastavica za poudarjanje _obrnljivih ploščic"
 msgid ""
 "If “true”, the tiles that will be captured to the opponent by a ply are "
 "highlighted."
-msgstr ""
+msgstr "Izbrana možnost omogoča poudarjanje polj, ki jih je zajel nasprotnik."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
 #: data/org.gnome.Reversi.gschema.xml:75
