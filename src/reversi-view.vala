@@ -170,10 +170,17 @@ private class ReversiView : Gtk.DrawingArea
             mouse_position_x = uint8.MAX;
             mouse_position_y = uint8.MAX;
 
+            last_state_set = false;
             if (_game.opening == Opening.HUMANS)
             {
                 if (!even_board)
                     assert_not_reached ();
+                overture_steps  = { 0, 0, 0, 0 };
+                overture_target = { 0, 0, 0, 0 };
+                current_overture_playable = 0;
+                if (configuration_done)
+                    configure_overture_origin ();
+
                 humans_opening_intensity = HUMANS_OPENING_INTENSITY_MAX;
             }
             else
@@ -327,6 +334,7 @@ private class ReversiView : Gtk.DrawingArea
     * * drawing
     \*/
 
+    private bool configuration_done = false;
     private int paving_size;
     private int tile_size;
     private int board_size;
@@ -345,6 +353,9 @@ private class ReversiView : Gtk.DrawingArea
         board_x = (allocated_width  - board_size) / 2 + border_width;
         board_y = (allocated_height - board_size) / 2 + border_width;
 
+        if (humans_opening_intensity != 0)
+            configure_overture_origin ();
+
         for (uint8 x = 0; x < game_size; x++)
         {
             for (uint8 y = 0; y < game_size; y++)
@@ -353,7 +364,16 @@ private class ReversiView : Gtk.DrawingArea
                 tile_ys [x, y] = paving_size * (int) y;
             }
         }
+        configuration_done = true;
         return true;
+    }
+    private inline void configure_overture_origin ()
+    {
+        overture_origin_xs [0] =  5 * board_size / 16 - border_width - tile_size / 2;
+        overture_origin_xs [1] =  7 * board_size / 16 - border_width - tile_size / 2;
+        overture_origin_xs [2] =  9 * board_size / 16 - border_width - tile_size / 2;
+        overture_origin_xs [3] = 11 * board_size / 16 - border_width - tile_size / 2;
+        overture_origin_y      =  3 * board_size / 4  - border_width - tile_size / 2;
     }
 
     protected override bool draw (Cairo.Context cr)
@@ -379,7 +399,10 @@ private class ReversiView : Gtk.DrawingArea
 
         draw_highlight (cr);
         add_highlights (cr);
-        draw_playables (cr);
+        if (humans_opening_intensity == 0)
+            draw_playables (cr);
+        else
+            draw_overture_playables (cr);
 
         return false;
     }
@@ -624,6 +647,77 @@ private class ReversiView : Gtk.DrawingArea
         cr.fill ();
     }
 
+    private const uint8 OVERTURE_STEPS_MAX = 10;
+    private int [] overture_origin_xs = new int [4];
+    private int overture_origin_y = 0;
+    private uint8 [] overture_steps  = { 0, 0, 0, 0 };
+    private uint8 [] overture_target = { 0, 0, 0, 0 };
+    private uint8 current_overture_playable = 0;
+    private inline void draw_overture_playables (Cairo.Context cr)
+    {
+        if (current_overture_playable < 4)
+            draw_overture_indicator (cr);
+        for (uint8 i = 0; i < 4; i++)
+            draw_overture_playable (cr, i);
+    }
+    private inline void draw_overture_indicator (Cairo.Context cr)
+    {
+        cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
+        cr.arc ((double) overture_origin_xs [current_overture_playable] + (double) tile_size / 2.0,
+                (double) overture_origin_y + (double) tile_size / 2.0,
+                (double) tile_size / 1.8,
+                0.0,
+                Math.PI * 2.0);
+        cr.fill ();
+    }
+    private inline void draw_overture_playable (Cairo.Context cr, uint8 playable_id)
+    {
+        if (overture_steps [playable_id] == OVERTURE_STEPS_MAX)
+        {
+            int x, y;
+            get_x_and_y (playable_id, out x, out y);
+            draw_playable (cr, pixmaps [x, y], tile_xs [x, y], tile_ys [x, y]);
+            return;
+        }
+
+        int tile_x = overture_origin_xs [playable_id];
+        int tile_y = overture_origin_y;
+
+        if (overture_target [playable_id] != 0)
+        {
+            int x, y;
+            get_x_and_y (playable_id, out x, out y);
+            tile_x += (tile_xs [x, y] - tile_x) * overture_steps [playable_id] / OVERTURE_STEPS_MAX;
+            tile_y += (tile_ys [x, y] - tile_y) * overture_steps [playable_id] / OVERTURE_STEPS_MAX;
+
+            overture_steps [playable_id]++;
+            queue_draw ();
+        }
+        _draw_overture_playable (cr, tile_x, tile_y, /* pixmap */ (playable_id % 2) * 30 + 1);
+    }
+    private void _draw_overture_playable (Cairo.Context cr, int tile_x, int tile_y, int pixmap)
+    {
+        var matrix = Cairo.Matrix.identity ();
+        matrix.translate (/* texture x */ (pixmap % 8) * tile_size - /* x position */ tile_x,
+                          /* texture y */ (pixmap / 8) * tile_size - /* y position */ tile_y);
+        ((!) tiles_pattern).set_matrix (matrix);
+        cr.set_source ((!) tiles_pattern);
+        cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
+        cr.fill ();
+    }
+    private void get_x_and_y (uint8 playable_id, out int x, out int y)
+    {
+        int half_game_size = game_size / 2;
+        switch (overture_target [playable_id])
+        {
+            case 1: x = half_game_size - 1; y = half_game_size - 1; break;
+            case 2: x = half_game_size    ; y = half_game_size - 1; break;
+            case 3: x = half_game_size - 1; y = half_game_size    ; break;
+            case 4: x = half_game_size    ; y = half_game_size    ; break;
+            default: assert_not_reached ();
+        }
+    }
+
     /*\
     * * drawing utilities
     \*/
@@ -800,6 +894,22 @@ private class ReversiView : Gtk.DrawingArea
 
     private void turn_ended_cb (bool undoing, bool no_draw)
     {
+        if (humans_opening_intensity != 0)
+        {
+            uint8 half_game_size = game_size / 2;
+            uint8 target;
+            if (     (!last_state_set || last_state.get_owner (half_game_size - 1, half_game_size - 1) == Player.NONE)
+                              && game.current_state.get_owner (half_game_size - 1, half_game_size - 1) != Player.NONE) target = 1;
+            else if ((!last_state_set || last_state.get_owner (half_game_size    , half_game_size - 1) == Player.NONE)
+                              && game.current_state.get_owner (half_game_size    , half_game_size - 1) != Player.NONE) target = 2;
+            else if ((!last_state_set || last_state.get_owner (half_game_size - 1, half_game_size    ) == Player.NONE)
+                              && game.current_state.get_owner (half_game_size - 1, half_game_size    ) != Player.NONE) target = 3;
+            else if ((!last_state_set || last_state.get_owner (half_game_size    , half_game_size    ) == Player.NONE)
+                              && game.current_state.get_owner (half_game_size    , half_game_size    ) != Player.NONE) target = 4;
+            else assert_not_reached ();
+            overture_target [current_overture_playable] = target;
+            current_overture_playable++;
+        }
         if (!no_draw)
         {
             update_squares ();
