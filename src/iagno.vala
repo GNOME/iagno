@@ -25,7 +25,7 @@ using Gtk;
 private class Iagno : Gtk.Application, BaseApplication
 {
     /* Translators: application name, as used in the window manager, the window title, the about dialog... */
-    internal const string PROGRAM_NAME = _("Iagno");
+    internal const string PROGRAM_NAME = _("Reversi");
 
     /* Application settings */
     private GLib.Settings settings;
@@ -391,7 +391,7 @@ private class Iagno : Gtk.Application, BaseApplication
         window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
                                  PROGRAM_NAME,
                                  /* Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt) */
-                                 _("About Iagno"),
+                                 _("About Reversi"),
                                  start_now,
                                  GameWindowFlags.SHOW_START_BUTTON
                                  | GameWindowFlags.HAS_SOUND
@@ -1021,7 +1021,7 @@ private class Iagno : Gtk.Application, BaseApplication
         translator_credits = _("translator-credits");
         version = VERSION;
 
-        website = "https://wiki.gnome.org/Apps/Iagno";
+        website = "https://wiki.gnome.org/Apps/Reversi";
         /* Translators: about dialog text; label of the website link */
         website_label = _("Page on GNOME wiki");
     }

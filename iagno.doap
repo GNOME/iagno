@@ -9,7 +9,7 @@
   <name xml:lang="en">iagno</name>
   <shortdesc xml:lang="en">Dominate the board in a classic version of Reversi</shortdesc>
   <description xml:lang="en">Dominate the board in a classic version of Reversi</description>
-  <homepage rdf:resource="https://wiki.gnome.org/Apps/Iagno" />
+  <homepage rdf:resource="https://wiki.gnome.org/Apps/Reversi" />
   <mailing-list rdf:resource="https://mail.gnome.org/mailman/listinfo/games-list" />
   <download-page rdf:resource="https://download.gnome.org/sources/iagno/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/iagno/issues" />

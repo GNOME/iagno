@@ -4,31 +4,36 @@
   <id>org.gnome.Reversi</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <name>Iagno</name>
-  <summary>Dominate the board in a classic version of Reversi</summary>
+  <name>GNOME Reversi</name>
+  <summary>Dominate the board in a classic reversi game,
+           or play the reversed variant</summary>
   <description>
     <p>
-      Iagno is a computer version of the game Reversi, a two-player strategy
-      board game. The game is played with tiles that are dark on one side and
-      light on the other.
+      Reversi is a two-player strategy game, played on an 8 by 8 board.
+      Players use tiles that are dark on one side and light on the other.
     </p>
     <p>
-      The object of Iagno is to flip as many of your opponent’s tiles to your
-      color as possible while preventing your opponent from flipping your tiles
-      to his color. This is done by trapping your opponent’s tiles between two
-      tiles of your own color.
+      The object of reversi is to flip your opponent’s tiles to your color,
+      while your opponent is trying to flip your tiles to his own color.
+      Opponent’s tiles are flipped when trapped between an already placed tile
+      of your color and the tile you add. Who finishes with more tiles wins!
+    </p>
+    <p>
+      GNOME Reversi allows you to play both a classic reversi game, and the
+      reversed variant, where the goal is to finish with less tile than your
+      opponent.
     </p>
   </description>
   <screenshots>
     <screenshot height="447" width="700" type="default">
       <image>https://people.gnome.org/~mcatanzaro/iagno.png</image>
-      <caption>A GNOME Iagno game preview</caption>
+      <caption>A GNOME Reversi game preview</caption>
     </screenshot>
   </screenshots>
   <provides>
     <id>org.gnome.iagno.desktop</id>
   </provides>
-  <url type="homepage">https://wiki.gnome.org/Apps/Iagno</url>
+  <url type="homepage">https://wiki.gnome.org/Apps/Reversi</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/iagno/issues</url>
   <url type="donation">https://www.gnome.org/friends/</url>
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
