@@ -1,4 +1,4 @@
-# IAGNO
+# Iagno
 
 A reversi game for GNOME.
 
