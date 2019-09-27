@@ -828,11 +828,24 @@ private class Iagno : Gtk.Application, BaseApplication
         if ((game.current_color != player_one && computer != null) || !game.current_player_can_move)
             return;
 
-        if (!game.place_tile (x, y))
-        {
+        /* Place tile if possible, and if so do not do anything else */
+        if (game.place_tile (x, y))
+            return;
+
+        if (game.opening != Opening.HUMANS)
             /* Translators: during a game, notification to display when the player tries to make an illegal move */
             window.show_notification (_("You can’t move there!"));
-        }
+
+        else if (game.current_color == Player.LIGHT
+              && game.n_light_tiles == 0
+              && (x == game.size / 2 - 1 || x == game.size / 2)
+              && (y == game.size / 2 - 1 || y == game.size / 2))
+            /* Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one */
+            window.show_notification (_("In this opening, Light can only play on tiles bordering on Dark one."));
+
+        else
+            /* Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted */
+            window.show_notification (_("Click on one of the highlighted tiles to move the selected piece there."));
     }
 
     private void clear_impossible_to_move_here_warning ()
