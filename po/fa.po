@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-09-04 15:10+0000\n"
-"PO-Revision-Date: 2019-09-05 07:55+0000\n"
+"POT-Creation-Date: 2019-09-28 18:09+0000\n"
+"PO-Revision-Date: 2019-09-29 12:38+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -284,8 +284,16 @@ msgstr "سیاه و سفید"
 msgid "Sun and Star"
 msgstr "خورشید و ستاره"
 
-#. see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
-#. range min="350"/ FIXME
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:6
+msgid "A flag to follow system night light"
+msgstr "پرچمی برای پیروی از نور شب سامانه"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:8
+msgid "Use GNOME night light setting to activate night-mode."
+msgstr "استفاده از تنظیمات نور شب گنوم برای فعّال‌سازی حالت شب."
+
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
 msgid "The width of the window"
@@ -296,8 +304,6 @@ msgstr "پهنای پنجره"
 msgid "The width of the main window in pixels."
 msgstr "پهنای پنجرهٔ اصلی به پیکسل."
 
-#. see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
-#. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
 msgid "The height of the window"
@@ -307,6 +313,11 @@ msgstr "بلندای پنجره"
 #: data/org.gnome.Reversi.gschema.xml:26
 msgid "The height of the main window in pixels."
 msgstr "بلندای پنجرهٔ اصلی به پیکسل."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:31
+msgid "A flag to enable maximized mode"
+msgstr "پرچمی برای فعال کردن حالت بیشینه"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:33
@@ -339,10 +350,17 @@ msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "این که با سفید بازی می‌کنید یا سیاه. برای بازی‌های دو نفره نادیده گرفته می‌شود."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:68
-msgid "A flag to highlight turnable tiles"
-msgstr "پرچمی برای نشانه‌گذاری مهره‌های قابل برگرداندن"
+msgid "A flag to highlight capturable tiles"
+msgstr "پرچمی برای نشانه‌گذاری مهره‌های قابل گرفتن"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there
+#: data/org.gnome.Reversi.gschema.xml:70
+msgid ""
+"If “true”, the tiles that will be captured to the opponent by a ply are "
+"highlighted."
+msgstr "اگر درست باشد، کاشی‌هایی که با یک حرکت گرفته خواهند شد را نشانه‌گذاری می‌کند."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
 #: data/org.gnome.Reversi.gschema.xml:75
@@ -536,12 +554,12 @@ msgstr "سطح باید بین ۱ (ساده) و ۳ (سخت) باشد.تنظیم�
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
 #: src/iagno.vala:221
 msgid "Default"
-msgstr "پیش‌فرض"
+msgstr "پیش‌گزیده"
 
-#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:277
-msgid "Highlight _turnable tiles"
-msgstr "نشانه‌گذاری کاشی‌های قابل برگرداندن"
+msgid "Highlight _capturable tiles"
+msgstr "نشانه‌گذاری کاشی‌های قابل گرفتن"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:287
@@ -596,48 +614,52 @@ msgid "Arnaud Bonatti (themes)"
 msgstr "آرناد بوناتی (زمینه‌ها)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:724
+#: src/iagno.vala:725
 msgid "Ian Peters"
 msgstr "یان پیترز"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:729
 msgid "Robert Ancell"
 msgstr "رابرت انسل"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:733
 msgid "Arnaud Bonatti"
 msgstr "آرناد بوناتی"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:728
+#: src/iagno.vala:738
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "حق رونوشت © %Iu-%Iu – یان پیترز"
 
-#: src/iagno.vala:729
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:742
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "حق رونوشت © %Iu-%Iu – مایکل کاتانزارو"
 
-#: src/iagno.vala:730
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:746
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "حق رونوشت © %Iu-%Iu – آرناد بوناتی"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:733
+#: src/iagno.vala:750
 msgid "Tiffany Antopolski"
 msgstr "تیفانی آنتوپولسکی"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:738
+#: src/iagno.vala:755
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
 "دانیال بهزادی <dani.behzi@gmail.com>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:743
+#: src/iagno.vala:760
 msgid "Page on GNOME wiki"
 msgstr "صفحه روی ویکی گنوم"
 
