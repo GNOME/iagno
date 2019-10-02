@@ -20,10 +20,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games\n"
+"Project-Id-Version: gnome-games gnome-3.34\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-08-04 14:44+0000\n"
-"PO-Revision-Date: 2019-08-16 22:29+0200\n"
+"POT-Creation-Date: 2019-09-28 11:43+0000\n"
+"PO-Revision-Date: 2019-10-02 02:57+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -232,12 +232,12 @@ msgstr "Hráči"
 #. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:126
 msgid "_One"
-msgstr "_První"
+msgstr "_první"
 
 #. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:138
 msgid "_Two"
-msgstr "_Druhý"
+msgstr "_druhý"
 
 #. Translators: when configuring a new game, header of the row for choosing the level of the artificial intelligence
 #: data/ui/iagno-screens.ui:162
@@ -247,17 +247,17 @@ msgstr "Obtížnost"
 #. Translators: when configuring a new game, row "Difficulty", label of the button to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:179
 msgid "_Easy"
-msgstr "Sn_adná"
+msgstr "sn_adná"
 
 #. Translators: when configuring a new game, row "Difficulty", label of the button to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:191
 msgid "_Medium"
-msgstr "_Střední"
+msgstr "_střední"
 
 #. Translators: when configuring a new game, row "Difficulty", label of the button to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:203
 msgid "_Hard"
-msgstr "Ob_tížná"
+msgstr "_těžká"
 
 #. Translators: when configuring a new game, header of the row for choosing the played color (whether to start or not)
 #: data/ui/iagno-screens.ui:227
@@ -267,12 +267,12 @@ msgstr "Barva"
 #. Translators: when configuring a new game, row "Color", label of the button to play the dark color, so to start (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:244
 msgid "_Dark"
-msgstr "Če_rná"
+msgstr "če_rná"
 
 #. Translators: when configuring a new game, row "Color", label of the button to play the light color, so not play second (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:256
 msgid "_Light"
-msgstr "Bí_lá"
+msgstr "bí_lá"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
 #: data/themes/adwaita.theme.desktop.in:22
@@ -304,8 +304,6 @@ msgstr "Řídit se podle nočního světla v systému"
 msgid "Use GNOME night light setting to activate night-mode."
 msgstr "Používat nastavení nočního světla v GNOME k aktivaci nočního režimu."
 
-#. see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
-#. range min="350"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
 msgid "The width of the window"
@@ -316,8 +314,6 @@ msgstr "Šířka okna"
 msgid "The width of the main window in pixels."
 msgstr "Šířka hlavního okna v pixelech."
 
-#. see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
-#. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
 msgid "The height of the window"
@@ -363,18 +359,18 @@ msgstr "S jakou hrát barvou"
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr "Zda hrát jako černý nebo bílý. Ignorováno u her se dvěma hráči."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:68
-msgid "A flag to highlight turnable tiles"
-msgstr "Příznak zvýrazňování otočitelných kamenů"
+msgid "A flag to highlight capturable tiles"
+msgstr "Zda zvýrazňovat zabrané kameny"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:70
 msgid ""
 "If “true”, the tiles that will be captured to the opponent by a ply are "
 "highlighted."
 msgstr ""
-"Když je zapnuto, jsou zvýrazňovány kameny, které budou protivníkem při tahu "
+"Když je zapnuto, jsou zvýrazňovány kameny, které budou protivníkovi při tahu "
 "zabrány."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
@@ -574,10 +570,10 @@ msgstr ""
 msgid "Default"
 msgstr "Výchozí"
 
-#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:277
-msgid "Highlight _turnable tiles"
-msgstr "Zvýrazňovat použi_telné kameny"
+msgid "Highlight _capturable tiles"
+msgstr "Zvýrazňovat za_brané kameny"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:287
@@ -632,41 +628,45 @@ msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (motivy)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:724
+#: src/iagno.vala:725
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:729
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:733
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:728
+#: src/iagno.vala:738
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Copyright © %u - %u – Ian Peters"
 
-#: src/iagno.vala:729
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:742
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Copyright © %u - %u – Michael Catanzaro"
 
-#: src/iagno.vala:730
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:746
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u - %u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:733
+#: src/iagno.vala:750
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:738
+#: src/iagno.vala:755
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -684,6 +684,6 @@ msgstr ""
 "Marek Černocký <marek@manet.cz>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:743
+#: src/iagno.vala:760
 msgid "Page on GNOME wiki"
 msgstr "Stránka na Wiki GNOME"
