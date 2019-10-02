@@ -1,20 +1,20 @@
 # translation of iagno.HEAD.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
 # 
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2015, 2017.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2017-07-31 12:12+0000\n"
-"PO-Revision-Date: 2017-08-03 12:35+0200\n"
+"POT-Creation-Date: 2019-09-26 19:31+0000\n"
+"PO-Revision-Date: 2019-10-02 12:46+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: es <gnome-es-list@gnome.org>\n"
-"Language: \n"
+"Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 3.34.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
@@ -137,15 +137,20 @@ msgstr "Informar de un error o sugerir una mejora"
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:22
+#| msgid ""
+#| "<app>Iagno</app> is maintained by a volunteer community. You are welcome "
+#| "to participate. If you notice a problem you can file a <em>bug report</"
+#| "em>. To file a bug, go to <link href=\"https://bugzilla.gnome.org/\"/>."
 msgid ""
 "<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
 "participate. If you notice a problem you can file a <em>bug report</em>. To "
-"file a bug, go to <link href=\"https://bugzilla.gnome.org/\"/>."
+"file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues/"
+"\"/>."
 msgstr ""
 "<app>Iagno</app> lo mantiene la comunidad de manera voluntaria. Si quiere "
 "participar, es bienvenido. Si encuentra un error, puede rellenar un "
 "<em>informe de error</em>. Para informar de un error, vaya a <link href="
-"\"https://bugzilla.gnome.org/\"/>."
+"\"https://gitlab.gnome.org/GNOME/iagno/issues/\"/>."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:25
@@ -159,52 +164,64 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:28
+#| msgid ""
+#| "To participate you need an account which will give you the ability to "
+#| "gain access, file bugs, and make comments. Also, you need to register so "
+#| "you can receive updates by e-mail about the status of your bug. If you "
+#| "don't already have an account, just click on the <gui>New Account</gui> "
+#| "link to create one."
 msgid ""
 "To participate you need an account which will give you the ability to gain "
 "access, file bugs, and make comments. Also, you need to register so you can "
 "receive updates by e-mail about the status of your bug. If you don't already "
-"have an account, just click on the <gui>New Account</gui> link to create one."
+"have an account, just click on the <gui>Sign in / Register</gui> link to "
+"create one."
 msgstr ""
-"Para participar necesita una cuenta, que le permitirá obtener acceso, "
-"informar de errores y hacer comentarios. También debe registrarte para poder "
-"recibir actualizaciones por correo-e sobre el estado de su informe de error. "
-"Si todavía no tiene una cuenta, simplemente pulse en el enlace <gui>New "
-"Account</gui> para crear una."
+"Para participar necesita una cuenta, que le permitirá obtener acceso, "
+"informar de errores y hacer comentarios. También debe registrarte para poder "
+"recibir actualizaciones por correo electrónico sobre el estado de su informe "
+"de error. Si todavía no tiene una cuenta, simplemente pulse en el enlace "
+"<gui>Sign in / Register</gui> para crear una."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:32
+#| msgid ""
+#| "Once you have an account, log in, click on <guiseq><gui>File a Bug</"
+#| "gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
+#| "bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?"
+#| "id=bug-writing.html\">bug writing guidelines</link>, and please <link "
+#| "href=\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">browse</"
+#| "link> for the bug to see if it already exists."
 msgid ""
-"Once you have an account, log in, click on <guiseq><gui>File a Bug</"
-"gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
-"bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?id=bug-"
-"writing.html\">bug writing guidelines</link>, and please <link href="
-"\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">browse</link> for "
+"Once you have an account, log in, and click on <gui>New issue</gui>. Before "
+"reporting a bug, please read the <link href=\"https://bugzilla.gnome.org/"
+"page.cgi?id=bug-writing.html\">bug writing guidelines</link>, and please "
+"<link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">browse</link> for "
 "the bug to see if it already exists."
 msgstr ""
-"Una vez que tenga su cuenta, inicie sesión y pulse en <guiseq><gui>Informar "
-"de un error</gui><gui>Aplicaciones</gui><gui>iagno</gui></guiseq>. Antes de "
-"informar de un error, lea las <link href=\"https://bugzilla.gnome.org/page."
-"cgi?id=bug-writing.html\">guías para informar de un error</link> y <link "
-"href=\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">busque</link> "
-"el error para ver si ya existe."
+"Una vez que tenga su cuenta, inicie sesión y pulse en <gui>New issue</gui>. "
+"Antes de informar de un error, lea las <link href=\"https://bugzilla.gnome."
+"org/page.cgi?id=bug-writing.html\">guías para informar de un error</link> y "
+"<link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">busque</link> el "
+"error para ver si ya existe."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:40
+#: C/bug-filing.page:37
 #| msgid ""
 #| "If you are requesting a new feature, choose <gui>enhancement</gui> in the "
 #| "<gui>Severity</gui> menu. Fill in the Summary and Description sections "
-#| "and click <gui>Commit</gui>."
+#| "and click <gui>Submit Bug</gui>."
 msgid ""
-"If you are requesting a new feature, choose <gui>enhancement</gui> in the "
-"<gui>Severity</gui> menu. Fill in the Summary and Description sections and "
-"click <gui>Submit Bug</gui>."
+"If you are requesting a new feature, choose <gui>1. Feature</gui> in the "
+"<gui>Labels</gui> menu. Fill in the Title and Description sections and click "
+"<gui>Submit Issue</gui>."
 msgstr ""
-"Si está solicitando una característica nueva, elija <gui>enhancement</gui> "
-"en el menú <gui>Severity</gui>. Rellene las secciones «Summary» y "
-"«Description» y pulse en <gui>Submit Bug</gui>."
+"Si está solicitando una característica nueva, elija <gui>1. Feature</gui> en "
+"el menú <gui>Labels</gui>. Rellene las secciones «Title» y «Description» y "
+"pulse en <gui>Submit Issue</gui>."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:44
+#: C/bug-filing.page:41
 msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
 "is being dealt with. Thanks for helping make <app>Iagno</app> better!"
