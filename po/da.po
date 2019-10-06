@@ -16,15 +16,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-08-04 14:44+0000\n"
-"PO-Revision-Date: 2019-08-06 21:12+0200\n"
-"Last-Translator: scootergrisen\n"
+"POT-Creation-Date: 2019-09-28 11:43+0000\n"
+"PO-Revision-Date: 2019-10-06 18:49+0200\n"
+"Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
 #: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
@@ -123,7 +124,6 @@ msgid "During game selection"
 msgstr "Under valg af spil"
 
 #: data/ui/help-overlay.ui:34
-#| msgid "Start a new game"
 msgctxt "shortcut window"
 msgid "Start new game"
 msgstr "Start nyt spil"
@@ -139,13 +139,11 @@ msgid "Play with keyboard"
 msgstr "Spil med tastatur"
 
 #: data/ui/help-overlay.ui:54
-#| msgid "Select Theme"
 msgctxt "shortcut window"
 msgid "Select where to play"
 msgstr "Vælg hvor der skal spilles"
 
 #: data/ui/help-overlay.ui:61
-#| msgid "Select Theme"
 msgctxt "shortcut window"
 msgid "Select the given row"
 msgstr "Vælg række"
@@ -166,13 +164,11 @@ msgid "During a game"
 msgstr "Under et spil"
 
 #: data/ui/help-overlay.ui:88
-#| msgid "_New Game"
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Nyt spil"
 
 #: data/ui/help-overlay.ui:95
-#| msgid "Undo your most recent move"
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Fortryd seneste træk"
@@ -188,7 +184,6 @@ msgid "Keyboard shortcuts"
 msgstr "Tastaturgenveje"
 
 #: data/ui/help-overlay.ui:115
-#| msgid "_Help"
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Hjælp"
@@ -199,7 +194,6 @@ msgid "About"
 msgstr "Om"
 
 #: data/ui/help-overlay.ui:129
-#| msgid "_Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Afslut"
@@ -211,19 +205,16 @@ msgstr "Spiltype"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play first (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:61
-#| msgid "Play first"
 msgid "Play _first"
 msgstr "_Første spiller"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play second (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:73
-#| msgid "Play second"
 msgid "Play _second"
 msgstr "_Anden spiller"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose a two-players game (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:85
-#| msgid "Two players game"
 msgid "_Two players"
 msgstr "_To spillere"
 
@@ -307,31 +298,23 @@ msgstr "Et flag til at følge systemets nattelys"
 msgid "Use GNOME night light setting to activate night-mode."
 msgstr "Brug GNOMEs nattelysindstilling for at aktivere nattilstand."
 
-#. see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
-#. range min="350"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
-#| msgid "Width of the window in pixels"
 msgid "The width of the window"
 msgstr "Bredden af vinduet"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:17
-#| msgid "Width of the window in pixels"
 msgid "The width of the main window in pixels."
 msgstr "Bredden af hovedvinduet i billedpunkter."
 
-#. see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
-#. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
-#| msgid "Height of the window in pixels"
 msgid "The height of the window"
 msgstr "Højden af vinduet"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:26
-#| msgid "Height of the window in pixels"
 msgid "The height of the main window in pixels."
 msgstr "Højden af hovedvinduet i billedpunkter."
 
@@ -342,7 +325,6 @@ msgstr "Et flag til at aktivere maksimeret tilstand"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:33
-#| msgid "true if the window is maximized"
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "Hvis “true”, starter hovedvinduet i maksimeret tilstand."
 
@@ -371,12 +353,12 @@ msgstr "Spillerfarve"
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr "Om der skal spilles som mørk eller lys. Ignoreres for tospiller-spil."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:68
-msgid "A flag to highlight turnable tiles"
-msgstr "Et flag til at fremhæve fliser som kan drejes"
+msgid "A flag to highlight capturable tiles"
+msgstr "Et flag til at fremhæve fliser som kan fanges"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:70
 msgid ""
 "If “true”, the tiles that will be captured to the opponent by a ply are "
@@ -441,7 +423,6 @@ msgstr "Dokumentationsskrivere"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
 #: src/about-list.vala:166
-#| msgid "translator-credits"
 msgid "Translators"
 msgstr "Oversættere"
 
@@ -582,14 +563,13 @@ msgstr ""
 msgid "Default"
 msgstr "Standard"
 
-#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:277
-msgid "Highlight _turnable tiles"
-msgstr "Fremhæv fliser som kan _drejes"
+msgid "Highlight _capturable tiles"
+msgstr "Fremhæv fliser som kan _fanges"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:287
-#| msgid "_About Iagno"
 msgid "About Iagno"
 msgstr "Om Iagno"
 
@@ -606,14 +586,12 @@ msgstr "Mørk må sidde over, lys trækker"
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
 #: src/iagno.vala:567
 #, c-format
-#| msgid "Light wins!"
 msgid "Light wins! (%u-%u)"
 msgstr "Lys vandt! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
 #: src/iagno.vala:571
 #, c-format
-#| msgid "Dark wins!"
 msgid "Dark wins! (%u-%u)"
 msgstr "Mørk vandt! (%u-%u)"
 
@@ -645,41 +623,45 @@ msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (temaer)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:724
+#: src/iagno.vala:725
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:729
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:733
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:728
+#: src/iagno.vala:738
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Ophavsret © %u-%u – Ian Peters"
 
-#: src/iagno.vala:729
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:742
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Ophavsret © %u-%u – Michael Catanzaro"
 
-#: src/iagno.vala:730
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:746
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Ophavsret © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:733
+#: src/iagno.vala:750
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:738
+#: src/iagno.vala:755
 msgid "translator-credits"
 msgstr ""
 "Anders Wegge Jakobsen\n"
@@ -695,6 +677,6 @@ msgstr ""
 "E-mail <dansk@dansk-gruppen.dk>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:743
+#: src/iagno.vala:760
 msgid "Page on GNOME wiki"
 msgstr "Side på GNOME wiki"
