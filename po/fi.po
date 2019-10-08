@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-08-18 18:40+0000\n"
-"PO-Revision-Date: 2019-09-01 21:29+0300\n"
+"POT-Creation-Date: 2019-09-28 11:43+0000\n"
+"PO-Revision-Date: 2019-10-08 15:55+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Launchpad-Export-Date: 2010-09-13 15:09+0000\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
@@ -296,8 +296,6 @@ msgstr "Lippu järjestelmän yövalon seuraamiseen"
 msgid "Use GNOME night light setting to activate night-mode."
 msgstr "Käytä Gnomen yövaloasetusta yötilan aktivointiin."
 
-#. see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
-#. range min="350"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
 msgid "The width of the window"
@@ -308,8 +306,6 @@ msgstr "Ikkunan leveys"
 msgid "The width of the main window in pixels."
 msgstr "Ikkunan leveys kuvapisteinä."
 
-#. see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
-#. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
 msgid "The height of the window"
@@ -356,12 +352,12 @@ msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "Pelataanko tummalla vai vaalealla värillä. Ei huomioida kaksinpeleissä."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:68
-msgid "A flag to highlight turnable tiles"
-msgstr "Lippu käännettävien laattojen korostamiseksi"
+msgid "A flag to highlight capturable tiles"
+msgstr "Lippu vallattavien laattojen korostamiseksi"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:70
 msgid ""
 "If “true”, the tiles that will be captured to the opponent by a ply are "
@@ -563,10 +559,10 @@ msgstr ""
 msgid "Default"
 msgstr "Oletus"
 
-#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:277
-msgid "Highlight _turnable tiles"
-msgstr "Ko_rosta käännettävät laatat"
+msgid "Highlight _capturable tiles"
+msgstr "Ko_rosta vallattavissa olevat laatat"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:287
@@ -621,41 +617,45 @@ msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (teemat)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:724
+#: src/iagno.vala:725
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:729
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:733
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:728
+#: src/iagno.vala:738
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Tekijänoikeus © %u-%u – Ian Peters"
 
-#: src/iagno.vala:729
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:742
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Tekijänoikeus © %u-%u – Michael Catanzaro"
 
-#: src/iagno.vala:730
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:746
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Tekijänoikeus © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:733
+#: src/iagno.vala:750
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:738
+#: src/iagno.vala:755
 msgid "translator-credits"
 msgstr ""
 "Jiri Grönroos, 2013-2019\n"
@@ -677,7 +677,7 @@ msgstr ""
 "  eGetin https://launchpad.net/~egetin"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:743
+#: src/iagno.vala:760
 msgid "Page on GNOME wiki"
 msgstr "Sivu Gnomen wikissä"
 
