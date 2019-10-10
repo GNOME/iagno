@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-08-04 14:44+0000\n"
-"PO-Revision-Date: 2019-09-01 08:07+0200\n"
+"POT-Creation-Date: 2019-09-28 11:43+0000\n"
+"PO-Revision-Date: 2019-10-10 14:16+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -121,7 +121,6 @@ msgid "During game selection"
 msgstr "Játék közbeni kijelölések"
 
 #: data/ui/help-overlay.ui:34
-#| msgid "Start a new game"
 msgctxt "shortcut window"
 msgid "Start new game"
 msgstr "Új játék indítása"
@@ -137,13 +136,11 @@ msgid "Play with keyboard"
 msgstr "Játszás billentyűvel"
 
 #: data/ui/help-overlay.ui:54
-#| msgid "Select Theme"
 msgctxt "shortcut window"
 msgid "Select where to play"
 msgstr "Válassza ki, hol játszik"
 
 #: data/ui/help-overlay.ui:61
-#| msgid "Select Theme"
 msgctxt "shortcut window"
 msgid "Select the given row"
 msgstr "A megadott sor kiválasztása"
@@ -164,13 +161,11 @@ msgid "During a game"
 msgstr "Játék közben"
 
 #: data/ui/help-overlay.ui:88
-#| msgid "_New Game"
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Új játék"
 
 #: data/ui/help-overlay.ui:95
-#| msgid "Undo your most recent move"
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Utolsó lépés visszavonása"
@@ -186,7 +181,6 @@ msgid "Keyboard shortcuts"
 msgstr "Gyorsbillentyűk"
 
 #: data/ui/help-overlay.ui:115
-#| msgid "_Help"
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Súgó"
@@ -208,19 +202,16 @@ msgstr "Játéktípus"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play first (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:61
-#| msgid "Play first"
 msgid "Play _first"
 msgstr "_Első játékos"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play second (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:73
-#| msgid "Play second"
 msgid "Play _second"
 msgstr "_Második játékos"
 
 #. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose a two-players game (with a mnemonic that appears pressing Alt)
 #: data/ui/iagno-screens.ui:85
-#| msgid "Two players game"
 msgid "_Two players"
 msgstr "_Két játékos"
 
@@ -306,31 +297,23 @@ msgstr ""
 "A GNOME éjszakai fény beállításának használata az éjszakai mód "
 "bekapcsolásához."
 
-#. see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
-#. range min="350"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
-#| msgid "Width of the window in pixels"
 msgid "The width of the window"
 msgstr "Az ablak szélessége"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:17
-#| msgid "Width of the window in pixels"
 msgid "The width of the main window in pixels."
 msgstr "A főablak szélessége képpontban."
 
-#. see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
-#. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
-#| msgid "Height of the window in pixels"
 msgid "The height of the window"
 msgstr "Az ablak magassága"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:26
-#| msgid "Height of the window in pixels"
 msgid "The height of the main window in pixels."
 msgstr "A főablak magassága képpontban."
 
@@ -341,7 +324,6 @@ msgstr "Egy jelző a teljes méretű mód engedélyezéséhez"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:33
-#| msgid "true if the window is maximized"
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "Ha „igaz”, akkor a főablak teljes méretben indul."
 
@@ -371,12 +353,13 @@ msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "Sötétként vagy világosként játszik-e. Kétszemélyes játékoknál mellőzve van."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:68
-msgid "A flag to highlight turnable tiles"
-msgstr "Egy jelző a forgatható csempék kiemeléséhez"
+#| msgid "A flag to highlight turnable tiles"
+msgid "A flag to highlight capturable tiles"
+msgstr "Egy jelző a megszerezhető csempék kiemeléséhez"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:70
 msgid ""
 "If “true”, the tiles that will be captured to the opponent by a ply are "
@@ -441,7 +424,6 @@ msgstr "Dokumentálók"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
 #: src/about-list.vala:166
-#| msgid "translator-credits"
 msgid "Translators"
 msgstr "Fordítók"
 
@@ -582,14 +564,14 @@ msgstr ""
 msgid "Default"
 msgstr "Alapértelmezett"
 
-#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:277
-msgid "Highlight _turnable tiles"
-msgstr "_Forgatható csempék kiemelése"
+#| msgid "Highlight _turnable tiles"
+msgid "Highlight _capturable tiles"
+msgstr "_Megszerezhető csempék kiemelése"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:287
-#| msgid "_About Iagno"
 msgid "About Iagno"
 msgstr "Az Iagno névjegye"
 
@@ -606,14 +588,12 @@ msgstr "A sötét nem tud lépni, a világos jön"
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
 #: src/iagno.vala:567
 #, c-format
-#| msgid "Light wins!"
 msgid "Light wins! (%u-%u)"
 msgstr "A világos nyert! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
 #: src/iagno.vala:571
 #, c-format
-#| msgid "Dark wins!"
 msgid "Dark wins! (%u-%u)"
 msgstr "A sötét nyert! (%u-%u)"
 
@@ -643,41 +623,45 @@ msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (témák)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:724
+#: src/iagno.vala:725
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:729
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:733
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:728
+#: src/iagno.vala:738
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Copyright © %u-%u – Ian Peters"
 
-#: src/iagno.vala:729
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:742
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Copyright © %u-%u – Michael Catanzaro"
 
-#: src/iagno.vala:730
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:746
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:733
+#: src/iagno.vala:750
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:738
+#: src/iagno.vala:755
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -690,6 +674,6 @@ msgstr ""
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:743
+#: src/iagno.vala:760
 msgid "Page on GNOME wiki"
 msgstr "Oldal a GNOME wikin"
