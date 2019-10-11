@@ -23,23 +23,23 @@
 # Laurent Coudeur <laurentc@iol.ie>, 2009.
 # Bruno Brouard <annoa.b@gmail.com>, 2012
 # Bruno Cauet <brunocauet@gmail.com>, 2014
-# Charles Monzat <charles.monzat@free.fr>, 2018-2019.
 # Adrien Plazas <kekun.plazas@laposte.net>, 2019.
+# Charles Monzat <charles.monzat@free.fr>, 2018-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-09-06 15:18+0000\n"
-"PO-Revision-Date: 2019-09-07 10:19+0200\n"
-"Last-Translator: Adrien Plazas <kekun.plazas@laposte.net>\n"
+"POT-Creation-Date: 2019-09-29 12:39+0000\n"
+"PO-Revision-Date: 2019-10-08 14:27+0200\n"
+"Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 3.32.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 3.32.1\n"
 
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
 #: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
@@ -311,8 +311,6 @@ msgstr "Un drapeau pour suivre le mode nuit du système"
 msgid "Use GNOME night light setting to activate night-mode."
 msgstr "Utiliser le paramètre de mode nuit de GNOME pour activer le mode nuit"
 
-#. see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
-#. range min="350"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
 msgid "The width of the window"
@@ -323,8 +321,6 @@ msgstr "La largeur de la fenêtre"
 msgid "The width of the main window in pixels."
 msgstr "La largeur de la fenêtre principale en pixels."
 
-#. see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
-#. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
 msgid "The height of the window"
@@ -372,10 +368,11 @@ msgstr ""
 "Indique si l’on joue avec les noirs ou les blancs. Ignoré pour les parties à "
 "deux joueurs."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:68
-msgid "A flag to highlight turnable tiles"
-msgstr "Un drapeau pour mettre en surbrillance les cases jouables"
+#| msgid "A flag to highlight turnable tiles"
+msgid "A flag to highlight capturable tiles"
+msgstr "Un drapeau pour mettre en surbrillance les cases capturables"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:70
@@ -582,10 +579,11 @@ msgstr ""
 msgid "Default"
 msgstr "Par défaut"
 
-#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:277
-msgid "Highlight _turnable tiles"
-msgstr "Mettre en surbrillance les cases _jouables"
+#| msgid "Highlight _turnable tiles"
+msgid "Highlight _capturable tiles"
+msgstr "Mettre en surbrillance les cases _capturables"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:287
@@ -640,41 +638,45 @@ msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (thèmes)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:724
+#: src/iagno.vala:725
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:729
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:733
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:728
+#: src/iagno.vala:738
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Copyright © %u-%u – Ian Peters"
 
-#: src/iagno.vala:729
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:742
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Copyright © %u-%u – Michael Catanzaro"
 
-#: src/iagno.vala:730
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:746
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:733
+#: src/iagno.vala:750
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:738
+#: src/iagno.vala:755
 msgid "translator-credits"
 msgstr ""
 "Christophe Merlet <redfox@redfoxcenter.org>\n"
@@ -692,6 +694,6 @@ msgstr ""
 "Adrien Plazas <kekun.plazas@laposte.net>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:743
+#: src/iagno.vala:760
 msgid "Page on GNOME wiki"
 msgstr "Page sur le wiki de GNOME"
