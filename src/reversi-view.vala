@@ -422,11 +422,12 @@ private class ReversiView : Gtk.DrawingArea
         tiles_pattern = new Cairo.Pattern.for_surface (surface);
 
         // noise pattern
-        Gdk.Pixbuf? noise_pixbuf = null;
         Cairo.Pattern? noise_pattern = null;
 
         if (apply_texture)
         {
+            Gdk.Pixbuf? noise_pixbuf = null;
+
             try
             {
                 noise_pixbuf = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/Reversi/ui/noise.png",
@@ -486,7 +487,7 @@ private class ReversiView : Gtk.DrawingArea
         {
             cr.fill_preserve ();
 
-            var matrix = Cairo.Matrix.identity ();
+            Cairo.Matrix matrix = Cairo.Matrix.identity ();
             matrix.translate (-tile_x, -tile_y);
             ((!) noise_pattern).set_matrix (matrix);
             cr.set_source ((!) noise_pattern);
@@ -638,7 +639,7 @@ private class ReversiView : Gtk.DrawingArea
         if (pixmap == 0)
             return;
 
-        var matrix = Cairo.Matrix.identity ();
+        Cairo.Matrix matrix = Cairo.Matrix.identity ();
         matrix.translate (/* texture x */ (pixmap % 8) * tile_size - /* x position */ tile_x,
                           /* texture y */ (pixmap / 8) * tile_size - /* y position */ tile_y);
         ((!) tiles_pattern).set_matrix (matrix);
@@ -697,7 +698,7 @@ private class ReversiView : Gtk.DrawingArea
     }
     private void _draw_overture_playable (Cairo.Context cr, int tile_x, int tile_y, int pixmap)
     {
-        var matrix = Cairo.Matrix.identity ();
+        Cairo.Matrix matrix = Cairo.Matrix.identity ();
         matrix.translate (/* texture x */ (pixmap % 8) * tile_size - /* x position */ tile_x,
                           /* texture y */ (pixmap / 8) * tile_size - /* y position */ tile_y);
         ((!) tiles_pattern).set_matrix (matrix);
@@ -751,9 +752,9 @@ private class ReversiView : Gtk.DrawingArea
     {
         try
         {
-            var h = new Rsvg.Handle.from_file (pieces_file);
+            Rsvg.Handle h = new Rsvg.Handle.from_file (pieces_file);
 
-            var m = Cairo.Matrix.identity ();
+            Cairo.Matrix m = Cairo.Matrix.identity ();
             m.scale ((double) width / h.width, (double) height / h.height);
             c.set_matrix (m);
             h.render_cairo (c);
@@ -767,7 +768,7 @@ private class ReversiView : Gtk.DrawingArea
 
         try
         {
-            var p = new Gdk.Pixbuf.from_file_at_scale (pieces_file, width, height, false);
+            Gdk.Pixbuf p = new Gdk.Pixbuf.from_file_at_scale (pieces_file, width, height, false);
             Gdk.cairo_set_source_pixbuf (c, p, 0, 0);
             c.paint ();
         }
