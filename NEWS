@@ -1,3 +1,32 @@
+3.35.1 – October 12, 2019
+=============================
+
+Many changes! The biggest one is of course that Iagno
+now allows to play the reversed reversi game, that is
+played like an usual reversi game, but where the goal
+is to finish with less tiles than your opponent. Also
+there is now a toggle to start with different initial
+positions randomly; and for two-player games, this is
+replaced by an old-style opening, where players place
+the four initial tiles on the board. And also another
+toggle to alternate who starts when a user is playing
+multiple times in a row. This is an exciting release!
+
+Translations updated:
+  Czech: Marek Černocký
+  Danish: Alan Mortensen
+  Finnish: Jiri Grönroos
+  French: Charles Monzat
+  Friulian: Fabio Tomat
+  Hungarian: Balázs Úr
+  Italian: Milo Casagrande
+  Persian: Danial Behzadi
+  Polish: Piotr Drąg
+  Brazilian Portuguese: Rafael Fontenelle
+  Serbian: Марко Костић
+  Slovenian: Matej Urbančič
+  Spanish: Daniel Mustieles
+
 3.34.0 – September 10, 2019
 =============================
 
