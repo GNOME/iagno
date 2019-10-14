@@ -1263,6 +1263,8 @@ private class ReversiView : Gtk.DrawingArea
             return false;
 
         string key = (!) (Gdk.keyval_name (event.keyval) ?? "");
+        if (key == "")
+            return false;
 
         if (show_highlight && (key == "space" || key == "Return" || key == "KP_Enter"))
         {
