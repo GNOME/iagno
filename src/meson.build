@@ -1,5 +1,51 @@
-# Tests
-iagno_tests = executable('iagno_tests',
+# Tests generation
+run_target('update-perfs-tests', command: executable ('iagno-perfs-tests-generator',
+        [
+            'vapi/config.vapi',
+            'perfs-tests-generator.vala',
+            'computer-player.vala',
+            'computer-reversi.vala',
+            'game.vala',
+            'player.vala'
+        ],
+        c_args: [
+            '-include', 'config.h'
+        ],
+        vala_args: [
+            '--enable-experimental-non-null'
+        ],
+        dependencies : [
+            gio_dependency
+        ]
+    )
+)
+
+# Generated tests
+if get_option('perfs_tests')
+    iagno_generated_tests = executable('iagno-generated-tests',
+        [
+            'perfs-tests-iagno.vala',
+            'perfs-tests-reverse.vala',
+            'perfs-tests-reversi.vala',
+            'computer-player.vala',
+            'computer-reversi.vala',
+            'game.vala',
+            'player.vala'
+        ],
+        vala_args: [
+            '--enable-experimental-non-null'
+        ],
+        dependencies : [
+            gio_dependency
+        ]
+    )
+
+    test('iagno-perfs-tests-reversi', iagno_generated_tests, args : ['-m', 'perf', '-p', '/Reversi/reversi'], timeout :  5)
+    test('iagno-perfs-tests-reverse', iagno_generated_tests, args : ['-m', 'perf', '-p', '/Reversi/reverse'], timeout : 20)
+endif
+
+# Static tests
+iagno_tests = executable('iagno-tests',
     [
         'test-iagno.vala',
         'computer-player.vala',
@@ -7,15 +53,16 @@ iagno_tests = executable('iagno_tests',
         'game.vala',
         'player.vala'
     ],
+    vala_args: [
+        '--enable-experimental-non-null'
+    ],
     dependencies : [
         gio_dependency
     ]
 )
 test('iagno-short-tests', iagno_tests, timeout : 1)
-if get_option('perfs_tests')
-    test('iagno-perfs-tests', iagno_tests, args : ['-m', 'perf'], timeout : 120)
-endif
 
+# Game
 executable(meson.project_name(),
     [
         'vapi/config.vapi',
