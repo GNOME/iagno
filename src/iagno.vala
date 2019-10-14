@@ -30,6 +30,7 @@ private class Iagno : Gtk.Application, BaseApplication
     /* Application settings */
     private GLib.Settings settings;
     private static bool fast_mode;
+    private static bool print_logs;
     private static bool alternative_start;
     private static bool random_start;
     private static bool usual_start;
@@ -83,6 +84,9 @@ private class Iagno : Gtk.Application, BaseApplication
 
         /* Translators: command-line option description, see 'iagno --help' */
         { "mute", 0, OptionFlags.NONE, OptionArg.NONE, null,                               N_("Turn off the sound"), null },
+
+        /* Translators: command-line option description, currently hidden; might appear one day in 'iagno --help' */
+        { "print-logs", 0, OptionFlags.HIDDEN, OptionArg.NONE, ref print_logs,             N_("Log the game moves"), null },
 
         /* Translators: command-line option description, see 'iagno --help' */
         { "random-start", 0, OptionFlags.NONE, OptionArg.NONE, ref random_start,           N_("Start with a random position"), null },
@@ -661,7 +665,7 @@ private class Iagno : Gtk.Application, BaseApplication
             opening = Opening.REVERSI;
 
         bool reverse = settings.get_string ("type") == "reverse";
-        game = new Game (reverse, opening, (uint8) size /* 4 <= size <= 16 */);
+        game = new Game (reverse, opening, (uint8) size /* 4 <= size <= 16 */, print_logs);
         game_is_set = true;
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;

@@ -631,14 +631,24 @@ private class Game : Object
     [CCode (notify = false)] public Opening         opening                 { internal get; protected construct set; }
     [CCode (notify = false)] public GameStateObject current_state           { internal get; protected construct set; }
     [CCode (notify = false)] public uint8           initial_number_of_tiles { internal get; protected construct;     }
+    [CCode (notify = false)] public bool            print_logs              { internal get; protected construct;     }
 
     construct
     {
         undo_stack.append (current_state);
         update_possible_moves ();
+
+        if (print_logs)
+        {
+            string e_or_i = reverse ? "e" : "i";
+            if (initial_number_of_tiles == 0)
+                print (@"\nnew two-player revers$e_or_i game\n");
+            else
+                print (@"\nnew one-player revers$e_or_i game ($opening opening)\n");    // TODO is human Dark or Light?
+        }
     }
 
-    internal Game (bool _reverse, Opening _opening = Opening.REVERSI, uint8 _size = 8)
+    internal Game (bool _reverse, Opening _opening = Opening.REVERSI, uint8 _size = 8, bool _print_logs = false)
         requires (_size >= 4)
         requires (_size <= 16)
     {
@@ -673,7 +683,8 @@ private class Game : Object
                 reverse                 : _reverse,
                 opening                 : _opening,
                 current_state           : _current_state,
-                initial_number_of_tiles : _initial_number_of_tiles);
+                initial_number_of_tiles : _initial_number_of_tiles,
+                print_logs              : _print_logs);
         neighbor_tiles = (owned) _neighbor_tiles;
     }
     private static inline void setup_even_board (uint8 size, Opening opening, ref Player [,] tiles, out uint8 initial_number_of_tiles)
@@ -736,7 +747,7 @@ private class Game : Object
         tiles [mid_board + 1, mid_board + 1] = start_position [2, 2];
     }
 
-    internal Game.from_strings (string [] setup, Player to_move, bool _reverse = false, uint8 _size = 8)
+    internal Game.from_strings (string [] setup, Player to_move, bool _reverse = false, uint8 _size = 8, bool _print_logs = false)
         requires (_size >= 4)
         requires (_size <= 16)
         requires (to_move != Player.NONE)
@@ -761,7 +772,8 @@ private class Game : Object
                 reverse                 : _reverse,
                 opening                 : /* garbage */ Opening.REVERSI,
                 current_state           : _current_state,
-                initial_number_of_tiles : (_size % 2 == 0) ? 4 : 7);
+                initial_number_of_tiles : (_size % 2 == 0) ? 4 : 7,
+                print_logs              : _print_logs);
         neighbor_tiles = (owned) _neighbor_tiles;
 
         warn_if_fail (string.joinv ("\n", (string? []) setup).strip () == to_string ().strip ());
@@ -825,6 +837,11 @@ private class Game : Object
                     else                                                                opening = Opening.INVERTED;
                 }
             }
+            if (print_logs)
+            {
+                string current_color_string = current_color == Player.DARK ? "dark :" : "light:";
+                print (@"$current_color_string ($x, $y)\n");
+            }
             current_state = new GameStateObject.copy_and_add (current_state, x, y);
 
             if (n_light_tiles == 2)
@@ -841,6 +858,12 @@ private class Game : Object
         if (!current_state.test_placing_tile (x, y, out move))
             return false;
 
+        if (print_logs)
+        {
+            string current_color_string = current_color == Player.DARK ? "dark :" : "light:";
+            print (@"$current_color_string ($x, $y)\n");
+        }
+
         current_state = new GameStateObject.copy_and_move (current_state, move);
         undo_stack.append (current_state);
         end_of_turn (/* undoing */ false, /* no_draw */ false);
@@ -851,6 +874,14 @@ private class Game : Object
     {
         if (current_player_can_move)
             return false;
+
+        if (print_logs)
+        {
+            if (current_color == Player.DARK)
+                print ("dark : pass\n");
+            else
+                print ("light: pass\n");
+        }
 
         current_state = new GameStateObject.copy_and_pass (current_state);
         undo_stack.append (current_state);
@@ -1025,4 +1056,19 @@ private enum Opening {
     ALTER_LEFT,
     ALTER_RIGHT,
     ALTER_BOTTOM;
+
+    internal string to_string ()
+    {
+        switch (this)
+        {
+            case HUMANS:        return "humans";
+            case REVERSI:       return "reversi";
+            case INVERTED:      return "inverted";
+            case ALTER_TOP:     return "alter-top";
+            case ALTER_LEFT:    return "alter-left";
+            case ALTER_RIGHT:   return "alter-right";
+            case ALTER_BOTTOM:  return "alter-bottom";
+            default:            assert_not_reached ();
+        }
+    }
 }
