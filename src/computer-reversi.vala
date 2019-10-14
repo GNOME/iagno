@@ -97,18 +97,20 @@ private class ComputerReverseEasy : ComputerReversi
 
 private class ComputerReverseHard : ComputerReversi
 {
-    public bool even_depth { private get; protected construct; }
+    [CCode (notify = false)] public bool even_depth      { private get; protected construct; }
+    [CCode (notify = false)] public bool fixed_heuristic { private get; protected construct; }
 
     construct
     {
-        init_heuristic (size, out heuristic);
+        init_heuristic (size, fixed_heuristic, out heuristic);
     }
 
-    internal ComputerReverseHard (Game game, uint8 initial_depth)
+    internal ComputerReverseHard (Game game, uint8 initial_depth, bool fixed_heuristic = false)
     {
         Object (game            : game,
                 even_depth      : initial_depth % 2 == 0,
-                initial_depth   : initial_depth);
+                initial_depth   : initial_depth,
+                fixed_heuristic : fixed_heuristic);
     }
 
     /*\
@@ -238,7 +240,7 @@ private class ComputerReverseHard : ComputerReversi
 
     private int16 [,] heuristic;
 
-    private static void init_heuristic (uint8 size, out int16 [,] heuristic)
+    private static void init_heuristic (uint8 size, bool fixed_heuristic, out int16 [,] heuristic)
         requires (size >= 4)
     {
         int16 [,] _heuristic;
@@ -252,6 +254,9 @@ private class ComputerReverseHard : ComputerReversi
         for (uint8 i = 0; i < size; i++)
             for (uint8 j = 0; j < size; j++)
                 heuristic [i, j] = (int16) (-1.7 * (_heuristic [i, j] + 112));
+
+        if (fixed_heuristic)
+            return;
 
         /* that part is fun */
         for (uint8 i = 0; i < 5; i++)
@@ -347,18 +352,20 @@ private class ComputerReversiEasy : ComputerReversi
 
 private class ComputerReversiHard : ComputerReversi
 {
-    public bool even_depth { private get; protected construct; }
+    [CCode (notify = false)] public bool even_depth      { private get; protected construct; }
+    [CCode (notify = false)] public bool fixed_heuristic { private get; protected construct; }
 
     construct
     {
-        init_heuristic (size, out heuristic);
+        init_heuristic (size, fixed_heuristic, out heuristic);
     }
 
-    internal ComputerReversiHard (Game game, uint8 initial_depth)
+    internal ComputerReversiHard (Game game, uint8 initial_depth, bool fixed_heuristic = false)
     {
         Object (game            : game,
                 even_depth      : initial_depth % 2 == 0,
-                initial_depth   : initial_depth);
+                initial_depth   : initial_depth,
+                fixed_heuristic : fixed_heuristic);
     }
 
     /*\
@@ -514,13 +521,16 @@ private class ComputerReversiHard : ComputerReversi
 
     private int16 [,] heuristic;
 
-    private static inline void init_heuristic (uint8 size, out int16 [,] heuristic)
+    private static inline void init_heuristic (uint8 size, bool fixed_heuristic, out int16 [,] heuristic)
         requires (size >= 4)
     {
         if (size == 8)
             heuristic = heuristic_8;
         else
             create_heuristic (size, out heuristic);
+
+        if (fixed_heuristic)
+            return;
 
         /* that part is fun */
         for (uint8 i = 0; i < 5; i++)
@@ -576,11 +586,11 @@ private class ComputerReversiHard : ComputerReversi
 
 private abstract class ComputerReversi : ComputerPlayer
 {
-    public Game  game           { private   get; protected construct; }
-    public uint8 initial_depth  { private   get; protected construct; }
+    [CCode (notify = false)] public Game  game           { private   get; protected construct; }
+    [CCode (notify = false)] public uint8 initial_depth  { private   get; protected construct; }
 
-    public uint8 size           { protected get; private   construct; }
-    public uint8 move_randomly  { protected get; private   construct; } // TODO getter should be private, but...
+    [CCode (notify = false)] public uint8 size           { protected get; private   construct; }
+    [CCode (notify = false)] public uint8 move_randomly  { protected get; private   construct; } // TODO getter should be private, but...
 
     /* do not forget int16.MIN ≠ - int16.MAX */
     protected const int16 POSITIVE_INFINITY           =  32000;
