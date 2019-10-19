@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-09-28 18:09+0000\n"
-"PO-Revision-Date: 2019-09-29 13:00+0000\n"
+"POT-Creation-Date: 2019-10-14 07:17+0000\n"
+"PO-Revision-Date: 2019-10-19 16:41+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -34,7 +34,7 @@ msgstr "ایاگنو"
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
 #: data/org.gnome.Reversi.appdata.xml.in:8 data/org.gnome.Reversi.desktop.in:9
 msgid "Dominate the board in a classic version of Reversi"
-msgstr "با نسخهٔ کلاسیکی از رورسی مالک صفحه شوید"
+msgstr "با نگارش کلاسیکی از رورسی مالک صفحه شوید"
 
 #: data/org.gnome.Reversi.appdata.xml.in:10
 msgid ""
@@ -329,9 +329,9 @@ msgid ""
 "Reversi can be played with two different initial positions (and their "
 "symmetries). If “true”, the game will randomly start with one or the other "
 "position; if “false”, only the most common initial position is used. You can "
-"force the game to use the alternative position by using the “--alternative-"
-"start” argument on the command-line; also, if either “--usual-start” or “--"
-"random-start” is given instead on the command-line, this flag will be ignored."
+"force the game to use the alternative position by using the “--alternative-start” "
+"argument on the command-line; also, if either “--usual-start” or “--random-start” "
+"is given instead on the command-line, this flag will be ignored."
 msgstr ""
 "ریورسی می‌تواند با دو موقعیت آغاز متفاوت (و قرینه‌هایشان) بازی شود. اگر درست باشد، "
 "بازی به صورت تصادفی با یکی از این موقعیت‌ها آغاز می‌شود. اگر نادرست باشد، فقط "
@@ -503,277 +503,287 @@ msgstr "بازیکن اول"
 msgid "Set the level of the computer’s AI"
 msgstr "تنظیم سطح هوش مصنوعی رایانه"
 
-#. Translators: command-line option description, see 'iagno --help'
+#. Translators: in the command-line options description, text to indicate the user should specify a level, see 'iagno --help'
 #: src/iagno.vala:82
+msgid "LEVEL"
+msgstr "LEVEL"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:85
 msgid "Turn off the sound"
 msgstr "خاموش کردن صدا"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:85
+#: src/iagno.vala:88
 msgid "Start with a random position"
 msgstr "آغاز با موقعیتی تصادفی"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:88
+#: src/iagno.vala:91
 msgid "Play Reverse Reversi"
 msgstr "بازی ریورسی معکوس"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:91
+#: src/iagno.vala:94
 msgid "Play second"
 msgstr "بازیکن دوم"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:94
+#: src/iagno.vala:97
 msgid "Size of the board (debug only)"
 msgstr "اندازهٔ تخته (فقط برای رفع‌اشکال)"
 
+#. Translators: in the command-line options description, text to indicate the user should specify a size, see 'iagno --help'
+#: src/iagno.vala:100
+msgid "SIZE"
+msgstr "SIZE"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:97
+#: src/iagno.vala:103
 msgid "Two-players mode"
 msgstr "حالت دو نفره"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:100
+#: src/iagno.vala:106
 msgid "Turn on the sound"
 msgstr "روشن کردن صدا"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:103
+#: src/iagno.vala:109
 msgid "Start with the usual position"
 msgstr "آغاز با موقعیت معمول"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:106
+#: src/iagno.vala:112
 msgid "Print release version and exit"
 msgstr "نمایش نسخهٔ انتشار و خروج"
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
-#: src/iagno.vala:154
+#: src/iagno.vala:160
 msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments are "
 "mutually exclusive."
 msgstr "آرگومان‌های ‪--alternative-start‬ و ‪--random-start‬ قابل جمع نیستند."
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
-#: src/iagno.vala:161
+#: src/iagno.vala:167
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
 msgstr "آرگومان‌های ‪--classic‬ و ‪--reverse‬ قابل جمع نیستند."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:168
+#: src/iagno.vala:174
 msgid "Size must be at least 4."
 msgstr "اندازه باید حداقل ۴ باشد."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
-#: src/iagno.vala:174
+#: src/iagno.vala:180
 msgid "Size must not be more than 16."
 msgstr "اندازه نباید بیش از ۱۶ باشد."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:240
+#: src/iagno.vala:246
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "سطح باید بین ۱ (ساده) و ۳ (سخت) باشد.تنظیمات تغییر نکرده‌اند."
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:256
+#: src/iagno.vala:262
 msgid "Play _first (Dark)"
 msgstr "بازیکن _نخست (تیره)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:260
+#: src/iagno.vala:266
 msgid "Play _second (Light)"
 msgstr "بازیکن _دوم (روشن)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:264
+#: src/iagno.vala:270
 msgid "_Two players"
 msgstr "دو _نفره"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:270
+#: src/iagno.vala:276
 msgid "_Alternate who starts"
 msgstr "_تعویض آغازگر"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:279
+#: src/iagno.vala:285
 msgid "_Easy"
 msgstr "_آسان"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:283
+#: src/iagno.vala:289
 msgid "_Medium"
 msgstr "_متوسط"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:287
+#: src/iagno.vala:293
 msgid "_Hard"
 msgstr "_سخت"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:295
+#: src/iagno.vala:301
 msgid "_Vary start position"
 msgstr "_موقعیت آغاز تصادفی"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
-#: src/iagno.vala:302
+#: src/iagno.vala:308
 msgid "Classic Reversi"
 msgstr "ریورسی سنّتی"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
-#: src/iagno.vala:306
+#: src/iagno.vala:312
 msgid "Reverse Reversi"
 msgstr "ریورسی معکوس"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
-#: src/iagno.vala:318
+#: src/iagno.vala:324
 msgid "Default"
 msgstr "پیش‌گزیده"
 
 #. Translators: hamburger menu "Appearance" submenu entry; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
-#: src/iagno.vala:374
+#: src/iagno.vala:380
 msgid "Highlight _capturable tiles"
 msgstr "نشانه‌گذاری کاشی‌های _قابل گرفتن"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:384
+#: src/iagno.vala:390
 msgid "About Iagno"
 msgstr "دربارهٔ ایاگنو"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
-#: src/iagno.vala:560
+#: src/iagno.vala:566
 msgid "Two players"
 msgstr "دونفره"
 
 #. Translators: when configuring a new game, button label if the player choose to start
-#: src/iagno.vala:564
+#: src/iagno.vala:570
 msgid "Color: Dark"
 msgstr "رنگ: تیره"
 
 #. Translators: when configuring a new game, button label if the player choose let computer start
-#: src/iagno.vala:568
+#: src/iagno.vala:574
 msgid "Color: Light"
 msgstr "رنگ: روشن"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
-#: src/iagno.vala:589
+#: src/iagno.vala:595
 msgid "Difficulty: Easy"
 msgstr "دشواری: ساده"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
-#: src/iagno.vala:593
+#: src/iagno.vala:599
 msgid "Difficulty: Medium"
 msgstr "دشواری: معمولی"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
-#: src/iagno.vala:597
+#: src/iagno.vala:603
 msgid "Difficulty: Hard"
 msgstr "دشواری: سخت"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:792
+#: src/iagno.vala:798
 msgid "Light must pass, Dark’s move"
 msgstr "روشن باید رد کند، حرکتِ تیره"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:797
+#: src/iagno.vala:803
 msgid "Dark must pass, Light’s move"
 msgstr "تیره باید رد کند، حرکتِ روشن"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
-#: src/iagno.vala:809
+#: src/iagno.vala:815
 #, c-format
 msgid "Light wins! (%u-%u)"
 msgstr "بازیکن روشن برد! (%Iu-%Iu)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
-#: src/iagno.vala:814
+#: src/iagno.vala:820
 #, c-format
 msgid "Dark wins! (%u-%u)"
 msgstr "بازیکن تیره برد! (%Iu-%Iu)"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:818
+#: src/iagno.vala:824
 msgid "The game is draw."
 msgstr "بازی مساوی شد."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:837
+#: src/iagno.vala:843
 msgid "You can’t move there!"
 msgstr "نمی‌توانید به آن‌جا بروید!"
 
 #. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
-#: src/iagno.vala:844
+#: src/iagno.vala:850
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
 msgstr "در این آغاز، بازیکن روشن فقط می‌تواند روی کاشی‌هایی در حاشیهٔ سیاه بازی کند."
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
-#: src/iagno.vala:848
+#: src/iagno.vala:854
 msgid "Click on one of the highlighted tiles to move the selected piece there."
 msgstr "روی یکی از کاشی‌های نشانه‌گذاری‌شده کلیک کنید تا مهرهٔ گزیده به آن‌جا برود."
 
 #. Translators: about dialog text
-#: src/iagno.vala:968
+#: src/iagno.vala:974
 msgid "A disk flipping game derived from Reversi"
 msgstr "یک بازی چرخش دیسک بر اساس بازی ریورسی"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:972
+#: src/iagno.vala:978
 msgid "Masuichi Ito (pieces)"
 msgstr "ماسوییچی ایتو (مهره‌ها)"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:976
+#: src/iagno.vala:982
 msgid "Arnaud Bonatti (themes)"
 msgstr "آرناد بوناتی (زمینه‌ها)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:981
+#: src/iagno.vala:987
 msgid "Ian Peters"
 msgstr "یان پیترز"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:985
+#: src/iagno.vala:991
 msgid "Robert Ancell"
 msgstr "رابرت انسل"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:989
+#: src/iagno.vala:995
 msgid "Arnaud Bonatti"
 msgstr "آرناد بوناتی"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:994
+#: src/iagno.vala:1000
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "حق رونوشت © %Iu-%Iu – یان پیترز"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:998
+#: src/iagno.vala:1004
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "حق رونوشت © %Iu-%Iu – مایکل کاتانزارو"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1002
+#: src/iagno.vala:1008
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "حق رونوشت © %Iu-%Iu – آرناد بوناتی"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:1006
+#: src/iagno.vala:1012
 msgid "Tiffany Antopolski"
 msgstr "تیفانی آنتوپولسکی"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:1011
+#: src/iagno.vala:1017
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
 "دانیال بهزادی <dani.behzi@gmail.com>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:1016
+#: src/iagno.vala:1022
 msgid "Page on GNOME wiki"
 msgstr "صفحه روی ویکی گنوم"
 
