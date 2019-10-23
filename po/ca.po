@@ -144,12 +144,12 @@ msgstr "Seleccioneu on jugar"
 #: data/ui/help-overlay.ui:61
 msgctxt "shortcut window"
 msgid "Select the given row"
-msgstr "Seleccioneu una fila donada"
+msgstr "Seleccioneu la fila donada"
 
 #: data/ui/help-overlay.ui:68
 msgctxt "shortcut window"
 msgid "Select the given column"
-msgstr "Seleccioneu una columna donada"
+msgstr "Seleccioneu la columna donada"
 
 #: data/ui/help-overlay.ui:75
 msgctxt "shortcut window"
@@ -552,7 +552,7 @@ msgstr "La mida ha de ser com a mínim de 4."
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
 #: src/iagno.vala:140
 msgid "Size must not be more than 16."
-msgstr "La mida not pot ser més de 16."
+msgstr "La mida no pot ser més de 16."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
 #: src/iagno.vala:200
