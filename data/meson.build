@@ -18,10 +18,24 @@ install_data(
   install_dir : schemadir
 )
 
-# Compiling gresoruce
+# Compiling gresource
 resources = gnome.compile_resources(
     'resources', '@0@.gresource.xml'.format(meson.project_name()),
     source_dir: '.'
+)
+
+# Make D-Bus activatable
+service_conf = configuration_data()
+service_conf.set('bindir', bindir)
+
+service = project_id + '.service'
+
+configure_file(
+  input: service + '.in',
+  output: service,
+  install: true,
+  install_dir: join_paths(datadir, 'dbus-1', 'services'),
+  configuration: service_conf
 )
 
 # Desktop file
