@@ -1,3 +1,25 @@
+3.35.2 – November 23, 2019
+=============================
+
+The most visible change is probably the first part of
+the replacement of the “Iagno” name by “Reversi”; the
+help is currently not updated. Other things are a bit
+more helpful for the developpers than to an end-user:
+there is now a “--print-logs” command-line option for
+recording a game; when configuring meson using option
+“-Dperfs_tests=true”, you can now check if the AI has
+been changed and test it for performance regressions;
+finally, Iagno should now be activatable using D-Bus.
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Catalan: Jordi Mas
+  Czech: Marek Černocký
+  Friulian: Fabio Tomat
+  Lithuanian: Aurimas Černius
+  Persian: Danial Behzadi
+  Spanish: Daniel Mustieles
+
 3.35.1 – October 12, 2019
 =============================
 
