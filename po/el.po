@@ -30,40 +30,45 @@
 # Michael Kotsarinis <mk73628@hotmail.com>, 2010.
 # George Stefanakis <george.stefanakis@gmail.com>, 2011.
 # Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013, 2014, 2015.
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2016.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2016-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-03-26 18:29+0000\n"
-"PO-Revision-Date: 2019-06-14 10:37+0300\n"
-"Last-Translator: Efstathios Iosifidis <eiosifidis@gnome.org>\n"
-"Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
+"POT-Creation-Date: 2019-10-26 00:40+0000\n"
+"PO-Revision-Date: 2019-11-24 11:46+0200\n"
+"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
+"Language-Team: Greek, Modern (1453-) <gnome-el-list@gnome.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Project-Style: gnome\n"
 
-#. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:5
-#: src/iagno.vala:28
-msgid "Iagno"
-msgstr "Ιάγνος"
+#: data/org.gnome.Reversi.appdata.xml.in:7
+#| msgid "Reversi"
+msgid "GNOME Reversi"
+msgstr "GNOME Reversi"
 
-#. Translators: a Comment that gives the application function, as defined in the desktop file spec
-#: data/org.gnome.Reversi.appdata.xml.in:8 data/org.gnome.Reversi.desktop.in:9
-msgid "Dominate the board in a classic version of Reversi"
+#: data/org.gnome.Reversi.appdata.xml.in:8
+#, fuzzy
+#| msgid "Dominate the board in a classic version of Reversi"
+msgid ""
+"Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr "Κυριαρχήστε στον πίνακα με μια κλασσική έκδοση του Reversi"
 
-#: data/org.gnome.Reversi.appdata.xml.in:10
+#: data/org.gnome.Reversi.appdata.xml.in:11
+#, fuzzy
+#| msgid ""
+#| "Iagno is a computer version of the game Reversi, a two-player strategy "
+#| "board game. The game is played with tiles that are dark on one side and "
+#| "light on the other."
 msgid ""
-"Iagno is a computer version of the game Reversi, a two-player strategy board "
-"game. The game is played with tiles that are dark on one side and light on "
-"the other."
+"Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
+"use tiles that are dark on one side and light on the other."
 msgstr ""
 "Ο Ιάγνος είναι μια έκδοση για υπολογιστή του παιχνιδιού Reversi, ενός "
 "επιτραπέζιου παιχνιδιού στρατηγικής για δύο παίκτες. Το παιχνίδι παίζεται με "
@@ -71,315 +76,782 @@ msgstr ""
 
 #: data/org.gnome.Reversi.appdata.xml.in:15
 msgid ""
-"The object of Iagno is to flip as many of your opponent’s tiles to your "
-"color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent’s tiles between two tiles "
-"of your own color."
+"The object of reversi is to flip your opponent’s tiles to your color, while "
+"your opponent is trying to flip your tiles to his own color. Opponent’s "
+"tiles are flipped when trapped between an already placed tile of your color "
+"and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
-"Ο σκοπός του Ιάγνου είναι να αναποδογυρίσετε όσα το δυνατόν περισσότερα "
+"Ο σκοπός του reversi είναι να αναποδογυρίσετε όσα το δυνατόν περισσότερα "
 "πλακίδια του αντιπάλου σας στο χρώμα σας, ενώ αποτρέπετε τον αντίπαλό σας "
 "από το να αναποδογυρίσει τα πλακίδιά σας στο χρώμα του. Αυτό γίνεται "
 "παγιδεύοντας τα πλακίδια του αντιπάλου σας μεταξύ δύο πλακιδίων του δικού "
-"σας χρώματος."
+"σας χρώματος. Κερδίζει ο παίκτης με τα περισσότερα πλακίδια!"
 
-#: data/org.gnome.Reversi.appdata.xml.in:25
-msgid "A GNOME Iagno game preview"
-msgstr "Προεπισκόπηση του παιχνιδιού Ιάγνος GNOME"
+#: data/org.gnome.Reversi.appdata.xml.in:21
+msgid ""
+"GNOME Reversi allows you to play both a classic reversi game, and the "
+"reversed variant, where the goal is to finish with less tile than your "
+"opponent."
+msgstr ""
+"Το GNOME Reversi σας επιτρέπει να παίζετε τόσο ένα κλασικό παιχνίδι reversi, "
+"όσο και την αντίστροφη παραλλαγή, όπου ο στόχος είναι να τελειώσετε με "
+"λιγότερη πλακάκια από τον αντίπαλό σας."
 
-#: data/org.gnome.Reversi.appdata.xml.in:41
+#: data/org.gnome.Reversi.appdata.xml.in:30
+#| msgid "A GNOME Iagno game preview"
+msgid "A GNOME Reversi game preview"
+msgstr "Προεπισκόπηση του παιχνιδιού GNOME Reversi"
+
+#: data/org.gnome.Reversi.appdata.xml.in:49
 msgid "The GNOME Project"
 msgstr "Έργο GNOME"
 
 #. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:7
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
+#: src/iagno.vala:28
 msgid "Reversi"
 msgstr "Reversi"
+
+#. Translators: a Comment that gives the application function, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:9
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Κυριαρχήστε στον πίνακα με μια κλασσική έκδοση του Reversi"
 
 #. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Reversi.desktop.in:11
 msgid "reversi;othello;"
 msgstr "reversi;othello;"
 
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:21
-msgid "Play first (Dark)"
-msgstr "Παίξτε πρώτος (Μαύρα)"
+#. Translators: accessible name of the hamburger menu
+#: data/ui/base-headerbar.ui:113
+msgid "Actions"
+msgstr "Ενέργειες"
 
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:26
-msgid "Play second (Light)"
-msgstr "Παίξτε δεύτερος (Λευκά)"
-
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:31
-msgid "Two players game"
-msgstr "Παιχνίδι με δύο παίκτες"
-
-#. Translators: when configuring a new game, header of the row for choosing the number of players
-#: data/ui/iagno-screens.ui:41
-msgid "Players"
-msgstr "Παίκτες"
-
-#. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:57
-msgid "_One"
-msgstr "Έ_νας"
-
-#. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:69
-msgid "_Two"
-msgstr "_Δύο"
-
-#. Translators: when configuring a new game, header of the row for choosing the level of the artificial intelligence
-#: data/ui/iagno-screens.ui:93
-msgid "Difficulty"
-msgstr "Δυσκολία"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:109
-msgid "_Easy"
-msgstr "Εύκο_λο"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:121
-msgid "_Medium"
-msgstr "_Μεσαίο"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:133
-msgid "_Hard"
-msgstr "_Δύσκολο"
-
-#. Translators: when configuring a new game, header of the row for choosing the played color (whether to start or not)
-#: data/ui/iagno-screens.ui:157
-msgid "Color"
-msgstr "Χρώμα"
-
-#. Translators: when configuring a new game, row "Color", label of the button to play the dark color, so to start (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:173
-msgid "_Dark"
-msgstr "_Σκούρα"
-
-#. Translators: when configuring a new game, row "Color", label of the button to play the light color, so not play second (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:185
-msgid "_Light"
-msgstr "_Ανοιχτά"
-
-#. Translators: title of the theme dialog
-#: data/ui/iagno-themes.ui:28
-msgid "Select Theme"
-msgstr "Επιλέξτε θέμα"
-
-#. Translators: first row (default theme) in the theme dialog
-#: data/ui/iagno-themes.ui:74
-msgid "Default"
-msgstr "Προεπιλογή"
-
-#. Translators: hamburger menu entry; open theme dialog button (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:28
-msgid "A_ppearance"
-msgstr "_Εμφάνιση"
-
-#. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:33
-msgid "_Sound"
-msgstr "Ή_χος"
-
-#. Translators: hamburger menu entry; open help (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:40
-msgid "_Help"
-msgstr "_Βοήθεια"
-
-#. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:45
-msgid "_About Iagno"
-msgstr "_Περί του Ιάγνος"
-
-#. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
-#: data/ui/iagno.ui:68
-msgid "Go back to the current game"
-msgstr "Επιστροφή στο τρέχον παιχνίδι"
+#. Translators: accessible description of the hamburger menu
+#: data/ui/base-headerbar.ui:115
+msgid "Current view actions"
+msgstr "Τρέχουσες ενέργειες προβολής"
 
 #. Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno.ui:150
+#: data/ui/game-headerbar.ui:32
 msgid "_New Game"
 msgstr "_Νέο παιχνίδι"
 
 #. Translators: during a game, tooltip text of the Start Over button
-#: data/ui/iagno.ui:155
+#: data/ui/game-headerbar.ui:38
 msgid "Start a new game"
 msgstr "Εκκίνηση νέου παιχνιδιού"
 
-#. Translators: name of a board graphical theme; similar to Gtk theme name, should probably be kept unchanged
+#. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
+#: data/ui/game-headerbar.ui:50
+msgid "Go back to the current game"
+msgstr "Επιστροφή στο τρέχον παιχνίδι"
+
+#: data/ui/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Κατά την επιλογή παιχνιδιού"
+
+#: data/ui/help-overlay.ui:34
+#| msgid "Start a new game"
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Εκκίνηση νέου παιχνιδιού"
+
+#: data/ui/help-overlay.ui:41
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Μετάβαση πίσω"
+
+#: data/ui/help-overlay.ui:50
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Παίξτε με το πληκτρολόγιο"
+
+#: data/ui/help-overlay.ui:54
+#, fuzzy
+#| msgid "Select Theme"
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "Επιλέξτε θέμα"
+
+#: data/ui/help-overlay.ui:61
+#, fuzzy
+#| msgid "Select Theme"
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Επιλέξτε θέμα"
+
+#: data/ui/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr ""
+
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr ""
+
+#: data/ui/help-overlay.ui:84
+msgctxt "shortcut window"
+msgid "During a game"
+msgstr "Κατά τη διάρκεια του παιχνιδιού"
+
+#: data/ui/help-overlay.ui:88
+#| msgid "_New Game"
+msgctxt "shortcut window"
+msgid "New game"
+msgstr "Νέο παιχνίδι"
+
+#: data/ui/help-overlay.ui:95
+msgctxt "shortcut window"
+msgid "Undo last move"
+msgstr "Αναίρεση της τελευταίας κίνησης"
+
+#: data/ui/help-overlay.ui:104
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "Γενικά"
+
+#: data/ui/help-overlay.ui:108
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Συντομεύσεις πληκτρολογίου"
+
+#: data/ui/help-overlay.ui:115
+#| msgid "_Help"
+msgctxt "shortcut window"
+msgid "Help"
+msgstr "Βοήθεια"
+
+#: data/ui/help-overlay.ui:122
+msgctxt "shortcut window"
+msgid "About"
+msgstr "Περί"
+
+#: data/ui/help-overlay.ui:129
+#| msgid "_Quit"
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Έξοδος"
+
+#. Translators: when configuring a new game, header of the game type that appears on small screen
+#: data/ui/new-game-screen.ui:32
+#| msgid "_New Game"
+msgid "Game"
+msgstr "Παιχνίδι"
+
+#. Translators: when configuring a new game, header of the options that appears on small screen
+#: data/ui/new-game-screen.ui:88
+msgid "Options"
+msgstr "Επιλογές"
+
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
 #: data/themes/adwaita.theme.desktop.in:22
 msgid "Adwaita"
 msgstr "Adwaita"
 
-#. Translators: name of a board graphical theme; copies the look of the most common physical board
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; copies the look of the most common physical board
 #: data/themes/classic.theme.desktop.in:22
 msgid "Classic"
 msgstr "Κλασικό"
 
-#. Translators: name of a board graphical theme; uses only two colors, one really dark and one really light
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; uses only two colors, one really dark and one really light
 #: data/themes/high_contrast.theme.desktop.in:23
 msgid "Black and White"
 msgstr "Ασπρόμαυρο"
 
-#. Translators: name of a board graphical theme; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
 #: data/themes/sun_and_star.theme.desktop.in:22
 msgid "Sun and Star"
 msgstr "Ήλιος και αστέρι"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
-#: data/org.gnome.Reversi.gschema.xml:12
-msgid "Computer’s AI level"
-msgstr "Επίπεδο τεχνητής νοημοσύνης του υπολογιστή"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:6
+msgid "A flag to follow system night light"
+msgstr "Σημαία για ακολουθία φωτισμού νυκτός του συστήματος"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
-#: data/org.gnome.Reversi.gschema.xml:14
-msgid "From 1, the easiest, to 3, the hardest."
-msgstr "Από 1, το πιο εύκολο, σε 3, το πιο δύσκολο."
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:8
+msgid "Use GNOME night light setting to activate night-mode."
+msgstr ""
+"Χρησιμοποιήστε την ρύθμιση λειτουργίας νυκτός του GNOME για την ενεργοποίηση "
+"της λειτουργίας νυκτός."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
-#: data/org.gnome.Reversi.gschema.xml:20
-msgid "Whether to play against the computer or another human."
-msgstr "Αν θα παίξει κατά του υπολογιστή ή ενός άλλου ανθρώπου."
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:15
+msgid "The width of the window"
+msgstr "Το πλάτος του παραθύρου"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:17
+msgid "The width of the main window in pixels."
+msgstr "Το πλάτος του κυρίως παραθύρου σε εικονοστοιχεία."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:24
+msgid "The height of the window"
+msgstr "Το ύψος του παραθύρου"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:26
+msgid "The height of the main window in pixels."
+msgstr "Το ύψος του κυρίως παραθύρου σε εικονοστοιχεία."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:31
+msgid "A flag to enable maximized mode"
+msgstr "Σημαία για την ενεργοποίηση της λειτουργίας μεγιστοποίησης"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:33
+msgid "If “true”, the main window starts in maximized mode."
+msgstr "Αν είναι «Αληθές», το κυρίως παράθυρο ξεκινάει μεγιστοποιημένο."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:50
+msgid "A flag to alternate who starts"
+msgstr "Σημαία για την εναλλαγή ποιος ξεκινάει"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:52
+msgid ""
+"If “true”, when playing against AI, the “color” settings is toggled after "
+"every new game request, making the next game being started with inverted "
+"roles (previous Dark player playing Light). Ignored for two-player games."
+msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
-#: data/org.gnome.Reversi.gschema.xml:26
+#: data/org.gnome.Reversi.gschema.xml:57
 msgid "Color to play as"
 msgstr "Χρώμα για το παιχνίδι"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color'
-#: data/org.gnome.Reversi.gschema.xml:28
+#: data/org.gnome.Reversi.gschema.xml:59
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "Αν θα παίξει ως σκούρος ή ανοικτός. Αγνοείται για παιχνίδια δύο παικτών."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
-#: data/org.gnome.Reversi.gschema.xml:33
-msgid "Theme"
-msgstr "Θέμα"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:65
+msgid "Computer’s AI level"
+msgstr "Επίπεδο τεχνητής νοημοσύνης του υπολογιστή"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
-#: data/org.gnome.Reversi.gschema.xml:35
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:67
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Από 1, το πιο εύκολο, σε 3, το πιο δύσκολο."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
+#: data/org.gnome.Reversi.gschema.xml:72
+#, fuzzy
+msgid "A flag to highlight capturable tiles"
+msgstr "Σημαία για την επισήμανση των κατειλημμένων πλακιδίων"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
+#: data/org.gnome.Reversi.gschema.xml:74
 msgid ""
-"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
-"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+"If “true”, the tiles that will be captured to the opponent by a play are "
+"highlighted."
 msgstr ""
-"Όνομα αρχείου του χρησιμοποιούμενου θέματος, ή \"προεπιλογή\". Παρέχονται "
-"\"adwaita.theme\", \"high_contrast.theme\" και \"sun_and_star.theme\"."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
+#: data/org.gnome.Reversi.gschema.xml:80
+msgid "Whether to play against the computer or another human."
+msgstr "Αν θα παίξει κατά του υπολογιστή ή ενός άλλου ανθρώπου."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:86
+msgid "A flag to randomize start position"
+msgstr ""
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:88
+msgid ""
+"Reversi can be played with two different initial positions (and their "
+"symmetries). If “true”, the game will randomly start with one or the other "
+"position; if “false”, only the most common initial position is used. You can "
+"force the game to use the alternative position by using the “--alternative-"
+"start” argument on the command-line; also, if either “--usual-start” or “--"
+"random-start” is given instead on the command-line, this flag will be "
+"ignored."
+msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
-#: data/org.gnome.Reversi.gschema.xml:40
+#: data/org.gnome.Reversi.gschema.xml:93
 msgid "Sound"
 msgstr "Ήχος"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
-#: data/org.gnome.Reversi.gschema.xml:42
+#: data/org.gnome.Reversi.gschema.xml:95
 msgid "Whether or not to play event sounds."
 msgstr "Αν θα αναπαράγονται ήχοι συμβάντων ή όχι."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
-#: data/org.gnome.Reversi.gschema.xml:47
-msgid "Width of the window in pixels"
-msgstr "Το πλάτος του παραθύρου σε εικονοστοιχεία"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#: data/org.gnome.Reversi.gschema.xml:100
+msgid "Theme"
+msgstr "Θέμα"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
-#: data/org.gnome.Reversi.gschema.xml:53
-msgid "Height of the window in pixels"
-msgstr "Το ύψος του παραθύρου σε εικονοστοιχεία"
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
+#: data/org.gnome.Reversi.gschema.xml:102
+#, fuzzy
+#| msgid ""
+#| "Filename of the theme used, or \"default\". Are provided \"adwaita.theme"
+#| "\", \"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgid ""
+"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
+"“high_contrast.theme” and “sun_and_star.theme”."
+msgstr ""
+"Όνομα αρχείου του χρησιμοποιούμενου θέματος, ή \"προεπιλογή\". Παρέχονται "
+"\"adwaita.theme\", \"high_contrast.theme\" και \"sun_and_star.theme\"."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
-#: data/org.gnome.Reversi.gschema.xml:59
-msgid "true if the window is maximized"
-msgstr "Αληθές αν το παράθυρο είναι μεγιστοποιημένο"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:107
+msgid "Name of the game"
+msgstr "Όνομα του παιχνιδιού"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:109
+msgid ""
+"The name of the game that will be played. It could be “classic” (the usual "
+"game, where you try to have more pieces), or “reverse” (the opposite game, "
+"where you try to have less pieces)."
+msgstr ""
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
+#: src/about-list.vala:44 src/base-headerbar.vala:288
+msgid "About"
+msgstr "Περί"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the first is "About"
+#: src/about-list.vala:46
+msgid "Credits"
+msgstr "Μνεία"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of the link to the GPL license; TODO better text, as in the usual about dialog
+#: src/about-list.vala:135
+msgid ""
+"GNU General Public License\n"
+"version 3 or later"
+msgstr ""
+"Γενική δημόσια άδεια GNU\n"
+"έκδοση 3 ή μεταγενέστερη"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the programmers names
+#: src/about-list.vala:154
+msgid "Creators"
+msgstr "Δημιουργοί"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the documenters names
+#: src/about-list.vala:161
+msgid "Documenters"
+msgstr "Τεκμηριωτές"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
+#: src/about-list.vala:166
+#| msgid "translator-credits"
+msgid "Translators"
+msgstr ""
+"Ελληνική μεταφραστική ομάδα του GNOME\n"
+" Δημήτρης Σπίγγος <dmtrs32@gmail.com>\n"
+" Σπύρος Παπαδημητρίου <spapadim+@cs.cmu.edu>\n"
+" Συμεών (Σίμος) Ξενιτέλλης <simos@hellug.gr>\n"
+" Κώστας Παπαδήμας <pkst@gmx.net>\n"
+" Τζένη Πετούμενου <epetoumenou@gmail.com>\n"
+" Μαρία Θουκυδίδου <marablack3@gmail.com>\n"
+" Μαρία Μαυρίδου <mavridou@gmail.com>\n"
+" Ευστάθιος Ιωσηφίδης <eiosifidis@gnome.org>\n"
+"\n"
+"Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
+"http://gnome.gr/"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the pictural artists names
+#: src/about-list.vala:172
+msgid "Artists"
+msgstr "Καλλιτέχνες"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:149
+msgid "Pause night mode"
+msgstr "Παύση νυχτερινής λειτουργίας"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:153
+msgid "Reuse night mode"
+msgstr "Επαναχρησιμοποίηση νυχτερινής λειτουργίας"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:157
+msgid "Use night mode"
+msgstr "Χρήση νυχτερινής λειτουργίας"
+
+#. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
+#: src/base-headerbar.vala:116
+msgid "_Keyboard Shortcuts"
+msgstr "Συντομεύσεις _πληκτρολογίου"
+
+#. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
+#: src/base-headerbar.vala:125
+msgid "_Help"
+msgstr "_Βοήθεια"
+
+#. Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:186
+msgid "A_ppearance"
+msgstr "_Εμφάνιση"
+
+#. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:190
+msgid "_Sound"
+msgstr "Ή_χος"
+
+#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:243
+msgid "_Undo last move"
+msgstr "_Αναίρεση της τελευταίας κίνησης"
+
+#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:248
+msgid "_Show final board"
+msgstr ""
+
+#. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game; this string is for when the window is really small, so keep the string as small as possible (3~5 characters)
+#: src/game-headerbar.vala:280
+msgid "End!"
+msgstr "Τέλος!"
+
+#. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game, if the window is not too thin
+#: src/game-headerbar.vala:284
+msgid "Finished!"
+msgstr "Ολοκληρώθηκε!"
 
 #. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
-#: src/game-window.vala:98
+#: src/game-view.vala:58
 msgid "_Start Game"
 msgstr "Ένα_ρξη παιχνιδιού"
 
-#. Translators: during a game, tooltip text of the Undo button
-#: src/game-window.vala:126
-msgid "Undo your most recent move"
-msgstr "Αναίρεση της πιο πρόσφατης κίνησής σας"
-
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:67
+#: src/iagno.vala:68
 msgid "Start with an alternative position"
 msgstr "Έναρξη με εναλλακτική θέση"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:70
+#: src/iagno.vala:71
+msgid "Play Classic Reversi"
+msgstr "Παίξτε την κλασική έκδοση του Reversi"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:74
 msgid "Reduce delay before AI moves"
 msgstr "Μειώστε την καθυστέρηση πριν να μετακινηθεί η ΤΝ"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:73
+#: src/iagno.vala:77
 msgid "Play first"
 msgstr "Παίξτε πρώτος"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:76
+#: src/iagno.vala:80
 msgid "Set the level of the computer’s AI"
 msgstr "Ρυθμίστε το επίπεδο τεχνητής νοημοσύνης του υπολογιστή"
 
+#. Translators: in the command-line options description, text to indicate the user should specify a level, see 'iagno --help'
+#: src/iagno.vala:83
+msgid "LEVEL"
+msgstr "ΕΠΙΠΕΔΟ"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:79
+#: src/iagno.vala:86
 msgid "Turn off the sound"
 msgstr "Απενεργοποίηση του ήχου"
 
+#. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
+#: src/iagno.vala:89
+msgid "Log the game moves"
+msgstr ""
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:82
+#: src/iagno.vala:92
+msgid "Start with a random position"
+msgstr "Έναρξη σε τυχαία θέση"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:95
+msgid "Play Reverse Reversi"
+msgstr "Παίξτε την αντίστροφη έκδοση του Reversi"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:98
 msgid "Play second"
 msgstr "Παίξτε δεύτερος"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:85
+#: src/iagno.vala:101
 msgid "Size of the board (debug only)"
 msgstr "Μέγεθος του πίνακα (μόνο αποσφαλμάτωση)"
 
+#. Translators: in the command-line options description, text to indicate the user should specify a size, see 'iagno --help'
+#: src/iagno.vala:104
+msgid "SIZE"
+msgstr "ΜΕΓΕΘΟΣ"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:88
+#: src/iagno.vala:107
 msgid "Two-players mode"
 msgstr "Λείτουργία παιχνιδιού με δύο παίχτες"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:91
+#: src/iagno.vala:110
 msgid "Turn on the sound"
 msgstr "Ενεργοποίηση του ήχου"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:94
+#: src/iagno.vala:113
+msgid "Start with the usual position"
+msgstr "Έναρξη στη συνήθη θέση"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:116
 msgid "Print release version and exit"
 msgstr "Εκτύπωση της έκδοσης και έξοδος"
 
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
+#: src/iagno.vala:164
+msgid ""
+"The “--alternative-start”, “--random-start” and “--usual-start” arguments "
+"are mutually exclusive."
+msgstr ""
+
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
+#: src/iagno.vala:171
+msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
+msgstr ""
+
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:138
+#: src/iagno.vala:178
 msgid "Size must be at least 4."
 msgstr "Το μέγεθος πρέπει να είναι τουλάχιστον 4."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
-#: src/iagno.vala:144
+#: src/iagno.vala:184
 msgid "Size must not be more than 16."
 msgstr "Το μέγεθος δεν πρέπει να είναι πάνω από 16."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:204
+#: src/iagno.vala:250
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "To επίπεδο πρέπει να είναι μεταξύ 1 (εύκολο) και 3 (δύσκολο). Ρυθμίσεις "
 "αμετάβλητες."
 
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:266
+msgid "Play _first (Dark)"
+msgstr "Παίξτε _πρώτος (Μαύρα)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:270
+msgid "Play _second (Light)"
+msgstr "Παίξτε _δεύτερος (Λευκά)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:274
+#| msgid "Two players game"
+msgid "_Two players"
+msgstr "_Δύο παίκτες"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:280
+msgid "_Alternate who starts"
+msgstr "_Εναλλαγή ποιος ξεκινάει"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:289
+msgid "_Easy"
+msgstr "Εύκο_λο"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:293
+msgid "_Medium"
+msgstr "_Μεσαίο"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:297
+msgid "_Hard"
+msgstr "_Δύσκολο"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:305
+msgid "_Vary start position"
+msgstr ""
+
+#. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
+#: src/iagno.vala:312
+#| msgid "Reversi"
+msgid "Classic Reversi"
+msgstr "Κλασική έκδοση του Reversi"
+
+#. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
+#: src/iagno.vala:316
+#| msgid "Reversi"
+msgid "Reverse Reversi"
+msgstr "Αντίστροφη έκδοση του Reversi"
+
+#. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
+#: src/iagno.vala:328
+msgid "Default"
+msgstr "Προεπιλογή"
+
+#. Translators: hamburger menu "Appearance" submenu entry; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
+#: src/iagno.vala:384
+msgid "Highlight _capturable tiles"
+msgstr ""
+
+#. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:394
+#| msgid "Reversi"
+msgid "About Reversi"
+msgstr "Περί του Reversi"
+
+#. Translators: when configuring a new game, button label if a two-players game is chosen
+#: src/iagno.vala:570
+#| msgid "Two players game"
+msgid "Two players"
+msgstr "Δύο παίκτες"
+
+#. Translators: when configuring a new game, button label if the player choose to start
+#: src/iagno.vala:574
+#| msgid "Color"
+msgid "Color: Dark"
+msgstr "Χρώμα: Μαύρα"
+
+#. Translators: when configuring a new game, button label if the player choose let computer start
+#: src/iagno.vala:578
+msgid "Color: Light"
+msgstr "Χρώμα: Λευκά"
+
+#. Translators: when configuring a new game, button label for the AI level, if easy
+#: src/iagno.vala:599
+#| msgid "Difficulty"
+msgid "Difficulty: Easy"
+msgstr "Δυσκολία: Εύκολο"
+
+#. Translators: when configuring a new game, button label for the AI level, if medium
+#: src/iagno.vala:603
+#| msgid "Difficulty"
+msgid "Difficulty: Medium"
+msgstr "Δυσκολία: Μέσο"
+
+#. Translators: when configuring a new game, button label for the AI level, if hard
+#: src/iagno.vala:607
+#| msgid "Difficulty"
+msgid "Difficulty: Hard"
+msgstr "Δυσκολία: Δύσκολο"
+
+#. Translators: during a game, notification to display when Light has no possible moves
+#: src/iagno.vala:802
+msgid "Light must pass, Dark’s move"
+msgstr "Τα λευκά πρέπει να περιμένουν, κίνηση του μαύρου"
+
+#. Translators: during a game, notification to display when Dark has no possible moves
+#: src/iagno.vala:807
+msgid "Dark must pass, Light’s move"
+msgstr "Τα μαύρα πρέπει να περιμένουν, κίνηση του λευκού"
+
+#. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
+#: src/iagno.vala:819
+#, c-format
+#| msgid "Light wins!"
+msgid "Light wins! (%u-%u)"
+msgstr "Τα λευκά κερδίζουν! (%u-%u)"
+
+#. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
+#: src/iagno.vala:824
+#, c-format
+#| msgid "Dark wins!"
+msgid "Dark wins! (%u-%u)"
+msgstr "Τα μαύρα κερδίζουν! (%u-%u)"
+
+#. Translators: during a game, notification to display when the game is a draw
+#: src/iagno.vala:828
+msgid "The game is draw."
+msgstr "Το παιχνίδι είναι ισόπαλο."
+
+#. Translators: during a game, notification to display when the player tries to make an illegal move
+#: src/iagno.vala:847
+msgid "You can’t move there!"
+msgstr "Δε μπορείτε να μετακινηθείτε εκεί!"
+
+#. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
+#: src/iagno.vala:854
+msgid "In this opening, Light can only play on tiles bordering on Dark one."
+msgstr ""
+"Στην έναρξη, τα λευκά μπορούν να παίξουν μόνο σε πλακάκια που συνορεύουν με "
+"τα μαύρα."
+
+#. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
+#: src/iagno.vala:858
+msgid "Click on one of the highlighted tiles to move the selected piece there."
+msgstr ""
+
 #. Translators: about dialog text
-#: src/iagno.vala:332
+#: src/iagno.vala:978
 msgid "A disk flipping game derived from Reversi"
 msgstr ""
 "Ένα παιχνίδι αναποδογυρίσματος πλακιδίων, το οποίο προέρχεται από το Reversi"
 
+#. Translators: text crediting an artist, in the about dialog
+#: src/iagno.vala:982
+msgid "Masuichi Ito (pieces)"
+msgstr "Masuichi Ito (κομμάτια)"
+
+#. Translators: text crediting an artist, in the about dialog
+#: src/iagno.vala:986
+msgid "Arnaud Bonatti (themes)"
+msgstr "Arnaud Bonatti (θέματα)"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:991
+msgid "Ian Peters"
+msgstr "Ian Peters"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:995
+msgid "Robert Ancell"
+msgstr "Robert Ancell"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:999
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1004
+#, c-format
+msgid "Copyright © %u-%u – Ian Peters"
+msgstr "Πνευματική ιδιοκτησία © %u-%u – Ian Peters"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1008
+#, c-format
+msgid "Copyright © %u-%u – Michael Catanzaro"
+msgstr "Πνευματική ιδιοκτησία © %u-%u – Michael Catanzaro"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1012
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Πνευματική ιδιοκτησία © %u-%u – Arnaud Bonatti"
+
+#. Translators: text crediting a documenter, in the about dialog
+#: src/iagno.vala:1016
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
+
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:336
+#: src/iagno.vala:1021
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα του GNOME\n"
@@ -395,45 +867,40 @@ msgstr ""
 "Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
 "http://gnome.gr/"
 
-#. can undo
-#. Translators: this is a 2 digit representation of the current score.
-#: src/iagno.vala:398 src/iagno.vala:399
+#. Translators: about dialog text; label of the website link
+#: src/iagno.vala:1026
+msgid "Page on GNOME wiki"
+msgstr "Σελίδα στο wiki του GNOME"
+
+#. Translators: when configuring a new game, button label for the size of the game ("3 × 3", or 4, or 5)
+#: src/new-game-screen.vala:87
 #, c-format
-msgid "%.2d"
-msgstr "%.2d"
+msgid "Size: %d × %d ▾"
+msgstr "Μέγεθος: %d × %d ▾"
 
-#. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:477
-msgid "Light must pass, Dark’s move"
-msgstr "Τα λευκά πρέπει να περιμένουν, κίνηση του μαύρου"
+#~ msgid "Iagno"
+#~ msgstr "Ιάγνος"
 
-#. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:482
-msgid "Dark must pass, Light’s move"
-msgstr "Τα μαύρα πρέπει να περιμένουν, κίνηση του λευκού"
+#~ msgid "Players"
+#~ msgstr "Παίκτες"
 
-#. Translators: during a game, notification to display when Light has won the game
-#: src/iagno.vala:494
-msgid "Light wins!"
-msgstr "Τα λευκά κερδίζουν!"
+#~ msgid "_One"
+#~ msgstr "Έ_νας"
 
-#. Translators: during a game, notification to display when Dark has won the game
-#: src/iagno.vala:499
-msgid "Dark wins!"
-msgstr "Τα μαύρα κερδίζουν!"
+#~ msgid "_Two"
+#~ msgstr "_Δύο"
 
-#. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:504
-msgid "The game is draw."
-msgstr "Το παιχνίδι είναι ισόπαλο."
+#~ msgid "_Dark"
+#~ msgstr "_Σκούρα"
 
-#. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:521
-msgid "You can’t move there!"
-msgstr "Δε μπορείτε να μετακινηθείτε εκεί!"
+#~ msgid "_Light"
+#~ msgstr "_Ανοιχτά"
 
-#~ msgid "_Quit"
-#~ msgstr "Έ_ξοδος"
+#~ msgid "_About Iagno"
+#~ msgstr "_Περί του Ιάγνος"
+
+#~ msgid "%.2d"
+#~ msgstr "%.2d"
 
 #~ msgid "Configure a new game"
 #~ msgstr "Ρύθμιση νέου παιχνιδιού"
