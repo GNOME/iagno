@@ -644,7 +644,7 @@ private class Iagno : Gtk.Application, BaseApplication
         }
         else if (usual_start)
             opening = Opening.REVERSI;
-        else if (two_players && even_board && !random_start) // TODO make work on odd board
+        else if (two_players && !random_start)
             opening = Opening.HUMANS;
         else if (random_start
               || settings.get_boolean ("random-start-position")

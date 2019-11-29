@@ -133,7 +133,7 @@ private struct GameStateStruct
         }
     }
 
-    internal GameStateStruct.from_grid (uint8 _size, Player [,] _tiles, Player color, uint8 [,] _neighbor_tiles)
+    internal GameStateStruct.from_grid (uint8 _size, Player [,] _tiles, Player color, uint8 [,] _neighbor_tiles, bool humans_opening)
     {
         // move color
         current_color = color;
@@ -158,7 +158,13 @@ private struct GameStateStruct
         init_empty_neighbors ();
 
         // who can move
-        update_who_can_move ();
+        if (humans_opening)
+        {
+            current_player_can_move = true;
+            is_complete = false;
+        }
+        else
+            update_who_can_move ();
     }
     private inline void add_tile_of_color (Player color)
     {
@@ -218,6 +224,39 @@ private struct GameStateStruct
         // tiles counters
         n_current_tiles = game.n_opponent_tiles;
         n_opponent_tiles = game.n_current_tiles + 1;
+        n_tiles = n_current_tiles + n_opponent_tiles;
+
+        // empty neighbors
+        init_empty_neighbors ();    // lazyness
+
+        // who can move
+        current_player_can_move = true;
+        is_complete = false;
+        x_saved = size / 2 - 2;
+        y_saved = size / 2 - 2;
+    }
+
+    internal GameStateStruct.copy_and_add_two (GameStateStruct game, uint8 x1, uint8 y1, uint8 x2, uint8 y2)
+    {
+        // move color
+        opponent_color = game.current_color;
+        current_color = Player.flip_color (opponent_color);
+
+        // always given
+        size = game.size;
+        neighbor_tiles = game.neighbor_tiles;
+
+        // tiles grid
+        tiles = game.tiles;
+        if (tiles [x1, y1] != Player.NONE
+         || tiles [x2, y2] != Player.NONE)
+            assert_not_reached ();
+        tiles [x1, y1] = opponent_color;
+        tiles [x2, y2] = opponent_color;
+
+        // tiles counters
+        n_current_tiles = game.n_opponent_tiles;
+        n_opponent_tiles = game.n_current_tiles + 2;
         n_tiles = n_current_tiles + n_opponent_tiles;
 
         // empty neighbors
@@ -565,9 +604,9 @@ private class GameStateObject : Object
         _game_state_struct = GameStateStruct.copy_and_move (game.game_state_struct, move);
     }
 
-    internal GameStateObject.from_grid (uint8 size, Player [,] tiles, Player color, uint8 [,] neighbor_tiles)
+    internal GameStateObject.from_grid (uint8 size, Player [,] tiles, Player color, uint8 [,] neighbor_tiles, bool humans_opening = false)
     {
-        _game_state_struct = GameStateStruct.from_grid (size, tiles, color, neighbor_tiles);
+        _game_state_struct = GameStateStruct.from_grid (size, tiles, color, neighbor_tiles, humans_opening);
     }
 
     internal GameStateObject.empty (uint8 size, uint8 [,] neighbor_tiles)
@@ -578,6 +617,11 @@ private class GameStateObject : Object
     internal GameStateObject.copy_and_add (GameStateObject game, uint8 x, uint8 y)
     {
         _game_state_struct = GameStateStruct.copy_and_add (game.game_state_struct, x, y);
+    }
+
+    internal GameStateObject.copy_and_add_two (GameStateObject game, uint8 x, uint8 y, uint8 x2, uint8 y2)
+    {
+        _game_state_struct = GameStateStruct.copy_and_add_two (game.game_state_struct, x, y, x2, y2);
     }
 
     /*\
@@ -641,7 +685,7 @@ private class Game : Object
         if (print_logs)
         {
             string e_or_i = reverse ? "e" : "i";
-            if (initial_number_of_tiles == 0)
+            if (initial_number_of_tiles <= 1)
                 print (@"\nnew two-player revers$e_or_i game\n");
             else
                 print (@"\nnew one-player revers$e_or_i game ($opening opening)\n");    // TODO is human Dark or Light?
@@ -657,7 +701,9 @@ private class Game : Object
 
         GameStateObject _current_state;
         uint8 _initial_number_of_tiles;
-        if (_opening == Opening.HUMANS)
+        bool even_board = _size % 2 == 0;
+        bool humans_opening = _opening == Opening.HUMANS;
+        if (even_board && humans_opening)
         {
             _initial_number_of_tiles = 0;
 
@@ -671,12 +717,13 @@ private class Game : Object
                 for (uint8 y = 0; y < _size; y++)
                     tiles [x, y] = Player.NONE;
 
-            if (_size % 2 == 0)
+            if (even_board)
                 setup_even_board (_size, _opening, ref tiles, out _initial_number_of_tiles);
             else
                 setup_odd_board  (_size, _opening, ref tiles, out _initial_number_of_tiles);
 
-            _current_state = new GameStateObject.from_grid (_size, tiles, /* Dark always starts */ Player.DARK, _neighbor_tiles);
+            Player first_player = humans_opening ? Player.LIGHT : /* Dark "always" starts */ Player.DARK;
+            _current_state = new GameStateObject.from_grid (_size, tiles, first_player, _neighbor_tiles, humans_opening);
         }
 
         Object (size                    : _size,
@@ -712,10 +759,13 @@ private class Game : Object
     {
         /* logical starting position for odd board */
         uint8 mid_board = (size - 1) / 2;
-        initial_number_of_tiles = 7;
+        initial_number_of_tiles = opening == Opening.HUMANS ? 1 : 7;
         Player [,] start_position;
         switch (opening)
         {
+            case Opening.HUMANS:       start_position = {{ Player.NONE , Player.NONE , Player.NONE  },
+                                                         { Player.NONE , Player.DARK , Player.NONE  },
+                                                         { Player.NONE , Player.NONE , Player.NONE  }}; break;
             case Opening.REVERSI:      start_position = {{ Player.NONE , Player.LIGHT, Player.DARK  },
                                                          { Player.LIGHT, Player.DARK , Player.LIGHT },
                                                          { Player.DARK , Player.LIGHT, Player.NONE  }}; break;
@@ -808,51 +858,7 @@ private class Game : Object
     internal /* success */ bool place_tile (uint8 x, uint8 y)
     {
         if (opening == Opening.HUMANS)
-        {
-            uint8 half_game_size = size / 2;
-            if (x < half_game_size - 1 || x > half_game_size
-             || y < half_game_size - 1 || y > half_game_size)
-                return false;
-
-            if (current_color == Player.LIGHT && n_light_tiles == 0)
-            {
-                uint8 opposite_x = x == half_game_size ? half_game_size - 1 : half_game_size;
-                uint8 opposite_y = y == half_game_size ? half_game_size - 1 : half_game_size;
-                if (get_owner (opposite_x, opposite_y) == Player.DARK)
-                    return false;
-            }
-
-            if (current_state.n_dark_tiles == 2)
-            {
-                if (get_owner (half_game_size - 1, half_game_size - 1) == Player.DARK)
-                {
-                    if (get_owner (half_game_size, half_game_size - 1) == Player.DARK)  opening = Opening.ALTER_TOP;
-                    else if (get_owner (half_game_size, half_game_size) == Player.DARK) opening = Opening.REVERSI;
-                    else                                                                opening = Opening.ALTER_LEFT;
-                }
-                else
-                {
-                    if (get_owner (half_game_size, half_game_size - 1) == Player.LIGHT) opening = Opening.ALTER_BOTTOM;
-                    else if (get_owner (half_game_size, half_game_size) == Player.DARK) opening = Opening.ALTER_RIGHT;
-                    else                                                                opening = Opening.INVERTED;
-                }
-            }
-            if (print_logs)
-            {
-                string current_color_string = current_color == Player.DARK ? "dark :" : "light:";
-                print (@"$current_color_string ($x, $y)\n");
-            }
-            current_state = new GameStateObject.copy_and_add (current_state, x, y);
-
-            if (n_light_tiles == 2)
-            {
-                undo_stack.remove (0);
-                undo_stack.append (current_state);
-            }
-
-            end_of_turn (/* undoing */ false, /* no_draw */ false);
-            return true;
-        }
+            return humans_opening_place_tile (x, y);
 
         PossibleMove move;
         if (!current_state.test_placing_tile (x, y, out move))
@@ -971,22 +977,7 @@ private class Game : Object
         {
             move = PossibleMove (x, y); // good enough
 
-            uint8 half_game_size = size / 2;
-            if (x < half_game_size - 1 || x > half_game_size
-             || y < half_game_size - 1 || y > half_game_size)
-                return false;
-
-            if (get_owner (x, y) != Player.NONE)
-                return false;
-
-            if (current_color == Player.LIGHT && n_light_tiles == 0)
-            {
-                uint8 opposite_x = x == half_game_size ? half_game_size - 1 : half_game_size;
-                uint8 opposite_y = y == half_game_size ? half_game_size - 1 : half_game_size;
-                if (get_owner (opposite_x, opposite_y) == Player.DARK)
-                    return false;
-            }
-            return true;
+            return humans_opening_test_placing_tile (x, y);
         }
 
         unowned SList<PossibleMove?>? test_move = possible_moves.nth (0);
@@ -1012,39 +1003,245 @@ private class Game : Object
     private inline void update_possible_moves ()
     {
         if (opening == Opening.HUMANS)
+            humans_opening_update_possible_moves ();
+        else
+            current_state.get_possible_moves (out possible_moves);
+    }
+
+    /*\
+    * * humans opening
+    \*/
+
+    private inline bool humans_opening_place_tile (uint8 x, uint8 y)
+    {
+        uint8 half_game_size = size / 2;
+        bool even_board = size % 2 == 0;
+
+        if (!humans_opening_test_placing_tile (x, y))
+            return false;
+
+        if (even_board)
         {
-            possible_moves = new SList<PossibleMove?> ();
+            if (current_state.n_dark_tiles == 2)
+                humans_opening_update_opening_even ();
 
-            uint8 half_game_size = size / 2;
-
-            bool top_left;
-            bool top_right;
-            bool bottom_left;
-            bool bottom_right;
-
-            if (current_color == Player.LIGHT && n_light_tiles == 0)
+            if (print_logs)
             {
-                top_left = get_owner (half_game_size - 1, half_game_size - 1) == Player.NONE
-                        && get_owner (half_game_size    , half_game_size    ) == Player.NONE;
-                top_right    = !top_left;
-                bottom_left  = !top_left;
-                bottom_right = top_left;
+                string current_color_string = current_color == Player.DARK ? "dark :" : "light:";
+                print (@"$current_color_string ($x, $y)\n");
+            }
+            current_state = new GameStateObject.copy_and_add (current_state, x, y);
+        }
+        else
+        {
+            if (current_color == Player.LIGHT && n_light_tiles != 0)
+                humans_opening_update_opening_odd (x, y);
+
+            uint8 x2;
+            uint8 y2;
+            if (x == half_game_size)            x2 = half_game_size;
+            else if (x == half_game_size - 1)   x2 = half_game_size + 1;
+            else /*  x == half_game_size + 1 */ x2 = half_game_size - 1;
+            if (y == half_game_size)            y2 = half_game_size;
+            else if (y == half_game_size - 1)   y2 = half_game_size + 1;
+            else /*  y == half_game_size + 1 */ y2 = half_game_size - 1;
+            if (print_logs)
+            {
+                string current_color_string = current_color == Player.DARK ? "dark :" : "light:";
+                print (@"$current_color_string ($x, $y) and ($x2, $y2)\n");
+            }
+            current_state = new GameStateObject.copy_and_add_two (current_state, x, y, x2, y2);
+        }
+
+        if (n_light_tiles == (even_board ? 2 : 4))
+        {
+            undo_stack.remove (0);
+            undo_stack.append (current_state);
+        }
+
+        end_of_turn (/* undoing */ false, /* no_draw */ false);
+        return true;
+    }
+    private inline void humans_opening_update_opening_even ()
+    {
+        uint8 half_game_size = size / 2;
+        if (get_owner (half_game_size - 1, half_game_size - 1) == Player.DARK)
+        {
+            if (get_owner (half_game_size, half_game_size - 1) == Player.DARK)  opening = Opening.ALTER_TOP;
+            else if (get_owner (half_game_size, half_game_size) == Player.DARK) opening = Opening.REVERSI;
+            else                                                                opening = Opening.ALTER_LEFT;
+        }
+        else
+        {
+            if (get_owner (half_game_size, half_game_size - 1) == Player.LIGHT) opening = Opening.ALTER_BOTTOM;
+            else if (get_owner (half_game_size, half_game_size) == Player.DARK) opening = Opening.ALTER_RIGHT;
+            else                                                                opening = Opening.INVERTED;
+        }
+    }
+    private inline void humans_opening_update_opening_odd (uint8 x, uint8 y)
+    {
+        uint8 half_game_size = size / 2;
+        if (x == half_game_size || y == half_game_size)
+        {
+            if (get_owner (half_game_size - 1, half_game_size - 1) == Player.NONE)
+                opening = Opening.REVERSI;
+            else
+                opening = Opening.INVERTED;
+        }
+        else
+        {
+            if (x == y)
+            {
+                if (get_owner (half_game_size, half_game_size - 1) == Player.LIGHT)
+                        opening = Opening.ALTER_LEFT;
+                else    opening = Opening.ALTER_BOTTOM;
             }
             else
             {
-                top_left     = get_owner (half_game_size - 1, half_game_size - 1) == Player.NONE;
-                top_right    = get_owner (half_game_size    , half_game_size - 1) == Player.NONE;
-                bottom_left  = get_owner (half_game_size - 1, half_game_size    ) == Player.NONE;
-                bottom_right = get_owner (half_game_size    , half_game_size    ) == Player.NONE;
+                if (get_owner (half_game_size, half_game_size - 1) == Player.LIGHT)
+                        opening = Opening.ALTER_RIGHT;
+                else    opening = Opening.ALTER_TOP;
             }
+        }
+    }
 
-            if (top_left)     possible_moves.prepend (PossibleMove (half_game_size - 1, half_game_size - 1));
-            if (top_right)    possible_moves.prepend (PossibleMove (half_game_size    , half_game_size - 1));
-            if (bottom_left)  possible_moves.prepend (PossibleMove (half_game_size - 1, half_game_size    ));
-            if (bottom_right) possible_moves.prepend (PossibleMove (half_game_size    , half_game_size    ));
+    private bool humans_opening_test_placing_tile (uint8 x, uint8 y)
+    {
+        if (get_owner (x, y) != Player.NONE)
+            return false;
+
+        if (size % 2 == 0)
+            return humans_opening_test_placing_tile_even (x, y);
+        else
+            return humans_opening_test_placing_tile_odd (x, y);
+    }
+    private inline bool humans_opening_test_placing_tile_even (uint8 x, uint8 y)
+    {
+        uint8 half_game_size = size / 2;
+
+        if (x < half_game_size - 1 || x > half_game_size
+         || y < half_game_size - 1 || y > half_game_size)
+            return false;
+
+        if (current_color == Player.LIGHT && n_light_tiles == 0)
+        {
+            uint8 opposite_x = x == half_game_size ? half_game_size - 1 : half_game_size;
+            uint8 opposite_y = y == half_game_size ? half_game_size - 1 : half_game_size;
+            if (get_owner (opposite_x, opposite_y) == Player.DARK)
+                return false;
+        }
+        return true;
+    }
+    private inline bool humans_opening_test_placing_tile_odd (uint8 x, uint8 y)
+    {
+        uint8 half_game_size = size / 2;
+
+        if (x < half_game_size - 1 || x > half_game_size + 1
+         || y < half_game_size - 1 || y > half_game_size + 1)
+            return false;
+
+        if (current_color == Player.LIGHT)
+        {
+            if (n_light_tiles == 0)
+            {
+                if (x != half_game_size && y != half_game_size)
+                    return false;
+            }
+            else
+            {
+                if (get_owner (half_game_size - 1, half_game_size - 1) != Player.NONE
+                 || get_owner (half_game_size + 1, half_game_size - 1) != Player.NONE)
+                {
+                    if (x != half_game_size && y != half_game_size)
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private inline void humans_opening_update_possible_moves ()
+    {
+        if (size % 2 == 0)
+            humans_opening_update_possible_moves_even ();
+        else
+            humans_opening_update_possible_moves_odd ();
+    }
+    private inline void humans_opening_update_possible_moves_even ()
+    {
+        possible_moves = new SList<PossibleMove?> ();
+
+        uint8 half_game_size = size / 2;
+
+        bool top_left;
+        bool top_right;
+        bool bottom_left;
+        bool bottom_right;
+
+        if (current_color == Player.LIGHT && n_light_tiles == 0)
+        {
+            top_left = get_owner (half_game_size - 1, half_game_size - 1) == Player.NONE
+                    && get_owner (half_game_size    , half_game_size    ) == Player.NONE;
+            top_right    = !top_left;
+            bottom_left  = !top_left;
+            bottom_right = top_left;
         }
         else
-            current_state.get_possible_moves (out possible_moves);
+        {
+            top_left     = get_owner (half_game_size - 1, half_game_size - 1) == Player.NONE;
+            top_right    = get_owner (half_game_size    , half_game_size - 1) == Player.NONE;
+            bottom_left  = get_owner (half_game_size - 1, half_game_size    ) == Player.NONE;
+            bottom_right = get_owner (half_game_size    , half_game_size    ) == Player.NONE;
+        }
+
+        if (top_left)     possible_moves.prepend (PossibleMove (half_game_size - 1, half_game_size - 1));
+        if (top_right)    possible_moves.prepend (PossibleMove (half_game_size    , half_game_size - 1));
+        if (bottom_left)  possible_moves.prepend (PossibleMove (half_game_size - 1, half_game_size    ));
+        if (bottom_right) possible_moves.prepend (PossibleMove (half_game_size    , half_game_size    ));
+    }
+    private inline void humans_opening_update_possible_moves_odd ()
+    {
+        possible_moves = new SList<PossibleMove?> ();
+
+        uint8 half_game_size = size / 2;
+
+        // light starts, first ply
+        if (n_light_tiles == 0)
+        {
+            possible_moves.prepend (PossibleMove (half_game_size - 1, half_game_size    ));
+            possible_moves.prepend (PossibleMove (half_game_size    , half_game_size - 1));
+            possible_moves.prepend (PossibleMove (half_game_size    , half_game_size + 1));
+            possible_moves.prepend (PossibleMove (half_game_size + 1, half_game_size    ));
+        }
+        // first dark ply
+        else if (current_color == Player.DARK)
+        {
+            for (uint8 x = half_game_size - 1; x <= half_game_size + 1; x++)
+                for (uint8 y = half_game_size - 1; y <= half_game_size + 1; y++)
+                    if (get_owner (x, y) == Player.NONE)
+                        possible_moves.prepend (PossibleMove (x, y));
+        }
+        // dark played vertically or horizontally the center of the opening zone
+        else if (get_owner (half_game_size - 1, half_game_size - 1) == Player.NONE
+              && get_owner (half_game_size - 1, half_game_size + 1) == Player.NONE)
+        {
+            possible_moves.prepend (PossibleMove (half_game_size - 1, half_game_size - 1));
+            possible_moves.prepend (PossibleMove (half_game_size - 1, half_game_size + 1));
+            possible_moves.prepend (PossibleMove (half_game_size + 1, half_game_size - 1));
+            possible_moves.prepend (PossibleMove (half_game_size + 1, half_game_size + 1));
+        }
+        // light started horizontally, dark played in a corner of the opening zone
+        else if (get_owner (half_game_size, half_game_size - 1) == Player.NONE)
+        {
+            possible_moves.prepend (PossibleMove (half_game_size    , half_game_size - 1));
+            possible_moves.prepend (PossibleMove (half_game_size    , half_game_size + 1));
+        }
+        // light started vertically, dark played in a corner of the opening zone
+        else
+        {
+            possible_moves.prepend (PossibleMove (half_game_size - 1, half_game_size    ));
+            possible_moves.prepend (PossibleMove (half_game_size + 1, half_game_size    ));
+        }
     }
 }
 
