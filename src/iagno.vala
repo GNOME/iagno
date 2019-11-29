@@ -569,15 +569,15 @@ private class Iagno : Gtk.Application, BaseApplication
             case "two":
                 new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
                 /* Translators: when configuring a new game, button label if a two-players game is chosen */
-                                                         _("Two players"));     return;
+                                                         "%s ▾".printf (_("Two players")));             return;
             case "dark":
                 new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
                 /* Translators: when configuring a new game, button label if the player choose to start */
-                                                         _("Color: Dark"));     return;
+                                                         "%s ▾".printf (_("Color: Dark")));             return;
             case "light":
                 new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
                 /* Translators: when configuring a new game, button label if the player choose let computer start */
-                                                         _("Color: Light"));    return;
+                                                         "%s ▾".printf (_("Color: Light")));            return;
             default: assert_not_reached ();
         }
     }
@@ -598,15 +598,15 @@ private class Iagno : Gtk.Application, BaseApplication
             case 1:
                 new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, button label for the AI level, if easy */
-                                                         _("Difficulty: Easy"));                return;
+                                                         "%s ▾".printf (_("Difficulty: Easy")));        return;
             case 2:
                 new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, button label for the AI level, if medium */
-                                                         _("Difficulty: Medium"));              return;
+                                                         "%s ▾".printf (_("Difficulty: Medium")));      return;
             case 3:
                 new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, button label for the AI level, if hard */
-                                                         _("Difficulty: Hard"));                return;
+                                                         "%s ▾".printf (_("Difficulty: Hard")));        return;
         }
     }
 
