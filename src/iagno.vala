@@ -268,16 +268,18 @@ private class Iagno : Gtk.Application, BaseApplication
 
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt) */
         section.append (_("Play _second (Light)"), "app.game-type('light')");
-
-
-        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt) */
-        section.append (_("_Two players"), "app.game-type('two')");
         section.freeze ();
         size_menu.append_section (null, section);
 
         section = new GLib.Menu ();
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt) */
         section.append (_("_Alternate who starts"), "app.alternate-who-starts");
+        section.freeze ();
+        size_menu.append_section (null, section);
+
+        section = new GLib.Menu ();
+        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt) */
+        section.append (_("_Two players"), "app.game-type('two')");
         section.freeze ();
         size_menu.append_section (null, section);
 
