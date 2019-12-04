@@ -667,6 +667,11 @@ private class Iagno : Gtk.Application, BaseApplication
             opening = Opening.REVERSI;
 
         bool reverse = settings.get_string ("type") == "reverse";
+        /* Translators: name of one of the games, as displayed in the headerbar when playing */
+        window.set_title (reverse ? _("Reverse Reversi")
+
+        /* Translators: name of one of the games, as displayed in the headerbar when playing */
+                                  : _("Classic Reversi"));
         game = new Game (reverse, opening, (uint8) size /* 4 <= size <= 16 */, print_logs);
         game_is_set = true;
         game.turn_ended.connect (turn_ended_cb);

@@ -127,6 +127,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     private void show_new_game_screen ()
     {
         hide_notification ();
+        headerbar.update_title (Iagno.PROGRAM_NAME);
         bool grabs_focus = headerbar.show_new_game_screen (game_finished);
         game_view.show_new_game_box (/* grab focus */ !grabs_focus);
     }
@@ -261,6 +262,11 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     internal void set_history_button_label (Player player)
     {
         headerbar.set_history_button_label (player);
+    }
+
+    internal void set_title (string game_name)
+    {
+        headerbar.update_title (game_name);
     }
 
     /*\

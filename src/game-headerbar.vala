@@ -27,8 +27,8 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
     [GtkChild] private Button       new_game_button;
     [GtkChild] private Button       back_button;
 
-    [CCode (notify = false)] public bool window_has_name { private get; protected construct; default = false; }
-    [CCode (notify = false)] public string window_name   { private get; internal  construct; default = ""; }
+    [CCode (notify = false)] public bool window_has_name { private get; protected construct    ; default = false; }
+    [CCode (notify = false)] public string window_name   { private get; protected construct set; default = ""; }
 
     [CCode (notify = false)] public bool has_sound { private get; protected construct; default = false; }
     [CCode (notify = false)] public bool show_undo { private get; protected construct; default = false; }
@@ -165,6 +165,12 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
         else
             new_game_button.grab_default ();    // FIXME: grab_focus, but without closing the popover...
         set_history_button_label (Player.NONE);
+    }
+
+    internal void update_title (string new_title)
+    {
+        window_name = new_title;
+        set_default_widgets_default_states (this);
     }
 
     /*\
