@@ -264,7 +264,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         headerbar.set_history_button_label (player);
     }
 
-    internal void set_title (string game_name)
+    internal void update_title (string game_name)
     {
         headerbar.update_title (game_name);
     }

@@ -613,7 +613,7 @@ private class Iagno : Gtk.Application, BaseApplication
     private void back_cb ()
         requires (game_is_set)
     {
-        set_window_title (game.reverse);
+        set_window_title ();
         if (game.current_color != player_one && computer != null && !game.is_complete)
             ((!) computer).move (SLOW_MOVE_DELAY);
         else if (game.is_complete)
@@ -668,8 +668,8 @@ private class Iagno : Gtk.Application, BaseApplication
             opening = Opening.REVERSI;
 
         bool reverse = settings.get_string ("type") == "reverse";
-        set_window_title (reverse);
         game = new Game (reverse, opening, (uint8) size /* 4 <= size <= 16 */, print_logs);
+        set_window_title ();
         game_is_set = true;
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
@@ -875,13 +875,13 @@ private class Iagno : Gtk.Application, BaseApplication
         window.set_history_button_label (game.current_color);
     }
 
-    private void set_window_title (bool reverse)
+    private void set_window_title ()
     {
         /* Translators: name of one of the games, as displayed in the headerbar when playing */
-        window.set_title (reverse ? _("Reverse Reversi")
+        window.set_title (game.reverse ? _("Reverse Reversi")
 
         /* Translators: name of one of the games, as displayed in the headerbar when playing */
-                                  : _("Classic Reversi"));
+                                       : _("Classic Reversi"));
     }
 
     /*\
