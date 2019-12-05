@@ -878,10 +878,10 @@ private class Iagno : Gtk.Application, BaseApplication
     private void set_window_title ()
     {
         /* Translators: name of one of the games, as displayed in the headerbar when playing */
-        window.set_title (game.reverse ? _("Reverse Reversi")
+        window.update_title (game.reverse ? _("Reverse Reversi")
 
         /* Translators: name of one of the games, as displayed in the headerbar when playing */
-                                       : _("Classic Reversi"));
+                                          : _("Classic Reversi"));
     }
 
     /*\
