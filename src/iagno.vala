@@ -51,6 +51,7 @@ private class Iagno : Gtk.Application, BaseApplication
     private GameWindow window;
     private ReversiView view;
     private NewGameScreen new_game_screen;
+    private HistoryButton history_button;
 
     /* Computer player (if there is one) */
     internal ComputerPlayer? computer { internal get; private set; default = null; }
@@ -388,6 +389,10 @@ private class Iagno : Gtk.Application, BaseApplication
         appearance_menu.append_section (null, section);
         appearance_menu.freeze ();
 
+        history_button = new HistoryButton ();
+        view.notify_final_animation.connect ((undoing) => { history_button.update_menu (!undoing); });
+        history_button.show ();
+
         /* Window */
         init_night_mode ();
         window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
@@ -403,6 +408,7 @@ private class Iagno : Gtk.Application, BaseApplication
                                  (Box) new_game_screen,
                                  view,
                                  appearance_menu,
+                                 history_button,
                                  night_light_monitor);
 
         window.play.connect (start_game);
@@ -674,6 +680,8 @@ private class Iagno : Gtk.Application, BaseApplication
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
 
+        history_button.new_game ();
+
         if (two_players)
             computer = null;
         else
@@ -816,6 +824,7 @@ private class Iagno : Gtk.Application, BaseApplication
         requires (game_is_set)
     {
         window.finish_game ();
+        history_button.update_label (Player.NONE);
 
         if ((!game.reverse && game.n_light_tiles > game.n_dark_tiles)
          || ( game.reverse && game.n_light_tiles < game.n_dark_tiles))
@@ -872,7 +881,7 @@ private class Iagno : Gtk.Application, BaseApplication
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
-        window.set_history_button_label (game.current_color);
+        history_button.update_label (game.current_color);
     }
 
     private void set_window_title ()

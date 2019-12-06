@@ -23,7 +23,6 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-headerbar.ui")]
 private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
 {
-    [GtkChild] private HistoryButton    history_button;
     [GtkChild] private Button           new_game_button;
     [GtkChild] private Button           back_button;
 
@@ -35,18 +34,24 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
     [CCode (notify = false)] public bool show_redo { private get; protected construct; default = false; }
     [CCode (notify = false)] public bool show_hint { private get; protected construct; default = false; }    // TODO something
 
+    [CCode (notify = false)] public Widget? game_widget { private get; protected construct; default = null; }
+
     construct
     {
         init_modes ();
 
         if (window_name != "")
             window_has_name = true;
+
+        if (game_widget != null)
+            pack_end ((!) game_widget);
     }
 
     internal GameHeaderBar (string              _window_name,
                             string              _about_action_label,
                             GameWindowFlags     flags,
                             GLib.Menu?          _appearance_menu,
+                            Widget?             _game_widget,
                             NightLightMonitor   _night_light_monitor)
     {
         Object (about_action_label:     _about_action_label,
@@ -58,6 +63,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
                 show_redo:              GameWindowFlags.SHOW_REDO in flags,
                 show_undo:              GameWindowFlags.SHOW_UNDO in flags,
                 appearance_menu:        _appearance_menu,
+                game_widget:            _game_widget,
                 window_name:            _window_name);
     }
 
@@ -70,6 +76,9 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
     {
         base.set_window_size (new_size);
 
+        if (game_widget != null)
+            ((AdaptativeWidget) (!) game_widget).set_window_size (new_size);
+
         if (!window_has_name)
             return;
 
@@ -77,7 +86,6 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
         if (_is_extra_thin == is_extra_thin)
             return;
         is_extra_thin = _is_extra_thin;
-        history_button.is_extra_thin = is_extra_thin;
         set_default_widgets_default_states (this);
     }
 
@@ -107,7 +115,8 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
         current_view_is_new_game_screen = true;
 
      // new_game_button.hide ();
-        history_button.hide ();
+        if (game_widget != null)
+            ((!) game_widget).hide ();
 
         if (!game_finished && back_button.visible)
         {
@@ -124,7 +133,8 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
 
         back_button.hide ();        // TODO transition?
         new_game_button.show ();    // TODO transition?
-        history_button.show ();
+        if (game_widget != null)
+            ((!) game_widget).show ();
 
         if (game_finished)
         {
@@ -159,11 +169,10 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
 
     internal void finish_game ()
     {
-        if (!history_button.active)
+        if (game_widget != null && ((!) game_widget) is MenuButton && !((MenuButton) (!) game_widget).active)
             new_game_button.grab_focus ();
         else
             new_game_button.grab_default ();    // FIXME: grab_focus, but without closing the popover...
-        set_history_button_label (Player.NONE);
     }
 
     internal void update_title (string new_title)
@@ -219,34 +228,17 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
             }
             else
             {
-                real_this.history_button.show ();
+                if (real_this.game_widget != null)
+                    ((!) real_this.game_widget).show ();
                 real_this.new_game_button.show ();
             }
         }
         else
         {
             real_this.back_button.hide ();
-            real_this.history_button.hide ();
+            if (real_this.game_widget != null)
+                ((!) real_this.game_widget).hide ();
             real_this.new_game_button.hide ();
         }
-    }
-
-    /*\
-    * * history menu
-    \*/
-
-    internal inline void update_history_button (bool finish_animation)
-    {
-        history_button.update_menu (finish_animation);
-    }
-
-    internal inline void history_button_new_game ()
-    {
-        history_button.new_game ();
-    }
-
-    internal void set_history_button_label (Player player)
-    {
-        history_button.update_label (player);
     }
 }

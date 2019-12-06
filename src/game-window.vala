@@ -40,9 +40,9 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     private GameView        game_view;
     private Box             new_game_screen;
 
-    internal GameWindow (string? css_resource, string name, string about_action_label, bool start_now, GameWindowFlags flags, Box _new_game_screen, Widget view_content, GLib.Menu? appearance_menu, NightLightMonitor night_light_monitor)
+    internal GameWindow (string? css_resource, string name, string about_action_label, bool start_now, GameWindowFlags flags, Box _new_game_screen, Widget view_content, GLib.Menu? appearance_menu, Widget? game_widget, NightLightMonitor night_light_monitor)
     {
-        GameHeaderBar _headerbar = new GameHeaderBar (name, about_action_label, flags, appearance_menu, night_light_monitor);
+        GameHeaderBar _headerbar = new GameHeaderBar (name, about_action_label, flags, appearance_menu, game_widget, night_light_monitor);
         GameView      _game_view = new GameView (flags, _new_game_screen, view_content);
 
         Object (nta_headerbar               : (NightTimeAwareHeaderBar) _headerbar,
@@ -55,8 +55,6 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         headerbar = _headerbar;
         game_view = _game_view;
         new_game_screen = _new_game_screen;
-
-        ((ReversiView) view_content).notify_final_animation.connect ((undoing) => { headerbar.update_history_button (!undoing); });
 
         /* CSS */
         if (css_resource != null)
@@ -259,11 +257,6 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         headerbar.set_subtitle (null);
     }
 
-    internal void set_history_button_label (Player player)
-    {
-        headerbar.set_history_button_label (player);
-    }
-
     internal void update_title (string game_name)
     {
         headerbar.update_title (game_name);
@@ -296,8 +289,6 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
         undo_action.set_enabled (false);
      // redo_action.set_enabled (false);
-
-        headerbar.history_button_new_game ();
 
         play ();        // FIXME lag (see in Taquin…)
 

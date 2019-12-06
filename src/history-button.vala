@@ -21,10 +21,8 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/history-button.ui")]
-private class HistoryButton : MenuButton
+private class HistoryButton : MenuButton, AdaptativeWidget
 {
-    [CCode (notify = false)] internal bool is_extra_thin { private get; internal set; default = true; }
-
     private GLib.Menu history_menu;
     private GLib.Menu finish_menu;
 
@@ -50,6 +48,16 @@ private class HistoryButton : MenuButton
         new_game ();
     }
 
+    private bool is_extra_thin = true;
+    protected override void set_window_size (AdaptativeWidget.WindowSize new_size)
+    {
+        bool _is_extra_thin = AdaptativeWidget.WindowSize.is_extra_thin (new_size);
+        if (_is_extra_thin == is_extra_thin)
+            return;
+        is_extra_thin = _is_extra_thin;
+        update_label (last_player);
+    }
+
     /*\
     * * internal calls
     \*/
@@ -65,8 +73,10 @@ private class HistoryButton : MenuButton
         update_menu (/* final animation */ false);
     }
 
+    private Player last_player = Player.NONE;
     internal void update_label (Player player)
     {
+        last_player = player;
         switch (player)
         {
             case Player.LIGHT:
