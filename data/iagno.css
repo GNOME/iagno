@@ -23,10 +23,6 @@ button.unfullscreen-button {
   margin:6px;
 }
 
-.extra-thin-window.thin-window button.history-button  { padding-left:12px; padding-right:12px; transition: padding 0 ease; }
-.extra-thin-window.thin-window button.new-game-button { padding-left:12px; padding-right:12px; transition: padding 0 ease;
-/* hack: fix the double spacing around the centerwidget box, on extra-thin window */
-                                                        margin-right:-12px; }
 /*\
 * * board generics; TODO move in game-window.css
 \*/
@@ -76,6 +72,14 @@ popover modelbutton {
              font-size 0.3s ease,
              padding   0.3s ease,
              margin    0.3s ease;
+}
+
+/* TODO move in game-window.css */
+label.game-name-label:dir(ltr) {
+  margin-left : 12px;
+}
+label.game-name-label:dir(rtl) {
+  margin-right: 12px;
 }
 
 /*\

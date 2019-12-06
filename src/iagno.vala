@@ -51,7 +51,8 @@ private class Iagno : Gtk.Application, BaseApplication
     private GameWindow window;
     private ReversiView view;
     private NewGameScreen new_game_screen;
-    private HistoryButton history_button;
+    private HistoryButton history_button_1;
+    private HistoryButton history_button_2;
 
     /* Computer player (if there is one) */
     internal ComputerPlayer? computer { internal get; private set; default = null; }
@@ -389,9 +390,12 @@ private class Iagno : Gtk.Application, BaseApplication
         appearance_menu.append_section (null, section);
         appearance_menu.freeze ();
 
-        history_button = new HistoryButton ();
-        view.notify_final_animation.connect ((undoing) => { history_button.update_menu (!undoing); });
-        history_button.show ();
+        history_button_1 = new HistoryButton ();
+        history_button_2 = new HistoryButton ();
+        view.notify_final_animation.connect ((undoing) => { history_button_1.update_menu (!undoing);
+                                                            history_button_2.update_menu (!undoing); });
+        history_button_1.show ();
+        history_button_2.show ();
 
         /* Window */
         init_night_mode ();
@@ -408,7 +412,8 @@ private class Iagno : Gtk.Application, BaseApplication
                                  (Box) new_game_screen,
                                  view,
                                  appearance_menu,
-                                 history_button,
+                                 history_button_1,
+                                 history_button_2,
                                  night_light_monitor);
 
         window.play.connect (start_game);
@@ -680,7 +685,8 @@ private class Iagno : Gtk.Application, BaseApplication
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
 
-        history_button.new_game ();
+        history_button_1.new_game ();
+        history_button_2.new_game ();
 
         if (two_players)
             computer = null;
@@ -824,7 +830,8 @@ private class Iagno : Gtk.Application, BaseApplication
         requires (game_is_set)
     {
         window.finish_game ();
-        history_button.update_label (Player.NONE);
+        history_button_1.update_label (Player.NONE);
+        history_button_2.update_label (Player.NONE);
 
         if ((!game.reverse && game.n_light_tiles > game.n_dark_tiles)
          || ( game.reverse && game.n_light_tiles < game.n_dark_tiles))
@@ -881,7 +888,8 @@ private class Iagno : Gtk.Application, BaseApplication
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
-        history_button.update_label (game.current_color);
+        history_button_1.update_label (game.current_color);
+        history_button_2.update_label (game.current_color);
     }
 
     private void set_window_title ()

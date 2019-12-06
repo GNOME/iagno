@@ -26,7 +26,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
     [GtkChild] private Button           new_game_button;
     [GtkChild] private Button           back_button;
 
-    [CCode (notify = false)] public bool window_has_name { private get; protected construct    ; default = false; }
+    [CCode (notify = false)] public bool window_has_name { private get; protected construct set; default = false; }
     [CCode (notify = false)] public string window_name   { private get; protected construct set; default = ""; }
 
     [CCode (notify = false)] public bool has_sound { private get; protected construct; default = false; }
@@ -102,6 +102,13 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
                                           /* show info_button         */ true,
                                           /* show ltr_right_separator */ _this.disable_action_bar,
                                           /* show quit_button_stack   */ _this.disable_action_bar);
+        update_game_widget_visibility ();
+    }
+
+    private void update_game_widget_visibility ()
+    {
+        if (game_widget != null)
+            ((!) game_widget).set_visible (!is_extra_thin && !current_view_is_new_game_screen);
     }
 
     /*\
@@ -115,8 +122,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
         current_view_is_new_game_screen = true;
 
      // new_game_button.hide ();
-        if (game_widget != null)
-            ((!) game_widget).hide ();
+        update_game_widget_visibility ();
 
         if (!game_finished && back_button.visible)
         {
@@ -133,8 +139,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
 
         back_button.hide ();        // TODO transition?
         new_game_button.show ();    // TODO transition?
-        if (game_widget != null)
-            ((!) game_widget).show ();
+        update_game_widget_visibility ();
 
         if (game_finished)
         {
@@ -178,6 +183,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
     internal void update_title (string new_title)
     {
         window_name = new_title;
+        window_has_name = new_title != "";
         set_default_widgets_default_states (this);
     }
 
@@ -228,16 +234,14 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
             }
             else
             {
-                if (real_this.game_widget != null)
-                    ((!) real_this.game_widget).show ();
+                real_this.update_game_widget_visibility ();
                 real_this.new_game_button.show ();
             }
         }
         else
         {
             real_this.back_button.hide ();
-            if (real_this.game_widget != null)
-                ((!) real_this.game_widget).hide ();
+            real_this.update_game_widget_visibility ();
             real_this.new_game_button.hide ();
         }
     }
