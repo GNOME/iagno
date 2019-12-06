@@ -19,6 +19,7 @@ src/game-headerbar.vala
 src/game.vala
 src/game-view.vala
 src/game-window.vala
+src/history-button.vala
 src/iagno.vala
 src/new-game-screen.vala
 src/player.vala

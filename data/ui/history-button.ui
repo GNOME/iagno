@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This file is part of GNOME Reversi, also known as Iagno.
+
+  Copyright 2012 Tiffany Antopolski and Robert Ancell
+  Copyright 2013, 2014, 2015 Michael Catanzaro
+  Copyright 2014, 2015, 2019 Arnaud Bonatti
+
+  GNOME Reversi is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  GNOME Reversi is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <template class="HistoryButton" parent="GtkMenuButton">
+    <property name="valign">center</property>
+    <property name="can-focus">True</property>
+    <property name="focus-on-click">False</property>
+    <style>
+      <class name="history-button"/>
+    </style>
+  </template>
+</interface>

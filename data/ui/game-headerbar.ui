@@ -64,14 +64,8 @@
       </object>
     </child>
     <child>
-      <object class="GtkMenuButton" id="history_button">
+      <object class="HistoryButton" id="history_button">
         <property name="visible">False</property>
-        <property name="valign">center</property>
-        <property name="can-focus">True</property>
-        <property name="focus-on-click">False</property>
-        <style>
-          <class name="history-button"/>
-        </style>
       </object>
       <packing>
         <property name="pack-type">end</property>

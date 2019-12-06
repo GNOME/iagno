@@ -23,9 +23,9 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-headerbar.ui")]
 private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
 {
-    [GtkChild] private MenuButton   history_button;
-    [GtkChild] private Button       new_game_button;
-    [GtkChild] private Button       back_button;
+    [GtkChild] private HistoryButton    history_button;
+    [GtkChild] private Button           new_game_button;
+    [GtkChild] private Button           back_button;
 
     [CCode (notify = false)] public bool window_has_name { private get; protected construct    ; default = false; }
     [CCode (notify = false)] public string window_name   { private get; protected construct set; default = ""; }
@@ -37,8 +37,6 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
 
     construct
     {
-        configure_history_button ();
-
         init_modes ();
 
         if (window_name != "")
@@ -79,6 +77,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
         if (_is_extra_thin == is_extra_thin)
             return;
         is_extra_thin = _is_extra_thin;
+        history_button.is_extra_thin = is_extra_thin;
         set_default_widgets_default_states (this);
     }
 
@@ -236,65 +235,18 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
     * * history menu
     \*/
 
-    private GLib.Menu history_menu;
-    private GLib.Menu finish_menu;
-
-    private string history_button_light_label;
-    private string history_button_dark_label;
-
-    private void configure_history_button ()
-    {
-        history_menu = new GLib.Menu ();
-        /* Translators: history menu entry (with a mnemonic that appears pressing Alt) */
-        history_menu.append (_("_Undo last move"), "ui.undo");
-        history_menu.freeze ();
-
-        finish_menu = new GLib.Menu ();
-        /* Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt) */
-        finish_menu.append (_("_Show final board"), "ui.undo");
-        finish_menu.freeze ();
-
-        bool dir_is_ltr = get_locale_direction () == TextDirection.LTR;
-        history_button_light_label = dir_is_ltr ? "‎⮚ ⚪" : /* yes */ "‏⮘ ⚪";    /* both have an LTR/RTL mark */
-        history_button_dark_label  = dir_is_ltr ? "‎⮚ ⚫" : /* yes */ "‏⮘ ⚫";    /* both have an LTR/RTL mark */
-
-        history_button_new_game ();
-    }
-
     internal inline void update_history_button (bool finish_animation)
     {
-        history_button.set_menu_model (finish_animation ? finish_menu : history_menu);
+        history_button.update_menu (finish_animation);
     }
 
     internal inline void history_button_new_game ()
     {
-        set_history_button_label (Player.DARK);
-        update_history_button (/* final animation */ false);
+        history_button.new_game ();
     }
 
     internal void set_history_button_label (Player player)
     {
-        switch (player)
-        {
-            case Player.LIGHT:
-                    history_button.set_label (history_button_light_label);  break;
-            case Player.DARK:
-                    history_button.set_label (history_button_dark_label);   break;
-            case Player.NONE:
-                if (is_extra_thin)
-                    /* Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game; this string is for when the window is really small, so keep the string as small as possible (3~5 characters) */
-                    history_button.set_label (_("End!"));
-
-                else
-                    /* Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game, if the window is not too thin */
-                    history_button.set_label (_("Finished!"));              break;
-            default: assert_not_reached ();
-        }
-
-        Widget? history_label = history_button.get_child ();
-        if ((history_label != null)
-         && (!) history_label is Label)
-            ((Label) (!) history_label).set_ellipsize (Pango.EllipsizeMode.END);
-     // else assert_not_reached ();
+        history_button.update_label (player);
     }
 }

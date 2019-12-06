@@ -11,6 +11,7 @@
     <file compressed="true">base-window.css</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="base-window.ui"             >ui/base-window.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="game-headerbar.ui"          >ui/game-headerbar.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="history-button.ui"          >ui/history-button.ui</file>
     <file compressed="true">iagno.css</file>
     <file compressed="true">new-game-screen.css</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="new-game-screen.ui"         >ui/new-game-screen.ui</file>
