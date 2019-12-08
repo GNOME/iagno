@@ -25,9 +25,6 @@ private enum GameWindowFlags {
     HAS_SOUND,
     SHORTCUTS,
     SHOW_HELP,
-    SHOW_HINT,
-    SHOW_REDO,
-    SHOW_UNDO,
     SHOW_START_BUTTON;
 }
 

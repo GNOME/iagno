@@ -407,8 +407,7 @@ private class Iagno : Gtk.Application, BaseApplication
                                  GameWindowFlags.SHOW_START_BUTTON
                                  | GameWindowFlags.HAS_SOUND
                                  | GameWindowFlags.SHORTCUTS
-                                 | GameWindowFlags.SHOW_HELP
-                                 | GameWindowFlags.SHOW_UNDO,
+                                 | GameWindowFlags.SHOW_HELP,
                                  (Box) new_game_screen,
                                  view,
                                  appearance_menu,

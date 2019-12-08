@@ -22,23 +22,29 @@
 <interface>
   <requires lib="gtk+" version="3.12"/>
   <template class="GameHeaderBar" parent="BaseHeaderBar">
-    <property name="visible">True</property>
     <property name="show-close-button">True</property>
     <child>
       <object class="GtkButton" id="new_game_button">
-        <property name="visible">False</property>
-        <property name="use-underline">True</property>
-        <!-- Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt) -->
-        <property name="label" translatable="yes">_New Game</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="action-name">ui.new-game</property>
         <property name="can-default">True</property>
-        <!-- Translators: during a game, tooltip text of the Start Over button -->
+        <!-- Translators: during a game, tooltip text of the New Game button -->
         <property name="tooltip-text" translatable="yes">Start a new game</property>
         <style>
+          <class name="text-button"/>
           <class name="new-game-button"/>
         </style>
+        <child>
+          <object class="GtkLabel"> <!-- for ellipsizing, if the text shows a moves count that can grow -->
+            <property name="visible">True</property>
+            <!-- Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt) -->
+            <property name="label" translatable="yes">_New Game</property>
+            <property name="ellipsize">end</property>
+            <property name="mnemonic-widget">new_game_button</property>
+            <property name="use-underline">True</property>
+          </object>
+        </child>
       </object>
     </child>
     <child>

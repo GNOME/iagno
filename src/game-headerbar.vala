@@ -30,9 +30,6 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
     [CCode (notify = false)] public string window_name   { private get; protected construct set; default = ""; }
 
     [CCode (notify = false)] public bool has_sound { private get; protected construct; default = false; }
-    [CCode (notify = false)] public bool show_undo { private get; protected construct; default = false; }
-    [CCode (notify = false)] public bool show_redo { private get; protected construct; default = false; }
-    [CCode (notify = false)] public bool show_hint { private get; protected construct; default = false; }    // TODO something
 
     [CCode (notify = false)] public Widget? game_widget { private get; protected construct; default = null; }
 
@@ -59,9 +56,6 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
                 has_keyboard_shortcuts: GameWindowFlags.SHORTCUTS in flags,
                 has_sound:              GameWindowFlags.HAS_SOUND in flags,
                 has_help:               GameWindowFlags.SHOW_HELP in flags, // TODO rename show_help
-                show_hint:              GameWindowFlags.SHOW_HINT in flags,
-                show_redo:              GameWindowFlags.SHOW_REDO in flags,
-                show_undo:              GameWindowFlags.SHOW_UNDO in flags,
                 appearance_menu:        _appearance_menu,
                 game_widget:            _game_widget,
                 window_name:            _window_name);
