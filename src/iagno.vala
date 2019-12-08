@@ -384,10 +384,12 @@ private class Iagno : Gtk.Application, BaseApplication
         appearance_menu.append_section (null, section);
 
         section = new GLib.Menu ();
-        /* Translators: hamburger menu "Appearance" submenu entry; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play */
-        section.append (_("Highlight _capturable tiles"), "app.highlight-turnable-tiles");
+        /* Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play */
+        section.append (_("_Capturable tiles"), "app.highlight-turnable-tiles");
         section.freeze ();
-        appearance_menu.append_section (null, section);
+
+        /* Translators: hamburger menu "Appearance" submenu section header; the section will list several game helpers that are done by highlighting tiles on the board; currently, there is only one helper, "Capturable tiles"; "Highlights" is probably better understood as a noun than as a verb here */
+        appearance_menu.append_section (_("Highlights"), section);
         appearance_menu.freeze ();
 
         history_button_1 = new HistoryButton ();
