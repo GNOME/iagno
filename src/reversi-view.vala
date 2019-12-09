@@ -22,6 +22,12 @@
 
 private class ReversiView : Gtk.DrawingArea
 {
+    private bool _show_playable_tiles = false;
+    [CCode (notify = false)] internal bool show_playable_tiles
+    {
+        private  get { return _show_playable_tiles; }
+        internal set { _show_playable_tiles = value; if (game_is_set) highlight_playable_tiles (); }
+    }
     [CCode (notify = false)] internal bool show_turnable_tiles { private get; internal set; default = false; }
 
     /* Theme */
@@ -193,6 +199,9 @@ private class ReversiView : Gtk.DrawingArea
                 humans_opening_intensity = 0;
 
             queue_draw ();
+
+            if (show_playable_tiles)
+                highlight_playable_tiles ();
         }
     }
 
@@ -633,12 +642,21 @@ private class ReversiView : Gtk.DrawingArea
 
     private inline void add_highlights (Cairo.Context cr)
     {
-        if (playable_tiles_highlight_state == 0)
+        if (!show_playable_tiles && playable_tiles_highlight_state == 0)
             return;
         if (iagno_instance.computer != null && iagno_instance.player_one != game.current_color)
         {
             init_possible_moves ();
             return;
+        }
+
+        if (show_playable_tiles && show_turnable_tiles)
+        {
+            unowned PossibleMove move;
+            if (show_mouse_highlight && game.test_placing_tile (mouse_highlight_x, mouse_highlight_y, out move))
+                return;
+            if (show_highlight && game.test_placing_tile (highlight_x, highlight_y, out move))
+                return;
         }
 
         bool decreasing = playable_tiles_highlight_state > HIGHLIGHT_MAX;
@@ -654,7 +672,9 @@ private class ReversiView : Gtk.DrawingArea
 
         if (decreasing && intensity == 1)
             init_possible_moves ();
-        else
+        else if (!show_playable_tiles)
+            playable_tiles_highlight_state++;
+        else if (playable_tiles_highlight_state < HIGHLIGHT_MAX)
             playable_tiles_highlight_state++;
     }
     private inline void add_highlight (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity)
@@ -941,6 +961,13 @@ private class ReversiView : Gtk.DrawingArea
             show_highlight = true;
         else if (!show_highlight)
             show_mouse_highlight = true;
+
+        // reload playable tiles
+        if (show_playable_tiles)
+        {
+            init_possible_moves (); // clears previous highlights
+            highlight_playable_tiles (/* force reload */ true);
+        }
     }
     private void get_missing_tile (out uint8 x, out uint8 y)
     {
@@ -1010,8 +1037,11 @@ private class ReversiView : Gtk.DrawingArea
         if (!no_draw)
         {
             update_squares ();
+            playable_tiles_highlight_state = 0;
             if (undoing)
                 update_highlight_after_undo ();
+            else if (show_playable_tiles)
+                highlight_playable_tiles ();
         }
 
         last_state = game.current_state;
@@ -1176,6 +1206,7 @@ private class ReversiView : Gtk.DrawingArea
         notify_final_animation (/* undoing */ true);
         flip_final_result_now = false;
         update_squares ();
+        highlight_playable_tiles ();
 
         return true;
     }
@@ -1268,7 +1299,7 @@ private class ReversiView : Gtk.DrawingArea
                         Source.remove (timeout_id);
                         timeout_id = 0;
                     }
-                    timeout_id = Timeout.add (200, () => {
+                    timeout_id = Timeout.add (show_playable_tiles ? 50 : 200, () => {
                             if (mouse_is_in)
                                 _on_motion (x, y, /* force redraw */ false);
                             timeout_id = 0;
@@ -1708,9 +1739,9 @@ private class ReversiView : Gtk.DrawingArea
             move (x, y);
     }
 
-    private inline void highlight_playable_tiles ()
+    private inline void highlight_playable_tiles (bool force_reload = false)
     {
-        if (playable_tiles_highlight_state != 0)
+        if (!force_reload && playable_tiles_highlight_state != 0)
             return;
 
         SList<PossibleMove?> moves;

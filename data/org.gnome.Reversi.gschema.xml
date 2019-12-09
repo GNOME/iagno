@@ -66,6 +66,13 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level' -->
       <description>From 1, the easiest, to 3, the hardest.</description>
     </key>
+    <key name="highlight-playable-tiles" type="b">
+      <default>false</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles' -->
+      <summary>A flag to highlight playable tiles</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles' -->
+      <description>If “true”, the tiles where you can play are highlighted.</description>
+    </key>
     <key name="highlight-turnable-tiles" type="b">
       <default>false</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play -->

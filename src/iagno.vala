@@ -384,11 +384,15 @@ private class Iagno : Gtk.Application, BaseApplication
         appearance_menu.append_section (null, section);
 
         section = new GLib.Menu ();
+        /* Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt) */
+        section.append (_("Pla_yable tiles"), "app.highlight-playable-tiles");
+
+
         /* Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play */
         section.append (_("_Capturable tiles"), "app.highlight-turnable-tiles");
         section.freeze ();
 
-        /* Translators: hamburger menu "Appearance" submenu section header; the section will list several game helpers that are done by highlighting tiles on the board; currently, there is only one helper, "Capturable tiles"; "Highlights" is probably better understood as a noun than as a verb here */
+        /* Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here */
         appearance_menu.append_section (_("Highlights"), section);
         appearance_menu.freeze ();
 
@@ -436,6 +440,7 @@ private class Iagno : Gtk.Application, BaseApplication
         set_accels_for_action ("base.toggle-hamburger", {                 "F10"     });
      // set_accels_for_action ("app.help",              {                 "F1"      });
      // set_accels_for_action ("base.about",            {          "<Shift>F1"      });
+        add_action (settings.create_action ("highlight-playable-tiles"));
         add_action (settings.create_action ("highlight-turnable-tiles"));
         if (!alternative_start && !random_start && !usual_start)
             add_action (settings.create_action ("random-start-position"));
@@ -443,6 +448,7 @@ private class Iagno : Gtk.Application, BaseApplication
         add_action (settings.create_action ("theme"));
         add_action (settings.create_action ("type"));        // TODO window action?
 
+        settings.bind ("highlight-playable-tiles", view, "show-playable-tiles", SettingsBindFlags.GET);
         settings.bind ("highlight-turnable-tiles", view, "show-turnable-tiles", SettingsBindFlags.GET);
         settings.bind ("theme",                    view, "theme",               SettingsBindFlags.GET);
 
