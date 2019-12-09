@@ -1299,7 +1299,11 @@ private class ReversiView : Gtk.DrawingArea
                         Source.remove (timeout_id);
                         timeout_id = 0;
                     }
-                    timeout_id = Timeout.add (show_playable_tiles ? 50 : 200, () => {
+                    uint delay;
+                    if (show_turnable_tiles)        delay = 120;
+                    else if (show_playable_tiles)   delay =  50;
+                    else                            delay = 200;
+                    timeout_id = Timeout.add (delay, () => {
                             if (mouse_is_in)
                                 _on_motion (x, y, /* force redraw */ false);
                             timeout_id = 0;
