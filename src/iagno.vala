@@ -408,7 +408,7 @@ private class Iagno : Gtk.Application, BaseApplication
         window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
                                  PROGRAM_NAME,
                                  /* Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt) */
-                                 _("About Reversi"),
+                                 _("_About Reversi"),
                                  start_now,
                                  GameWindowFlags.SHOW_START_BUTTON
                                  | GameWindowFlags.HAS_SOUND
