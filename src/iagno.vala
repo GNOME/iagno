@@ -262,7 +262,7 @@ private class Iagno : Gtk.Application, BaseApplication
         view.move.connect (player_move_cb);
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
-        GLib.Menu size_menu = new GLib.Menu ();
+        GLib.Menu type_menu = new GLib.Menu ();
         GLib.Menu section = new GLib.Menu ();
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt) */
         section.append (_("Play _first (Dark)"),  "app.game-type('dark')");
@@ -271,36 +271,36 @@ private class Iagno : Gtk.Application, BaseApplication
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt) */
         section.append (_("Play _second (Light)"), "app.game-type('light')");
         section.freeze ();
-        size_menu.append_section (null, section);
+        type_menu.append_section (null, section);
 
         section = new GLib.Menu ();
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt) */
         section.append (_("_Alternate who starts"), "app.alternate-who-starts");
         section.freeze ();
-        size_menu.append_section (null, section);
+        type_menu.append_section (null, section);
 
         section = new GLib.Menu ();
         /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt) */
         section.append (_("_Two players"), "app.game-type('two')");
         section.freeze ();
-        size_menu.append_section (null, section);
+        type_menu.append_section (null, section);
 
-        size_menu.freeze ();
+        type_menu.freeze ();
 
-        GLib.Menu theme_menu = new GLib.Menu ();
+        GLib.Menu level_menu = new GLib.Menu ();
         section = new GLib.Menu ();
         /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt) */
-        theme_menu.append (_("_Easy"),   "app.change-level('1')");
+        level_menu.append (_("_Easy"),   "app.change-level('1')");
 
 
         /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt) */
-        theme_menu.append (_("_Medium"), "app.change-level('2')");
+        level_menu.append (_("_Medium"), "app.change-level('2')");
 
 
         /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt) */
-        theme_menu.append (_("_Hard"),   "app.change-level('3')");
+        level_menu.append (_("_Hard"),   "app.change-level('3')");
         section.freeze ();
-        theme_menu.append_section (null, section);
+        level_menu.append_section (null, section);
 
         if (!alternative_start && !random_start && !usual_start)
         {
@@ -308,9 +308,9 @@ private class Iagno : Gtk.Application, BaseApplication
             /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt) */
             section.append (_("_Vary start position"), "app.random-start-position");
             section.freeze ();
-            theme_menu.append_section (null, section);
+            level_menu.append_section (null, section);
         }
-        theme_menu.freeze ();
+        level_menu.freeze ();
 
         /* Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces */
         new_game_screen = new NewGameScreen (_("Classic Reversi"),
@@ -318,10 +318,9 @@ private class Iagno : Gtk.Application, BaseApplication
 
         /* Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces */
                                              _("Reverse Reversi"),
-                                             "app.type('reverse')",
-
-                                             size_menu,
-                                             theme_menu);
+                                             "app.type('reverse')");
+        new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.ONE, type_menu);
+        new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.TWO, level_menu);
 
         if (settings.get_boolean ("sound"))
             init_sound ();
@@ -490,7 +489,7 @@ private class Iagno : Gtk.Application, BaseApplication
                 }
 
                 bool solo = settings.get_int ("num-players") == 1;
-                new_game_screen.update_sensitivity (solo);
+                set_level_button_sensitivity (solo);
                 if (!solo)
                     update_game_type_button_label ("two");
                 else if (settings.get_string ("color") == "dark")
@@ -499,7 +498,7 @@ private class Iagno : Gtk.Application, BaseApplication
                     update_game_type_button_label ("light");
             });
         bool solo = settings.get_int ("num-players") == 1;
-        new_game_screen.update_sensitivity (solo);
+        set_level_button_sensitivity (solo);
 
         if (settings.get_int ("num-players") == 2)
         {
@@ -569,13 +568,13 @@ private class Iagno : Gtk.Application, BaseApplication
         game_type_changed_2 = true;
         switch (type)
         {
-            case "two":   settings.set_int    ("num-players", 2); new_game_screen.update_sensitivity (false);
+            case "two":   settings.set_int    ("num-players", 2); set_level_button_sensitivity (false);
                           /* no change to the color of course; */ alternate_who_starts_action.set_enabled (false);  return;
             // DO NOT delay/apply or you lose sync between alternate_who_starts_action and the settings after switching to one-player mode
-            case "dark":  settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
+            case "dark":  settings.set_int    ("num-players", 1); set_level_button_sensitivity (true);
                           settings.set_string ("color",  "dark"); alternate_who_starts_action.set_enabled (true);   return;
             // DO NOT delay/apply or you lose sync between alternate_who_starts_action and the settings after switching to one-player mode
-            case "light": settings.set_int    ("num-players", 1); new_game_screen.update_sensitivity (true);
+            case "light": settings.set_int    ("num-players", 1); set_level_button_sensitivity (true);
                           settings.set_string ("color", "light"); alternate_who_starts_action.set_enabled (true);   return;
             default: assert_not_reached ();
         }
@@ -598,6 +597,10 @@ private class Iagno : Gtk.Application, BaseApplication
                                                          "%s ▾".printf (_("Color: Light")));            return;
             default: assert_not_reached ();
         }
+    }
+    private void set_level_button_sensitivity (bool new_sensitivity)
+    {
+        new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, new_sensitivity);
     }
 
     private bool level_changed = false;

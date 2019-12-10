@@ -40,26 +40,16 @@ private class NewGameScreen : Box, AdaptativeWidget
         fix_race ();
     }
 
-    internal NewGameScreen (string      modelbutton_one_label,
-                            string      modelbutton_one_action,
-                            string      modelbutton_two_label,
-                            string      modelbutton_two_action,
-                            GLib.Menu   menu_one,
-                            GLib.Menu   menu_two)
+    internal NewGameScreen (string modelbutton_one_label,
+                            string modelbutton_one_action,
+                            string modelbutton_two_label,
+                            string modelbutton_two_action)
     {
         modelbutton_one.text = modelbutton_one_label;
         modelbutton_two.text = modelbutton_two_label;
 
         modelbutton_one.set_detailed_action_name (modelbutton_one_action);
         modelbutton_two.set_detailed_action_name (modelbutton_two_action);
-
-        menubutton_one.set_menu_model (menu_one);
-        menubutton_two.set_menu_model (menu_two);
-    }
-
-    internal void update_sensitivity (bool new_sensitivity)
-    {
-        menubutton_two.sensitive = new_sensitivity;
     }
 
     /*\
@@ -71,12 +61,30 @@ private class NewGameScreen : Box, AdaptativeWidget
         TWO;
     }
 
-    internal void update_menubutton_label (MenuButton button, string label)
+    internal inline void update_menubutton_label (MenuButton button, string label)
     {
         switch (button)
         {
             case MenuButton.ONE: menubutton_one.set_label (label); return;
             case MenuButton.TWO: menubutton_two.set_label (label); return;
+        }
+    }
+
+    internal inline void update_menubutton_menu (MenuButton button, GLib.Menu menu)
+    {
+        switch (button)
+        {
+            case MenuButton.ONE: menubutton_one.set_menu_model (menu); return;
+            case MenuButton.TWO: menubutton_two.set_menu_model (menu); return;
+        }
+    }
+
+    internal inline void update_menubutton_sensitivity (MenuButton button, bool new_sensitivity)
+    {
+        switch (button)
+        {
+            case MenuButton.ONE: menubutton_one.set_sensitive (new_sensitivity); return;
+            case MenuButton.TWO: menubutton_two.set_sensitive (new_sensitivity); return;
         }
     }
 
