@@ -36,12 +36,11 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     private GameHeaderBar   headerbar;
     private GameView        game_view;
     private GameActionBar   actionbar;
-    private Box             new_game_screen;
 
-    internal GameWindow (string? css_resource, string name, string about_action_label, bool start_now, GameWindowFlags flags, Box _new_game_screen, Widget view_content, GLib.Menu? appearance_menu, Widget? game_widget_1, Widget? game_widget_2, NightLightMonitor night_light_monitor)
+    internal GameWindow (string? css_resource, string name, string about_action_label, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget view_content, GLib.Menu? appearance_menu, Widget? game_widget_1, Widget? game_widget_2, NightLightMonitor night_light_monitor)
     {
         GameHeaderBar _headerbar = new GameHeaderBar (name, about_action_label, flags, appearance_menu, game_widget_1, night_light_monitor);
-        GameView      _game_view = new GameView (flags, _new_game_screen, view_content);
+        GameView      _game_view = new GameView (flags, new_game_screen, view_content);
         GameActionBar _actionbar = new GameActionBar (name, game_widget_2, /* show actionbar */ start_now);
 
         Object (nta_headerbar               : (NightTimeAwareHeaderBar) _headerbar,
@@ -54,9 +53,12 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         headerbar = _headerbar;
         game_view = _game_view;
         actionbar = _actionbar;
-        new_game_screen = _new_game_screen;
 
         add_to_main_grid (actionbar);
+
+        add_adaptative_child ((AdaptativeWidget) new_game_screen);
+        add_adaptative_child ((AdaptativeWidget) game_view);
+        add_adaptative_child ((AdaptativeWidget) actionbar);
 
         /* CSS */
         if (css_resource != null)
@@ -79,15 +81,6 @@ private class GameWindow : BaseWindow, AdaptativeWidget
             show_view ();
         else
             show_new_game_screen ();
-    }
-
-    protected override void set_window_size (AdaptativeWidget.WindowSize new_size)
-    {
-        base.set_window_size (new_size);
-
-        ((AdaptativeWidget) new_game_screen).set_window_size (new_size);
-        ((AdaptativeWidget) game_view).set_window_size (new_size);
-        ((AdaptativeWidget) actionbar).set_window_size (new_size);
     }
 
     /*\
