@@ -21,7 +21,7 @@
     <property name="visible">False</property>
     <signal name="key-press-event" handler="on_key_press_event"/>
     <child>
-      <object class="GtkOverlay">
+      <object class="GtkOverlay" id="main_overlay">
         <property name="visible">True</property>
         <child>
           <object class="GtkGrid" id="main_grid">

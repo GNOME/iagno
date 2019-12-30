@@ -54,11 +54,15 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         game_view = _game_view;
         actionbar = _actionbar;
 
-        add_to_main_grid (actionbar);
+        GameActionBarPlaceHolder actionbar_placeholder = new GameActionBarPlaceHolder (actionbar);
+        add_to_main_grid (actionbar_placeholder);
+        add_to_main_overlay (actionbar);
+        actionbar.valign = Align.END;
 
         add_adaptative_child ((AdaptativeWidget) new_game_screen);
         add_adaptative_child ((AdaptativeWidget) game_view);
         add_adaptative_child ((AdaptativeWidget) actionbar);
+        add_adaptative_child ((AdaptativeWidget) actionbar_placeholder);
 
         /* CSS */
         if (css_resource != null)

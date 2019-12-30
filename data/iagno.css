@@ -82,6 +82,14 @@ label.game-name-label:dir(rtl) {
   margin-right: 12px;
 }
 
+/* the actionbar is in an overlay... */
+actionbar {
+  background-color:@theme_bg_color;
+}
+actionbar:backdrop {
+  background-color:@theme_unfocused_bg_color;
+}
+
 /*\
 * * games buttons
 \*/

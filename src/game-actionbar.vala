@@ -89,3 +89,42 @@ private class GameActionBar : Revealer, AdaptativeWidget
         update_visibility ();
     }
 }
+
+[GtkTemplate (ui = "/org/gnome/Reversi/ui/game-actionbar-placeholder.ui")]
+private class GameActionBarPlaceHolder : Revealer, AdaptativeWidget
+{
+    [GtkChild] private Widget placeholder_child;
+    private GameActionBar actionbar;
+
+    internal GameActionBarPlaceHolder (GameActionBar _actionbar)
+    {
+        actionbar = _actionbar;
+        actionbar.size_allocate.connect (set_height);
+        set_height ();
+        set_reveal_child (true);    // seems like setting it in the UI file does not work, while it is OK for GameActionBar...
+    }
+
+    private void set_height ()
+    {
+        Requisition natural_size;
+        Widget? widget = actionbar.get_child ();
+        if (widget == null)
+            return;
+        ((!) widget).get_preferred_size (/* minimum size */ null, out natural_size);
+        placeholder_child.height_request = natural_size.height;
+    }
+
+    /*\
+    * * adaptative stuff
+    \*/
+
+    private bool is_extra_thin = true;
+    protected override void set_window_size (AdaptativeWidget.WindowSize new_size)
+    {
+        bool _is_extra_thin = AdaptativeWidget.WindowSize.is_extra_thin (new_size);
+        if (_is_extra_thin == is_extra_thin)
+            return;
+        is_extra_thin = _is_extra_thin;
+        set_reveal_child (is_extra_thin);
+    }
+}
