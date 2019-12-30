@@ -48,7 +48,7 @@ private class GameView : BaseView, AdaptativeWidget
         scrolled.add (new_game_box);
     }
 
-    internal GameView (GameWindowFlags flags, Box new_game_screen, Widget content)
+    internal GameView (GameWindowFlags flags, Box new_game_screen, Widget content, GameActionBarPlaceHolder actionbar_placeholder)
     {
         new_game_box.pack_start (new_game_screen, true, true, 0);
 
@@ -71,11 +71,12 @@ private class GameView : BaseView, AdaptativeWidget
 
         game_content = content;
 
-        game_box = new Box (Orientation.HORIZONTAL, 0);
+        game_box = new Box (Orientation.VERTICAL, 0);
         game_content.hexpand = true;
         game_content.vexpand = true;
         game_content.show ();
-        game_box.add (game_content);
+        game_box.pack_start (game_content, /* expand */ true, /* fill */ true, /* padding */ 0);
+        game_box.pack_end (actionbar_placeholder, /* expand */ false, /* fill */ false, /* padding */ 0);
         game_box.show ();
         game_box.get_style_context ().add_class ("game-box");
 

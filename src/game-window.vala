@@ -39,9 +39,11 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
     internal GameWindow (string? css_resource, string name, string about_action_label, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget view_content, GLib.Menu? appearance_menu, Widget? game_widget_1, Widget? game_widget_2, NightLightMonitor night_light_monitor)
     {
-        GameHeaderBar _headerbar = new GameHeaderBar (name, about_action_label, flags, appearance_menu, game_widget_1, night_light_monitor);
-        GameView      _game_view = new GameView (flags, new_game_screen, view_content);
         GameActionBar _actionbar = new GameActionBar (name, game_widget_2, /* show actionbar */ start_now);
+        GameActionBarPlaceHolder actionbar_placeholder = new GameActionBarPlaceHolder (_actionbar);
+
+        GameHeaderBar _headerbar = new GameHeaderBar (name, about_action_label, flags, appearance_menu, game_widget_1, night_light_monitor);
+        GameView      _game_view = new GameView (flags, new_game_screen, view_content, actionbar_placeholder);
 
         Object (nta_headerbar               : (NightTimeAwareHeaderBar) _headerbar,
                 base_view                   : (BaseView) _game_view,
@@ -54,8 +56,6 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         game_view = _game_view;
         actionbar = _actionbar;
 
-        GameActionBarPlaceHolder actionbar_placeholder = new GameActionBarPlaceHolder (actionbar);
-        add_to_main_grid (actionbar_placeholder);
         add_to_main_overlay (actionbar);
         actionbar.valign = Align.END;
 
