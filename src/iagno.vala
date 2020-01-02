@@ -4,7 +4,7 @@
 
    Copyright 2010-2013 Robert Ancell
    Copyright 2013-2014 Michael Catanzaro
-   Copyright 2014-2019 Arnaud Bonatti
+   Copyright 2014-2020 Arnaud Bonatti
 
    GNOME Reversi is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1049,7 +1049,7 @@ private class Iagno : Gtk.Application, BaseApplication
 
 
         /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
-                    _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2014, 2019);
+                    _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2014, 2020);
 
 
         /* Translators: text crediting a documenter, in the about dialog */
