@@ -5,6 +5,7 @@
   <info>
     <link type="guide" xref="index#play" />
     <revision version="0.1" date="2012-03-08" status="final"/>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-03" status="final"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
@@ -32,7 +33,7 @@
     </note>
     </item>
     <item>
-    <p>You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></guiseq>.</p>
+    <p>You can undo a move by pressing the button with an arrow and a circle in the top-right corner and selecting <gui>Undo last move</gui>, or by pressing the <keyseq><key>Ctrl</key><key>Z</key></keyseq> <link xref="shortcuts">keyboard shortcut</link>.</p>
     </item>
   </steps>
 
