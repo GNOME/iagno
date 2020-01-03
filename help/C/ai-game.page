@@ -19,7 +19,7 @@
   </info>
 
   <title>Play against the computer</title>
-   <p>The computer has different levels of difficulty: Easy, Medium, and Hard.
+   <p>The computer has different levels of difficulty: <gui>Easy</gui>, <gui>Medium</gui>, and <gui>Hard</gui>.
    To change this setting, choose a different setting under <gui>Difficulty</gui>
    on the <gui>New Game</gui> screen.</p>
 
