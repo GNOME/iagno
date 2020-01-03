@@ -4,6 +4,7 @@
   <info>
     <link type="guide" xref="index#tips" />
     <revision version="0.1" date="2012-03-08" status="final"/>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-03" status="final"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
@@ -17,18 +18,9 @@
   <title>Change player color and difficulty</title>
 
   <p>
-   To change the player for each color:
-  </p>
-
-  <steps>
-  <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>.</p></item>
-  <item><p>Select the <gui>Game</gui> tab</p></item>
-  <item><p>Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</gui>.</p>
-  <note><p>
-   Your choice is effective immediately.
-  </p></note>
-  </item>
-  <item><p>Click <gui>Close</gui></p></item>
-  </steps>
+   To change the color of your player when you <link xref="ai-game">play against the computer</link>, choose a different setting under <gui>Color</gui>
+   on the <gui>New Game</gui> screen.</p>
+  <p>
+   You can also change the difficulty on this screen.</p>
 
 </page>
