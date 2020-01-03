@@ -4,6 +4,7 @@
   <info>
     <link type="guide" xref="index#tips" />
     <revision version="0.1" date="2012-03-08" status="final"/>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-03" status="final"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
@@ -15,13 +16,5 @@
   </info>
 
   <title>Enable and disable sound</title>
-  <p>To enable or disable the sound:</p>
-  <steps>
-    <item><p>Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>.</p></item>
-    <item><p>Select the <gui>Game</gui> tab.</p></item>
-    <item><p>Click the <gui>Enable sounds</gui> checkbox.</p></item>
-    <item><p>Click <gui>Close</gui>.</p>
-    <note><p>The change will be available immediately.</p></note>
-    </item>
-  </steps>
+  <p>To enable or disable the sound, press the menu button in the top-right corner of the window and select <gui>Sound</gui>.</p>
 </page>
