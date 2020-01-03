@@ -4,6 +4,7 @@
   <info>
     <link type="guide" xref="index#play" />
     <revision version="0.1" date="2012-03-08" status="final"/>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-03" status="final"/>
 
     <credit type="author copyright">
       <name>Brian Grohe</name>
@@ -17,14 +18,6 @@
   </info>
 
   <title>Two-player mode</title>
-  <p>Two player mode allows you to play against another human rather than a computer. To enable this:</p>
+  <p>Two player mode allows you to play against another human rather than a computer. To enable this, select <gui>Two</gui> under <gui>Players</gui> on the <gui>New Game</gui> screen.</p>
 
-<steps>
-  <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq></p></item>
-  <item><p>Select the <gui>Game</gui> tab.</p></item>
-  <item><p>Check <gui>human</gui> in both player columns.</p></item>
-  <item><p>Click <gui>Close</gui></p>
-  <note><p>Your changes will apply when a new game is started.</p></note>
-  </item>
-  </steps>
 </page>
