@@ -4,6 +4,7 @@
   <info>
     <link type="guide" xref="index#play" />
     <revision version="0.1" date="2012-03-08" status="final"/>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-03" status="final"/>
 
     <credit type="author copyright">
       <name>Brian Grohe</name>
@@ -18,12 +19,8 @@
   </info>
 
   <title>Play against the computer</title>
-   <p>The computer has different levels of difficulty: Level One, Level Two, and Level Three. To change this setting:</p>
+   <p>The computer has different levels of difficulty: Easy, Medium, and Hard.
+   To change this setting, choose a different setting under <gui>Difficulty</gui>
+   on the <gui>New Game</gui> screen.</p>
 
-   <steps>
-    <item><p>Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>.</p></item>
-    <item><p>Select the <gui>Game</gui> tab.</p></item>
-    <item><p>Select the difficulty level for your computer opponent.</p></item>
-    <item><p>Click <gui>Close</gui>.</p></item>
-   </steps>
 </page>
