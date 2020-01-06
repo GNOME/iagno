@@ -1,3 +1,22 @@
+3.35.3 – January 6, 2020
+=============================
+
+There is now a new option (not checked by default) to
+highlight the playable tiles (yes, the playable ones,
+this time), for making the game easier for newcomers.
+In the New Game screen, arrows have been added to the
+menubuttons for clarifying a bit what they are. Also,
+the window layout has improved on phone-like screens,
+with the game name being displayed in a bottom bar. A
+final thank to Andre Klapper, for updating user help.
+
+Translations updated:
+  Friulian: Fabio Tomat
+  German: Tim Sabsch
+  Greek: Efstathios Iosifidis
+  Lithuanian: Aurimas Černius
+  Spanish: Daniel Mustieles
+
 3.35.2 – November 23, 2019
 =============================
 
