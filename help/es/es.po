@@ -1,13 +1,13 @@
 # translation of iagno.HEAD.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
 # 
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2019.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2019-10-14 07:17+0000\n"
-"PO-Revision-Date: 2019-10-24 11:56+0200\n"
+"POT-Creation-Date: 2020-01-06 18:13+0000\n"
+"PO-Revision-Date: 2020-01-08 08:42+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -21,100 +21,66 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2017\n"
+"Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2020\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2008"
 
 #. (itstool) path: credit/name
-#: C/2player.page:9 C/ai-game.page:9 C/shortcuts.page:9
+#: C/2player.page:10 C/ai-game.page:10 C/shortcuts.page:9
 msgid "Brian Grohe"
 msgstr "Brian Grohe"
 
 #. (itstool) path: credit/years
-#: C/2player.page:11 C/ai-game.page:11 C/play.page:12 C/rules.page:12
-#: C/shortcuts.page:11 C/sound.page:11
+#: C/2player.page:12 C/ai-game.page:12 C/play.page:13 C/rules.page:12
+#: C/shortcuts.page:11 C/sound.page:12
 msgid "2012"
 msgstr "2012"
 
 #. (itstool) path: credit/name
-#: C/2player.page:14 C/ai-game.page:14 C/bug-filing.page:9
-#: C/change-color.page:9 C/develop.page:10 C/documentation.page:8
-#: C/index.page:12 C/play.page:10 C/rules.page:10 C/sound.page:9
+#: C/2player.page:15 C/ai-game.page:15 C/bug-filing.page:9
+#: C/change-color.page:10 C/develop.page:10 C/documentation.page:8
+#: C/index.page:12 C/play.page:11 C/rules.page:10 C/sound.page:10
 #: C/translate.page:10
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. (itstool) path: page/title
-#: C/2player.page:19
+#: C/2player.page:20
 msgid "Two-player mode"
 msgstr "Modo de dos jugadores"
 
 #. (itstool) path: page/p
-#: C/2player.page:20
+#: C/2player.page:21
+#| msgid ""
+#| "Two player mode allows you to play against another human rather than a "
+#| "computer. To enable this:"
 msgid ""
 "Two player mode allows you to play against another human rather than a "
-"computer. To enable this:"
+"computer. To enable this, select <gui>Two</gui> under <gui>Players</gui> on "
+"the <gui>New Game</gui> screen."
 msgstr ""
 "El modo de dos jugadores le permite jugar contra otro jugador humano en vez "
-"de contra el equipo. Para activar esto:"
-
-#. (itstool) path: item/p
-#: C/2player.page:23
-msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
-msgstr ""
-"Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>"
-
-#. (itstool) path: item/p
-#: C/2player.page:24 C/ai-game.page:25 C/sound.page:21
-msgid "Select the <gui>Game</gui> tab."
-msgstr "Seleccione la pestaña <gui>Juego</gui>."
-
-#. (itstool) path: item/p
-#: C/2player.page:25
-msgid "Check <gui>human</gui> in both player columns."
-msgstr "Marque <gui>humano</gui> en ambas columnas de los jugadores."
-
-#. (itstool) path: item/p
-#: C/2player.page:26 C/change-color.page:31
-msgid "Click <gui>Close</gui>"
-msgstr "Pulse <gui>Cerrar</gui>"
-
-#. (itstool) path: note/p
-#: C/2player.page:27
-msgid "Your changes will apply when a new game is started."
-msgstr "Sus cambios se aplicarán cuando se inicie una partida nueva."
+"de contra el equipo. Para activar esto seleccione <gui>Dos</gui> en "
+"<gui>Jugadores</gui> en la pantalla <gui>Juego nuevo</gui> screen."
 
 #. (itstool) path: page/title
-#: C/ai-game.page:20
+#: C/ai-game.page:21
 msgid "Play against the computer"
 msgstr "Jugar contra el equipo"
 
 #. (itstool) path: page/p
-#: C/ai-game.page:21
+#: C/ai-game.page:22
 msgid ""
-"The computer has different levels of difficulty: Level One, Level Two, and "
-"Level Three. To change this setting:"
+"The computer has different levels of difficulty: <gui>Easy</gui>, "
+"<gui>Medium</gui>, and <gui>Hard</gui>. To change this setting, choose a "
+"different setting under <gui>Difficulty</gui> on the <gui>New Game</gui> "
+"screen."
 msgstr ""
-"El equipo tiene varios niveles de dificultad: nivel uno, nivel dos y nivel "
-"tres. Para cambiar esta configuración:"
-
-#. (itstool) path: item/p
-#: C/ai-game.page:24 C/change-color.page:24
-msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
-msgstr ""
-"Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>."
-
-#. (itstool) path: item/p
-#: C/ai-game.page:26
-msgid "Select the difficulty level for your computer opponent."
-msgstr "Seleccione el nivel de dificultad para el oponente no humano."
-
-#. (itstool) path: item/p
-#: C/ai-game.page:27 C/sound.page:23
-msgid "Click <gui>Close</gui>."
-msgstr "Pulse <gui>Cerrar</gui>."
+"El equipo tiene varios niveles de dificultad: <gui>Fácil</gui>, <gui>Medio</"
+"gui>, y <gui>Difícil</gui>. Para cambiarlo elija un nivel diferente en "
+"<gui>Dificultad</gui> en la pantalla <gui>Juego nuevo</gui>."
 
 #. (itstool) path: credit/years
-#: C/bug-filing.page:11 C/change-color.page:11 C/develop.page:12
+#: C/bug-filing.page:11 C/change-color.page:12 C/develop.page:12
 #: C/documentation.page:10 C/strategy.page:11 C/translate.page:12
 msgid "2011"
 msgstr "2011"
@@ -137,10 +103,6 @@ msgstr "Informar de un error o sugerir una mejora"
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:22
-#| msgid ""
-#| "<app>Iagno</app> is maintained by a volunteer community. You are welcome "
-#| "to participate. If you notice a problem you can file a <em>bug report</"
-#| "em>. To file a bug, go to <link href=\"https://bugzilla.gnome.org/\"/>."
 msgid ""
 "<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
 "participate. If you notice a problem you can file a <em>bug report</em>. To "
@@ -164,12 +126,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:28
-#| msgid ""
-#| "To participate you need an account which will give you the ability to "
-#| "gain access, file bugs, and make comments. Also, you need to register so "
-#| "you can receive updates by e-mail about the status of your bug. If you "
-#| "don't already have an account, just click on the <gui>New Account</gui> "
-#| "link to create one."
 msgid ""
 "To participate you need an account which will give you the ability to gain "
 "access, file bugs, and make comments. Also, you need to register so you can "
@@ -186,31 +142,26 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/bug-filing.page:32
 #| msgid ""
-#| "Once you have an account, log in, click on <guiseq><gui>File a Bug</"
-#| "gui><gui>Applications</gui><gui>iagno</gui></guiseq>. Before reporting a "
-#| "bug, please read the <link href=\"https://bugzilla.gnome.org/page.cgi?"
-#| "id=bug-writing.html\">bug writing guidelines</link>, and please <link "
-#| "href=\"https://bugzilla.gnome.org/browse.cgi?product=iagno\">browse</"
-#| "link> for the bug to see if it already exists."
+#| "Once you have an account, log in, and click on <gui>New issue</gui>. "
+#| "Before reporting a bug, please read the <link href=\"https://bugzilla."
+#| "gnome.org/page.cgi?id=bug-writing.html\">bug writing guidelines</link>, "
+#| "and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
+#| "\">browse</link> for the bug to see if it already exists."
 msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
-"reporting a bug, please read the <link href=\"https://bugzilla.gnome.org/"
-"page.cgi?id=bug-writing.html\">bug writing guidelines</link>, and please "
-"<link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">browse</link> for "
-"the bug to see if it already exists."
+"reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/Bugzilla/Guidelines\">bug writing guidelines</"
+"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
+"\">browse</link> for the bug to see if it already exists."
 msgstr ""
 "Una vez que tenga su cuenta, inicie sesión y pulse en <gui>New issue</gui>. "
-"Antes de informar de un error, lea las <link href=\"https://bugzilla.gnome."
-"org/page.cgi?id=bug-writing.html\">guías para informar de un error</link> y "
-"<link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">busque</link> el "
-"error para ver si ya existe."
+"Antes de informar de un error, lea las <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/Bugzilla/Guidelines\">guías para informar de un "
+"error</link> y <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
+"\">busque</link> el error para ver si ya existe."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:37
-#| msgid ""
-#| "If you are requesting a new feature, choose <gui>enhancement</gui> in the "
-#| "<gui>Severity</gui> menu. Fill in the Summary and Description sections "
-#| "and click <gui>Submit Bug</gui>."
 msgid ""
 "If you are requesting a new feature, choose <gui>1. Feature</gui> in the "
 "<gui>Labels</gui> menu. Fill in the Title and Description sections and click "
@@ -230,33 +181,25 @@ msgstr ""
 "se trata.Gracias por ayudar a mejorar <app>Iagno</app>."
 
 #. (itstool) path: page/title
-#: C/change-color.page:17
+#: C/change-color.page:18
 msgid "Change player color and difficulty"
 msgstr "Cambiar el color del jugador y la dificultad"
 
 #. (itstool) path: page/p
-#: C/change-color.page:19
-msgid "To change the player for each color:"
-msgstr "Para cambiar el jugador de cada color:"
-
-#. (itstool) path: item/p
-#: C/change-color.page:25
-msgid "Select the <gui>Game</gui> tab"
-msgstr "Seleccione la pestaña <gui>Juego</gui>"
-
-#. (itstool) path: item/p
-#: C/change-color.page:26
+#: C/change-color.page:20
 msgid ""
-"Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
-"gui>."
+"To change the color of your player when you <link xref=\"ai-game\">play "
+"against the computer</link>, choose a different setting under <gui>Color</"
+"gui> on the <gui>New Game</gui> screen."
 msgstr ""
-"Seleccione el tipo de jugador/dificultad en <gui>Negras</gui> y "
-"<gui>Blancas</gui>."
+"Para cambiar el color de su jugador cuando <link xref=\"ai-game\">juegue "
+"contra el equipo</link>, elija uno diferente en <gui>Color</gui> en la "
+"pantalla <gui>Juego nuevo</gui>."
 
-#. (itstool) path: note/p
-#: C/change-color.page:27
-msgid "Your choice is effective immediately."
-msgstr "El cambio se aplica inmediatamente."
+#. (itstool) path: page/p
+#: C/change-color.page:23
+msgid "You can also change the difficulty on this screen."
+msgstr "Puede cambiar la dificultad en esta pantalla."
 
 #. (itstool) path: page/title
 #: C/develop.page:19
@@ -274,19 +217,26 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/develop.page:23
+#| msgid ""
+#| "If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
+#| "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
+#| "touch with the developers using <link href=\"https://cbe005.chat.mibbit."
+#| "com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our "
+#| "<link href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing "
+#| "list</link>."
 msgid ""
 "If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
-"Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
+"Contribute\">help develop <app>GNOME Games</app></link>, you can get in "
 "touch with the developers using <link href=\"https://cbe005.chat.mibbit.com/?"
 "url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our <link "
-"href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
+"href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
 "link>."
 msgstr ""
 "Si quiere <link href=\"https://wiki.gnome.org/Apps/Games/Contributing"
 "\">contribuir al desarrollo de los <app>juegos de GNOME</app></link>, puede "
 "\"ponerse en contacto con los desarrolladores usando <link href=\"https://"
 "cbe005.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</"
-"link>, o mediante la <link href=\"http://mail.gnome.org/mailman/listinfo/"
+"link>, o mediante la <link href=\"https://mail.gnome.org/mailman/listinfo/"
 "games-list\">lista de correo</link>."
 
 #. (itstool) path: page/title
@@ -305,24 +255,32 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/documentation.page:22
+#| msgid ""
+#| "To contribute to the Documentation Project, feel free to get in touch "
+#| "with us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F"
+#| "%2Firc.gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail."
+#| "gnome.org/mailman/listinfo/gnome-doc-list\">mailing list</link>."
 msgid ""
 "To contribute to the Documentation Project, feel free to get in touch with "
 "us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
-"gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail.gnome.org/"
-"mailman/listinfo/gnome-doc-list\">mailing list</link>."
+"gnome.org%2Fdocs\">irc</link>, or via our <link href=\"https://mail.gnome."
+"org/mailman/listinfo/gnome-doc-list\">mailing list</link>."
 msgstr ""
 "Para colaborar con el Proyecto de documentación, póngase en contacto usando "
 "<link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org"
-"%2Fdocs\">irc</link>, o mediante la <link href=\"http://mail.gnome.org/"
+"%2Fdocs\">irc</link>, o mediante la <link href=\"https://mail.gnome.org/"
 "mailman/listinfo/gnome-doc-list\">lista de correo</link>."
 
 #. (itstool) path: page/p
 #: C/documentation.page:24
+#| msgid ""
+#| "Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+#| "\">wiki</link> page contains useful information."
 msgid ""
-"Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+"Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
 "\">wiki</link> page contains useful information."
 msgstr ""
-"El <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+"El <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
 "\">wiki</link> contiene información útil."
 
 #. (itstool) path: info/title
@@ -484,12 +442,12 @@ msgstr ""
 "sa/3.0/\">Escrito de Commons</link>."
 
 #. (itstool) path: page/title
-#: C/play.page:18
+#: C/play.page:19
 msgid "How to Play"
 msgstr "Cómo jugar"
 
 #. (itstool) path: page/p
-#: C/play.page:20
+#: C/play.page:21
 msgid ""
 "<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
 "play."
@@ -498,28 +456,32 @@ msgstr ""
 "es fácil de jugar."
 
 #. (itstool) path: page/p
-#: C/play.page:22
+#: C/play.page:23
+#| msgid ""
+#| "When the game first starts, you play <em>Dark</em> and the computer "
+#| "player plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</"
+#| "link> is <gui>Level one</gui> by default."
 msgid ""
 "When the game first starts, you play <em>Dark</em> and the computer player "
 "plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
-"<gui>Level one</gui> by default."
+"<gui>Easy</gui> by default."
 msgstr ""
-"Cuando el juego emficha por primera vez, usted juega con las <em>Negras</em> "
+"Cuando el juego empieza por primera vez, usted juega con las <em>Negras</em> "
 "y el equipo juega con las <em>Blancas</em>. De manera predeterminada, el "
-"<link xref=\"ai-game\">nivel de dificultad</link> es el <gui>Nivel uno</gui>."
+"<link xref=\"ai-game\">nivel de dificultad</link> es el <gui>Fácil</gui>."
 
 #. (itstool) path: page/p
-#: C/play.page:25
+#: C/play.page:26
 msgid "The game is played using the mouse. To make a move:"
 msgstr "Se juega usando el ratón. Para realizar un movimiento:"
 
 #. (itstool) path: item/p
-#: C/play.page:28
+#: C/play.page:29
 msgid "Click on the cell you would like to place your piece in."
 msgstr "Pulse en la casilla en la que quiere colocar una ficha."
 
 #. (itstool) path: note/p
-#: C/play.page:29
+#: C/play.page:30
 msgid ""
 "If the move is legal, the piece will be placed in the cell, and the opponent "
 "pieces will be flipped to match your color."
@@ -528,21 +490,25 @@ msgstr ""
 "su oponente se voltearán para que coincidan con su color"
 
 #. (itstool) path: note/p
-#: C/play.page:31
+#: C/play.page:32
 msgid "If the move is not allowed, nothing will happen."
 msgstr "Si el movimiento no está permitido, no pasará nada."
 
 #. (itstool) path: item/p
-#: C/play.page:35
+#: C/play.page:36
 msgid ""
-"You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
-"guiseq>."
+"You can undo a move by pressing the button with an arrow and a circle in the "
+"top-right corner and selecting <gui>Undo last move</gui>, or by pressing the "
+"<keyseq><key>Ctrl</key><key>Z</key></keyseq> <link xref=\"shortcuts"
+"\">keyboard shortcut</link>."
 msgstr ""
-"Puede deshacer un movimiento pulsando en <guiseq><gui>Juego</"
-"gui><gui>Deshacer movimiento</gui></guiseq>."
+"Puede desahcer un movimiento pulsando el botón con una flecha y un círculo "
+"en la esquina superior derecha y eligiendo <gui>Deshacer último movimiento</"
+"gui>, o pulsando el <link xref=\"shortcuts\">atajo del teclado</link> "
+"<keyseq><key>Ctrl</key><key>Z</key></keyseq>."
 
 #. (itstool) path: section/title
-#: C/play.page:41
+#: C/play.page:42
 msgid "Video demonstration"
 msgstr "Vídeo de demostración"
 
@@ -710,30 +676,18 @@ msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 
 #. (itstool) path: page/title
-#: C/sound.page:17
+#: C/sound.page:18
 msgid "Enable and disable sound"
 msgstr "Activar y desactivar el sonido"
 
 #. (itstool) path: page/p
-#: C/sound.page:18
-msgid "To enable or disable the sound:"
-msgstr "Para activar o desactivar el sonido:"
-
-#. (itstool) path: item/p
-#: C/sound.page:20
-msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+#: C/sound.page:19
+msgid ""
+"To enable or disable the sound, press the menu button in the top-right "
+"corner of the window and select <gui>Sound</gui>."
 msgstr ""
-"Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>."
-
-#. (itstool) path: item/p
-#: C/sound.page:22
-msgid "Click the <gui>Enable sounds</gui> checkbox."
-msgstr "Pulse en la casilla <gui>Activar sonidos</gui> checkbox."
-
-#. (itstool) path: note/p
-#: C/sound.page:24
-msgid "The change will be available immediately."
-msgstr "El cambio estará disponible inmediatamente."
+"Para activar o desactivar el sonido pulse el botón de menú en la esquina "
+"superior derecha de la ventana y elija <gui>Sonido</gui>."
 
 #. (itstool) path: page/title
 #: C/strategy.page:21
@@ -783,15 +737,6 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/strategy.page:40
 msgid ""
-"<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
-"beginner's guide to strategy of the game</link>"
-msgstr ""
-"<link href=\"http://othello.dk/book/index.php/From_Scratch\">Una guía muy "
-"buena para principiantes sobre la estrategia del juego</link>"
-
-#. (itstool) path: item/p
-#: C/strategy.page:44
-msgid ""
 "<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
 "to strategy and tactics</link>"
 msgstr ""
@@ -799,16 +744,15 @@ msgstr ""
 "a la estrategia y las tácticas</link>"
 
 #. (itstool) path: item/p
-#: C/strategy.page:48
-msgid ""
-"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
-"\">Wikipedia: Strategic elements</link>"
-msgstr ""
-"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
-"\">Wikipedia: elementos estratégicos</link>"
+#: C/strategy.page:44
+#| msgid ""
+#| "<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
+#| "\">Wikipedia: Strategic elements</link>"
+msgid "<link href=\"https://en.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
+msgstr "<link href=\"https://es.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
 
 #. (itstool) path: item/p
-#: C/strategy.page:52
+#: C/strategy.page:47
 msgid ""
 "<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
 "guide</link>"
@@ -833,23 +777,31 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/translate.page:27
+#| msgid ""
+#| "There are <link href=\"http://l10n.gnome.org/module/iagno/\">many "
+#| "languages</link> for which translations are still needed."
 msgid ""
-"There are <link href=\"http://l10n.gnome.org/module/iagno/\">many languages</"
-"link> for which translations are still needed."
+"There are <link href=\"https://l10n.gnome.org/module/iagno/\">many "
+"languages</link> for which translations are still needed."
 msgstr ""
-"Hay <link href=\"http://l10n.gnome.org/module/iagno/\">muchos idiomas</link> "
-"para los que se siguen necesitando traducciones."
+"Hay <link href=\"https://l10n.gnome.org/module/iagno/\">muchos idiomas</"
+"link> para los que se siguen necesitando traducciones."
 
 #. (itstool) path: page/p
 #: C/translate.page:30
+#| msgid ""
+#| "To start translating you will need to <link href=\"http://l10n.gnome.org"
+#| "\">create an account</link> and join the <link href=\"http://l10n.gnome."
+#| "org/teams/\">translation team</link> for your language. This will give "
+#| "you the ability to upload new translations."
 msgid ""
-"To start translating you will need to <link href=\"http://l10n.gnome.org"
-"\">create an account</link> and join the <link href=\"http://l10n.gnome.org/"
+"To start translating you will need to <link href=\"https://l10n.gnome.org"
+"\">create an account</link> and join the <link href=\"https://l10n.gnome.org/"
 "teams/\">translation team</link> for your language. This will give you the "
 "ability to upload new translations."
 msgstr ""
-"Para empezar a traducir necesitará <link href=\"http:l10n.gnome.org\">crear "
-"una cuenta</link> y unirse al <link href=\"http://l10n.gnome.org/teams/"
+"Para empezar a traducir necesitará <link href=\"https:l10n.gnome.org\">crear "
+"una cuenta</link> y unirse al <link href=\"https://l10n.gnome.org/teams/"
 "\">equipo de traducción</link> de su idioma. Esto le dará la posibilidad de "
 "subir traducciones nuevas."
 
@@ -870,14 +822,94 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/translate.page:37
+#| msgid ""
+#| "Alternatively, you can contact the Internationalization Team using their "
+#| "<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+#| "list</link>."
 msgid ""
 "Alternatively, you can contact the Internationalization Team using their "
-"<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+"<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
 "list</link>."
 msgstr ""
 "Alternativamente, puede contactar con el equipo de internacionalización "
-"usando su <link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n"
+"usando su <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
 "\">lista de correo</link>."
+
+#~ msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
+#~ msgstr ""
+#~ "Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>"
+
+#~ msgid "Select the <gui>Game</gui> tab."
+#~ msgstr "Seleccione la pestaña <gui>Juego</gui>."
+
+#~ msgid "Check <gui>human</gui> in both player columns."
+#~ msgstr "Marque <gui>humano</gui> en ambas columnas de los jugadores."
+
+#~ msgid "Click <gui>Close</gui>"
+#~ msgstr "Pulse <gui>Cerrar</gui>"
+
+#~ msgid "Your changes will apply when a new game is started."
+#~ msgstr "Sus cambios se aplicarán cuando se inicie una partida nueva."
+
+#~ msgid ""
+#~ "The computer has different levels of difficulty: Level One, Level Two, "
+#~ "and Level Three. To change this setting:"
+#~ msgstr ""
+#~ "El equipo tiene varios niveles de dificultad: nivel uno, nivel dos y "
+#~ "nivel tres. Para cambiar esta configuración:"
+
+#~ msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+#~ msgstr ""
+#~ "Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>."
+
+#~ msgid "Select the difficulty level for your computer opponent."
+#~ msgstr "Seleccione el nivel de dificultad para el oponente no humano."
+
+#~ msgid "Click <gui>Close</gui>."
+#~ msgstr "Pulse <gui>Cerrar</gui>."
+
+#~ msgid "To change the player for each color:"
+#~ msgstr "Para cambiar el jugador de cada color:"
+
+#~ msgid "Select the <gui>Game</gui> tab"
+#~ msgstr "Seleccione la pestaña <gui>Juego</gui>"
+
+#~ msgid ""
+#~ "Select the type of player/difficulty under <gui>Dark</gui> and "
+#~ "<gui>Light</gui>."
+#~ msgstr ""
+#~ "Seleccione el tipo de jugador/dificultad en <gui>Negras</gui> y "
+#~ "<gui>Blancas</gui>."
+
+#~ msgid "Your choice is effective immediately."
+#~ msgstr "El cambio se aplica inmediatamente."
+
+#~ msgid ""
+#~ "You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</"
+#~ "gui></guiseq>."
+#~ msgstr ""
+#~ "Puede deshacer un movimiento pulsando en <guiseq><gui>Juego</"
+#~ "gui><gui>Deshacer movimiento</gui></guiseq>."
+
+#~ msgid "To enable or disable the sound:"
+#~ msgstr "Para activar o desactivar el sonido:"
+
+#~ msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+#~ msgstr ""
+#~ "Pulse en<guiseq><gui>Configuración</gui><gui>Preferencias</gui></guiseq>."
+
+#~ msgid "Click the <gui>Enable sounds</gui> checkbox."
+#~ msgstr "Pulse en la casilla <gui>Activar sonidos</gui> checkbox."
+
+#~ msgid "The change will be available immediately."
+#~ msgstr "El cambio estará disponible inmediatamente."
+
+#~ msgid ""
+#~ "<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
+#~ "beginner's guide to strategy of the game</link>"
+#~ msgstr ""
+#~ "<link href=\"http://othello.dk/book/index.php/From_Scratch\">Una guía muy "
+#~ "buena para principiantes sobre la estrategia del juego</link>"
 
 #~ msgid "<app>Iagno</app> game over position."
 #~ msgstr "Posición de juego terminado en <app>Iagno</app>."
