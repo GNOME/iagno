@@ -86,8 +86,8 @@ executable(meson.project_name(),
         'overlayed-list.vala',
         'player.vala',
         'registry-placeholder.vala',
-        'reversi-view.vala'
-
+        'reversi-view.vala',
+        'theme-manager.vala'
     ] + resources,
     install: true,
     c_args: [

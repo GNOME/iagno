@@ -30,48 +30,6 @@ private class ReversiView : Gtk.DrawingArea
     }
     [CCode (notify = false)] internal bool show_turnable_tiles { private get; internal set; default = false; }
 
-    /* Theme */
-    private string pieces_file;
-
-    private double background_red = 0.2;
-    private double background_green = 0.6;
-    private double background_blue = 0.4;
-    private int background_radius = 0;
-
-    private double texture_alpha = 0.25;
-    private bool   apply_texture = false;
-
- // private double mark_red = 0.2;
- // private double mark_green = 0.6;
- // private double mark_blue = 0.4;
- // private int mark_width = 2;
-
-    private double border_red = 0.1;
-    private double border_green = 0.1;
-    private double border_blue = 0.1;
-    private int border_width = 3;
-    private double half_border_width = 1.5;
-
-    private double spacing_red = 0.1;
-    private double spacing_green = 0.3;
-    private double spacing_blue = 0.2;
-    private int spacing_width = 2;
-
-    private double highlight_hard_red = 0.1;
-    private double highlight_hard_green = 0.3;
-    private double highlight_hard_blue = 0.2;
-    private double highlight_hard_alpha = 0.4;
-
-    private double highlight_soft_red = 0.1;
-    private double highlight_soft_green = 0.3;
-    private double highlight_soft_blue = 0.2;
-    private double highlight_soft_alpha = 0.2;
-
-    // private int margin_width = 0;
-
-    [CCode (notify = false)] internal string sound_flip     { internal get; private set; }
-    [CCode (notify = false)] internal string sound_gameover { internal get; private set; }
-
     private int board_x;
     private int board_y;
 
@@ -218,131 +176,18 @@ private class ReversiView : Gtk.DrawingArea
                   | Gdk.EventMask.LEAVE_NOTIFY_MASK
                   | Gdk.EventMask.STRUCTURE_MASK);
         init_mouse ();
+
+        theme_manager.theme_changed.connect (() => {
+                tiles_pattern = null;
+                queue_draw ();
+            });
     }
 
-    private Iagno iagno_instance;
-    internal ReversiView (Iagno iagno_instance)
+    [CCode (notify = false)] public Iagno           iagno_instance  { private get; protected construct; }
+    [CCode (notify = false)] public ThemeManager    theme_manager   { private get; protected construct; }
+    internal ReversiView (Iagno iagno_instance, ThemeManager theme_manager)
     {
-        this.iagno_instance = iagno_instance;
-    }
-
-    /*\
-    * * theme
-    \*/
-
-    internal void gtk_theme_changed ()
-    {
-        if (theme == null || (!) theme == "default")
-            theme = "default";  // yes
-    }
-
-    private string? _theme = null;
-    [CCode (notify = false)] internal string? theme
-    {
-        get { return _theme; }
-        set {
-            KeyFile key = new KeyFile ();
-            if (value == null || (!) value == "default")
-                set_default_theme (ref key);
-            else
-                try
-                {
-                    string key_path = Path.build_filename (DATA_DIRECTORY, "themes", "key");
-                    string filepath = Path.build_filename (key_path, (!) value);
-                    if (Path.get_dirname (filepath) != key_path)
-                        throw new FileError.FAILED ("Theme file is not in the \"key\" directory.");
-
-                    key.load_from_file (filepath, GLib.KeyFileFlags.NONE);
-                }
-                catch (Error e)
-                {
-                    warning ("Failed to load theme: %s", e.message);
-                    set_default_theme (ref key);
-                    value = "default";
-                }
-
-            load_theme (key);
-            _theme = value;
-
-            /* redraw all */
-            tiles_pattern = null;
-            queue_draw ();
-        }
-    }
-
-    private void set_default_theme (ref KeyFile key)
-    {
-        Gtk.Settings? defaults = Gtk.Settings.get_default ();
-
-        string filename;
-        if (defaults != null && "HighContrast" in ((!) defaults).gtk_theme_name)
-            filename = "high_contrast.theme";
-        else if (defaults != null && (((!) defaults).gtk_application_prefer_dark_theme == true
-                                   || ((!) defaults).gtk_theme_name == "Adwaita-dark"))
-            filename = "adwaita.theme";
-        else
-            filename = "classic.theme";
-
-        string filepath = Path.build_filename (DATA_DIRECTORY, "themes", "key", filename);
-        try
-        {
-            key.load_from_file (filepath, GLib.KeyFileFlags.NONE);
-        }
-        catch { assert_not_reached (); }
-    }
-
-    private void load_theme (GLib.KeyFile key)
-    {
-        try
-        {
-            string svg_path = Path.build_filename (DATA_DIRECTORY, "themes", "svg");
-            pieces_file = Path.build_filename (svg_path, key.get_string ("Pieces", "File"));
-            if (Path.get_dirname (pieces_file) != svg_path)
-                pieces_file = Path.build_filename (svg_path, "black_and_white.svg");
-
-            background_red       = key.get_double  ("Background", "Red");
-            background_green     = key.get_double  ("Background", "Green");
-            background_blue      = key.get_double  ("Background", "Blue");
-            background_radius    = key.get_integer ("Background", "Radius");
-
-            texture_alpha        = key.get_double  ("Background", "TextureAlpha");
-            apply_texture        = (texture_alpha > 0.0) && (texture_alpha <= 1.0);
-
-         // mark_red             = key.get_double  ("Mark", "Red");
-         // mark_green           = key.get_double  ("Mark", "Green");
-         // mark_blue            = key.get_double  ("Mark", "Blue");
-         // mark_width           = key.get_integer ("Mark", "Width");
-
-            border_red           = key.get_double  ("Border", "Red");
-            border_green         = key.get_double  ("Border", "Green");
-            border_blue          = key.get_double  ("Border", "Blue");
-            border_width         = key.get_integer ("Border", "Width");
-            half_border_width    = (double) border_width / 2.0;
-
-            spacing_red          = key.get_double  ("Spacing", "Red");
-            spacing_green        = key.get_double  ("Spacing", "Green");
-            spacing_blue         = key.get_double  ("Spacing", "Blue");
-            spacing_width        = key.get_integer ("Spacing", "Width");
-
-            highlight_hard_red   = key.get_double  ("Highlight hard", "Red");
-            highlight_hard_green = key.get_double  ("Highlight hard", "Green");
-            highlight_hard_blue  = key.get_double  ("Highlight hard", "Blue");
-            highlight_hard_alpha = key.get_double  ("Highlight hard", "Alpha");
-
-            highlight_soft_red   = key.get_double  ("Highlight soft", "Red");
-            highlight_soft_green = key.get_double  ("Highlight soft", "Green");
-            highlight_soft_blue  = key.get_double  ("Highlight soft", "Blue");
-            highlight_soft_alpha = key.get_double  ("Highlight soft", "Alpha");
-
-         // margin_width         = key.get_integer ("Margin", "Width");
-
-            sound_flip           = key.get_string  ("Sound", "Flip");
-            sound_gameover       = key.get_string  ("Sound", "GameOver");
-        }
-        catch (KeyFileError e)      // TODO better
-        {
-            warning ("Errors when loading theme: %s", e.message);
-        }
+        Object (iagno_instance: iagno_instance, theme_manager: theme_manager);
     }
 
     /*\
@@ -362,11 +207,11 @@ private class ReversiView : Gtk.DrawingArea
         int allocated_width  = get_allocated_width ();
         int allocated_height = get_allocated_height ();
         int size = int.min (allocated_width, allocated_height);
-        paving_size = (size - 2 * border_width + spacing_width) / game_size;
-        tile_size = paving_size - spacing_width;
-        board_size = paving_size * game_size - spacing_width + 2 * border_width;
-        board_x = (allocated_width  - board_size) / 2 + border_width;
-        board_y = (allocated_height - board_size) / 2 + border_width;
+        paving_size = (size - 2 * theme_manager.border_width + theme_manager.spacing_width) / game_size;
+        tile_size = paving_size - theme_manager.spacing_width;
+        board_size = paving_size * game_size - theme_manager.spacing_width + 2 * theme_manager.border_width;
+        board_x = (allocated_width  - board_size) / 2 + theme_manager.border_width;
+        board_y = (allocated_height - board_size) / 2 + theme_manager.border_width;
 
         if (humans_opening_intensity != 0)
             configure_overture_origin ();
@@ -386,33 +231,33 @@ private class ReversiView : Gtk.DrawingArea
     {
         if (game_size % 2 == 0)
         {
-            overture_origin_xs [0] = (game_size - 3) * board_size / (2 * game_size) - border_width - tile_size / 2;
-            overture_origin_xs [1] = (game_size - 1) * board_size / (2 * game_size) - border_width - tile_size / 2;
-            overture_origin_xs [2] = (game_size + 1) * board_size / (2 * game_size) - border_width - tile_size / 2;
-            overture_origin_xs [3] = (game_size + 3) * board_size / (2 * game_size) - border_width - tile_size / 2;
+            overture_origin_xs [0] = (game_size - 3) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+            overture_origin_xs [1] = (game_size - 1) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+            overture_origin_xs [2] = (game_size + 1) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+            overture_origin_xs [3] = (game_size + 3) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
 
             if (game_size == 4)
                 // where we can
-                overture_origin_y  = (int) ((game_size + 2.6) * board_size / (2 * game_size) - border_width - tile_size / 2);
+                overture_origin_y  = (int) ((game_size + 2.6) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2);
             else
                 // on the line under the center zone
-                overture_origin_y  = (game_size + 4) * board_size / (2 * game_size) - border_width - tile_size / 2;
+                overture_origin_y  = (game_size + 4) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
         }
         else
         {
-            overture_origin_xs [0] = (game_size - 2) * board_size / (2 * game_size) - border_width - tile_size / 2;
-            overture_origin_xs [2] =  game_size      * board_size / (2 * game_size) - border_width - tile_size / 2;
-            overture_origin_xs [4] = (game_size + 2) * board_size / (2 * game_size) - border_width - tile_size / 2;
+            overture_origin_xs [0] = (game_size - 2) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+            overture_origin_xs [2] =  game_size      * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+            overture_origin_xs [4] = (game_size + 2) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
             overture_origin_xs [1] = overture_origin_xs [0];
             overture_origin_xs [3] = overture_origin_xs [2];
             overture_origin_xs [5] = overture_origin_xs [4];
 
             if (game_size == 5)
                 // where we can
-                overture_origin_y  = (int) ((game_size + 3.6) * board_size / (2 * game_size) - border_width - tile_size / 2);
+                overture_origin_y  = (int) ((game_size + 3.6) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2);
             else
                 // on the line under the center zone
-                overture_origin_y  = (game_size + 5) * board_size / (2 * game_size) - border_width - tile_size / 2;
+                overture_origin_y  = (game_size + 5) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
         }
     }
 
@@ -425,14 +270,17 @@ private class ReversiView : Gtk.DrawingArea
             init_patterns (cr);
 
         // draw board
-        cr.translate (board_x - border_width, board_y - border_width);
+        cr.translate (board_x - theme_manager.border_width, board_y - theme_manager.border_width);
 
         cr.set_source ((!) board_pattern);
-        cr.rectangle (0, 0, /* width and height */ board_size, board_size);
+        cr.rectangle (/* x and y */ 0.0,
+                                    0.0,
+                      /* w and h */ board_size,
+                                    board_size);
         cr.fill ();
 
         // draw tiles (and highlight)
-        cr.translate (border_width, border_width);
+        cr.translate (theme_manager.border_width, theme_manager.border_width);
 
         if (humans_opening_intensity != 0)
             draw_overture (cr);
@@ -464,7 +312,7 @@ private class ReversiView : Gtk.DrawingArea
         // noise pattern
         Cairo.Pattern? noise_pattern = null;
 
-        if (apply_texture)
+        if (theme_manager.apply_texture)
         {
             Gdk.Pixbuf? noise_pixbuf = null;
 
@@ -482,7 +330,7 @@ private class ReversiView : Gtk.DrawingArea
                                                                                                   tile_size);
                 context = new Cairo.Context (surface);
                 Gdk.cairo_set_source_pixbuf (context, (!) noise_pixbuf, 0, 0);
-                context.paint_with_alpha (texture_alpha);
+                context.paint_with_alpha (theme_manager.texture_alpha);
                 // or  surface = Gdk.cairo_surface_create_from_pixbuf ((!) noise_pixbuf, 0, null); ?
 
                 noise_pattern = new Cairo.Pattern.for_surface (surface);
@@ -503,17 +351,20 @@ private class ReversiView : Gtk.DrawingArea
 
     private inline void draw_board_background (Cairo.Context cr)
     {
-        cr.set_source_rgba (spacing_red, spacing_green, spacing_blue, 1.0);
-        cr.rectangle (half_border_width, half_border_width, /* width and height */ board_size - border_width, board_size - border_width);
+        cr.set_source_rgba (theme_manager.spacing_red, theme_manager.spacing_green, theme_manager.spacing_blue, 1.0);
+        cr.rectangle (/* x and y */ theme_manager.half_border_width,
+                                    theme_manager.half_border_width,
+                      /* w and h */ board_size - theme_manager.border_width,
+                                    board_size - theme_manager.border_width);
         cr.fill_preserve ();
-        cr.set_source_rgba (border_red, border_green, border_blue, 1.0);
-        cr.set_line_width (border_width);
+        cr.set_source_rgba (theme_manager.border_red, theme_manager.border_green, theme_manager.border_blue, 1.0);
+        cr.set_line_width (theme_manager.border_width);
         cr.stroke ();
     }
 
     private inline void draw_tiles_background (Cairo.Context cr, ref Cairo.Pattern? noise_pattern)
     {
-        cr.translate (border_width, border_width);
+        cr.translate (theme_manager.border_width, theme_manager.border_width);
 
         for (uint8 x = 0; x < game_size; x++)
             for (uint8 y = 0; y < game_size; y++)
@@ -521,9 +372,9 @@ private class ReversiView : Gtk.DrawingArea
     }
     private inline void draw_tile_background (Cairo.Context cr, ref Cairo.Pattern? noise_pattern, int tile_x, int tile_y)
     {
-        cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
-        rounded_square (cr, tile_x, tile_y, tile_size, 0, background_radius);
-        if (apply_texture && noise_pixbuf_loaded)
+        cr.set_source_rgba (theme_manager.background_red, theme_manager.background_green, theme_manager.background_blue, 1.0);
+        rounded_square (cr, tile_x, tile_y, tile_size, 0, theme_manager.background_radius);
+        if (theme_manager.apply_texture && noise_pixbuf_loaded)
         {
             cr.fill_preserve ();
 
@@ -702,7 +553,10 @@ private class ReversiView : Gtk.DrawingArea
                           /* texture y */ (pixmap / 8) * tile_size - /* y position */ tile_y);
         ((!) tiles_pattern).set_matrix (matrix);
         cr.set_source ((!) tiles_pattern);
-        cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
+        cr.rectangle (/* x and y */ tile_x,
+                                    tile_y,
+                      /* w and h */ tile_size,
+                                    tile_size);
         cr.fill ();
     }
 
@@ -732,7 +586,7 @@ private class ReversiView : Gtk.DrawingArea
     private inline void draw_overture_indicator (Cairo.Context cr)
     {
         double diameter_factor = game_size == 4 ? 1.95 : 1.8;
-        cr.set_source_rgba (background_red, background_green, background_blue, 1.0);
+        cr.set_source_rgba (theme_manager.background_red, theme_manager.background_green, theme_manager.background_blue, 1.0);
         cr.arc ((double) overture_origin_xs [current_overture_playable] + (double) tile_size / 2.0,
                 (double) overture_origin_y + (double) tile_size / 2.0,
                 (double) tile_size / diameter_factor,
@@ -775,7 +629,10 @@ private class ReversiView : Gtk.DrawingArea
                           /* texture y */ (pixmap / 8) * tile_size - /* y position */ tile_y);
         ((!) tiles_pattern).set_matrix (matrix);
         cr.set_source ((!) tiles_pattern);
-        cr.rectangle (tile_x, tile_y, /* width and height */ tile_size, tile_size);
+        cr.rectangle (/* x and y */ tile_x,
+                                    tile_y,
+                      /* w and h */ tile_size,
+                                    tile_size);
         cr.fill ();
     }
     private void get_x_and_y (uint8 playable_id, out uint8 x, out uint8 y)
@@ -814,7 +671,10 @@ private class ReversiView : Gtk.DrawingArea
     {
         if (radius_percent <= 0)
         {
-            cr.rectangle (x + width / 2.0, y + width / 2.0, /* width and height */ size + width, size + width);
+            cr.rectangle (/* x and y */ x + width / 2.0,
+                                        y + width / 2.0,
+                          /* w and h */ size + width,
+                                        size + width);
             return;
         }
 
@@ -835,10 +695,11 @@ private class ReversiView : Gtk.DrawingArea
     }
 
     private void load_image (Cairo.Context c, int width, int height)
+     // requires (theme_manager.pieces_file != "")
     {
         try
         {
-            Rsvg.Handle h = new Rsvg.Handle.from_file (pieces_file);
+            Rsvg.Handle h = new Rsvg.Handle.from_file (theme_manager.pieces_file);
 
             Cairo.Matrix m = Cairo.Matrix.identity ();
             m.scale ((double) width / h.width, (double) height / h.height);
@@ -854,43 +715,52 @@ private class ReversiView : Gtk.DrawingArea
 
         try
         {
-            Gdk.Pixbuf p = new Gdk.Pixbuf.from_file_at_scale (pieces_file, width, height, false);
+            Gdk.Pixbuf p = new Gdk.Pixbuf.from_file_at_scale (theme_manager.pieces_file, width, height, false);
             Gdk.cairo_set_source_pixbuf (c, p, 0, 0);
             c.paint ();
         }
         catch (Error e)
         {
-            warning ("Failed to load theme image %s: %s", pieces_file, e.message);
+            warning ("Failed to load theme image %s: %s", theme_manager.pieces_file, e.message);
         }
     }
 
     private void highlight_tile (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity, bool soft_highlight)
     {
         if (soft_highlight)
-            cr.set_source_rgba (highlight_soft_red, highlight_soft_green, highlight_soft_blue, highlight_soft_alpha);
+            cr.set_source_rgba (theme_manager.highlight_soft_red,
+                                theme_manager.highlight_soft_green,
+                                theme_manager.highlight_soft_blue,
+                                theme_manager.highlight_soft_alpha);
         else
-            cr.set_source_rgba (highlight_hard_red, highlight_hard_green, highlight_hard_blue, highlight_hard_alpha);
+            cr.set_source_rgba (theme_manager.highlight_hard_red,
+                                theme_manager.highlight_hard_green,
+                                theme_manager.highlight_hard_blue,
+                                theme_manager.highlight_hard_alpha);
         rounded_square (cr,
                         // TODO odd/even sizes problem
                         tile_xs [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
                         tile_ys [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
                         tile_size * intensity / HIGHLIGHT_MAX,
                         0,
-                        background_radius);
+                        theme_manager.background_radius);
         cr.fill ();
     }
 
     private void darken_tile (Cairo.Context cr, uint8 x, uint8 y)
     {
-        double alpha = highlight_hard_alpha * 1.6 * (double) humans_opening_intensity / (double) HUMANS_OPENING_INTENSITY_MAX;
-        cr.set_source_rgba (highlight_hard_red, highlight_hard_green, highlight_hard_blue, alpha);
+        double alpha = theme_manager.highlight_hard_alpha * 1.6 * (double) humans_opening_intensity / (double) HUMANS_OPENING_INTENSITY_MAX;
+        cr.set_source_rgba (theme_manager.highlight_hard_red,
+                            theme_manager.highlight_hard_green,
+                            theme_manager.highlight_hard_blue,
+                            alpha);
         rounded_square (cr,
                         // TODO odd/even sizes problem
                         tile_xs [x, y],
                         tile_ys [x, y],
                         tile_size,
                         0,
-                        background_radius);
+                        theme_manager.background_radius);
         cr.fill ();
     }
 

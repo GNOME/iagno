@@ -54,6 +54,8 @@ private class Iagno : Gtk.Application, BaseApplication
     private HistoryButton history_button_1;
     private HistoryButton history_button_2;
 
+    private ThemeManager theme_manager = new ThemeManager ();
+
     /* Computer player (if there is one) */
     internal ComputerPlayer? computer { internal get; private set; default = null; }
 
@@ -258,7 +260,7 @@ private class Iagno : Gtk.Application, BaseApplication
         }
 
         /* UI parts */
-        view = new ReversiView (this);
+        view = new ReversiView (this, theme_manager);
         view.move.connect (player_move_cb);
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
@@ -364,7 +366,7 @@ private class Iagno : Gtk.Application, BaseApplication
                 if (wanted_theme_id == (!) filename)
                 {
                     theme_name_found = true;
-                    view.theme = wanted_theme_id;
+                    theme_manager.theme = wanted_theme_id;
                 }
             }
         }
@@ -377,7 +379,7 @@ private class Iagno : Gtk.Application, BaseApplication
             warning (@"Theme $wanted_theme_id not found, using default.");
             settings.set_string ("theme", "default");
             wanted_theme_id = "default";
-         // view.theme defaults on "default" (in fact, on null)
+         // theme_manager.theme defaults on "default" (in fact, on null)
         }
         section.freeze ();
         appearance_menu.append_section (null, section);
@@ -425,7 +427,7 @@ private class Iagno : Gtk.Application, BaseApplication
         window.back.connect (back_cb);
         window.undo.connect (undo_cb);
 
-        window.gtk_theme_changed.connect (view.gtk_theme_changed);
+        window.gtk_theme_changed.connect (theme_manager.gtk_theme_changed);
 
         /* Actions and preferences */
         add_action_entries (app_actions, this);
@@ -447,9 +449,9 @@ private class Iagno : Gtk.Application, BaseApplication
         add_action (settings.create_action ("theme"));
         add_action (settings.create_action ("type"));        // TODO window action?
 
-        settings.bind ("highlight-playable-tiles", view, "show-playable-tiles", SettingsBindFlags.GET);
-        settings.bind ("highlight-turnable-tiles", view, "show-turnable-tiles", SettingsBindFlags.GET);
-        settings.bind ("theme",                    view, "theme",               SettingsBindFlags.GET);
+        settings.bind ("highlight-playable-tiles", view,            "show-playable-tiles", SettingsBindFlags.GET);
+        settings.bind ("highlight-turnable-tiles", view,            "show-turnable-tiles", SettingsBindFlags.GET);
+        settings.bind ("theme",                    theme_manager,   "theme",               SettingsBindFlags.GET);
 
         /* New-game screen signals */
         alternate_who_starts_action = (SimpleAction) lookup_action ("alternate-who-starts");
@@ -542,7 +544,7 @@ private class Iagno : Gtk.Application, BaseApplication
         requires (gvariant != null)
     {
         night_light_monitor.set_use_night_mode (((!) gvariant).get_boolean ());
-        view.gtk_theme_changed ();
+        theme_manager.gtk_theme_changed ();
     }
 
     /*\
@@ -953,25 +955,28 @@ private class Iagno : Gtk.Application, BaseApplication
             if (sound_context_state == SoundContextState.INITIAL)
                 init_sound ();
             if (sound_context_state == SoundContextState.WORKING)
-                _play_sound (sound, sound_context, ref view);
+                _play_sound (sound, sound_context, theme_manager);
         }
     }
 
-    private static void _play_sound (Sound sound, GSound.Context sound_context, ref ReversiView view)
+    private static inline void _play_sound (Sound sound, GSound.Context sound_context, ThemeManager theme_manager)
      // requires (sound_context_state == SoundContextState.WORKING)
     {
         string name;
         switch (sound)
         {
             case Sound.FLIP:
-                name = view.sound_flip;
+                name = theme_manager.sound_flip;
                 break;
             case Sound.GAMEOVER:
-                name = view.sound_gameover;
+                name = theme_manager.sound_gameover;
                 break;
             default:
                 return;
         }
+        if (name == "")
+            assert_not_reached ();
+
         string path = Path.build_filename (SOUND_DIRECTORY, name);
         try
         {
