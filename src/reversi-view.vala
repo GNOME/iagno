@@ -41,10 +41,10 @@ private class ReversiView : Gtk.DrawingArea
     private double texture_alpha = 0.25;
     private bool   apply_texture = false;
 
-    private double mark_red = 0.2;
-    private double mark_green = 0.6;
-    private double mark_blue = 0.4;
-    private int mark_width = 2;
+ // private double mark_red = 0.2;
+ // private double mark_green = 0.6;
+ // private double mark_blue = 0.4;
+ // private int mark_width = 2;
 
     private double border_red = 0.1;
     private double border_green = 0.1;
@@ -308,10 +308,10 @@ private class ReversiView : Gtk.DrawingArea
             texture_alpha        = key.get_double  ("Background", "TextureAlpha");
             apply_texture        = (texture_alpha > 0.0) && (texture_alpha <= 1.0);
 
-            mark_red             = key.get_double  ("Mark", "Red");
-            mark_green           = key.get_double  ("Mark", "Green");
-            mark_blue            = key.get_double  ("Mark", "Blue");
-            mark_width           = key.get_integer ("Mark", "Width");
+         // mark_red             = key.get_double  ("Mark", "Red");
+         // mark_green           = key.get_double  ("Mark", "Green");
+         // mark_blue            = key.get_double  ("Mark", "Blue");
+         // mark_width           = key.get_integer ("Mark", "Width");
 
             border_red           = key.get_double  ("Border", "Red");
             border_green         = key.get_double  ("Border", "Green");

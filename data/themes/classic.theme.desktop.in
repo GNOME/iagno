@@ -32,11 +32,11 @@ Blue=0.4
 Radius=2
 TextureAlpha=0.25
 
-[Mark]
-Red=0.5
-Green=0.5
-Blue=0.5
-Width=2
+# [Mark]
+# Red=0.5
+# Green=0.5
+# Blue=0.5
+# Width=2
 
 [Border]
 Red=0.1

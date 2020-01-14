@@ -34,11 +34,11 @@ Blue=1.0
 Radius=0
 TextureAlpha=0.0
 
-[Mark]
-Red=0.4
-Green=0.4
-Blue=0.4
-Width=3
+# [Mark]
+# Red=0.4
+# Green=0.4
+# Blue=0.4
+# Width=3
 
 [Border]
 Red=0.0
