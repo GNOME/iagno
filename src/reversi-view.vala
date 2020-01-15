@@ -230,7 +230,7 @@ private class ReversiView : Gtk.DrawingArea
     * * theme
     \*/
 
-    internal void theme_changed ()
+    internal void gtk_theme_changed ()
     {
         if (theme == null || (!) theme == "default")
             theme = "default";  // yes

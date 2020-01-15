@@ -425,7 +425,7 @@ private class Iagno : Gtk.Application, BaseApplication
         window.back.connect (back_cb);
         window.undo.connect (undo_cb);
 
-        window.gtk_theme_changed.connect (view.theme_changed);
+        window.gtk_theme_changed.connect (view.gtk_theme_changed);
 
         /* Actions and preferences */
         add_action_entries (app_actions, this);
@@ -542,7 +542,7 @@ private class Iagno : Gtk.Application, BaseApplication
         requires (gvariant != null)
     {
         night_light_monitor.set_use_night_mode (((!) gvariant).get_boolean ());
-        view.theme_changed ();
+        view.gtk_theme_changed ();
     }
 
     /*\
