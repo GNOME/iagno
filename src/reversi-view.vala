@@ -329,7 +329,7 @@ private class ReversiView : Gtk.DrawingArea
                 surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size,
                                                                                                   tile_size);
                 context = new Cairo.Context (surface);
-                Gdk.cairo_set_source_pixbuf (context, (!) noise_pixbuf, 0, 0);
+                Gdk.cairo_set_source_pixbuf (context, (!) noise_pixbuf, 0.0, 0.0);
                 context.paint_with_alpha (theme_manager.texture_alpha);
                 // or  surface = Gdk.cairo_surface_create_from_pixbuf ((!) noise_pixbuf, 0, null); ?
 
@@ -669,7 +669,7 @@ private class ReversiView : Gtk.DrawingArea
     private const double HALF_PI = Math.PI_2;
     private void rounded_square (Cairo.Context cr, double x, double y, int size, double width, double radius_percent)
     {
-        if (radius_percent <= 0)
+        if (radius_percent <= 0.0)
         {
             cr.rectangle (/* x and y */ x + width / 2.0,
                                         y + width / 2.0,
@@ -678,8 +678,8 @@ private class ReversiView : Gtk.DrawingArea
             return;
         }
 
-        if (radius_percent > 50)
-            radius_percent = 50;
+        if (radius_percent > 50.0)
+            radius_percent = 50.0;
         double radius_border = radius_percent * size / 100.0;
         double radius_arc = radius_border - width / 2.0;
         double x1 = x + radius_border;
@@ -688,8 +688,8 @@ private class ReversiView : Gtk.DrawingArea
         double y2 = y + size - radius_border;
 
         cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
-        cr.arc (x2, y1, radius_arc, -HALF_PI,        0);
-        cr.arc (x2, y2, radius_arc,        0,  HALF_PI);
+        cr.arc (x2, y1, radius_arc, -HALF_PI,      0.0);
+        cr.arc (x2, y2, radius_arc,      0.0,  HALF_PI);
         cr.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
         cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
     }
@@ -716,7 +716,7 @@ private class ReversiView : Gtk.DrawingArea
         try
         {
             Gdk.Pixbuf p = new Gdk.Pixbuf.from_file_at_scale (theme_manager.pieces_file, width, height, false);
-            Gdk.cairo_set_source_pixbuf (c, p, 0, 0);
+            Gdk.cairo_set_source_pixbuf (c, p, 0.0, 0.0);
             c.paint ();
         }
         catch (Error e)
