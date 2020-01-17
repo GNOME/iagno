@@ -312,7 +312,10 @@ private class ReversiView : Gtk.DrawingArea
         surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8,
                                                                                           tile_size * 4);
         context = new Cairo.Context (surface);
-        load_image (context, tile_size * 8, tile_size * 4);
+        Rsvg.DimensionData size = theme_manager.tileset_handle.get_dimensions ();
+        context.scale ((double) tile_size * 8.0 / (double) size.width,
+                       (double) tile_size * 4.0 / (double) size.height);
+        theme_manager.tileset_handle.render_cairo (context);
         tiles_pattern = new Cairo.Pattern.for_surface (surface);
 
         // noise pattern
@@ -698,37 +701,6 @@ private class ReversiView : Gtk.DrawingArea
         cr.arc (x2, y2, radius_arc,      0.0,  HALF_PI);
         cr.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
         cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
-    }
-
-    private void load_image (Cairo.Context c, int width, int height)
-     // requires (theme_manager.pieces_file != "")
-    {
-        try
-        {
-            Rsvg.Handle h = new Rsvg.Handle.from_file (theme_manager.pieces_file);
-
-            Cairo.Matrix m = Cairo.Matrix.identity ();
-            m.scale ((double) width / h.width, (double) height / h.height);
-            c.set_matrix (m);
-            h.render_cairo (c);
-
-            return;
-        }
-        catch (Error e)
-        {
-            /* Fall through and try loading as a pixbuf */
-        }
-
-        try
-        {
-            Gdk.Pixbuf p = new Gdk.Pixbuf.from_file_at_scale (theme_manager.pieces_file, width, height, false);
-            Gdk.cairo_set_source_pixbuf (c, p, 0.0, 0.0);
-            c.paint ();
-        }
-        catch (Error e)
-        {
-            warning ("Failed to load theme image %s: %s", theme_manager.pieces_file, e.message);
-        }
     }
 
     private void highlight_tile (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity, bool soft_highlight)

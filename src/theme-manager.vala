@@ -93,7 +93,7 @@ private class ThemeManager : Object
     * * theme
     \*/
 
-    [CCode (notify = false)] internal string pieces_file            { internal get; private set; default = ""; }
+    private string pieces_file = "";
 
     [CCode (notify = false)] internal double background_red         { internal get; private set; default = 0.2; }
     [CCode (notify = false)] internal double background_green       { internal get; private set; default = 0.6; }
@@ -142,6 +142,7 @@ private class ThemeManager : Object
             pieces_file = Path.build_filename (svg_path, key.get_string ("Pieces", "File"));
             if (Path.get_dirname (pieces_file) != svg_path)
                 pieces_file = Path.build_filename (svg_path, "black_and_white.svg");
+            load_handle ();
 
             background_red       = key.get_double  ("Background", "Red");
             background_green     = key.get_double  ("Background", "Green");
@@ -186,5 +187,33 @@ private class ThemeManager : Object
         {
             warning ("Errors when loading theme: %s", e.message);
         }
+    }
+
+    /*\
+    * * loading handle
+    \*/
+
+    private bool handle_loaded = false;
+    [CCode (notify = false)] internal Rsvg.Handle tileset_handle { internal get { if (!handle_loaded) assert_not_reached (); return _tileset_handle; }}
+
+    private Rsvg.Handle _tileset_handle;
+
+    private string old_pieces_file = "";
+    private inline void load_handle ()
+    {
+        if (handle_loaded && old_pieces_file == pieces_file)
+            return;
+
+        try
+        {
+            _tileset_handle = new Rsvg.Handle.from_file (pieces_file);
+        }
+        catch (Error e)
+        {
+            assert_not_reached ();
+        }
+
+        old_pieces_file = pieces_file;
+        handle_loaded = true;
     }
 }
