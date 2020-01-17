@@ -28,23 +28,25 @@ private class ThemeManager : Object
 
     internal void gtk_theme_changed ()
     {
-        if (theme == null || (!) theme == "default")
+        if (theme == "" || theme == "default")
             theme = "default";  // yes
     }
 
-    private string? _theme = null;
-    [CCode (notify = false)] internal string? theme
+    private bool theme_set = false;
+    private string _theme;
+    [CCode (notify = false)] internal string theme
     {
-        get { return _theme; }
-        set {
+        private  get { if (!theme_set) assert_not_reached (); return _theme; }
+        internal set
+        {
             KeyFile key = new KeyFile ();
-            if (value == null || (!) value == "default")
+            if (value == "" || value == "default")
                 set_default_theme (ref key);
             else
                 try
                 {
                     string key_path = Path.build_filename (DATA_DIRECTORY, "themes", "key");
-                    string filepath = Path.build_filename (key_path, (!) value);
+                    string filepath = Path.build_filename (key_path, value);
                     if (Path.get_dirname (filepath) != key_path)
                         throw new FileError.FAILED ("Theme file is not in the \"key\" directory.");
 
@@ -57,8 +59,9 @@ private class ThemeManager : Object
                     value = "default";
                 }
 
-            load_theme (key);
+            load_theme (key);   // FIXME loading could (even partially) fail here also
             _theme = value;
+            theme_set = true;
 
             /* redraw all */
             theme_changed ();

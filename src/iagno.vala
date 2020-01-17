@@ -451,7 +451,7 @@ private class Iagno : Gtk.Application, BaseApplication
 
         settings.bind ("highlight-playable-tiles", view,            "show-playable-tiles", SettingsBindFlags.GET);
         settings.bind ("highlight-turnable-tiles", view,            "show-turnable-tiles", SettingsBindFlags.GET);
-        settings.bind ("theme",                    theme_manager,   "theme",               SettingsBindFlags.GET);
+        settings.bind ("theme",                    theme_manager,   "theme",               SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
         /* New-game screen signals */
         alternate_who_starts_action = (SimpleAction) lookup_action ("alternate-who-starts");
