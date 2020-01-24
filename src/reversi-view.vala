@@ -179,6 +179,8 @@ private class ReversiView : Gtk.DrawingArea
 
         theme_manager.theme_changed.connect (() => {
                 tiles_pattern = null;
+                if (configuration_done)
+                    configure_theme ();
                 queue_draw ();
             });
     }
@@ -204,6 +206,12 @@ private class ReversiView : Gtk.DrawingArea
     protected override bool configure_event (Gdk.EventConfigure e)
         requires (game_is_set)
     {
+        configure_theme ();
+        configuration_done = true;
+        return true;
+    }
+    private void configure_theme ()
+    {
         int allocated_width  = get_allocated_width ();
         int allocated_height = get_allocated_height ();
         int size = int.min (allocated_width, allocated_height);
@@ -224,8 +232,6 @@ private class ReversiView : Gtk.DrawingArea
                 tile_ys [x, y] = paving_size * (int) y;
             }
         }
-        configuration_done = true;
-        return true;
     }
     private inline void configure_overture_origin ()
     {
