@@ -5,6 +5,7 @@ data/org.gnome.Reversi.desktop.in
 data/ui/base-headerbar.ui
 data/ui/game-headerbar.ui
 data/ui/help-overlay.ui
+data/ui/history-button.ui
 data/ui/new-game-screen.ui
 data/themes/adwaita.theme.desktop.in
 data/themes/classic.theme.desktop.in
