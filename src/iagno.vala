@@ -54,6 +54,9 @@ private class Iagno : Gtk.Application, BaseApplication
     private HistoryButton history_button_1;
     private HistoryButton history_button_2;
 
+    private GLib.Menu history_menu;
+    private GLib.Menu finish_menu;
+
     private ThemeManager theme_manager = new ThemeManager ();
 
     /* Computer player (if there is one) */
@@ -397,14 +400,28 @@ private class Iagno : Gtk.Application, BaseApplication
         appearance_menu.append_section (_("Highlights"), section);
         appearance_menu.freeze ();
 
-        history_button_1 = new HistoryButton ();
-        history_button_2 = new HistoryButton ();
-        view.notify_final_animation.connect ((undoing) => { history_button_1.update_menu (!undoing);
-                                                            history_button_2.update_menu (!undoing); });
+        /* history buttons */
+
+        history_menu = new GLib.Menu ();
+        /* Translators: history menu entry (with a mnemonic that appears pressing Alt) */
+        history_menu.append (_("_Undo last move"), "ui.undo");
+        history_menu.freeze ();
+
+        finish_menu = new GLib.Menu ();
+        /* Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt) */
+        finish_menu.append (_("_Show final board"), "ui.undo");
+        finish_menu.freeze ();
+
+        history_button_1 = new HistoryButton (history_menu, theme_manager);
+        history_button_2 = new HistoryButton (history_menu, theme_manager);
+        view.notify_final_animation.connect ((undoing) => {
+                history_button_1.update_menu (undoing ? history_menu : finish_menu);
+                history_button_2.update_menu (undoing ? history_menu : finish_menu);
+            });
         history_button_1.show ();
         history_button_2.show ();
 
-        /* Window */
+        /* window */
         init_night_mode ();
         window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
                                  PROGRAM_NAME,
@@ -697,8 +714,10 @@ private class Iagno : Gtk.Application, BaseApplication
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
 
-        history_button_1.new_game ();
-        history_button_2.new_game ();
+        history_button_1.set_player (Player.DARK);
+        history_button_2.set_player (Player.DARK);
+        history_button_1.update_menu (history_menu);
+        history_button_2.update_menu (history_menu);
 
         if (two_players)
             computer = null;
@@ -842,8 +861,8 @@ private class Iagno : Gtk.Application, BaseApplication
         requires (game_is_set)
     {
         window.finish_game ();
-        history_button_1.update_label (Player.NONE);
-        history_button_2.update_label (Player.NONE);
+        history_button_1.set_player (Player.NONE);
+        history_button_2.set_player (Player.NONE);
 
         if ((!game.reverse && game.n_light_tiles > game.n_dark_tiles)
          || ( game.reverse && game.n_light_tiles < game.n_dark_tiles))
@@ -900,8 +919,8 @@ private class Iagno : Gtk.Application, BaseApplication
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
-        history_button_1.update_label (game.current_color);
-        history_button_2.update_label (game.current_color);
+        history_button_1.set_player (game.current_color);
+        history_button_2.set_player (game.current_color);
     }
 
     private void set_window_title ()
