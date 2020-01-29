@@ -307,10 +307,11 @@ private class Iagno : Gtk.Application, BaseApplication
         section.freeze ();
         level_menu.append_section (null, section);
 
+
         if (!alternative_start && !random_start && !usual_start)
         {
             section = new GLib.Menu ();
-            /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt) */
+            /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt) */
             section.append (_("_Vary start position"), "app.random-start-position");
             section.freeze ();
             level_menu.append_section (null, section);
@@ -472,6 +473,8 @@ private class Iagno : Gtk.Application, BaseApplication
 
         /* New-game screen signals */
         alternate_who_starts_action = (SimpleAction) lookup_action ("alternate-who-starts");
+        change_level_action         = (SimpleAction) lookup_action ("change-level");
+
         settings.changed ["alternate-who-starts"].connect ((_settings, key_name) => {
                 alternate_who_starts_action.set_state (_settings.get_value (key_name));
             });
@@ -480,10 +483,9 @@ private class Iagno : Gtk.Application, BaseApplication
         settings.changed ["computer-level"].connect (() => {
                 if (level_changed)
                     level_changed = false;
-                else
-                    update_level_button_label (settings.get_int ("computer-level") /* 1 <= level <= 3 */);
+                else if (settings.get_int ("num-players") == 1)
+                    update_level_button_state (settings.get_int ("computer-level") /* 1 <= level <= 3 */);
             });
-        update_level_button_label (settings.get_int ("computer-level") /* 1 <= level <= 3 */);
 
         settings.changed ["color"].connect (() => {
                 if (game_type_changed_1)
@@ -507,27 +509,35 @@ private class Iagno : Gtk.Application, BaseApplication
                     return;
                 }
 
-                bool solo = settings.get_int ("num-players") == 1;
-                set_level_button_sensitivity (solo);
-                if (!solo)
+                if (settings.get_int ("num-players") == 2)
+                {
+                    update_level_button_state (/* "More options" */ 0);
                     update_game_type_button_label ("two");
-                else if (settings.get_string ("color") == "dark")
-                    update_game_type_button_label ("dark");
+                }
                 else
-                    update_game_type_button_label ("light");
+                {
+                    update_level_button_state (settings.get_int ("computer-level"));
+                    if (settings.get_string ("color") == "dark")
+                        update_game_type_button_label ("dark");
+                    else
+                        update_game_type_button_label ("light");
+                }
             });
-        bool solo = settings.get_int ("num-players") == 1;
-        set_level_button_sensitivity (solo);
 
         if (settings.get_int ("num-players") == 2)
         {
+            update_level_button_state (/* "More options" */ 0);
             update_game_type_button_label ("two");
             alternate_who_starts_action.set_enabled (false);
         }
-        else if (settings.get_string ("color") == "dark")
-            update_game_type_button_label ("dark");
         else
-            update_game_type_button_label ("light");
+        {
+            update_level_button_state (settings.get_int ("computer-level"));
+            if (settings.get_string ("color") == "dark")
+                update_game_type_button_label ("dark");
+            else
+                update_game_type_button_label ("light");
+        }
 
         if (start_now)
             start_game ();
@@ -587,13 +597,13 @@ private class Iagno : Gtk.Application, BaseApplication
         game_type_changed_2 = true;
         switch (type)
         {
-            case "two":   settings.set_int    ("num-players", 2); set_level_button_sensitivity (false);
+            case "two":   settings.set_int    ("num-players", 2); update_level_button_state (/* "More options" */ 0);
                           /* no change to the color of course; */ alternate_who_starts_action.set_enabled (false);  return;
             // DO NOT delay/apply or you lose sync between alternate_who_starts_action and the settings after switching to one-player mode
-            case "dark":  settings.set_int    ("num-players", 1); set_level_button_sensitivity (true);
+            case "dark":  settings.set_int    ("num-players", 1); update_level_button_state (settings.get_int ("computer-level"));
                           settings.set_string ("color",  "dark"); alternate_who_starts_action.set_enabled (true);   return;
             // DO NOT delay/apply or you lose sync between alternate_who_starts_action and the settings after switching to one-player mode
-            case "light": settings.set_int    ("num-players", 1); set_level_button_sensitivity (true);
+            case "light": settings.set_int    ("num-players", 1); update_level_button_state (settings.get_int ("computer-level"));
                           settings.set_string ("color", "light"); alternate_who_starts_action.set_enabled (true);   return;
             default: assert_not_reached ();
         }
@@ -617,24 +627,60 @@ private class Iagno : Gtk.Application, BaseApplication
             default: assert_not_reached ();
         }
     }
-    private void set_level_button_sensitivity (bool new_sensitivity)
-    {
-        new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, new_sensitivity);
-    }
 
     private bool level_changed = false;
+    private SimpleAction change_level_action;
     private void change_level_cb (SimpleAction action, Variant? gvariant)
         requires (gvariant != null)
     {
+        if (settings.get_int ("num-players") == 2)
+            return; // assert_not_reached() ?
+
         level_changed = true;
         int level = int.parse (((!) gvariant).get_string ());
-        update_level_button_label (level /* 1 <= level <= 3 */);
+        update_level_button_state (level /* 1 <= level <= 3 */);
         settings.set_int ("computer-level", level);
     }
-    private void update_level_button_label (int level)
+    private void update_level_button_state (int /* 0 <= */ level /* <= 3 */)
     {
         switch (level)
         {
+            case 0:
+                change_level_action.set_enabled (false);
+                if (alternative_start || random_start || usual_start)
+                {
+                    new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, false);
+                    update_level_button_label ((uint8) settings.get_int ("computer-level"));
+                }
+                else
+                    update_level_button_label (0);                                                      return;
+
+            case 1:
+                change_level_action.set_enabled (true);
+                new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
+                update_level_button_label (1);                                                          return;
+
+            case 2:
+                change_level_action.set_enabled (true);
+                new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
+                update_level_button_label (2);                                                          return;
+
+            case 3:
+                change_level_action.set_enabled (true);
+                new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
+                update_level_button_label (3);                                                          return;
+
+            default: assert_not_reached ();
+        }
+    }
+    private void update_level_button_label (uint8 /* 0 <= */ level /* <= 3 */)
+    {
+        switch (level)
+        {
+            case 0:
+                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                /* Translators: when configuring a new game, second menubutton label, when configuring a two-player game */
+                                                         "%s ▾".printf (_("More options")));            return;
             case 1:
                 new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, button label for the AI level, if easy */
@@ -647,6 +693,7 @@ private class Iagno : Gtk.Application, BaseApplication
                 new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, button label for the AI level, if hard */
                                                          "%s ▾".printf (_("Difficulty: Hard")));        return;
+            default: assert_not_reached ();
         }
     }
 
@@ -676,6 +723,7 @@ private class Iagno : Gtk.Application, BaseApplication
 
         bool two_players = settings.get_int ("num-players") == 2;
         bool even_board = size % 2 == 0;
+        bool random_start_settings = settings.get_boolean ("random-start-position");
 
         Opening opening;
         if (alternative_start)
@@ -687,11 +735,12 @@ private class Iagno : Gtk.Application, BaseApplication
         }
         else if (usual_start)
             opening = Opening.REVERSI;
-        else if (two_players && !random_start)
+        else if (two_players
+              && random_start_settings
+              && !random_start)
             opening = Opening.HUMANS;
         else if (random_start
-              || settings.get_boolean ("random-start-position")
-              || two_players /* && !even_board */)
+              || random_start_settings)
         {
             switch (Random.int_range (0, 8))
             {
