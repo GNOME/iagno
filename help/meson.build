@@ -13,6 +13,7 @@ help_files = [
     'change-color.page',
     'develop.page',
     'documentation.page',
+    'highlights.page',
     'index.page',
     'legal.xml',
     'license.page',

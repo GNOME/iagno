@@ -1,0 +1,44 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="highlights">
+
+  <info>
+    <link type="guide" xref="index#tips" />
+    <revision pkgversion="3.36" version="0.1" date="2020-01-30" status="final"/>
+
+    <credit type="author copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
+
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Display helpful highlights</title>
+
+  <p><app>Reversi</app> can display some helpful highlights during a game, be it a Classic Reversi or a Reverse Reversi.</p> <!-- TODO add links against games pages -->
+
+  <section id="highlight-playable-tiles">
+    <title>Playable tiles</title>
+
+    <p><app>Reversi</app> can first highlight the tiles that can be played by the current player. This information could be quite useful for beginners notably, for learning the game.</p>
+
+    <p>This can be activated both in a <link xref="ai-game">game against the computer</link> and in a <link xref="2player">two-player game</link>. There is no way for only enabling this highlight for one of the players of a two-player game.</p>
+
+    <p>To enable or disable this highlight, press the menu button in the top-right corner of the window, select <gui>Appearance</gui>, and in the <gui>Highlights</gui> section select <gui>Playable tiles</gui>.</p>
+  </section>
+
+  <section id="highlight-capturable-tiles">
+    <title>Capturable tiles</title>
+
+    <p><app>Reversi</app> can also highlight the tiles that would be captured by a given play. That might help for having a better visualisation of what the board would then look like.</p>
+
+    <p>This can be activated both in a <link xref="ai-game">game against the computer</link> and in a <link xref="2player">two-player game</link>. There is no way for only enabling this highlight for one of the players of a two-player game.</p>
+
+    <p>To enable or disable this highlight, press the menu button in the top-right corner of the window, select <gui>Appearance</gui>, and in the <gui>Highlights</gui> section select <gui>Capturable tiles</gui>.</p>
+  </section>
+
+</page>
