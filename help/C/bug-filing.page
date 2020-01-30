@@ -17,12 +17,12 @@
     </license>
   </info>
 
-  <title>Help make <app>Iagno</app> better</title>
+  <title>Help make <app>Reversi</app> better</title>
 
   <section id="bug-report">
     <title>Report a bug or suggest an improvement</title>
     <p>
-   <app>Iagno</app> is maintained by a volunteer community. You are welcome to participate.  If you notice a problem you can file a <em>bug report</em>. To file a bug, go to <link href="https://gitlab.gnome.org/GNOME/iagno/issues/"/>.
+   <app>Reversi</app> is maintained by a volunteer community. You are welcome to participate.  If you notice a problem you can file a <em>bug report</em>. To file a bug, go to <link href="https://gitlab.gnome.org/GNOME/iagno/issues/"/>.
    </p>
 
     <p>
@@ -43,7 +43,7 @@
    </p>
 
     <p>
-      Your report will be given an ID number, and its status will be updated as it is being dealt with. Thanks for helping make <app>Iagno</app> better!
+      Your report will be given an ID number, and its status will be updated as it is being dealt with. Thanks for helping make <app>Reversi</app> better!
    </p>
   </section>
 

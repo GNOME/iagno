@@ -1,42 +1,42 @@
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:its="http://www.w3.org/2005/11/its"
-	type="guide" style="task"
-	id="index">
+      type="guide" style="task"
+      id="index">
 
   <info>
     <title type='link' role="trail"><media type="image" src="figures/logo.png" its:translate="no"/></title>
-    <title type='link'>Iagno</title>
-    <title type='text'>Iagno</title>
+    <title type='link'>Reversi</title>
+    <title type='text'>Reversi</title>
     <revision pkgversion="3.4" version="0.1" date="2012-03-08" status="final"/>
+
     <credit type="author">
       <name>Tiffany Antopolski</name>
       <email>tiffany.antopolski@gmail.com</email>
     </credit>
+
     <license>
       <p>Creative Commons Share Alike 3.0</p>
     </license>
   </info>
 
-<title><media type="image" src="figures/logo32.png" its:translate="no"><span its:translate="yes">Iagno logo</span></media> Iagno</title>
+  <title><media type="image" src="figures/logo32.png" its:translate="no"><span its:translate="yes">Reversi logo</span></media> Reversi</title>
 
-   <p><app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark on one side and light on the other. When a piece is captured it is turned over to join the capturing player's forces; the winner is the player with the most pieces of their color at the end of the game.
-   </p>
+  <p><app>Reversi</app> is a boardgame played on an 8X8 grid with 64 pieces, dark on one side and light on the other. When a piece is captured it is turned over to join the capturing player's forces; the winner is the player with the most pieces of their color at the end of the game.</p>
 
-   <section id="play" style="2column">
+  <section id="play" style="2column">
     <title>Game Play</title>
-   </section>
+  </section>
 
-   <section id="tips" style="2column">
+  <section id="tips" style="2column">
     <title>Useful tips</title>
-   </section>
+  </section>
 
-   <section id="advanced" style="2column">
+  <section id="advanced" style="2column">
     <title>Advanced</title>
-   </section>
+  </section>
 
-   <section id="get-involved" style="2column">
+  <section id="get-involved" style="2column">
     <title>Get Involved</title>
-   </section>
-
+  </section>
 
 </page>
