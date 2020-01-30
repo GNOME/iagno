@@ -1,5 +1,5 @@
-/* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
-/*
+/* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+
    This file is part of a GNOME game.
 
    Copyright 2019 Arnaud Bonatti
@@ -80,7 +80,8 @@ private class GameView : BaseView, AdaptativeWidget
         game_box.show ();
         game_box.get_style_context ().add_class ("game-box");
 
-        game_stack.add (game_box);
+        // for the new-game-screen-to-game animation, it is probably better to have the game under ("uncovered")
+        game_stack.add_with_properties (game_box, "position", 0);
         content.can_focus = true;
     }
 
