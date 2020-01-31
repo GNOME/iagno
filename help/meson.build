@@ -1,10 +1,15 @@
 help_media = [
+    'figures/alternative-start.png',
+    'figures/alternative-start-1.png',
+    'figures/alternative-start-2.png',
+    'figures/alternative-start-3.png',
     'figures/block.png',
     'figures/first.png',
     'figures/iagno-video.ogv',
     'figures/logo32.png',
     'figures/logo.png',
-    'figures/start.png'
+    'figures/symmetric-start.png',
+    'figures/usual-start.png'
 ]
 help_files = [
     '2player.page',
@@ -21,6 +26,7 @@ help_files = [
     'rules.page',
     'shortcuts.page',
     'sound.page',
+    'start-position.page',
     'strategy.page',
     'theme.page',
     'translate.page'

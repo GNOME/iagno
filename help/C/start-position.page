@@ -1,0 +1,123 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="start-position"
+      xmlns:its="http://www.w3.org/2005/11/its"> <!-- the "its" line is allowing translations for medias -->
+
+  <info>
+    <link type="guide" xref="index#tips" />
+    <revision pkgversion="3.36" version="0.1" date="2020-01-31" status="final"/>
+
+    <credit type="author copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
+
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Vary start position</title>
+
+  <p><app>Reversi</app> allows to start a game with a different initial position than the usual one of the reversi game family.</p>
+
+  <section id="varying-start-position">
+    <title>Varying start position</title>
+
+    <p>To enable or disable this option, go in the Start Screen, click on the <gui>Difficulty</gui> button, and in the menu that appears, select <gui>Vary start position</gui>.</p>
+
+    <p>If you are playing a <link xref="ai-game">game against the computer</link>, enabling this option will start new games with a random position in the six <link xref="#start-positions">possible start positions</link>.</p>
+
+    <p>If you are playing a <link xref="2player">two-player game</link>, enabling this option will start new games with the <link xref="#human-overture">two-player game overture</link>.</p>
+
+    <p>If the option is disabled, then the usual position of the reversi game family is always used for new games. See its description in the list of <link xref="#start-positions">possible start positions</link>.</p>
+  </section>
+
+  <section id="start-positions">
+    <title>Possible start positions</title>
+
+    <p>There are really two possible start positions in <app>Reversi</app>, up to six as their symmetries can also be played.</p>
+
+    <p>The two main positions are the following:</p>
+
+    <table>
+      <tr>
+        <td>
+          <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
+            <p its:translate="yes">Usual start position: light-dark, dark-light</p>
+          </media>
+        </td>
+        <td>
+          <media type="image" src="figures/alternative-start.png" width="200" its:translate="no">
+            <p its:translate="yes">Alternative position: dark-light, dark-light</p>
+          </media>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><em>Usual start position</em></p>
+        </td>
+        <td>
+          <p><em>Alternative position</em></p>
+        </td>
+      </tr>
+    </table>
+
+    <p>Their allowed symmetries are the following:</p>
+
+    <table>
+      <tr>
+        <td>
+          <media type="image" src="figures/symmetric-start.png" width="92" its:translate="no">
+            <p its:translate="yes">Only symmetry of the usual start position: dark-light, light-dark</p>
+          </media>
+        </td>
+        <td>
+          <media type="image" src="figures/alternative-start-1.png" width="92" its:translate="no">
+            <p its:translate="yes">First symmetry of the alternative position: dark-dark, light-light</p>
+          </media>
+        </td>
+        <td>
+          <media type="image" src="figures/alternative-start-2.png" width="92" its:translate="no">
+            <p its:translate="yes">Second symmetry of the alternative position: light-dark, light-dark</p>
+          </media>
+        </td>
+        <td>
+          <media type="image" src="figures/alternative-start-3.png" width="92" its:translate="no">
+            <p its:translate="yes">Last symmetry of the alternative position: light-light, dark-dark</p>
+          </media>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="human-overture">
+    <title>Two-player game overture</title>
+
+    <p>When playing a <link xref="2player">two-player game</link> with the the <link xref="#varying-start-position"><gui>Vary start position</gui></link> option enabled, new games will start with a special two-player game overture.</p>
+
+    <p>The board is started empty. The two players are going to place the four initial pieces before starting the game.</p>
+
+    <steps>
+      <item>
+        <p><em>Dark</em> goes first, and places the first piece on one of the four central tiles of the board.</p>
+      </item>
+      <item>
+        <p><em>Light</em> places one piece in one of the two available positions next to the dark piece.</p>
+      </item>
+      <item>
+        <p><em>Dark</em> then places a piece on one of the two remaining central tiles of the board.</p>
+      </item>
+      <item>
+        <p><em>Light</em> finishes the opening by placing a second piece at the remaining place.</p>
+      </item>
+      <item>
+        <p>The game is then started, following the <link xref="rules">reversi rules</link>.</p>
+      </item>
+    </steps>
+
+    <p>This opening allows the first player to choose if the game will start with a position “in cross” (the usual start position or its symmetry) or a “parallel” position (the alternative position or one of its symmetries).</p>
+  </section>
+
+</page>

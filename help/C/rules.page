@@ -31,8 +31,8 @@
     <item><p>
       The game begins with four pieces, two light and two dark, placed in the center of the board.
     </p></item>
-    <item><p>Dark goes first.</p></item>
-    <item><p>Dark places a tile on the board in such a way that it traps white tiles between two of the dark tiles.</p>
+    <item><p><em>Dark</em> goes first.</p></item>
+    <item><p><em>Dark</em> places a tile on the board in such a way that it traps white tiles between two of the dark tiles.</p>
     <note><p>This placement can be horizontal, vertical or diagonal.
     </p></note>
     <p>
@@ -46,7 +46,7 @@
 <table>
  <tr>
   <td>
-  <media type="image" src="figures/start.png" width="200" its:translate="no">
+  <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
     <p its:translate="yes">Start position</p>
   </media>
    </td>
