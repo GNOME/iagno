@@ -22,6 +22,7 @@ help_files = [
     'shortcuts.page',
     'sound.page',
     'strategy.page',
+    'theme.page',
     'translate.page'
 ]
 

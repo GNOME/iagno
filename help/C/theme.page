@@ -1,0 +1,91 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="theme">
+
+  <info>
+    <link type="guide" xref="index#tips" />
+    <revision pkgversion="3.36" version="0.1" date="2020-01-30" status="final"/>
+
+    <credit type="author copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
+
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Change the board theme</title>
+
+  <p><app>Reversi</app> supports various board themes, so that you can adjust its look to your taste.</p>
+
+  <p>Until the theme has been changed, the application tries to choose a theme adapted to your environment; see the section about the <link xref="default-theme"><em>Default</em> theme</link>.</p>
+
+  <section id="changing-theme">
+    <title>Changing theme</title>
+
+    <p>For changing theme, press the menu button in the top-right corner of the window, select <gui>Appearance</gui>, and select one of the items in the given list.</p>
+
+    <p>The first item of the list is called <gui><em>Default</em></gui> and lets the application try to choose a theme adapted to your environment; see the section about the <link xref="default-theme"><em>Default</em> theme</link>. The following suggestions are described in the <link xref="themes-list">themes list</link>.</p>
+
+    <p>Following the themes list, the options of the section <gui>Highlights</gui> are for <link xref="highlights">displaying helpful highlights</link>. These are working whatever theme you decide to use.</p>
+  </section>
+
+  <section id="themes-list">
+    <title>Themes list</title>
+
+    <p><app>Reversi</app> comes with four themes installed:</p>
+
+    <list>
+      <item>
+        <p><em>Classic</em>: this theme mimics the most usual reversi boards, with a green background and bicolor pieces;</p>
+      </item>
+      <item>
+        <p><em>Black and White</em>: this theme is more conceptual, featuring geometric shapes and a high black and white contrast;</p>
+      </item>
+      <item>
+        <p><em>Adwaita</em>: this theme uses a blue board, more suitable if the theme of your windows is a dark one;</p>
+      </item>
+      <item>
+        <p><em>Sun and Star</em>: this theme is a variant of the <em>Classic</em> one, with some decorations on the pieces.</p>
+      </item>
+    </list>
+
+    <p>The first entry in the themes list is called <em>Default</em> and has a special behavior; see the section about the <link xref="default-theme"><em>Default</em> theme</link>.</p>
+  </section>
+
+  <section id="default-theme">
+    <title><em>Default</em> theme</title>
+
+    <p>The first entry in the themes list is called <em>Default</em> and has a special behavior.</p>
+
+    <p>When this entry is selected, the application tries to choose a theme adapted to your environment:</p>
+
+    <list>
+      <item>
+        <p>if you are using a theme for your windows known for being dark –like <em>Adwaita Dark</em>– or if you have activated GNOME night mode, the board theme used will be the one called <em>Adwaita</em>, that is darker than the other themes thanks to its blue background;</p>
+      </item>
+      <item>
+        <p>if you are using a theme for your windows created specially for having a high contrast, notably if you activated the “High Contrast” GNOME accessibility option, the board theme used will be the one called <em>Black and White</em>, that should be a perfect fit;</p>
+      </item>
+      <item>
+        <p>else, the theme used will be the one called <em>Classic</em>, that uses a green board quite common for reversi games.</p>
+      </item>
+    </list>
+
+    <p>This behavior is of course the default one of the application.</p>
+  </section>
+
+  <section id="themes-warnings">
+    <title>More informations</title>
+
+    <p>There is no way to install a different theme than the ones described here.</p>
+
+    <p>These themes have been designed by Arnaud Bonatti, with pieces created by Masuichi Ito.</p>
+
+    <p>If you have a suggestion for a new theme, or if you are interested in contributing a new theme, please <link xref="bug-filing">open an issue</link> about it.</p>
+  </section>
+
+</page>
