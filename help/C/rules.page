@@ -1,10 +1,11 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      xmlns:its="http://www.w3.org/2005/11/its"
       type="topic" style="task"
-      id="rules">
+      id="rules"
+      xmlns:its="http://www.w3.org/2005/11/its"> <!-- the "its" line is allowing translations for medias -->
+
   <info>
     <link type="guide" xref="index#reversi" />
-    <revision version="0.1" date="2012-03-08" status="final"/>
+    <revision version="0.2" date="2020-02-01" status="final"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
@@ -19,6 +20,11 @@
       <name>Stephen Pearce</name>
       <email its:translate="no">me@stevepdp.org</email>
       <years>2015</years>
+    </credit>
+    <credit type="editor">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
     </credit>
 
     <desc></desc>
@@ -43,29 +49,19 @@
     <item><p>The winner is the the player with the most pieces of his color on the board.</p></item>
   </steps>
 
-<table>
- <tr>
-  <td>
-  <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
-    <p its:translate="yes">Start position</p>
-  </media>
-   </td>
-   <td>
-  <media type="image" src="figures/first.png" width="200" its:translate="no">
-    <p its:translate="yes">Example first move</p>
-  </media>
-   </td>
-   <td>
-  <media type="image" src="figures/block.png" width="200" its:translate="no">
-    <p its:translate="yes">Blocking move</p>
-  </media>
-   </td>
-   </tr>
-   <tr>
-     <td><p><em>Start position</em></p></td>
-     <td><p><em>Example first move</em></p></td>
-     <td><p><em>A blocking move</em></p></td>
-   </tr>
-</table>
+  <table>
+    <tr>
+      <td>
+        <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
+          <p its:translate="yes">Usual start position: light-dark, dark-light</p>
+        </media>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><em>The usual start position</em></p>
+      </td>
+    </tr>
+  </table>
 
 </page>

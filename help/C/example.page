@@ -1,0 +1,106 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="example"
+      xmlns:its="http://www.w3.org/2005/11/its"> <!-- the "its" line is allowing translations for medias -->
+
+  <info>
+    <link type="guide" xref="index#reversi" />
+    <revision version="0.1" date="2020-02-01" status="final"/>
+
+    <credit type="author copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
+
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Example game first moves</title>
+
+  <table>
+    <tr>
+      <td>
+        <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
+          <p its:translate="yes">Usual start position: E4 and D5 are dark, D4 and E5 are light.</p>
+        </media>
+      </td>
+      <td>
+        <p><em>Start position</em></p>
+
+        <p>This is the usual start position of the reversi game family.</p>
+
+        <p><app>Reversi</app> also allows you to <link xref="start-position">use other start positions</link>.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <media type="image" src="figures/move-1.png" width="200" its:translate="no">
+          <p its:translate="yes">Example first move: <em>Dark</em> plays D3, capturing D4 thanks to D5.</p>
+        </media>
+      </td>
+      <td>
+        <p><em>Example first move</em></p>
+
+        <p><em>Dark</em> always starts in the reversi game family.</p>
+
+        <p>Whatever start position is used, there are four possible first moves.</p>
+
+        <p>In the usual start position like here, the four possibilities are equivalent by symmetry.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <media type="image" src="figures/move-2.png" width="200" its:translate="no">
+          <p its:translate="yes">First <em>Light</em> move: playing E3 and capturing E4 thanks to E5.</p>
+        </media>
+      </td>
+      <td>
+        <p><em>Possible second move</em></p>
+
+        <p><em>Light</em> has three possibilities of capturing one piece.</p>
+
+        <p>The game will require to search for the <link xref="strategy">best strategy</link>!</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <media type="image" src="figures/move-3.png" width="200" its:translate="no">
+          <p its:translate="yes"><em>Dark</em> turns multiple rows: playing F3, it captures both E3 due to D3 and E4 due to D5.</p>
+        </media>
+      </td>
+      <td>
+        <p><em>Capturing multiple rows</em></p>
+
+        <p><em>Dark</em> has five possibilities to play, all on the sixth column.</p>
+
+        <p>Two of these possibilities allow capturing in two directions at the same time, one piece in each.</p>
+
+        <p>Capturing the higher number of tiles is not required in reversi, and may not be the best solution even. Only the number of owned tiles at the end of the game will count.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <media type="image" src="figures/move-4.png" width="200" its:translate="no">
+          <p its:translate="yes"><em>Light</em> turns a row of two pieces: playing E2, it turns E3 and E4 thanks to E5</p>
+        </media>
+      </td>
+      <td>
+        <p><em>Turning a two-pieces row</em></p>
+
+        <p><em>Light</em> has again three play possibilities.</p>
+
+        <p>One of them is to capture two dark pieces in a row.</p>
+
+        <p>Playing that way may allow <em>Dark</em> to play next on the board edge. Is that a good strategy? Who knows!</p>
+      </td>
+    </tr>
+  </table>
+
+</page>
