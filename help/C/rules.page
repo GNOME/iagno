@@ -21,47 +21,71 @@
       <email its:translate="no">me@stevepdp.org</email>
       <years>2015</years>
     </credit>
-    <credit type="editor">
+    <credit type="editor copyright">
       <name>Arnaud Bonatti</name>
       <email>arnaud.bonatti@gmail.com</email>
       <years>2020</years>
     </credit>
 
-    <desc></desc>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
   </info>
 
   <title>Rules</title>
 
-  <p>The object of the game is to flip as many of the opponent tiles while blocking your opponent from flipping your tiles. In order to flip a tile, you must first trap it between two of your tiles, horizontally, vertically or diagonally.</p>
-  <steps>
-    <item><p>
-      The game begins with four pieces, two light and two dark, placed in the center of the board.
-    </p></item>
-    <item><p><em>Dark</em> goes first.</p></item>
-    <item><p><em>Dark</em> places a tile on the board in such a way that it traps white tiles between two of the dark tiles.</p>
+  <p><em>Classic Reversi</em> and <em>Reverse Reversi</em> are boardgames opposing two players, called <em>Dark</em> and <em>Light</em>. Both games are using the same rules; only the end goal differs between them: in <em>Classic Reversi</em>, the goal is to finish with <em>more</em> pieces than the opponent; while in <em>Reverse Reversi</em>, it is to finish with <em>less</em> pieces.</p>
+
+  <p>Both are played with pieces that are dark on one side and light on the other. <em>Dark</em> and <em>Light</em> play one after each other by adding on an empty tile a new piece of their color, trapping at least one opponent row of pieces; when pieces are captured that way, they are turned over to join the capturing player's forces.</p>
+
+  <section id="game-start">
+    <title>Game start</title>
+
+    <p>Games from the reversi game family are usually played on an 8 by 8 board. The game begins with four pieces, two light and two dark, placed on the four central tiles of the board.</p>
+
+    <p><app>Reversi</app> uses by default the most usual start position for the reversi game family, that is displayed on the following figure; but it also allows you to <link xref="start-position">vary start position</link> if you prefer.</p>
+
+    <table>
+      <tr>
+        <td>
+          <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
+            <p its:translate="yes">Usual start position: light-dark, dark-light</p>
+          </media>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><em>The usual start position</em></p>
+        </td>
+      </tr>
+    </table>
+
+    <p><em>Dark</em> goes first.</p>
+  </section>
+
+  <section id="during-game">
+    <title>During the game</title>
+
+    <p>One player after the other –<em>Dark</em> playing first– places a tile of its color on the board in such a way that at least one row of opponent tiles is trapped between the newly placed piece and an already placed one of the same color.</p>
+
     <note><p>This placement can be horizontal, vertical or diagonal.
     </p></note>
-    <p>
-     When the dark tile is placed, the light tiles between the newly placed dark tile and another dark tile are flipped over and become part of the dark forces.
-    </p>
-    </item>
-    <item><p>The players alternate turns until no more legal moves can be made by either player.  At this point the game is over. The end of the game often results in a full board.</p></item>
-    <item><p>The winner is the the player with the most pieces of his color on the board.</p></item>
-  </steps>
 
-  <table>
-    <tr>
-      <td>
-        <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
-          <p its:translate="yes">Usual start position: light-dark, dark-light</p>
-        </media>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><em>The usual start position</em></p>
-      </td>
-    </tr>
-  </table>
+    <p>When the tile is placed, the row of tiles between the newly placed tile and the other is flipped over, taking the players color. If multiple rows of tiles are trapped that way, they are all flipped over.</p>
+
+    <p>If there is no possible moves in a turn, the player has to pass. A player cannot pass a turn if there is a possible move. If both players cannot move, notably when the board is full, the game is over.</p>
+  </section>
+
+  <section id="game-end">
+    <title>End of game</title>
+
+    <p>The players alternate turns until no more legal moves can be made by either player. At this point the game is over.</p>
+
+    <p>The end of the game often results in a full board, but not necessarily. In either way, it is the number of pieces that will matter to decide who wins.</p>
+
+    <p>If you are playing <em>Classic Reversi</em>, the winner is the player with the <em>most</em> pieces of his color on the board; if you are in a <em>Reverse Reversi</em> game, it is the opposite: the winner is the player with the <em>least</em> pieces on the board.</p>
+
+    <p>If there is the same number of dark and light tiles, the game is declared a draw.</p>
+  </section>
 
 </page>
