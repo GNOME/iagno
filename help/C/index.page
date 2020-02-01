@@ -1,17 +1,22 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      xmlns:its="http://www.w3.org/2005/11/its"
       type="guide" style="task"
-      id="index">
+      id="index"
+      xmlns:its="http://www.w3.org/2005/11/its"> <!-- the "its" line is allowing translations for medias -->
 
   <info>
     <title type='link' role="trail"><media type="image" src="figures/logo.png" its:translate="no"/></title>
     <title type='link'>Reversi</title>
     <title type='text'>Reversi</title>
-    <revision pkgversion="3.4" version="0.1" date="2012-03-08" status="final"/>
+    <revision pkgversion="3.36" version="0.2" date="2020-02-01" status="final"/>
 
     <credit type="author">
       <name>Tiffany Antopolski</name>
       <email>tiffany.antopolski@gmail.com</email>
+    </credit>
+    <credit type="editor copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
     </credit>
 
     <license>
@@ -21,10 +26,16 @@
 
   <title><media type="image" src="figures/logo32.png" its:translate="no"><span its:translate="yes">Reversi logo</span></media> Reversi</title>
 
-  <p><app>Reversi</app> is a boardgame played on an 8X8 grid with 64 pieces, dark on one side and light on the other. When a piece is captured it is turned over to join the capturing player's forces; the winner is the player with the most pieces of their color at the end of the game.</p>
+  <p><app>Reversi</app> is a boardgame played with pieces dark on one side and light on the other. <em>Dark</em> and <em>Light</em> play one after each other by adding on an empty tile a new piece of their color, trapping at least one opponent row of pieces; when pieces are captured that way, they are turned over to join the capturing player's forces. See <link xref="rules">reversi rules</link> to discover more about the game.</p>
+
+  <p><app>Reversi</app> allows you to play both the Classic version of reversi, where you try to dominate the board at the end, and the Reverse one, where the goal is to finish with <em>less</em> pieces than your opponent. You can play both either <link xref="ai-game">against the computer</link> or <link xref="2player">with another player</link>. Have fun!</p>
 
   <section id="play" style="2column">
     <title>Game Play</title>
+  </section>
+
+  <section id="reversi" style="2column">
+    <title>Game of reversi</title>
   </section>
 
   <section id="tips" style="2column">

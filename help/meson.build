@@ -11,6 +11,7 @@ help_media = [
     'figures/symmetric-start.png',
     'figures/usual-start.png'
 ]
+
 help_files = [
     '2player.page',
     'ai-game.page',
@@ -31,7 +32,6 @@ help_files = [
     'theme.page',
     'translate.page'
 ]
-
 
 gnome.yelp(meson.project_name(),
     sources: help_files,
