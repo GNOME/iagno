@@ -1,0 +1,31 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="configure">
+
+  <info>
+    <link type="guide" xref="index#play"/>
+    <revision pkgversion="3.36" version="0.1" date="2020-02-02" status="final"/>
+
+    <credit type="author copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
+
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Configure a new game</title>
+
+  <p>When <app>Reversi</app> is opened, it displays a screen that allows you to configure a new game and to launch it.</p>
+
+  <p>This screen notably allows to select if you want to play <link xref="select-game"><em>Classic Reversi</em> or <em>Reverse Reversi</em></link>, to choose if you are going to play <link xref="ai-game">against the computer</link> or <link xref="2player">with another player</link>, and in the former case to <link xref="ai-level">change the computer level</link>.</p>
+
+  <p>If you are opening the application for the first time, <app>Reversi</app> defaults on an easy <em>Classic Reversi</em> against the computer. Else, it will have remembered you previous settings.</p>
+
+  <p>For launching a game from here, just click on the <gui>Start Game</gui> button. A game can also be launched with the <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> <link xref="shortcuts#game-selection">keyboard shortcut</link>.</p>
+
+  <p>Once a game has been launched, you can always go back to this screen by clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</key><key>N</key></keyseq> <link xref="shortcuts#during-game">keyboard shortcut</link>.</p>
+</page>

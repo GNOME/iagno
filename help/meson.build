@@ -17,8 +17,9 @@ help_media = [
 help_files = [
     '2player.page',
     'ai-game.page',
+    'ai-level.page',
     'bug-filing.page',
-    'change-color.page',
+    'configure.page',
     'develop.page',
     'documentation.page',
     'example.page',
@@ -28,6 +29,7 @@ help_files = [
     'license.page',
     'play.page',
     'rules.page',
+    'select-game.page',
     'shortcuts.page',
     'sound.page',
     'start-position.page',

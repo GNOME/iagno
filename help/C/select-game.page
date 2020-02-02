@@ -1,0 +1,33 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="select-game">
+
+  <info>
+    <link type="guide" xref="index#play"/>
+    <revision pkgversion="3.36" version="0.1" date="2020-02-02" status="final"/>
+
+    <credit type="author copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
+
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title><em>Classic Reversi</em> or <em>Reverse Reversi</em></title>
+
+  <p><app>Reversi</app> allows you to play two variants of the same game: <em>Classic Reversi</em> and <em>Reverse Reversi</em>.</p>
+
+  <p>When <link xref="configure">configuring a new game</link>, just choose the game you want to play by selecting the <gui>Classic Reversi</gui> or <gui>Reverse Reversi</gui> buttons.</p>
+
+  <p>As you can imagine with its name, the <em>Classic Reversi</em> game is the reversi as it is known around the world.</p>
+
+  <p>Both games are in fact using the same rules; only the end goal differs between them: in <em>Classic Reversi</em>, the goal is to finish with <em>more</em> pieces than the opponent; while in <em>Reverse Reversi</em>, it is to finish with <em>less</em> pieces.</p>
+
+  <p>This variation in the goal makes <em>Reverse Reversi</em> a quite interesting game, as you have to elaborate a different <link xref="strategy">strategy</link> to win. Try it!</p>
+
+  <p>If you want to try other variations of the reversi game, you can also choose to <link xref="start-position">vary start position</link>.</p>
+</page>

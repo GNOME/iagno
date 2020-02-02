@@ -29,7 +29,7 @@
 
     <p>If you are playing a <link xref="ai-game">game against the computer</link>, enabling this option will start new games with a random position in the six <link xref="#start-positions">possible start positions</link>.</p>
 
-    <p>If you are playing a <link xref="2player">two-player game</link>, enabling this option will start new games with the <link xref="#human-overture">two-player game overture</link>.</p>
+    <p>If you are <link xref="2player">playing with another player</link>, enabling this option will start new games with the <link xref="#human-overture">two-player game overture</link>.</p>
 
     <p>If the option is disabled, then the usual position of the reversi game family is always used for new games. See its description in the list of <link xref="#start-positions">possible start positions</link>.</p>
   </section>
@@ -95,7 +95,7 @@
   <section id="human-overture">
     <title>Two-player game overture</title>
 
-    <p>When playing a <link xref="2player">two-player game</link> with the the <link xref="#varying-start-position"><gui>Vary start position</gui></link> option enabled, new games will start with a special two-player game overture.</p>
+    <p>When <link xref="2player">playing with another player</link> with the the <link xref="#varying-start-position"><gui>Vary start position</gui></link> option enabled, new games will start with a special two-player game overture.</p>
 
     <p>The board is started empty. The two players are going to place the four initial pieces before starting the game.</p>
 

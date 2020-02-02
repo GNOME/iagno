@@ -1,0 +1,31 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="ai-level">
+
+  <info>
+    <link type="guide" xref="index#play"/>
+    <revision pkgversion="3.36" version="0.1" date="2020-02-02" status="final"/>
+
+    <credit type="author copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
+
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Change the computer level</title>
+
+  <p><app>Reversi</app> offers you three level of difficulty if you want to play against the computer.</p>
+
+  <p>These levels are called: <em>Easy</em>, <em>Medium</em>, and <em>Hard</em>. The first one is suitable for beginners, the second for casual players, and the last one should please regular players.</p>
+
+  <p>When <link xref="configure">configuring a new game</link>, have a look to the second button with a down arrow; it should either be labelled <gui>Difficulty: Easy</gui>, <gui>Difficulty: Medium</gui>, <gui>Difficulty: Hard</gui> or <gui>More options</gui>. The first three possibilities indicate which one of the three levels would be used if starting a new game. In the latter case, <app>Reversi</app> is currently configured for a two-player game, and you should first configure that you want to <link xref="ai-game">play against the computer</link>.</p>
+
+  <p>Once that is done, if the indicated level is not the one you want, select the button, and in the menu that appears, select <gui>Easy</gui>, <gui>Medium</gui> or <gui>Hard</gui>, as you prefer. The button will change its label accordingly.</p>
+
+  <p>When the indicated level is good for your, you can select the <gui>Start Game</gui> button to launch your game and <link xref="play">play</link>.</p>
+</page>

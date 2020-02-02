@@ -1,26 +1,31 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic" style="task"
       id="ai-game">
+
   <info>
-    <link type="guide" xref="index#play" />
-    <revision version="0.1" date="2012-03-08" status="final"/>
-    <revision pkgversion="3.34" version="0.2" date="2020-01-03" status="final"/>
+    <link type="guide" xref="index#play"/>
+    <revision pkgversion="3.36" version="0.2" date="2020-02-02" status="final"/>
 
     <credit type="author copyright">
-      <name>Brian Grohe</name>
-      <email>grohe43@gmail.com</email>
-      <years>2012</years>
-    </credit>
-   <credit type="editor">
-     <name>Tiffany Antopolski</name>
-     <email>tiffany.antopolski@gmail.com</email>
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
     </credit>
 
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
   </info>
 
   <title>Play against the computer</title>
-   <p>The computer has different levels of difficulty: <gui>Easy</gui>, <gui>Medium</gui>, and <gui>Hard</gui>.
-   To change this setting, choose a different setting under <gui>Difficulty</gui>
-   on the <gui>New Game</gui> screen.</p>
 
+  <p><app>Reversi</app> allows you to play against the computer, with three different levels of difficulty. You can also decide which player, between the computer and you, will start.</p>
+
+  <p>When <link xref="configure">configuring a new game</link>, have a look to the first button with a down arrow; it should either be labelled <gui>Color: Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the two first cases, <app>Reversi</app> is already configured to start a game against the computer, else it would start a two-player game.</p>
+
+  <p>If the button is labelled <gui>Color: Dark</gui>, that means that you will do the first move. Of course, <gui>Color: Light</gui> means that it will be the computer.</p>
+
+  <p>If the button indicates <gui>Two players</gui>, select it, and in the menu that appears, select <gui>Play first (Dark)</gui> if you want to start the game, or <gui>Play second (Light)</gui> if you want the computer to start. The button will change its label to <gui>Color: Dark</gui> in the former case, and to <gui>Color: Light</gui> in the latter.</p>
+
+  <p>Once you have configured <app>Reversi</app> to play a game against the computer, you may <link xref="ai-level">change the computer level</link>.</p>
 </page>

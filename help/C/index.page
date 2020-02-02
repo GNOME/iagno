@@ -28,7 +28,7 @@
 
   <p><app>Reversi</app> is a boardgame played with pieces dark on one side and light on the other. <em>Dark</em> and <em>Light</em> play one after each other by adding on an empty tile a new piece of their color, trapping at least one opponent row of pieces; when pieces are captured that way, they are turned over to join the capturing player's forces. See <link xref="rules">reversi rules</link> to discover more about the game.</p>
 
-  <p><app>Reversi</app> allows you to play both the Classic version of reversi, where you try to dominate the board at the end, and the Reverse one, where the goal is to finish with <em>less</em> pieces than your opponent. You can play both either <link xref="ai-game">against the computer</link> or <link xref="2player">with another player</link>. Have fun!</p>
+  <p><app>Reversi</app> allows you to play <link xref="select-game">two variations of the reversi game</link>: the classic version of reversi, where you try to dominate the board at the end, and the <em>Reverse Reversi</em>, where the goal is to finish with <em>less</em> pieces than your opponent. You can play both either <link xref="ai-game">against the computer</link> or <link xref="2player">with another player</link>. Check these options when you <link xref="configure">configure a new game</link>. Have fun!</p>
 
   <section id="play" style="2column">
     <title>Game Play</title>
