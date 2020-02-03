@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2020-01-06 18:13+0000\n"
-"PO-Revision-Date: 2020-01-08 08:42+0100\n"
+"POT-Creation-Date: 2020-02-03 03:01+0000\n"
+"PO-Revision-Date: 2020-02-03 16:39+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -25,97 +25,214 @@ msgstr ""
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2008"
 
 #. (itstool) path: credit/name
-#: C/2player.page:10 C/ai-game.page:10 C/shortcuts.page:9
-msgid "Brian Grohe"
-msgstr "Brian Grohe"
+#: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/configure.page:10
+#: C/develop.page:15 C/documentation.page:15 C/example.page:11
+#: C/highlights.page:10 C/index.page:17 C/play.page:15 C/rules.page:25
+#: C/select-game.page:10 C/shortcuts.page:15 C/start-position.page:11
+#: C/theme.page:10 C/translate.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. (itstool) path: credit/years
-#: C/2player.page:12 C/ai-game.page:12 C/play.page:13 C/rules.page:12
-#: C/shortcuts.page:11 C/sound.page:12
-msgid "2012"
-msgstr "2012"
+#: C/2player.page:12 C/ai-game.page:12 C/ai-level.page:12 C/configure.page:12
+#: C/develop.page:17 C/documentation.page:17 C/example.page:13
+#: C/highlights.page:12 C/index.page:19 C/play.page:17 C/rules.page:27
+#: C/select-game.page:12 C/shortcuts.page:17 C/start-position.page:13
+#: C/theme.page:12 C/translate.page:21
+msgid "2020"
+msgstr "2020"
 
-#. (itstool) path: credit/name
-#: C/2player.page:15 C/ai-game.page:15 C/bug-filing.page:9
-#: C/change-color.page:10 C/develop.page:10 C/documentation.page:8
-#: C/index.page:12 C/play.page:11 C/rules.page:10 C/sound.page:10
-#: C/translate.page:10
-msgid "Tiffany Antopolski"
-msgstr "Tiffany Antopolski"
+#. (itstool) path: license/p
+#: C/2player.page:16 C/ai-game.page:16 C/ai-level.page:16 C/bug-filing.page:16
+#: C/configure.page:16 C/develop.page:21 C/documentation.page:21
+#: C/example.page:17 C/highlights.page:16 C/index.page:23 C/play.page:21
+#: C/rules.page:31 C/select-game.page:16 C/shortcuts.page:21
+#: C/start-position.page:17 C/theme.page:16 C/translate.page:25
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Compartir Igual 3.0"
 
 #. (itstool) path: page/title
 #: C/2player.page:20
-msgid "Two-player mode"
-msgstr "Modo de dos jugadores"
+#| msgid "Play against the computer"
+msgid "Play with another player"
+msgstr "Jugar con otro jugador"
 
 #. (itstool) path: page/p
-#: C/2player.page:21
-#| msgid ""
-#| "Two player mode allows you to play against another human rather than a "
-#| "computer. To enable this:"
+#: C/2player.page:22
 msgid ""
-"Two player mode allows you to play against another human rather than a "
-"computer. To enable this, select <gui>Two</gui> under <gui>Players</gui> on "
-"the <gui>New Game</gui> screen."
+"<app>Reversi</app> allows you to play against another human, instead of "
+"against the computer."
 msgstr ""
-"El modo de dos jugadores le permite jugar contra otro jugador humano en vez "
-"de contra el equipo. Para activar esto seleccione <gui>Dos</gui> en "
-"<gui>Jugadores</gui> en la pantalla <gui>Juego nuevo</gui> screen."
+
+#. (itstool) path: page/p
+#: C/2player.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter "
+"case, <app>Reversi</app> is already configured to start a two-player game, "
+"else it would start a game against the computer."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/2player.page:26
+msgid ""
+"If the button does not indicate <gui>Two players</gui>, select it, and in "
+"the menu that appears, select <gui>Two players</gui>. The button will change "
+"its label to <gui>Two players</gui>. You can then select the <gui>Start "
+"Game</gui> button to launch your game and <link xref=\"play\">play</link>."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/2player.page:28
+msgid ""
+"If you asked the game to <link xref=\"start-position\">vary start position</"
+"link> and start a two-player game, you will start the game with a special "
+"<link xref=\"start-position#human-overture\">two-player game overture</link>."
+msgstr ""
 
 #. (itstool) path: page/title
-#: C/ai-game.page:21
+#: C/ai-game.page:20
 msgid "Play against the computer"
 msgstr "Jugar contra el equipo"
 
 #. (itstool) path: page/p
 #: C/ai-game.page:22
 msgid ""
-"The computer has different levels of difficulty: <gui>Easy</gui>, "
-"<gui>Medium</gui>, and <gui>Hard</gui>. To change this setting, choose a "
-"different setting under <gui>Difficulty</gui> on the <gui>New Game</gui> "
-"screen."
+"<app>Reversi</app> allows you to play against the computer, with three "
+"different levels of difficulty. You can also decide which player, between "
+"the computer and you, will start."
 msgstr ""
-"El equipo tiene varios niveles de dificultad: <gui>Fácil</gui>, <gui>Medio</"
-"gui>, y <gui>Difícil</gui>. Para cambiarlo elija un nivel diferente en "
-"<gui>Dificultad</gui> en la pantalla <gui>Juego nuevo</gui>."
+
+#. (itstool) path: page/p
+#: C/ai-game.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the two "
+"first cases, <app>Reversi</app> is already configured to start a game "
+"against the computer, else it would start a two-player game."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/ai-game.page:26
+msgid ""
+"If the button is labelled <gui>Color: Dark</gui>, that means that you will "
+"do the first move. Of course, <gui>Color: Light</gui> means that it will be "
+"the computer."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/ai-game.page:28
+msgid ""
+"If the button indicates <gui>Two players</gui>, select it, and in the menu "
+"that appears, select <gui>Play first (Dark)</gui> if you want to start the "
+"game, or <gui>Play second (Light)</gui> if you want the computer to start. "
+"The button will change its label to <gui>Color: Dark</gui> in the former "
+"case, and to <gui>Color: Light</gui> in the latter."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/ai-game.page:30
+msgid ""
+"Once you have configured <app>Reversi</app> to play a game against the "
+"computer, you may <link xref=\"ai-level\">change the computer level</link>."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/ai-level.page:20
+#| msgid "Play against the computer"
+msgid "Change the computer level"
+msgstr "Cambiar el nivel del equipo"
+
+#. (itstool) path: page/p
+#: C/ai-level.page:22
+msgid ""
+"<app>Reversi</app> offers you three level of difficulty if you want to play "
+"against the computer."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/ai-level.page:24
+msgid ""
+"These levels are called: <em>Easy</em>, <em>Medium</em>, and <em>Hard</em>. "
+"The first one is suitable for beginners, the second for casual players, and "
+"the last one should please regular players."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/ai-level.page:26
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the second button with a down arrow; it should either be labelled "
+"<gui>Difficulty: Easy</gui>, <gui>Difficulty: Medium</gui>, <gui>Difficulty: "
+"Hard</gui> or <gui>More options</gui>. The first three possibilities "
+"indicate which one of the three levels would be used if starting a new game. "
+"In the latter case, <app>Reversi</app> is currently configured for a two-"
+"player game, and you should first configure that you want to <link xref=\"ai-"
+"game\">play against the computer</link>."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/ai-level.page:28
+msgid ""
+"Once that is done, if the indicated level is not the one you want, select "
+"the button, and in the menu that appears, select <gui>Easy</gui>, "
+"<gui>Medium</gui> or <gui>Hard</gui>, as you prefer. The button will change "
+"its label accordingly."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/ai-level.page:30
+msgid ""
+"When the indicated level is good for your, you can select the <gui>Start "
+"Game</gui> button to launch your game and <link xref=\"play\">play</link>."
+msgstr ""
+
+#. (itstool) path: credit/name
+#: C/bug-filing.page:10 C/develop.page:10 C/documentation.page:10
+#: C/index.page:13 C/play.page:10 C/rules.page:11 C/sound.page:10
+#: C/translate.page:10
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
 
 #. (itstool) path: credit/years
-#: C/bug-filing.page:11 C/change-color.page:12 C/develop.page:12
-#: C/documentation.page:10 C/strategy.page:11 C/translate.page:12
+#: C/bug-filing.page:12 C/develop.page:12 C/documentation.page:12
+#: C/strategy.page:11 C/translate.page:12
 msgid "2011"
 msgstr "2011"
 
-#. (itstool) path: license/p
-#: C/bug-filing.page:14 C/develop.page:15 C/documentation.page:13
-#: C/index.page:16 C/translate.page:19
-msgid "Creative Commons Share Alike 3.0"
-msgstr "Creative Commons Compartir Igual 3.0"
-
 #. (itstool) path: page/title
-#: C/bug-filing.page:18
-msgid "Help make <app>Iagno</app> better"
-msgstr "Ayudar a mejorar <app>Iagno</app>"
+#: C/bug-filing.page:20
+#| msgid "Help make <app>Iagno</app> better"
+msgid "Help make <app>Reversi</app> better"
+msgstr "Ayudar a mejorar <app>Reversi</app>"
 
 #. (itstool) path: section/title
-#: C/bug-filing.page:21
+#: C/bug-filing.page:23
 msgid "Report a bug or suggest an improvement"
 msgstr "Informar de un error o sugerir una mejora"
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:22
+#: C/bug-filing.page:24
+#| msgid ""
+#| "<app>Iagno</app> is maintained by a volunteer community. You are welcome "
+#| "to participate. If you notice a problem you can file a <em>bug report</"
+#| "em>. To file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/"
+#| "iagno/issues/\"/>."
 msgid ""
-"<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
-"participate. If you notice a problem you can file a <em>bug report</em>. To "
-"file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues/"
-"\"/>."
+"<app>Reversi</app> is maintained by a volunteer community. You are welcome "
+"to participate. If you notice a problem you can file a <em>bug report</em>. "
+"To file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
+"issues/\"/>."
 msgstr ""
-"<app>Iagno</app> lo mantiene la comunidad de manera voluntaria. Si quiere "
+"<app>Reversi</app> lo mantiene la comunidad de manera voluntaria. Si quiere "
 "participar, es bienvenido. Si encuentra un error, puede rellenar un "
 "<em>informe de error</em>. Para informar de un error, vaya a <link href="
 "\"https://gitlab.gnome.org/GNOME/iagno/issues/\"/>."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:25
+#: C/bug-filing.page:28
 msgid ""
 "This is a bug tracking system where users and developers can file details "
 "about bugs, crashes and request enhancements."
@@ -125,7 +242,7 @@ msgstr ""
 "solicitudes de mejoras."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:28
+#: C/bug-filing.page:32
 msgid ""
 "To participate you need an account which will give you the ability to gain "
 "access, file bugs, and make comments. Also, you need to register so you can "
@@ -140,17 +257,18 @@ msgstr ""
 "<gui>Sign in / Register</gui> para crear una."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:32
+#: C/bug-filing.page:36
+#, fuzzy
 #| msgid ""
 #| "Once you have an account, log in, and click on <gui>New issue</gui>. "
-#| "Before reporting a bug, please read the <link href=\"https://bugzilla."
-#| "gnome.org/page.cgi?id=bug-writing.html\">bug writing guidelines</link>, "
-#| "and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
-#| "\">browse</link> for the bug to see if it already exists."
+#| "Before reporting a bug, please read the <link href=\"https://wiki.gnome."
+#| "org/Community/GettingInTouch/Bugzilla/Guidelines\">bug writing "
+#| "guidelines</link>, and please <link href=\"https://gitlab.gnome.org/GNOME/"
+#| "iagno/issues\">browse</link> for the bug to see if it already exists."
 msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
 "reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
-"Community/GettingInTouch/Bugzilla/Guidelines\">bug writing guidelines</"
+"Community/GettingInTouch/BugReportingGuidelines\">bug writing guidelines</"
 "link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
 "\">browse</link> for the bug to see if it already exists."
 msgstr ""
@@ -161,7 +279,7 @@ msgstr ""
 "\">busque</link> el error para ver si ya existe."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:37
+#: C/bug-filing.page:40
 msgid ""
 "If you are requesting a new feature, choose <gui>1. Feature</gui> in the "
 "<gui>Labels</gui> menu. Fill in the Title and Description sections and click "
@@ -172,42 +290,92 @@ msgstr ""
 "pulse en <gui>Submit Issue</gui>."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:41
+#: C/bug-filing.page:45
+#| msgid ""
+#| "Your report will be given an ID number, and its status will be updated as "
+#| "it is being dealt with. Thanks for helping make <app>Iagno</app> better!"
 msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
-"is being dealt with. Thanks for helping make <app>Iagno</app> better!"
+"is being dealt with. Thanks for helping make <app>Reversi</app> better!"
 msgstr ""
 "Su informe obtendrá un número de ID, y su estado se actualizará a medida que "
-"se trata.Gracias por ayudar a mejorar <app>Iagno</app>."
+"se trata.Gracias por ayudar a mejorar <app>Reversi</app>."
 
 #. (itstool) path: page/title
-#: C/change-color.page:18
-msgid "Change player color and difficulty"
-msgstr "Cambiar el color del jugador y la dificultad"
+#: C/configure.page:20
+msgid "Configure a new game"
+msgstr "Configurar una partida nueva"
 
 #. (itstool) path: page/p
-#: C/change-color.page:20
+#: C/configure.page:22
 msgid ""
-"To change the color of your player when you <link xref=\"ai-game\">play "
-"against the computer</link>, choose a different setting under <gui>Color</"
-"gui> on the <gui>New Game</gui> screen."
+"When <app>Reversi</app> is opened, it displays a screen that allows you to "
+"configure a new game and to launch it."
 msgstr ""
-"Para cambiar el color de su jugador cuando <link xref=\"ai-game\">juegue "
-"contra el equipo</link>, elija uno diferente en <gui>Color</gui> en la "
-"pantalla <gui>Juego nuevo</gui>."
 
 #. (itstool) path: page/p
-#: C/change-color.page:23
-msgid "You can also change the difficulty on this screen."
-msgstr "Puede cambiar la dificultad en esta pantalla."
+#: C/configure.page:24
+msgid ""
+"This screen notably allows to select if you want to play <link xref=\"select-"
+"game\"><em>Classic Reversi</em> or <em>Reverse Reversi</em></link>, to "
+"choose if you are going to play <link xref=\"ai-game\">against the computer</"
+"link> or <link xref=\"2player\">with another player</link>, and in the "
+"former case to <link xref=\"ai-level\">change the computer level</link>."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/configure.page:26
+msgid ""
+"If you are opening the application for the first time, <app>Reversi</app> "
+"defaults on an easy <em>Classic Reversi</em> against the computer. Else, it "
+"will have remembered you previous settings."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/configure.page:28
+#, fuzzy
+#| msgid ""
+#| "You can undo a move by pressing the button with an arrow and a circle in "
+#| "the top-right corner and selecting <gui>Undo last move</gui>, or by "
+#| "pressing the <keyseq><key>Ctrl</key><key>Z</key></keyseq> <link xref="
+#| "\"shortcuts\">keyboard shortcut</link>."
+msgid ""
+"For launching a game from here, just click on the <gui>Start Game</gui> "
+"button. A game can also be launched with the <keyseq><key>Shift</"
+"key><key>Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-"
+"selection\">keyboard shortcut</link>."
+msgstr ""
+"Puede desahcer un movimiento pulsando el botón con una flecha y un círculo "
+"en la esquina superior derecha y eligiendo <gui>Deshacer último movimiento</"
+"gui>, o pulsando el <link xref=\"shortcuts\">atajo del teclado</link> "
+"<keyseq><key>Ctrl</key><key>Z</key></keyseq>."
+
+#. (itstool) path: page/p
+#: C/configure.page:30
+#, fuzzy
+#| msgid ""
+#| "You can undo a move by pressing the button with an arrow and a circle in "
+#| "the top-right corner and selecting <gui>Undo last move</gui>, or by "
+#| "pressing the <keyseq><key>Ctrl</key><key>Z</key></keyseq> <link xref="
+#| "\"shortcuts\">keyboard shortcut</link>."
+msgid ""
+"Once a game has been launched, you can always go back to this screen by "
+"clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> <link xref=\"shortcuts#during-game\">keyboard "
+"shortcut</link>."
+msgstr ""
+"Puede desahcer un movimiento pulsando el botón con una flecha y un círculo "
+"en la esquina superior derecha y eligiendo <gui>Deshacer último movimiento</"
+"gui>, o pulsando el <link xref=\"shortcuts\">atajo del teclado</link> "
+"<keyseq><key>Ctrl</key><key>Z</key></keyseq>."
 
 #. (itstool) path: page/title
-#: C/develop.page:19
+#: C/develop.page:25
 msgid "Help develop"
 msgstr "Ayudar al desarrollo"
 
 #. (itstool) path: page/p
-#: C/develop.page:20
+#: C/develop.page:27
 msgid ""
 "The <app>GNOME Games</app> are developed and maintained by a volunteer "
 "community. You are welcome to participate."
@@ -216,21 +384,22 @@ msgstr ""
 "de voluntarios. Si quiere participar es bienvenido."
 
 #. (itstool) path: page/p
-#: C/develop.page:23
+#: C/develop.page:31
+#, fuzzy
 #| msgid ""
 #| "If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
-#| "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
+#| "Contribute\">help develop <app>GNOME Games</app></link>, you can get in "
 #| "touch with the developers using <link href=\"https://cbe005.chat.mibbit."
 #| "com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our "
-#| "<link href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing "
+#| "<link href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing "
 #| "list</link>."
 msgid ""
 "If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
 "Contribute\">help develop <app>GNOME Games</app></link>, you can get in "
-"touch with the developers using <link href=\"https://cbe005.chat.mibbit.com/?"
-"url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our <link "
-"href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
-"link>."
+"touch with the developers <link href=\"https://wiki.gnome.org/Community/"
+"GettingInTouch/IRC\">using IRC</link> (on the <code>#gnome-games</code> "
+"channel). People on the channel are located worldwide, so you may not get an "
+"immediate response as a result of timezone differences."
 msgstr ""
 "Si quiere <link href=\"https://wiki.gnome.org/Apps/Games/Contributing"
 "\">contribuir al desarrollo de los <app>juegos de GNOME</app></link>, puede "
@@ -239,13 +408,29 @@ msgstr ""
 "link>, o mediante la <link href=\"https://mail.gnome.org/mailman/listinfo/"
 "games-list\">lista de correo</link>."
 
+#. (itstool) path: page/p
+#: C/develop.page:33
+#, fuzzy
+#| msgid ""
+#| "Alternatively, you can contact the Internationalization Team using their "
+#| "<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+#| "list</link>."
+msgid ""
+"Alternatively, you can contact GNOME games developers using the dedicated "
+"<link href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing "
+"list</link>."
+msgstr ""
+"Alternativamente, puede contactar con el equipo de internacionalización "
+"usando su <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
+"\">lista de correo</link>."
+
 #. (itstool) path: page/title
-#: C/documentation.page:17
+#: C/documentation.page:25
 msgid "Help write documentation"
 msgstr "Ayudar a escribir la documentación"
 
 #. (itstool) path: page/p
-#: C/documentation.page:19
+#: C/documentation.page:27
 msgid ""
 "The <app>GNOME Games</app> documentation is maintained by a volunteer "
 "community. You are welcome to participate."
@@ -254,87 +439,336 @@ msgstr ""
 "comunidad de voluntarios. Si quiere participar es bienvenido."
 
 #. (itstool) path: page/p
-#: C/documentation.page:22
+#: C/documentation.page:30
+#, fuzzy
 #| msgid ""
-#| "To contribute to the Documentation Project, feel free to get in touch "
-#| "with us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F"
-#| "%2Firc.gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail."
-#| "gnome.org/mailman/listinfo/gnome-doc-list\">mailing list</link>."
+#| "You can chat with GNOME translators using <link href=\"https://cbe003."
+#| "chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. "
+#| "People on the channel are located worldwide, so you may not get an "
+#| "immediate response as a result of timezone differences."
 msgid ""
 "To contribute to the Documentation Project, feel free to get in touch with "
-"us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
-"gnome.org%2Fdocs\">irc</link>, or via our <link href=\"https://mail.gnome."
-"org/mailman/listinfo/gnome-doc-list\">mailing list</link>."
+"us <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC\">using "
+"irc</link> (on the <code>#docs</code> channel). People on the channel are "
+"located worldwide, so you may not get an immediate response as a result of "
+"timezone differences."
 msgstr ""
-"Para colaborar con el Proyecto de documentación, póngase en contacto usando "
-"<link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org"
-"%2Fdocs\">irc</link>, o mediante la <link href=\"https://mail.gnome.org/"
-"mailman/listinfo/gnome-doc-list\">lista de correo</link>."
+"\"Puede chatear con los traductores de GNOME usando <link href=\"https://"
+"cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. "
+"La gente de los canales se encuentra en cualquier parte del mundo, por lo "
+"\"\n"
+"\"que puede que no obtenga una respuesta inmediata debido a las diferencias "
+"horarias."
 
 #. (itstool) path: page/p
-#: C/documentation.page:24
+#: C/documentation.page:32
+#, fuzzy
 #| msgid ""
-#| "Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+#| "Alternatively, you can contact the Internationalization Team using their "
+#| "<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+#| "list</link>."
+msgid ""
+"Alternatively, you can contact the Documentation Project using the dedicated "
+"<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list"
+"\">mailing list</link>."
+msgstr ""
+"Alternativamente, puede contactar con el equipo de internacionalización "
+"usando su <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
+"\">lista de correo</link>."
+
+#. (itstool) path: page/p
+#: C/documentation.page:34
+#, fuzzy
+#| msgid ""
+#| "Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
 #| "\">wiki</link> page contains useful information."
 msgid ""
 "Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
-"\">wiki</link> page contains useful information."
+"\">wiki page</link> contains useful information."
 msgstr ""
 "El <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
 "\">wiki</link> contiene información útil."
 
+#. (itstool) path: page/title
+#: C/example.page:21
+#| msgid "Example first move"
+msgid "Example game first moves"
+msgstr "Ejemplo de primeros movimientos"
+
+#. (itstool) path: media/p
+#: C/example.page:27
+msgid "Usual start position: E4 and D5 are dark, D4 and E5 are light."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:31
+msgid "<em>Start position</em>"
+msgstr "<em>Posición inicial</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:33
+msgid "This is the usual start position of the reversi game family."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:35
+msgid ""
+"<app>Reversi</app> also allows you to <link xref=\"start-position\">use "
+"other start positions</link>."
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/example.page:42
+msgid "Example first move: <em>Dark</em> plays D3, capturing D4 thanks to D5."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:46
+msgid "<em>Example first move</em>"
+msgstr "<em>Ejemplo de primer movimiento</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:48
+msgid "<em>Dark</em> always starts in the reversi game family."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:50
+msgid "Whatever start position is used, there are four possible first moves."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:52
+msgid ""
+"In the usual start position like here, the four possibilities are equivalent "
+"by symmetry."
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/example.page:59
+msgid "First <em>Light</em> move: playing E3 and capturing E4 thanks to E5."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:63
+#, fuzzy
+#| msgid "<em>A blocking move</em>"
+msgid "<em>Possible second move</em>"
+msgstr "<em>Un movimiento de bloqueo</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:65
+msgid "<em>Light</em> has three possibilities of capturing one piece."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:67
+msgid ""
+"The game will require to search for the <link xref=\"strategy\">best "
+"strategy</link>!"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/example.page:74
+msgid ""
+"<em>Dark</em> turns multiple rows: playing F3, it captures both E3 due to D3 "
+"and E4 due to D5."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:78
+#, fuzzy
+#| msgid "<em>Attribution</em>"
+msgid "<em>Capturing multiple rows</em>"
+msgstr "<em>Atribución</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:80
+msgid "<em>Dark</em> has five possibilities to play, all on the sixth column."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:82
+msgid ""
+"Two of these possibilities allow capturing in two directions at the same "
+"time, one piece in each."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:84
+msgid ""
+"Capturing the higher number of tiles is not required in reversi, and may not "
+"be the best solution even. Only the number of owned tiles at the end of the "
+"game will count."
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/example.page:91
+msgid ""
+"<em>Light</em> turns a row of two pieces: playing E2, it turns E3 and E4 "
+"thanks to E5"
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:95
+msgid "<em>Turning a two-pieces row</em>"
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:97
+msgid "<em>Light</em> has again three play possibilities."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:99
+msgid "One of them is to capture two dark pieces in a row."
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/example.page:101
+msgid ""
+"Playing that way may allow <em>Dark</em> to play next on the board edge. Is "
+"that a good strategy? Who knows!"
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/highlights.page:20
+msgid "Display helpful highlights"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/highlights.page:22
+msgid ""
+"<app>Reversi</app> can display some helpful highlights during a game, be it "
+"a Classic Reversi or a Reverse Reversi."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/highlights.page:25
+msgid "Highlight playable tiles"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/highlights.page:27
+msgid ""
+"<app>Reversi</app> can first highlight the tiles that can be played by the "
+"current player. This information could be quite useful for beginners "
+"notably, for learning the game."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/highlights.page:29 C/highlights.page:39
+msgid ""
+"This can be activated both in a <link xref=\"ai-game\">game against the "
+"computer</link> and in a <link xref=\"2player\">two-player game</link>. "
+"There is no way for only enabling this highlight for one of the players of a "
+"two-player game."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/highlights.page:31
+#, fuzzy
+#| msgid ""
+#| "To enable or disable the sound, press the menu button in the top-right "
+#| "corner of the window and select <gui>Sound</gui>."
+msgid ""
+"To enable or disable this highlight, press the menu button in the top-right "
+"corner of the window, select <gui>Appearance</gui>, and in the "
+"<gui>Highlights</gui> section select <gui>Playable tiles</gui>."
+msgstr ""
+"Para activar o desactivar el sonido pulse el botón de menú en la esquina "
+"superior derecha de la ventana y elija <gui>Sonido</gui>."
+
+#. (itstool) path: section/title
+#: C/highlights.page:35
+msgid "Highlight capturable tiles"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/highlights.page:37
+msgid ""
+"<app>Reversi</app> can also highlight the tiles that would be captured by a "
+"given play. That might help for having a better visualisation of what the "
+"board would then look like."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/highlights.page:41
+#, fuzzy
+#| msgid ""
+#| "To enable or disable the sound, press the menu button in the top-right "
+#| "corner of the window and select <gui>Sound</gui>."
+msgid ""
+"To enable or disable this highlight, press the menu button in the top-right "
+"corner of the window, select <gui>Appearance</gui>, and in the "
+"<gui>Highlights</gui> section select <gui>Capturable tiles</gui>."
+msgstr ""
+"Para activar o desactivar el sonido pulse el botón de menú en la esquina "
+"superior derecha de la ventana y elija <gui>Sonido</gui>."
+
 #. (itstool) path: info/title
 #: C/index.page:8
 msgctxt "link"
-msgid "Iagno"
-msgstr "Iagno"
+msgid "Reversi"
+msgstr "Reversi"
 
 #. (itstool) path: info/title
 #: C/index.page:9
 msgctxt "text"
-msgid "Iagno"
-msgstr "Iagno"
+msgid "Reversi"
+msgstr "Reversi"
 
 #. (itstool) path: media/span
-#: C/index.page:20
-msgid "Iagno logo"
-msgstr "Logo de Iagno"
+#: C/index.page:27
+msgid "Reversi logo"
+msgstr "Logo de Reversi"
 
 #. (itstool) path: page/title
-#: C/index.page:20
-msgid "<_:media-1/> Iagno"
-msgstr "<_:media-1/> Iagno"
+#: C/index.page:27
+#| msgid "<_:media-1/> Iagno"
+msgid "<_:media-1/> Reversi"
+msgstr "<_:media-1/> Reversi"
 
 #. (itstool) path: page/p
-#: C/index.page:22
+#: C/index.page:29
 msgid ""
-"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
-"on one side and light on the other. When a piece is captured it is turned "
-"over to join the capturing player's forces; the winner is the player with "
-"the most pieces of their color at the end of the game."
+"<app>Reversi</app> is a boardgame played with pieces dark on one side and "
+"light on the other. <em>Dark</em> and <em>Light</em> play one after each "
+"other by adding on an empty tile a new piece of their color, trapping at "
+"least one opponent row of pieces; when pieces are captured that way, they "
+"are turned over to join the capturing player's forces. See <link xref=\"rules"
+"\">reversi rules</link> to discover more about the game."
 msgstr ""
-"<app>Iagno</app> se juega en un tablero de 8x8 con 64 fichas, negras en un "
-"lado y blancas en el otro. Cuando se captura una ficha, se saca del tablero "
-"y el jugador la guarda; el ganador es el jugador con más fichas de su color "
-"al terminar la partida"
+
+#. (itstool) path: page/p
+#: C/index.page:31
+msgid ""
+"<app>Reversi</app> allows you to play <link xref=\"select-game\">two "
+"variations of the reversi game</link>: the classic version of reversi, where "
+"you try to dominate the board at the end, and the <em>Reverse Reversi</em>, "
+"where the goal is to finish with <em>less</em> pieces than your opponent. "
+"You can play both either <link xref=\"ai-game\">against the computer</link> "
+"or <link xref=\"2player\">with another player</link>. Check these options "
+"when you <link xref=\"configure\">configure a new game</link>. Have fun!"
+msgstr ""
 
 #. (itstool) path: section/title
-#: C/index.page:26
+#: C/index.page:34
 msgid "Game Play"
 msgstr "Juego"
 
 #. (itstool) path: section/title
-#: C/index.page:30
+#: C/index.page:38
+msgid "Game of reversi"
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/index.page:42
 msgid "Useful tips"
 msgstr "Consejos útiles"
 
 #. (itstool) path: section/title
-#: C/index.page:34
-msgid "Advanced"
-msgstr "Avanzado"
-
-#. (itstool) path: section/title
-#: C/index.page:38
+#: C/index.page:46
 msgid "Get Involved"
 msgstr "Involucrarse"
 
@@ -441,237 +875,515 @@ msgstr ""
 "Commons</link> o lea el <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Escrito de Commons</link>."
 
+#. (itstool) path: credit/years
+#: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:12
+msgid "2012"
+msgstr "2012"
+
 #. (itstool) path: page/title
-#: C/play.page:19
-msgid "How to Play"
-msgstr "Cómo jugar"
+#: C/play.page:25
+msgid "Play with mouse or keyboard"
+msgstr "Jugar con el ratón o con el teclado"
 
 #. (itstool) path: page/p
-#: C/play.page:21
+#: C/play.page:27
 msgid ""
-"<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
-"play."
+"<app>Reversi</app> allows you to easily play with a mouse or with the "
+"keyboard."
 msgstr ""
-"<app>Iagno</app> tiene unas <link xref=\"rules\">reglas</link> sencillas y "
-"es fácil de jugar."
 
-#. (itstool) path: page/p
-#: C/play.page:23
-#| msgid ""
-#| "When the game first starts, you play <em>Dark</em> and the computer "
-#| "player plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</"
-#| "link> is <gui>Level one</gui> by default."
-msgid ""
-"When the game first starts, you play <em>Dark</em> and the computer player "
-"plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
-"<gui>Easy</gui> by default."
-msgstr ""
-"Cuando el juego empieza por primera vez, usted juega con las <em>Negras</em> "
-"y el equipo juega con las <em>Blancas</em>. De manera predeterminada, el "
-"<link xref=\"ai-game\">nivel de dificultad</link> es el <gui>Fácil</gui>."
+#. (itstool) path: section/title
+#: C/play.page:30
+msgid "How to play with a mouse"
+msgstr "Cómo jugar con el ratón"
 
-#. (itstool) path: page/p
-#: C/play.page:26
-msgid "The game is played using the mouse. To make a move:"
-msgstr "Se juega usando el ratón. Para realizar un movimiento:"
+#. (itstool) path: section/p
+#: C/play.page:32 C/play.page:57
+msgid "To make a move:"
+msgstr "Para hacer un movimiento:"
 
 #. (itstool) path: item/p
-#: C/play.page:29
-msgid "Click on the cell you would like to place your piece in."
+#: C/play.page:35
+msgid ""
+"Move the cursor on the tile you would like to place your piece in. The tile "
+"is highlighted if it is playable."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/play.page:38
+#, fuzzy
+#| msgid "Click on the cell you would like to place your piece in."
+msgid "Click on the tile to drop the piece."
 msgstr "Pulse en la casilla en la que quiere colocar una ficha."
 
 #. (itstool) path: note/p
-#: C/play.page:30
+#: C/play.page:40 C/play.page:65
 msgid ""
-"If the move is legal, the piece will be placed in the cell, and the opponent "
-"pieces will be flipped to match your color."
+"If you select a tile where you cannot move, the game notifies you that the "
+"move is impossible."
 msgstr ""
-"Si el movimiento es legal, la ficha se colocará en la celda y las fichas de "
-"su oponente se voltearán para que coincidan con su color"
-
-#. (itstool) path: note/p
-#: C/play.page:32
-msgid "If the move is not allowed, nothing will happen."
-msgstr "Si el movimiento no está permitido, no pasará nada."
 
 #. (itstool) path: item/p
-#: C/play.page:36
+#: C/play.page:44 C/play.page:69
 msgid ""
-"You can undo a move by pressing the button with an arrow and a circle in the "
-"top-right corner and selecting <gui>Undo last move</gui>, or by pressing the "
-"<keyseq><key>Ctrl</key><key>Z</key></keyseq> <link xref=\"shortcuts"
-"\">keyboard shortcut</link>."
+"To show possible moves, select a tile where there is already a piece, "
+"whatever its color is. Alternatively, you might want to <link xref="
+"\"highlight-playable-tiles\">highlight playable tiles</link>."
 msgstr ""
-"Puede desahcer un movimiento pulsando el botón con una flecha y un círculo "
-"en la esquina superior derecha y eligiendo <gui>Deshacer último movimiento</"
-"gui>, o pulsando el <link xref=\"shortcuts\">atajo del teclado</link> "
-"<keyseq><key>Ctrl</key><key>Z</key></keyseq>."
+
+#. (itstool) path: item/p
+#: C/play.page:47
+#, fuzzy
+#| msgid ""
+#| "To enable or disable the sound, press the menu button in the top-right "
+#| "corner of the window and select <gui>Sound</gui>."
+msgid ""
+"You can always undo your move. For that, press the button with an arrow and "
+"a circle in the top-right corner (or in the bottom bar on small windows) and "
+"select <gui>Undo last move</gui>."
+msgstr ""
+"Para activar o desactivar el sonido pulse el botón de menú en la esquina "
+"superior derecha de la ventana y elija <gui>Sonido</gui>."
+
+#. (itstool) path: section/p
+#: C/play.page:51
+msgid "You can also <link xref=\"#keyboard-play\">use the keyboard</link>."
+msgstr "También puede <link xref=\"#keyboard-play\">usar el teclado</link>."
 
 #. (itstool) path: section/title
-#: C/play.page:42
-msgid "Video demonstration"
-msgstr "Vídeo de demostración"
+#: C/play.page:55
+msgid "How to play with the keyboard"
+msgstr "Cómo jugar con el teclado"
+
+#. (itstool) path: item/p
+#: C/play.page:60
+msgid ""
+"Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> "
+"arrows to go at the tile you want to move. The currently selected tile is "
+"indicated by an highlight on the board."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/play.page:63
+msgid ""
+"Use the <key>Space</key> or the <key>Return</key> key to drop a piece one "
+"the selected tile."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/play.page:72
+msgid ""
+"You can always undo your move. For that, use the <keyseq><key>Ctrl</"
+"key><key>Z</key></keyseq> keys sequence."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/play.page:76
+msgid ""
+"More shortcuts are available, documented either on the <link xref=\"shortcuts"
+"\">Keyboard shortcuts</link> page, or in the dialog that appears on "
+"<keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/play.page:78
+msgid "You can also <link xref=\"#mouse-play\">use a mouse</link>."
+msgstr "También puede <link xref=\"#mouse-play\">usar el ratón</link>."
 
 #. (itstool) path: credit/name
-#: C/rules.page:15 C/strategy.page:14 C/translate.page:15
+#: C/rules.page:16 C/strategy.page:14 C/translate.page:15
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
 #. (itstool) path: credit/name
-#: C/rules.page:19
+#: C/rules.page:20
 msgid "Stephen Pearce"
 msgstr "Stephen Pearce"
 
 #. (itstool) path: credit/years
-#: C/rules.page:21
+#: C/rules.page:22
 msgid "2015"
 msgstr "2015"
 
 #. (itstool) path: page/title
-#: C/rules.page:27
+#: C/rules.page:35
 msgid "Rules"
 msgstr "Reglas"
 
 #. (itstool) path: page/p
-#: C/rules.page:29
+#: C/rules.page:37
 msgid ""
-"The object of the game is to flip as many of the opponent tiles while "
-"blocking your opponent from flipping your tiles. In order to flip a tile, "
-"you must first trap it between two of your tiles, horizontally, vertically "
-"or diagonally."
+"<em>Classic Reversi</em> and <em>Reverse Reversi</em> are boardgames "
+"opposing two players, called <em>Dark</em> and <em>Light</em>. Both games "
+"are using the same rules; only the end goal differs between them: in "
+"<em>Classic Reversi</em>, the goal is to finish with <em>more</em> pieces "
+"than the opponent; while in <em>Reverse Reversi</em>, it is to finish with "
+"<em>less</em> pieces."
 msgstr ""
-"El objetivo del juego es voltear todas las fichas posibles del oponente, "
-"evitando que el oponente voltee las suyas. Para voltear una ficha, primero "
-"debe atraparla entre dos de sus fichas, horizontal, vertical o diagonalmente."
 
-#. (itstool) path: item/p
-#: C/rules.page:31
+#. (itstool) path: page/p
+#: C/rules.page:39
 msgid ""
-"The game begins with four pieces, two light and two dark, placed in the "
-"center of the board."
+"Both are played with pieces that are dark on one side and light on the "
+"other. <em>Dark</em> and <em>Light</em> play one after each other by adding "
+"on an empty tile a new piece of their color, trapping at least one opponent "
+"row of pieces; when pieces are captured that way, they are turned over to "
+"join the capturing player's forces."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/rules.page:42
+#, fuzzy
+#| msgid "Game Play"
+msgid "Game start"
+msgstr "Juego"
+
+#. (itstool) path: section/p
+#: C/rules.page:44
+#, fuzzy
+#| msgid ""
+#| "The game begins with four pieces, two light and two dark, placed in the "
+#| "center of the board."
+msgid ""
+"Games from the reversi game family are usually played on an 8 by 8 board. "
+"The game begins with four pieces, two light and two dark, placed on the four "
+"central tiles of the board."
 msgstr ""
 "El juego emficha con cuatro fichas, dos blancas y dos negras, situadas en el "
 "centro del tablero."
 
-#. (itstool) path: item/p
-#: C/rules.page:34
-msgid "Dark goes first."
-msgstr "Las negras mueven primero."
-
-#. (itstool) path: item/p
-#: C/rules.page:35
+#. (itstool) path: section/p
+#: C/rules.page:46
 msgid ""
-"Dark places a tile on the board in such a way that it traps white tiles "
-"between two of the dark tiles."
+"<app>Reversi</app> uses by default the most usual start position for the "
+"reversi game family, that is displayed on the following figure; but it also "
+"allows you to <link xref=\"start-position\">vary start position</link> if "
+"you prefer."
 msgstr ""
-"Las negras colocan una ficha en el tablero de manera que atrapan fichas "
-"blancas entre dos negras."
+
+#. (itstool) path: media/p
+#: C/rules.page:52 C/start-position.page:48
+msgid "Usual start position: light-dark, dark-light"
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/rules.page:58
+#, fuzzy
+#| msgid "<em>Start position</em>"
+msgid "<em>The usual start position</em>"
+msgstr "<em>Posición inicial</em>"
+
+#. (itstool) path: section/p
+#: C/rules.page:63
+#| msgid "Dark goes first."
+msgid "<em>Dark</em> goes first."
+msgstr "Las <em>negras</em> mueven primero."
+
+#. (itstool) path: section/title
+#: C/rules.page:67
+msgid "During the game"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/rules.page:69
+msgid ""
+"One player after the other –<em>Dark</em> playing first– places a tile of "
+"its color on the board in such a way that at least one row of opponent tiles "
+"is trapped between the newly placed piece and an already placed one of the "
+"same color."
+msgstr ""
 
 #. (itstool) path: note/p
-#: C/rules.page:36
+#: C/rules.page:71
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "La colocación puede ser horizontal, vertical o diagonal."
 
-#. (itstool) path: item/p
-#: C/rules.page:38
+#. (itstool) path: section/p
+#: C/rules.page:74
+#, fuzzy
+#| msgid ""
+#| "When the dark tile is placed, the light tiles between the newly placed "
+#| "dark tile and another dark tile are flipped over and become part of the "
+#| "dark forces."
 msgid ""
-"When the dark tile is placed, the light tiles between the newly placed dark "
-"tile and another dark tile are flipped over and become part of the dark "
-"forces."
+"When the tile is placed, the row of tiles between the newly placed tile and "
+"the other is flipped over, taking the players color. If multiple rows of "
+"tiles are trapped that way, they are all flipped over."
 msgstr ""
 "Cuando se coloca la ficha negra, las blancas que están entre la ficha negra "
 "que se ha puesto y otra se voltean y pasan a formar parte de las fuerzas "
 "oscuras."
 
-#. (itstool) path: item/p
-#: C/rules.page:42
+#. (itstool) path: section/p
+#: C/rules.page:76
+msgid ""
+"If there is no possible moves in a turn, the player has to pass. A player "
+"cannot pass a turn if there is a possible move. If both players cannot move, "
+"notably when the board is full, the game is over."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/rules.page:80
+msgid "End of game"
+msgstr "Fin de la partida"
+
+#. (itstool) path: section/p
+#: C/rules.page:82
+#, fuzzy
+#| msgid ""
+#| "The players alternate turns until no more legal moves can be made by "
+#| "either player. At this point the game is over. The end of the game often "
+#| "results in a full board."
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
-"player. At this point the game is over. The end of the game often results in "
-"a full board."
+"player. At this point the game is over."
 msgstr ""
 "Los jugadores alternan los turnos hasta que no haya más movimientos legales "
 "para ninguno de los dos jugadores. En este punto el juego se termina. A "
 "menudo, el final del juego termina con un tablero completo."
 
-#. (itstool) path: item/p
-#: C/rules.page:43
+#. (itstool) path: section/p
+#: C/rules.page:84
 msgid ""
-"The winner is the the player with the most pieces of his color on the board."
-msgstr "El ganador es el jugador con más fichas de su color en el tablero."
+"The end of the game often results in a full board, but not necessarily. In "
+"either way, it is the number of pieces that will matter to decide who wins."
+msgstr ""
 
-#. (itstool) path: media/p
-#: C/rules.page:50
-msgid "Start position"
-msgstr "Posición inicial"
+#. (itstool) path: section/p
+#: C/rules.page:86
+msgid ""
+"If you are playing <em>Classic Reversi</em>, the winner is the player with "
+"the <em>most</em> pieces of his color on the board; if you are in a "
+"<em>Reverse Reversi</em> game, it is the opposite: the winner is the player "
+"with the <em>least</em> pieces on the board."
+msgstr ""
 
-#. (itstool) path: media/p
-#: C/rules.page:55
-msgid "Example first move"
-msgstr "Ejemplo de primer movimiento"
-
-#. (itstool) path: media/p
-#: C/rules.page:60
-msgid "Blocking move"
-msgstr "Movimiento de bloqueo"
-
-#. (itstool) path: td/p
-#: C/rules.page:65
-msgid "<em>Start position</em>"
-msgstr "<em>Posición inicial</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:66
-msgid "<em>Example first move</em>"
-msgstr "<em>Ejemplo de primer movimiento</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:67
-msgid "<em>A blocking move</em>"
-msgstr "<em>Un movimiento de bloqueo</em>"
+#. (itstool) path: section/p
+#: C/rules.page:88
+msgid ""
+"If there is the same number of dark and light tiles, the game is declared a "
+"draw."
+msgstr ""
 
 #. (itstool) path: page/title
-#: C/shortcuts.page:17
+#: C/select-game.page:20
+msgid "<em>Classic Reversi</em> or <em>Reverse Reversi</em>"
+msgstr "<em>Reversi clásico</em> o <em>Reversi inverso</em>"
+
+#. (itstool) path: page/p
+#: C/select-game.page:22
+msgid ""
+"<app>Reversi</app> allows you to play two variants of the same game: "
+"<em>Classic Reversi</em> and <em>Reverse Reversi</em>."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/select-game.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, just choose the "
+"game you want to play by selecting the <gui>Classic Reversi</gui> or "
+"<gui>Reverse Reversi</gui> buttons."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/select-game.page:26
+msgid ""
+"As you can imagine with its name, the <em>Classic Reversi</em> game is the "
+"reversi as it is known around the world."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/select-game.page:28
+msgid ""
+"Both games are in fact using the same rules; only the end goal differs "
+"between them: in <em>Classic Reversi</em>, the goal is to finish with "
+"<em>more</em> pieces than the opponent; while in <em>Reverse Reversi</em>, "
+"it is to finish with <em>less</em> pieces."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/select-game.page:30
+msgid ""
+"This variation in the goal makes <em>Reverse Reversi</em> a quite "
+"interesting game, as you have to elaborate a different <link xref=\"strategy"
+"\">strategy</link> to win. Try it!"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/select-game.page:32
+msgid ""
+"If you want to try other variations of the reversi game, you can also choose "
+"to <link xref=\"start-position\">vary start position</link>."
+msgstr ""
+
+#. (itstool) path: credit/name
+#: C/shortcuts.page:10
+msgid "Brian Grohe"
+msgstr "Brian Grohe"
+
+#. (itstool) path: page/title
+#. (itstool) path: td/p
+#: C/shortcuts.page:25 C/shortcuts.page:83
 msgid "Keyboard shortcuts"
 msgstr "Atajos de teclado"
 
+#. (itstool) path: page/p
+#: C/shortcuts.page:27
+msgid ""
+"<app>Reversi</app> can easily be used with keyboard. The Classic Reversi and "
+"Reverse Reversi games are both played with the same shortcuts."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:30
+msgid "During game selection"
+msgstr ""
+
 #. (itstool) path: td/p
-#: C/shortcuts.page:20
+#: C/shortcuts.page:33
+#| msgid "New game"
+msgid "Start new game"
+msgstr "Iniciar un juego nuevo"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:34
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Mayús</key><key>Ctrl</key><key>N</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:37
+msgid "Go back"
+msgstr "Ir atrás"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:38
+#| msgid "<key>F1</key>"
+msgid "<key>Escape</key>"
+msgstr "<key>Esc</key>"
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:44
+msgid "Play with keyboard"
+msgstr "Jugar con el teclado"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:47
+msgid "Select where to play"
+msgstr "Seleccionar dónde jugar"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:48
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
+msgstr ""
+"<key>Izquierda</key>, <key>Derecha</key>, <key>Arriba</key> y <key>Abajo</"
+"key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:51
+#| msgid "Select the <gui>Game</gui> tab"
+msgid "Select the given row"
+msgstr "Seleccionar la fila dada"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:52
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<key>1</key> to <key>8</key>"
+msgstr "<key>1</key> a <key>8</key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:55
+msgid "Select the given column"
+msgstr "Seleccionar la columna dada"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:56
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<key>a</key> to <key>h</key>"
+msgstr "<key>a</key> a <key>h</key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:59
+msgid "Play on selected tile"
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:60
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<key>Return</key>, <key>Space</key>"
+msgstr "<key>Intro</key>, <key>Espacio</key>"
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:66
+#| msgid "Joining a game room"
+msgid "During a game"
+msgstr "Durante la partida"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:69
 msgid "New game"
 msgstr "Partida nueva"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:21
+#: C/shortcuts.page:70
 msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:25
-msgid "Undo Move"
-msgstr "Deshacer movimiento"
+#: C/shortcuts.page:73
+#| msgid "Undo Move"
+msgid "Undo last move"
+msgstr "Deshacer el último movimiento"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:26
+#: C/shortcuts.page:74
 msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 
+#. (itstool) path: section/title
+#: C/shortcuts.page:80
+msgid "Generic"
+msgstr "Genérico"
+
 #. (itstool) path: td/p
-#: C/shortcuts.page:29
+#: C/shortcuts.page:84
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid ""
+"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+"key><key>F1</key></keyseq>"
+msgstr ""
+"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+"key><key>F1</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:87
 msgid "Help"
 msgstr "Ayuda"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:30
+#: C/shortcuts.page:88
 msgid "<key>F1</key>"
 msgstr "<key>F1</key>"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:33
+#: C/shortcuts.page:91
+msgid "About"
+msgstr "Acerca de"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:92
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+msgstr "<keyseq><key>Mayús</key><key>F1</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:95
 msgid "Quit"
 msgstr "Salir"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:34
+#: C/shortcuts.page:96
 msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 
@@ -690,15 +1402,202 @@ msgstr ""
 "superior derecha de la ventana y elija <gui>Sonido</gui>."
 
 #. (itstool) path: page/title
+#: C/start-position.page:21
+#, fuzzy
+#| msgid "Start position"
+msgid "Vary start position"
+msgstr "Posición inicial"
+
+#. (itstool) path: page/p
+#: C/start-position.page:23
+msgid ""
+"<app>Reversi</app> allows to start a game with a different initial position "
+"than the usual one of the reversi game family."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/start-position.page:26
+#, fuzzy
+#| msgid "Start position"
+msgid "Varying start position"
+msgstr "Posición inicial"
+
+#. (itstool) path: section/p
+#: C/start-position.page:28
+msgid ""
+"To enable or disable this option, go in the Start Screen, click on the "
+"<gui>Difficulty</gui> button, and in the menu that appears, select <gui>Vary "
+"start position</gui>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:30
+msgid ""
+"If you are playing a <link xref=\"ai-game\">game against the computer</"
+"link>, enabling this option will start new games with a random position in "
+"the six <link xref=\"#start-positions\">possible start positions</link>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:32
+msgid ""
+"If you are <link xref=\"2player\">playing with another player</link>, "
+"enabling this option will start new games with the <link xref=\"#human-"
+"overture\">two-player game overture</link>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:34
+msgid ""
+"If the option is disabled, then the usual position of the reversi game "
+"family is always used for new games. See its description in the list of "
+"<link xref=\"#start-positions\">possible start positions</link>."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/start-position.page:38
+#, fuzzy
+#| msgid "Start position"
+msgid "Possible start positions"
+msgstr "Posición inicial"
+
+#. (itstool) path: section/p
+#: C/start-position.page:40
+msgid ""
+"There are really two possible start positions in <app>Reversi</app>, up to "
+"six as their symmetries can also be played."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:42
+msgid "The two main positions are the following:"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:53
+msgid "Alternative position: dark-light, dark-light"
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/start-position.page:59
+#, fuzzy
+#| msgid "<em>Start position</em>"
+msgid "<em>Usual start position</em>"
+msgstr "<em>Posición inicial</em>"
+
+#. (itstool) path: td/p
+#: C/start-position.page:62
+#, fuzzy
+#| msgid "<em>Start position</em>"
+msgid "<em>Alternative position</em>"
+msgstr "<em>Posición inicial</em>"
+
+#. (itstool) path: section/p
+#: C/start-position.page:67
+msgid "Their allowed symmetries are the following:"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:73
+msgid "Only symmetry of the usual start position: dark-light, light-dark"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:78
+msgid "First symmetry of the alternative position: dark-dark, light-light"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:83
+msgid "Second symmetry of the alternative position: light-dark, light-dark"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:88
+msgid "Last symmetry of the alternative position: light-light, dark-dark"
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/start-position.page:96
+#, fuzzy
+#| msgid "Two-player mode"
+msgid "Two-player game overture"
+msgstr "Modo de dos jugadores"
+
+#. (itstool) path: section/p
+#: C/start-position.page:98
+msgid ""
+"When <link xref=\"2player\">playing with another player</link> with the the "
+"<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
+"option enabled, new games will start with a special two-player game overture."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:100
+msgid ""
+"The board is started empty. The two players are going to place the four "
+"initial pieces before starting the game."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:104
+msgid ""
+"<em>Dark</em> goes first, and places the first piece on one of the four "
+"central tiles of the board."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:107
+msgid ""
+"<em>Light</em> places one piece in one of the two available positions next "
+"to the dark piece."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:110
+msgid ""
+"<em>Dark</em> then places a piece on one of the two remaining central tiles "
+"of the board."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:113
+msgid ""
+"<em>Light</em> finishes the opening by placing a second piece at the "
+"remaining place."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:116
+msgid ""
+"The game is then started, following the <link xref=\"rules\">reversi rules</"
+"link>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:120
+msgid ""
+"This opening allows the first player to choose if the game will start with a "
+"position “in cross” (the usual start position or its symmetry) or a "
+"“parallel” position (the alternative position or one of its symmetries)."
+msgstr ""
+
+#. (itstool) path: page/title
 #: C/strategy.page:21
 msgid "Strategy"
 msgstr "Estrategia"
 
 #. (itstool) path: page/p
 #: C/strategy.page:23
+#, fuzzy
+#| msgid ""
+#| "<app>Iagno</app> doesn't have one particular winning strategy. Rather it "
+#| "has strategic elements which can be used to help one gain advantage. Some "
+#| "strategies, such as trying to flip as many of your opponent's pieces "
+#| "early on in the game, should be avoided."
 msgid ""
-"<app>Iagno</app> doesn't have one particular winning strategy. Rather it has "
-"strategic elements which can be used to help one gain advantage. Some "
+"<app>Reversi</app> doesn't have one particular winning strategy. Rather it "
+"has strategic elements which can be used to help one gain advantage. Some "
 "strategies, such as trying to flip as many of your opponent's pieces early "
 "on in the game, should be avoided."
 msgstr ""
@@ -709,21 +1608,16 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/strategy.page:28
+#, fuzzy
+#| msgid ""
+#| "Much has been written on the topic of strategy for the games <em>Othello</"
+#| "em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
 msgid ""
 "Much has been written on the topic of strategy for the games <em>Othello</"
-"em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
+"em> and <em>Reversi</em>."
 msgstr ""
 "Se ha escrito mucho sobre el tema de la estrategia para los juegos "
 "<em>Othello</em> y <em>Reversi</em>, en los que se basa <app>Iagno</app>."
-
-#. (itstool) path: note/p
-#: C/strategy.page:31
-msgid ""
-"Some sources state that Reversi does not have a predefined starting "
-"position, whereas Othello and <app>Iagno</app> do."
-msgstr ""
-"Algunas fuentes mantienen que Reversi no tiene una posición se inicio "
-"predefinida, mientras que Othello e <app>Iagno</app> sí la tienen."
 
 #. (itstool) path: page/p
 #: C/strategy.page:35
@@ -745,9 +1639,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/strategy.page:44
-#| msgid ""
-#| "<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
-#| "\">Wikipedia: Strategic elements</link>"
 msgid "<link href=\"https://en.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
 msgstr "<link href=\"https://es.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
 
@@ -761,12 +1652,191 @@ msgstr ""
 "estrategia</link>"
 
 #. (itstool) path: page/title
-#: C/translate.page:23
+#: C/theme.page:20
+msgid "Change the board theme"
+msgstr "Cambiar el tema del tablero"
+
+#. (itstool) path: page/p
+#: C/theme.page:22
+msgid ""
+"<app>Reversi</app> supports various board themes, so that you can adjust its "
+"look to your taste."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/theme.page:24
+msgid ""
+"Until the theme has been changed, the application tries to choose a theme "
+"adapted to your environment; see the section about the <link xref=\"default-"
+"theme\"><em>Default</em> theme</link>."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/theme.page:27
+msgid "Changing theme"
+msgstr "Cambiar el tema"
+
+#. (itstool) path: section/p
+#: C/theme.page:29
+#, fuzzy
+#| msgid ""
+#| "To enable or disable the sound, press the menu button in the top-right "
+#| "corner of the window and select <gui>Sound</gui>."
+msgid ""
+"For changing theme, press the menu button in the top-right corner of the "
+"window, select <gui>Appearance</gui>, and select one of the items in the "
+"given list."
+msgstr ""
+"Para activar o desactivar el sonido pulse el botón de menú en la esquina "
+"superior derecha de la ventana y elija <gui>Sonido</gui>."
+
+#. (itstool) path: section/p
+#: C/theme.page:31
+msgid ""
+"The first item of the list is called <gui><em>Default</em></gui> and lets "
+"the application try to choose a theme adapted to your environment; see the "
+"section about the <link xref=\"default-theme\"><em>Default</em> theme</"
+"link>. The following suggestions are described in the <link xref=\"themes-"
+"list\">themes list</link>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:33
+msgid ""
+"Following the themes list, the options of the section <gui>Highlights</gui> "
+"are for <link xref=\"highlights\">displaying helpful highlights</link>. "
+"These are working whatever theme you decide to use."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/theme.page:37
+msgid "Themes list"
+msgstr "Lista de temas"
+
+#. (itstool) path: section/p
+#: C/theme.page:39
+msgid "<app>Reversi</app> comes with four themes installed:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:43
+msgid ""
+"<em>Classic</em>: this theme mimics the most usual reversi boards, with a "
+"green background and bicolor pieces;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:46
+msgid ""
+"<em>Black and White</em>: this theme is more conceptual, featuring geometric "
+"shapes and a high black and white contrast;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:49
+msgid ""
+"<em>Adwaita</em>: this theme uses a blue board, more suitable if the theme "
+"of your windows is a dark one;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:52
+msgid ""
+"<em>Sun and Star</em>: this theme is a variant of the <em>Classic</em> one, "
+"with some decorations on the pieces."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:56
+msgid ""
+"The first entry in the themes list is called <em>Default</em> and has a "
+"special behavior; see the section about the <link xref=\"default-theme"
+"\"><em>Default</em> theme</link>."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/theme.page:60
+msgid "<em>Default</em> theme"
+msgstr "Tema <em>Predeterminado</em>"
+
+#. (itstool) path: section/p
+#: C/theme.page:62
+msgid ""
+"The first entry in the themes list is called <em>Default</em> and has a "
+"special behavior."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:64
+msgid ""
+"When this entry is selected, the application tries to choose a theme adapted "
+"to your environment:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:68
+msgid ""
+"if you are using a theme for your windows known for being dark –like "
+"<em>Adwaita Dark</em>– or if you have activated GNOME night mode, the board "
+"theme used will be the one called <em>Adwaita</em>, that is darker than the "
+"other themes thanks to its blue background;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:71
+msgid ""
+"if you are using a theme for your windows created specially for having a "
+"high contrast, notably if you activated the “High Contrast” GNOME "
+"accessibility option, the board theme used will be the one called <em>Black "
+"and White</em>, that should be a perfect fit;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:74
+msgid ""
+"else, the theme used will be the one called <em>Classic</em>, that uses a "
+"green board quite common for reversi games."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:78
+msgid "This behavior is of course the default one of the application."
+msgstr "Este comportamiento es el predeterminado de la aplicación."
+
+#. (itstool) path: section/title
+#: C/theme.page:82
+#| msgid "Legal information."
+msgid "More informations"
+msgstr "Más información"
+
+#. (itstool) path: section/p
+#: C/theme.page:84
+msgid ""
+"There is no way to install a different theme than the ones described here."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:86
+msgid ""
+"These themes have been designed by Arnaud Bonatti, with pieces created by "
+"Masuichi Ito."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:88
+msgid ""
+"If you have a suggestion for a new theme, or if you are interested in "
+"contributing a new theme, please <link xref=\"bug-filing\">open an issue</"
+"link> about it."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/translate.page:29
 msgid "Help translate"
 msgstr "Ayudar a traducir"
 
 #. (itstool) path: page/p
-#: C/translate.page:24
+#: C/translate.page:31
 msgid ""
 "The <app>GNOME Games</app> user interface and documentation is being "
 "translated by a world-wide volunteer community. You are welcome to "
@@ -776,10 +1846,7 @@ msgstr ""
 "la traduce una comunidad de voluntarios. Si quiere participar es bienvenido."
 
 #. (itstool) path: page/p
-#: C/translate.page:27
-#| msgid ""
-#| "There are <link href=\"http://l10n.gnome.org/module/iagno/\">many "
-#| "languages</link> for which translations are still needed."
+#: C/translate.page:35
 msgid ""
 "There are <link href=\"https://l10n.gnome.org/module/iagno/\">many "
 "languages</link> for which translations are still needed."
@@ -788,12 +1855,7 @@ msgstr ""
 "link> para los que se siguen necesitando traducciones."
 
 #. (itstool) path: page/p
-#: C/translate.page:30
-#| msgid ""
-#| "To start translating you will need to <link href=\"http://l10n.gnome.org"
-#| "\">create an account</link> and join the <link href=\"http://l10n.gnome."
-#| "org/teams/\">translation team</link> for your language. This will give "
-#| "you the ability to upload new translations."
+#: C/translate.page:39
 msgid ""
 "To start translating you will need to <link href=\"https://l10n.gnome.org"
 "\">create an account</link> and join the <link href=\"https://l10n.gnome.org/"
@@ -806,34 +1868,189 @@ msgstr ""
 "subir traducciones nuevas."
 
 #. (itstool) path: page/p
-#: C/translate.page:34
+#: C/translate.page:43
+#| msgid ""
+#| "You can chat with GNOME translators using <link href=\"https://cbe003."
+#| "chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. "
+#| "People on the channel are located worldwide, so you may not get an "
+#| "immediate response as a result of timezone differences."
 msgid ""
-"You can chat with GNOME translators using <link href=\"https://cbe003.chat."
-"mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. People on the "
-"channel are located worldwide, so you may not get an immediate response as a "
-"result of timezone differences."
+"You can chat with GNOME translators <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/IRC\">using IRC</link> (on the <code>#i18n</code> "
+"channel). People on the channel are located worldwide, so you may not get an "
+"immediate response as a result of timezone differences."
 msgstr ""
-"\"Puede chatear con los traductores de GNOME usando <link href=\"https://"
-"cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. "
-"La gente de los canales se encuentra en cualquier parte del mundo, por lo "
-"\"\n"
-"\"que puede que no obtenga una respuesta inmediata debido a las diferencias "
-"horarias."
+"Puede chatear con los traductores de GNOME <link href=\"https://wiki.gnome."
+"org/Community/GettingInTouch/IRC\">usando IRC</link> (en el canal "
+"<code>#i18n</code>). La gente de los canales se encuentra en cualquier parte "
+"del mundo, por lo que puede que no obtenga una respuesta inmediata debido a "
+"las diferencias horarias."
 
 #. (itstool) path: page/p
-#: C/translate.page:37
+#: C/translate.page:45
 #| msgid ""
 #| "Alternatively, you can contact the Internationalization Team using their "
-#| "<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+#| "<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
 #| "list</link>."
 msgid ""
-"Alternatively, you can contact the Internationalization Team using their "
-"<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
-"list</link>."
+"Alternatively, you can contact the Internationalization Team using the "
+"dedicated <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
+"\">mailing list</link>."
 msgstr ""
 "Alternativamente, puede contactar con el equipo de internacionalización "
 "usando su <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
 "\">lista de correo</link>."
+
+#~| msgid ""
+#~| "Two player mode allows you to play against another human rather than a "
+#~| "computer. To enable this:"
+#~ msgid ""
+#~ "Two player mode allows you to play against another human rather than a "
+#~ "computer. To enable this, select <gui>Two</gui> under <gui>Players</gui> "
+#~ "on the <gui>New Game</gui> screen."
+#~ msgstr ""
+#~ "El modo de dos jugadores le permite jugar contra otro jugador humano en "
+#~ "vez de contra el equipo. Para activar esto seleccione <gui>Dos</gui> en "
+#~ "<gui>Jugadores</gui> en la pantalla <gui>Juego nuevo</gui> screen."
+
+#~ msgid ""
+#~ "The computer has different levels of difficulty: <gui>Easy</gui>, "
+#~ "<gui>Medium</gui>, and <gui>Hard</gui>. To change this setting, choose a "
+#~ "different setting under <gui>Difficulty</gui> on the <gui>New Game</gui> "
+#~ "screen."
+#~ msgstr ""
+#~ "El equipo tiene varios niveles de dificultad: <gui>Fácil</gui>, "
+#~ "<gui>Medio</gui>, y <gui>Difícil</gui>. Para cambiarlo elija un nivel "
+#~ "diferente en <gui>Dificultad</gui> en la pantalla <gui>Juego nuevo</gui>."
+
+#~ msgid "Change player color and difficulty"
+#~ msgstr "Cambiar el color del jugador y la dificultad"
+
+#~ msgid ""
+#~ "To change the color of your player when you <link xref=\"ai-game\">play "
+#~ "against the computer</link>, choose a different setting under <gui>Color</"
+#~ "gui> on the <gui>New Game</gui> screen."
+#~ msgstr ""
+#~ "Para cambiar el color de su jugador cuando <link xref=\"ai-game\">juegue "
+#~ "contra el equipo</link>, elija uno diferente en <gui>Color</gui> en la "
+#~ "pantalla <gui>Juego nuevo</gui>."
+
+#~ msgid "You can also change the difficulty on this screen."
+#~ msgstr "Puede cambiar la dificultad en esta pantalla."
+
+#~| msgid ""
+#~| "To contribute to the Documentation Project, feel free to get in touch "
+#~| "with us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F"
+#~| "%2Firc.gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://"
+#~| "mail.gnome.org/mailman/listinfo/gnome-doc-list\">mailing list</link>."
+#~ msgid ""
+#~ "To contribute to the Documentation Project, feel free to get in touch "
+#~ "with us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F"
+#~ "%2Firc.gnome.org%2Fdocs\">irc</link>, or via our <link href=\"https://"
+#~ "mail.gnome.org/mailman/listinfo/gnome-doc-list\">mailing list</link>."
+#~ msgstr ""
+#~ "Para colaborar con el Proyecto de documentación, póngase en contacto "
+#~ "usando <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
+#~ "gnome.org%2Fdocs\">irc</link>, o mediante la <link href=\"https://mail."
+#~ "gnome.org/mailman/listinfo/gnome-doc-list\">lista de correo</link>."
+
+#~ msgctxt "link"
+#~ msgid "Iagno"
+#~ msgstr "Iagno"
+
+#~ msgctxt "text"
+#~ msgid "Iagno"
+#~ msgstr "Iagno"
+
+#~ msgid "Iagno logo"
+#~ msgstr "Logo de Iagno"
+
+#~ msgid ""
+#~ "<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, "
+#~ "dark on one side and light on the other. When a piece is captured it is "
+#~ "turned over to join the capturing player's forces; the winner is the "
+#~ "player with the most pieces of their color at the end of the game."
+#~ msgstr ""
+#~ "<app>Iagno</app> se juega en un tablero de 8x8 con 64 fichas, negras en "
+#~ "un lado y blancas en el otro. Cuando se captura una ficha, se saca del "
+#~ "tablero y el jugador la guarda; el ganador es el jugador con más fichas "
+#~ "de su color al terminar la partida"
+
+#~ msgid "Advanced"
+#~ msgstr "Avanzado"
+
+#~ msgid "How to Play"
+#~ msgstr "Cómo jugar"
+
+#~ msgid ""
+#~ "<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy "
+#~ "to play."
+#~ msgstr ""
+#~ "<app>Iagno</app> tiene unas <link xref=\"rules\">reglas</link> sencillas "
+#~ "y es fácil de jugar."
+
+#~| msgid ""
+#~| "When the game first starts, you play <em>Dark</em> and the computer "
+#~| "player plays <em>Light</em>. The <link xref=\"ai-game\">difficulty "
+#~| "level</link> is <gui>Level one</gui> by default."
+#~ msgid ""
+#~ "When the game first starts, you play <em>Dark</em> and the computer "
+#~ "player plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</"
+#~ "link> is <gui>Easy</gui> by default."
+#~ msgstr ""
+#~ "Cuando el juego empieza por primera vez, usted juega con las <em>Negras</"
+#~ "em> y el equipo juega con las <em>Blancas</em>. De manera predeterminada, "
+#~ "el <link xref=\"ai-game\">nivel de dificultad</link> es el <gui>Fácil</"
+#~ "gui>."
+
+#~ msgid "The game is played using the mouse. To make a move:"
+#~ msgstr "Se juega usando el ratón. Para realizar un movimiento:"
+
+#~ msgid ""
+#~ "If the move is legal, the piece will be placed in the cell, and the "
+#~ "opponent pieces will be flipped to match your color."
+#~ msgstr ""
+#~ "Si el movimiento es legal, la ficha se colocará en la celda y las fichas "
+#~ "de su oponente se voltearán para que coincidan con su color"
+
+#~ msgid "If the move is not allowed, nothing will happen."
+#~ msgstr "Si el movimiento no está permitido, no pasará nada."
+
+#~ msgid "Video demonstration"
+#~ msgstr "Vídeo de demostración"
+
+#~ msgid ""
+#~ "The object of the game is to flip as many of the opponent tiles while "
+#~ "blocking your opponent from flipping your tiles. In order to flip a tile, "
+#~ "you must first trap it between two of your tiles, horizontally, "
+#~ "vertically or diagonally."
+#~ msgstr ""
+#~ "El objetivo del juego es voltear todas las fichas posibles del oponente, "
+#~ "evitando que el oponente voltee las suyas. Para voltear una ficha, "
+#~ "primero debe atraparla entre dos de sus fichas, horizontal, vertical o "
+#~ "diagonalmente."
+
+#~ msgid ""
+#~ "Dark places a tile on the board in such a way that it traps white tiles "
+#~ "between two of the dark tiles."
+#~ msgstr ""
+#~ "Las negras colocan una ficha en el tablero de manera que atrapan fichas "
+#~ "blancas entre dos negras."
+
+#~ msgid ""
+#~ "The winner is the the player with the most pieces of his color on the "
+#~ "board."
+#~ msgstr "El ganador es el jugador con más fichas de su color en el tablero."
+
+#~ msgid "Blocking move"
+#~ msgstr "Movimiento de bloqueo"
+
+#~ msgid ""
+#~ "Some sources state that Reversi does not have a predefined starting "
+#~ "position, whereas Othello and <app>Iagno</app> do."
+#~ msgstr ""
+#~ "Algunas fuentes mantienen que Reversi no tiene una posición se inicio "
+#~ "predefinida, mientras que Othello e <app>Iagno</app> sí la tienen."
 
 #~ msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
 #~ msgstr ""
@@ -870,9 +2087,6 @@ msgstr ""
 
 #~ msgid "To change the player for each color:"
 #~ msgstr "Para cambiar el jugador de cada color:"
-
-#~ msgid "Select the <gui>Game</gui> tab"
-#~ msgstr "Seleccione la pestaña <gui>Juego</gui>"
 
 #~ msgid ""
 #~ "Select the type of player/difficulty under <gui>Dark</gui> and "
@@ -1911,9 +3125,6 @@ msgstr ""
 
 #~ msgid "The Iagno network connection dialog."
 #~ msgstr "El diálogo de conexión de red de Iagno."
-
-#~ msgid "Joining a game room"
-#~ msgstr "Unirse a una sala de juego"
 
 #~ msgid ""
 #~ "Once you have successfully connected to a server, you can choose which "
