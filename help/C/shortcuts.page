@@ -24,7 +24,7 @@
 
   <title>Keyboard shortcuts</title>
 
-  <p><app>Reversi</app> can easily be used with keyboard. The Classic Reversi and Reverse Reversi games are both played with the same shortcuts.</p><!-- TODO link xref="Classic-Reversi#classic-reversi", and similar for Reverse Reversi, as in Taquin -->
+  <p><app>Reversi</app> can easily be <link xref="play#keyboard-play">used with keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse Reversi</em> games are both played with the same shortcuts.</p>
 
   <section id="game-selection">
     <title>During game selection</title>

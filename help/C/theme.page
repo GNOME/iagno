@@ -21,14 +21,14 @@
 
   <p><app>Reversi</app> supports various board themes, so that you can adjust its look to your taste.</p>
 
-  <p>Until the theme has been changed, the application tries to choose a theme adapted to your environment; see the section about the <link xref="default-theme"><em>Default</em> theme</link>.</p>
+  <p>Until the theme has been changed, the application tries to choose a theme adapted to your environment; see the section about the <link xref="#default-theme"><em>Default</em> theme</link>.</p>
 
   <section id="changing-theme">
     <title>Changing theme</title>
 
     <p>For changing theme, press the menu button in the top-right corner of the window, select <gui>Appearance</gui>, and select one of the items in the given list.</p>
 
-    <p>The first item of the list is called <gui><em>Default</em></gui> and lets the application try to choose a theme adapted to your environment; see the section about the <link xref="default-theme"><em>Default</em> theme</link>. The following suggestions are described in the <link xref="themes-list">themes list</link>.</p>
+    <p>The first item of the list is called <gui><em>Default</em></gui> and lets the application try to choose a theme adapted to your environment; see the section about the <link xref="#default-theme"><em>Default</em> theme</link>. The following suggestions are described in the <link xref="#themes-list">themes list</link>.</p>
 
     <p>Following the themes list, the options of the section <gui>Highlights</gui> are for <link xref="highlights">displaying helpful highlights</link>. These are working whatever theme you decide to use.</p>
   </section>
@@ -53,7 +53,7 @@
       </item>
     </list>
 
-    <p>The first entry in the themes list is called <em>Default</em> and has a special behavior; see the section about the <link xref="default-theme"><em>Default</em> theme</link>.</p>
+    <p>The first entry in the themes list is called <em>Default</em> and has a special behavior; see the section about the <link xref="#default-theme"><em>Default</em> theme</link>.</p>
   </section>
 
   <section id="default-theme">

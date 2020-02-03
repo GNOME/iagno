@@ -19,7 +19,7 @@
 
   <title>Display helpful highlights</title>
 
-  <p><app>Reversi</app> can display some helpful highlights during a game, be it a Classic Reversi or a Reverse Reversi.</p> <!-- TODO add links against games pages -->
+  <p><app>Reversi</app> can display some helpful highlights during a game, be it a <em>Classic Reversi</em> or a <em>Reverse Reversi</em>.</p>
 
   <section id="highlight-playable-tiles">
     <title>Highlight playable tiles</title>

@@ -41,7 +41,7 @@
         </note>
       </item>
       <item>
-        <p>To show possible moves, select a tile where there is already a piece, whatever its color is. Alternatively, you might want to <link xref="highlight-playable-tiles">highlight playable tiles</link>.</p>
+        <p>To show possible moves, select a tile where there is already a piece, whatever its color is. Alternatively, you might want to <link xref="highlights#highlight-playable-tiles">highlight playable tiles</link>.</p>
       </item>
       <item>
         <p>You can always undo your move. For that, press the button with an arrow and a circle in the top-right corner (or in the bottom bar on small windows) and select <gui>Undo last move</gui>.</p>
@@ -66,14 +66,14 @@
         </note>
       </item>
       <item>
-        <p>To show possible moves, select a tile where there is already a piece, whatever its color is. Alternatively, you might want to <link xref="highlight-playable-tiles">highlight playable tiles</link>.</p>
+        <p>To show possible moves, select a tile where there is already a piece, whatever its color is. Alternatively, you might want to <link xref="highlights#highlight-playable-tiles">highlight playable tiles</link>.</p>
       </item>
       <item>
         <p>You can always undo your move. For that, use the <keyseq><key>Ctrl</key><key>Z</key></keyseq> keys sequence.</p>
       </item>
     </steps>
 
-    <p>More shortcuts are available, documented either on the <link xref="shortcuts">Keyboard shortcuts</link> page, or in the dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>.</p>
+    <p>More shortcuts are available, documented either on the <link xref="shortcuts#how-to-play">Keyboard shortcuts</link> page, or in the dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>.</p>
 
     <p>You can also <link xref="#mouse-play">use a mouse</link>.</p>
   </section>
