@@ -1,3 +1,21 @@
+3.35.90 – February 3, 2020
+=============================
+
+The History button is now drawn using the same images
+as the board; it removes the need to ensure a working
+font is installed. It also allowed to optimize a bit.
+Also, the "Vary start position" option now enables or
+disables the human opening when on a two-player game.
+Transition to the game also changed on large windows.
+Finally, help pages were reworked and are up-to-date.
+
+Translations updated:
+  Croatian: Goran Vidović
+  Malay: Umarzuki Bin Mochlis Moktar
+  Brazilian Portuguese: Rafael Fontenelle
+  Slovak: Dušan Kazik
+  Spanish: Daniel Mustieles
+
 3.35.3 – January 6, 2020
 =============================
 
