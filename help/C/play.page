@@ -1,49 +1,80 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      xmlns:its="http://www.w3.org/2005/11/its"
       type="topic" style="task"
       id="play">
+
   <info>
     <link type="guide" xref="index#play" />
-    <revision version="0.1" date="2012-03-08" status="final"/>
-    <revision pkgversion="3.34" version="0.2" date="2020-01-03" status="final"/>
+    <revision pkgversion="3.36" version="0.3" date="2020-02-03" status="final"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
       <email>tiffany.antopolski@gmail.com</email>
       <years>2012</years>
     </credit>
+    <credit type="editor copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
 
-    <desc></desc>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
   </info>
 
-  <title>How to Play</title>
+  <title>Play with mouse or keyboard</title>
 
-  <p><app>Reversi</app> has simple <link xref="rules">rules</link> and is easy to play.</p>
+  <p><app>Reversi</app> allows you to easily play with a mouse or with the keyboard.</p>
 
-  <p>When the game first starts, you play <em>Dark</em> and the computer player plays <em>Light</em>.  The <link xref="ai-game">difficulty level</link> is <gui>Easy</gui> by default.</p>
+  <section id="mouse-play">
+    <title>How to play with a mouse</title>
 
+    <p>To make a move:</p>
+    <steps>
+      <item>
+        <p>Move the cursor on the tile you would like to place your piece in. The tile is highlighted if it is playable.</p>
+      </item>
+      <item>
+        <p>Click on the tile to drop the piece.</p>
+        <note>
+          <p>If you select a tile where you cannot move, the game notifies you that the move is impossible.</p>
+        </note>
+      </item>
+      <item>
+        <p>To show possible moves, select a tile where there is already a piece, whatever its color is. Alternatively, you might want to <link xref="highlight-playable-tiles">highlight playable tiles</link>.</p>
+      </item>
+      <item>
+        <p>You can always undo your move. For that, press the button with an arrow and a circle in the top-right corner (or in the bottom bar on small windows) and select <gui>Undo last move</gui>.</p>
+      </item>
+    </steps>
 
-  <p>The game is played using the mouse. To make a move:</p>
+    <p>You can also <link xref="#keyboard-play">use the keyboard</link>.</p>
+  </section>
 
-  <steps>
-    <item><p>Click on the cell you would like to place your piece in.</p>
-    <note><p>If the move is legal, the piece will be placed in the cell, and the opponent
-             pieces will be flipped to match your color.</p>
-          <p>If the move is not allowed, nothing will happen.</p>
-    </note>
-    </item>
-    <item>
-    <p>You can undo a move by pressing the button with an arrow and a circle in the top-right corner and selecting <gui>Undo last move</gui>, or by pressing the <keyseq><key>Ctrl</key><key>Z</key></keyseq> <link xref="shortcuts">keyboard shortcut</link>.</p>
-    </item>
-  </steps>
+  <section id="keyboard-play">
+    <title>How to play with the keyboard</title>
 
+    <p>To make a move:</p>
+    <steps>
+      <item>
+        <p>Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> arrows to go at the tile you want to move. The currently selected tile is indicated by an highlight on the board.</p>
+      </item>
+      <item>
+        <p>Use the <key>Space</key> or the <key>Return</key> key to drop a piece one the selected tile.</p>
+        <note>
+          <p>If you select a tile where you cannot move, the game notifies you that the move is impossible.</p>
+        </note>
+      </item>
+      <item>
+        <p>To show possible moves, select a tile where there is already a piece, whatever its color is. Alternatively, you might want to <link xref="highlight-playable-tiles">highlight playable tiles</link>.</p>
+      </item>
+      <item>
+        <p>You can always undo your move. For that, use the <keyseq><key>Ctrl</key><key>Z</key></keyseq> keys sequence.</p>
+      </item>
+    </steps>
 
-    <section id="usage-video">
-      <title>Video demonstration</title>
-       <media type="video" mime="application/ogg" src="figures/iagno-video.ogv" its:translate="no">
+    <p>More shortcuts are available, documented either on the <link xref="shortcuts">Keyboard shortcuts</link> page, or in the dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>.</p>
 
-        </media>
-    </section>
-
-
+    <p>You can also <link xref="#mouse-play">use a mouse</link>.</p>
+  </section>
 </page>

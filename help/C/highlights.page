@@ -22,7 +22,7 @@
   <p><app>Reversi</app> can display some helpful highlights during a game, be it a Classic Reversi or a Reverse Reversi.</p> <!-- TODO add links against games pages -->
 
   <section id="highlight-playable-tiles">
-    <title>Playable tiles</title>
+    <title>Highlight playable tiles</title>
 
     <p><app>Reversi</app> can first highlight the tiles that can be played by the current player. This information could be quite useful for beginners notably, for learning the game.</p>
 
@@ -32,7 +32,7 @@
   </section>
 
   <section id="highlight-capturable-tiles">
-    <title>Capturable tiles</title>
+    <title>Highlight capturable tiles</title>
 
     <p><app>Reversi</app> can also highlight the tiles that would be captured by a given play. That might help for having a better visualisation of what the board would then look like.</p>
 

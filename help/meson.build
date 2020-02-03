@@ -3,7 +3,6 @@ help_media = [
     'figures/alternative-start-1.png',
     'figures/alternative-start-2.png',
     'figures/alternative-start-3.png',
-    'figures/iagno-video.ogv',
     'figures/logo32.png',
     'figures/logo.png',
     'figures/move-1.png',
