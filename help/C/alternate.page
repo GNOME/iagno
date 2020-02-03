@@ -1,0 +1,35 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="task"
+      id="alternate">
+
+  <info>
+    <link type="guide" xref="index#tips" />
+    <revision pkgversion="3.36" version="0.1" date="2020-02-03" status="final"/>
+
+    <credit type="author copyright">
+      <name>Arnaud Bonatti</name>
+      <email>arnaud.bonatti@gmail.com</email>
+      <years>2020</years>
+    </credit>
+
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Alternate who starts</title>
+
+  <p>If you are playing multiple games in a row <link xref="ai-game">against the computer</link>, <app>Reversi</app> allows you to automatically altern who will start the next game bewteen you and the computer.</p>
+
+  <p>When <link xref="configure">configuring a new game</link>, have a look to the first button with a down arrow; it should either be labelled <gui>Color: Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter case, <app>Reversi</app> is configured to start a two-player game; if so, first, configure a game <link xref="ai-game">against the computer</link>.</p>
+
+  <p>Select the button. In the menu that appears, there is an entry called <gui>Alternate who starts</gui>.</p>
+
+  <p>If the <gui>Alternate who starts</gui> option is disabled, every new game will be started by the same player: you will be the first player if the label of the button is <gui>Color: Dark</gui>, and it will be the computer if the label is <gui>Color: Light</gui>; to change who starts, see how to configure a game <link xref="ai-game">against the computer</link>.</p>
+
+  <p>If the <gui>Alternate who starts</gui> option is enabled, then at each new game, who will be the first player will be automatically changed. So if you started a game, the next time you <link xref="configure">configure a new game</link>, the button will be labelled <gui>Color: Light</gui>, and the computer will be starting the following game.</p>
+
+  <p>To enable or disable the option, just select the <gui>Alternate who starts</gui> entry.</p>
+
+  <p>This option is selected by default.</p>
+</page>

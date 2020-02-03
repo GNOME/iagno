@@ -25,7 +25,7 @@
   <section id="varying-start-position">
     <title>Varying start position</title>
 
-    <p>To enable or disable this option, go in the Start Screen, click on the <gui>Difficulty</gui> button, and in the menu that appears, select <gui>Vary start position</gui>.</p>
+    <p>To enable or disable this option, while <link xref="configure">configuring a new game</link>, click on the <gui>Difficulty</gui> button, and in the menu that appears, select <gui>Vary start position</gui>.</p>
 
     <p>If you are playing a <link xref="ai-game">game against the computer</link>, enabling this option will start new games with a random position in the six <link xref="#start-positions">possible start positions</link>.</p>
 

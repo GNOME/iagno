@@ -17,6 +17,7 @@ help_files = [
     '2player.page',
     'ai-game.page',
     'ai-level.page',
+    'alternate.page',
     'bug-filing.page',
     'configure.page',
     'develop.page',
