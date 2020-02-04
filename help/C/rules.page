@@ -4,7 +4,7 @@
       xmlns:its="http://www.w3.org/2005/11/its"> <!-- the "its" line is allowing translations for medias -->
 
   <info>
-    <link type="guide" xref="index#reversi" />
+    <link type="guide" xref="index#reversi"/>
     <revision pkgversion="3.36" version="0.2" date="2020-02-01" status="final"/>
 
     <credit type="author copyright">

@@ -3,7 +3,7 @@
       id="strategy">
 
   <info>
-    <link type="guide" xref="index#reversi" />
+    <link type="guide" xref="index#reversi"/>
     <revision pkgversion="3.36" version="0.1" date="2012-03-08" status="final"/>
 
     <credit type="author copyright">

@@ -3,7 +3,7 @@
       id="play">
 
   <info>
-    <link type="guide" xref="index#play" />
+    <link type="guide" xref="index#play"/>
     <revision pkgversion="3.36" version="0.3" date="2020-02-03" status="final"/>
 
     <credit type="author copyright">

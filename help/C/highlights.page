@@ -3,7 +3,7 @@
       id="highlights">
 
   <info>
-    <link type="guide" xref="index#tips" />
+    <link type="guide" xref="index#tips"/>
     <revision pkgversion="3.36" version="0.1" date="2020-01-30" status="final"/>
 
     <credit type="author copyright">
