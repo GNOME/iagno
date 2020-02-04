@@ -20,7 +20,7 @@
 
   <title>Example game first moves</title>
 
-  <table>
+  <table frame="top" rules="rows">
     <tr>
       <td>
         <media type="image" mime="image/png" src="figures/usual-start.png" width="200" its:translate="no">
