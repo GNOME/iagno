@@ -48,7 +48,7 @@
     <table>
       <tr>
         <td>
-          <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
+          <media type="image" mime="image/png" src="figures/usual-start.png" width="200" its:translate="no">
             <p its:translate="yes">Usual start position: light-dark, dark-light</p>
           </media>
         </td>

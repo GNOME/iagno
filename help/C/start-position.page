@@ -44,12 +44,12 @@
     <table>
       <tr>
         <td>
-          <media type="image" src="figures/usual-start.png" width="200" its:translate="no">
+          <media type="image" mime="image/png" src="figures/usual-start.png" width="200" its:translate="no">
             <p its:translate="yes">Usual start position: light-dark, dark-light</p>
           </media>
         </td>
         <td>
-          <media type="image" src="figures/alternative-start.png" width="200" its:translate="no">
+          <media type="image" mime="image/png" src="figures/alternative-start.png" width="200" its:translate="no">
             <p its:translate="yes">Alternative position: dark-light, dark-light</p>
           </media>
         </td>
@@ -69,22 +69,22 @@
     <table>
       <tr>
         <td>
-          <media type="image" src="figures/symmetric-start.png" width="92" its:translate="no">
+          <media type="image" mime="image/png" src="figures/symmetric-start.png" width="92" its:translate="no">
             <p its:translate="yes">Only symmetry of the usual start position: dark-light, light-dark</p>
           </media>
         </td>
         <td>
-          <media type="image" src="figures/alternative-start-1.png" width="92" its:translate="no">
+          <media type="image" mime="image/png" src="figures/alternative-start-1.png" width="92" its:translate="no">
             <p its:translate="yes">First symmetry of the alternative position: dark-dark, light-light</p>
           </media>
         </td>
         <td>
-          <media type="image" src="figures/alternative-start-2.png" width="92" its:translate="no">
+          <media type="image" mime="image/png" src="figures/alternative-start-2.png" width="92" its:translate="no">
             <p its:translate="yes">Second symmetry of the alternative position: light-dark, light-dark</p>
           </media>
         </td>
         <td>
-          <media type="image" src="figures/alternative-start-3.png" width="92" its:translate="no">
+          <media type="image" mime="image/png" src="figures/alternative-start-3.png" width="92" its:translate="no">
             <p its:translate="yes">Last symmetry of the alternative position: light-light, dark-dark</p>
           </media>
         </td>
