@@ -1,6 +1,7 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic" style="task"
       id="sound">
+
   <info>
     <link type="guide" xref="index#tips" />
     <revision version="0.1" date="2012-03-08" status="final"/>
@@ -12,9 +13,12 @@
       <years>2012</years>
     </credit>
 
-    <desc></desc>
+    <license href="https://creativecommons.org/licenses/by-sa/3.0/">
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
   </info>
 
   <title>Enable and disable sound</title>
+
   <p>To enable or disable the sound, press the menu button in the top-right corner of the window and select <gui>Sound</gui>.</p>
 </page>
