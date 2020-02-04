@@ -4,7 +4,7 @@
 
   <info>
     <link type="guide" xref="index#reversi" />
-    <revision version="0.1" date="2012-03-08" status="final"/>
+    <revision pkgversion="3.36" version="0.1" date="2012-03-08" status="final"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>

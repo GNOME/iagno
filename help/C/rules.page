@@ -5,7 +5,7 @@
 
   <info>
     <link type="guide" xref="index#reversi" />
-    <revision version="0.2" date="2020-02-01" status="final"/>
+    <revision pkgversion="3.36" version="0.2" date="2020-02-01" status="final"/>
 
     <credit type="author copyright">
       <name>Tiffany Antopolski</name>
