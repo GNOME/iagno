@@ -176,6 +176,7 @@ private class ReversiView : Gtk.DrawingArea
                   | Gdk.EventMask.LEAVE_NOTIFY_MASK
                   | Gdk.EventMask.STRUCTURE_MASK);
         init_mouse ();
+        init_keyboard ();
 
         theme_manager.theme_changed.connect (() => {
                 tiles_pattern = null;
@@ -1060,7 +1061,7 @@ private class ReversiView : Gtk.DrawingArea
     }
 
     /*\
-    * * user actions
+    * * mouse user actions
     \*/
 
     private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
@@ -1236,12 +1237,24 @@ private class ReversiView : Gtk.DrawingArea
         return true;
     }
 
-    protected override bool key_press_event (Gdk.EventKey event)
+    /*\
+    * * keyboard user actions
+    \*/
+
+    private Gtk.EventControllerKey key_controller;    // for keeping in memory
+
+    private void init_keyboard ()  // called on construct
+    {
+        key_controller = new Gtk.EventControllerKey (this);
+        key_controller.key_pressed.connect (on_key_pressed);
+    }
+
+    private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
         if (!game_is_set)
             return false;
 
-        string key = (!) (Gdk.keyval_name (event.keyval) ?? "");
+        string key = (!) (Gdk.keyval_name (keyval) ?? "");
         if (key == "")
             return false;
 
