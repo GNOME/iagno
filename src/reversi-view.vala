@@ -1072,25 +1072,22 @@ private class ReversiView : Gtk.DrawingArea
     {
         motion_controller = new Gtk.EventControllerMotion (this);
         motion_controller.motion.connect (on_motion);
-//        motion_controller.enter.connect (on_mouse_in);    // FIXME should work                                //  1/10
-//        motion_controller.leave.connect (on_mouse_out);   // FIXME should work                                //  2/10
+        motion_controller.enter.connect (on_mouse_in);
+        motion_controller.leave.connect (on_mouse_out);
 
         click_controller = new Gtk.GestureMultiPress (this);
         click_controller.set_button (/* all buttons */ 0);
         click_controller.pressed.connect (on_click);
     }
 
-//    private void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)   //  3/10
-    protected override bool enter_notify_event (Gdk.EventCrossing event)                                        //  4/10
+    private inline void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y, Gdk.CrossingMode mode)
     {
         uint8 x;
         uint8 y;
-        if (pointer_is_in_board (event.x, event.y, out x, out y))                                               //  5/10
-//        if (pointer_is_in_board (event_x, event_y, out x, out y))                                             //  6/10
+        if (pointer_is_in_board (event_x, event_y, out x, out y))
             on_cursor_moving_in (x, y);
         else if (mouse_is_in)
             assert_not_reached ();
-        return false;                                                                                           //  7/10
     }
 
     private void on_cursor_moving_in (uint8 x, uint8 y)
@@ -1102,13 +1099,11 @@ private class ReversiView : Gtk.DrawingArea
         _on_motion (x, y, /* force redraw */ true);
     }
 
-//    private void on_mouse_out (Gtk.EventControllerMotion _motion_controller)                                  //  8/10
-    protected override bool leave_notify_event (Gdk.EventCrossing event)                                        //  9/10
+    private inline void on_mouse_out (Gtk.EventControllerMotion _motion_controller, Gdk.CrossingMode mode)
     {
         mouse_is_in = false;
         if (mouse_position_set)
             queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
-        return false;                                                                                           // 10/10
     }
 
     private bool pointer_is_in_board (double pos_x, double pos_y, out uint8 x, out uint8 y)
@@ -1131,7 +1126,7 @@ private class ReversiView : Gtk.DrawingArea
     }
 
     uint timeout_id = 0;
-    private void on_motion (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)
+    private inline void on_motion (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)
     {
         uint8 x;
         uint8 y;
