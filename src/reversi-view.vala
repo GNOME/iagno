@@ -1065,6 +1065,7 @@ private class ReversiView : Gtk.DrawingArea
     \*/
 
     private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
+    private Gtk.GestureMultiPress click_controller;         // for keeping in memory
     private bool mouse_is_in = false;
 
     private void init_mouse ()  // called on construct
@@ -1073,6 +1074,9 @@ private class ReversiView : Gtk.DrawingArea
         motion_controller.motion.connect (on_motion);
 //        motion_controller.enter.connect (on_mouse_in);    // FIXME should work                                //  1/10
 //        motion_controller.leave.connect (on_mouse_out);   // FIXME should work                                //  2/10
+
+        click_controller = new Gtk.GestureMultiPress (this);
+        click_controller.pressed.connect (on_click);
     }
 
 //    private void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)   //  3/10
@@ -1211,30 +1215,25 @@ private class ReversiView : Gtk.DrawingArea
         }
     }
 
-    protected override bool button_press_event (Gdk.EventButton event)
+    private inline void on_click (Gtk.GestureMultiPress _click_controller, int n_press, double event_x, double event_y)
     {
         if (!game_is_set)
-            return false;
+            return;
 
-        if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
+        uint8 x;
+        uint8 y;
+        if (pointer_is_in_board (event_x, event_y, out x, out y))
         {
-            uint8 x;
-            uint8 y;
-            if (pointer_is_in_board (event.x, event.y, out x, out y))
-            {
-                mouse_is_in = true;
-                show_highlight = false;
-                old_highlight_x = highlight_x;
-                old_highlight_y = highlight_y;
-                queue_draw ();
-                highlight_set = true;
-                highlight_x = x;
-                highlight_y = y;
-                move_if_possible (highlight_x, highlight_y);
-            }
+            mouse_is_in = true;
+            show_highlight = false;
+            old_highlight_x = highlight_x;
+            old_highlight_y = highlight_y;
+            queue_draw ();
+            highlight_set = true;
+            highlight_x = x;
+            highlight_y = y;
+            move_if_possible (highlight_x, highlight_y);
         }
-
-        return true;
     }
 
     /*\
