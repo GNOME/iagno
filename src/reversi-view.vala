@@ -1065,17 +1065,17 @@ private class ReversiView : Gtk.DrawingArea
     \*/
 
     private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
-    private Gtk.GestureMultiPress click_controller;         // for keeping in memory
+    private Gtk.GestureClick click_controller;              // for keeping in memory
     private bool mouse_is_in = false;
 
     private void init_mouse ()  // called on construct
     {
-        motion_controller = new Gtk.EventControllerMotion (this);
+        motion_controller = new Gtk.EventControllerMotion ();
         motion_controller.motion.connect (on_motion);
         motion_controller.enter.connect (on_mouse_in);
         motion_controller.leave.connect (on_mouse_out);
 
-        click_controller = new Gtk.GestureMultiPress (this);
+        click_controller = new Gtk.GestureClick ();
         click_controller.set_button (/* all buttons */ 0);
         click_controller.pressed.connect (on_click);
     }
@@ -1211,7 +1211,7 @@ private class ReversiView : Gtk.DrawingArea
         }
     }
 
-    private inline void on_click (Gtk.GestureMultiPress _click_controller, int n_press, double event_x, double event_y)
+    private inline void on_click (Gtk.GestureClick _click_controller, int n_press, double event_x, double event_y)
     {
         if (!game_is_set)
             return;
@@ -1244,7 +1244,7 @@ private class ReversiView : Gtk.DrawingArea
 
     private void init_keyboard ()  // called on construct
     {
-        key_controller = new Gtk.EventControllerKey (this);
+        key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
     }
 
