@@ -100,11 +100,19 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
     * * action entries
     \*/
 
+    protected SimpleAction escape_action;
+
     private void install_action_entries ()
     {
         SimpleActionGroup action_group = new SimpleActionGroup ();
         action_group.add_action_entries (action_entries, this);
         insert_action_group ("base", action_group);
+
+        GLib.Action? tmp_action = action_group.lookup_action ("escape");
+        if (tmp_action == null)
+            assert_not_reached ();
+        escape_action = (SimpleAction) (!) tmp_action;
+        escape_action.set_enabled (false);
     }
 
     private const GLib.ActionEntry [] action_entries =
@@ -401,6 +409,7 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
         if (in_window_about)
         {
             in_window_about = false;
+            escape_action.set_enabled (escape_action_enabled);
             headerbar.show_default_view ();
             main_view.show_default_view ();
         }
@@ -500,11 +509,14 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
         main_view.create_about_list                                   (ref artists, ref authors, ref comments, ref copyright, ref documenters, ref logo_icon_name, ref program_name, ref translator_credits, ref version, ref website, ref website_label);
     }
 
+    private bool escape_action_enabled = false;
     private inline void show_about_view ()
         requires (in_window_about == false)
     {
         close_in_window_panels ();
 
+        escape_action_enabled = escape_action.enabled;
+        escape_action.set_enabled (true);
         in_window_about = true;
         headerbar.show_about_view ();
         main_view.show_about_view ();

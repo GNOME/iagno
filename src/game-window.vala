@@ -147,6 +147,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     {
         bool grabs_focus = headerbar.show_view (game_finished);
         game_view.show_game_content (/* grab focus */ !grabs_focus);
+        escape_action.set_enabled (false);
     }
 
     /*\
@@ -289,6 +290,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
         headerbar.new_game ();
         back_action_disabled = false;
+        escape_action.set_enabled (true);
         show_new_game_screen ();
     }
 
