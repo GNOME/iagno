@@ -61,6 +61,8 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
     {
         headerbar = (BaseHeaderBar) nta_headerbar;
 
+        init_keyboard ();
+
         install_action_entries ();
 
         add_adaptative_child (headerbar);
@@ -306,36 +308,45 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
     }
 
     /*\
-    * * global callbacks
+    * * keyboard user actions
     \*/
 
-    [CCode (notify = false)] public string help_string_or_empty { private get; protected construct; default = ""; }
+    private Gtk.EventControllerKey key_controller;    // for keeping in memory
 
-    [GtkCallback]
-    protected virtual bool on_key_press_event (Widget widget, Gdk.EventKey event)
+    private void init_keyboard ()  // called on construct
     {
-        return _on_key_press_event (widget, event, help_string_or_empty);
+        key_controller = new Gtk.EventControllerKey (this);
+        key_controller.key_pressed.connect (on_key_pressed);
     }
-    private static bool _on_key_press_event (Widget widget, Gdk.EventKey event, string help_string_or_empty)
+
+    protected inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
-        string name = (!) (Gdk.keyval_name (event.keyval) ?? "");
+        return _on_key_press_event (keyval, state);
+    }
+    private bool _on_key_press_event (uint keyval, Gdk.ModifierType state)
+    {
+        string name = Gdk.keyval_name (keyval) ?? "";
 
         if (name == "F1") // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
         {
-            BaseWindow _this = (BaseWindow) widget;
-
-            _this.headerbar.close_popovers ();
-            _this.main_view.close_popovers ();
-            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0)
+            headerbar.close_popovers ();
+            main_view.close_popovers ();
+            if ((state & Gdk.ModifierType.CONTROL_MASK) != 0)
                 return false;                           // help overlay
-            if ((event.state & Gdk.ModifierType.SHIFT_MASK) == 0)
-                return show_application_help (_this, help_string_or_empty);   // fallback on help overlay (TODO test)
-            _this.about ();
+            if ((state & Gdk.ModifierType.SHIFT_MASK) == 0)
+                return show_application_help (this, help_string_or_empty);   // fallback on help overlay (TODO test)
+            about ();
             return true;
         }
 
         return false;
     }
+
+    /*\
+    * * help
+    \*/
+
+    [CCode (notify = false)] public string help_string_or_empty { private get; protected construct; default = ""; }
 
     private void help (/* SimpleAction action, Variant? variant */)
     {
@@ -422,24 +433,27 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
     \*/
 
     private AboutDialog about_dialog;
+    private Gtk.EventControllerKey about_dialog_key_controller;    // for keeping in memory
+
     private void show_about_dialog ()
     {
         if (should_init_about_dialog)
         {
             create_about_dialog ();
             about_dialog.response.connect ((_about_dialog, response) => _about_dialog.hide ());
-            about_dialog.key_press_event.connect (about_dialog_key_press_event);
+            about_dialog_key_controller = new Gtk.EventControllerKey (about_dialog);
+            about_dialog_key_controller.key_pressed.connect (on_about_dialog_key_pressed);
             about_dialog.set_transient_for (this);
             should_init_about_dialog = false;
         }
         about_dialog.run ();
     }
-    private static bool about_dialog_key_press_event (Widget _about_dialog_widget, Gdk.EventKey event)
+    private inline bool on_about_dialog_key_pressed (Gtk.EventControllerKey _about_dialog_key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
-        if (((!) (Gdk.keyval_name (event.keyval) ?? "") == "F1")
-         && ((event.state & Gdk.ModifierType.SHIFT_MASK) != 0))
+        if (((!) (Gdk.keyval_name (keyval) ?? "") == "F1")
+         && ((state & Gdk.ModifierType.SHIFT_MASK) != 0))
         {
-            ((Dialog) _about_dialog_widget).response (ResponseType.CANCEL);
+            about_dialog.response (ResponseType.CANCEL);
             return true;
         }
         return false;

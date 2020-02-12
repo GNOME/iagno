@@ -19,7 +19,6 @@
   <requires lib="gtk+" version="3.12"/>
   <template class="BaseWindow" parent="AdaptativeWindow">
     <property name="visible">False</property>
-    <signal name="key-press-event" handler="on_key_press_event"/>
     <child>
       <object class="GtkOverlay" id="main_overlay">
         <property name="visible">True</property>
