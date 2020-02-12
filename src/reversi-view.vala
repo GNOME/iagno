@@ -177,6 +177,7 @@ private class ReversiView : Gtk.DrawingArea
                   | Gdk.EventMask.STRUCTURE_MASK);
         init_mouse ();
         init_keyboard ();
+        size_allocate.connect (on_size_allocate);
 
         theme_manager.theme_changed.connect (() => {
                 tiles_pattern = null;
@@ -204,12 +205,11 @@ private class ReversiView : Gtk.DrawingArea
     private int [,] tile_xs;
     private int [,] tile_ys;
 
-    protected override bool configure_event (Gdk.EventConfigure e)
+    private inline void on_size_allocate ()
         requires (game_is_set)
     {
         configure_theme ();
         configuration_done = true;
-        return true;
     }
     private void configure_theme ()
     {

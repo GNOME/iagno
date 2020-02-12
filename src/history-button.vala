@@ -35,7 +35,7 @@ private class HistoryButton : MenuButton, AdaptativeWidget
 
     construct
     {
-        drawing.configure_event.connect (configure_drawing);
+        drawing.size_allocate.connect (on_drawing_size_allocate);
         drawing.draw.connect (update_drawing);
         theme_manager.theme_changed.connect (() => {
                 if (!drawing_configured)
@@ -81,7 +81,7 @@ private class HistoryButton : MenuButton, AdaptativeWidget
 
     private Gdk.Pixbuf tileset_pixbuf;
 
-    private bool configure_drawing ()
+    private inline void on_drawing_size_allocate ()
     {
         int height          = drawing.get_allocated_height ();
         int width           = drawing.get_allocated_width ();
@@ -97,7 +97,6 @@ private class HistoryButton : MenuButton, AdaptativeWidget
         board_y             = !vertical_fill ? (int) ((height - drawing_height) / 2.0) : 0;
 
         drawing_configured  = true;
-        return true;
     }
 
     private Cairo.Pattern? tiles_pattern = null;
