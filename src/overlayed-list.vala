@@ -58,8 +58,8 @@ private abstract class OverlayedList : Overlay, AdaptativeWidget
             leave_edit_mode_button.set_detailed_action_name (value + ".set-edit-mode(false)");
         }
     }
-    [CCode (notify = false)] public string first_mode_name   { protected set { leave_edit_mode_button.text = value; }}
-    [CCode (notify = false)] public string second_mode_name  { protected set { enter_edit_mode_button.text = value; }}
+    [CCode (notify = false)] public string first_mode_name   { protected set { leave_edit_mode_button.label = value; }}
+    [CCode (notify = false)] public string second_mode_name  { protected set { enter_edit_mode_button.label = value; }}
 
     [CCode (notify = false)] public bool needs_shadows
     {
