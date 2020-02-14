@@ -50,7 +50,7 @@ private class GameView : BaseView, AdaptativeWidget
 
     internal GameView (GameWindowFlags flags, Box new_game_screen, Widget content, GameActionBarPlaceHolder actionbar_placeholder)
     {
-        new_game_box.pack_start (new_game_screen, true, true, 0);
+        new_game_box.add (new_game_screen);
 
         if (GameWindowFlags.SHOW_START_BUTTON in flags)
         {
@@ -65,7 +65,7 @@ private class GameView : BaseView, AdaptativeWidget
             /* Translators: when configuring a new game, tooltip text of the blue Start button */
             // _start_game_button.set_tooltip_text (_("Start a new game as configured"));
             _start_game_button.show ();
-            new_game_box.pack_end (_start_game_button, false, false, 0);
+            new_game_box.add (_start_game_button);
             start_game_button = _start_game_button;
         }
 
@@ -75,8 +75,8 @@ private class GameView : BaseView, AdaptativeWidget
         game_content.hexpand = true;
         game_content.vexpand = true;
         game_content.show ();
-        game_box.pack_start (game_content, /* expand */ true, /* fill */ true, /* padding */ 0);
-        game_box.pack_end (actionbar_placeholder, /* expand */ false, /* fill */ false, /* padding */ 0);
+        game_box.add (game_content);
+        game_box.add (actionbar_placeholder);
         game_box.show ();
         game_box.get_style_context ().add_class ("game-box");
 
