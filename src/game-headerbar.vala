@@ -168,7 +168,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
 
     internal void finish_game ()
     {
-        if (game_widget != null && ((!) game_widget) is MenuButton && !((MenuButton) (!) game_widget).active)
+        if (game_widget != null && ((!) game_widget) is MenuButton && !((MenuButton) (!) game_widget).popover.visible)   // hackish 3/3
             new_game_button.grab_focus ();
         else
             new_game_button.grab_default ();    // FIXME: grab_focus, but without closing the popover...

@@ -132,16 +132,17 @@ private class BaseHeaderBar : NightTimeAwareHeaderBar, AdaptativeWidget
 
     protected inline void hide_hamburger_menu ()
     {
-        if (info_button.active)
-            info_button.active = false;
+        info_button.popdown ();
     }
 
     internal void toggle_hamburger_menu ()
     {
-        if (info_button.visible)
-            info_button.active = !info_button.active;
-        else
+        if (!info_button.visible)
             toggle_view_menu ();
+        else if (info_button.popover.visible)   // TODO hackish 1/3
+            info_button.popdown ();
+        else
+            info_button.popup ();
     }
     protected virtual void toggle_view_menu () {}
 
@@ -304,6 +305,6 @@ private class BaseHeaderBar : NightTimeAwareHeaderBar, AdaptativeWidget
 
     internal virtual bool has_popover ()
     {
-        return info_button.active;
+        return info_button.popover.visible;     // TODO hackish 2/3
     }
 }
