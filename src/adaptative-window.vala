@@ -261,11 +261,8 @@ private abstract class AdaptativeWindow : ApplicationWindow
     protected abstract void on_unfullscreen ();
 
     [GtkCallback]
-    private void on_size_allocate (Allocation allocation)
+    private void on_size_allocate (int width, int height)
     {
-        int height = allocation.height;
-        int width = allocation.width;
-
         update_adaptative_children (ref width, ref height);
         update_window_state ();
     }
