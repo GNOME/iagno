@@ -168,13 +168,6 @@ private class ReversiView : Gtk.DrawingArea
         hexpand = true;
         vexpand = true;
 
-        set_events (Gdk.EventMask.EXPOSURE_MASK
-                  | Gdk.EventMask.BUTTON_PRESS_MASK
-                  | Gdk.EventMask.BUTTON_RELEASE_MASK
-                  | Gdk.EventMask.POINTER_MOTION_MASK
-                  | Gdk.EventMask.ENTER_NOTIFY_MASK
-                  | Gdk.EventMask.LEAVE_NOTIFY_MASK
-                  | Gdk.EventMask.STRUCTURE_MASK);
         init_mouse ();
         init_keyboard ();
         size_allocate.connect (on_size_allocate);
