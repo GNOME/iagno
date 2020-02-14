@@ -170,6 +170,7 @@ private class ReversiView : Gtk.DrawingArea
 
         init_mouse ();
         init_keyboard ();
+        set_draw_func (draw);
         size_allocate.connect (on_size_allocate);
 
         theme_manager.theme_changed.connect (() => {
@@ -261,10 +262,10 @@ private class ReversiView : Gtk.DrawingArea
         }
     }
 
-    protected override bool draw (Cairo.Context cr)
+    private void draw (Gtk.DrawingArea _this, Cairo.Context cr, int width, int height)
     {
         if (!game_is_set)
-            return false;
+            return;
 
         if (board_pattern == null || tiles_pattern == null || render_size != tile_size)
             init_patterns (cr);
@@ -291,8 +292,6 @@ private class ReversiView : Gtk.DrawingArea
             draw_playables (cr);
         else
             draw_overture_playables (cr);
-
-        return false;
     }
 
     private inline void init_patterns (Cairo.Context cr)

@@ -36,7 +36,7 @@ private class HistoryButton : MenuButton, AdaptativeWidget
     construct
     {
         drawing.size_allocate.connect (on_drawing_size_allocate);
-        drawing.draw.connect (update_drawing);
+        drawing.set_draw_func (update_drawing);
         theme_manager.theme_changed.connect (() => {
                 if (!drawing_configured)
                     return;
@@ -112,17 +112,17 @@ private class HistoryButton : MenuButton, AdaptativeWidget
         tiles_pattern = new Cairo.Pattern.for_surface (surface);
     }
 
-    private bool update_drawing (Cairo.Context cr)
+    private void update_drawing (Gtk.DrawingArea _drawing, Cairo.Context cr, int width, int height)
     {
         if (!drawing_configured)
-            return false;
+            return;
 
         if (tiles_pattern == null)
             init_pattern (cr);
 
         draw_arrow (cr);
         draw_piece (cr);
-        return true;
+        return;
     }
 
     private const double arrow_margin_top = 3.0;
