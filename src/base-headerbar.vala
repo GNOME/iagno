@@ -49,7 +49,7 @@ private class BaseHeaderBar : NightTimeAwareHeaderBar, AdaptativeWidget
             disable_action_bar = _disable_action_bar;
             if (disable_action_bar)
             {
-                set_show_close_button (false);
+                set_show_title_buttons (false);
                 quit_button_stack.show ();
                 ltr_right_separator.visible = current_mode_id == default_mode_id;
             }
@@ -57,7 +57,7 @@ private class BaseHeaderBar : NightTimeAwareHeaderBar, AdaptativeWidget
             {
                 ltr_right_separator.hide ();
                 quit_button_stack.hide ();
-                set_show_close_button (true);
+                set_show_title_buttons (true);
             }
         }
 
