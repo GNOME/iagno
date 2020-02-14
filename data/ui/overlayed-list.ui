@@ -16,17 +16,15 @@
   along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.96"/>
   <template class="OverlayedList" parent="GtkOverlay">
     <property name="expand">True</property>
-    <property name="valign">fill</property>
     <style>
       <class name="overlayed-list"/>
       <class name="vertical"/>
     </style>
     <child>
       <object class="GtkScrolledWindow" id="scrolled">
-        <property name="visible">True</property>
         <property name="expand">True</property>
         <property name="hscrollbar-policy">never</property>
         <property name="max-content-height">300</property>
@@ -34,7 +32,6 @@
         <property name="propagate-natural-height">True</property>
         <child>
           <object class="GtkListBox" id="main_list_box">
-            <property name="visible">True</property>
             <signal name="selected-rows-changed" handler="on_selection_changed"/>
           </object>
         </child>
@@ -52,7 +49,6 @@
         </style>
         <child>
           <object class="GtkModelButton" id="leave_edit_mode_button">
-            <property name="visible">True</property>
             <property name="hexpand">True</property>
             <property name="centered">True</property>
             <property name="iconic">True</property>
@@ -64,7 +60,6 @@
         </child>
         <child>
           <object class="GtkModelButton" id="enter_edit_mode_button">
-            <property name="visible">True</property>
             <property name="hexpand">True</property>
             <property name="centered">True</property>
             <property name="iconic">True</property>

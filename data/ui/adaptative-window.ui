@@ -16,7 +16,7 @@
   along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.96"/>
   <template class="AdaptativeWindow" parent="GtkApplicationWindow">
     <property name="height-request">284</property>  <!-- 288px max for Purism Librem 5 landscape, for 720px width; update gschema also -->
     <property name="width-request">350</property>   <!-- 360px max for Purism Librem 5 portrait, for 648px height; update gschema also -->

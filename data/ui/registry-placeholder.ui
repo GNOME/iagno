@@ -16,9 +16,8 @@
   along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.96"/>
   <template class="RegistryPlaceholder" parent="GtkGrid"> <!-- see nautilus/src/resources/ui/nautilus-folder-is-empty.ui -->
-    <property name="visible">True</property>
     <property name="row-spacing">12</property>
     <property name="expand">True</property>
     <property name="halign">center</property>
@@ -29,7 +28,6 @@
     </style>
     <child>
       <object class="GtkImage" id="placeholder_image">
-        <property name="visible">True</property>
         <style>
           <class name="dim-label"/>
         </style>
@@ -37,7 +35,6 @@
     </child>
     <child>
       <object class="GtkLabel" id="placeholder_label">
-        <property name="visible">True</property>
         <property name="justify">center</property>
         <attributes>
           <attribute name="weight" value="bold"/>

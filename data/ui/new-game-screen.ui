@@ -16,10 +16,9 @@
   with this application.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.96"/>
   <template class="NewGameScreen" parent="GtkBox">
     <property name="orientation">vertical</property>
-    <property name="visible">True</property>
     <property name="spacing">6</property>
     <style>
       <class name="new-game-screen"/>
@@ -39,12 +38,10 @@
     <child>
       <object class="GtkBox" id="games_box">
         <property name="orientation">horizontal</property>
-        <property name="visible">True</property>
         <property name="homogeneous">True</property>
         <property name="spacing">6</property>
         <child>
           <object class="GtkModelButton" id="modelbutton_one">
-            <property name="visible">True</property>
             <property name="name">radio-one</property>
             <style>
               <class name="radio-like-toggle"/>
@@ -57,7 +54,6 @@
         </child>
         <child>
           <object class="GtkModelButton" id="modelbutton_two">
-            <property name="visible">True</property>
             <property name="name">radio-two</property>
             <style>
               <class name="radio-like-toggle"/>
@@ -95,12 +91,10 @@
     <child>
       <object class="GtkBox" id="options_box">
         <property name="orientation">horizontal</property>
-        <property name="visible">True</property>
         <property name="homogeneous">True</property>
         <property name="spacing">6</property>
         <child>
           <object class="GtkMenuButton" id="menubutton_one">
-            <property name="visible">True</property>
             <property name="use-underline">True</property>
             <style>
               <class name="menubutton-like-combo"/>
@@ -114,7 +108,6 @@
         </child>
         <child>
           <object class="GtkMenuButton" id="menubutton_two">
-            <property name="visible">True</property>
             <property name="use-underline">True</property>
             <style>
               <class name="menubutton-like-combo"/>

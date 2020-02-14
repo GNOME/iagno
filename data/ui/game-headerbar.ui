@@ -20,11 +20,12 @@
   along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.96"/>
   <template class="GameHeaderBar" parent="BaseHeaderBar">
     <property name="show-title-buttons">True</property>
     <child>
       <object class="GtkButton" id="new_game_button">
+        <property name="visible">False</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="action-name">ui.new-game</property>
@@ -36,8 +37,8 @@
           <class name="new-game-button"/>
         </style>
         <child>
-          <object class="GtkLabel"> <!-- for ellipsizing, if the text shows a moves count that can grow -->
-            <property name="visible">True</property>
+          <!-- for ellipsizing, if the text shows a moves count that can grow -->
+          <object class="GtkLabel">
             <!-- Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt) -->
             <property name="label" translatable="yes">_New Game</property>
             <property name="ellipsize">end</property>
@@ -63,7 +64,6 @@
         <child>
           <object class="GtkImage">
             <property name="icon-name">go-previous-symbolic</property>
-            <property name="visible">True</property>
             <property name="icon-size">1</property>
           </object>
         </child>
