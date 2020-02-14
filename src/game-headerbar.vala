@@ -171,7 +171,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
         if (game_widget != null && ((!) game_widget) is MenuButton && !((MenuButton) (!) game_widget).popover.visible)   // hackish 3/3
             new_game_button.grab_focus ();
         else
-            new_game_button.grab_default ();    // FIXME: grab_focus, but without closing the popover...
+            new_game_button.grab_focus ();    // FIXME: was using grab_default in gtk3; should not close the popover...; TEST: method returns bool
     }
 
     internal void update_title (string new_title)
