@@ -156,16 +156,16 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
     }
     internal static bool copy_clipboard_text (out string copy_text)
     {
-        string? nullable_selection = Clipboard.@get (Gdk.SELECTION_PRIMARY).wait_for_text ();
-        if (nullable_selection != null)
-        {
-             string selection = ((!) nullable_selection).dup ();
-             if (selection != "")
-             {
-                copy_text = selection;
-                return true;
-             }
-        }
+//        string? nullable_selection = Clipboard.@get (Gdk.SELECTION_PRIMARY).wait_for_text ();
+//        if (nullable_selection != null)
+//        {
+//             string selection = ((!) nullable_selection).dup ();
+//             if (selection != "")
+//             {
+//                copy_text = selection;
+//                return true;
+//             }
+//        }
         return no_copy_text (out copy_text);
     }
     internal static inline bool is_empty_text (string text)
@@ -175,42 +175,42 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
 
     private void copy (/* SimpleAction action, Variant? path_variant */)
     {
-        Widget? focus = get_focus ();
-        if (focus != null)
-        {
-            if ((!) focus is Editable)  // GtkEntry, GtkSearchEntry, GtkSpinButton
-            {
-                int garbage1, garbage2;
-                if (((Editable) (!) focus).get_selection_bounds (out garbage1, out garbage2))
-                {
-                    ((Editable) (!) focus).copy_clipboard ();
-                    return;
-                }
-            }
-            else if ((!) focus is TextView)
-            {
-                if (((TextView) (!) focus).get_buffer ().get_has_selection ())
-                {
-                    ((TextView) (!) focus).copy_clipboard ();
-                    return;
-                }
-            }
-            else if ((!) focus is Label)
-            {
-                int garbage1, garbage2;
-                if (((Label) (!) focus).get_selection_bounds (out garbage1, out garbage2))
-                {
-                    ((Label) (!) focus).copy_clipboard ();
-                    return;
-                }
-            }
-        }
+//        Widget? focus = get_focus ();
+//        if (focus != null)
+//        {
+//            if ((!) focus is Editable)  // GtkEntry, GtkSearchEntry, GtkSpinButton
+//            {
+//                int garbage1, garbage2;
+//                if (((Editable) (!) focus).get_selection_bounds (out garbage1, out garbage2))
+//                {
+//                    ((Editable) (!) focus).copy_clipboard ();
+//                    return;
+//                }
+//            }
+//            else if ((!) focus is TextView)
+//            {
+//                if (((TextView) (!) focus).get_buffer ().get_has_selection ())
+//                {
+//                    ((TextView) (!) focus).copy_clipboard ();
+//                    return;
+//                }
+//            }
+//            else if ((!) focus is Label)
+//            {
+//                int garbage1, garbage2;
+//                if (((Label) (!) focus).get_selection_bounds (out garbage1, out garbage2))
+//                {
+//                    ((Label) (!) focus).copy_clipboard ();
+//                    return;
+//                }
+//            }
+//        }
 
-        main_view.close_popovers ();
+//        main_view.close_popovers ();
 
-        string text;
-        if (handle_copy_text (out text))
-            copy_text (text);
+//        string text;
+//        if (handle_copy_text (out text))
+//            copy_text (text);
     }
 
     private void copy_alt (/* SimpleAction action, Variant? path_variant */)
@@ -245,11 +245,11 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
         Widget? focus = get_focus ();
         if (focus != null)
         {
-            if ((!) focus is Entry)
-            {
-                ((Entry) (!) focus).paste_clipboard ();
-                return;
-            }
+//            if ((!) focus is Entry)
+//            {
+//                ((Entry) (!) focus).paste_clipboard ();
+//                return;
+//            }
             if ((!) focus is TextView)
             {
                 ((TextView) (!) focus).paste_clipboard ();
@@ -280,14 +280,14 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
 
     private static inline bool get_clipboard_content (out string? clipboard_content)
     {
-        Gdk.Display? display = Gdk.Display.get_default ();
-        if (display == null)            // ?
-        {
-            clipboard_content = null;   // garbage
-            return false;
-        }
+//        Gdk.Display? display = Gdk.Display.get_default ();
+//        if (display == null)            // ?
+//        {
+//            clipboard_content = null;   // garbage
+//            return false;
+//        }
 
-        clipboard_content = Clipboard.get_default ((!) display).wait_for_text ();
+//        clipboard_content = Clipboard.get_default ((!) display).wait_for_text ();
         return true;
     }
 
