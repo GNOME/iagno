@@ -223,7 +223,7 @@ private class AboutListItem : OverlayedListRow
     {
         Object (copy_text: copy_text);
 
-        Image image = new Image.from_icon_name (icon_name, IconSize.DIALOG);
+        Image image = new Image.from_icon_name (icon_name);
         image.pixel_size = 128;
         image.visible = true;
         image.hexpand = true;
