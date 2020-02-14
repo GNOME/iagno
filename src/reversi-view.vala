@@ -739,10 +739,11 @@ private class ReversiView : Gtk.DrawingArea
         requires (x < game_size)
         requires (y < game_size)
     {
-        queue_draw_area (board_x + tile_xs [x, y],
-                         board_y + tile_ys [x, y],
-                         tile_size,
-                         tile_size);
+        queue_draw ();
+     // queue_draw_area (board_x + tile_xs [x, y],
+     //                  board_y + tile_ys [x, y],
+     //                  tile_size,
+     //                  tile_size);
     }
 
     /*\
