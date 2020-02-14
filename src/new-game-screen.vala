@@ -45,8 +45,8 @@ private class NewGameScreen : Box, AdaptativeWidget
                             string modelbutton_two_label,
                             string modelbutton_two_action)
     {
-        modelbutton_one.text = modelbutton_one_label;
-        modelbutton_two.text = modelbutton_two_label;
+        modelbutton_one.label = modelbutton_one_label;
+        modelbutton_two.label = modelbutton_two_label;
 
         modelbutton_one.set_detailed_action_name (modelbutton_one_action);
         modelbutton_two.set_detailed_action_name (modelbutton_two_action);

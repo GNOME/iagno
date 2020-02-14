@@ -41,27 +41,27 @@
         <property name="homogeneous">True</property>
         <property name="spacing">6</property>
         <child>
-          <object class="GtkModelButton" id="modelbutton_one">
+          <object class="GtkButton" id="modelbutton_one">
             <property name="name">radio-one</property>
             <style>
               <class name="radio-like-toggle"/>
               <class name="flat"/>
             </style>
             <property name="focus-on-click">False</property>
-            <property name="iconic">True</property>
-            <property name="centered">True</property>
+<!--            <property name="iconic">True</property>-->
+<!--            <property name="centered">True</property>-->
           </object>
         </child>
         <child>
-          <object class="GtkModelButton" id="modelbutton_two">
+          <object class="GtkButton" id="modelbutton_two">
             <property name="name">radio-two</property>
             <style>
               <class name="radio-like-toggle"/>
               <class name="flat"/>
             </style>
             <property name="focus-on-click">False</property>
-            <property name="iconic">True</property>
-            <property name="centered">True</property>
+<!--            <property name="iconic">True</property>-->
+<!--            <property name="centered">True</property>-->
           </object>
         </child>
       </object>
