@@ -1,3 +1,25 @@
+3.35.91 – February 15, 2020
+=============================
+
+The “Escape” key works again during a game. Also, the
+code that manages inputs (keyboard and mouse) changed
+a bit, so please have fun testing that all is working
+as expected. Finally, help had cosmetic improvements.
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Czech: Marek Černocký
+  Danish: Ask Hjorth Larsen
+  British English: Zander Brown
+  Galician: Fran Dieguez
+  Indonesian: Sucipto
+  Lithuanian: Aurimas Černius
+  Persian: Danial Behzadi
+  Brazilian Portuguese: Rafael Fontenelle
+  Spanish: Daniel Mustieles
+  Swedish: Anders Jonsson
+  Turkish: Sabri Ünal
+
 3.35.90 – February 3, 2020
 =============================
 
