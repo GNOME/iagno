@@ -116,12 +116,12 @@ window:not(.hc-theme)                                  button.radio-like-toggle 
 button.menubutton-like-combo:checked,
 button.menubutton-like-combo:hover {
   color:#2e3436; /* gtk-contained.css’ theme_fg_color */
-  background:-gtk-gradient (radial, center center, 0, center center, 0.5, from(rgba (255, 255, 255, 1)), to(rgba (255, 255, 255, 0)));
+/*  background:radial-gradient (circle at center, rgba (255, 255, 255, 1) 0, rgba (255, 255, 255, 0) 0.5);*/
 }
 button.menubutton-like-combo:backdrop:checked,
 button.menubutton-like-combo:backdrop:hover {
   color:@theme_unfocused_fg_color;
-  background:-gtk-gradient (radial, center center, 0, center center, 0.5, from(rgba (255, 255, 255, 0.3)), to(rgba (255, 255, 255, 0)));
+/*  background:radial-gradient (circle at center, rgba (255, 255, 255, 0.3) 0, rgba (255, 255, 255, 0) 0.5);*/
 }
 
 /*\
