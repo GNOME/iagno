@@ -65,10 +65,6 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
-      </packing>
     </child>
     <child>
       <object class="GtkSeparator" id="options_separator">
@@ -101,10 +97,6 @@
               <class name="flat"/>
             </style>
           </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-          </packing>
         </child>
         <child>
           <object class="GtkMenuButton" id="menubutton_two">
@@ -114,15 +106,8 @@
               <class name="flat"/>
             </style>
           </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-          </packing>
         </child>
       </object>
-      <packing>
-        <property name="fill">True</property>
-      </packing>
     </child>
   </template>
 </interface>

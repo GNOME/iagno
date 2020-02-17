@@ -80,9 +80,6 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="pack-type">end</property>
-      </packing>
     </child>
     <child>
       <object class="GtkSeparator" id="ltr_right_separator">
@@ -92,9 +89,6 @@
           <class name="titlebutton"/>
         </style>
       </object>
-      <packing>
-        <property name="pack-type">end</property>
-      </packing>
     </child>
     <child>
       <object class="GtkMenuButton" id="info_button">
@@ -118,9 +112,6 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="pack-type">end</property>
-      </packing>
     </child>
   </template>
 </interface>
