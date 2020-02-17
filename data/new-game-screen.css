@@ -21,7 +21,7 @@
 button.radio-like-toggle,
 button.menubutton-like-combo {
   border-radius:15px;
-  -gtk-outline-radius:13px;
+/*  -gtk-outline-radius:13px;*/
 }
 
 .extra-thin-window label.section-header { margin-top:1.0rem; }  /* like start-game button */
