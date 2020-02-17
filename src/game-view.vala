@@ -81,7 +81,8 @@ private class GameView : BaseView, AdaptativeWidget
         game_box.get_style_context ().add_class ("game-box");
 
         // for the new-game-screen-to-game animation, it is probably better to have the game under ("uncovered")
-        game_box.insert_after (game_stack, /* insert first */ null);
+//        game_box.insert_after (game_stack, /* insert first */ null);
+        game_stack.add (game_box);
         content.can_focus = true;
     }
 
