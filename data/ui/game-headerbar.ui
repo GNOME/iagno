@@ -29,7 +29,6 @@
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="action-name">ui.new-game</property>
-        <property name="can-default">True</property>
         <!-- Translators: during a game, tooltip text of the New Game button -->
         <property name="tooltip-text" translatable="yes">Start a new game</property>
         <style>
