@@ -91,7 +91,7 @@
         <property name="spacing">6</property>
         <child>
           <object class="GtkMenuButton" id="menubutton_one">
-            <property name="use-underline">True</property>
+<!--            <property name="use-underline">True</property>-->
             <style>
               <class name="menubutton-like-combo"/>
               <class name="flat"/>
@@ -100,7 +100,7 @@
         </child>
         <child>
           <object class="GtkMenuButton" id="menubutton_two">
-            <property name="use-underline">True</property>
+<!--            <property name="use-underline">True</property>-->
             <style>
               <class name="menubutton-like-combo"/>
               <class name="flat"/>
