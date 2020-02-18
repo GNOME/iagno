@@ -36,8 +36,6 @@ private class NewGameScreen : Box, AdaptativeWidget
         Gdk.Display? gdk_display = Gdk.Display.get_default ();
         if (gdk_display != null) // else..?
             StyleContext.add_provider_for_display ((!) gdk_display, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        fix_race ();
     }
 
     internal NewGameScreen (string modelbutton_one_label,
@@ -100,12 +98,6 @@ private class NewGameScreen : Box, AdaptativeWidget
     * * adaptative stuff
     \*/
 
-    private void fix_race ()   // FIXME things are a bit racy between the CSS and the box orientation changes, so delay games_box redraw
-    {
-        size_allocate.connect_after (() => games_box.show ());
-        map.connect (() => games_box.show ());
-    }
-
     [GtkChild] private Box          games_box;
     [GtkChild] private Box          options_box;
 
@@ -151,7 +143,6 @@ private class NewGameScreen : Box, AdaptativeWidget
                 this.set_orientation (Orientation.VERTICAL);
                 games_box.set_orientation (Orientation.HORIZONTAL);
                 options_box.set_orientation (Orientation.HORIZONTAL);
-                games_box.hide ();
             }
         }
         else if (_phone_size)
