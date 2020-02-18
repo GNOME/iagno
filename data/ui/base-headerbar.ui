@@ -20,7 +20,7 @@
   <template class="BaseHeaderBar" parent="NightTimeAwareHeaderBar">
     <property name="show-title-buttons">True</property>
     <property name="has-subtitle">False</property>
-    <child>
+    <child type="start">
       <object class="GtkButton" id="go_back_button">
         <property name="visible">False</property>
         <property name="valign">center</property>
@@ -31,7 +31,7 @@
         </style>
       </object>
     </child>
-    <child>
+    <child type="start">
       <object class="GtkSeparator" id="ltr_left_separator">
         <property name="visible">False</property>
       </object>
@@ -50,7 +50,7 @@
         </child>
       </object>
     </child>
-    <child>
+    <child type="end">
       <object class="GtkStack" id="quit_button_stack">
         <property name="visible">False</property>
         <child>
@@ -71,7 +71,7 @@
         </child>
       </object>
     </child>
-    <child>
+    <child type="end">
       <object class="GtkSeparator" id="ltr_right_separator">
         <property name="visible">False</property>
         <property name="orientation">vertical</property>
@@ -80,7 +80,7 @@
         </style>
       </object>
     </child>
-    <child>
+    <child type="end">
       <object class="GtkMenuButton" id="info_button">
         <property name="valign">center</property>
         <property name="focus-on-click">False</property>
