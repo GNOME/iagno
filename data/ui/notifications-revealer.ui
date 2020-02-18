@@ -44,15 +44,10 @@
                 <property name="focus-on-click">False</property>
                 <property name="relief">none</property>
                 <property name="action-name">notification.hide</property>
+                <property name="icon-name">window-close-symbolic</property>
                 <style>
                   <class name="image-button"/>
                 </style>
-                <child>
-                  <object class="GtkImage">
-                    <property name="icon-name">window-close-symbolic</property>
-                    <property name="icon-size">1</property>
-                  </object>
-                </child>
               </object>
             </child>
           </object>

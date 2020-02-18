@@ -25,15 +25,10 @@
         <property name="visible">False</property>
         <property name="valign">center</property>
         <property name="action-name">base.show-default-view</property>
+        <property name="icon-name">go-previous-symbolic</property> <!-- TODO 3/3 dialog-information-symbolic -->
         <style>
           <class name="image-button"/>
         </style>
-        <child>
-          <object class="GtkImage">
-            <property name="icon-name">go-previous-symbolic</property> <!-- TODO 3/3 dialog-information-symbolic -->
-            <property name="icon-size">1</property>
-          </object>
-        </child>
       </object>
     </child>
     <child>
@@ -65,16 +60,11 @@
               <object class="GtkButton">
                 <property name="valign">center</property>
                 <property name="action-name">app.quit</property>
+                <property name="icon-name">window-close-symbolic</property>
                 <style>
                   <class name="titlebutton"/>
                   <class name="close"/>
                 </style>
-                <child>
-                  <object class="GtkImage">
-                    <property name="icon-name">window-close-symbolic</property>
-                    <property name="icon-size">1</property>
-                  </object>
-                </child>
               </object>
             </property>
           </object>
@@ -94,6 +84,7 @@
       <object class="GtkMenuButton" id="info_button">
         <property name="valign">center</property>
         <property name="focus-on-click">False</property>
+        <property name="icon-name">open-menu-symbolic</property>
         <style>
           <class name="image-button"/>
         </style>
@@ -103,12 +94,6 @@
             <property name="AtkObject::accessible-name" translatable="yes">Actions</property>
             <!-- Translators: accessible description of the hamburger menu -->
             <property name="AtkObject::accessible-description" translatable="yes">Current view actions</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkImage">
-            <property name="icon-name">open-menu-symbolic</property>
-            <property name="icon-size">1</property>
           </object>
         </child>
       </object>

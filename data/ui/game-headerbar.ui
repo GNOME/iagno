@@ -57,15 +57,10 @@
         <property name="use-underline">True</property>
         <property name="action-name">base.escape</property>
         <property name="focus-on-click">False</property>
+        <property name="icon-name">go-previous-symbolic</property>
         <style>
           <class name="image-button"/>
         </style>
-        <child>
-          <object class="GtkImage">
-            <property name="icon-name">go-previous-symbolic</property>
-            <property name="icon-size">1</property>
-          </object>
-        </child>
       </object>
     </child>
   </template>

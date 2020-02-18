@@ -32,17 +32,12 @@
             <property name="halign">end</property>
             <property name="valign">start</property>
             <property name="action-name">base.unfullscreen</property>
+            <property name="icon-name">view-restore-symbolic</property>
             <style>
               <class name="image-button"/>
               <class name="unfullscreen-button"/>
               <class name="flat"/>
             </style>
-            <child>
-              <object class="GtkImage">
-                <property name="icon-name">view-restore-symbolic</property>
-                <property name="icon-size">1</property>
-              </object>
-            </child>
           </object>
         </child>
       </object>
