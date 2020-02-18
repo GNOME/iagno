@@ -317,6 +317,7 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
     {
         key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
+        add_controller (key_controller);
     }
 
     protected inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)

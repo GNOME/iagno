@@ -1067,10 +1067,12 @@ private class ReversiView : Gtk.DrawingArea
         motion_controller.motion.connect (on_motion);
         motion_controller.enter.connect (on_mouse_in);
         motion_controller.leave.connect (on_mouse_out);
+        add_controller (motion_controller);
 
         click_controller = new Gtk.GestureClick ();
         click_controller.set_button (/* all buttons */ 0);
         click_controller.pressed.connect (on_click);
+        add_controller (click_controller);
     }
 
     private inline void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y, Gdk.CrossingMode mode)
@@ -1239,6 +1241,7 @@ private class ReversiView : Gtk.DrawingArea
     {
         key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
+        add_controller (key_controller);
     }
 
     private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
