@@ -416,8 +416,8 @@ private class Iagno : Gtk.Application, BaseApplication
         history_button_1 = new HistoryButton (history_menu, theme_manager);
         history_button_2 = new HistoryButton (history_menu, theme_manager);
         view.notify_final_animation.connect ((undoing) => {
-                history_button_1.update_menu (undoing ? history_menu : finish_menu);
-                history_button_2.update_menu (undoing ? history_menu : finish_menu);
+                history_button_1.menu_model = undoing ? history_menu : finish_menu;
+                history_button_2.menu_model = undoing ? history_menu : finish_menu;
             });
         history_button_1.show ();
         history_button_2.show ();
@@ -765,8 +765,8 @@ private class Iagno : Gtk.Application, BaseApplication
 
         history_button_1.set_player (Player.DARK);
         history_button_2.set_player (Player.DARK);
-        history_button_1.update_menu (history_menu);
-        history_button_2.update_menu (history_menu);
+        history_button_1.menu_model = history_menu;
+        history_button_2.menu_model = history_menu;
 
         if (two_players)
             computer = null;

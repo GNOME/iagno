@@ -21,12 +21,27 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/history-button.ui")]
-private class HistoryButton : MenuButton, AdaptativeWidget
+private class HistoryButton : ToggleButton, AdaptativeWidget
 {
     [CCode (notify = false)] public ThemeManager theme_manager { private get; protected construct; }
 
+    ulong toggled_handler = 0;
+    [CCode (notify = false)] public MenuModel menu_model
+    {
+        internal construct set
+        {
+            if (toggled_handler != 0)
+                disconnect (toggled_handler);
+            popover = new PopoverMenu.from_model (this, value);
+            popover.set_autohide (false);
+            toggled_handler = toggled.connect ((_this) => { if (_this.get_active ()) ((HistoryButton) _this).popover.popup (); else ((HistoryButton) _this).popover.popdown (); }); // toggled is run-first
+        }
+    }
+
     [GtkChild] private Stack stack;
     [GtkChild] private DrawingArea drawing;
+
+    private PopoverMenu popover;
 
     internal HistoryButton (GLib.Menu menu, ThemeManager theme_manager)
     {
@@ -60,11 +75,6 @@ private class HistoryButton : MenuButton, AdaptativeWidget
             stack.set_visible_child (drawing);
             drawing.queue_draw ();
         }
-    }
-
-    internal inline void update_menu (GLib.Menu menu)
-    {
-        set_menu_model (menu);
     }
 
     /*\
@@ -122,7 +132,6 @@ private class HistoryButton : MenuButton, AdaptativeWidget
 
         draw_arrow (cr);
         draw_piece (cr);
-        return;
     }
 
     private const double arrow_margin_top = 3.0;

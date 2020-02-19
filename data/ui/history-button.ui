@@ -21,7 +21,7 @@
 -->
 <interface>
   <requires lib="gtk+" version="3.96"/>
-  <template class="HistoryButton" parent="GtkMenuButton">
+  <template class="HistoryButton" parent="GtkToggleButton">
     <property name="valign">center</property>
     <property name="can-focus">True</property>
     <property name="focus-on-click">False</property>
