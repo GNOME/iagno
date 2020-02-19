@@ -23,8 +23,8 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/new-game-screen.ui")]
 private class NewGameScreen : Box, AdaptativeWidget
 {
-    [GtkChild] private ModelButton modelbutton_one;
-    [GtkChild] private ModelButton modelbutton_two;
+    [GtkChild] private ToggleButton modelbutton_one;
+    [GtkChild] private ToggleButton modelbutton_two;
 
     [GtkChild] private Gtk.MenuButton menubutton_one;
     [GtkChild] private Gtk.MenuButton menubutton_two;
