@@ -23,8 +23,8 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/new-game-screen.ui")]
 private class NewGameScreen : Box, AdaptativeWidget
 {
-    [GtkChild] private ToggleButton modelbutton_one;
-    [GtkChild] private ToggleButton modelbutton_two;
+    [GtkChild] private ToggleButton gamebutton_one;
+    [GtkChild] private ToggleButton gamebutton_two;
 
     [GtkChild] private Gtk.MenuButton menubutton_one;
     [GtkChild] private Gtk.MenuButton menubutton_two;
@@ -45,16 +45,16 @@ private class NewGameScreen : Box, AdaptativeWidget
             ((!) widget).get_style_context ().add_class ("flat");
     }
 
-    internal NewGameScreen (string modelbutton_one_label,
-                            string modelbutton_one_action,
-                            string modelbutton_two_label,
-                            string modelbutton_two_action)
+    internal NewGameScreen (string gamebutton_one_label,
+                            string gamebutton_one_action,
+                            string gamebutton_two_label,
+                            string gamebutton_two_action)
     {
-        modelbutton_one.label = modelbutton_one_label;
-        modelbutton_two.label = modelbutton_two_label;
+        gamebutton_one.label = gamebutton_one_label;
+        gamebutton_two.label = gamebutton_two_label;
 
-        modelbutton_one.set_detailed_action_name (modelbutton_one_action);
-        modelbutton_two.set_detailed_action_name (modelbutton_two_action);
+        gamebutton_one.set_detailed_action_name (gamebutton_one_action);
+        gamebutton_two.set_detailed_action_name (gamebutton_two_action);
     }
 
     /*\
