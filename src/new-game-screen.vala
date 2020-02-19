@@ -36,6 +36,13 @@ private class NewGameScreen : Box, AdaptativeWidget
         Gdk.Display? gdk_display = Gdk.Display.get_default ();
         if (gdk_display != null) // else..?
             StyleContext.add_provider_for_display ((!) gdk_display, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+        Widget? widget = menubutton_one.get_first_child ();
+        if (widget != null && (!) widget is ToggleButton)
+            ((!) widget).get_style_context ().add_class ("flat");
+        widget = menubutton_two.get_first_child ();
+        if (widget != null && (!) widget is ToggleButton)
+            ((!) widget).get_style_context ().add_class ("flat");
     }
 
     internal NewGameScreen (string modelbutton_one_label,
@@ -61,10 +68,29 @@ private class NewGameScreen : Box, AdaptativeWidget
 
     internal inline void update_menubutton_label (MenuButton button, string label)
     {
+        Widget? widget;
         switch (button)
         {
-            case MenuButton.ONE: menubutton_one.set_label (label); return;
-            case MenuButton.TWO: menubutton_two.set_label (label); return;
+            case MenuButton.ONE:
+                menubutton_one.set_label (label);
+                widget = menubutton_one.get_first_child ();
+                if (widget != null && (!) widget is ToggleButton)
+                {
+                    widget = ((!) widget).get_first_child ();
+                    if (widget != null && (!) widget is Box)
+                        ((!) widget).halign = Align.CENTER;
+                }
+                return;
+
+            case MenuButton.TWO: menubutton_two.set_label (label);
+                widget = menubutton_two.get_first_child ();
+                if (widget != null && (!) widget is ToggleButton)
+                {
+                    widget = ((!) widget).get_first_child ();
+                    if (widget != null && (!) widget is Box)
+                        ((!) widget).halign = Align.CENTER;
+                }
+                return;
         }
     }
 

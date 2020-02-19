@@ -19,7 +19,7 @@
 .extra-flat-window.flat-window .new-game-screen { padding:0.4rem; }
 
 button.radio-like-toggle,
-button.menubutton-like-combo {
+menubutton.menubutton-like-combo > button.toggle {
   border-radius:15px;
 /*  -gtk-outline-radius:13px;*/
 }
@@ -101,10 +101,10 @@ window:not(.hc-theme)                                  button.radio-like-toggle 
 
 /* copying start-game button */
 
-.extra-flat-window button.menubutton-like-combo {
+.extra-flat-window menubutton.menubutton-like-combo > button.toggle {
   min-height:2rem;
 }
-                   button.menubutton-like-combo {
+                   menubutton.menubutton-like-combo > button.toggle {
   min-height:3rem;
   min-width:11rem;
 
@@ -113,13 +113,13 @@ window:not(.hc-theme)                                  button.radio-like-toggle 
 
 /* styling */
 
-button.menubutton-like-combo:checked,
-button.menubutton-like-combo:hover {
+menubutton.menubutton-like-combo > button.toggle:checked,
+menubutton.menubutton-like-combo > button.toggle:hover {
   color:#2e3436; /* gtk-contained.css’ theme_fg_color */
 /*  background:radial-gradient (circle at center, rgba (255, 255, 255, 1) 0, rgba (255, 255, 255, 0) 0.5);*/
 }
-button.menubutton-like-combo:backdrop:checked,
-button.menubutton-like-combo:backdrop:hover {
+menubutton.menubutton-like-combo > button.toggle:backdrop:checked,
+menubutton.menubutton-like-combo > button.toggle:backdrop:hover {
   color:@theme_unfocused_fg_color;
 /*  background:radial-gradient (circle at center, rgba (255, 255, 255, 0.3) 0, rgba (255, 255, 255, 0) 0.5);*/
 }
