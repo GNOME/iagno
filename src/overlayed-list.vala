@@ -45,8 +45,8 @@ private abstract class OverlayedList : Overlay, AdaptativeWidget
     }
 
 
-    [GtkChild] private ModelButton enter_edit_mode_button;
-    [GtkChild] private ModelButton leave_edit_mode_button;
+    [GtkChild] private ToggleButton enter_edit_mode_button;
+    [GtkChild] private ToggleButton leave_edit_mode_button;
     [CCode (notify = false)] public string edit_mode_action_prefix
     {
         construct

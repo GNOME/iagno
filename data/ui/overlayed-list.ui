@@ -48,10 +48,8 @@
           <class name="linked-circular"/>
         </style>
         <child>
-          <object class="GtkButton" id="leave_edit_mode_button">
+          <object class="GtkToggleButton" id="leave_edit_mode_button">
             <property name="hexpand">True</property>
-            <property name="centered">True</property>
-            <property name="iconic">True</property>
             <property name="focus-on-click">False</property>
             <style>
               <class name="left-on-ltr"/>
@@ -59,10 +57,8 @@
           </object>
         </child>
         <child>
-          <object class="GtkButton" id="enter_edit_mode_button">
+          <object class="GtkToggleButton" id="enter_edit_mode_button">
             <property name="hexpand">True</property>
-            <property name="centered">True</property>
-            <property name="iconic">True</property>
             <property name="focus-on-click">False</property>
             <style>
               <class name="right-on-ltr"/>
