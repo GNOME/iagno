@@ -5,23 +5,23 @@
 # Andika Triwidada <andika@gmail.com>, 2010, 2012, 2014.
 # Vincent Sebastian The <vincent.s.the@gmail.com>, 2011, 2012.
 # Dirgita <dirgitadevina@yahoo.co.id>, 2012.
-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2018, 2019.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2020.
 # Sucipto <sucipto@pm.me>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-01-29 17:47+0000\n"
-"PO-Revision-Date: 2020-02-02 18:00+0700\n"
-"Last-Translator: Sucipto <sucipto@pm.me>\n"
+"POT-Creation-Date: 2020-02-14 04:54+0000\n"
+"PO-Revision-Date: 2020-02-19 20:04+0700\n"
+"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
-"X-Generator: Gtranslator 3.34.0\n"
+"X-Generator: Poedit 2.3\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Rosetta-Export-Date: 2007-04-23 05:58:10+0000\n"
 
@@ -277,6 +277,18 @@ msgstr "Jika \"true\", jendela utama mulai dalam mode pemaksimalan."
 msgid "A flag to alternate who starts"
 msgstr "Tanda untuk bergantian siapa yang memulai"
 
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:52
+msgid ""
+"If “true”, when playing against AI, the “color” settings is toggled after "
+"every new game request, making the next game being started with inverted "
+"roles (previous Dark player playing Light). Ignored for two-player games."
+msgstr ""
+"Jika \"true\", saat bermain melawan kecerdasan buatan, pengaturan \"color\" "
+"terjungkit setelah setiap permintaan permainan baru, membuat permainan "
+"berikutnya dimulai dengan peran terbalik (pemain Gelap sebelumnya yang "
+"bermain Terang). Diabaikan untuk permainan dua pemain."
+
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:57
 msgid "Color to play as"
@@ -332,6 +344,25 @@ msgstr "Apakah akan bermain melawan komputer atau manusia lain."
 msgid "A flag to randomize start position"
 msgstr "Tanda untuk mengacak posisi awal"
 
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:95
+msgid ""
+"Reversi can be played with two different initial positions (and their "
+"symmetries). If “true”, the game will randomly start with one or the other "
+"position; if “false”, only the most common initial position is used. You can "
+"force the game to use the alternative position by using the “--alternative-"
+"start” argument on the command-line; also, if either “--usual-start” or “--"
+"random-start” is given instead on the command-line, this flag will be "
+"ignored."
+msgstr ""
+"Reversi dapat dimainkan dengan dua posisi awal yang berbeda (dan "
+"simetrinya). Jika \"true\", permainan akan dimulai secara acak dengan satu "
+"atau beberapa posisi lainnya; jika \"false\", hanya posisi awal yang paling "
+"umum digunakan. Anda dapat memaksa permainan untuk menggunakan posisi "
+"alternatif dengan menggunakan argumen \"--alternative-start\" pada baris "
+"perintah; juga, jika “--usual-start” atau “--random-start” diberikan sebagai "
+"ganti pada baris perintah, tanda ini akan diabaikan."
+
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
 #: data/org.gnome.Reversi.gschema.xml:100
 msgid "Sound"
@@ -355,6 +386,23 @@ msgid ""
 msgstr ""
 "Nama berkas dari tema yang digunakan, atau \"bawaan\". Disediakan \"adwaita."
 "theme\", \"high_contrast.theme\" dan \"sun_and_star.theme\"."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:114
+msgid "Name of the game"
+msgstr "Nama permainan"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:116
+msgid ""
+"The name of the game that will be played. It could be “classic” (the usual "
+"game, where you try to have more pieces), or “reverse” (the opposite game, "
+"where you try to have less pieces)."
+msgstr ""
+"Nama permainan yang akan dimainkan. Bisa jadi \"classic\" (permainan biasa, "
+"di mana Anda mencoba memiliki lebih banyak potongan), atau \"reverse"
+"\" (permainan yang berlawanan, di mana Anda mencoba untuk memiliki lebih "
+"sedikit bagian)."
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
@@ -655,8 +703,6 @@ msgstr "Warna: Terang"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
 #: src/iagno.vala:683
-#, fuzzy
-#| msgid "Options"
 msgid "More options"
 msgstr "Opsi lanjutan"
 
@@ -781,7 +827,7 @@ msgstr ""
 "Vincent Sebastian The <vincent.s.the@gmail.com>, 2011, 2012.\n"
 "Dirgita <dirgitadevina@yahoo.co.id>, 2012.\n"
 "Andika Triwidada <andika@gmail.com>, 2010, 2012, 2014.\n"
-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2018, 2019.\n"
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2020.\n"
 "Suicpto <sucipto@pm.me>, 2020."
 
 #. Translators: about dialog text; label of the website link
