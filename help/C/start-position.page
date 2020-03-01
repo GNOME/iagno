@@ -95,7 +95,7 @@
   <section id="human-overture">
     <title>Two-player game overture</title>
 
-    <p>When <link xref="2player">playing with another player</link> with the the <link xref="#varying-start-position"><gui>Vary start position</gui></link> option enabled, new games will start with a special two-player game overture.</p>
+    <p>When <link xref="2player">playing with another player</link> with the <link xref="#varying-start-position"><gui>Vary start position</gui></link> option enabled, new games will start with a special two-player game overture.</p>
 
     <p>The board is started empty. The two players are going to place the four initial pieces before starting the game.</p>
 
