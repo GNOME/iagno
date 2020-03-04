@@ -1,12 +1,12 @@
 # Italian translation for iagno
 # Copyright (C) 2002-2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2018 Free Software Foundation, Inc.
-# Copyright (C) 2019 Free Software Foundation, Inc.
+# Copyright (C) 2019, 2020 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 # Fabrizio Stefani <f.stef@it.gnome.org>, 1999-2002;
 # Alessio Frusciante <algol@firenze.linux.it>. 2003.
 # Francesco Marletta <francesco.marletta@tiscali.it>. 2002-2006.
 # Gruppo traduzione Italiano di Ubuntu <gruppo-traduzione@ubuntu-it.org>, 2007-2008
-# Milo Casagrande <milo@milo.name>, 2008, 2009, 2010, 2011, 2012, 2015, 2018, 2019.
+# Milo Casagrande <milo@milo.name>, 2008, 2009, 2010, 2011, 2012, 2015, 2018, 2019, 2020.
 # Claudio Arseni <claudio.arseni@ubuntu.com>, 2014.
 # Gianvito Cavasoli <gianvito@gmx.it>, 2016.
 #
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-09-28 11:43+0000\n"
-"PO-Revision-Date: 2019-09-30 09:38+0200\n"
+"POT-Creation-Date: 2020-01-29 17:47+0000\n"
+"PO-Revision-Date: 2020-03-04 08:56+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italiano <gnome-it-list@gnome.org>\n"
 "Language: it\n"
@@ -23,73 +23,74 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 
-#. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
-#: src/iagno.vala:28
-msgid "Iagno"
-msgstr "Iagno"
+#: data/org.gnome.Reversi.appdata.xml.in:7
+msgid "GNOME Reversi"
+msgstr "GNOME Reversi"
 
-#. Translators: a Comment that gives the application function, as defined in the desktop file spec
-#: data/org.gnome.Reversi.appdata.xml.in:8 data/org.gnome.Reversi.desktop.in:9
-msgid "Dominate the board in a classic version of Reversi"
-msgstr "Domina la tavola in una versione classica di Reversi"
-
-#: data/org.gnome.Reversi.appdata.xml.in:10
+#: data/org.gnome.Reversi.appdata.xml.in:8
 msgid ""
-"Iagno is a computer version of the game Reversi, a two-player strategy board "
-"game. The game is played with tiles that are dark on one side and light on "
-"the other."
+"Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr ""
-"Iagno è una versione per computer del gioco Reversi, un gioco da tavolo di "
-"strategia a due giocatori. Il gioco si svolge con tessere che sono nere su "
-"un lato e bianche sull'altro."
+"Domina la tavola in una versione classica di Reversi oppure prova la "
+"variante invertita"
+
+#: data/org.gnome.Reversi.appdata.xml.in:11
+msgid ""
+"Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
+"use tiles that are dark on one side and light on the other."
+msgstr ""
+"Reversi è un gioco di strategia a due giocatori su una tavola di 8×8. Il "
+"gioco si svolge con tessere che sono nere su un lato e bianche sull'altro."
 
 #: data/org.gnome.Reversi.appdata.xml.in:15
 msgid ""
-"The object of Iagno is to flip as many of your opponent’s tiles to your "
-"color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent’s tiles between two tiles "
-"of your own color."
+"The object of reversi is to flip your opponent’s tiles to your color, while "
+"your opponent is trying to flip your tiles to his own color. Opponent’s "
+"tiles are flipped when trapped between an already placed tile of your color "
+"and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
-"L'obiettivo di Iagno è quello di capovolgere il maggior numero possibile di "
-"tessere del proprio avversario nel proprio colore, evitando che l'avversario "
-"faccia altrettanto capovolgendole nel suo colore. Questo avviene "
-"intrappolando le pedine dell'avversario tra due del proprio colore."
+"L'obiettivo di Reversi è quello di capovolgere il maggior numero possibile "
+"di tessere del proprio avversario nel proprio colore, evitando che "
+"l'avversario faccia altrettanto capovolgendole nel suo colore. Questo "
+"avviene intrappolando le pedine dell'avversario tra due del proprio colore. "
+"Chi finisce con tessere vince!"
 
-#: data/org.gnome.Reversi.appdata.xml.in:25
-msgid "A GNOME Iagno game preview"
-msgstr "Un'anteprima del gioco GNOME Iagno"
+#: data/org.gnome.Reversi.appdata.xml.in:21
+msgid ""
+"GNOME Reversi allows you to play both a classic reversi game, and the "
+"reversed variant, where the goal is to finish with less tile than your "
+"opponent."
+msgstr ""
+"GNOME Reversi ti permette di giocare sia al classico gioco Reversi, sia la "
+"variante invertita, dove l'obiettivo è quello di finire con meno tessere "
+"rispetto al tuo avversario."
 
-#: data/org.gnome.Reversi.appdata.xml.in:44
+#: data/org.gnome.Reversi.appdata.xml.in:30
+msgid "A GNOME Reversi game preview"
+msgstr "Un'anteprima del gioco GNOME Reversi"
+
+#: data/org.gnome.Reversi.appdata.xml.in:49
 msgid "The GNOME Project"
 msgstr "Il progetto GNOME"
 
 #. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:7
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
+#: src/iagno.vala:28
 msgid "Reversi"
 msgstr "Reversi"
+
+#. Translators: a Comment that gives the application function, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:9
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Domina la tavola in una versione classica di Reversi"
 
 #. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Reversi.desktop.in:11
 msgid "reversi;othello;"
 msgstr "reversi;othello;otello;"
-
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:21
-msgid "Play first (Dark)"
-msgstr "Gioca per primo (Nero)"
-
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:26
-msgid "Play second (Light)"
-msgstr "Gioca per secondo (Bianco)"
-
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:31
-msgid "Two players game"
-msgstr "Partita a due giocatori"
 
 #. Translators: accessible name of the hamburger menu
 #: data/ui/base-headerbar.ui:113
@@ -101,18 +102,18 @@ msgstr "Azioni"
 msgid "Current view actions"
 msgstr "Azioni della vista attuale"
 
-#. Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt)
-#: data/ui/game-headerbar.ui:32
-msgid "_New Game"
-msgstr "_Nuova partita"
-
-#. Translators: during a game, tooltip text of the Start Over button
-#: data/ui/game-headerbar.ui:38
+#. Translators: during a game, tooltip text of the New Game button
+#: data/ui/game-headerbar.ui:33
 msgid "Start a new game"
 msgstr "Inizia una nuova partita"
 
+#. Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt)
+#: data/ui/game-headerbar.ui:42
+msgid "_New Game"
+msgstr "_Nuova partita"
+
 #. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
-#: data/ui/game-headerbar.ui:50
+#: data/ui/game-headerbar.ui:56
 msgid "Go back to the current game"
 msgstr "Torna alla partita in corso"
 
@@ -196,75 +197,20 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Esce"
 
-#. Translators: when configuring a new game, on a thin window, header of the row for choosing the number of players
-#: data/ui/iagno-screens.ui:40
-msgid "Game type"
-msgstr "Tipo di gioco"
+#. Translators: label of the game status button (in the headerbar, next to the hamburger button), when the game is finished; please keep the string as small as possible (3~5 characters)
+#: data/ui/history-button.ui:43
+msgid "End!"
+msgstr "Fine!"
 
-#. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play first (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:61
-msgid "Play _first"
-msgstr "Gioca per _primo"
+#. Translators: when configuring a new game, header of the game type that appears on small screen
+#: data/ui/new-game-screen.ui:32
+msgid "Game"
+msgstr "Partita"
 
-#. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play second (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:73
-msgid "Play _second"
-msgstr "Gioca per _secondo"
-
-#. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose a two-players game (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:85
-msgid "_Two players"
-msgstr "_Due giocatori"
-
-#. Translators: when configuring a new game, header of the row for choosing the number of players
-#: data/ui/iagno-screens.ui:109
-msgid "Players"
-msgstr "Giocatori"
-
-#. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:126
-msgid "_One"
-msgstr "_Uno"
-
-#. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:138
-msgid "_Two"
-msgstr "_Due"
-
-#. Translators: when configuring a new game, header of the row for choosing the level of the artificial intelligence
-#: data/ui/iagno-screens.ui:162
-msgid "Difficulty"
-msgstr "Difficoltà"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:179
-msgid "_Easy"
-msgstr "_Facile"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:191
-msgid "_Medium"
-msgstr "_Media"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:203
-msgid "_Hard"
-msgstr "_Difficile"
-
-#. Translators: when configuring a new game, header of the row for choosing the played color (whether to start or not)
-#: data/ui/iagno-screens.ui:227
-msgid "Color"
-msgstr "Colore"
-
-#. Translators: when configuring a new game, row "Color", label of the button to play the dark color, so to start (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:244
-msgid "_Dark"
-msgstr "_Nero"
-
-#. Translators: when configuring a new game, row "Color", label of the button to play the light color, so not play second (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:256
-msgid "_Light"
-msgstr "_Bianco"
+#. Translators: when configuring a new game, header of the options that appears on small screen
+#: data/ui/new-game-screen.ui:88
+msgid "Options"
+msgstr "Opzioni"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
 #: data/themes/adwaita.theme.desktop.in:22
@@ -326,69 +272,133 @@ msgstr "Un flag per abilitare la modalità massimizzata"
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "Se impostata a VERO, la finestra principale viene aperta massimizzata."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
-#: data/org.gnome.Reversi.gschema.xml:47
-msgid "Computer’s AI level"
-msgstr "Livello IA del computer"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:50
+msgid "A flag to alternate who starts"
+msgstr "Un flag per alternare il giocatore iniziale"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
-#: data/org.gnome.Reversi.gschema.xml:49
-msgid "From 1, the easiest, to 3, the hardest."
-msgstr "Da 1, il più facile, a 3, il più difficile."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
-#: data/org.gnome.Reversi.gschema.xml:55
-msgid "Whether to play against the computer or another human."
-msgstr "Indica se giocare contro il computer o contro un'altra persona."
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:52
+msgid ""
+"If “true”, when playing against AI, the “color” settings is toggled after "
+"every new game request, making the next game being started with inverted "
+"roles (previous Dark player playing Light). Ignored for two-player games."
+msgstr ""
+"Se VERO, quando si gioca contro la IA, l'impostazione \"color\" viene "
+"permutata a ogni partita, invertendo il giocatore iniziale. Ignorato per "
+"partite a due giocatori."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
-#: data/org.gnome.Reversi.gschema.xml:61
+#: data/org.gnome.Reversi.gschema.xml:57
 msgid "Color to play as"
 msgstr "Colore con cui giocare"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color'
-#: data/org.gnome.Reversi.gschema.xml:63
+#: data/org.gnome.Reversi.gschema.xml:59
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "Indica se giocare come Nero o Bianco. Ignorato per partite a due giocatori."
 
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:65
+msgid "Computer’s AI level"
+msgstr "Livello IA del computer"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:67
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Da 1, il più facile, a 3, il più difficile."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:72
+msgid "A flag to highlight playable tiles"
+msgstr "Un flag per evidenziare le tessere girabili"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:74
+msgid "If “true”, the tiles where you can play are highlighted."
+msgstr "Se VERO, vengono evidenziate le tessere che possono essere girate."
+
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
-#: data/org.gnome.Reversi.gschema.xml:68
+#: data/org.gnome.Reversi.gschema.xml:79
 msgid "A flag to highlight capturable tiles"
 msgstr "Un flag per evidenziare le tessere che possono essere catturate"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; a "ply" here means a "play", a "move": the player moves mouse cursor and sees what he can capture by playing there
-#: data/org.gnome.Reversi.gschema.xml:70
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
+#: data/org.gnome.Reversi.gschema.xml:81
 msgid ""
-"If “true”, the tiles that will be captured to the opponent by a ply are "
+"If “true”, the tiles that will be captured to the opponent by a play are "
 "highlighted."
 msgstr ""
-"Se VERO, vengono evidenziate le tessere che possono essere catturate in una "
-"mossa."
+"Se VERO, vengono evidenziate le tessere che possono essere catturate "
+"dall'avversario in una mossa."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
-#: data/org.gnome.Reversi.gschema.xml:75
-msgid "Theme"
-msgstr "Tema"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
+#: data/org.gnome.Reversi.gschema.xml:87
+msgid "Whether to play against the computer or another human."
+msgstr "Indica se giocare contro il computer o contro un'altra persona."
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
-#: data/org.gnome.Reversi.gschema.xml:77
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:93
+msgid "A flag to randomize start position"
+msgstr "Un flag per partire con una posizione casuale"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:95
 msgid ""
-"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
-"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+"Reversi can be played with two different initial positions (and their "
+"symmetries). If “true”, the game will randomly start with one or the other "
+"position; if “false”, only the most common initial position is used. You can "
+"force the game to use the alternative position by using the “--alternative-"
+"start” argument on the command-line; also, if either “--usual-start” or “--"
+"random-start” is given instead on the command-line, this flag will be "
+"ignored."
 msgstr ""
-"Nome del file del tema usato oppure \"default\". Sono forniti: \"adwaita."
-"theme\", \"high_contrast.theme\" e \"sun_and_star.theme\"."
+"Reversi può essere giocato con due diverse posizioni iniziali (e le loro "
+"simmetriche). Se VERO, il gioco partirà con una posizione casuale; se FALSO, "
+"viene usata la posizioni iniziale più comune. È possibile far partire il "
+"gioco con la posizioni alternativa utilizzando l'argomento \"--alternative-"
+"start\". Inoltre, se \"--usual-start\" o \"--random-start\" viene passato "
+"alla riga di comando, questo flag viene ignorato."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
-#: data/org.gnome.Reversi.gschema.xml:82
+#: data/org.gnome.Reversi.gschema.xml:100
 msgid "Sound"
 msgstr "Suono"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
-#: data/org.gnome.Reversi.gschema.xml:84
+#: data/org.gnome.Reversi.gschema.xml:102
 msgid "Whether or not to play event sounds."
 msgstr "Indica se riprodurre o meno gli eventi sonori."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#: data/org.gnome.Reversi.gschema.xml:107
+msgid "Theme"
+msgstr "Tema"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
+#: data/org.gnome.Reversi.gschema.xml:109
+msgid ""
+"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
+"“high_contrast.theme” and “sun_and_star.theme”."
+msgstr ""
+"Nome del file del tema usato oppure \"default\". Sono forniti: \"adwaita."
+"theme\", \"high_contrast.theme\" e \"sun_and_star.theme\"."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:114
+msgid "Name of the game"
+msgstr "Nome del gioco"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:116
+msgid ""
+"The name of the game that will be played. It could be “classic” (the usual "
+"game, where you try to have more pieces), or “reverse” (the opposite game, "
+"where you try to have less pieces)."
+msgstr ""
+"Il nome del gioco. Può essere \"classic\" (il gioco normale, dove vince chi "
+"ha più tessere) o \"reverse\" (dove vince chi ha meno tessere."
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
@@ -456,34 +466,14 @@ msgid "_Help"
 msgstr "A_iuto"
 
 #. Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt)
-#: src/game-headerbar.vala:186
+#: src/game-headerbar.vala:200
 msgid "A_ppearance"
 msgstr "A_spetto"
 
 #. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
-#: src/game-headerbar.vala:190
+#: src/game-headerbar.vala:204
 msgid "_Sound"
 msgstr "_Audio"
-
-#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
-#: src/game-headerbar.vala:243
-msgid "_Undo last move"
-msgstr "A_nnulla ultima mossa"
-
-#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
-#: src/game-headerbar.vala:248
-msgid "_Show final board"
-msgstr "Mostra _tavola finale"
-
-#. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game; this string is for when the window is really small, so keep the string as small as possible (3~5 characters)
-#: src/game-headerbar.vala:280
-msgid "End!"
-msgstr "Fine!"
-
-#. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game, if the window is not too thin
-#: src/game-headerbar.vala:284
-msgid "Finished!"
-msgstr "Completato!"
 
 #. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
 #: src/game-view.vala:58
@@ -491,174 +481,341 @@ msgid "_Start Game"
 msgstr "_Avvia partita"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:63
+#: src/iagno.vala:75
 msgid "Start with an alternative position"
 msgstr "Parte con una posizione alternativa"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:66
+#: src/iagno.vala:78
+msgid "Play Classic Reversi"
+msgstr "Gioca Reversi classico"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:81
 msgid "Reduce delay before AI moves"
 msgstr "Riduce il ritardo prima delle mosse AI"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:69
+#: src/iagno.vala:84
 msgid "Play first"
 msgstr "Gioca per primo"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:72
+#: src/iagno.vala:87
 msgid "Set the level of the computer’s AI"
 msgstr "Imposta il livello della IA del computer"
 
+#. Translators: in the command-line options description, text to indicate the user should specify a level, see 'iagno --help'
+#: src/iagno.vala:90
+msgid "LEVEL"
+msgstr "LIVELLO"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:75
+#: src/iagno.vala:93
 msgid "Turn off the sound"
 msgstr "Disattiva audio"
 
+#. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
+#: src/iagno.vala:96
+msgid "Log the game moves"
+msgstr "Registra le mosse"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:78
+#: src/iagno.vala:99
+msgid "Start with a random position"
+msgstr "Parte con una posizione casuale"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:102
+msgid "Play Reverse Reversi"
+msgstr "Gioca Reversi invertito"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:105
 msgid "Play second"
 msgstr "Gioca per secondo"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:81
+#: src/iagno.vala:108
 msgid "Size of the board (debug only)"
 msgstr "Dimensione del gioco (solo debug)"
 
+#. Translators: in the command-line options description, text to indicate the user should specify a size, see 'iagno --help'
+#: src/iagno.vala:111
+msgid "SIZE"
+msgstr "DIMENSIONE"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:84
+#: src/iagno.vala:114
 msgid "Two-players mode"
 msgstr "Modalità due giocatori"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:87
+#: src/iagno.vala:117
 msgid "Turn on the sound"
 msgstr "Attiva audio"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:90
+#: src/iagno.vala:120
+msgid "Start with the usual position"
+msgstr "Parte con la posizione normale"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:123
 msgid "Print release version and exit"
 msgstr "Stampa la versione ed esce"
 
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
+#: src/iagno.vala:171
+msgid ""
+"The “--alternative-start”, “--random-start” and “--usual-start” arguments "
+"are mutually exclusive."
+msgstr ""
+"Gli argomenti \"--alternative-start\", \"--random-start\" e \"--usual-start"
+"\" sono mutuamente esclusivi."
+
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
+#: src/iagno.vala:178
+msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
+msgstr "Gli argomenti \"--classic\" e \"--reverse\" sono mutuamente esclusivi."
+
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:134
+#: src/iagno.vala:185
 msgid "Size must be at least 4."
 msgstr "La dimensione deve essere almeno 4."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
-#: src/iagno.vala:140
+#: src/iagno.vala:191
 msgid "Size must not be more than 16."
 msgstr "La dimensione non può essere più di 16."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:200
+#: src/iagno.vala:257
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Il livello deve essere tra 1 (facile) e 3 (difficile). Impostazioni non "
 "modificate."
 
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:273
+msgid "Play _first (Dark)"
+msgstr "Gioca per _primo (Nero)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:277
+msgid "Play _second (Light)"
+msgstr "Gioca per _secondo (Bianco)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:283
+msgid "_Alternate who starts"
+msgstr "Al_terna chi inizia"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:289
+msgid "_Two players"
+msgstr "_Due giocatori"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:298
+msgid "_Easy"
+msgstr "_Facile"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:302
+msgid "_Medium"
+msgstr "_Media"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:306
+msgid "_Hard"
+msgstr "_Difficile"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:315
+msgid "_Vary start position"
+msgstr "Ca_mbia posizione di partenza"
+
+#. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:322 src/iagno.vala:981
+msgid "Classic Reversi"
+msgstr "Reversi classico"
+
+#. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:326 src/iagno.vala:978
+msgid "Reverse Reversi"
+msgstr "Reversi invertito"
+
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
-#: src/iagno.vala:221
+#: src/iagno.vala:337
 msgid "Default"
 msgstr "Predefinito"
 
-#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
-#: src/iagno.vala:277
-msgid "Highlight _capturable tiles"
-msgstr "Evidenzia tessere da _catturare"
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:393
+msgid "Pla_yable tiles"
+msgstr "Tessere da _giocare"
+
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
+#: src/iagno.vala:397
+msgid "_Capturable tiles"
+msgstr "Tessere da _catturare"
+
+#. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
+#: src/iagno.vala:401
+msgid "Highlights"
+msgstr "Evindenziazioni"
+
+#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:408
+msgid "_Undo last move"
+msgstr "A_nnulla ultima mossa"
+
+#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:413
+msgid "_Show final board"
+msgstr "Mostra _tavola finale"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:287
-msgid "About Iagno"
-msgstr "Informazioni su Iagno"
+#: src/iagno.vala:430
+msgid "_About Reversi"
+msgstr "Informazioni su _Reversi"
+
+#. Translators: when configuring a new game, button label if a two-players game is chosen
+#: src/iagno.vala:618
+msgid "Two players"
+msgstr "Due giocatori"
+
+#. Translators: when configuring a new game, button label if the player choose to start
+#: src/iagno.vala:622
+msgid "Color: Dark"
+msgstr "Colore: Nero"
+
+#. Translators: when configuring a new game, button label if the player choose let computer start
+#: src/iagno.vala:626
+msgid "Color: Light"
+msgstr "Colore: Bianco"
+
+#. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
+#: src/iagno.vala:683
+msgid "More options"
+msgstr "Più opzioni"
+
+#. Translators: when configuring a new game, button label for the AI level, if easy
+#: src/iagno.vala:687
+msgid "Difficulty: Easy"
+msgstr "Difficoltà: facile"
+
+#. Translators: when configuring a new game, button label for the AI level, if medium
+#: src/iagno.vala:691
+msgid "Difficulty: Medium"
+msgstr "Difficoltà: media"
+
+#. Translators: when configuring a new game, button label for the AI level, if hard
+#: src/iagno.vala:695
+msgid "Difficulty: Hard"
+msgstr "Difficoltà: difficile"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:551
+#: src/iagno.vala:900
 msgid "Light must pass, Dark’s move"
 msgstr "Il Bianco deve passare, muove il Nero"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:556
+#: src/iagno.vala:905
 msgid "Dark must pass, Light’s move"
 msgstr "Il Nero deve passare, muove il Bianco"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
-#: src/iagno.vala:567
+#: src/iagno.vala:919
 #, c-format
 msgid "Light wins! (%u-%u)"
 msgstr "Ha vinto il Bianco! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
-#: src/iagno.vala:571
+#: src/iagno.vala:924
 #, c-format
 msgid "Dark wins! (%u-%u)"
 msgstr "Ha vinto il Nero! (%u-%u)"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:575
+#: src/iagno.vala:928
 msgid "The game is draw."
 msgstr "Partita patta."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:591
+#: src/iagno.vala:947
 msgid "You can’t move there!"
 msgstr "Irraggiungibile!"
 
+#. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
+#: src/iagno.vala:954
+msgid "In this opening, Light can only play on tiles bordering on Dark one."
+msgstr ""
+"Con questa apertura, il Bianco può giocare solo su tessere vicine a un Nero."
+
+#. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
+#: src/iagno.vala:958
+msgid "Click on one of the highlighted tiles to move the selected piece there."
+msgstr "Fare clic su un tessere in evidenza per spostarvi il pezzo."
+
 #. Translators: about dialog text
-#: src/iagno.vala:712
+#: src/iagno.vala:1091
 msgid "A disk flipping game derived from Reversi"
 msgstr "Un gioco di capovolgimento pedine derivato da Reversi"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:716
+#: src/iagno.vala:1095
 msgid "Masuichi Ito (pieces)"
 msgstr "Masuichi Ito (pezzi)"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:720
+#: src/iagno.vala:1099
 msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (temi)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:725
+#: src/iagno.vala:1104
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:729
+#: src/iagno.vala:1108
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:733
+#: src/iagno.vala:1112
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:738
+#: src/iagno.vala:1117
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Copyright © %u-%u – Ian Peters"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:742
+#: src/iagno.vala:1121
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Copyright © %u-%u – Michael Catanzaro"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:746
+#: src/iagno.vala:1125
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:750
+#: src/iagno.vala:1129
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:755
+#: src/iagno.vala:1134
 msgid "translator-credits"
 msgstr ""
 "Claudio Arseni <claudio.arseni@ubuntu.com>\n"
@@ -668,6 +825,12 @@ msgstr ""
 "Fabrizio Stefani <f.stef@it.gnome.org>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:760
+#: src/iagno.vala:1139
 msgid "Page on GNOME wiki"
 msgstr "Pagina su wiki di GNOME"
+
+#. Translators: when configuring a new game, button label for the size of the game ("3 × 3", or 4, or 5)
+#: src/new-game-screen.vala:95
+#, c-format
+msgid "Size: %d × %d ▾"
+msgstr "Dimensione: %d × %d ▾"
