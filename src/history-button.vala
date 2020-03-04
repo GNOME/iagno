@@ -32,7 +32,8 @@ private class HistoryButton : ToggleButton, AdaptativeWidget
         {
             if (toggled_handler != 0)
                 disconnect (toggled_handler);
-            popover = new PopoverMenu.from_model (this, value);
+            popover = new PopoverMenu.from_model (value);
+            popover.set_parent (this);
             popover.set_autohide (false);
             toggled_handler = toggled.connect ((_this) => { if (_this.get_active ()) ((HistoryButton) _this).popover.popup (); else ((HistoryButton) _this).popover.popdown (); }); // toggled is run-first
         }
