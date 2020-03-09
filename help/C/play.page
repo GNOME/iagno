@@ -60,7 +60,7 @@
         <p>Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> arrows to go at the tile you want to move. The currently selected tile is indicated by an highlight on the board.</p>
       </item>
       <item>
-        <p>Use the <key>Space</key> or the <key>Return</key> key to drop a piece one the selected tile.</p>
+        <p>Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the selected tile.</p>
         <note>
           <p>If you select a tile where you cannot move, the game notifies you that the move is impossible.</p>
         </note>
