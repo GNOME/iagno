@@ -1,3 +1,26 @@
+3.36.0 – March 9, 2020
+=============================
+
+Here is a new stable release! This cycle has seen the
+complete update of the application, incluting the new
+Reverse Reversi game, various interesting options, as
+a way to start on other positions, or an highlight of
+playable tiles. Thanks for all translators, who had a
+hard work to do with new strings. Good play everyone!
+
+Translations updated (since 3.35.91):
+  Catalan: Jordi Mas
+  Croatian: Goran Vidović
+  Danish: Alan Mortensen
+  Dutch: Nathan Follens
+  Finnish: Jiri Grönroos
+  French: Guillaume Bernard
+  Hungarian: Balázs Meskó
+  Indonesian: Kukuh Syafaat
+  Italian: Milo Casagrande
+  Korean: DaeHyun Sung
+  Polish: Piotr Drąg
+
 3.35.91 – February 15, 2020
 =============================
 
