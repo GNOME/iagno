@@ -470,7 +470,7 @@ msgstr "Автори документації"
 #: src/about-list.vala:166
 #| msgid "translator-credits"
 msgid "Translators"
-msgstr "Данило Коростіль <ted.korostiled@gmail.com>"
+msgstr "Переладачі"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the pictural artists names
 #: src/about-list.vala:172
