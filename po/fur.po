@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-12-09 17:28+0000\n"
-"PO-Revision-Date: 2019-12-16 16:50+0100\n"
+"POT-Creation-Date: 2020-02-14 04:54+0000\n"
+"PO-Revision-Date: 2020-04-04 13:57+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
 msgid "GNOME Reversi"
@@ -189,6 +189,11 @@ msgstr "Informazions"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Jes"
+
+#. Translators: label of the game status button (in the headerbar, next to the hamburger button), when the game is finished; please keep the string as small as possible (3~5 characters)
+#: data/ui/history-button.ui:43
+msgid "End!"
+msgstr "Fin!"
 
 #. Translators: when configuring a new game, header of the game type that appears on small screen
 #: data/ui/new-game-screen.ui:32
@@ -472,113 +477,93 @@ msgstr "S_un"
 msgid "_Start Game"
 msgstr "_Tache partide"
 
-#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
-#: src/history-button.vala:36
-msgid "_Undo last move"
-msgstr "_Disfe la ultime mosse"
-
-#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
-#: src/history-button.vala:41
-msgid "_Show final board"
-msgstr "_Mostre taule finâl"
-
-#. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game; this string is for when the window is really small, so keep the string as small as possible (3~5 characters)
-#: src/history-button.vala:89
-msgid "End!"
-msgstr "Fin!"
-
-#. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game, if the window is not too thin
-#: src/history-button.vala:93
-msgid "Finished!"
-msgstr "Finît!"
-
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:70
+#: src/iagno.vala:75
 msgid "Start with an alternative position"
 msgstr "Tache cuntune posizion alternative"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:73
+#: src/iagno.vala:78
 msgid "Play Classic Reversi"
 msgstr "Zuie a Reversi Classic"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:76
+#: src/iagno.vala:81
 msgid "Reduce delay before AI moves"
 msgstr "Ridûs il ritart prime des mossis AI"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:79
+#: src/iagno.vala:84
 msgid "Play first"
 msgstr "Zuie par prin"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:82
+#: src/iagno.vala:87
 msgid "Set the level of the computer’s AI"
 msgstr "Imposte il nivel de IA dal computer"
 
 #. Translators: in the command-line options description, text to indicate the user should specify a level, see 'iagno --help'
-#: src/iagno.vala:85
+#: src/iagno.vala:90
 msgid "LEVEL"
 msgstr "NIVEL"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:88
+#: src/iagno.vala:93
 msgid "Turn off the sound"
 msgstr "Stude i suns"
 
 #. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
-#: src/iagno.vala:91
+#: src/iagno.vala:96
 msgid "Log the game moves"
 msgstr "Regjistre lis mossis de partide"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:94
+#: src/iagno.vala:99
 msgid "Start with a random position"
 msgstr "Tache cuntune posizion casuâl"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:97
+#: src/iagno.vala:102
 msgid "Play Reverse Reversi"
 msgstr "Zuie a Reversi Contrari"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:100
+#: src/iagno.vala:105
 msgid "Play second"
 msgstr "Zuie par secont"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:103
+#: src/iagno.vala:108
 msgid "Size of the board (debug only)"
 msgstr "Dimension de taule (debug only)"
 
 #. Translators: in the command-line options description, text to indicate the user should specify a size, see 'iagno --help'
-#: src/iagno.vala:106
+#: src/iagno.vala:111
 msgid "SIZE"
 msgstr "DIMENSION"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:109
+#: src/iagno.vala:114
 msgid "Two-players mode"
 msgstr "Modalitât a doi zuiadôrs"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:112
+#: src/iagno.vala:117
 msgid "Turn on the sound"
 msgstr "Pie i suns"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:115
+#: src/iagno.vala:120
 msgid "Start with the usual position"
 msgstr "Tache cu la solite posizion"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:118
+#: src/iagno.vala:123
 msgid "Print release version and exit"
 msgstr "Stampe la version e jes"
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
-#: src/iagno.vala:166
+#: src/iagno.vala:171
 msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments "
 "are mutually exclusive."
@@ -587,247 +572,265 @@ msgstr ""
 "escludin a vicende."
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
-#: src/iagno.vala:173
+#: src/iagno.vala:178
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
 msgstr "I argoments “--classic” e “--reverse” si escludin a vicende."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:180
+#: src/iagno.vala:185
 msgid "Size must be at least 4."
 msgstr "La dimension e scugne jessi di almancul 4."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
-#: src/iagno.vala:186
+#: src/iagno.vala:191
 msgid "Size must not be more than 16."
 msgstr "La dimension e scugne jessi di 16 al massim."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:252
+#: src/iagno.vala:257
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Il nivel al scugne jessi tra 1 (facil) e 3 (dificil). Impostazions no "
 "modificadis."
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:268
+#: src/iagno.vala:273
 msgid "Play _first (Dark)"
 msgstr "Zuie par _prin (Neri)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:272
+#: src/iagno.vala:277
 msgid "Play _second (Light)"
 msgstr "Zuie par _secont (Blanc)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:278
+#: src/iagno.vala:283
 msgid "_Alternate who starts"
 msgstr "_Alterne cui che al tache"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:284
+#: src/iagno.vala:289
 msgid "_Two players"
 msgstr "_Doi zuiadôrs"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:293
+#: src/iagno.vala:298
 msgid "_Easy"
 msgstr "_Facile"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:297
+#: src/iagno.vala:302
 msgid "_Medium"
 msgstr "_Medie"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:301
+#: src/iagno.vala:306
 msgid "_Hard"
 msgstr "_Dificile"
 
-#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:309
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:315
 msgid "_Vary start position"
 msgstr "_Varie posizion iniziâl"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:316 src/iagno.vala:908
+#: src/iagno.vala:322 src/iagno.vala:981
 msgid "Classic Reversi"
 msgstr "Reversi classic"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:320 src/iagno.vala:905
+#: src/iagno.vala:326 src/iagno.vala:978
 msgid "Reverse Reversi"
 msgstr "Reversi contrari"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
-#: src/iagno.vala:332
+#: src/iagno.vala:337
 msgid "Default"
 msgstr "Predefinît"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:388
+#: src/iagno.vala:393
 msgid "Pla_yable tiles"
 msgstr "Tessaris che si pues _zuiâ"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
-#: src/iagno.vala:392
+#: src/iagno.vala:397
 msgid "_Capturable tiles"
 msgstr "Tessaris che si puedin _caturâ"
 
 #. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
-#: src/iagno.vala:396
+#: src/iagno.vala:401
 msgid "Highlights"
 msgstr "Evidenziaments"
 
+#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:408
+msgid "_Undo last move"
+msgstr "_Disfe la ultime mosse"
+
+#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:413
+msgid "_Show final board"
+msgstr "_Mostre taule finâl"
+
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:411
+#: src/iagno.vala:430
 msgid "_About Reversi"
 msgstr "_Informazions su Reversi"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
-#: src/iagno.vala:590
+#: src/iagno.vala:618
 msgid "Two players"
 msgstr "Doi zuiadôrs"
 
 #. Translators: when configuring a new game, button label if the player choose to start
-#: src/iagno.vala:594
+#: src/iagno.vala:622
 msgid "Color: Dark"
 msgstr "Colôr: neri"
 
 #. Translators: when configuring a new game, button label if the player choose let computer start
-#: src/iagno.vala:598
+#: src/iagno.vala:626
 msgid "Color: Light"
 msgstr "Colôr: blanc"
 
+#. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
+#: src/iagno.vala:683
+msgid "More options"
+msgstr "Plui opzions"
+
 #. Translators: when configuring a new game, button label for the AI level, if easy
-#: src/iagno.vala:619
+#: src/iagno.vala:687
 msgid "Difficulty: Easy"
 msgstr "Dificoltât: facile"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
-#: src/iagno.vala:623
+#: src/iagno.vala:691
 msgid "Difficulty: Medium"
 msgstr "Dificoltât: medie"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
-#: src/iagno.vala:627
+#: src/iagno.vala:695
 msgid "Difficulty: Hard"
 msgstr "Dificoltât: dificile"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:827
+#: src/iagno.vala:900
 msgid "Light must pass, Dark’s move"
 msgstr "Il Blanc al à di passâ, al môf il Neri"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:832
+#: src/iagno.vala:905
 msgid "Dark must pass, Light’s move"
 msgstr "Il Neri al à di passâ, al môf il Blanc"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
-#: src/iagno.vala:846
+#: src/iagno.vala:919
 #, c-format
 msgid "Light wins! (%u-%u)"
 msgstr "Il blanc al vinç! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
-#: src/iagno.vala:851
+#: src/iagno.vala:924
 #, c-format
 msgid "Dark wins! (%u-%u)"
 msgstr "Il neri al vinç! (%u-%u)"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:855
+#: src/iagno.vala:928
 msgid "The game is draw."
 msgstr "Paritât."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:874
+#: src/iagno.vala:947
 msgid "You can’t move there!"
 msgstr "No tu puedis movi lì!"
 
 #. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
-#: src/iagno.vala:881
+#: src/iagno.vala:954
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
 msgstr ""
 "In cheste viertidure, il Blanc al pues zuiâ dome tes tessaris che a stan tor "
 "ator di chês dal Neri."
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
-#: src/iagno.vala:885
+#: src/iagno.vala:958
 msgid "Click on one of the highlighted tiles to move the selected piece there."
 msgstr ""
 "Fâs clic suntune des tessaris evidenziadis par spostâ il toc selezionât lì."
 
 #. Translators: about dialog text
-#: src/iagno.vala:1015
+#: src/iagno.vala:1091
 msgid "A disk flipping game derived from Reversi"
 msgstr "Un zûc di ribaltament pedinis derivât da Reversi"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1019
+#: src/iagno.vala:1095
 msgid "Masuichi Ito (pieces)"
 msgstr "Masuichi Ito (tocs)"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1023
+#: src/iagno.vala:1099
 msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (temis)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1028
+#: src/iagno.vala:1104
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1032
+#: src/iagno.vala:1108
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1036
+#: src/iagno.vala:1112
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1041
+#: src/iagno.vala:1117
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Copyright © %u-%u – Ian Peters"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1045
+#: src/iagno.vala:1121
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Copyright © %u-%u – Michael Catanzaro"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1049
+#: src/iagno.vala:1125
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:1053
+#: src/iagno.vala:1129
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:1058
+#: src/iagno.vala:1134
 msgid "translator-credits"
 msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:1063
+#: src/iagno.vala:1139
 msgid "Page on GNOME wiki"
 msgstr "Pagjine sul wiki di GNOME"
 
 #. Translators: when configuring a new game, button label for the size of the game ("3 × 3", or 4, or 5)
-#: src/new-game-screen.vala:87
+#: src/new-game-screen.vala:95
 #, c-format
 msgid "Size: %d × %d ▾"
 msgstr "Dimension: %d × %d ▾"
+
+#~ msgid "Finished!"
+#~ msgstr "Finît!"
 
 #~ msgid "Iagno"
 #~ msgstr "Iagno"
