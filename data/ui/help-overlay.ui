@@ -29,7 +29,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Start new game</property>
-                <property name="accelerator">&lt;Primary&gt;&lt;Shift&gt;n</property>
+                <property name="accelerator">&lt;Control&gt;&lt;Shift&gt;n</property>
               </object>
             </child>
             <child>
@@ -75,13 +75,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">New game</property>
-                <property name="accelerator">&lt;Primary&gt;n</property>
+                <property name="accelerator">&lt;Control&gt;n</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Undo last move</property>
-                <property name="accelerator">&lt;Primary&gt;z</property>
+                <property name="accelerator">&lt;Control&gt;z</property>
               </object>
             </child>
           </object>
@@ -92,7 +92,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
-                <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
+                <property name="accelerator">&lt;Control&gt;question &lt;Control&gt;F1</property>
               </object>
             </child>
             <child>
@@ -110,7 +110,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
-                <property name="accelerator">&lt;Primary&gt;q</property>
+                <property name="accelerator">&lt;Control&gt;q</property>
               </object>
             </child>
           </object>

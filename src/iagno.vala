@@ -449,12 +449,12 @@ private class Iagno : Gtk.Application, BaseApplication
 
         /* Actions and preferences */
         add_action_entries (app_actions, this);
-        set_accels_for_action ("ui.new-game",           {        "<Primary>n"       });
-        set_accels_for_action ("ui.start-game",         { "<Shift><Primary>n"       });
-        set_accels_for_action ("app.quit",              {        "<Primary>q",
-                                                          "<Shift><Primary>q"       });
-        set_accels_for_action ("ui.undo",               {        "<Primary>z"       });
-     // set_accels_for_action ("ui.redo",               { "<Shift><Primary>z"       });
+        set_accels_for_action ("ui.new-game",           {        "<Control>n"       });
+        set_accels_for_action ("ui.start-game",         { "<Shift><Control>n"       });
+        set_accels_for_action ("app.quit",              {        "<Control>q",
+                                                          "<Shift><Control>q"       });
+        set_accels_for_action ("ui.undo",               {        "<Control>z"       });
+     // set_accels_for_action ("ui.redo",               { "<Shift><Control>z"       });
         set_accels_for_action ("base.escape",           {                 "Escape"  });
         set_accels_for_action ("base.toggle-hamburger", {                 "F10"     });
      // set_accels_for_action ("app.help",              {                 "F1"      });

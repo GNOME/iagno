@@ -328,7 +328,7 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
     {
         string name = Gdk.keyval_name (keyval) ?? "";
 
-        if (name == "F1") // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
+        if (name == "F1") // TODO fix dance done with the F1 & <Control>F1 shortcuts that show help overlay
         {
             headerbar.close_popovers ();
             main_view.close_popovers ();
