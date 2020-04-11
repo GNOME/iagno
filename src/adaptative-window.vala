@@ -192,7 +192,7 @@ private abstract class AdaptativeWindow : ApplicationWindow
     }
 
     private StyleContext window_style_context;
-    [CCode (notify = false)] public string specific_css_class_or_empty
+    [CCode (notify = false)] public string specific_css_class_or_empty  // TODO adapt things to gtk_widget_add_css_class
     {
         protected construct
         {
