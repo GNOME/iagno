@@ -1076,6 +1076,7 @@ private class ReversiView : Gtk.DrawingArea
 //        motion_controller.leave.connect (on_mouse_out);   // FIXME should work                                //  2/10
 
         click_controller = new Gtk.GestureMultiPress (this);
+        click_controller.set_button (/* all buttons */ 0);
         click_controller.pressed.connect (on_click);
     }
 
@@ -1218,6 +1219,10 @@ private class ReversiView : Gtk.DrawingArea
     private inline void on_click (Gtk.GestureMultiPress _click_controller, int n_press, double event_x, double event_y)
     {
         if (!game_is_set)
+            return;
+
+        uint button = _click_controller.get_current_button ();
+        if (button != Gdk.BUTTON_PRIMARY && button != Gdk.BUTTON_SECONDARY)
             return;
 
         uint8 x;
