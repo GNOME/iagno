@@ -44,7 +44,6 @@
                   <object class="GtkButton">
                     <property name="valign">center</property>
                     <property name="focus-on-click">False</property>
-                    <property name="relief">none</property>
                     <property name="action-name">notification.hide</property>
                     <property name="icon-name">window-close-symbolic</property>
                     <style>
