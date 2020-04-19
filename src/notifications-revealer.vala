@@ -18,12 +18,16 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/notifications-revealer.ui")]
-private class NotificationsRevealer : Revealer, AdaptativeWidget
+private class NotificationsRevealer : Widget, AdaptativeWidget
 {
+    [GtkChild] private Revealer revealer;
     [GtkChild] private Label notification_label;
 
     construct
     {
+        BinLayout layout = new BinLayout ();
+        set_layout_manager (layout);
+
         install_action_entries ();
     }
 
@@ -34,7 +38,7 @@ private class NotificationsRevealer : Revealer, AdaptativeWidget
     internal void show_notification (string notification)
     {
         notification_label.set_text (notification);
-        set_reveal_child (true);
+        revealer.set_reveal_child (true);
     }
 
     private bool is_thin = false;
@@ -75,6 +79,6 @@ private class NotificationsRevealer : Revealer, AdaptativeWidget
 
     internal void hide_notification (/* SimpleAction action, Variant? variant */)
     {
-        set_reveal_child (false);
+        revealer.set_reveal_child (false);
     }
 }

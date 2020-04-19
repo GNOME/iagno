@@ -17,37 +17,41 @@
 -->
 <interface>
   <requires lib="gtk+" version="3.96"/>
-  <template class="NotificationsRevealer" parent="GtkRevealer">
-    <property name="halign">center</property>
-    <property name="valign">start</property>
+  <template class="NotificationsRevealer" parent="GtkWidget">
     <child>
-      <object class="GtkFrame">
-        <style>
-          <class name="app-notification"/>
-        </style>
+      <object class="GtkRevealer" id="revealer">
+        <property name="halign">center</property>
+        <property name="valign">start</property>
         <child>
-          <object class="GtkGrid">
-            <property name="column-spacing">6</property>
+          <object class="GtkFrame">
+            <style>
+              <class name="app-notification"/>
+            </style>
             <child>
-              <object class="GtkLabel" id="notification_label">
-                <property name="hexpand">True</property>
-                <property name="xalign">0</property>
-                <property name="wrap">True</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparator"/>
-            </child>
-            <child>
-              <object class="GtkButton">
-                <property name="valign">center</property>
-                <property name="focus-on-click">False</property>
-                <property name="relief">none</property>
-                <property name="action-name">notification.hide</property>
-                <property name="icon-name">window-close-symbolic</property>
-                <style>
-                  <class name="image-button"/>
-                </style>
+              <object class="GtkGrid">
+                <property name="column-spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="notification_label">
+                    <property name="hexpand">True</property>
+                    <property name="xalign">0</property>
+                    <property name="wrap">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator"/>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="valign">center</property>
+                    <property name="focus-on-click">False</property>
+                    <property name="relief">none</property>
+                    <property name="action-name">notification.hide</property>
+                    <property name="icon-name">window-close-symbolic</property>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

@@ -19,9 +19,13 @@
 -->
 <interface>
   <requires lib="gtk+" version="3.96"/>
-  <template class="GameActionBarPlaceHolder" parent="GtkRevealer">
+  <template class="GameActionBarPlaceHolder" parent="GtkWidget">
     <child>
-      <object class="GtkDrawingArea" id="placeholder_child"/>
+      <object class="GtkRevealer" id="revealer">
+        <child>
+          <object class="GtkDrawingArea" id="placeholder_child"/>
+        </child>
+      </object>
     </child>
   </template>
 </interface>

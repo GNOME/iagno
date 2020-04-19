@@ -21,18 +21,22 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-actionbar.ui")]
-private class GameActionBar : Revealer, AdaptativeWidget
+private class GameActionBar : Widget, AdaptativeWidget
 {
     [CCode (notify = false)] public bool show_actionbar  { private get; protected construct set; default = false; }
     [CCode (notify = false)] public bool window_has_name { private get; protected construct set; default = false; }
     [CCode (notify = false)] public string  window_name  { private get; protected construct set; default = ""   ; }
     [CCode (notify = false)] public Widget? game_widget  { private get; protected construct    ; default = null ; }
 
+    [GtkChild] private Revealer revealer;
     [GtkChild] private ActionBar action_bar;
     [GtkChild] private Label game_label;
 
     construct
     {
+        BinLayout layout = new BinLayout ();
+        set_layout_manager (layout);
+
         if (game_widget != null)
             action_bar.pack_end ((!) game_widget);
 
@@ -69,7 +73,7 @@ private class GameActionBar : Revealer, AdaptativeWidget
 
     private void update_visibility ()
     {
-        set_reveal_child (is_extra_thin && show_actionbar);
+        revealer.set_reveal_child (is_extra_thin && show_actionbar);
     }
 
     /*\
@@ -91,23 +95,33 @@ private class GameActionBar : Revealer, AdaptativeWidget
 }
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-actionbar-placeholder.ui")]
-private class GameActionBarPlaceHolder : Revealer, AdaptativeWidget
+private class GameActionBarPlaceHolder : Widget, AdaptativeWidget
 {
+    [GtkChild] private Revealer revealer;
     [GtkChild] private Widget placeholder_child;
     private GameActionBar actionbar;
+
+    construct
+    {
+        BinLayout layout = new BinLayout ();
+        set_layout_manager (layout);
+    }
 
     internal GameActionBarPlaceHolder (GameActionBar _actionbar)
     {
         actionbar = _actionbar;
         actionbar.size_allocate.connect (set_height);
         set_height ();
-        set_reveal_child (true);    // seems like setting it in the UI file does not work, while it is OK for GameActionBar...
+        revealer.set_reveal_child (true);    // seems like setting it in the UI file does not work, while it is OK for GameActionBar...
     }
 
     private void set_height ()
     {
         Requisition natural_size;
-        Widget? widget = actionbar.get_child ();
+        Widget? widget = actionbar.get_first_child ();
+        if (widget == null || !(widget is Revealer))
+            assert_not_reached ();
+        widget = ((Revealer) (!) widget).get_child ();
         if (widget == null)
             return;
         ((!) widget).get_preferred_size (/* minimum size */ null, out natural_size);
@@ -125,6 +139,6 @@ private class GameActionBarPlaceHolder : Revealer, AdaptativeWidget
         if (_is_extra_thin == is_extra_thin)
             return;
         is_extra_thin = _is_extra_thin;
-        set_reveal_child (is_extra_thin);
+        revealer.set_reveal_child (is_extra_thin);
     }
 }
