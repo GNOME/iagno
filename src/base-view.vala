@@ -18,8 +18,9 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/base-view.ui")]
-private class BaseView : Stack, AdaptativeWidget
+private class BaseView : Widget, AdaptativeWidget
 {
+    [GtkChild] private Stack stack;
     [GtkChild] protected Grid main_grid;
 
     internal virtual bool handle_copy_text (out string copy_text)
@@ -31,6 +32,12 @@ private class BaseView : Stack, AdaptativeWidget
     }
 
     internal virtual void close_popovers () {}
+
+    construct
+    {
+        BinLayout layout = new BinLayout ();
+        set_layout_manager (layout);
+    }
 
     /*\
     * * adaptative stuff
@@ -55,7 +62,7 @@ private class BaseView : Stack, AdaptativeWidget
         if (in_window_about)
         {
             in_window_about = false;
-            set_visible_child (notifications_overlay);   // or set_visible_child_name ("main-view");
+            stack.set_visible_child (notifications_overlay);   // or set_visible_child_name ("main-view");
         }
         else
             assert_not_reached ();
@@ -92,7 +99,7 @@ private class BaseView : Stack, AdaptativeWidget
                                     ref artists, ref authors, ref comments, ref copyright, ref documenters, ref logo_icon_name, ref program_name, ref translator_credits, ref version, ref website, ref website_label);
         about_list.set_window_size (saved_window_size);
         about_list.show ();
-        add (about_list);
+        stack.add (about_list);
         about_list_created = true;
     }
 
@@ -101,7 +108,7 @@ private class BaseView : Stack, AdaptativeWidget
         requires (in_window_about == false)
     {
         about_list.reset ();
-        set_visible_child (about_list);
+        stack.set_visible_child (about_list);
         in_window_about = true;
     }
 
