@@ -68,7 +68,7 @@ private interface AdaptativeWidget : Object
     internal abstract void set_window_size (WindowSize new_size);
 }
 
-private abstract class NightTimeAwareHeaderBar : HeaderBar
+private abstract class NightTimeAwareHeaderBar : Widget
 {
     private bool night_time           = false; // no need to use NightTime here (that allows an "Unknown" value)
     private bool dark_theme           = false;

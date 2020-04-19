@@ -268,7 +268,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
     internal void clear_subtitle ()
     {
-        headerbar.set_subtitle (null);
+        headerbar.clear_subtitle ();
     }
 
     internal void update_title (string game_name)

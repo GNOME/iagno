@@ -18,82 +18,86 @@
 <interface>
   <requires lib="gtk+" version="3.96"/>
   <template class="BaseHeaderBar" parent="NightTimeAwareHeaderBar">
-    <property name="show-title-buttons">True</property>
-    <property name="has-subtitle">False</property>
-    <child type="start">
-      <object class="GtkButton" id="go_back_button">
-        <property name="visible">False</property>
-        <property name="valign">center</property>
-        <property name="action-name">base.show-default-view</property>
-        <property name="icon-name">go-previous-symbolic</property> <!-- TODO 3/3 dialog-information-symbolic -->
-        <style>
-          <class name="image-button"/>
-        </style>
-      </object>
-    </child>
-    <child type="start">
-      <object class="GtkSeparator" id="ltr_left_separator">
-        <property name="visible">False</property>
-      </object>
-    </child>
-    <child type="title">
-      <object class="GtkBox" id="center_box">
-        <property name="spacing">6</property>
-        <property name="hexpand">False</property> <!-- or "hexpand-set">true... that's horrible -->
-        <style>
-          <class name="centerwidget"/>
-        </style>
-        <child>
-          <object class="GtkLabel" id="title_label">
+    <child>
+      <object class="GtkHeaderBar" id="headerbar">
+        <property name="show-title-buttons">True</property>
+        <property name="has-subtitle">False</property>
+        <child type="start">
+          <object class="GtkButton" id="go_back_button">
+            <property name="visible">False</property>
+            <property name="valign">center</property>
+            <property name="action-name">base.show-default-view</property>
+            <property name="icon-name">go-previous-symbolic</property> <!-- TODO 3/3 dialog-information-symbolic -->
+            <style>
+              <class name="image-button"/>
+            </style>
+          </object>
+        </child>
+        <child type="start">
+          <object class="GtkSeparator" id="ltr_left_separator">
             <property name="visible">False</property>
           </object>
         </child>
-      </object>
-    </child>
-    <child type="end">
-      <object class="GtkStack" id="quit_button_stack">
-        <property name="visible">False</property>
-        <child>
-          <object class="GtkStackPage">
-            <property name="name">quit-button</property>
-            <property name="child">
-              <object class="GtkButton">
-                <property name="valign">center</property>
-                <property name="action-name">app.quit</property>
-                <property name="icon-name">window-close-symbolic</property>
-                <style>
-                  <class name="titlebutton"/>
-                  <class name="close"/>
-                </style>
+        <child type="title">
+          <object class="GtkBox" id="center_box">
+            <property name="spacing">6</property>
+            <property name="hexpand">False</property> <!-- or "hexpand-set">true... that's horrible -->
+            <style>
+              <class name="centerwidget"/>
+            </style>
+            <child>
+              <object class="GtkLabel" id="title_label">
+                <property name="visible">False</property>
               </object>
-            </property>
+            </child>
           </object>
         </child>
-      </object>
-    </child>
-    <child type="end">
-      <object class="GtkSeparator" id="ltr_right_separator">
-        <property name="visible">False</property>
-        <property name="orientation">vertical</property>
-        <style>
-          <class name="titlebutton"/>
-        </style>
-      </object>
-    </child>
-    <child type="end">
-      <object class="GtkMenuButton" id="info_button">
-        <property name="valign">center</property>
-        <property name="focus-on-click">False</property>
-        <property name="icon-name">open-menu-symbolic</property>
-        <style>
-          <class name="image-button"/>
-        </style>
-        <child internal-child="accessible">
-          <object class="AtkObject">
-            <!-- Translators: accessible name of the hamburger menu -->
-            <property name="AtkObject::accessible-name" translatable="yes">Actions</property>
-            <!-- Translators: accessible description of the hamburger menu -->
-            <property name="AtkObject::accessible-description" translatable="yes">Current view actions</property>
+        <child type="end">
+          <object class="GtkStack" id="quit_button_stack">
+            <property name="visible">False</property>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">quit-button</property>
+                <property name="child">
+                  <object class="GtkButton">
+                    <property name="valign">center</property>
+                    <property name="action-name">app.quit</property>
+                    <property name="icon-name">window-close-symbolic</property>
+                    <style>
+                      <class name="titlebutton"/>
+                      <class name="close"/>
+                    </style>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkSeparator" id="ltr_right_separator">
+            <property name="visible">False</property>
+            <property name="orientation">vertical</property>
+            <style>
+              <class name="titlebutton"/>
+            </style>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton" id="info_button">
+            <property name="valign">center</property>
+            <property name="focus-on-click">False</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child internal-child="accessible">
+              <object class="AtkObject">
+                <!-- Translators: accessible name of the hamburger menu -->
+                <property name="AtkObject::accessible-name" translatable="yes">Actions</property>
+                <!-- Translators: accessible description of the hamburger menu -->
+                <property name="AtkObject::accessible-description" translatable="yes">Current view actions</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>

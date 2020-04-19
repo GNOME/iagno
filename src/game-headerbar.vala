@@ -41,7 +41,7 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
             window_has_name = true;
 
         if (game_widget != null)
-            pack_end ((!) game_widget);
+            headerbar.pack_end ((!) game_widget);
     }
 
     internal GameHeaderBar (string              _window_name,
@@ -179,6 +179,11 @@ private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
         window_name = new_title;
         window_has_name = new_title != "";
         set_default_widgets_default_states (this);
+    }
+
+    internal void clear_subtitle ()
+    {
+        headerbar.set_subtitle (null);
     }
 
     /*\
