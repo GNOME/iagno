@@ -18,7 +18,7 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/overlayed-list.ui")]
-private abstract class OverlayedList : Overlay, AdaptativeWidget
+private abstract class OverlayedList : Widget, AdaptativeWidget
 {
     [GtkChild] protected ListBox        main_list_box;
                private   StyleContext   main_list_box_context;
@@ -33,6 +33,9 @@ private abstract class OverlayedList : Overlay, AdaptativeWidget
 
     construct
     {
+        BinLayout layout = new BinLayout ();
+        set_layout_manager (layout);
+
         main_list_box_context = main_list_box.get_style_context ();
         main_context = get_style_context ();
         connect_handlers ();
