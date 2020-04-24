@@ -30,8 +30,9 @@ button.menubutton-like-combo {
 * * games buttons
 \*/
 
-                                                       button.radio-like-toggle:backdrop { color: @theme_unfocused_fg_color; }
-                                                       button.radio-like-toggle          { color: @theme_fg_color;
+window:not(.hc-theme)                                  button.radio-like-toggle:backdrop { color: @theme_unfocused_fg_color; }
+window:not(.hc-theme)                                  button.radio-like-toggle          { color: @theme_fg_color; }
+                                                       button.radio-like-toggle          {
 
   background-repeat:no-repeat;
   background-color:transparent;
@@ -117,8 +118,8 @@ button.menubutton-like-combo:hover {
   color:#2e3436; /* gtk-contained.css’ theme_fg_color */
   background:-gtk-gradient (radial, center center, 0, center center, 0.5, from(rgba (255, 255, 255, 1)), to(rgba (255, 255, 255, 0)));
 }
-button.menubutton-like-combo:checked:backdrop,
-button.menubutton-like-combo:hover:backdrop {
+button.menubutton-like-combo:backdrop:checked,
+button.menubutton-like-combo:backdrop:hover {
   color:@theme_unfocused_fg_color;
   background:-gtk-gradient (radial, center center, 0, center center, 0.5, from(rgba (255, 255, 255, 0.3)), to(rgba (255, 255, 255, 0)));
 }
