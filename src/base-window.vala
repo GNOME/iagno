@@ -335,7 +335,10 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
             if ((state & Gdk.ModifierType.CONTROL_MASK) != 0)
                 return false;                           // help overlay
             if ((state & Gdk.ModifierType.SHIFT_MASK) == 0)
-                return show_application_help (this, help_string_or_empty);   // fallback on help overlay (TODO test)
+            {
+                show_application_help (this, help_string_or_empty);   // fallback on help overlay (TODO test)
+                return true;
+            }
             about ();
             return true;
         }
@@ -354,23 +357,12 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
         show_application_help (this, help_string_or_empty);
     }
 
-    private static inline bool show_application_help (BaseWindow _this, string help_string_or_empty)
+    private static inline void show_application_help (BaseWindow _this, string help_string_or_empty)
     {
         if (help_string_or_empty == "")
-            return false;
+            return;
 
-        bool success;
-        try
-        {
-            show_uri_on_window (_this, help_string_or_empty, get_current_event_time ());
-            success = true;
-        }
-        catch (Error e)
-        {
-            warning ("Failed to show help: %s", e.message);
-            success = false;
-        }
-        return success;
+        show_uri (_this, help_string_or_empty, Gdk.CURRENT_TIME);
     }
 
     /*\
