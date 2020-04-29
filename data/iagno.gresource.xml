@@ -4,6 +4,10 @@
     <file preprocess="to-pixdata" alias="reverse.png">../data/reverse.png</file>
     <file preprocess="to-pixdata" alias="reversi.png">../data/reversi.png</file>
   </gresource>
+  <gresource prefix="/org/gnome/Reversi/sounds">
+    <file alias="flip-piece.ogg">../data/sounds/flip-piece.ogg</file>
+    <file alias="gameover.ogg">../data/sounds/gameover.ogg</file>
+  </gresource>
   <gresource prefix="/org/gnome/Reversi/ui">
     <file preprocess="xml-stripblanks" compressed="true" alias="adaptative-window.ui"           >ui/adaptative-window.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="base-headerbar.ui"              >ui/base-headerbar.ui</file>

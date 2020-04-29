@@ -328,9 +328,6 @@ private class Iagno : Gtk.Application, BaseApplication
         new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.ONE, type_menu);
         new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.TWO, level_menu);
 
-        if (settings.get_boolean ("sound"))
-            init_sound ();
-
         GLib.Menu appearance_menu = new GLib.Menu ();
         section = new GLib.Menu ();
         /* Translators: hamburger menu "Appearance" submenu entry; a name for the default theme */
@@ -985,76 +982,34 @@ private class Iagno : Gtk.Application, BaseApplication
     * * Sound
     \*/
 
-    private GSound.Context sound_context;
-    private SoundContextState sound_context_state = SoundContextState.INITIAL;
-
     private enum Sound
     {
         FLIP,
         GAMEOVER;
     }
 
-    private enum SoundContextState
-    {
-        INITIAL,
-        WORKING,
-        ERRORED
-    }
-
-    private void init_sound ()
-     // requires (sound_context_state == SoundContextState.INITIAL)
-    {
-        try
-        {
-            sound_context = new GSound.Context ();
-            sound_context_state = SoundContextState.WORKING;
-        }
-        catch (Error e)
-        {
-            warning (e.message);
-            sound_context_state = SoundContextState.ERRORED;
-        }
-    }
-
     private void play_sound (Sound sound)
     {
         if (settings.get_boolean ("sound"))
-        {
-            if (sound_context_state == SoundContextState.INITIAL)
-                init_sound ();
-            if (sound_context_state == SoundContextState.WORKING)
-                _play_sound (sound, sound_context, theme_manager);
-        }
+            _play_sound (sound, theme_manager);
     }
 
-    private static inline void _play_sound (Sound sound, GSound.Context sound_context, ThemeManager theme_manager)
-     // requires (sound_context_state == SoundContextState.WORKING)
+    private MediaStream stream;     // for keeping in memory
+    private inline void _play_sound (Sound sound, ThemeManager theme_manager)
     {
         string name;
         switch (sound)
         {
-            case Sound.FLIP:
-                name = theme_manager.sound_flip;
-                break;
-            case Sound.GAMEOVER:
-                name = theme_manager.sound_gameover;
-                break;
-            default:
-                return;
+            case Sound.FLIP:        name = theme_manager.sound_flip;        break;
+            case Sound.GAMEOVER:    name = theme_manager.sound_gameover;    break;
+            default: assert_not_reached ();
         }
         if (name == "")
             assert_not_reached ();
 
-        string path = Path.build_filename (SOUND_DIRECTORY, name);
-        try
-        {
-            sound_context.play_simple (null, GSound.Attribute.MEDIA_NAME, name,
-                                             GSound.Attribute.MEDIA_FILENAME, path);
-        }
-        catch (Error e)
-        {
-            warning (e.message);
-        }
+        stream = MediaFile.for_resource (@"/org/gnome/Reversi/sounds/$name");
+        stream.set_volume (1.0);
+        stream.play ();
     }
 
     /*\

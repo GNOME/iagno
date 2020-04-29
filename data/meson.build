@@ -81,15 +81,6 @@ endif
 # Install man page
 install_man('@0@.6'.format(meson.project_name()))
 
-# Install sounds
-install_data(
-    [
-        'sounds/flip-piece.ogg',
-        'sounds/gameover.ogg'
-    ],
-    install_dir: join_paths(get_option('datadir'), meson.project_name(), 'sounds')
-)
-
 # Install themes
 install_data(
     [

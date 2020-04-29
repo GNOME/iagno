@@ -101,7 +101,6 @@ executable(meson.project_name(),
     dependencies: [
         gio_dependency,
         glib_dependency,
-        gsound_dependency,
         gtk_dependency,
         libm_dependency,
         posix_dependency,
