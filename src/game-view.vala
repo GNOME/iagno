@@ -23,7 +23,7 @@ using Gtk;
 private class GameView : BaseView, AdaptativeWidget
 {
     private Stack           game_stack;
-    private Box             game_box;
+    private Box             game_box_1;
     private Widget          game_content;
     private ScrolledWindow  scrolled;
     private Box             new_game_box;
@@ -68,16 +68,21 @@ private class GameView : BaseView, AdaptativeWidget
 
         game_content = content;
 
-        game_box = new Box (Orientation.VERTICAL, 0);
+        game_box_1 = new Box (Orientation.VERTICAL, 0);
         game_content.hexpand = true;
         game_content.vexpand = true;
-        game_box.add (game_content);
-        game_box.add (actionbar_placeholder);
-        game_box.get_style_context ().add_class ("game-box");
+
+        // during a transition, Stack doesn’t apply correctly its child CSS padding or margin; so add padding/margin to a box inside a box
+        Box game_box_2 = new Box (Orientation.HORIZONTAL, 0);
+        game_box_2.get_style_context ().add_class ("game-box");
+        game_box_2.add (game_content);
+
+        game_box_1.add (game_box_2);
+        game_box_1.add (actionbar_placeholder);
 
         // for the new-game-screen-to-game animation, it is probably better to have the game under ("uncovered")
 //        game_box.insert_after (game_stack, /* insert first */ null);
-        game_stack.add (game_box);
+        game_stack.add (game_box_1);
         content.can_focus = true;
     }
 
@@ -91,7 +96,7 @@ private class GameView : BaseView, AdaptativeWidget
 
     internal void show_game_content (bool grab_focus)
     {
-        game_stack.set_visible_child (game_box);
+        game_stack.set_visible_child (game_box_1);
         if (grab_focus)
             game_content.grab_focus ();
     }
@@ -101,7 +106,7 @@ private class GameView : BaseView, AdaptativeWidget
         Widget? visible_child = game_stack.get_visible_child ();
         if (visible_child == null)
             assert_not_reached ();
-        return (!) visible_child == game_box;
+        return (!) visible_child == game_box_1;
     }
 
     internal void configure_transition (StackTransitionType transition_type,
