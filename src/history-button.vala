@@ -25,17 +25,22 @@ private class HistoryButton : ToggleButton, AdaptativeWidget
 {
     [CCode (notify = false)] public ThemeManager theme_manager { private get; protected construct; }
 
-    ulong toggled_handler = 0;
+    private ulong toggled_handler = 0;
+    private ulong close_handler = 0;
     [CCode (notify = false)] public MenuModel menu_model
     {
         internal construct set
         {
             if (toggled_handler != 0)
                 disconnect (toggled_handler);
+            if (close_handler != 0)
+                popover.disconnect (close_handler);
+
             popover = new PopoverMenu.from_model (value);
             popover.set_parent (this);
             popover.set_autohide (false);
             toggled_handler = toggled.connect ((_this) => { if (_this.get_active ()) ((HistoryButton) _this).popover.popup (); else ((HistoryButton) _this).popover.popdown (); }); // toggled is run-first
+            close_handler = popover.closed.connect (() => set_active (false));
         }
     }
 
@@ -51,6 +56,9 @@ private class HistoryButton : ToggleButton, AdaptativeWidget
 
     construct
     {
+        BinLayout layout = new BinLayout ();
+        set_layout_manager (layout);
+
         drawing.size_allocate.connect (on_drawing_size_allocate);
         drawing.set_draw_func (update_drawing);
         theme_manager.theme_changed.connect (() => {
