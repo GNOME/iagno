@@ -416,8 +416,6 @@ private class Iagno : Gtk.Application, BaseApplication
                 history_button_1.menu_model = undoing ? history_menu : finish_menu;
                 history_button_2.menu_model = undoing ? history_menu : finish_menu;
             });
-        history_button_1.show ();
-        history_button_2.show ();
 
         /* window */
         init_night_mode ();

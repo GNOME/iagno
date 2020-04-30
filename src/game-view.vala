@@ -34,7 +34,6 @@ private class GameView : BaseView, AdaptativeWidget
         game_stack = new Stack ();
         game_stack.hexpand = true;
         game_stack.vexpand = true;
-        game_stack.show ();
         main_grid.add (game_stack);
 
         scrolled = new ScrolledWindow (null, null);
@@ -44,7 +43,6 @@ private class GameView : BaseView, AdaptativeWidget
         new_game_box = new Box (Orientation.VERTICAL, /* spacing */ 0);
         new_game_box.halign = Align.CENTER;
         new_game_box.valign = Align.CENTER;
-        new_game_box.show ();
         scrolled.add (new_game_box);
     }
 
@@ -64,7 +62,6 @@ private class GameView : BaseView, AdaptativeWidget
             context.add_class ("suggested-action");
             /* Translators: when configuring a new game, tooltip text of the blue Start button */
             // _start_game_button.set_tooltip_text (_("Start a new game as configured"));
-            _start_game_button.show ();
             new_game_box.add (_start_game_button);
             start_game_button = _start_game_button;
         }
@@ -74,10 +71,8 @@ private class GameView : BaseView, AdaptativeWidget
         game_box = new Box (Orientation.VERTICAL, 0);
         game_content.hexpand = true;
         game_content.vexpand = true;
-        game_content.show ();
         game_box.add (game_content);
         game_box.add (actionbar_placeholder);
-        game_box.show ();
         game_box.get_style_context ().add_class ("game-box");
 
         // for the new-game-screen-to-game animation, it is probably better to have the game under ("uncovered")

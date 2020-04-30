@@ -98,7 +98,6 @@ private class BaseView : Widget, AdaptativeWidget
                                     /* big placeholder */ true,
                                     ref artists, ref authors, ref comments, ref copyright, ref documenters, ref logo_icon_name, ref program_name, ref translator_credits, ref version, ref website, ref website_label);
         about_list.set_window_size (saved_window_size);
-        about_list.show ();
         stack.add (about_list);
         about_list_created = true;
     }
@@ -125,7 +124,6 @@ private class BaseView : Widget, AdaptativeWidget
     {
         notifications_revealer = new NotificationsRevealer ();
         notifications_revealer.set_window_size (saved_window_size);
-        notifications_revealer.show ();
         notifications_overlay.add_overlay (notifications_revealer);
 //        notifications_overlay.set_overlay_pass_through (notifications_revealer, true);
         notifications_revealer_created = true;

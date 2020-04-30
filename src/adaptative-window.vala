@@ -174,7 +174,6 @@ private abstract class AdaptativeWindow : ApplicationWindow
                 assert_not_reached ();
 
             headerbar = value;
-            value.show ();
             set_titlebar (value);
         }
     }
