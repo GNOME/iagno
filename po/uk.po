@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-03-09 22:18+0000\n"
-"PO-Revision-Date: 2020-03-16 21:16+0200\n"
+"POT-Creation-Date: 2020-05-03 19:07+0000\n"
+"PO-Revision-Date: 2020-05-03 22:25+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -19,52 +19,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
 "=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 20.03.70\n"
+"X-Generator: Lokalize 20.07.70\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
-#| msgid "Reversi"
 msgid "GNOME Reversi"
 msgstr "Реверсі GNOME"
 
 #: data/org.gnome.Reversi.appdata.xml.in:8
-#| msgid "Dominate the board in a classic version of Reversi"
 msgid ""
 "Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr ""
-"Домінувати на дошці у класичній версії гри «Реверсі» або зіграти у обернений"
-" варіант"
+"Домінувати на дошці у класичній версії гри «Реверсі» або зіграти у обернений "
+"варіант"
 
 #: data/org.gnome.Reversi.appdata.xml.in:11
-#| msgid ""
-#| "Iagno is a computer version of the game Reversi, a two-player strategy "
-#| "board game. The game is played with tiles that are dark on one side and "
-#| "light on the other."
 msgid ""
 "Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
 "use tiles that are dark on one side and light on the other."
 msgstr ""
-"Реверсі — стратегічна гра для двох гравців, які грають на дошці розміром 8 на"
-" 8 клітинок. Гравці грають плитками, один з боків яких пофарбовано у темний"
-" колір, а інший — у світлий."
+"Реверсі — стратегічна гра для двох гравців, які грають на дошці розміром 8 "
+"на 8 клітинок. Гравці грають плитками, один з боків яких пофарбовано у "
+"темний колір, а інший — у світлий."
 
 #: data/org.gnome.Reversi.appdata.xml.in:15
-#| msgid ""
-#| "The object of Iagno is to flip as many of your opponent's tiles to your "
-#| "color as possible while preventing your opponent from flipping your tiles "
-#| "to his color. This is done by trapping your opponent's tiles between two "
-#| "tiles of your own color."
 msgid ""
 "The object of reversi is to flip your opponent’s tiles to your color, while "
 "your opponent is trying to flip your tiles to his own color. Opponent’s "
 "tiles are flipped when trapped between an already placed tile of your color "
 "and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
-"Метою гри у «Реверсі» є перевертання плиток суперника так, щоб вони набули"
-" вашого кольору, у той час, як ваш суперник намагається перевернути ваші"
-" плитки так, щоб вони набули його кольору. Плитки суперника перевертаються,"
-" якщо потраплять між плиткою, яка вже мала ваш колір, і новою плиткою вашого"
-" кольору, яку ви поклали на дошку!"
+"Метою гри у «Реверсі» є перевертання плиток суперника так, щоб вони набули "
+"вашого кольору, у той час, як ваш суперник намагається перевернути ваші "
+"плитки так, щоб вони набули його кольору. Плитки суперника перевертаються, "
+"якщо потраплять між плиткою, яка вже мала ваш колір, і новою плиткою вашого "
+"кольору, яку ви поклали на дошку!"
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
@@ -72,12 +61,11 @@ msgid ""
 "reversed variant, where the goal is to finish with less tile than your "
 "opponent."
 msgstr ""
-"У «Реверсі» GNOME ви можете грати як у класичну гру «Реверсі», та і в її"
-" обернений варіант, метою якого є завершення гри із меншою кількістю плиток,"
-" ніж у вашого суперника."
+"У «Реверсі» GNOME ви можете грати як у класичну гру «Реверсі», та і в її "
+"обернений варіант, метою якого є завершення гри із меншою кількістю плиток, "
+"ніж у вашого суперника."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
-#| msgid "A GNOME Iagno game preview"
 msgid "A GNOME Reversi game preview"
 msgstr "Попередній перегляд гри «Реверсі» GNOME"
 
@@ -133,7 +121,6 @@ msgid "During game selection"
 msgstr "Вибір під час гри"
 
 #: data/ui/help-overlay.ui:34
-#| msgid "Start a new game"
 msgctxt "shortcut window"
 msgid "Start new game"
 msgstr "Почати нову гру"
@@ -149,13 +136,11 @@ msgid "Play with keyboard"
 msgstr "Гра за допомогою клавіатури"
 
 #: data/ui/help-overlay.ui:54
-#| msgid "Select Theme"
 msgctxt "shortcut window"
 msgid "Select where to play"
 msgstr "Вибір поля"
 
 #: data/ui/help-overlay.ui:61
-#| msgid "Select Theme"
 msgctxt "shortcut window"
 msgid "Select the given row"
 msgstr "Вибрати вказаний рядок"
@@ -176,13 +161,11 @@ msgid "During a game"
 msgstr "Під час гри"
 
 #: data/ui/help-overlay.ui:88
-#| msgid "_New Game"
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Нова гра"
 
 #: data/ui/help-overlay.ui:95
-#| msgid "Undo your most recent move"
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Скасувати останній хід"
@@ -198,22 +181,24 @@ msgid "Keyboard shortcuts"
 msgstr "Клавіатурні скорочення"
 
 #: data/ui/help-overlay.ui:115
-#| msgid "_Help"
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Довідка"
 
 #: data/ui/help-overlay.ui:122
-#| msgid "_About"
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Про програму"
 
 #: data/ui/help-overlay.ui:129
-#| msgid "_Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Вийти"
+
+#: data/ui/help-overlay.ui:136
+msgctxt "shortcut window"
+msgid "Toggle menu"
+msgstr "Перемкнути меню"
 
 #. Translators: label of the game status button (in the headerbar, next to the hamburger button), when the game is finished; please keep the string as small as possible (3~5 characters)
 #: data/ui/history-button.ui:43
@@ -222,7 +207,6 @@ msgstr "Все!"
 
 #. Translators: when configuring a new game, header of the game type that appears on small screen
 #: data/ui/new-game-screen.ui:32
-#| msgid "_New Game"
 msgid "Game"
 msgstr "Гра"
 
@@ -261,29 +245,26 @@ msgstr ""
 #: data/org.gnome.Reversi.gschema.xml:8
 msgid "Use GNOME night light setting to activate night-mode."
 msgstr ""
-"Використовувати параметр нічного освітлення GNOME для вмикання нічного режиму."
+"Використовувати параметр нічного освітлення GNOME для вмикання нічного "
+"режиму."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
-#| msgid "Width of the window in pixels"
 msgid "The width of the window"
 msgstr "Ширина вікна"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:17
-#| msgid "Width of the window in pixels"
 msgid "The width of the main window in pixels."
 msgstr "Ширина головного вікна у пікселях."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
-#| msgid "Height of the window in pixels"
 msgid "The height of the window"
 msgstr "Висота вікна"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:26
-#| msgid "Height of the window in pixels"
 msgid "The height of the main window in pixels."
 msgstr "Висота головного вікна у пікселях."
 
@@ -294,7 +275,6 @@ msgstr "Дозволити режим розгорнутого вікна"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:33
-#| msgid "true if the window is maximized"
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "Якщо має значення «true», головне вікно буде відкрито розгорнутим."
 
@@ -310,10 +290,10 @@ msgid ""
 "every new game request, making the next game being started with inverted "
 "roles (previous Dark player playing Light). Ignored for two-player games."
 msgstr ""
-"Якщо має значення «true» при грі із комп'ютерним суперником, параметри"
-" кольору змінюються кожної наступної гри, тобто ви міняєтеся ролями із"
-" суперником кожної гри (той, хто грав за темних, гратиме за світлих). Буде"
-" проігноровано у грі із двома гравцями."
+"Якщо має значення «true» при грі із комп'ютерним суперником, параметри "
+"кольору змінюються кожної наступної гри, тобто ви міняєтеся ролями із "
+"суперником кожної гри (той, хто грав за темних, гратиме за світлих). Буде "
+"проігноровано у грі із двома гравцями."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:57
@@ -327,7 +307,6 @@ msgstr "Грати за темних чи за світлих. Нехтуєть�
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
 #: data/org.gnome.Reversi.gschema.xml:65
-#| msgid "Computer's AI level"
 msgid "Computer’s AI level"
 msgstr "Рівень комп'ютерного гравця"
 
@@ -345,8 +324,8 @@ msgstr "Прапорець для підсвічування ігрових кл
 #: data/org.gnome.Reversi.gschema.xml:74
 msgid "If “true”, the tiles where you can play are highlighted."
 msgstr ""
-"Якщо має значення «true», програма підсвічуватиме клітинки, на яких ви можете"
-" зіграти."
+"Якщо має значення «true», програма підсвічуватиме клітинки, на яких ви "
+"можете зіграти."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
@@ -359,8 +338,8 @@ msgid ""
 "If “true”, the tiles that will be captured to the opponent by a play are "
 "highlighted."
 msgstr ""
-"Якщо має значення «true», програма підсвічуватиме клітинки, які захоплено"
-" суперником за хід."
+"Якщо має значення «true», програма підсвічуватиме клітинки, які захоплено "
+"суперником за хід."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
 #: data/org.gnome.Reversi.gschema.xml:87
@@ -383,14 +362,14 @@ msgid ""
 "random-start” is given instead on the command-line, this flag will be "
 "ignored."
 msgstr ""
-"У «Реверсі» можна грати із двома різними початковими позиціями (та їхніми"
-" симетричними образами). Якщо має значення «true», гру буде розпочато з"
-" випадкової позиції; якщо має значення «false», буде використано лише"
-" найпоширенішу початкову позицію. Ви можете наказати програмі використовувати"
-" альтернативну позицію за допомогою аргументу командного рядка «--alternative-"
-"start». Крім того, якщо замість цього параметра у командному рядку вказано"
-" «--usual-start» або «--random-start», значення цього прапорця буде"
-" проігноровано."
+"У «Реверсі» можна грати із двома різними початковими позиціями (та їхніми "
+"симетричними образами). Якщо має значення «true», гру буде розпочато з "
+"випадкової позиції; якщо має значення «false», буде використано лише "
+"найпоширенішу початкову позицію. Ви можете наказати програмі використовувати "
+"альтернативну позицію за допомогою аргументу командного рядка «--alternative-"
+"start». Крім того, якщо замість цього параметра у командному рядку вказано "
+"«--usual-start» або «--random-start», значення цього прапорця буде "
+"проігноровано."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
 #: data/org.gnome.Reversi.gschema.xml:100
@@ -409,9 +388,6 @@ msgstr "Тема"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
 #: data/org.gnome.Reversi.gschema.xml:109
-#| msgid ""
-#| "Filename of the theme used, or \"default\". Are provided \"adwaita.theme"
-#| "\", \"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgid ""
 "Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
 "“high_contrast.theme” and “sun_and_star.theme”."
@@ -431,14 +407,13 @@ msgid ""
 "game, where you try to have more pieces), or “reverse” (the opposite game, "
 "where you try to have less pieces)."
 msgstr ""
-"Назва гри, у яку ви гратимете. Можливі варіанти: «classic» (звичайна гра, у"
-" якій слід намагатися збільшити кількість плиток вашого кольору) та "
-" «reverse» (обернена гра, у якій виграє той, у кого менше плиток)."
+"Назва гри, у яку ви гратимете. Можливі варіанти: «classic» (звичайна гра, у "
+"якій слід намагатися збільшити кількість плиток вашого кольору) та  "
+"«reverse» (обернена гра, у якій виграє той, у кого менше плиток)."
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
 #: src/about-list.vala:44 src/base-headerbar.vala:288
-#| msgid "_About"
 msgid "About"
 msgstr "Про програму"
 
@@ -468,7 +443,6 @@ msgstr "Автори документації"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
 #: src/about-list.vala:166
-#| msgid "translator-credits"
 msgid "Translators"
 msgstr "Переладачі"
 
@@ -539,7 +513,6 @@ msgstr "Перший ходить"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:87
-#| msgid "Set the level of the computer's AI"
 msgid "Set the level of the computer’s AI"
 msgstr "Встановити рівень комп'ютерного гравця"
 
@@ -560,7 +533,6 @@ msgstr "Журнал ігрових ходів"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:99
-#| msgid "Start with an alternative position"
 msgid "Start with a random position"
 msgstr "Почати з випадкової позиції"
 
@@ -596,7 +568,6 @@ msgstr "Увімкнути звук"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:120
-#| msgid "Start with an alternative position"
 msgid "Start with the usual position"
 msgstr "Почати зі звичайної позиції"
 
@@ -611,8 +582,8 @@ msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments "
 "are mutually exclusive."
 msgstr ""
-"Аргументи «--alternative-start», «--random-start» і «--usual-start» не можна"
-" використовувати одночасно."
+"Аргументи «--alternative-start», «--random-start» і «--usual-start» не можна "
+"використовувати одночасно."
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
 #: src/iagno.vala:178
@@ -627,7 +598,6 @@ msgstr "Розмір має бути щонайменше 4."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
 #: src/iagno.vala:191
-#| msgid "Size must be at least 4."
 msgid "Size must not be more than 16."
 msgstr "Розмір має бути не більшим за 16."
 
@@ -638,13 +608,11 @@ msgstr "Рівень має бути між 1 (просто) і 3 (складн�
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:273
-#| msgid "Play first (Dark)"
 msgid "Play _first (Dark)"
 msgstr "Грати п_ершим (темні)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:277
-#| msgid "Play second (Light)"
 msgid "Play _second (Light)"
 msgstr "Грати д_ругим (світлі)"
 
@@ -655,7 +623,6 @@ msgstr "За_мінити гравця, який починає"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:289
-#| msgid "Two players game"
 msgid "_Two players"
 msgstr "Д_ва гравці"
 
@@ -682,14 +649,12 @@ msgstr "_Випадкова початкова позиція"
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:322 src/iagno.vala:981
-#| msgid "Reversi"
 msgid "Classic Reversi"
 msgstr "Класична «Реверсі»"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:326 src/iagno.vala:978
-#| msgid "Reversi"
 msgid "Reverse Reversi"
 msgstr "Обернена «Реверсі»"
 
@@ -725,19 +690,16 @@ msgstr "_Показати остаточну позицію"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:430
-#| msgid "Reversi"
 msgid "_About Reversi"
 msgstr "_Про «Реверсі»"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
 #: src/iagno.vala:618
-#| msgid "Two players game"
 msgid "Two players"
 msgstr "Два гравці"
 
 #. Translators: when configuring a new game, button label if the player choose to start
 #: src/iagno.vala:622
-#| msgid "Color"
 msgid "Color: Dark"
 msgstr "Колір: темний"
 
@@ -753,19 +715,16 @@ msgstr "Додаткові параметри"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
 #: src/iagno.vala:687
-#| msgid "Difficulty"
 msgid "Difficulty: Easy"
 msgstr "Складність: проста"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
 #: src/iagno.vala:691
-#| msgid "Difficulty"
 msgid "Difficulty: Medium"
 msgstr "Складність: середня"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
 #: src/iagno.vala:695
-#| msgid "Difficulty"
 msgid "Difficulty: Hard"
 msgstr "Складність: складна"
 
@@ -782,14 +741,12 @@ msgstr "Темні пропускають хід, світлі ходять"
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
 #: src/iagno.vala:919
 #, c-format
-#| msgid "Light wins!"
 msgid "Light wins! (%u-%u)"
 msgstr "Світлі виграли! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
 #: src/iagno.vala:924
 #, c-format
-#| msgid "Dark wins!"
 msgid "Dark wins! (%u-%u)"
 msgstr "Темні виграли! (%u-%u)"
 
