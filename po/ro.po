@@ -11,9 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.ro\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2019-08-05 08:46+0000\n"
-"PO-Revision-Date: 2019-08-10 17:08+0200\n"
-"Last-Translator: Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>\n"
+"POT-Creation-Date: 2020-04-04 11:58+0000\n"
+"PO-Revision-Date: 2020-05-05 15:40+0300\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28 [at] gmail [dot] "
+"com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -21,76 +22,76 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n"
 "%100<=19) ? 1 : 2);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.3\n"
 "X-Launchpad-Export-Date: 2009-11-27 09:12+0000\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
-#: src/iagno.vala:28
-msgid "Iagno"
-msgstr "Iagno"
+#: data/org.gnome.Reversi.appdata.xml.in:7
+msgid "GNOME Reversi"
+msgstr "Reversi GNOME"
 
-#. Translators: a Comment that gives the application function, as defined in the desktop file spec
-#: data/org.gnome.Reversi.appdata.xml.in:8 data/org.gnome.Reversi.desktop.in:9
-msgid "Dominate the board in a classic version of Reversi"
-msgstr "Dominați tabla de joc într-o versiune clasică de Reversi"
-
-#: data/org.gnome.Reversi.appdata.xml.in:10
+#: data/org.gnome.Reversi.appdata.xml.in:8
 msgid ""
-"Iagno is a computer version of the game Reversi, a two-player strategy board "
-"game. The game is played with tiles that are dark on one side and light on "
-"the other."
+"Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr ""
-"Iagno este o versiune pe calculator a jocului Reversi, un joc de tablă de "
-"strategie cu doi jucători. Jocul este jucat cu dale care sunt negre pe o "
-"parte și albe pe cealaltă."
+"Dominați tabla de joc într-o versiune clasică de Reversi, sau jucați "
+"varianta inversată"
+
+#: data/org.gnome.Reversi.appdata.xml.in:11
+msgid ""
+"Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
+"use tiles that are dark on one side and light on the other."
+msgstr ""
+"Reversi este un joc de strategie cu doi jucători, jucat pe o tablă de 8 pe "
+"8. Jucătorii utilizează dale care sunt negre pe o parte și albe pe cealaltă."
 
 #: data/org.gnome.Reversi.appdata.xml.in:15
 msgid ""
-"The object of Iagno is to flip as many of your opponent’s tiles to your "
-"color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent’s tiles between two tiles "
-"of your own color."
+"The object of reversi is to flip your opponent’s tiles to your color, while "
+"your opponent is trying to flip your tiles to his own color. Opponent’s "
+"tiles are flipped when trapped between an already placed tile of your color "
+"and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
-"Scopul jocului Iagno este să întoarceți cât mai multe dintre dalele "
-"oponentului la culoarea cu care jucați, în timp ce evitați ca oponentul să "
-"vă întoarcă dalele la culoarea cu care joacă acesta. Acest lucru este "
-"realizat prin blocarea dalelor oponentului între două dale care au culoarea "
-"pe care ați ales-o."
+"Obiectul lui reversi este să rotiți dalele oponentului la culoarea cu care "
+"jucați, în timp ce oponentul încearcă să vă rotească dalele la culoarea cu "
+"care joacă. Dalele oponentului sunt rotite când sunt prinse între dale deja "
+"plasate de culoarea cu care jucați și de dala pe care o adăugați. Cine "
+"termină cu mai multe dale câștigă!"
 
-#: data/org.gnome.Reversi.appdata.xml.in:25
-msgid "A GNOME Iagno game preview"
-msgstr "O previzualizare de joc Iagno GNOME"
+#: data/org.gnome.Reversi.appdata.xml.in:21
+msgid ""
+"GNOME Reversi allows you to play both a classic reversi game, and the "
+"reversed variant, where the goal is to finish with less tile than your "
+"opponent."
+msgstr ""
+"Reversi GNOME vă permite să jucați atât un joc reversi clasic, cât și "
+"varianta inversată, când obiectivul este să terminați cu mai puține dale "
+"decât oponentul."
 
-#: data/org.gnome.Reversi.appdata.xml.in:44
+#: data/org.gnome.Reversi.appdata.xml.in:30
+msgid "A GNOME Reversi game preview"
+msgstr "O previzualizare de joc Reversi GNOME"
+
+#: data/org.gnome.Reversi.appdata.xml.in:49
 msgid "The GNOME Project"
 msgstr "Proiectul GNOME"
 
 #. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:7
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
+#: src/iagno.vala:28
 msgid "Reversi"
 msgstr "Reversi"
+
+#. Translators: a Comment that gives the application function, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:9
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Dominați tabla de joc într-o versiune clasică de Reversi"
 
 #. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Reversi.desktop.in:11
 msgid "reversi;othello;"
 msgstr "reversi;othello;"
-
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:21
-msgid "Play first (Dark)"
-msgstr "Joacă primul (Negru)"
-
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:26
-msgid "Play second (Light)"
-msgstr "Joacă al doilea (Alb)"
-
-#. Translators: an action Name, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:31
-msgid "Two players game"
-msgstr "Joc pentru doi jucători"
 
 #. Translators: accessible name of the hamburger menu
 #: data/ui/base-headerbar.ui:113
@@ -102,18 +103,18 @@ msgstr "Acțiuni"
 msgid "Current view actions"
 msgstr "Acțiunile vizualizării curente"
 
-#. Translators: during a game, label of the Start Over button (with a mnemonic that appears pressing Alt)
-#: data/ui/game-headerbar.ui:32
-msgid "_New Game"
-msgstr "Joc _nou"
-
-#. Translators: during a game, tooltip text of the Start Over button
-#: data/ui/game-headerbar.ui:38
+#. Translators: during a game, tooltip text of the New Game button
+#: data/ui/game-headerbar.ui:33
 msgid "Start a new game"
 msgstr "Pornește un joc nou"
 
+#. Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt)
+#: data/ui/game-headerbar.ui:42
+msgid "_New Game"
+msgstr "Joc _nou"
+
 #. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
-#: data/ui/game-headerbar.ui:50
+#: data/ui/game-headerbar.ui:56
 msgid "Go back to the current game"
 msgstr "Navighează înapoi la jocul curent"
 
@@ -197,75 +198,20 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Ieșire"
 
-#. Translators: when configuring a new game, on a thin window, header of the row for choosing the number of players
-#: data/ui/iagno-screens.ui:40
-msgid "Game type"
-msgstr "Tipul de joc"
+#. Translators: label of the game status button (in the headerbar, next to the hamburger button), when the game is finished; please keep the string as small as possible (3~5 characters)
+#: data/ui/history-button.ui:43
+msgid "End!"
+msgstr "Sfârșit!"
 
-#. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play first (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:61
-msgid "Play _first"
-msgstr "Joacă _primul"
+#. Translators: when configuring a new game, header of the game type that appears on small screen
+#: data/ui/new-game-screen.ui:32
+msgid "Game"
+msgstr "Joc"
 
-#. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose to play second (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:73
-msgid "Play _second"
-msgstr "Joacă al _doilea"
-
-#. Translators: when configuring a new game, on a thin window, group "Game type", label of the button to choose a two-players game (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:85
-msgid "_Two players"
-msgstr "_Doi jucători"
-
-#. Translators: when configuring a new game, header of the row for choosing the number of players
-#: data/ui/iagno-screens.ui:109
-msgid "Players"
-msgstr "Jucători"
-
-#. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:126
-msgid "_One"
-msgstr "_Unu"
-
-#. Translators: when configuring a new game, row "Players", label of the button to choose a one-player game (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:138
-msgid "_Two"
-msgstr "_Doi"
-
-#. Translators: when configuring a new game, header of the row for choosing the level of the artificial intelligence
-#: data/ui/iagno-screens.ui:162
-msgid "Difficulty"
-msgstr "Dificultate"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:179
-msgid "_Easy"
-msgstr "_Simplu"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:191
-msgid "_Medium"
-msgstr "_Mediu"
-
-#. Translators: when configuring a new game, row "Difficulty", label of the button to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:203
-msgid "_Hard"
-msgstr "_Dificil"
-
-#. Translators: when configuring a new game, header of the row for choosing the played color (whether to start or not)
-#: data/ui/iagno-screens.ui:227
-msgid "Color"
-msgstr "Culoare"
-
-#. Translators: when configuring a new game, row "Color", label of the button to play the dark color, so to start (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:244
-msgid "_Dark"
-msgstr "_Negru"
-
-#. Translators: when configuring a new game, row "Color", label of the button to play the light color, so not play second (with a mnemonic that appears pressing Alt)
-#: data/ui/iagno-screens.ui:256
-msgid "_Light"
-msgstr "A_lb"
+#. Translators: when configuring a new game, header of the options that appears on small screen
+#: data/ui/new-game-screen.ui:88
+msgid "Options"
+msgstr "Opțiuni"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
 #: data/themes/adwaita.theme.desktop.in:22
@@ -298,8 +244,6 @@ msgid "Use GNOME night light setting to activate night-mode."
 msgstr ""
 "Utilizați configurarea lumină nocturnă GNOME pentru a activa modul nocturn."
 
-#. see AdaptativeWindow.width-request at data/ui/adaptative-window.ui:22
-#. range min="350"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
 msgid "The width of the window"
@@ -310,8 +254,6 @@ msgstr "Lățimea ferestrei"
 msgid "The width of the main window in pixels."
 msgstr "Lățimea ferestrei principale în pixeli."
 
-#. see AdaptativeWindow.height-request at data/ui/adaptative-window.ui:21
-#. range min="284"/ FIXME
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
 msgid "The height of the window"
@@ -332,70 +274,137 @@ msgstr "Un fanion care activează modul maximizat"
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "Dacă este „adevărat”, fereastra principala începe în modul maximizat."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
-#: data/org.gnome.Reversi.gschema.xml:47
-msgid "Computer’s AI level"
-msgstr "Nivelul AI al calculatorului"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:50
+msgid "A flag to alternate who starts"
+msgstr "Un fanion pentru a alterna cine începe"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
-#: data/org.gnome.Reversi.gschema.xml:49
-msgid "From 1, the easiest, to 3, the hardest."
-msgstr "De la 1, cel mai simplu, la 3, cel mai dificil."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
-#: data/org.gnome.Reversi.gschema.xml:55
-msgid "Whether to play against the computer or another human."
-msgstr "Dacă doriți să jucați împotriva calculatorului sau alt om."
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:52
+msgid ""
+"If “true”, when playing against AI, the “color” settings is toggled after "
+"every new game request, making the next game being started with inverted "
+"roles (previous Dark player playing Light). Ignored for two-player games."
+msgstr ""
+"Dacă este „adevărat”, când se joacă contra AI-ului, configurarea „culoare” "
+"este comutată după fiecare cerere de joc nou, făcând ca jocul următor să fie "
+"început cu roluri inversate (jucătorul negru anterior jucând alb). Ignorat "
+"pentru jocurile cu doi jucători."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
-#: data/org.gnome.Reversi.gschema.xml:61
+#: data/org.gnome.Reversi.gschema.xml:57
 msgid "Color to play as"
 msgstr "Culoare cu care se joacă"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color'
-#: data/org.gnome.Reversi.gschema.xml:63
+#: data/org.gnome.Reversi.gschema.xml:59
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
 "Dacă doriți să jucați ca negru sau alb. Ignorat pentru jocuri de doi "
 "jucători."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
-#: data/org.gnome.Reversi.gschema.xml:68
-msgid "A flag to highlight turnable tiles"
-msgstr "Un fanion pentru a evidenția dalele rotitoare"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:65
+msgid "Computer’s AI level"
+msgstr "Nivelul AI al calculatorului"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'
-#: data/org.gnome.Reversi.gschema.xml:70
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:67
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "De la 1, cel mai simplu, la 3, cel mai dificil."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:72
+msgid "A flag to highlight playable tiles"
+msgstr "Un fanion pentru a evidenția dalele jucabile"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:74
+msgid "If “true”, the tiles where you can play are highlighted."
+msgstr "Dacă este „adevărat”, dalele unde puteți juca sunt evidențiate."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
+#: data/org.gnome.Reversi.gschema.xml:79
+msgid "A flag to highlight capturable tiles"
+msgstr "Un fanion pentru a evidenția dalele capturabile"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
+#: data/org.gnome.Reversi.gschema.xml:81
 msgid ""
-"If “true”, the tiles that will be captured to the opponent by a ply are "
+"If “true”, the tiles that will be captured to the opponent by a play are "
 "highlighted."
 msgstr ""
-"Dacă este „adevărat”, dalele care vor fi capturate de la oponent de către un "
-"strat sunt evidențiate."
+"Dacă este „adevărat”, dalele care vor fi capturate de oponent într-un joc "
+"sunt evidențiate."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
-#: data/org.gnome.Reversi.gschema.xml:75
-msgid "Theme"
-msgstr "Teme"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
+#: data/org.gnome.Reversi.gschema.xml:87
+msgid "Whether to play against the computer or another human."
+msgstr "Dacă doriți să jucați împotriva calculatorului sau alt om."
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
-#: data/org.gnome.Reversi.gschema.xml:77
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:93
+msgid "A flag to randomize start position"
+msgstr "Un fanion pentru a randomiza poziția de început"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:95
 msgid ""
-"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
-"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+"Reversi can be played with two different initial positions (and their "
+"symmetries). If “true”, the game will randomly start with one or the other "
+"position; if “false”, only the most common initial position is used. You can "
+"force the game to use the alternative position by using the “--alternative-"
+"start” argument on the command-line; also, if either “--usual-start” or “--"
+"random-start” is given instead on the command-line, this flag will be "
+"ignored."
 msgstr ""
-"Numele de fișier al temei utilizate, sau „implicit”. Sunt oferite „adwaita."
-"theme”, „high_contrast.theme” și „sun_and_star.theme”."
+"Reversi poate fi jucat cu două poziții inițiale diferite (și simetriile "
+"acestora). Dacă este „adevărat”, jocul va începe la întâmplare cu una sau "
+"cealaltă dintre poziții; dacă este „fals”, doar poziția inițială cea mai "
+"comună este utilizată. Puteți forța jocul să utilizeze poziția alternativă "
+"utilizând argumentul „--alternative-start” în linia de comandă; de asemenea, "
+"dacă sunt date ori „--usual-start” ori „--random-start” în loc în linia de "
+"comand, acest fanion va fi ignorat."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
-#: data/org.gnome.Reversi.gschema.xml:82
+#: data/org.gnome.Reversi.gschema.xml:100
 msgid "Sound"
 msgstr "Sunet"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
-#: data/org.gnome.Reversi.gschema.xml:84
+#: data/org.gnome.Reversi.gschema.xml:102
 msgid "Whether or not to play event sounds."
 msgstr "Dacă sau nu să se folosească sunete pentru evenimente."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#: data/org.gnome.Reversi.gschema.xml:107
+msgid "Theme"
+msgstr "Teme"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
+#: data/org.gnome.Reversi.gschema.xml:109
+msgid ""
+"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
+"“high_contrast.theme” and “sun_and_star.theme”."
+msgstr ""
+"Numele de fișier al temei utilizate, sau „implicit”. Sunt oferite „adwaita."
+"theme”, „contrast_mare.theme” și „soare_și_stea.theme”."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:114
+msgid "Name of the game"
+msgstr "Numele jocului"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:116
+msgid ""
+"The name of the game that will be played. It could be “classic” (the usual "
+"game, where you try to have more pieces), or “reverse” (the opposite game, "
+"where you try to have less pieces)."
+msgstr ""
+"Numele jocului care va fi jucat. Poate fi „clasic” (jocul uzual, unde "
+"încerci să ai mai multe piese), sau „inversat” (jocul opus, unde încerci să "
+"ai mai puține piese)."
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
@@ -483,34 +492,14 @@ msgid "_Help"
 msgstr "_Ajutor"
 
 #. Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt)
-#: src/game-headerbar.vala:186
+#: src/game-headerbar.vala:200
 msgid "A_ppearance"
 msgstr "As_pect"
 
 #. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
-#: src/game-headerbar.vala:190
+#: src/game-headerbar.vala:204
 msgid "_Sound"
 msgstr "_Sunet"
-
-#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
-#: src/game-headerbar.vala:243
-msgid "_Undo last move"
-msgstr "_Refă ultima mutare"
-
-#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
-#: src/game-headerbar.vala:248
-msgid "_Show final board"
-msgstr "_Arată tabla finală"
-
-#. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game; this string is for when the window is really small, so keep the string as small as possible (3~5 characters)
-#: src/game-headerbar.vala:280
-msgid "End!"
-msgstr "Sfârșit!"
-
-#. Translators: label of the game status button (in the headerbar, next to the hamburger button), at the end of the game, if the window is not too thin
-#: src/game-headerbar.vala:284
-msgid "Finished!"
-msgstr "Terminat!"
 
 #. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
 #: src/game-view.vala:58
@@ -518,175 +507,349 @@ msgid "_Start Game"
 msgstr "_Start joc"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:63
+#: src/iagno.vala:75
 msgid "Start with an alternative position"
 msgstr "Începe cu o poziție alternativă"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:66
+#: src/iagno.vala:78
+msgid "Play Classic Reversi"
+msgstr "Joacă Reversi clasic"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:81
 msgid "Reduce delay before AI moves"
 msgstr "Reduce întârzierea înainte de mutarea AI"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:69
+#: src/iagno.vala:84
 msgid "Play first"
 msgstr "Joacă primul"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:72
+#: src/iagno.vala:87
 msgid "Set the level of the computer’s AI"
 msgstr "Stabilește nivelul AI-ului calculatorului"
 
+#. Translators: in the command-line options description, text to indicate the user should specify a level, see 'iagno --help'
+#: src/iagno.vala:90
+msgid "LEVEL"
+msgstr "NIVEL"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:75
+#: src/iagno.vala:93
 msgid "Turn off the sound"
 msgstr "Oprește sunetul"
 
+#. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
+#: src/iagno.vala:96
+msgid "Log the game moves"
+msgstr "Înregistrează mutările jocului"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:78
+#: src/iagno.vala:99
+msgid "Start with a random position"
+msgstr "Începe cu o poziție la întâmplare"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:102
+msgid "Play Reverse Reversi"
+msgstr "Joacă Reversi inversat"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:105
 msgid "Play second"
 msgstr "Joacă al doilea"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:81
+#: src/iagno.vala:108
 msgid "Size of the board (debug only)"
 msgstr "Dimensiunea tablei (doar în modul depanare)"
 
+#. Translators: in the command-line options description, text to indicate the user should specify a size, see 'iagno --help'
+#: src/iagno.vala:111
+msgid "SIZE"
+msgstr "DIMENSIUNE"
+
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:84
+#: src/iagno.vala:114
 msgid "Two-players mode"
 msgstr "Mod doi jucători"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:87
+#: src/iagno.vala:117
 msgid "Turn on the sound"
 msgstr "Pornește sunetul"
 
 #. Translators: command-line option description, see 'iagno --help'
-#: src/iagno.vala:90
+#: src/iagno.vala:120
+msgid "Start with the usual position"
+msgstr "Începe cu poziția uzuală"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:123
 msgid "Print release version and exit"
 msgstr "Tipărește versiunea de lansare și ieși"
 
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
+#: src/iagno.vala:171
+msgid ""
+"The “--alternative-start”, “--random-start” and “--usual-start” arguments "
+"are mutually exclusive."
+msgstr ""
+"Argumentele „--alternative-start”, „--random-start” și „--usual-start” se "
+"exclud reciproc."
+
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
+#: src/iagno.vala:178
+msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
+msgstr "Argumentele „--classic” și „--reverse” se exclud reciproc."
+
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:134
+#: src/iagno.vala:185
 msgid "Size must be at least 4."
 msgstr "Dimensiunea trebuie să fie cel puțin 4."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
-#: src/iagno.vala:140
+#: src/iagno.vala:191
 msgid "Size must not be more than 16."
 msgstr "Dimensiunea trebuie să mai mare de 16."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:200
+#: src/iagno.vala:257
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "Nivelul ar trebui să fie între 1 (simplu) și 3 (dificil). Nu s-au modificat "
 "configurările."
 
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:273
+msgid "Play _first (Dark)"
+msgstr "Joacă _primul (Negru)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:277
+msgid "Play _second (Light)"
+msgstr "Joacă al _doilea (Alb)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:283
+msgid "_Alternate who starts"
+msgstr "_Alternează cine începe"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:289
+msgid "_Two players"
+msgstr "_Doi jucători"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:298
+msgid "_Easy"
+msgstr "_Simplu"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:302
+msgid "_Medium"
+msgstr "_Mediu"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:306
+msgid "_Hard"
+msgstr "_Dificil"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:315
+msgid "_Vary start position"
+msgstr "_Variază poziția de început"
+
+#. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:322 src/iagno.vala:981
+msgid "Classic Reversi"
+msgstr "Reversi clasic"
+
+#. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:326 src/iagno.vala:978
+msgid "Reverse Reversi"
+msgstr "Reversi inversat"
+
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
-#: src/iagno.vala:221
+#: src/iagno.vala:337
 msgid "Default"
 msgstr "Implicit"
 
-#. Translators: hamburger menu "Appearance" submenu entry; highlight-turnable-tiles togglebutton (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:277
-msgid "Highlight _turnable tiles"
-msgstr "Evidențiază dalele _rotitoare"
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:393
+msgid "Pla_yable tiles"
+msgstr "Dale care se pot _juca"
+
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
+#: src/iagno.vala:397
+msgid "_Capturable tiles"
+msgstr "Dale capturabile"
+
+#. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
+#: src/iagno.vala:401
+msgid "Highlights"
+msgstr "Evidențieri"
+
+#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:408
+msgid "_Undo last move"
+msgstr "_Refă ultima mutare"
+
+#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:413
+msgid "_Show final board"
+msgstr "_Arată tabla finală"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:287
-msgid "About Iagno"
-msgstr "Despre Iagno"
+#: src/iagno.vala:430
+msgid "_About Reversi"
+msgstr "_Despre Reversi"
+
+#. Translators: when configuring a new game, button label if a two-players game is chosen
+#: src/iagno.vala:618
+msgid "Two players"
+msgstr "Doi jucători"
+
+#. Translators: when configuring a new game, button label if the player choose to start
+#: src/iagno.vala:622
+msgid "Color: Dark"
+msgstr "Culoare: negru"
+
+#. Translators: when configuring a new game, button label if the player choose let computer start
+#: src/iagno.vala:626
+msgid "Color: Light"
+msgstr "Culoare: alb"
+
+#. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
+#: src/iagno.vala:683
+msgid "More options"
+msgstr "Mai multe opțiuni"
+
+#. Translators: when configuring a new game, button label for the AI level, if easy
+#: src/iagno.vala:687
+msgid "Difficulty: Easy"
+msgstr "Dificultate: ușor"
+
+#. Translators: when configuring a new game, button label for the AI level, if medium
+#: src/iagno.vala:691
+msgid "Difficulty: Medium"
+msgstr "Dificultate: mediu"
+
+#. Translators: when configuring a new game, button label for the AI level, if hard
+#: src/iagno.vala:695
+msgid "Difficulty: Hard"
+msgstr "Dificultate: dificil"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:551
+#: src/iagno.vala:900
 msgid "Light must pass, Dark’s move"
 msgstr "Alb obligat pas, negru la mutare"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:556
+#: src/iagno.vala:905
 msgid "Dark must pass, Light’s move"
 msgstr "Negru obligat pas, alb la mutare"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
-#: src/iagno.vala:567
+#: src/iagno.vala:919
 #, c-format
 msgid "Light wins! (%u-%u)"
 msgstr "Alb a câștigat! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
-#: src/iagno.vala:571
+#: src/iagno.vala:924
 #, c-format
 msgid "Dark wins! (%u-%u)"
 msgstr "Negru a câștigat! (%u-%u)"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:575
+#: src/iagno.vala:928
 msgid "The game is draw."
 msgstr "Jocul este remiză."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:591
+#: src/iagno.vala:947
 msgid "You can’t move there!"
 msgstr "Nu se poate muta acolo!"
 
+#. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
+#: src/iagno.vala:954
+msgid "In this opening, Light can only play on tiles bordering on Dark one."
+msgstr ""
+"În această deschidere, albul poate să joace doar pe dalele care înconjoară "
+"pe cele negre."
+
+#. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
+#: src/iagno.vala:958
+msgid "Click on one of the highlighted tiles to move the selected piece there."
+msgstr ""
+"Apăsați clic pe una din dalele evidențiate pentru a muta piesa selectată "
+"acolo."
+
 #. Translators: about dialog text
-#: src/iagno.vala:712
+#: src/iagno.vala:1091
 msgid "A disk flipping game derived from Reversi"
 msgstr "Un joc de întoarcere a discurilor derivat de la Reversi"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:716
+#: src/iagno.vala:1095
 msgid "Masuichi Ito (pieces)"
 msgstr "Masuichi Ito (piese)"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:720
+#: src/iagno.vala:1099
 msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (teme)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:724
+#: src/iagno.vala:1104
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1108
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
-#: src/iagno.vala:724
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1112
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:728
+#: src/iagno.vala:1117
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Drepturi de autor © %u-%u – Ian Peters"
 
-#: src/iagno.vala:729
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1121
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Drepturi de autor © %u-%u – Michael Catanzaro"
 
-#: src/iagno.vala:730
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1125
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Drepturi de autor © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:733
+#: src/iagno.vala:1129
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:738
+#: src/iagno.vala:1134
 msgid "translator-credits"
 msgstr ""
 "Mugurel Tudor <mugurelu@gnome.ro>\n"
 "Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
-"Florentina Mușat <florentina.musat.28 [at] gmail [dot] com>, 2019\n"
+"Florentina Mușat <emryslokadottir [at] gmail [dot] com>, 2019-2020\n"
 "Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2019\n"
 "\n"
 "Launchpad Contributions:\n"
@@ -706,9 +869,51 @@ msgstr ""
 "  leandrud https://launchpad.net/~leandrud"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:743
+#: src/iagno.vala:1139
 msgid "Page on GNOME wiki"
 msgstr "Pagina pe wiki GNOME"
+
+#. Translators: when configuring a new game, button label for the size of the game ("3 × 3", or 4, or 5)
+#: src/new-game-screen.vala:95
+#, c-format
+msgid "Size: %d × %d ▾"
+msgstr "Dimensiune: %d × %d ▾"
+
+#~ msgid "Iagno"
+#~ msgstr "Iagno"
+
+#~ msgid "Two players game"
+#~ msgstr "Joc pentru doi jucători"
+
+#~ msgid "Game type"
+#~ msgstr "Tipul de joc"
+
+#~ msgid "Play _first"
+#~ msgstr "Joacă _primul"
+
+#~ msgid "Play _second"
+#~ msgstr "Joacă al _doilea"
+
+#~ msgid "Players"
+#~ msgstr "Jucători"
+
+#~ msgid "_One"
+#~ msgstr "_Unu"
+
+#~ msgid "_Two"
+#~ msgstr "_Doi"
+
+#~ msgid "_Dark"
+#~ msgstr "_Negru"
+
+#~ msgid "_Light"
+#~ msgstr "A_lb"
+
+#~ msgid "Finished!"
+#~ msgstr "Terminat!"
+
+#~ msgid "About Iagno"
+#~ msgstr "Despre Iagno"
 
 #~ msgid "org.gnome.Reversi"
 #~ msgstr "org.gnome.Reversi"
