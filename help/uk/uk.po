@@ -6,14 +6,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2020-05-31 06:32+0000\n"
-"PO-Revision-Date: 2020-06-03 15:42+0300\n"
+"POT-Creation-Date: 2020-06-03 12:43+0000\n"
+"PO-Revision-Date: 2020-06-09 21:17+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.07.70\n"
@@ -61,7 +61,7 @@ msgstr "Гра із іншим гравцем-людиною"
 msgid ""
 "<app>Reversi</app> allows you to play against another human, instead of "
 "against the computer."
-msgstr ""
+msgstr "У <app>Реверсі</app> можна грати з іншою людиною, а не з комп'ютером."
 
 #. (itstool) path: page/p
 #: C/2player.page:24
@@ -72,6 +72,11 @@ msgid ""
 "case, <app>Reversi</app> is already configured to start a two-player game, "
 "else it would start a game against the computer."
 msgstr ""
+"При <link xref=\"configure\">налаштовування нової гри</link> зверніть увагу"
+" на першу кнопку зі стрілкою вниз. На цій кнопці ви побачите мітку <gui"
+">Колір: темний</gui>, <gui>Колір: світлий</gui> або <gui>Два гравці</gui>. У"
+" останньому випадку <app>Реверсі</app> вже налаштовано на запуск гри з двома"
+" гравцями-людьми; інші варіанти запускають гру проти комп'ютера."
 
 #. (itstool) path: page/p
 #: C/2player.page:26
@@ -81,6 +86,10 @@ msgid ""
 "its label to <gui>Two players</gui>. You can then select the <gui>Start "
 "Game</gui> button to launch your game and <link xref=\"play\">play</link>."
 msgstr ""
+"Якщо на кнопці не показано варіант <gui>Два гравці</gui>, натисніть її і у"
+" меню, яке буде показано виберіть пункт <gui>Два гравці</gui>. Напис на"
+" кнопці зміниться на <gui>Два гравці</gui>. Далі, ви можете натиснути кнопку"
+" <gui>Почати гру</gui>, щоб почати <link xref=\"play\">гру</link>."
 
 #. (itstool) path: page/p
 #: C/2player.page:28
@@ -89,11 +98,15 @@ msgid ""
 "link> and start a two-player game, you will start the game with a special "
 "<link xref=\"start-position#human-overture\">two-player game overture</link>."
 msgstr ""
+"Якщо ви накажете грі <link xref=\"start-position\">варіювати початкову"
+" позицію</link> і запустите гру з двома гравцями-людьми, гру буде розпочато"
+" зі спеціального <link xref=\"start-position#human-overture\">вступу до гри з"
+" двома гравцями</link>."
 
 #. (itstool) path: page/title
 #: C/ai-game.page:20
 msgid "Play against the computer"
-msgstr ""
+msgstr "Гра проти комп'ютера"
 
 #. (itstool) path: page/p
 #: C/ai-game.page:22
@@ -102,6 +115,8 @@ msgid ""
 "different levels of difficulty. You can also decide which player, between "
 "the computer and you, will start."
 msgstr ""
+"У <app>Реверсі</app> можна грати проти комп'ютера із трьома різними рівнями"
+" складності. Ви також можете визначити, хто ходитиме першим — ви чи комп'ютер."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:24
@@ -112,6 +127,12 @@ msgid ""
 "first cases, <app>Reversi</app> is already configured to start a game "
 "against the computer, else it would start a two-player game."
 msgstr ""
+"При <link xref=\"configure\">налаштовування нової гри</link> зверніть увагу"
+" на першу кнопку зі стрілкою вниз. На цій кнопці ви побачите мітку <gui"
+">Колір: темний</gui>, <gui>Колір: світлий</gui> або <gui>Два гравці</gui>. У"
+" перших двох випадках <app>Реверсі</app> вже налаштовано на запуск гри з"
+" проти комп'ютера, останній пункт надає змогу розпочати гру між двома"
+" гравцями-людьми."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:26
@@ -120,6 +141,8 @@ msgid ""
 "do the first move. Of course, <gui>Color: Light</gui> means that it will be "
 "the computer."
 msgstr ""
+"Якщо на кнопці буде напис <gui>Колір: темний</gui>, першим буде ваш хід."
+" Звичайно ж, <gui>Колір: світлий</gui> означає, що першим ходитиме комп'ютер."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:28
@@ -130,6 +153,11 @@ msgid ""
 "The button will change its label to <gui>Color: Dark</gui> in the former "
 "case, and to <gui>Color: Light</gui> in the latter."
 msgstr ""
+"Якщо на кнопці написано <gui>Два гравці</gui>, натисніть її і у меню, яке"
+" з'явиться, виберіть <gui>Перший ходить (темний)</gui>, якщо хочете ходити"
+" першим, або <gui>Другий ходить (світлий)</gui>, якщо хочете, щоб першим"
+" ходив комп'ютер. Мітка на кнопці зміниться на <gui>Колір: темний</gui> у"
+" першому випадку і <gui>Колір: світлий</gui> у другому випадку."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:30
@@ -137,11 +165,13 @@ msgid ""
 "Once you have configured <app>Reversi</app> to play a game against the "
 "computer, you may <link xref=\"ai-level\">change the computer level</link>."
 msgstr ""
+"Після налаштовування <app>Реверсі</app> на гру з комп'ютером ви можете <link"
+" xref=\"ai-level\">змінити рівень комп'ютерного гравця</link>."
 
 #. (itstool) path: page/title
 #: C/ai-level.page:20
 msgid "Change the computer level"
-msgstr ""
+msgstr "Зміна рівня комп'ютерного гравця"
 
 #. (itstool) path: page/p
 #: C/ai-level.page:22
@@ -149,6 +179,8 @@ msgid ""
 "<app>Reversi</app> offers you three level of difficulty if you want to play "
 "against the computer."
 msgstr ""
+"У <app>передбачено</app> три рівні складності, якщо ви хочете грати з"
+" комп'ютером."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:24
@@ -157,6 +189,9 @@ msgid ""
 "The first one is suitable for beginners, the second for casual players, and "
 "the last one should please regular players."
 msgstr ""
+"Ці рівні мають такі назви: <em>Легко</em>, <em>Середній</em> і <em>Важко</em"
+">. Перший підійде для початківців, другий — якщо ви граєте вряди-годи, а"
+" останній має сподобатися регулярним гравцям."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:26
@@ -170,6 +205,14 @@ msgid ""
 "player game, and you should first configure that you want to <link xref=\"ai-"
 "game\">play against the computer</link>."
 msgstr ""
+"При <link xref=\"configure\">налаштовуванні нової гри</link> зверніть увагу"
+" на другу кнопку зі стрілкою вниз. На ній має бути показано мітку <gui"
+">Складність: проста</gui>, <gui>Складність: середня</gui>, <gui>Складність:"
+" складна</gui> або <gui>Додаткові параметри</gui>. Перші три варіанти"
+" визначають один з трьох рівнів, якими можна скористатися на початку нової"
+" гри. У останньому випадку <app>Реверсі</app> налаштовано на гру з двома"
+" гравцями-людьми, і вам слід спочатку налаштувати <link xref=\"ai-game\">гру"
+" проти комп'ютера</link>."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:28
@@ -179,6 +222,10 @@ msgid ""
 "<gui>Medium</gui> or <gui>Hard</gui>, as you prefer. The button will change "
 "its label accordingly."
 msgstr ""
+"Щойно це буде зроблено, якщо показаний рівень не є тим, який вам потрібен,"
+" натисніть кнопку і виберіть у меню пункт <gui>Легко</gui>, <gui>Середній<"
+"/gui> або <gui>Важко</gui>. Мітку на кнопці буде скориговано відповідним"
+" чином."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:30
@@ -186,11 +233,13 @@ msgid ""
 "When the indicated level is good for your, you can select the <gui>Start "
 "Game</gui> button to launch your game and <link xref=\"play\">play</link>."
 msgstr ""
+"Якщо показаний рівень вас удовольняє, ви можете натиснути кнопку <gui>Почати"
+" гру</gui>, щоб запустити <link xref=\"play\">гру</link>."
 
 #. (itstool) path: page/title
 #: C/alternate.page:20
 msgid "Alternate who starts"
-msgstr ""
+msgstr "Зміна гравця, який ходить першим"
 
 #. (itstool) path: page/p
 #: C/alternate.page:22
@@ -209,6 +258,12 @@ msgid ""
 "case, <app>Reversi</app> is configured to start a two-player game; if so, "
 "first, configure a game <link xref=\"ai-game\">against the computer</link>."
 msgstr ""
+"При <link xref=\"configure\">налаштовування нової гри</link> зверніть увагу"
+" на першу кнопку зі стрілкою вниз</link>. На цій кнопці ви побачите мітку <gui"
+">Колір: темний</gui>, <gui>Колір: світлий</gui> або <gui>Два гравці</gui>. У"
+" останньому випадку <app>Реверсі</app> налаштовано на запуск гри з двома"
+" гравцями-людьми. Якщо це так, спершу налаштуйте гру <link xref=\"ai-game\""
+">проти комп'ютера</link>."
 
 #. (itstool) path: page/p
 #: C/alternate.page:26
@@ -216,6 +271,8 @@ msgid ""
 "Select the button. In the menu that appears, there is an entry called "
 "<gui>Alternate who starts</gui>."
 msgstr ""
+"Натисніть кнопку. У меню, яке з'явиться, буде пункт <gui>Замінити гравця,"
+" який починає</gui>."
 
 #. (itstool) path: page/p
 #: C/alternate.page:28
@@ -243,11 +300,13 @@ msgid ""
 "To enable or disable the option, just select the <gui>Alternate who starts</"
 "gui> entry."
 msgstr ""
+"Щоб увімкнути або вимкнути цей параметр, просто позначте або зніміть позначку"
+" з пункту <gui>Замінити гравця, який починає</gui>."
 
 #. (itstool) path: page/p
 #: C/alternate.page:34
 msgid "This option is selected by default."
-msgstr ""
+msgstr "Типово, цей пункт позначено."
 
 #. (itstool) path: credit/name
 #: C/bug-filing.page:10 C/develop.page:10 C/documentation.page:10
@@ -265,7 +324,7 @@ msgstr "2011"
 #. (itstool) path: page/title
 #: C/bug-filing.page:20
 msgid "Help make <app>Reversi</app> better"
-msgstr ""
+msgstr "Допомога в удосконаленні <app>Реверсі</app>"
 
 #. (itstool) path: section/title
 #: C/bug-filing.page:23
@@ -280,11 +339,10 @@ msgid ""
 "To file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
 "issues/\"/>."
 msgstr ""
-"Супроводом програми <app>Реверсі</app> займається спільнота"
-" добровольців. Ми будемо раді вашій допомозі. Якщо ви виявили проблему у"
-" програмі, ви можете створити <em>звіт щодо вади</em>. Для створення такого"
-" звіту перейдіть на сторінку <link href=\"https://gitlab.gnome.org/GNOME/iagno"
-"/issues/\"/>."
+"Супроводом програми <app>Реверсі</app> займається спільнота добровольців. Ми "
+"будемо раді вашій допомозі. Якщо ви виявили проблему у програмі, ви можете "
+"створити <em>звіт щодо вади</em>. Для створення такого звіту перейдіть на "
+"сторінку <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues/\"/>."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:28
@@ -292,9 +350,9 @@ msgid ""
 "This is a bug tracking system where users and developers can file details "
 "about bugs, crashes and request enhancements."
 msgstr ""
-"Це сторінка системи стеження за вадами, де користувачі і розробники можуть"
-" спілкуватися щодо подробиць вади, аварійного завершення роботи програми або"
-" запитів щодо реалізації додаткових можливостей."
+"Це сторінка системи стеження за вадами, де користувачі і розробники можуть "
+"спілкуватися щодо подробиць вади, аварійного завершення роботи програми або "
+"запитів щодо реалізації додаткових можливостей."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:32
@@ -323,12 +381,11 @@ msgid ""
 msgstr ""
 "Щойно ваш обліковий запис буде зареєстровано, увійдіть до нього і натисніть "
 "кнопку <gui>New issue</gui> («Нова вада»). Перш ніж повідомляти про ваду, "
-"будь ласка, ознайомтеся із <link href=\"https://wiki.gnome.org/Community/Getti"
-"ngInTouch/BugReportingGuidelines\">настановами щодо створення "
-"повідомлень про вади</link>, і, будь ласка, <link"
-" href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">перегляньте<"
-"/link> список вад, щоб переконатися "
-"у тому, що про виявлену вами ваду ще ніхто не повідомив."
+"будь ласка, ознайомтеся із <link href=\"https://wiki.gnome.org/Community/"
+"GettingInTouch/BugReportingGuidelines\">настановами щодо створення "
+"повідомлень про вади</link>, і, будь ласка, <link href=\"https://gitlab."
+"gnome.org/GNOME/iagno/issues\">перегляньте</link> список вад, щоб "
+"переконатися у тому, що про виявлену вами ваду ще ніхто не повідомив."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:40
@@ -348,6 +405,9 @@ msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
 "is being dealt with. Thanks for helping make <app>Reversi</app> better!"
 msgstr ""
+"Вашому звіту буде надано ідентифікаційного номера, його стан буде оновлено,"
+" щойно над ним попрацює хтось із розробників. Дякуємо за те, що допомагаєте"
+" зробити <app>Реверсі</app> кращою!"
 
 #. (itstool) path: page/title
 #: C/configure.page:20
@@ -360,6 +420,8 @@ msgid ""
 "When <app>Reversi</app> is opened, it displays a screen that allows you to "
 "configure a new game and to launch it."
 msgstr ""
+"Після запуску <app>Реверсі</app> програма показує вікно, за допомогою якого"
+" ви можете налаштувати нову гру і розпочати гру."
 
 #. (itstool) path: page/p
 #: C/configure.page:24
@@ -408,8 +470,8 @@ msgid ""
 "The <app>GNOME Games</app> are developed and maintained by a volunteer "
 "community. You are welcome to participate."
 msgstr ""
-"Розробкою і супроводом <app>Ігор GNOME</app> переймається "
-"спільнота добровольців. Ми будемо раді вашій участі у ній."
+"Розробкою і супроводом <app>Ігор GNOME</app> переймається спільнота "
+"добровольців. Ми будемо раді вашій участі у ній."
 
 #. (itstool) path: page/p
 #: C/develop.page:31
@@ -429,6 +491,9 @@ msgid ""
 "<link href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing "
 "list</link>."
 msgstr ""
+"Крім того, ви можете зв'язатися із розробниками ігор GNOME за допомогою"
+" відповідного <link href=\"https://mail.gnome.org/mailman/listinfo/games-list"
+"\">списку листування</link>."
 
 #. (itstool) path: page/title
 #: C/documentation.page:25
@@ -441,8 +506,8 @@ msgid ""
 "The <app>GNOME Games</app> documentation is maintained by a volunteer "
 "community. You are welcome to participate."
 msgstr ""
-"Документуванням <app>Ігор GNOME</app> переймається спільнота "
-"добровольців. Ми будемо раді вашій участі у ній."
+"Документуванням <app>Ігор GNOME</app> переймається спільнота добровольців. "
+"Ми будемо раді вашій участі у ній."
 
 #. (itstool) path: page/p
 #: C/documentation.page:30
@@ -453,6 +518,11 @@ msgid ""
 "located worldwide, so you may not get an immediate response as a result of "
 "timezone differences."
 msgstr ""
+"Щоб взяти участь у проєкті з документування, зв'яжіться із командою за"
+" допомогою <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC\""
+">irc</link> (на каналі <code>#docs</code>). Учасники каналу живуть в усьому"
+" світі, тому ви можете не отримати відповідь одразу через різницю у часових"
+" поясах."
 
 #. (itstool) path: page/p
 #: C/documentation.page:32
@@ -461,6 +531,9 @@ msgid ""
 "<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list"
 "\">mailing list</link>."
 msgstr ""
+"Крім того, ви можете зв'язатися із учасниками команди з документування за"
+" допомогою відповідного <link href=\"https://mail.gnome.org/mailman/listinfo/g"
+"nome-doc-list\">списку листування</link>."
 
 #. (itstool) path: page/p
 #: C/documentation.page:34
@@ -474,22 +547,22 @@ msgstr ""
 #. (itstool) path: page/title
 #: C/example.page:21
 msgid "Example game first moves"
-msgstr ""
+msgstr "Приклад перших ходів у грі"
 
 #. (itstool) path: media/p
 #: C/example.page:27
 msgid "Usual start position: E4 and D5 are dark, D4 and E5 are light."
-msgstr ""
+msgstr "Звичайна початкова позиція: E4 і D5 — темні, D4 і E5 — світлі."
 
 #. (itstool) path: td/p
 #: C/example.page:31
 msgid "<em>Start position</em>"
-msgstr ""
+msgstr "<em>Початкова позиція</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:33
 msgid "This is the usual start position of the reversi game family."
-msgstr ""
+msgstr "Це звичайна початкова позиція у сімействі ігор «Реверсі»."
 
 #. (itstool) path: td/p
 #: C/example.page:35
@@ -497,26 +570,29 @@ msgid ""
 "<app>Reversi</app> also allows you to <link xref=\"start-position\">use "
 "other start positions</link>."
 msgstr ""
+"<app>Реверсі</app> також надає вам змогу <link xref=\"start-position\""
+">скористатися іншими початковими позиціями</link>."
 
 #. (itstool) path: media/p
 #: C/example.page:42
 msgid "Example first move: <em>Dark</em> plays D3, capturing D4 thanks to D5."
-msgstr ""
+msgstr "Приклад першого ходу: <em>Темні</em> — D3, захоплення D4 завдяки D5."
 
 #. (itstool) path: td/p
 #: C/example.page:46
 msgid "<em>Example first move</em>"
-msgstr ""
+msgstr "<em>Приклад першого ходу</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:48
 msgid "<em>Dark</em> always starts in the reversi game family."
-msgstr ""
+msgstr "<em>Темні</em> у сімействі ігор «Реверсі» завжди ходять першими."
 
 #. (itstool) path: td/p
 #: C/example.page:50
 msgid "Whatever start position is used, there are four possible first moves."
 msgstr ""
+"Якою б не була початкова позиція, завжди буде чотири можливих перших ходи."
 
 #. (itstool) path: td/p
 #: C/example.page:52
@@ -524,21 +600,23 @@ msgid ""
 "In the usual start position like here, the four possibilities are equivalent "
 "by symmetry."
 msgstr ""
+"У звичайній початковій позиції, подібній до наведеної тут, усі чотири"
+" можливості є рівноцінними через симетрію."
 
 #. (itstool) path: media/p
 #: C/example.page:59
 msgid "First <em>Light</em> move: playing E3 and capturing E4 thanks to E5."
-msgstr ""
+msgstr "Перший хід <em>Світлих</em>: фішку на E3 і захоплення E4 завдяки E5."
 
 #. (itstool) path: td/p
 #: C/example.page:63
 msgid "<em>Possible second move</em>"
-msgstr ""
+msgstr "<em>Можливий другий хід</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:65
 msgid "<em>Light</em> has three possibilities of capturing one piece."
-msgstr ""
+msgstr "У <em>Світлих</em> є три можливості для захоплення однієї фішки."
 
 #. (itstool) path: td/p
 #: C/example.page:67
@@ -546,6 +624,7 @@ msgid ""
 "The game will require to search for the <link xref=\"strategy\">best "
 "strategy</link>!"
 msgstr ""
+"Гра потребує пошуку <link xref=\"strategy\">найкращої стратегії</link>!"
 
 #. (itstool) path: media/p
 #: C/example.page:74
@@ -557,12 +636,12 @@ msgstr ""
 #. (itstool) path: td/p
 #: C/example.page:78
 msgid "<em>Capturing multiple rows</em>"
-msgstr ""
+msgstr "<em>Захоплення декількох рядків</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:80
 msgid "<em>Dark</em> has five possibilities to play, all on the sixth column."
-msgstr ""
+msgstr "У <em>Темних</em> є п'ять варіантів ходу, усі у шостому стовпчику."
 
 #. (itstool) path: td/p
 #: C/example.page:82
@@ -570,6 +649,8 @@ msgid ""
 "Two of these possibilities allow capturing in two directions at the same "
 "time, one piece in each."
 msgstr ""
+"У двох із цих варіантів можна захопити два напрямки одночасно, по одній фішці"
+" у кожному."
 
 #. (itstool) path: td/p
 #: C/example.page:84
@@ -594,12 +675,12 @@ msgstr ""
 #. (itstool) path: td/p
 #: C/example.page:97
 msgid "<em>Light</em> has again three play possibilities."
-msgstr ""
+msgstr "У <em>Світлих</em> знову три варіанти ходу."
 
 #. (itstool) path: td/p
 #: C/example.page:99
 msgid "One of them is to capture two dark pieces in a row."
-msgstr ""
+msgstr "Один з них уможливлює захоплення двох темних фішок у ряд."
 
 #. (itstool) path: td/p
 #: C/example.page:101
@@ -611,7 +692,7 @@ msgstr ""
 #. (itstool) path: page/title
 #: C/highlights.page:20
 msgid "Display helpful highlights"
-msgstr ""
+msgstr "Показ корисних підказок"
 
 #. (itstool) path: page/p
 #: C/highlights.page:22
@@ -623,7 +704,7 @@ msgstr ""
 #. (itstool) path: section/title
 #: C/highlights.page:25
 msgid "Highlight playable tiles"
-msgstr ""
+msgstr "Підсвічування плиток, на яких можна походити"
 
 #. (itstool) path: section/p
 #: C/highlights.page:27
@@ -653,7 +734,7 @@ msgstr ""
 #. (itstool) path: section/title
 #: C/highlights.page:35
 msgid "Highlight capturable tiles"
-msgstr ""
+msgstr "Підсвічування плиток, які можна захопити"
 
 #. (itstool) path: section/p
 #: C/highlights.page:37
@@ -846,7 +927,7 @@ msgstr "2012"
 #. (itstool) path: page/title
 #: C/play.page:25
 msgid "Play with mouse or keyboard"
-msgstr ""
+msgstr "Гра за допомогою миші або клавіатури"
 
 #. (itstool) path: page/p
 #: C/play.page:27
@@ -904,8 +985,8 @@ msgstr ""
 #: C/play.page:51
 msgid "You can also <link xref=\"#keyboard-play\">use the keyboard</link>."
 msgstr ""
-"Ви також можете скористатися для гри <link xref=\"#keyboard-play\""
-">клавіатурою</link>."
+"Ви також можете скористатися для гри <link xref=\"#keyboard-play"
+"\">клавіатурою</link>."
 
 #. (itstool) path: section/title
 #: C/play.page:55
@@ -1521,8 +1602,8 @@ msgid ""
 "<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
 "to strategy and tactics</link>"
 msgstr ""
-"<link href=\"http://gaurang.org/gothello/guide/guide.html\">Вступ до"
-" стратегії і тактики</link>"
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">Вступ до "
+"стратегії і тактики</link>"
 
 #. (itstool) path: item/p
 #: C/strategy.page:47
@@ -1535,8 +1616,8 @@ msgid ""
 "<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
 "guide</link>"
 msgstr ""
-"<link href=\"http://radagast.se/othello/Help/strategy.html\">Стратегічні"
-" настанови</link>"
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">Стратегічні "
+"настанови</link>"
 
 #. (itstool) path: page/title
 #: C/theme.page:20
@@ -1722,9 +1803,8 @@ msgid ""
 "translated by a world-wide volunteer community. You are welcome to "
 "participate."
 msgstr ""
-"Перекладом інтерфейсу та документації до <app>Ігор GNOME</app> "
-"переймається спільнота добровольців з усього світу. Ми будемо раді вашій "
-"участі у ній."
+"Перекладом інтерфейсу та документації до <app>Ігор GNOME</app> переймається "
+"спільнота добровольців з усього світу. Ми будемо раді вашій участі у ній."
 
 #. (itstool) path: page/p
 #: C/translate.page:35
@@ -1732,8 +1812,8 @@ msgid ""
 "There are <link href=\"https://l10n.gnome.org/module/iagno/\">many "
 "languages</link> for which translations are still needed."
 msgstr ""
-"Маємо ще <link href=\"https://l10n.gnome.org/module/iagno/\">багато"
-" мов</link>, переклад якими далекий від досконалості."
+"Маємо ще <link href=\"https://l10n.gnome.org/module/iagno/\">багато мов</"
+"link>, переклад якими далекий від досконалості."
 
 #. (itstool) path: page/p
 #: C/translate.page:39
