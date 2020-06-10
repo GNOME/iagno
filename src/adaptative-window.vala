@@ -421,7 +421,7 @@ private abstract class AdaptativeWindow : ApplicationWindow
     }
 
     /*\
-    * * manage high-constrast
+    * * manage high-contrast
     \*/
 
     internal signal void gtk_theme_changed ();

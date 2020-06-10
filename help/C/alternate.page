@@ -19,7 +19,7 @@
 
   <title>Alternate who starts</title>
 
-  <p>If you are playing multiple games in a row <link xref="ai-game">against the computer</link>, <app>Reversi</app> allows you to automatically altern who will start the next game bewteen you and the computer.</p>
+  <p>If you are playing multiple games in a row <link xref="ai-game">against the computer</link>, <app>Reversi</app> allows you to automatically alternate who will start the next game between you and the computer.</p>
 
   <p>When <link xref="configure">configuring a new game</link>, have a look to the first button with a down arrow; it should either be labelled <gui>Color: Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter case, <app>Reversi</app> is configured to start a two-player game; if so, first, configure a game <link xref="ai-game">against the computer</link>.</p>
 
