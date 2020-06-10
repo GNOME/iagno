@@ -227,7 +227,7 @@ private struct GameStateStruct
         n_tiles = n_current_tiles + n_opponent_tiles;
 
         // empty neighbors
-        init_empty_neighbors ();    // lazyness
+        init_empty_neighbors ();    // laziness
 
         // who can move
         current_player_can_move = true;
@@ -260,7 +260,7 @@ private struct GameStateStruct
         n_tiles = n_current_tiles + n_opponent_tiles;
 
         // empty neighbors
-        init_empty_neighbors ();    // lazyness
+        init_empty_neighbors ();    // laziness
 
         // who can move
         current_player_can_move = true;
@@ -830,7 +830,7 @@ private class Game : Object
     }
 
     /*\
-    * * informations
+    * * information
     \*/
 
     internal Player get_owner (uint8 x, uint8 y)
