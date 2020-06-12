@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "POT-Creation-Date: 2020-06-10 16:10+0000\n"
-"PO-Revision-Date: 2020-06-11 20:55+0300\n"
+"PO-Revision-Date: 2020-06-12 15:08+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1162,6 +1162,12 @@ msgid ""
 "than the opponent; while in <em>Reverse Reversi</em>, it is to finish with "
 "<em>less</em> pieces."
 msgstr ""
+"<em>Класична «Реверсі»</em> і <em>обернена «Реверсі»</em> є іграми на дошці"
+" для двох гравців, яких для зручності називають <em>Темним</em> та <em"
+">Світлим</em>. В обох іграх використовуються однакові правила. Різною є лише"
+" мета у грі: у <em>класичній «Реверсі»</em> метою є завершити гру із <em"
+">більшою</em> кількістю фішок, ніж у суперника; а в <em>оберненій «Реверсі»<"
+"/em>, гру слід завершити із <em>меншою</em> кількістю фішок."
 
 #. (itstool) path: page/p
 #: C/rules.page:39
@@ -1172,6 +1178,11 @@ msgid ""
 "row of pieces; when pieces are captured that way, they are turned over to "
 "join the capturing player's forces."
 msgstr ""
+"Обидва гравці грають фішками, які є темними з одного боку і"
+" світлими з іншого <em>Темні</em> і <em>Світлі</em> ходять один за одним,"
+" додаючи на порожні клітинки фішки свого кольору, захоплюючи принаймні один"
+" рядок фішок. Коли фішки захоплюють у такий спосіб, вони перевертаються і"
+" приєднуються до фішок гравця, який їх захопив."
 
 #. (itstool) path: section/title
 #: C/rules.page:42
@@ -1197,6 +1208,10 @@ msgid ""
 "allows you to <link xref=\"start-position\">vary start position</link> if "
 "you prefer."
 msgstr ""
+"Типово, <app>Реверсі</app> використовує найпоширенішу початкову позицію у"
+" сімействі ігор «Реверсі», яку показано на наведеному нижче рисунку. Втім, ви"
+" можете <link xref=\"start-position\">змінити початкову позицію</link>, якщо"
+" цього захочете."
 
 #. (itstool) path: media/p
 #: C/rules.page:52 C/start-position.page:48
@@ -1226,6 +1241,9 @@ msgid ""
 "is trapped between the newly placed piece and an already placed one of the "
 "same color."
 msgstr ""
+"Гравці один за одним — <em>Темні</em> ходять першими — кладуть на дошку фішку"
+" свого кольору так, щоб захопити принаймні один рядок плиток між новою фішкою"
+" і наявною фішкою того самого кольору."
 
 #. (itstool) path: note/p
 #: C/rules.page:71
@@ -1240,6 +1258,10 @@ msgid ""
 "the other is flipped over, taking the players color. If multiple rows of "
 "tiles are trapped that way, they are all flipped over."
 msgstr ""
+"Додавання нової фішки призводить до перевертання рядка фішок між новою фішкою"
+" і наявною фішкою — перевернуті фішки набудуть кольору гравця. Якщо у цей"
+" спосіб захоплено декілька рядків фішок, усі фішки у цих рядках"
+" перевертаються."
 
 #. (itstool) path: section/p
 #: C/rules.page:76
@@ -1248,6 +1270,9 @@ msgid ""
 "cannot pass a turn if there is a possible move. If both players cannot move, "
 "notably when the board is full, the game is over."
 msgstr ""
+"Якщо дозволених правилами ходів немає, гравець пропускає хід. Гравець не може"
+" пропускати хід, якщо на дошці є дозволені правилами ходи. Якщо ходів немає у"
+" обох гравців, зокрема, якщо дошку заповнено, гра вважається завершеною."
 
 #. (itstool) path: section/title
 #: C/rules.page:80
@@ -1260,6 +1285,8 @@ msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over."
 msgstr ""
+"Гравці ходять один за одним, аж доки на дошці лишаються дозволені правилами"
+" ходи. Якщо таких ходів не лишиться, гра вважатиметься завершеною."
 
 #. (itstool) path: section/p
 #: C/rules.page:84
@@ -1267,6 +1294,9 @@ msgid ""
 "The end of the game often results in a full board, but not necessarily. In "
 "either way, it is the number of pieces that will matter to decide who wins."
 msgstr ""
+"Наприкінці гри дошку може бути заповнено фішками, але заповнення дошки не є"
+" обов'язковою умовою кінця гри. Яким би не було завершення гри, переможця"
+" визначають за кількістю фішок відповідного кольору."
 
 #. (itstool) path: section/p
 #: C/rules.page:86
@@ -1276,6 +1306,10 @@ msgid ""
 "<em>Reverse Reversi</em> game, it is the opposite: the winner is the player "
 "with the <em>least</em> pieces on the board."
 msgstr ""
+"Якщо ви граєте у <em>класичну «Реверсі»</em>, переможцем є гравець, у якого"
+" на дошці <em>більше</em> фішок відповідного кольору. Якщо ж ви граєтеся у <"
+"em>обернену «Реверсі»</em>, результат визначається у протилежний спосіб:"
+" переможцем є той гравець, фішок якого на дошці <em>менше</em>."
 
 #. (itstool) path: section/p
 #: C/rules.page:88
@@ -1328,7 +1362,7 @@ msgid ""
 "<em>more</em> pieces than the opponent; while in <em>Reverse Reversi</em>, "
 "it is to finish with <em>less</em> pieces."
 msgstr ""
-"У обох іграх, фактично використовуються однакові правила. Різною є лише мета"
+"У обох іграх, фактично, використовуються однакові правила. Різною є лише мета"
 " у грі: у <em>класичній «Реверсі»</em> метою є завершити гру із <em>більшою<"
 "/em> кількістю фішок, ніж у суперника; а в <em>оберненій «Реверсі»</em>, гру"
 " слід завершити із <em>меншою</em> кількістю фішок."
@@ -1555,6 +1589,10 @@ msgid ""
 "a new game</link>, click on the <gui>Difficulty</gui> button, and in the "
 "menu that appears, select <gui>Vary start position</gui>."
 msgstr ""
+"Щоб увімкнути або вимкнути цю можливість під час <link xref=\"configure\""
+">налаштовування нової гри</link>, натисніть кнопку <gui>Складність</gui> і у"
+" меню, яке буде показано програмою, виберіть пункт <gui>Випадкова початкова"
+" позиція</gui>."
 
 #. (itstool) path: section/p
 #: C/start-position.page:30
@@ -1563,6 +1601,10 @@ msgid ""
 "link>, enabling this option will start new games with a random position in "
 "the six <link xref=\"#start-positions\">possible start positions</link>."
 msgstr ""
+"Якщо ви граєтеся <link xref=\"ai-game\">проти комп'ютера</link>, позначення"
+" цього пункту призведе до того, що нові ігри розпочинатимуться випадковою"
+" позицією із шести <link xref=\"#start-positions\">можливих початкових"
+" позицій</link>."
 
 #. (itstool) path: section/p
 #: C/start-position.page:32
@@ -1571,6 +1613,10 @@ msgid ""
 "enabling this option will start new games with the <link xref=\"#human-"
 "overture\">two-player game overture</link>."
 msgstr ""
+"Якщо ви граєтеся із <link xref=\"2player\">іншим гравцем-людиною</link>,"
+" позначення цього пункту призведе до того, що нові ігри розпочинатимуться із"
+" <link xref=\"#human-"
+"overture\">вступу до гри для двох гравців</link>."
 
 #. (itstool) path: section/p
 #: C/start-position.page:34
@@ -1579,6 +1625,9 @@ msgid ""
 "family is always used for new games. See its description in the list of "
 "<link xref=\"#start-positions\">possible start positions</link>."
 msgstr ""
+"Якщо цей пункт не позначено, для нових ігор завжди використовуватиметься"
+" звичайна позиція для ігор сімейства «Реверсі». Див. її опис у списку <link"
+" xref=\"#start-positions\">можливих початкових позицій</link>."
 
 #. (itstool) path: section/title
 #: C/start-position.page:38
@@ -1591,6 +1640,8 @@ msgid ""
 "There are really two possible start positions in <app>Reversi</app>, up to "
 "six as their symmetries can also be played."
 msgstr ""
+"Насправді, у <app>Реверсі</app> дві можливі початкові позиції. Кількість"
+" позицій зростає до шістьох, якщо врахувати симетрію."
 
 #. (itstool) path: section/p
 #: C/start-position.page:42
@@ -1649,6 +1700,10 @@ msgid ""
 "<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
 "option enabled, new games will start with a special two-player game overture."
 msgstr ""
+"Якщо ви <link xref=\"2player\">граєте із іншим гравцем-людиною</link> і"
+" позначили пункт <link xref=\"#varying-start-position\"><gui>Випадкова"
+" початкова позиція</gui></link>, кожна гра розпочинатиметься із особливого"
+" вступу для двох гравців."
 
 #. (itstool) path: section/p
 #: C/start-position.page:100
@@ -1665,6 +1720,8 @@ msgid ""
 "<em>Dark</em> goes first, and places the first piece on one of the four "
 "central tiles of the board."
 msgstr ""
+"<em>Темні</em> ходять першими і розташовують свою першу вішку у одній"
+" чотирьох центральних клітинок дошки."
 
 #. (itstool) path: item/p
 #: C/start-position.page:107
@@ -1672,6 +1729,7 @@ msgid ""
 "<em>Light</em> places one piece in one of the two available positions next "
 "to the dark piece."
 msgstr ""
+"<em>Світлі</em> ходять в одну із двох сусідніх клітинок із фішкою темних."
 
 #. (itstool) path: item/p
 #: C/start-position.page:110
@@ -1679,6 +1737,8 @@ msgid ""
 "<em>Dark</em> then places a piece on one of the two remaining central tiles "
 "of the board."
 msgstr ""
+"Далі, <em>темні</em> ходять у одну із двох центральних клітинок, які лишилися"
+" вільними."
 
 #. (itstool) path: item/p
 #: C/start-position.page:113
@@ -1686,6 +1746,7 @@ msgid ""
 "<em>Light</em> finishes the opening by placing a second piece at the "
 "remaining place."
 msgstr ""
+"<em>Світлі</em> завершують вступ ходом в останню вільну центральну клітинку."
 
 #. (itstool) path: item/p
 #: C/start-position.page:116
@@ -1693,6 +1754,8 @@ msgid ""
 "The game is then started, following the <link xref=\"rules\">reversi rules</"
 "link>."
 msgstr ""
+"Після цього розпочинається гра за <link xref=\"rules\">правилами «Реверсі»<"
+"/link>."
 
 #. (itstool) path: section/p
 #: C/start-position.page:120
@@ -1701,6 +1764,9 @@ msgid ""
 "position “in cross” (the usual start position or its symmetry) or a "
 "“parallel” position (the alternative position or one of its symmetries)."
 msgstr ""
+"Цей вступ надає змогу першому гравцеві вибрати, починатиметься гра з позиції"
+" «навхрест» (звичайної позиці або її симетричного варіанта) чи з"
+" «паралельної» позиції (альтернативної позиції або однієї із її симетрій)."
 
 #. (itstool) path: page/title
 #: C/strategy.page:24
@@ -1715,6 +1781,10 @@ msgid ""
 "strategies, such as trying to flip as many of your opponent's pieces early "
 "on in the game, should be avoided."
 msgstr ""
+"У <app>Реверсі</app> немає якоїсь однієї певної стратегії для виграшу. Маємо,"
+" ймовірніше, елементи стратегії, якими можна скористатися для досягнення"
+" переваги у грі. Деяких стратегій, зокрема намагання перевертати якомога"
+" більше фішок суперника на початку гри, слід уникати."
 
 #. (itstool) path: page/p
 #: C/strategy.page:31
@@ -1722,6 +1792,8 @@ msgid ""
 "Much has been written on the topic of strategy for the games <em>Othello</"
 "em> and <em>Reversi</em>."
 msgstr ""
+"Про стратегії у іграх <em>Отелло</em> та <em>Реверсі</em> написано доволі"
+" багато."
 
 #. (itstool) path: page/p
 #: C/strategy.page:38
@@ -1729,6 +1801,8 @@ msgid ""
 "If you are interested in learning about specific strategies for the game, "
 "the following links may be of interest:"
 msgstr ""
+"Якщо ви хочете ознайомитися із деякими стратегіями у грі, варто прочитати"
+" матеріали за такими посиланнями:"
 
 #. (itstool) path: item/p
 #: C/strategy.page:43
@@ -1764,6 +1838,8 @@ msgid ""
 "<app>Reversi</app> supports various board themes, so that you can adjust its "
 "look to your taste."
 msgstr ""
+"У <app>Реверсі</app> передбачено підтримку різноманітних тем дошки, отже ви"
+" можете налаштувати вигляд гри за власними смаками."
 
 #. (itstool) path: page/p
 #: C/theme.page:24
@@ -1772,6 +1848,9 @@ msgid ""
 "adapted to your environment; see the section about the <link xref=\"#default-"
 "theme\"><em>Default</em> theme</link>."
 msgstr ""
+"Якщо тему не було змінено явним чином, програма намагається вибрати тему, яку"
+" адаптовано до вашого середовища; див. розділ щодо <link xref=\"#default-"
+"theme\"><em>типової</em> теми</link>."
 
 #. (itstool) path: section/title
 #: C/theme.page:27
@@ -1785,6 +1864,9 @@ msgid ""
 "window, select <gui>Appearance</gui>, and select one of the items in the "
 "given list."
 msgstr ""
+"Щоб змінити тему, натисніть кнопку меню у верхньому правому куті вікна"
+" програми, виберіть пункт <gui>Вигляд</gui> і виберіть один із пунктів у"
+" показаному списку."
 
 #. (itstool) path: section/p
 #: C/theme.page:31
@@ -1795,6 +1877,11 @@ msgid ""
 "link>. The following suggestions are described in the <link xref=\"#themes-"
 "list\">themes list</link>."
 msgstr ""
+"Першим у списку буде пункт із назвою <gui><em>Типова</em></gui>. За його"
+" допомогою можна наказати програмі вибрати тему, яку буде адаптовано до"
+" вашого середовища; див. розділ щодо <link xref=\"#default-theme\"><em"
+">типової</em> теми</link>. Інші варіанти описано у розділі щодо <link"
+" xref=\"#themes-list\">списку тем</link>."
 
 #. (itstool) path: section/p
 #: C/theme.page:33
@@ -1803,6 +1890,10 @@ msgid ""
 "are for <link xref=\"highlights\">displaying helpful highlights</link>. "
 "These are working whatever theme you decide to use."
 msgstr ""
+"Після списку тем у меню буде наведено пункти розділу <gui>Підсвічування</gui"
+">, за допомогою яких ви зможете <link xref=\"highlights\">увімкнути показ"
+" корисних підсвічувань</link>. "
+"Підсвічування працюватимуть у будь-якій з вибраних вами тем."
 
 #. (itstool) path: section/title
 #: C/theme.page:37
@@ -1820,6 +1911,8 @@ msgid ""
 "<em>Classic</em>: this theme mimics the most usual reversi boards, with a "
 "green background and bicolor pieces;"
 msgstr ""
+"<em>Класична</em>: ця тема імітує найпоширеніші дошки для «Реверсі» із"
+" зеленим тлом і двокольоровими фішками;"
 
 #. (itstool) path: item/p
 #: C/theme.page:46
@@ -1827,6 +1920,8 @@ msgid ""
 "<em>Black and White</em>: this theme is more conceptual, featuring geometric "
 "shapes and a high black and white contrast;"
 msgstr ""
+"<em>Чорний і білий</em>: концептуальніша тема, геометричні форми та висока"
+" контрастність;"
 
 #. (itstool) path: item/p
 #: C/theme.page:49
@@ -1834,6 +1929,8 @@ msgid ""
 "<em>Adwaita</em>: this theme uses a blue board, more suitable if the theme "
 "of your windows is a dark one;"
 msgstr ""
+"<em>Adwaita</em>: колір дошки у цій темі є синім, краще пасує до темних тем"
+" графічного середовища;"
 
 #. (itstool) path: item/p
 #: C/theme.page:52
@@ -1841,6 +1938,8 @@ msgid ""
 "<em>Sun and Star</em>: this theme is a variant of the <em>Classic</em> one, "
 "with some decorations on the pieces."
 msgstr ""
+"<em>Сонце і зорі</em>: ця тема є різновидом теми <em>Класична</em> із"
+" декораціями на фішках."
 
 #. (itstool) path: section/p
 #: C/theme.page:56
@@ -1849,6 +1948,9 @@ msgid ""
 "special behavior; see the section about the <link xref=\"#default-theme"
 "\"><em>Default</em> theme</link>."
 msgstr ""
+"Перший пункт у списку тем має назву <em>Типова</em> і є особливим — див."
+" розділ щодо <link xref=\"#default-theme"
+"\"><em>типової</em> теми</link>."
 
 #. (itstool) path: section/title
 #: C/theme.page:60
@@ -1860,7 +1962,7 @@ msgstr "<em>Типова</em> тема"
 msgid ""
 "The first entry in the themes list is called <em>Default</em> and has a "
 "special behavior."
-msgstr ""
+msgstr "Перший пункт у списку тем має назву <em>Типова</em> і є особливим."
 
 #. (itstool) path: section/p
 #: C/theme.page:64
@@ -1868,6 +1970,8 @@ msgid ""
 "When this entry is selected, the application tries to choose a theme adapted "
 "to your environment:"
 msgstr ""
+"Якщо вибрано цей пункт, програма намагається вибрати тему, яку адаптовано до"
+" вашого середовища:"
 
 #. (itstool) path: item/p
 #: C/theme.page:68
@@ -1877,6 +1981,10 @@ msgid ""
 "theme used will be the one called <em>Adwaita</em>, that is darker than the "
 "other themes thanks to its blue background;"
 msgstr ""
+"якщо ви користуєтеся темою середовища, яка є темною — наприклад <em>Adwaita"
+" Dark</em> — або якщо вами було задіяно нічних режим GNOME, буде використано"
+" тему дошки із назвою <em>Adwaita</em>, яка є темнішою за інші теми, завдяки"
+" її синьому тлу;"
 
 #. (itstool) path: item/p
 #: C/theme.page:71
@@ -1886,6 +1994,10 @@ msgid ""
 "accessibility option, the board theme used will be the one called <em>Black "
 "and White</em>, that should be a perfect fit;"
 msgstr ""
+"якщо ви користуєтеся темою середовища, яка є висококонтрастною, особливо якщо"
+" вами було активовано параметр доступності GNOME «висока контрастність», для"
+" дошки буде використано тему із назвою <em>Чорний і білий</em>, яка має"
+" чудово пасувати до середовища;"
 
 #. (itstool) path: item/p
 #: C/theme.page:74
@@ -1893,6 +2005,9 @@ msgid ""
 "else, the theme used will be the one called <em>Classic</em>, that uses a "
 "green board quite common for reversi games."
 msgstr ""
+"у інших випадках буде використано тему із назвою <em>Класична</em>; у цій"
+" темі використано дошку зеленого кольору, яка є типовою для ігор сімейства"
+" «Реверсі»."
 
 #. (itstool) path: section/p
 #: C/theme.page:78
