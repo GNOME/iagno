@@ -78,7 +78,7 @@
   </content_rating>
 
   ​<releases>
-    <!-- should be kept in versionning inverted order -->
+    <!-- should be kept in versioning inverted order -->
     <release version="3.36.0" date="2020-03-09" type="stable" urgency="medium"/>
   ​  <release version="3.35.91" date="2020-02-15" type="development" urgency="low"/>
   </releases>
