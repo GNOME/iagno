@@ -6,10 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-25 01:34+0000\n"
-"PO-Revision-Date: 2015-09-21 16:29+0500\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2020-05-30 09:52+0000\n"
+"PO-Revision-Date: 2020-06-26 12:38+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,295 +16,827 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.3.1\n"
 
-#: ../data/iagno.appdata.xml.in.h:1 ../data/iagno.desktop.in.h:1
-#: ../src/iagno.vala:86 ../src/iagno.vala:182 ../src/iagno.vala:286
-msgid "Iagno"
+#: data/org.gnome.Reversi.appdata.xml.in:7
+msgid "GNOME Reversi"
+msgstr "GNOME реверси"
+
+#: data/org.gnome.Reversi.appdata.xml.in:8
+msgid ""
+"Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr ""
+"Классикалық реверси ойынында тақтаға үстемдік ету немесе кері нұсқаны ойнау"
 
-#: ../data/iagno.appdata.xml.in.h:2 ../data/iagno.desktop.in.h:2
+#: data/org.gnome.Reversi.appdata.xml.in:11
+msgid ""
+"Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
+"use tiles that are dark on one side and light on the other."
+msgstr ""
+"Reversi — 8-8 тақтада ойналатын екі ойыншының стратегиялық ойыны. Ойыншылар "
+"бір жағынан қараңғы және екінші жағынан жарық түсетін плиткаларды "
+"пайдаланады."
+
+#: data/org.gnome.Reversi.appdata.xml.in:15
+msgid ""
+"The object of reversi is to flip your opponent’s tiles to your color, while "
+"your opponent is trying to flip your tiles to his own color. Opponent’s "
+"tiles are flipped when trapped between an already placed tile of your color "
+"and the tile you add. Who finishes with more tiles wins!"
+msgstr ""
+"Реверсидің мақсаты қарсылас жақтың плиткаларын өз түсіңізге аудару болып "
+"табылады, ал қарсылас жақ плиткаларды өз түсіне аударуға тырысады. Қарсылас "
+"жағының плиткалары сіз алдында қойған және қазір қоятын плитка арасында "
+"қалып қойса, аударылады. Жеңу үшін көбірек плиткамен аяқтау керек!"
+
+#: data/org.gnome.Reversi.appdata.xml.in:21
+msgid ""
+"GNOME Reversi allows you to play both a classic reversi game, and the "
+"reversed variant, where the goal is to finish with less tile than your "
+"opponent."
+msgstr ""
+"GNOME Reversi классикалық реверсивті ойынды да, кері нұсқаны да ойнауға "
+"мүмкіндік береді, оның мақсаты қарсылас жаққа қарағанда аз плиткамен аяқтау."
+
+#: data/org.gnome.Reversi.appdata.xml.in:30
+msgid "A GNOME Reversi game preview"
+msgstr "GNOME реверси ойынын алдын ала қарау"
+
+#: data/org.gnome.Reversi.appdata.xml.in:49
+msgid "The GNOME Project"
+msgstr "GNOME жобасы"
+
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
+#: src/iagno.vala:28
+msgid "Reversi"
+msgstr "Реверси"
+
+#. Translators: a Comment that gives the application function, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:9
 msgid "Dominate the board in a classic version of Reversi"
-msgstr ""
+msgstr "Реверси классикалық нұсқасында тақтаға үстемдік ету"
 
-#: ../data/iagno.appdata.xml.in.h:3
-msgid ""
-"Iagno is a computer version of the game Reversi, a two-player strategy board "
-"game. The game is played with tiles that are dark on one side and light on "
-"the other."
-msgstr ""
+#. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Reversi.desktop.in:11
+msgid "reversi;othello;"
+msgstr "reversi;othello;реверси;отелло;"
 
-#: ../data/iagno.appdata.xml.in.h:4
-msgid ""
-"The object of Iagno is to flip as many of your opponent's tiles to your "
-"color as possible while preventing your opponent from flipping your tiles to "
-"his color. This is done by trapping your opponent's tiles between two tiles "
-"of your own color."
-msgstr ""
+#. Translators: accessible name of the hamburger menu
+#: data/ui/base-headerbar.ui:113
+msgid "Actions"
+msgstr "Әрекеттер"
 
-#: ../data/iagno.desktop.in.h:3
-msgid "othello;"
-msgstr ""
+#. Translators: accessible description of the hamburger menu
+#: data/ui/base-headerbar.ui:115
+msgid "Current view actions"
+msgstr "Ағымдағы көрініс әрекеттері"
 
-#: ../data/iagno.desktop.in.h:4
-msgid "Play first (Dark)"
-msgstr ""
-
-#: ../data/iagno.desktop.in.h:5
-msgid "Play second (Light)"
-msgstr ""
-
-#: ../data/iagno.desktop.in.h:6
-msgid "Two players game"
-msgstr ""
-
-#: ../data/iagno-menus.ui.h:1
-msgid "A_ppearance"
-msgstr "Сырт _көрінісі"
-
-#: ../data/iagno-menus.ui.h:2
-msgid "_Sound"
-msgstr "Д_ыбыс"
-
-#: ../data/iagno-menus.ui.h:3
-msgid "_Help"
-msgstr "_Көмек"
-
-#: ../data/iagno-menus.ui.h:4
-msgid "_About"
-msgstr "О_сы туралы"
-
-#: ../data/iagno-menus.ui.h:5
-msgid "_Quit"
-msgstr "_Шығу"
-
-#: ../data/iagno-screens.ui.h:1
-msgid "Players"
-msgstr "Ойыншылар"
-
-#: ../data/iagno-screens.ui.h:2
-msgid "_One"
-msgstr "_Бір"
-
-#: ../data/iagno-screens.ui.h:3
-msgid "_Two"
-msgstr "_Екі"
-
-#: ../data/iagno-screens.ui.h:4
-msgid "Difficulty"
-msgstr "Қиындығы"
-
-#: ../data/iagno-screens.ui.h:5
-msgid "_Easy"
-msgstr "_Оңай"
-
-#: ../data/iagno-screens.ui.h:6
-msgid "_Medium"
-msgstr "О_рташа"
-
-#: ../data/iagno-screens.ui.h:7
-msgid "_Hard"
-msgstr "Қ_иын"
-
-#: ../data/iagno-screens.ui.h:8
-msgid "Color"
-msgstr "Түсі"
-
-#: ../data/iagno-screens.ui.h:9
-msgid "_Dark"
-msgstr ""
-
-#: ../data/iagno-screens.ui.h:10
-msgid "_Light"
-msgstr ""
-
-#: ../data/iagno-themes.ui.h:1
-msgid "Select Theme"
-msgstr "Теманы таңдау"
-
-#: ../data/iagno-themes.ui.h:2
-msgid "Default"
-msgstr "Үнсіз келісім бойынша"
-
-#: ../data/iagno.ui.h:1
-msgid "Go back to the current game"
-msgstr "Ағымдағы ойынға қайтып оралу"
-
-#: ../data/iagno.ui.h:2
-msgid "_New Game"
-msgstr "Ж_аңа ойын"
-
-#: ../data/iagno.ui.h:3
-msgid "Configure a new game"
-msgstr "Жаңа ойынды баптау"
-
-#: ../data/iagno.ui.h:4
+#. Translators: during a game, tooltip text of the New Game button
+#: data/ui/game-headerbar.ui:33
 msgid "Start a new game"
 msgstr "Жаңа ойынды бастау"
 
-#: ../data/themes/adwaita.theme.in.h:1
+#. Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt)
+#: data/ui/game-headerbar.ui:42
+msgid "_New Game"
+msgstr "Ж_аңа ойын"
+
+#. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
+#: data/ui/game-headerbar.ui:56
+msgid "Go back to the current game"
+msgstr "Ағымдағы ойынға қайтып оралу"
+
+#: data/ui/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Ойын таңдау кезінде"
+
+#: data/ui/help-overlay.ui:34
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Жаңа ойынды бастау"
+
+#: data/ui/help-overlay.ui:41
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Артқа өту"
+
+#: data/ui/help-overlay.ui:50
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Пернетақтамен ойнау"
+
+#: data/ui/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "Қайда ойнауды таңдау"
+
+#: data/ui/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Көрсетілген жолды таңдау"
+
+#: data/ui/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "Көрсетілген бағанды таңдау"
+
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "Таңдалған плиткада ойнау"
+
+#: data/ui/help-overlay.ui:84
+msgctxt "shortcut window"
+msgid "During a game"
+msgstr "Ойын барысында"
+
+#: data/ui/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "New game"
+msgstr "Жаңа ойын"
+
+#: data/ui/help-overlay.ui:95
+msgctxt "shortcut window"
+msgid "Undo last move"
+msgstr "Соңғы жылжытуды болдырмау"
+
+#: data/ui/help-overlay.ui:104
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "Жалпы"
+
+#: data/ui/help-overlay.ui:108
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Пернетақта жарлықтары"
+
+#: data/ui/help-overlay.ui:115
+msgctxt "shortcut window"
+msgid "Help"
+msgstr "Көмек"
+
+#: data/ui/help-overlay.ui:122
+msgctxt "shortcut window"
+msgid "About"
+msgstr "Осы туралы"
+
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Шығу"
+
+#. Translators: label of the game status button (in the headerbar, next to the hamburger button), when the game is finished; please keep the string as small as possible (3~5 characters)
+#: data/ui/history-button.ui:43
+msgid "End!"
+msgstr "Бітті!"
+
+#. Translators: when configuring a new game, header of the game type that appears on small screen
+#: data/ui/new-game-screen.ui:32
+msgid "Game"
+msgstr "Ойын"
+
+#. Translators: when configuring a new game, header of the options that appears on small screen
+#: data/ui/new-game-screen.ui:88
+msgid "Options"
+msgstr "Опциялар"
+
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
+#: data/themes/adwaita.theme.desktop.in:22
 msgid "Adwaita"
 msgstr "Адвайта"
 
-#: ../data/themes/classic.theme.in.h:1
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; copies the look of the most common physical board
+#: data/themes/classic.theme.desktop.in:22
 msgid "Classic"
 msgstr "Классикалық"
 
-#: ../data/themes/high_contrast.theme.in.h:1
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; uses only two colors, one really dark and one really light
+#: data/themes/high_contrast.theme.desktop.in:23
 msgid "Black and White"
 msgstr "Ақ пен қара"
 
-#: ../data/themes/sun_and_star.theme.in.h:1
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
+#: data/themes/sun_and_star.theme.desktop.in:22
 msgid "Sun and Star"
 msgstr "Күн және жұлдыздар"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:1
-msgid "Computer's AI level"
-msgstr ""
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:6
+msgid "A flag to follow system night light"
+msgstr "Жүйелік түнгі жарық күйіне сай болу жалаушасы"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:2
-msgid "From 1, the easiest, to 3, the hardest."
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:8
+msgid "Use GNOME night light setting to activate night-mode."
 msgstr ""
+"Түнгі жарықты белсендіру үшін GNOME түнгі жарық режимін белсендіру үшін "
+"қолданыңыз."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:3
-msgid "Whether to play against the computer or another human."
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:15
+msgid "The width of the window"
+msgstr "Терезе ені"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:17
+msgid "The width of the main window in pixels."
+msgstr "Басты терезенің ені, пиксельмен."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:24
+msgid "The height of the window"
+msgstr "Терезе биіктігі"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:26
+msgid "The height of the main window in pixels."
+msgstr "Басты терезенің биіктігі, пиксельмен."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:31
+msgid "A flag to enable maximized mode"
+msgstr "Максималды режимін іске қосу жалаушасы"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:33
+msgid "If “true”, the main window starts in maximized mode."
 msgstr ""
+"Егер \"true\" болса, басты терезе максималды күйінде іске қосылатын болады."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:4
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:50
+msgid "A flag to alternate who starts"
+msgstr "Кім бастайтынын ауыстыратын жалауша"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:52
+msgid ""
+"If “true”, when playing against AI, the “color” settings is toggled after "
+"every new game request, making the next game being started with inverted "
+"roles (previous Dark player playing Light). Ignored for two-player games."
+msgstr ""
+"Егер \"true\" болса, AI-ге қарсы ойнағанда \"color\" параметрі әрбір жаңа "
+"ойын сұрауынан кейін ауысып, жаңа ойында бұрыңғы рөлдер орынмен өзгереді "
+"(алдыңғы Күңгірт ойыншы енді Ашық түспен ойнайды). Екі ойыншы ойындарында "
+"еленбейді."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
+#: data/org.gnome.Reversi.gschema.xml:57
 msgid "Color to play as"
-msgstr ""
+msgstr "Ойнау үшін түс"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:5
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color'
+#: data/org.gnome.Reversi.gschema.xml:59
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
+"Күңгірт немесе Ашық түстілер ретінде ойнау керек пе. Екі ойыншы ойындарында "
+"еленбейді."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:6
-msgid "Theme"
-msgstr "Темасы"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:65
+msgid "Computer’s AI level"
+msgstr "Компьютердің AI деңгейі"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:7
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:67
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Ең оңай, 1-ден, ең қиынға, 3-ке дейін."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:72
+msgid "A flag to highlight playable tiles"
+msgstr "Ойналатын плиткаларды түспен ерекшелеу жалаушасы"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:74
+msgid "If “true”, the tiles where you can play are highlighted."
+msgstr "Егер \"true\" болса, ойналатын плиткаларды түспен ерекшеленеді."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
+#: data/org.gnome.Reversi.gschema.xml:79
+msgid "A flag to highlight capturable tiles"
+msgstr "Ұстауға болатын плиткаларды түспен ерекшелеу жалаушасы"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
+#: data/org.gnome.Reversi.gschema.xml:81
 msgid ""
-"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
-"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+"If “true”, the tiles that will be captured to the opponent by a play are "
+"highlighted."
 msgstr ""
+"Егер \"true\" болса, ағымдағы жүрумен қарсыластың ұстауға болатын плиткалары "
+"түспен ерекшеленеді."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:8
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
+#: data/org.gnome.Reversi.gschema.xml:87
+msgid "Whether to play against the computer or another human."
+msgstr "Компьютерге немесе басқа адамға қарсы ойнау керек пе."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:93
+msgid "A flag to randomize start position"
+msgstr "Бастау орнын кездейсоқ қылуға арналған жалауша"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:95
+msgid ""
+"Reversi can be played with two different initial positions (and their "
+"symmetries). If “true”, the game will randomly start with one or the other "
+"position; if “false”, only the most common initial position is used. You can "
+"force the game to use the alternative position by using the “--alternative-"
+"start” argument on the command-line; also, if either “--usual-start” or “--"
+"random-start” is given instead on the command-line, this flag will be "
+"ignored."
+msgstr ""
+"Реверсиді екі түрлі бастапқы позицияда (және олардың симметриялы) ойнауға "
+"болады. Егер \"true\" болса, ойын кездейсоқ орыннан басталады; егер \"false"
+"\" болса, ең жиі қолданылатын бастапқы орын ғана пайдаланылады. Ойынды "
+"балама позициядан бастауға командалық жолды “--alternative-start” аргументін "
+"беру арқылы мәжбүрлеуге болады; ал командалық жолда “--usual-start” немесе "
+"“--random-start” берілсе, бұл жалауша еленбейді."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
+#: data/org.gnome.Reversi.gschema.xml:100
 msgid "Sound"
 msgstr "Дыбыс"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:9
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
+#: data/org.gnome.Reversi.gschema.xml:102
 msgid "Whether or not to play event sounds."
+msgstr "Оқиға дыбыстарын ойнату немесе ойнамау."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#: data/org.gnome.Reversi.gschema.xml:107
+msgid "Theme"
+msgstr "Темасы"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
+#: data/org.gnome.Reversi.gschema.xml:109
+msgid ""
+"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
+"“high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
+"Қолданылатын теманың файл аты, немесе “default”. Ұсынылғандар “adwaita."
+"theme”, “high_contrast.theme” және “sun_and_star.theme”."
 
-#: ../data/org.gnome.iagno.gschema.xml.h:10
-msgid "Width of the window in pixels"
-msgstr "Терезе ені, пиксельмен"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:114
+msgid "Name of the game"
+msgstr "Ойынның атауы"
 
-#: ../data/org.gnome.iagno.gschema.xml.h:11
-msgid "Height of the window in pixels"
-msgstr "Терезе биіктігі, пиксельмен"
-
-#: ../data/org.gnome.iagno.gschema.xml.h:12
-msgid "true if the window is maximized"
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:116
+msgid ""
+"The name of the game that will be played. It could be “classic” (the usual "
+"game, where you try to have more pieces), or “reverse” (the opposite game, "
+"where you try to have less pieces)."
 msgstr ""
+"Ойналатын ойынның аты. Ол \"classic\" (кәдімгі ойын, онда көбірек дана алуға "
+"тырысады) немесе \"reverse\" (қарама-қарсы ойын, онда азырақ дана алуға "
+"тырысады) болуы мүмкін."
 
-#: ../src/game-window.vala:128
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
+#: src/about-list.vala:44 src/base-headerbar.vala:288
+msgid "About"
+msgstr "Осы туралы"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the first is "About"
+#: src/about-list.vala:46
+msgid "Credits"
+msgstr "Үлес қосқандар"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of the link to the GPL license; TODO better text, as in the usual about dialog
+#: src/about-list.vala:135
+msgid ""
+"GNU General Public License\n"
+"version 3 or later"
+msgstr ""
+"GNU General Public License,\n"
+"нұсқасы 3 не одан кейін шыққан"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the programmers names
+#: src/about-list.vala:154
+msgid "Creators"
+msgstr "Жасағандар"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the documenters names
+#: src/about-list.vala:161
+msgid "Documenters"
+msgstr "Құжаттаманы жазған"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
+#: src/about-list.vala:166
+msgid "Translators"
+msgstr "Аудармашылар"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the pictural artists names
+#: src/about-list.vala:172
+msgid "Artists"
+msgstr "Суретшілер"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:149
+msgid "Pause night mode"
+msgstr "Түнгі режимді аялдату"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:153
+msgid "Reuse night mode"
+msgstr "Түнгі режимді қайта пайдалану"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:157
+msgid "Use night mode"
+msgstr "Түнгі режимді пайдалану"
+
+#. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
+#: src/base-headerbar.vala:116
+msgid "_Keyboard Shortcuts"
+msgstr "П_ернетақта жарлықтары"
+
+#. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
+#: src/base-headerbar.vala:125
+msgid "_Help"
+msgstr "_Көмек"
+
+#. Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:200
+msgid "A_ppearance"
+msgstr "Сырт _көрінісі"
+
+#. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:204
+msgid "_Sound"
+msgstr "Д_ыбыс"
+
+#. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
+#: src/game-view.vala:58
 msgid "_Start Game"
 msgstr "Ба_стау"
 
-#: ../src/game-window.vala:153
-msgid "Undo your most recent move"
-msgstr ""
-
-#: ../src/iagno.vala:58
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:75
 msgid "Start with an alternative position"
-msgstr ""
+msgstr "Баламалы позициядан бастау"
 
-#: ../src/iagno.vala:59
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:78
+msgid "Play Classic Reversi"
+msgstr "Классикалық реверси ойнау"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:81
 msgid "Reduce delay before AI moves"
-msgstr ""
+msgstr "AI жылжулар арасындағы кідірісті азайту"
 
-#: ../src/iagno.vala:60
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:84
 msgid "Play first"
-msgstr ""
+msgstr "Бірінші болып ойнау"
 
-#: ../src/iagno.vala:61
-msgid "Set the level of the computer's AI"
-msgstr ""
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:87
+msgid "Set the level of the computer’s AI"
+msgstr "Компьютердің AI деңгейін орнату"
 
-#: ../src/iagno.vala:62
+#. Translators: in the command-line options description, text to indicate the user should specify a level, see 'iagno --help'
+#: src/iagno.vala:90
+msgid "LEVEL"
+msgstr "ДЕҢГЕЙ"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:93
 msgid "Turn off the sound"
-msgstr ""
+msgstr "Дыбысты сөндіру"
 
-#: ../src/iagno.vala:63
+#. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
+#: src/iagno.vala:96
+msgid "Log the game moves"
+msgstr "Ойын барысын журналдау"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:99
+msgid "Start with a random position"
+msgstr "Кездейсоқ орыннан бастау"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:102
+msgid "Play Reverse Reversi"
+msgstr "Кері реверси ойнау"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:105
 msgid "Play second"
 msgstr "Екінші болып ойнау"
 
-#: ../src/iagno.vala:64
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:108
 msgid "Size of the board (debug only)"
-msgstr ""
+msgstr "Тақтаның өлшемі (тек жөндеу)"
 
-#: ../src/iagno.vala:65
+#. Translators: in the command-line options description, text to indicate the user should specify a size, see 'iagno --help'
+#: src/iagno.vala:111
+msgid "SIZE"
+msgstr "ӨЛШЕМІ"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:114
 msgid "Two-players mode"
-msgstr ""
+msgstr "Екі ойыншының режімі"
 
-#: ../src/iagno.vala:66
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:117
 msgid "Turn on the sound"
-msgstr ""
+msgstr "Дыбысты сөндіру"
 
-#: ../src/iagno.vala:67
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:120
+msgid "Start with the usual position"
+msgstr "Әдеттегі орыннан бастау"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:123
 msgid "Print release version and exit"
 msgstr "Нұсқа ақпаратын шығару және шығу"
 
-#. Console message displayed for an incorrect size
-#: ../src/iagno.vala:111
-msgid "Size must be at least 4."
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
+#: src/iagno.vala:171
+msgid ""
+"The “--alternative-start”, “--random-start” and “--usual-start” arguments "
+"are mutually exclusive."
 msgstr ""
+"“--alternative-start”, “--random-start” және “--usual-start” аргументтері "
+"өзара бәсекелеседі."
 
-#: ../src/iagno.vala:165
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
+#: src/iagno.vala:178
+msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
+msgstr "“--classic” және “--reverse” аргументтері өзара бәсекелеседі."
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
+#: src/iagno.vala:185
+msgid "Size must be at least 4."
+msgstr "Өлшемі 4-тен кем болмауы тиіс."
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
+#: src/iagno.vala:191
+msgid "Size must not be more than 16."
+msgstr "Өлшемі 16-дан аспауы тиіс."
+
+#. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
+#: src/iagno.vala:257
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
+"Деңгей 1 (оңай) және 3 (қатты) арасында болуы тиіс. Параметрлер өзгеріссіз "
+"қалды."
 
-#: ../src/iagno.vala:294
-msgid "A disk flipping game derived from Reversi"
-msgstr ""
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:273
+msgid "Play _first (Dark)"
+msgstr "Бі_рінші болып ойнау (Күңгірт)"
 
-#: ../src/iagno.vala:297
-msgid "translator-credits"
-msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010"
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:277
+msgid "Play _second (Light)"
+msgstr "Е_кінші болып ойнау (Ашық түсті)"
 
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:359 ../src/iagno.vala:360
-#, c-format
-msgid "%.2d"
-msgstr ""
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:283
+msgid "_Alternate who starts"
+msgstr "Кім бастайтынын _ауыстыру"
 
-#. Message to display when Light has no possible moves
-#: ../src/iagno.vala:432
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:289
+#| msgid "Players"
+msgid "_Two players"
+msgstr "_Екі ойыншы"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:298
+msgid "_Easy"
+msgstr "_Оңай"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:302
+msgid "_Medium"
+msgstr "О_рташа"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:306
+msgid "_Hard"
+msgstr "Қ_иын"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:315
+msgid "_Vary start position"
+msgstr "Бастау орнын ау_ыстыру"
+
+#. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:322 src/iagno.vala:981
+msgid "Classic Reversi"
+msgstr "Классикалық реверси"
+
+#. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:326 src/iagno.vala:978
+msgid "Reverse Reversi"
+msgstr "Кері реверси"
+
+#. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
+#: src/iagno.vala:337
+msgid "Default"
+msgstr "Үнсіз келісім бойынша"
+
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:393
+msgid "Pla_yable tiles"
+msgstr "О_йнауға болатын плиткалар"
+
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
+#: src/iagno.vala:397
+msgid "_Capturable tiles"
+msgstr "Ұс_тауға болатын плиткалар"
+
+#. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
+#: src/iagno.vala:401
+msgid "Highlights"
+msgstr "Түспен ерекшелеу"
+
+#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:408
+msgid "_Undo last move"
+msgstr "Соңғы жылжытуды болд_ырмау"
+
+#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:413
+msgid "_Show final board"
+msgstr "Қорытынды тақтаны көр_сету"
+
+#. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:430
+#| msgid "_About"
+msgid "_About Reversi"
+msgstr "Реверси тур_алы"
+
+#. Translators: when configuring a new game, button label if a two-players game is chosen
+#: src/iagno.vala:618
+msgid "Two players"
+msgstr "Екі ойыншы"
+
+#. Translators: when configuring a new game, button label if the player choose to start
+#: src/iagno.vala:622
+msgid "Color: Dark"
+msgstr "Түсі: Күңгірт"
+
+#. Translators: when configuring a new game, button label if the player choose let computer start
+#: src/iagno.vala:626
+msgid "Color: Light"
+msgstr "Түсі: Ашық"
+
+#. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
+#: src/iagno.vala:683
+msgid "More options"
+msgstr "Көбірек опциялар"
+
+#. Translators: when configuring a new game, button label for the AI level, if easy
+#: src/iagno.vala:687
+msgid "Difficulty: Easy"
+msgstr "Қиындық: оңай"
+
+#. Translators: when configuring a new game, button label for the AI level, if medium
+#: src/iagno.vala:691
+msgid "Difficulty: Medium"
+msgstr "Қиындық: орташа"
+
+#. Translators: when configuring a new game, button label for the AI level, if hard
+#: src/iagno.vala:695
+msgid "Difficulty: Hard"
+msgstr "Қиындық: Қатты"
+
+#. Translators: during a game, notification to display when Light has no possible moves
+#: src/iagno.vala:900
 msgid "Light must pass, Dark’s move"
-msgstr ""
+msgstr "Ашық түстілер өткізеді, Күңгірт түстінің жүру реті"
 
-#. Message to display when Dark has no possible moves
-#: ../src/iagno.vala:437
+#. Translators: during a game, notification to display when Dark has no possible moves
+#: src/iagno.vala:905
 msgid "Dark must pass, Light’s move"
-msgstr ""
+msgstr "Күңгірт түстілер өткізеді, Ашық түстінің жүру реті"
 
-#. Message to display when Light has won the game
-#: ../src/iagno.vala:448
-msgid "Light wins!"
-msgstr ""
+#. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
+#: src/iagno.vala:919
+#, c-format
+msgid "Light wins! (%u-%u)"
+msgstr "Ашық түстес жеңді! (%u-%u)"
 
-#. Message to display when Dark has won the game
-#: ../src/iagno.vala:453
-msgid "Dark wins!"
-msgstr ""
+#. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
+#: src/iagno.vala:924
+#, c-format
+msgid "Dark wins! (%u-%u)"
+msgstr "Күңгірт түсті жеңді! (%u-%u)"
 
-#. Message to display when the game is a draw
-#: ../src/iagno.vala:458
+#. Translators: during a game, notification to display when the game is a draw
+#: src/iagno.vala:928
 msgid "The game is draw."
-msgstr ""
+msgstr "Ешкім ұтпады."
 
-#. Message to display when the player tries to make an illegal move
-#: ../src/iagno.vala:474
+#. Translators: during a game, notification to display when the player tries to make an illegal move
+#: src/iagno.vala:947
 msgid "You can’t move there!"
 msgstr "Осында жылжытуға болмайды!"
+
+#. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
+#: src/iagno.vala:954
+msgid "In this opening, Light can only play on tiles bordering on Dark one."
+msgstr ""
+"Басталған кезде, Ашық түсті тек Күңгірт түстімен шекаралас плиткада ойнай "
+"алады."
+
+#. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
+#: src/iagno.vala:958
+msgid "Click on one of the highlighted tiles to move the selected piece there."
+msgstr ""
+"Таңдалған бөлікті сол жерге жылжыту үшін түспен ерекшеленген плиткалардың "
+"бірін басыңыз."
+
+#. Translators: about dialog text
+#: src/iagno.vala:1091
+msgid "A disk flipping game derived from Reversi"
+msgstr "Реверсиден тараған дискіні аудару ойыны"
+
+#. Translators: text crediting an artist, in the about dialog
+#: src/iagno.vala:1095
+msgid "Masuichi Ito (pieces)"
+msgstr "Masuichi Ito (бөліктер)"
+
+#. Translators: text crediting an artist, in the about dialog
+#: src/iagno.vala:1099
+msgid "Arnaud Bonatti (themes)"
+msgstr "Arnaud Bonatti (темалар)"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1104
+msgid "Ian Peters"
+msgstr "Ian Peters"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1108
+msgid "Robert Ancell"
+msgstr "Robert Ancell"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1112
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1117
+#, c-format
+msgid "Copyright © %u-%u – Ian Peters"
+msgstr "Copyright © %u-%u – Ian Peters"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1121
+#, c-format
+msgid "Copyright © %u-%u – Michael Catanzaro"
+msgstr "Copyright © %u-%u – Michael Catanzaro"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1125
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Copyright © %u-%u – Arnaud Bonatti"
+
+#. Translators: text crediting a documenter, in the about dialog
+#: src/iagno.vala:1129
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/iagno.vala:1134
+msgid "translator-credits"
+msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
+
+#. Translators: about dialog text; label of the website link
+#: src/iagno.vala:1139
+msgid "Page on GNOME wiki"
+msgstr "GNOME вики беті"
+
+#. Translators: when configuring a new game, button label for the size of the game ("3 × 3", or 4, or 5)
+#: src/new-game-screen.vala:95
+#, c-format
+msgid "Size: %d × %d ▾"
+msgstr "Өлшемі: %d × %d ▾"
+
+#~ msgid "_One"
+#~ msgstr "_Бір"
+
+#~ msgid "_Two"
+#~ msgstr "_Екі"
+
+#~ msgid "Configure a new game"
+#~ msgstr "Жаңа ойынды баптау"
