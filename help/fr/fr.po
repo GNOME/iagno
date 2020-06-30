@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno doc fr\n"
-"POT-Creation-Date: 2020-03-21 11:28+0000\n"
-"PO-Revision-Date: 2020-04-12 13:48+0200\n"
+"POT-Creation-Date: 2020-06-10 16:50+0000\n"
+"PO-Revision-Date: 2020-06-29 12:45+0200\n"
 "Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -222,12 +222,12 @@ msgstr ""
 "Lors de la <link xref=\"configure\">configuration d’une nouvelle partie</"
 "link>, portez attention au deuxième bouton comportant une flèche vers le "
 "bas ; il doit être étiqueté <gui>Difficulté faible</gui>, <gui>Difficulté "
-"moyenne</gui>, <gui>Difficulté élevée</gui> ou <gui>Options "
-"supplémentaires</gui>. Les trois premières possibilités indiquent lequel des "
-"trois niveaux sera utilisé si vous démarrez une nouvelle partie. Dans le "
-"dernier cas, <app>Reversi</app> est configuré par défaut pour une partie à "
-"deux joueurs, et vous devez d’abord effectuer la configuration pour pouvoir "
-"<link xref=\"ai-game\">jouer contre l’ordinateur</link>."
+"moyenne</gui>, <gui>Difficulté élevée</gui> ou <gui>Options supplémentaires</"
+"gui>. Les trois premières possibilités indiquent lequel des trois niveaux "
+"sera utilisé si vous démarrez une nouvelle partie. Dans le dernier cas, "
+"<app>Reversi</app> est configuré par défaut pour une partie à deux joueurs, "
+"et vous devez d’abord effectuer la configuration pour pouvoir <link xref="
+"\"ai-game\">jouer contre l’ordinateur</link>."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:28
@@ -643,7 +643,8 @@ msgstr "<em>Exemple de premier coup</em>"
 #. (itstool) path: td/p
 #: C/example.page:48
 msgid "<em>Dark</em> always starts in the reversi game family."
-msgstr "Les <em>noirs</em> commencent toujours dans la famille de jeux reversi."
+msgstr ""
+"Les <em>noirs</em> commencent toujours dans la famille de jeux reversi."
 
 #. (itstool) path: td/p
 #: C/example.page:50
@@ -692,8 +693,8 @@ msgid ""
 "<em>Dark</em> turns multiple rows: playing F3, it captures both E3 due to D3 "
 "and E4 due to D5."
 msgstr ""
-"Les <em>noirs</em> tournent plusieurs rangées : en jouant F3, ils capturent à "
-"la fois E3 grâce à D3 et E4 grâce à D5."
+"Les <em>noirs</em> tournent plusieurs rangées : en jouant F3, ils capturent "
+"à la fois E3 grâce à D3 et E4 grâce à D5."
 
 #. (itstool) path: td/p
 #: C/example.page:78
@@ -1102,10 +1103,10 @@ msgid ""
 "a circle in the top-right corner (or in the bottom bar on small windows) and "
 "select <gui>Undo last move</gui>."
 msgstr ""
-"Vous pouvez toujours annuler votre coup. Pour cela, appuyez sur le "
-"bouton comportant une flèche et un cercle dans le coin supérieur droit (ou "
-"dans la barre inférieure dans les petites fenêtres) et sélectionnez "
-"<gui>Annuler la précédente action</gui>."
+"Vous pouvez toujours annuler votre coup. Pour cela, appuyez sur le bouton "
+"comportant une flèche et un cercle dans le coin supérieur droit (ou dans la "
+"barre inférieure dans les petites fenêtres) et sélectionnez <gui>Annuler la "
+"précédente action</gui>."
 
 #. (itstool) path: section/p
 #: C/play.page:51
@@ -1133,9 +1134,12 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/play.page:63
+#| msgid ""
+#| "Use the <key>Space</key> or the <key>Return</key> key to drop a piece on "
+#| "the selected tile."
 msgid ""
-"Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the "
-"selected tile."
+"Use the <key>Space</key> or the <key>Return</key> key to drop a piece one "
+"the selected tile."
 msgstr ""
 "Utilisez la touche <key>Barre d’espace</key> ou <key>Entrée</key> pour "
 "déposer un pion sur la case sélectionnée."
@@ -1146,8 +1150,8 @@ msgid ""
 "You can always undo your move. For that, use the <keyseq><key>Ctrl</"
 "key><key>Z</key></keyseq> keys sequence."
 msgstr ""
-"Vous pouvez toujours annuler votre coup. Pour cela, utilisez la "
-"combinaison de touches <keyseq><key>Ctrl</key><key>Z</key></keyseq>."
+"Vous pouvez toujours annuler votre coup. Pour cela, utilisez la combinaison "
+"de touches <keyseq><key>Ctrl</key><key>Z</key></keyseq>."
 
 #. (itstool) path: section/p
 #: C/play.page:76
@@ -1379,7 +1383,7 @@ msgid ""
 msgstr ""
 "Lors de la <link xref=\"configure\">configuration d’une nouvelle partie</"
 "link>, choisissez le jeu auquel vous souhaitez jouer en sélectionnant les "
-"boutons <em>Reversi classique</em> ou <em>Reversi inversé</em>."
+"boutons <gui>Reversi classique</gui> ou <gui>Reversi inversé</gui>."
 
 #. (itstool) path: page/p
 #: C/select-game.page:26
@@ -1737,8 +1741,13 @@ msgstr "Ouverture de jeu à deux"
 
 #. (itstool) path: section/p
 #: C/start-position.page:98
+#| msgid ""
+#| "When <link xref=\"2player\">playing with another player</link> with the "
+#| "<link xref=\"#varying-start-position\"><gui>Vary start position</gui></"
+#| "link> option enabled, new games will start with a special two-player game "
+#| "overture."
 msgid ""
-"When <link xref=\"2player\">playing with another player</link> with the "
+"When <link xref=\"2player\">playing with another player</link> with the the "
 "<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
 "option enabled, new games will start with a special two-player game overture."
 msgstr ""
