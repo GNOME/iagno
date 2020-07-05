@@ -69,7 +69,7 @@
         <p>To show possible moves, select a tile where there is already a piece, whatever its color is. Alternatively, you might want to <link xref="highlights#highlight-playable-tiles">highlight playable tiles</link>.</p>
       </item>
       <item>
-        <p>You can always undo your move. For that, use the <keyseq><key>Ctrl</key><key>Z</key></keyseq> keys sequence.</p>
+        <p>You can always undo your move. For that, use <keyseq><key>Ctrl</key><key>Z</key></keyseq>.</p>
       </item>
     </steps>
 
