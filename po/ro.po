@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.ro\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-04-10 20:22+0000\n"
-"PO-Revision-Date: 2020-04-22 12:12+0300\n"
+"POT-Creation-Date: 2020-07-03 15:59+0000\n"
+"PO-Revision-Date: 2020-07-06 13:38+0200\n"
 "Last-Translator: Florentina Mușat <florentina.musat.28 [at] gmail [dot] "
 "com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n"
 "%100<=19) ? 1 : 2);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Launchpad-Export-Date: 2009-11-27 09:12+0000\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -787,7 +787,7 @@ msgstr ""
 #: src/iagno.vala:958
 msgid "Click on one of the highlighted tiles to move the selected piece there."
 msgstr ""
-"Dați clic pe una din dalele evidențiate pentru a muta piesa selectată acolo."
+"Clic pe una din dalele evidențiate pentru a muta piesa selectată acolo."
 
 #. Translators: about dialog text
 #: src/iagno.vala:1091
