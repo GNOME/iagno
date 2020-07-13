@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-01-29 17:47+0000\n"
-"PO-Revision-Date: 2020-02-08 14:44+0200\n"
+"POT-Creation-Date: 2020-07-05 10:49+0000\n"
+"PO-Revision-Date: 2020-07-13 16:22+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 3.34.0\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
 msgid "GNOME Reversi"
@@ -117,82 +117,111 @@ msgstr "_Naujas žaidimas"
 msgid "Go back to the current game"
 msgstr "Grįžti į dabartinį žaidimą"
 
-#: data/ui/help-overlay.ui:30
-msgctxt "shortcut window"
-msgid "During game selection"
-msgstr "Žaidimo pasirinkimo metu"
-
-#: data/ui/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Start new game"
-msgstr "Pradėti naują žaidimą"
-
-#: data/ui/help-overlay.ui:41
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Grįžti atgal"
-
-#: data/ui/help-overlay.ui:50
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "Žaisti klaviatūra"
-
-#: data/ui/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select where to play"
-msgstr "Pasirinkite, kur žaisti"
-
-#: data/ui/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "Pasirinkti pateiktą eilutę"
-
-#: data/ui/help-overlay.ui:68
-msgctxt "shortcut window"
-msgid "Select the given column"
-msgstr "Pasirinkti pateiktą stulpelį"
-
-#: data/ui/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Play on selected tile"
-msgstr "Žaidi su pasirinkta plytele"
-
-#: data/ui/help-overlay.ui:84
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
 msgctxt "shortcut window"
 msgid "During a game"
 msgstr "Žaidimo metu"
 
-#: data/ui/help-overlay.ui:88
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Naujas žaidimas"
 
-#: data/ui/help-overlay.ui:95
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Atšaukti paskutinį ėjimą"
 
-#: data/ui/help-overlay.ui:104
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+#| msgid "Log the game moves"
+msgctxt "shortcut window"
+msgid "Toggle game menu"
+msgstr "Perjungti žaidimo meniu"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Žaisti klaviatūra"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "Pasirinkite, kur žaisti"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Pasirinkti pateiktą eilutę"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "Pasirinkti pateiktą stulpelį"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "Žaidi su pasirinkta plytele"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Žaidimo pasirinkimo metu"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Pradėti naują žaidimą"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Grįžti atgal"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Bendra"
 
-#: data/ui/help-overlay.ui:108
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Perjungti pagrindinį meniu"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Klaviatūros trumpiniai"
 
-#: data/ui/help-overlay.ui:115
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Žinynas"
 
-#: data/ui/help-overlay.ui:122
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Apie"
 
-#: data/ui/help-overlay.ui:129
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Išeiti"
@@ -700,7 +729,6 @@ msgstr "Spalva: šviesi"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
 #: src/iagno.vala:683
-#| msgid "Options"
 msgid "More options"
 msgstr "Daugiau parametrų"
 
