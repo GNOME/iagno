@@ -14,16 +14,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-02-14 04:54+0000\n"
-"PO-Revision-Date: 2020-03-07 23:12+0100\n"
-"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
+"POT-Creation-Date: 2020-07-05 10:49+0000\n"
+"PO-Revision-Date: 2020-07-17 13:20+0200\n"
+"Last-Translator: Carles Ferrando Garcia <carles.ferrando@gnuescultura.eu>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-DamnedLies-Scope: partial\n"
+"X-Generator: Poedit 2.3\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
 msgid "GNOME Reversi"
@@ -32,7 +33,9 @@ msgstr "GNOME Reversi"
 #: data/org.gnome.Reversi.appdata.xml.in:8
 msgid ""
 "Dominate the board in a classic reversi game, or play the reversed variant"
-msgstr "Domineu el tauler en una versió clàssica del Reversi o jugueu la variant invertida del joc"
+msgstr ""
+"Domineu el tauler en una versió clàssica del Reversi o jugueu la variant "
+"invertida del joc"
 
 #: data/org.gnome.Reversi.appdata.xml.in:11
 msgid ""
@@ -44,22 +47,16 @@ msgstr ""
 "una banda i blanques per l'altra."
 
 #: data/org.gnome.Reversi.appdata.xml.in:15
-#, fuzzy
-#| msgid ""
-#| "The object of Iagno is to flip as many of your opponent’s tiles to your "
-#| "color as possible while preventing your opponent from flipping your tiles "
-#| "to his color. This is done by trapping your opponent’s tiles between two "
-#| "tiles of your own color."
 msgid ""
 "The object of reversi is to flip your opponent’s tiles to your color, while "
 "your opponent is trying to flip your tiles to his own color. Opponent’s "
 "tiles are flipped when trapped between an already placed tile of your color "
 "and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
-"La finalitat del Iagno és donar la volta a tantes peces del vostre oponent "
+"La finalitat del reversi és donar la volta a tantes peces del vostre oponent "
 "com pugueu mentre eviteu que el vostre oponent volti les vostres. Això "
 "s'aconsegueix atrapant les peces de l'oponent entre dues peces del vostre "
-"color."
+"color. Qui acaba amb més fitxes guanya!"
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
@@ -67,6 +64,8 @@ msgid ""
 "reversed variant, where the goal is to finish with less tile than your "
 "opponent."
 msgstr ""
+"GNOME Reversi us permet jugar tant un joc reversi clàssic com una variant "
+"invertida, on l'objectiu és acabar amb menys peces que el vostre oponent."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
 msgid "A GNOME Reversi game preview"
@@ -118,82 +117,110 @@ msgstr "Partida _nova"
 msgid "Go back to the current game"
 msgstr "Torna a la partida actual"
 
-#: data/ui/help-overlay.ui:30
-msgctxt "shortcut window"
-msgid "During game selection"
-msgstr "Durant la selecció del joc"
-
-#: data/ui/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Start new game"
-msgstr "Començar una partida nova"
-
-#: data/ui/help-overlay.ui:41
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Torna enrere"
-
-#: data/ui/help-overlay.ui:50
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "Jugueu amb el teclat"
-
-#: data/ui/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select where to play"
-msgstr "Seleccioneu on jugar"
-
-#: data/ui/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "Seleccioneu la fila donada"
-
-#: data/ui/help-overlay.ui:68
-msgctxt "shortcut window"
-msgid "Select the given column"
-msgstr "Seleccioneu la columna donada"
-
-#: data/ui/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Play on selected tile"
-msgstr "Jugueu amb el mosaic seleccionat"
-
-#: data/ui/help-overlay.ui:84
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
 msgctxt "shortcut window"
 msgid "During a game"
 msgstr "Durant una partida"
 
-#: data/ui/help-overlay.ui:88
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Partida nova"
 
-#: data/ui/help-overlay.ui:95
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Desfés l'última jugada"
 
-#: data/ui/help-overlay.ui:104
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+msgctxt "shortcut window"
+msgid "Toggle game menu"
+msgstr "Commuta el menú de la partida"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Jugueu amb el teclat"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "Seleccioneu on jugar"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Seleccioneu la fila donada"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "Seleccioneu la columna donada"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "Jugueu amb el mosaic seleccionat"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Durant la selecció del joc"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Començar una partida nova"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Torna enrere"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Genèric"
 
-#: data/ui/help-overlay.ui:108
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Commuta el menú principal"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Tecles de drecera"
 
-#: data/ui/help-overlay.ui:115
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Ajuda"
 
-#: data/ui/help-overlay.ui:122
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Quant a"
 
-#: data/ui/help-overlay.ui:129
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Surt"
@@ -274,19 +301,6 @@ msgstr "Un senyalador per habilitar el mode maximitzat"
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "Si és «true» (cert), la finestra principal s'inicia maximitzada."
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
-#: data/org.gnome.Reversi.gschema.xml:50
-msgid "A flag to alternate who starts"
-msgstr ""
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
-#: data/org.gnome.Reversi.gschema.xml:52
-msgid ""
-"If “true”, when playing against AI, the “color” settings is toggled after "
-"every new game request, making the next game being started with inverted "
-"roles (previous Dark player playing Light). Ignored for two-player games."
-msgstr ""
-
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:57
 msgid "Color to play as"
@@ -310,49 +324,18 @@ msgstr "Des d'1, el més senzill, fins a 3, el més difícil."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:72
-#, fuzzy
-#| msgid "A flag to highlight turnable tiles"
 msgid "A flag to highlight playable tiles"
 msgstr "Un senyalador per ressaltar les peces movibles"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
-#: data/org.gnome.Reversi.gschema.xml:74
-msgid "If “true”, the tiles where you can play are highlighted."
-msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
 msgid "A flag to highlight capturable tiles"
 msgstr "Un senyalador per ressaltar les peces que es poden capturar"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
-#: data/org.gnome.Reversi.gschema.xml:81
-msgid ""
-"If “true”, the tiles that will be captured to the opponent by a play are "
-"highlighted."
-msgstr ""
-
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
 #: data/org.gnome.Reversi.gschema.xml:87
 msgid "Whether to play against the computer or another human."
 msgstr "Si jugueu contra l'ordinador o un altre humà."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
-#: data/org.gnome.Reversi.gschema.xml:93
-msgid "A flag to randomize start position"
-msgstr ""
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
-#: data/org.gnome.Reversi.gschema.xml:95
-msgid ""
-"Reversi can be played with two different initial positions (and their "
-"symmetries). If “true”, the game will randomly start with one or the other "
-"position; if “false”, only the most common initial position is used. You can "
-"force the game to use the alternative position by using the “--alternative-"
-"start” argument on the command-line; also, if either “--usual-start” or “--"
-"random-start” is given instead on the command-line, this flag will be "
-"ignored."
-msgstr ""
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
 #: data/org.gnome.Reversi.gschema.xml:100
@@ -371,29 +354,12 @@ msgstr "Tema"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
 #: data/org.gnome.Reversi.gschema.xml:109
-#, fuzzy
-#| msgid ""
-#| "Filename of the theme used, or \"default\". Are provided \"adwaita.theme"
-#| "\", \"high_contrast.theme\" and \"sun_and_star.theme\"."
 msgid ""
 "Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
 "“high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
 "Nom de fitxer del tema usat, o «{default}». Disponibles: «adwaita.theme», "
 "«high_contrast.theme» i «sun_and_star.theme»."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
-#: data/org.gnome.Reversi.gschema.xml:114
-msgid "Name of the game"
-msgstr ""
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
-#: data/org.gnome.Reversi.gschema.xml:116
-msgid ""
-"The name of the game that will be played. It could be “classic” (the usual "
-"game, where you try to have more pieces), or “reverse” (the opposite game, "
-"where you try to have less pieces)."
-msgstr ""
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
@@ -523,7 +489,7 @@ msgstr "Comença amb una posició aleatòria"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:102
 msgid "Play Reverse Reversi"
-msgstr ""
+msgstr "Juga el Reversi invertit"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:105
@@ -566,11 +532,13 @@ msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments "
 "are mutually exclusive."
 msgstr ""
+"Els arguments “--alternative-start”, “--random-start” i “--usual-start” són "
+"mútuament excloents."
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
 #: src/iagno.vala:178
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
-msgstr ""
+msgstr "Els arguments “--classic” i “--reverse”  són mútuament excloents."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
 #: src/iagno.vala:185
@@ -648,11 +616,8 @@ msgstr "Per defecte"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:393
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Play on selected tile"
 msgid "Pla_yable tiles"
-msgstr "Jugueu amb el mosaic seleccionat"
+msgstr "Peces amb les quals pots _jugar"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:397
@@ -750,11 +715,14 @@ msgstr "Aquí no s'hi pot anar!"
 #: src/iagno.vala:954
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
 msgstr ""
+"En aquesta obertura, les blanques només pot jugar a les peces que voregen "
+"les negres."
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
 #: src/iagno.vala:958
 msgid "Click on one of the highlighted tiles to move the selected piece there."
 msgstr ""
+"Clica en una de les peces ressaltades per moure la peça seleccionada aquí."
 
 #. Translators: about dialog text
 #: src/iagno.vala:1091
@@ -819,7 +787,8 @@ msgstr ""
 "Jesús Corrius <jesus@softcatala.org>\n"
 "Josep Puigdemont <josep.puigdemont@gmail.com>\n"
 "David Planella <david.planella@gmail.com>\n"
-"Jordi Mas <jmas@softcatala.org>"
+"Jordi Mas <jmas@softcatala.org>\n"
+"Carles Ferrando Garcia <carles.ferrando@gnuescultura.eu>"
 
 #. Translators: about dialog text; label of the website link
 #: src/iagno.vala:1139
