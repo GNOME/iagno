@@ -15,7 +15,8 @@ run_target('update-perfs-tests', command: executable ('iagno-perfs-tests-generat
             '--enable-experimental-non-null'
         ],
         dependencies : [
-            gio_dependency
+            gio_dependency,
+            posix_dependency
         ]
     )
 )
