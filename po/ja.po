@@ -1,5 +1,5 @@
 # gnome-games ja.po.
-# Copyright (C) 1998-2019 Free Software Foundation, Inc.
+# Copyright (C) 1998-2010, 2012, 2019-2020 Free Software Foundation, Inc.
 # Yukihiro Nakai <Nakai@technologist.com>, 1998.
 # Akira Higuchi <a-higuti@math.sci.hokudai.ac.jp>, 1999.
 # Yuusuke Tahara <tahara@gnome.gr.jp>, 2000.
@@ -9,14 +9,14 @@
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
 # Shushi KUROSE <md81bird@hitaki.net>, 2012.
 # Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012.
-# sicklylife <translation@sicklylife.jp>, 2019.
+# sicklylife <translation@sicklylife.jp>, 2019-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-2-32\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
 "POT-Creation-Date: 2020-05-31 06:31+0000\n"
-"PO-Revision-Date: 2019-09-09 18:00+0900\n"
+"PO-Revision-Date: 2020-08-23 00:16+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -26,17 +26,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
-#, fuzzy
-#| msgid "Reversi"
 msgid "GNOME Reversi"
-msgstr "リバーシ"
+msgstr "GNOME リバーシ"
 
 #: data/org.gnome.Reversi.appdata.xml.in:8
-#, fuzzy
-#| msgid "Dominate the board in a classic version of Reversi"
 msgid ""
 "Dominate the board in a classic reversi game, or play the reversed variant"
-msgstr "有名なリバーシの古典版で盤上を支配してください"
+msgstr "有名なリバーシの古典版で盤上を支配するか、支配されてください"
 
 #: data/org.gnome.Reversi.appdata.xml.in:11
 msgid ""
@@ -125,13 +121,13 @@ msgstr "新しいゲーム"
 #: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Undo last move"
-msgstr "最後の一手を元に戻す"
+msgstr "直前の一手を元に戻す"
 
 #. Translators: in the Keyboard Shortcuts window, section "During a game"
 #: data/ui/help-overlay.ui:52
 msgctxt "shortcut window"
 msgid "Toggle game menu"
-msgstr ""
+msgstr "ゲームメニューの表示を切り替える"
 
 #. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
 #: data/ui/help-overlay.ui:62
@@ -143,25 +139,25 @@ msgstr "キーボード操作"
 #: data/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Select where to play"
-msgstr "マスを選択する"
+msgstr "マス目を選択する"
 
 #. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
 #: data/ui/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Select the given row"
-msgstr "指定行のマスを選択する"
+msgstr "指定行のマス目を選択する"
 
 #. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
 #: data/ui/help-overlay.ui:83
 msgctxt "shortcut window"
 msgid "Select the given column"
-msgstr "指定列のマスを選択する"
+msgstr "指定列のマス目を選択する"
 
 #. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
 #: data/ui/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Play on selected tile"
-msgstr "選択したマスに置く"
+msgstr "選択したマス目に置く"
 
 #. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
 #: data/ui/help-overlay.ui:101
@@ -191,13 +187,13 @@ msgstr "全般"
 #: data/ui/help-overlay.ui:129
 msgctxt "shortcut window"
 msgid "Toggle main menu"
-msgstr ""
+msgstr "メインメニューの表示を切り替える"
 
 #. Translators: in the Keyboard Shortcuts window, section "Generic"
 #: data/ui/help-overlay.ui:137
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
-msgstr "キーボードショートカット"
+msgstr "キーボードショートカットを表示する"
 
 #. Translators: in the Keyboard Shortcuts window, section "Generic"
 #: data/ui/help-overlay.ui:145
@@ -209,7 +205,7 @@ msgstr "ヘルプを表示する"
 #: data/ui/help-overlay.ui:153
 msgctxt "shortcut window"
 msgid "About"
-msgstr "Iagno について表示する"
+msgstr "“リバーシについて”を表示する"
 
 #. Translators: in the Keyboard Shortcuts window, section "Generic"
 #: data/ui/help-overlay.ui:161
@@ -224,17 +220,13 @@ msgstr "終!"
 
 #. Translators: when configuring a new game, header of the game type that appears on small screen
 #: data/ui/new-game-screen.ui:32
-#, fuzzy
-#| msgid "_New Game"
 msgid "Game"
-msgstr "新しいゲーム(_N)"
+msgstr "ゲーム"
 
 #. Translators: when configuring a new game, header of the options that appears on small screen
 #: data/ui/new-game-screen.ui:88
-#, fuzzy
-#| msgid "Actions"
 msgid "Options"
-msgstr "アクション"
+msgstr "オプション"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
 #: data/themes/adwaita.theme.desktop.in:22
@@ -259,42 +251,42 @@ msgstr "太陽と星"
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:6
 msgid "A flag to follow system night light"
-msgstr ""
+msgstr "システムの夜間モードに従うかどうかのフラグ"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:8
 msgid "Use GNOME night light setting to activate night-mode."
-msgstr ""
+msgstr "GNOME の設定を使用して夜間モードを有効にします。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
 msgid "The width of the window"
-msgstr ""
+msgstr "ウィンドウの幅"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:17
 msgid "The width of the main window in pixels."
-msgstr ""
+msgstr "メインウィンドウの幅 (ピクセル単位) です。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:24
 msgid "The height of the window"
-msgstr ""
+msgstr "ウィンドウの高さ"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
 #: data/org.gnome.Reversi.gschema.xml:26
 msgid "The height of the main window in pixels."
-msgstr ""
+msgstr "メインウィンドウの高さ (ピクセル単位) です。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:31
 msgid "A flag to enable maximized mode"
-msgstr ""
+msgstr "最小化モードの有効化フラグ"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:33
 msgid "If “true”, the main window starts in maximized mode."
-msgstr ""
+msgstr "“true”にすると、メインウィンドウを最小化した状態で起動します。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
 #: data/org.gnome.Reversi.gschema.xml:50
@@ -312,53 +304,51 @@ msgstr ""
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:57
 msgid "Color to play as"
-msgstr ""
+msgstr "プレイする色"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:59
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
+"黒と白のどちらでプレイするかの設定です。二人で対戦する場合は無視します。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
 #: data/org.gnome.Reversi.gschema.xml:65
 msgid "Computer’s AI level"
-msgstr ""
+msgstr "コンピューターの AI レベル"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
 #: data/org.gnome.Reversi.gschema.xml:67
 msgid "From 1, the easiest, to 3, the hardest."
-msgstr ""
+msgstr "1 が初級、3 が上級です。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:72
-#, fuzzy
-#| msgid "Highlight _turnable tiles"
 msgid "A flag to highlight playable tiles"
-msgstr "ひっくり返せるものをハイライト(_T)"
+msgstr "置けるマス目を強調表示するかどうかのフラグ"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:74
 msgid "If “true”, the tiles where you can play are highlighted."
-msgstr ""
+msgstr "“true”にすると、置けるマス目を強調表示します。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
-#, fuzzy
-#| msgid "Highlight _turnable tiles"
 msgid "A flag to highlight capturable tiles"
-msgstr "ひっくり返せるものをハイライト(_T)"
+msgstr "ひっくり返せるマス目を強調表示するかどうかのフラグ"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:81
 msgid ""
 "If “true”, the tiles that will be captured to the opponent by a play are "
 "highlighted."
-msgstr ""
+msgstr "“true”にすると、ひっくり返せるマス目を強調表示します。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
 #: data/org.gnome.Reversi.gschema.xml:87
 msgid "Whether to play against the computer or another human."
 msgstr ""
+"コンピューターと対戦するか、他の人と対戦するかどうかです。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
 #: data/org.gnome.Reversi.gschema.xml:93
@@ -402,7 +392,7 @@ msgstr ""
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
 #: data/org.gnome.Reversi.gschema.xml:114
 msgid "Name of the game"
-msgstr ""
+msgstr "ゲームの名前"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
 #: data/org.gnome.Reversi.gschema.xml:116
@@ -450,7 +440,7 @@ msgstr "翻訳者"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the pictural artists names
 #: src/about-list.vala:172
 msgid "Artists"
-msgstr ""
+msgstr "アートワーク担当"
 
 #. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
 #: src/adaptative-window.vala:149
@@ -495,12 +485,12 @@ msgstr "ゲーム開始(_S)"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:75
 msgid "Start with an alternative position"
-msgstr ""
+msgstr "円盤の配置を変えて開始する"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:78
 msgid "Play Classic Reversi"
-msgstr ""
+msgstr "古典版リバーシをプレイする"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:81
@@ -510,7 +500,7 @@ msgstr "AI 行動時の遅延を短くする"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:84
 msgid "Play first"
-msgstr "先手で始める"
+msgstr "先手になる"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:87
@@ -530,22 +520,22 @@ msgstr "効果音を無効にする"
 #. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
 #: src/iagno.vala:96
 msgid "Log the game moves"
-msgstr ""
+msgstr "ゲームの流れを記録する"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:99
 msgid "Start with a random position"
-msgstr ""
+msgstr "円盤の配置をランダムにして開始する"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:102
 msgid "Play Reverse Reversi"
-msgstr ""
+msgstr "逆リバーシをプレイする"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:105
 msgid "Play second"
-msgstr "後手で始める"
+msgstr "後手になる"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:108
@@ -570,7 +560,7 @@ msgstr "効果音を有効にする"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:120
 msgid "Start with the usual position"
-msgstr ""
+msgstr "通常の円盤の配置で開始する"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:123
@@ -583,11 +573,13 @@ msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments "
 "are mutually exclusive."
 msgstr ""
+"“--alternative-start”、“--random-start”および“--usual-start”は同時指定でき"
+"ません。"
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
 #: src/iagno.vala:178
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
-msgstr ""
+msgstr "“--classic”と“--reverse”は同時指定できません。"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
 #: src/iagno.vala:185
@@ -603,26 +595,22 @@ msgstr "最大数は 16 です。"
 #: src/iagno.vala:257
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
-"設定できるレベルは 1 (初級) から 3 (上級) です。設定の変更は行いません。"
+"設定できるレベルは 1 (初級) から 3 (上級) です。設定を変更しません。"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:273
-#, fuzzy
-#| msgid "Play first (Dark)"
 msgid "Play _first (Dark)"
-msgstr "先手 (黒)"
+msgstr "先手 (黒)(_F)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:277
-#, fuzzy
-#| msgid "Play second (Light)"
 msgid "Play _second (Light)"
-msgstr "後手 (白)"
+msgstr "後手 (白)(_S)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:283
 msgid "_Alternate who starts"
-msgstr ""
+msgstr "先手後手を入れ替える(_A)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:289
@@ -647,23 +635,19 @@ msgstr "上級(_H)"
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:315
 msgid "_Vary start position"
-msgstr ""
+msgstr "開始位置を指定(_V)"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:322 src/iagno.vala:981
-#, fuzzy
-#| msgid "Reversi"
 msgid "Classic Reversi"
-msgstr "リバーシ"
+msgstr "古典版リバーシ"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:326 src/iagno.vala:978
-#, fuzzy
-#| msgid "Reversi"
 msgid "Reverse Reversi"
-msgstr "リバーシ"
+msgstr "逆リバーシ"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
 #: src/iagno.vala:337
@@ -672,28 +656,23 @@ msgstr "既定"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:393
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Play on selected tile"
 msgid "Pla_yable tiles"
-msgstr "選択したマスに置く"
+msgstr "置けるマス目(_Y)"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:397
-#, fuzzy
-#| msgid "Highlight _turnable tiles"
 msgid "_Capturable tiles"
-msgstr "ひっくり返せるものをハイライト(_T)"
+msgstr "ひっくり返せるマス目(_C)"
 
 #. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
 #: src/iagno.vala:401
 msgid "Highlights"
-msgstr ""
+msgstr "強調表示"
 
 #. Translators: history menu entry (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:408
 msgid "_Undo last move"
-msgstr "最後の一手を元に戻す(_U)"
+msgstr "直前の一手を元に戻す(_U)"
 
 #. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:413
@@ -702,55 +681,43 @@ msgstr "最後の盤面を表示(_S)"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:430
-#, fuzzy
-#| msgid "Reversi"
 msgid "_About Reversi"
-msgstr "リバーシ"
+msgstr "リバーシについて(_A)"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
 #: src/iagno.vala:618
-#, fuzzy
-#| msgid "_Two players"
 msgid "Two players"
-msgstr "二人で対戦(_T)"
+msgstr "二人で対戦"
 
 #. Translators: when configuring a new game, button label if the player choose to start
 #: src/iagno.vala:622
-#, fuzzy
-#| msgid "Color"
 msgid "Color: Dark"
-msgstr "色"
+msgstr "色: 黒"
 
 #. Translators: when configuring a new game, button label if the player choose let computer start
 #: src/iagno.vala:626
 msgid "Color: Light"
-msgstr ""
+msgstr "色: 白"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
 #: src/iagno.vala:683
 msgid "More options"
-msgstr ""
+msgstr "その他のオプション"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
 #: src/iagno.vala:687
-#, fuzzy
-#| msgid "Difficulty"
 msgid "Difficulty: Easy"
-msgstr "難易度"
+msgstr "難易度: 初級"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
 #: src/iagno.vala:691
-#, fuzzy
-#| msgid "Difficulty"
 msgid "Difficulty: Medium"
-msgstr "難易度"
+msgstr "難易度: 中級"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
 #: src/iagno.vala:695
-#, fuzzy
-#| msgid "Difficulty"
 msgid "Difficulty: Hard"
-msgstr "難易度"
+msgstr "難易度: 上級"
 
 #. Translators: during a game, notification to display when Light has no possible moves
 #: src/iagno.vala:900
@@ -766,13 +733,13 @@ msgstr "黒は置く場所がないため白の番です"
 #: src/iagno.vala:919
 #, c-format
 msgid "Light wins! (%u-%u)"
-msgstr "プレイヤー白の勝ちです! (%u-%u)"
+msgstr "プレーヤー白の勝ちです! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
 #: src/iagno.vala:924
 #, c-format
 msgid "Dark wins! (%u-%u)"
-msgstr "プレイヤー黒の勝ちです! (%u-%u)"
+msgstr "プレーヤー黒の勝ちです! (%u-%u)"
 
 #. Translators: during a game, notification to display when the game is a draw
 #: src/iagno.vala:928
@@ -787,12 +754,12 @@ msgstr "そこには置けません!"
 #. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
 #: src/iagno.vala:954
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
-msgstr ""
+msgstr "この時点では、白は黒に隣接するマス目にしか置けません。"
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
 #: src/iagno.vala:958
 msgid "Click on one of the highlighted tiles to move the selected piece there."
-msgstr ""
+msgstr "強調されているマス目をクリックして円盤を置いてください。"
 
 #. Translators: about dialog text
 #: src/iagno.vala:1091
@@ -802,12 +769,12 @@ msgstr "リバーシから派生した円盤をひっくり返すゲームです
 #. Translators: text crediting an artist, in the about dialog
 #: src/iagno.vala:1095
 msgid "Masuichi Ito (pieces)"
-msgstr ""
+msgstr "Masuichi Ito (円盤)"
 
 #. Translators: text crediting an artist, in the about dialog
 #: src/iagno.vala:1099
 msgid "Arnaud Bonatti (themes)"
-msgstr ""
+msgstr "Arnaud Bonatti (テーマ)"
 
 #. Translators: text crediting an author, in the about dialog
 #: src/iagno.vala:1104
@@ -872,10 +839,7 @@ msgstr "GNOME Wiki のページ"
 #: src/new-game-screen.vala:95
 #, c-format
 msgid "Size: %d × %d ▾"
-msgstr ""
-
-#~ msgid "Iagno"
-#~ msgstr "Iagno"
+msgstr "大きさ: %d × %d ▾"
 
 #~ msgid "Two players game"
 #~ msgstr "二人で対戦"
@@ -890,7 +854,7 @@ msgstr ""
 #~ msgstr "後手(_S)"
 
 #~ msgid "Players"
-#~ msgstr "プレイヤー"
+#~ msgstr "プレーヤー"
 
 #~ msgid "_One"
 #~ msgstr "一人(_O)"
@@ -906,17 +870,3 @@ msgstr ""
 
 #~ msgid "Finished!"
 #~ msgstr "終了!"
-
-#~ msgid "About Iagno"
-#~ msgstr "Iagno について"
-
-#, fuzzy
-#~ msgid "iagno"
-#~ msgstr "Iagno"
-
-#, fuzzy
-#~ msgid "Configure a new game"
-#~ msgstr "このゲームを設定します"
-
-#~ msgid "%.2d"
-#~ msgstr "%.2d"
