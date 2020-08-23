@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-2-32\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-05-31 06:31+0000\n"
-"PO-Revision-Date: 2020-08-23 00:16+0900\n"
+"POT-Creation-Date: 2020-08-22 15:40+0000\n"
+"PO-Revision-Date: 2020-08-23 23:30+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -256,7 +256,7 @@ msgstr "システムの夜間モードに従うかどうかのフラグ"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:8
 msgid "Use GNOME night light setting to activate night-mode."
-msgstr "GNOME の設定を使用して夜間モードを有効にします。"
+msgstr "夜間モードを有効にするために GNOME の夜間モード設定を使用します。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
 #: data/org.gnome.Reversi.gschema.xml:15
@@ -310,7 +310,7 @@ msgstr "プレイする色"
 #: data/org.gnome.Reversi.gschema.xml:59
 msgid "Whether to play as Dark or Light. Ignored for two-player games."
 msgstr ""
-"黒と白のどちらでプレイするかの設定です。二人で対戦する場合は無視します。"
+"黒と白のどちらでプレイするかどうかです。二人で対戦する場合は無視します。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
 #: data/org.gnome.Reversi.gschema.xml:65
@@ -347,8 +347,7 @@ msgstr "“true”にすると、ひっくり返せるマス目を強調表示�
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
 #: data/org.gnome.Reversi.gschema.xml:87
 msgid "Whether to play against the computer or another human."
-msgstr ""
-"コンピューターと対戦するか、他の人と対戦するかどうかです。"
+msgstr "コンピューターと対戦するか、他の人と対戦するかどうかです。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
 #: data/org.gnome.Reversi.gschema.xml:93
@@ -500,7 +499,7 @@ msgstr "AI 行動時の遅延を短くする"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:84
 msgid "Play first"
-msgstr "先手になる"
+msgstr "先手でプレイする"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:87
@@ -535,7 +534,7 @@ msgstr "逆リバーシをプレイする"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:105
 msgid "Play second"
-msgstr "後手になる"
+msgstr "後手でプレイする"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:108
@@ -573,13 +572,13 @@ msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments "
 "are mutually exclusive."
 msgstr ""
-"“--alternative-start”、“--random-start”および“--usual-start”は同時指定でき"
-"ません。"
+"“--alternative-start”、“--random-start”、および“--usual-start”は同時に指定で"
+"きません。"
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
 #: src/iagno.vala:178
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
-msgstr "“--classic”と“--reverse”は同時指定できません。"
+msgstr "“--classic”と“--reverse”は同時に指定できません。"
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
 #: src/iagno.vala:185
@@ -594,8 +593,7 @@ msgstr "最大数は 16 です。"
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
 #: src/iagno.vala:257
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
-msgstr ""
-"設定できるレベルは 1 (初級) から 3 (上級) です。設定を変更しません。"
+msgstr "設定できるレベルは 1 (初級) から 3 (上級) です。設定を変更しません。"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:273
