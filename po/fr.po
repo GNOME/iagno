@@ -31,16 +31,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-02-17 21:01+0000\n"
-"PO-Revision-Date: 2020-02-23 15:56+0100\n"
-"Last-Translator: Guillaume Bernard <associations@guillaume-bernard.fr>\n"
+"POT-Creation-Date: 2020-08-19 09:41+0000\n"
+"PO-Revision-Date: 2020-08-21 21:32+0900\n"
+"Last-Translator: Julien Humbert <julroy67@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
 msgid "GNOME Reversi"
@@ -51,7 +51,7 @@ msgid ""
 "Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr ""
 "Conquérir le plateau dans une version classique du Reversi, ou jouer à la "
-"variante inservée"
+"variante inversée"
 
 #: data/org.gnome.Reversi.appdata.xml.in:11
 msgid ""
@@ -135,82 +135,110 @@ msgstr "_Nouvelle partie"
 msgid "Go back to the current game"
 msgstr "Revenir à la partie en cours"
 
-#: data/ui/help-overlay.ui:30
-msgctxt "shortcut window"
-msgid "During game selection"
-msgstr "Lors de la sélection de la partie"
-
-#: data/ui/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Start new game"
-msgstr "Commencer une nouvelle partie"
-
-#: data/ui/help-overlay.ui:41
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Revenir en arrière"
-
-#: data/ui/help-overlay.ui:50
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "Jouer avec le clavier"
-
-#: data/ui/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select where to play"
-msgstr "Sélectionner où jouer son coup"
-
-#: data/ui/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "Choisir la ligne donnée"
-
-#: data/ui/help-overlay.ui:68
-msgctxt "shortcut window"
-msgid "Select the given column"
-msgstr "Choisir la colonne donnée"
-
-#: data/ui/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Play on selected tile"
-msgstr "Jouer sur la case donnée"
-
-#: data/ui/help-overlay.ui:84
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
 msgctxt "shortcut window"
 msgid "During a game"
 msgstr "En cours de partie"
 
-#: data/ui/help-overlay.ui:88
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Nouvelle partie"
 
-#: data/ui/help-overlay.ui:95
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Annuler votre plus récente action"
 
-#: data/ui/help-overlay.ui:104
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+msgctxt "shortcut window"
+msgid "Toggle game menu"
+msgstr "Afficher/masquer le menu de jeu"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Jouer avec le clavier"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "Sélectionner où jouer son coup"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Choisir la ligne donnée"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "Choisir la colonne donnée"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "Jouer sur la case donnée"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Lors de la sélection de la partie"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Commencer une nouvelle partie"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Revenir en arrière"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Générique"
 
-#: data/ui/help-overlay.ui:108
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Afficher/masquer le menu principal"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Raccourcis clavier"
 
-#: data/ui/help-overlay.ui:115
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Aide"
 
-#: data/ui/help-overlay.ui:122
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
 msgctxt "shortcut window"
 msgid "About"
 msgstr "À propos"
 
-#: data/ui/help-overlay.ui:129
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Quitter"
