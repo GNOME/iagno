@@ -1,3 +1,35 @@
+3.37.91 – August 26, 2020
+=============================
+
+Probably the only beta on the road of the future 3.38
+stable release. No changes in the code, but a new and
+shiny icon designed by Jakub Steiner, and some needed
+continuous integration works done by Jordan Petridis.
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Catalan: Carles Ferrando Garcia and Jordi Mas
+  Chinese (China): Boyuan Yang
+  Croatian: Goran Vidović
+  Dutch: Nathan Follens
+  Finnish: Jiri Grönroos
+  French: Charles Monzat and Julien Humbert
+  Friulian: Fabio Tomat
+  Galician: Fran Dieguez
+  German: Tim Sabsch
+  Indonesian: Kukuh Syafaat
+  Japanese: sicklylife
+  Kazakh: Baurzhan Muftakhidinov
+  Lithuanian: Aurimas Černius
+  Brazilian Portuguese: Enrico Nicoletto and Rafael Fontenelle
+  Romanian: Florentina Mușat and Daniel Șerbănescu
+  Serbian: Марко Костић
+  Slovenian: Matej Urbančič
+  Spanish: Daniel Mustieles
+  Swedish: Anders Jonsson
+  Turkish: Emin Tufan Çetin
+  Ukrainian: Yuri Chornoivan
+
 3.36.0 – March 9, 2020
 =============================
 
