@@ -23,23 +23,23 @@
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Fábio Nogueira <fnogueira@gnome.org>, 2014.
 # Artur de Aquino Morais <artur.morais93@outlook.com>, 2016.
-# Enrico Nicoletto <liverig@gmail.com>, 2013, 2015, 2016.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2013-2020.
+# Enrico Nicoletto <liverig@gmail.com>, 2013, 2015, 2016, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-01-29 17:47+0000\n"
-"PO-Revision-Date: 2020-02-13 11:40-0300\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"POT-Creation-Date: 2020-07-05 10:49+0000\n"
+"PO-Revision-Date: 2020-08-26 09:13-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.32.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
@@ -133,82 +133,110 @@ msgstr "_Novo jogo"
 msgid "Go back to the current game"
 msgstr "Retornar ao jogo atual"
 
-#: data/ui/help-overlay.ui:30
-msgctxt "shortcut window"
-msgid "During game selection"
-msgstr "Durante a seleção de jogo"
-
-#: data/ui/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Start new game"
-msgstr "Inicia um novo jogo"
-
-#: data/ui/help-overlay.ui:41
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Volta"
-
-#: data/ui/help-overlay.ui:50
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "Joga com um teclado"
-
-#: data/ui/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select where to play"
-msgstr "Seleciona onde jogar"
-
-#: data/ui/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "Seleciona a linha dada"
-
-#: data/ui/help-overlay.ui:68
-msgctxt "shortcut window"
-msgid "Select the given column"
-msgstr "Seleciona a coluna dada"
-
-#: data/ui/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Play on selected tile"
-msgstr "Joga na peça selecionada"
-
-#: data/ui/help-overlay.ui:84
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
 msgctxt "shortcut window"
 msgid "During a game"
 msgstr "Durante um jogo"
 
-#: data/ui/help-overlay.ui:88
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Novo jogo"
 
-#: data/ui/help-overlay.ui:95
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Desfaz seu movimento mais recente"
 
-#: data/ui/help-overlay.ui:104
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+msgctxt "shortcut window"
+msgid "Toggle game menu"
+msgstr "Alterar menu do jogo"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Joga com um teclado"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "Seleciona onde jogar"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Seleciona a linha dada"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "Seleciona a coluna dada"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "Joga na peça selecionada"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Durante a seleção de jogo"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Inicia um novo jogo"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Volta"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Genéricos"
 
-#: data/ui/help-overlay.ui:108
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Alterar menu principal"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Atalhos de teclado"
 
-#: data/ui/help-overlay.ui:115
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Ajuda"
 
-#: data/ui/help-overlay.ui:122
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Sobre"
 
-#: data/ui/help-overlay.ui:129
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Sair"
@@ -718,7 +746,6 @@ msgstr "Cor: branco"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
 #: src/iagno.vala:683
-#| msgid "Options"
 msgid "More options"
 msgstr "Mais opções"
 
