@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-01-29 17:47+0000\n"
-"PO-Revision-Date: 2020-02-26 17:26+0900\n"
+"POT-Creation-Date: 2020-07-05 10:49+0000\n"
+"PO-Revision-Date: 2020-08-29 20:16+0900\n"
 "Last-Translator: DaeHyun Sung <sungdh86+git@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
 msgid "GNOME Reversi"
@@ -122,82 +122,110 @@ msgstr "새 게임(_N)"
 msgid "Go back to the current game"
 msgstr "현재 게임으로 돌아가기"
 
-#: data/ui/help-overlay.ui:30
-msgctxt "shortcut window"
-msgid "During game selection"
-msgstr "게임 선택 중"
-
-#: data/ui/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Start new game"
-msgstr "새 게임 시작"
-
-#: data/ui/help-overlay.ui:41
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "돌아가기"
-
-#: data/ui/help-overlay.ui:50
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "키보드로 플레이"
-
-#: data/ui/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select where to play"
-msgstr "어디서 플레이할지 선택"
-
-#: data/ui/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "주어진 행 선택"
-
-#: data/ui/help-overlay.ui:68
-msgctxt "shortcut window"
-msgid "Select the given column"
-msgstr "주어진 열 선택"
-
-#: data/ui/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Play on selected tile"
-msgstr "선택된 타일에서 플레이"
-
-#: data/ui/help-overlay.ui:84
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
 msgctxt "shortcut window"
 msgid "During a game"
 msgstr "게임중"
 
-#: data/ui/help-overlay.ui:88
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "새 게임"
 
-#: data/ui/help-overlay.ui:95
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "최근 움직임 실행 취소"
 
-#: data/ui/help-overlay.ui:104
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+msgctxt "shortcut window"
+msgid "Toggle game menu"
+msgstr "게임 메뉴 토글"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "키보드로 플레이"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "어디서 플레이할지 선택"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "주어진 행 선택"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "주어진 열 선택"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "선택된 타일에서 플레이"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "게임 선택 중"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "새 게임 시작"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "돌아가기"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "일반"
 
-#: data/ui/help-overlay.ui:108
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "주 메뉴 토글"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "키보드 바로 가기"
 
-#: data/ui/help-overlay.ui:115
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "도움말"
 
-#: data/ui/help-overlay.ui:122
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
 msgctxt "shortcut window"
 msgid "About"
 msgstr "정보"
 
-#: data/ui/help-overlay.ui:129
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "끝내기"
@@ -289,9 +317,9 @@ msgid ""
 "every new game request, making the next game being started with inverted "
 "roles (previous Dark player playing Light). Ignored for two-player games."
 msgstr ""
-"AI와 게임을 할 때 “참” 인 경우, 매번 새로운 개임 요청후에 “색” 설정은 전환"
-"되어 다음 게임이 반전 역할(이전의 어두운 플레이어가 밝은측으로 변경)을 합니"
-"다. 2인용 게임에서는 무시됩니다."
+"AI와 게임을 할 때 “참” 인 경우, 매번 새로운 개임 요청후에 “색” 설정은 전환되"
+"어 다음 게임이 반전 역할(이전의 어두운 플레이어가 밝은측으로 변경)을 합니다. "
+"2인용 게임에서는 무시됩니다."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:57
@@ -357,11 +385,11 @@ msgid ""
 "ignored."
 msgstr ""
 "리버시는 두개의 다른 초기 위치 (및 대칭 위치)에서 플레이할 수 있습니다. "
-"“참”일 경우, 게임은 무작위로 한 위치 또는 다른 위치로 시작됩니다. "
-"“거짓”일 경우 가장 일반적인 위치만 사용합니다. 명령줄에서 인자로 “--"
-"alternative-start”를 사용하면 대안적인 위치를 강제로 사용할 수 있습니다. 또"
-"한, 인자 “--usual-start” 또는 인자 “--random-start”를 명령줄에서 대신 지정한 "
-"경우, 이 플래그는 무시됩니다."
+"“참”일 경우, 게임은 무작위로 한 위치 또는 다른 위치로 시작됩니다. “거짓”일 경"
+"우 가장 일반적인 위치만 사용합니다. 명령줄에서 인자로 “--alternative-"
+"start”를 사용하면 대안적인 위치를 강제로 사용할 수 있습니다. 또한, 인자 “--"
+"usual-start” 또는 인자 “--random-start”를 명령줄에서 대신 지정한 경우, 이 플"
+"래그는 무시됩니다."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
 #: data/org.gnome.Reversi.gschema.xml:100
