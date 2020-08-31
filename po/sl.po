@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-08-19 09:41+0000\n"
-"PO-Revision-Date: 2020-08-23 13:19+0200\n"
+"POT-Creation-Date: 2020-08-28 14:26+0000\n"
+"PO-Revision-Date: 2020-08-28 21:37+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -58,6 +58,8 @@ msgid ""
 "reversed variant, where the goal is to finish with less tile than your "
 "opponent."
 msgstr ""
+"Igra GNOME Reversi omogoča igranje klasične igre in obrnjene različice, "
+"katere cilj je končati z manj polji, kot nasprotnik."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
 msgid "A GNOME Reversi game preview"
@@ -305,6 +307,10 @@ msgid ""
 "every new game request, making the next game being started with inverted "
 "roles (previous Dark player playing Light). Ignored for two-player games."
 msgstr ""
+"Izbrana možnost pri igri proti računalniku, se nastavitev barve preklopi pri "
+"vsaki novi igri, kar pomeni, da se pri vsaki naslednji igri vlogi obrneta. "
+"Prej temni je po novem svetli igralec. PRi igri z dvema igralcema je ta "
+"nastavitev prezrta."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:57
@@ -372,6 +378,12 @@ msgid ""
 "random-start” is given instead on the command-line, this flag will be "
 "ignored."
 msgstr ""
+"Igro je mogoče igrati v dveh začetnih položajih (in simetrijah). Izbrana "
+"možnost določa, da bo naključna igra začeta z eno ali drugo postavitvijo, "
+"sicer je uporabljane je najbolj splošna začetna postavitev. Seveda je mogoče "
+"vsiliti drug položaj z uporabo zastavice »--alternative-start« v ukazni "
+"vrstici. Ta nastavitev ni upoštevana, če je uporabljena možnost običajnega "
+"»--usual-start« oziroma naključnega zagona »--random-start«."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
 #: data/org.gnome.Reversi.gschema.xml:100
@@ -409,6 +421,8 @@ msgid ""
 "game, where you try to have more pieces), or “reverse” (the opposite game, "
 "where you try to have less pieces)."
 msgstr ""
+"Vrsta igra, ki naj se zažene. To je lahko običajna igra, ko je cilj doseči "
+"čim več polij, ali pa obrnjena, ko je cilj obraten, torej čim manj polij."
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
@@ -773,7 +787,7 @@ msgstr ""
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
 #: src/iagno.vala:958
 msgid "Click on one of the highlighted tiles to move the selected piece there."
-msgstr ""
+msgstr "Kliknite na enega izmed poudarjenih polj za premik izbrane ploščice."
 
 #. Translators: about dialog text
 #: src/iagno.vala:1091
