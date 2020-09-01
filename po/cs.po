@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-01-29 17:47+0000\n"
-"PO-Revision-Date: 2020-02-11 07:58+0100\n"
+"POT-Creation-Date: 2020-07-05 10:49+0000\n"
+"PO-Revision-Date: 2020-09-01 12:57+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -126,82 +126,110 @@ msgstr "_Nová hra"
 msgid "Go back to the current game"
 msgstr "Vrátit se do současné hry"
 
-#: data/ui/help-overlay.ui:30
-msgctxt "shortcut window"
-msgid "During game selection"
-msgstr "Při výběru hry"
-
-#: data/ui/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Start new game"
-msgstr "Začít novou hru"
-
-#: data/ui/help-overlay.ui:41
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Návrat zpět"
-
-#: data/ui/help-overlay.ui:50
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "Hraní pomocí klávesnice"
-
-#: data/ui/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select where to play"
-msgstr "Vybrat, kde hrát"
-
-#: data/ui/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "Vybrat daný řádek"
-
-#: data/ui/help-overlay.ui:68
-msgctxt "shortcut window"
-msgid "Select the given column"
-msgstr "Vybrat daný sloupec"
-
-#: data/ui/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Play on selected tile"
-msgstr "Hrát vybraným kamenem"
-
-#: data/ui/help-overlay.ui:84
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
 msgctxt "shortcut window"
 msgid "During a game"
 msgstr "Během hry"
 
-#: data/ui/help-overlay.ui:88
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Nová hra"
 
-#: data/ui/help-overlay.ui:95
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Undo last move"
 msgstr "Vrátit zpět poslední tah"
 
-#: data/ui/help-overlay.ui:104
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+msgctxt "shortcut window"
+msgid "Toggle game menu"
+msgstr "Otevřít/zavřít nabídku hry"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Hraní pomocí klávesnice"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "Vybrat, kde hrát"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Vybrat daný řádek"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "Vybrat daný sloupec"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "Hrát vybraným kamenem"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Při výběru hry"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Začít novou hru"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Návrat zpět"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Obecné"
 
-#: data/ui/help-overlay.ui:108
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Otevřít/zavřít hlavní nabídku"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Klávesové zkratky"
 
-#: data/ui/help-overlay.ui:115
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Nápověda"
 
-#: data/ui/help-overlay.ui:122
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
 msgctxt "shortcut window"
 msgid "About"
 msgstr "O aplikaci"
 
-#: data/ui/help-overlay.ui:129
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Ukončit"
