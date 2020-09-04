@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno.HEAD\n"
-"POT-Creation-Date: 2020-02-03 16:16+0000\n"
+"POT-Creation-Date: 2020-07-05 21:05+0000\n"
 "PO-Revision-Date: 2020-02-06 12:16+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
@@ -47,8 +47,8 @@ msgstr "2020"
 #: C/bug-filing.page:16 C/configure.page:16 C/develop.page:21
 #: C/documentation.page:21 C/example.page:17 C/highlights.page:16
 #: C/index.page:23 C/play.page:21 C/rules.page:31 C/select-game.page:16
-#: C/shortcuts.page:21 C/start-position.page:17 C/theme.page:16
-#: C/translate.page:25
+#: C/shortcuts.page:21 C/sound.page:17 C/start-position.page:17
+#: C/strategy.page:20 C/theme.page:16 C/translate.page:25
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Compartir Igual 3.0"
 
@@ -205,8 +205,8 @@ msgstr "Alternar quién empieza"
 #: C/alternate.page:22
 msgid ""
 "If you are playing multiple games in a row <link xref=\"ai-game\">against "
-"the computer</link>, <app>Reversi</app> allows you to automatically altern "
-"who will start the next game bewteen you and the computer."
+"the computer</link>, <app>Reversi</app> allows you to automatically "
+"alternate who will start the next game between you and the computer."
 msgstr ""
 
 #. (itstool) path: page/p
@@ -264,14 +264,14 @@ msgstr "Esta opción está seleccionada de forma predeterminada."
 
 #. (itstool) path: credit/name
 #: C/bug-filing.page:10 C/develop.page:10 C/documentation.page:10
-#: C/index.page:13 C/play.page:10 C/rules.page:11 C/sound.page:10
-#: C/translate.page:10
+#: C/index.page:13 C/play.page:10 C/rules.page:11 C/sound.page:11
+#: C/strategy.page:10 C/translate.page:10
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. (itstool) path: credit/years
 #: C/bug-filing.page:12 C/develop.page:12 C/documentation.page:12
-#: C/strategy.page:11 C/translate.page:12
+#: C/strategy.page:12 C/translate.page:12
 msgid "2011"
 msgstr "2011"
 
@@ -294,7 +294,7 @@ msgid ""
 "issues/\"/>."
 msgstr ""
 "<app>Reversi</app> lo mantiene la comunidad de manera voluntaria. Si quiere "
-"participar, es bienvenido. Si encuentra un error, puede rellenar un "
+"participar, es bienvenido/a . Si encuentra un error, puede rellenar un "
 "<em>informe de error</em>. Para informar de un error, vaya a <link href="
 "\"https://gitlab.gnome.org/GNOME/iagno/issues/\"/>."
 
@@ -325,12 +325,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:36
-#| msgid ""
-#| "Once you have an account, log in, and click on <gui>New issue</gui>. "
-#| "Before reporting a bug, please read the <link href=\"https://wiki.gnome."
-#| "org/Community/GettingInTouch/Bugzilla/Guidelines\">bug writing "
-#| "guidelines</link>, and please <link href=\"https://gitlab.gnome.org/GNOME/"
-#| "iagno/issues\">browse</link> for the bug to see if it already exists."
 msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
 "reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
@@ -444,7 +438,7 @@ msgid ""
 "community. You are welcome to participate."
 msgstr ""
 "Los <app>juegos de GNOME</app> los desarrolla y los mantiene una comunidad "
-"de voluntarios. Si quiere participar es bienvenido."
+"de voluntarios. Si quiere participar es bienvenido/a ."
 
 #. (itstool) path: page/p
 #: C/develop.page:31
@@ -499,7 +493,7 @@ msgid ""
 "community. You are welcome to participate."
 msgstr ""
 "La documentación de los <app>juegos de GNOME</app> las mantiene una "
-"comunidad de voluntarios. Si quiere participar es bienvenido."
+"comunidad de voluntarios. Si quiere participar es bienvenido/a ."
 
 #. (itstool) path: page/p
 #: C/documentation.page:30
@@ -525,10 +519,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/documentation.page:32
-#| msgid ""
-#| "Alternatively, you can contact the Internationalization Team using their "
-#| "<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
-#| "list</link>."
 msgid ""
 "Alternatively, you can contact the Documentation Project using the dedicated "
 "<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list"
@@ -540,9 +530,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/documentation.page:34
-#| msgid ""
-#| "Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
-#| "\">wiki</link> page contains useful information."
 msgid ""
 "Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
 "\">wiki page</link> contains useful information."
@@ -619,7 +606,6 @@ msgstr ""
 
 #. (itstool) path: td/p
 #: C/example.page:63
-#| msgid "<em>A blocking move</em>"
 msgid "<em>Possible second move</em>"
 msgstr "<em>Posible segundo movimiento</em>"
 
@@ -644,7 +630,6 @@ msgstr ""
 
 #. (itstool) path: td/p
 #: C/example.page:78
-#| msgid "<em>Attribution</em>"
 msgid "<em>Capturing multiple rows</em>"
 msgstr "<em>Capturar varias filas</em>"
 
@@ -733,9 +718,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/highlights.page:31
-#| msgid ""
-#| "To enable or disable the sound, press the menu button in the top-right "
-#| "corner of the window and select <gui>Sound</gui>."
 msgid ""
 "To enable or disable this highlight, press the menu button in the top-right "
 "corner of the window, select <gui>Appearance</gui>, and in the "
@@ -760,9 +742,6 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/highlights.page:41
-#| msgid ""
-#| "To enable or disable the sound, press the menu button in the top-right "
-#| "corner of the window and select <gui>Sound</gui>."
 msgid ""
 "To enable or disable this highlight, press the menu button in the top-right "
 "corner of the window, select <gui>Appearance</gui>, and in the "
@@ -941,7 +920,7 @@ msgstr ""
 "sa/3.0/\">Escrito de Commons</link>."
 
 #. (itstool) path: credit/years
-#: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:12
+#: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:13
 msgid "2012"
 msgstr "2012"
 
@@ -979,7 +958,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/play.page:38
-#| msgid "Click on the cell you would like to place your piece in."
 msgid "Click on the tile to drop the piece."
 msgstr "Pulse en la casilla para soltar la ficha."
 
@@ -1000,9 +978,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/play.page:47
-#| msgid ""
-#| "To enable or disable the sound, press the menu button in the top-right "
-#| "corner of the window and select <gui>Sound</gui>."
 msgid ""
 "You can always undo your move. For that, press the button with an arrow and "
 "a circle in the top-right corner (or in the bottom bar on small windows) and "
@@ -1034,16 +1009,18 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/play.page:63
 msgid ""
-"Use the <key>Space</key> or the <key>Return</key> key to drop a piece one "
-"the selected tile."
+"Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the "
+"selected tile."
 msgstr ""
 
 #. (itstool) path: item/p
 #: C/play.page:72
+#, fuzzy
+#| msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 msgid ""
-"You can always undo your move. For that, use the <keyseq><key>Ctrl</"
-"key><key>Z</key></keyseq> keys sequence."
-msgstr ""
+"You can always undo your move. For that, use <keyseq><key>Ctrl</key><key>Z</"
+"key></keyseq>."
+msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 
 #. (itstool) path: section/p
 #: C/play.page:76
@@ -1059,7 +1036,7 @@ msgid "You can also <link xref=\"#mouse-play\">use a mouse</link>."
 msgstr "También puede <link xref=\"#mouse-play\">usar el ratón</link>."
 
 #. (itstool) path: credit/name
-#: C/rules.page:16 C/strategy.page:14 C/translate.page:15
+#: C/rules.page:16 C/strategy.page:15 C/translate.page:15
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
@@ -1101,7 +1078,6 @@ msgstr ""
 
 #. (itstool) path: section/title
 #: C/rules.page:42
-#| msgid "Game Play"
 msgid "Game start"
 msgstr "Inicio del juego"
 
@@ -1135,7 +1111,6 @@ msgstr "Posición inicial habitual: blanca-negra, negra-blanca"
 
 #. (itstool) path: td/p
 #: C/rules.page:58
-#| msgid "<em>Start position</em>"
 msgid "<em>The usual start position</em>"
 msgstr "<em>La posición inicial habitual</em>"
 
@@ -1194,10 +1169,6 @@ msgstr "Fin de la partida"
 
 #. (itstool) path: section/p
 #: C/rules.page:82
-#| msgid ""
-#| "The players alternate turns until no more legal moves can be made by "
-#| "either player. At this point the game is over. The end of the game often "
-#| "results in a full board."
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over."
@@ -1442,12 +1413,12 @@ msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 
 #. (itstool) path: page/title
-#: C/sound.page:18
+#: C/sound.page:21
 msgid "Enable and disable sound"
 msgstr "Activar y desactivar el sonido"
 
 #. (itstool) path: page/p
-#: C/sound.page:19
+#: C/sound.page:23
 msgid ""
 "To enable or disable the sound, press the menu button in the top-right "
 "corner of the window and select <gui>Sound</gui>."
@@ -1457,7 +1428,6 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/start-position.page:21
-#| msgid "Start position"
 msgid "Vary start position"
 msgstr "Modificar posición inicial"
 
@@ -1470,7 +1440,6 @@ msgstr ""
 
 #. (itstool) path: section/title
 #: C/start-position.page:26
-#| msgid "Start position"
 msgid "Varying start position"
 msgstr "Modificar posición inicial"
 
@@ -1508,7 +1477,6 @@ msgstr ""
 
 #. (itstool) path: section/title
 #: C/start-position.page:38
-#| msgid "Start position"
 msgid "Possible start positions"
 msgstr "Posiciones iniciales posibles"
 
@@ -1531,13 +1499,11 @@ msgstr "Posición alternativa: negra-blanca, negra-blanca"
 
 #. (itstool) path: td/p
 #: C/start-position.page:59
-#| msgid "<em>Start position</em>"
 msgid "<em>Usual start position</em>"
 msgstr "<em>Posición inicial habitual</em>"
 
 #. (itstool) path: td/p
 #: C/start-position.page:62
-#| msgid "<em>Start position</em>"
 msgid "<em>Alternative position</em>"
 msgstr "<em>Posición alternativa</em>"
 
@@ -1572,14 +1538,13 @@ msgstr ""
 
 #. (itstool) path: section/title
 #: C/start-position.page:96
-#| msgid "Two-player mode"
 msgid "Two-player game overture"
 msgstr "Apertura de partida de dos jugadores"
 
 #. (itstool) path: section/p
 #: C/start-position.page:98
 msgid ""
-"When <link xref=\"2player\">playing with another player</link> with the the "
+"When <link xref=\"2player\">playing with another player</link> with the "
 "<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
 "option enabled, new games will start with a special two-player game overture."
 msgstr ""
@@ -1635,12 +1600,12 @@ msgid ""
 msgstr ""
 
 #. (itstool) path: page/title
-#: C/strategy.page:21
+#: C/strategy.page:24
 msgid "Strategy"
 msgstr "Estrategia"
 
 #. (itstool) path: page/p
-#: C/strategy.page:23
+#: C/strategy.page:26
 #, fuzzy
 #| msgid ""
 #| "<app>Iagno</app> doesn't have one particular winning strategy. Rather it "
@@ -1659,7 +1624,7 @@ msgstr ""
 "fichas posibles del contrario al principio del juego, se deben evitar."
 
 #. (itstool) path: page/p
-#: C/strategy.page:28
+#: C/strategy.page:31
 #, fuzzy
 #| msgid ""
 #| "Much has been written on the topic of strategy for the games <em>Othello</"
@@ -1672,7 +1637,7 @@ msgstr ""
 "<em>Othello</em> y <em>Reversi</em>, en los que se basa <app>Iagno</app>."
 
 #. (itstool) path: page/p
-#: C/strategy.page:35
+#: C/strategy.page:38
 msgid ""
 "If you are interested in learning about specific strategies for the game, "
 "the following links may be of interest:"
@@ -1681,7 +1646,7 @@ msgstr ""
 "juego, los siguientes enlaces puede resultarle de interés."
 
 #. (itstool) path: item/p
-#: C/strategy.page:40
+#: C/strategy.page:43
 msgid ""
 "<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
 "to strategy and tactics</link>"
@@ -1690,12 +1655,12 @@ msgstr ""
 "a la estrategia y las tácticas</link>"
 
 #. (itstool) path: item/p
-#: C/strategy.page:44
+#: C/strategy.page:47
 msgid "<link href=\"https://en.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
 msgstr "<link href=\"https://es.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
 
 #. (itstool) path: item/p
-#: C/strategy.page:47
+#: C/strategy.page:50
 msgid ""
 "<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
 "guide</link>"
@@ -1866,7 +1831,9 @@ msgstr "Este comportamiento es el predeterminado de la aplicación."
 
 #. (itstool) path: section/title
 #: C/theme.page:82
-msgid "More informations"
+#, fuzzy
+#| msgid "More informations"
+msgid "More information"
 msgstr "Más información"
 
 #. (itstool) path: section/p
@@ -1903,7 +1870,7 @@ msgid ""
 "participate."
 msgstr ""
 "La interfaz de usuario de los <app>juegos de GNOME</app> y su documentación "
-"la traduce una comunidad de voluntarios. Si quiere participar es bienvenido."
+"la traduce una comunidad de voluntarios. Si quiere participar es bienvenido/a ."
 
 #. (itstool) path: page/p
 #: C/translate.page:35
