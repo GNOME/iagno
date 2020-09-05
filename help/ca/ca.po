@@ -327,7 +327,7 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/alternate.page:34
 msgid "This option is selected by default."
-msgstr "Aquesta opció està activa per defecte"
+msgstr "Aquesta opció està activa per defecte."
 
 #. (itstool) path: credit/name
 #: C/bug-filing.page:10 C/develop.page:10 C/documentation.page:10
@@ -388,7 +388,7 @@ msgstr ""
 "'accedir-hi, d'enviar informes d'errors i de fer comentaris. A més, us heu "
 "de registrar per poder rebre actualitzacions per correu electrònic sobre "
 "l'estat de l'informe d'error. Si encara no teniu un compte, feu clic a "
-"l'enllaç <gui>inicia la sessió / Registra'm</gui> per crear-ne un. "
+"l'enllaç <gui>inicia la sessió / Registra'm</gui> per crear-ne un."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:36
@@ -403,8 +403,8 @@ msgstr ""
 "Quan tingueu un compte, inicieu la sessió i feu clic a <gui>Problema "
 "nou</gui>. Abans d'enviar un informe d'error, llegiu les <link "
 "href=\"https://wiki.gnome.org/Community/GettingInTouch/BugReportingGuidelines\">pautes"
-" d'escriptura d'errorss</link>, i <link "
-"href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">cerqueu</link>  l'error"
+" d'escriptura d'errors</link>, i <link "
+"href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">navegueu</link> l'error"
 " per veure si ja existeix."
 
 #. (itstool) path: section/p
@@ -480,7 +480,7 @@ msgstr ""
 "Per a iniciar una partida des d'aquí, feu clic al botó <gui>Comença una "
 "partida</gui>. També es pot iniciar una partida amb la <link "
 "xref=\"shortcuts#game-selection\">drecera de teclat</link> "
-"<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>."
+"<keyseq><key>Maj</key><key>Ctrl</key><key>N</key></keyseq>."
 
 #. (itstool) path: page/p
 #: C/configure.page:30
@@ -507,7 +507,7 @@ msgid ""
 "community. You are welcome to participate."
 msgstr ""
 "Els <app>Jocs del GNOME</app> són desenvolupats i mantinguts per una "
-"comunitat de voluntaris. Ets benvingut a participar."
+"comunitat de voluntaris. Us convidem a participar-hi."
 
 #. (itstool) path: page/p
 #: C/develop.page:31
@@ -726,7 +726,7 @@ msgid ""
 "thanks to E5"
 msgstr ""
 "Les <em>blanques</em> giren una fila de dues peces: jugant E2, giren E3 i E4"
-" gràcies a E5."
+" gràcies a E5"
 
 #. (itstool) path: td/p
 #: C/example.page:95
@@ -939,7 +939,7 @@ msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0"
 " Unported license."
 msgstr ""
-"Creative Commons Reconeixement-CompartirIgual 3.0 Llicència no adaptada"
+"Creative Commons Reconeixement-CompartirIgual 3.0 Llicència no adaptada."
 
 #. (itstool) path: page/p
 #: C/license.page:20
@@ -1435,7 +1435,7 @@ msgstr "Inicia una partida nova"
 #. (itstool) path: td/p
 #: C/shortcuts.page:34
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Maj</key><key>Ctrl</key><key>N</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:37
@@ -1550,7 +1550,7 @@ msgstr "Quant a"
 #. (itstool) path: td/p
 #: C/shortcuts.page:92
 msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
-msgstr "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+msgstr "<keyseq><key>Maj</key><key>F1</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:95
@@ -1941,7 +1941,7 @@ msgid ""
 " shapes and a high black and white contrast;"
 msgstr ""
 "<em>Blanc i negre</em>: aquest tema és més conceptual, amb formes "
-"geomètriques i un alt contrast en blanc i negre."
+"geomètriques i un alt contrast en blanc i negre;"
 
 #. (itstool) path: item/p
 #: C/theme.page:49
@@ -1950,7 +1950,7 @@ msgid ""
 "of your windows is a dark one;"
 msgstr ""
 "<em>Adwaita</em>: aquest tema utilitza un tauler blau, més adient si el tema"
-" de les vostres finestres és fosc."
+" de les vostres finestres és fosc;"
 
 #. (itstool) path: item/p
 #: C/theme.page:52
@@ -2046,7 +2046,7 @@ msgstr "Més informació"
 msgid ""
 "There is no way to install a different theme than the ones described here."
 msgstr ""
-"No hi ha cap manera d'instal·lar un tema diferent diferent als descrits "
+"No hi ha cap manera d'instal·lar un tema diferent als descrits "
 "aquí."
 
 #. (itstool) path: section/p
