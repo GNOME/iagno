@@ -1,8 +1,8 @@
 # Danish translation of iagno.
 # Copyright (C) 1998-2019 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-games package.
+# This file is distributed under the same license as the iagno package.
 # Anders Wegge Jakobsen <wegge@wegge.dk>, 1998.
-# Kenneth Christiansen <kenneth@ripen.dk>, 1998-2001
+# Kenneth Christiansen <kenneth@ripen.dk>, 1998-2001.
 # Keld Simonsen <keld@dkuug.dk>, 2000-2002.
 # Ole Laursen <olau@hardworking.dk>, 2001, 02, 03, 04.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2004, 05.
@@ -14,9 +14,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games\n"
+"Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-02-14 04:54+0000\n"
+"POT-Creation-Date: 2020-06-10 17:32+0000\n"
 "PO-Revision-Date: 2020-02-26 17:30+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -25,7 +25,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
 msgid "GNOME Reversi"
@@ -120,82 +119,111 @@ msgstr "_Nyt spil"
 msgid "Go back to the current game"
 msgstr "Tilbage til nuværende spil"
 
-#: data/ui/help-overlay.ui:30
-msgctxt "shortcut window"
-msgid "During game selection"
-msgstr "Under valg af spil"
-
-#: data/ui/help-overlay.ui:34
-msgctxt "shortcut window"
-msgid "Start new game"
-msgstr "Start nyt spil"
-
-#: data/ui/help-overlay.ui:41
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Gå tilbage"
-
-#: data/ui/help-overlay.ui:50
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "Spil med tastatur"
-
-#: data/ui/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select where to play"
-msgstr "Vælg hvor der skal spilles"
-
-#: data/ui/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "Vælg række"
-
-#: data/ui/help-overlay.ui:68
-msgctxt "shortcut window"
-msgid "Select the given column"
-msgstr "Vælg kolonne"
-
-#: data/ui/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Play on selected tile"
-msgstr "Spil på den valgte brik"
-
-#: data/ui/help-overlay.ui:84
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
 msgctxt "shortcut window"
 msgid "During a game"
-msgstr "I et spil"
+msgstr "Når der spilles"
 
-#: data/ui/help-overlay.ui:88
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
 msgctxt "shortcut window"
 msgid "New game"
 msgstr "Nyt spil"
 
-#: data/ui/help-overlay.ui:95
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Undo last move"
-msgstr "Fortryd seneste træk"
+msgstr "Fortryd sidste træk"
 
-#: data/ui/help-overlay.ui:104
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+#| msgid "Log the game moves"
+msgctxt "shortcut window"
+msgid "Toggle game menu"
+msgstr "Spilmenu til/fra"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Spil med tastatur"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "Vælg hvor der skal spilles"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Vælg række"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "Vælg kolonne"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "Spil på den valgte brik"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Under valg af spil"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Start nyt spil"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Gå tilbage"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Generisk"
 
-#: data/ui/help-overlay.ui:108
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Hovedmenu til/fra"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Tastaturgenveje"
 
-#: data/ui/help-overlay.ui:115
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "Help"
 msgstr "Hjælp"
 
-#: data/ui/help-overlay.ui:122
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
 msgctxt "shortcut window"
 msgid "About"
 msgstr "Om"
 
-#: data/ui/help-overlay.ui:129
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Afslut"
@@ -228,7 +256,7 @@ msgstr "Klassisk"
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; uses only two colors, one really dark and one really light
 #: data/themes/high_contrast.theme.desktop.in:23
 msgid "Black and White"
-msgstr "Sort og hvidt"
+msgstr "Sort og hvid"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
 #: data/themes/sun_and_star.theme.desktop.in:22
@@ -661,7 +689,7 @@ msgstr "Standard"
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:393
 msgid "Pla_yable tiles"
-msgstr "Filser som kan _spilles"
+msgstr "Brikker som kan _spilles"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:397
@@ -676,7 +704,7 @@ msgstr "Fremhævninger"
 #. Translators: history menu entry (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:408
 msgid "_Undo last move"
-msgstr "_Fortryd dit seneste træk"
+msgstr "_Fortryd sidste træk"
 
 #. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:413
@@ -848,6 +876,3 @@ msgstr "Side på GNOME wiki"
 #, c-format
 msgid "Size: %d × %d ▾"
 msgstr "Størrelse: %d × %d ▾"
-
-#~ msgid "Finished!"
-#~ msgstr "Færdig!"
