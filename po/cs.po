@@ -529,12 +529,12 @@ msgstr "Vypnout zvuk"
 #. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
 #: src/iagno.vala:96
 msgid "Log the game moves"
-msgstr "Zaznamenávat herní tahy"
+msgstr "Zaznamenávat tahy hry"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:99
 msgid "Start with a random position"
-msgstr "Začít na náhodné pozici"
+msgstr "Začít s náhodným postavením"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:102
