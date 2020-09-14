@@ -353,7 +353,7 @@ msgstr "Zda zvýrazňovat hratelná pole"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:74
 msgid "If “true”, the tiles where you can play are highlighted."
-msgstr "Když je zapnuto, jsou zvýrazňována pole, na které můžete hrát."
+msgstr "Když je zapnuto, jsou zvýrazňována pole, na která můžete hrát."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
@@ -394,7 +394,7 @@ msgstr ""
 "variantami). Když je nastaveno „pravda“, bude hra začína náhodně v jednom "
 "nebo druhém postavení. Když „nepravda“, bude se používat jen nejběžnější "
 "počáteční postavení. Ke střídání postavení můžete hru přimět pomocí přepínače „--"
-"alternative-start“ v příkazové řádce. Toto nastavení bude ignorováno také v "
+"alternative-start“ v příkazové řádce. Toto nastavení bude ignorováno v "
 "případě, že je v příkazové řádce zadán přepínač „--usual-start“ nebo „--"
 "random-start“."
 
@@ -597,7 +597,7 @@ msgstr "Zapnout zvuk"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:120
 msgid "Start with the usual position"
-msgstr "Začít s obvyklým postaveným"
+msgstr "Začít s obvyklým postavením"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:123

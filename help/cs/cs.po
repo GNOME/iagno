@@ -783,7 +783,7 @@ msgstr ""
 #. (itstool) path: section/title
 #: C/highlights.page:35
 msgid "Highlight capturable tiles"
-msgstr "Zvýrazňování sebratelných kamenů"
+msgstr "Zvýrazňování zabratelných kamenů"
 
 #. (itstool) path: section/p
 #: C/highlights.page:37
@@ -805,7 +805,7 @@ msgid ""
 msgstr ""
 "Když chcete zapnout, nebo vypnout toto zvýrazňování, zmáčkněte tlačítko "
 "nabídky v pravém horním rohu okna, vyberte <gui>Vzhled</gui> a v části "
-"<gui>Zvýrazňování</gui> zaškrtněte <gui>Sebratelné kameny</gui>."
+"<gui>Zvýrazňování</gui> zaškrtněte <gui>Zabratelné kameny</gui>."
 
 #. (itstool) path: info/title
 #: C/index.page:8
