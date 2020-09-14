@@ -1,85 +1,108 @@
 # Czech translation of iagno help.
 # Copyright (C) 2009 the author(s) of gnome-games.
 # This file is distributed under the same license as the iagno help.
-# Marek Černocký <marek@manet.cz>, 2009, 2013, 2015, 2017, 2018.
+# Marek Černocký <marek@manet.cz>, 2009, 2013, 2015, 2017, 2018, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games gnome-2-28\n"
-"POT-Creation-Date: 2018-08-13 21:39+0000\n"
-"PO-Revision-Date: 2018-08-30 17:06+0200\n"
+"Project-Id-Version: iagno gnome-3.36\n"
+"POT-Creation-Date: 2020-05-30 09:53+0000\n"
+"PO-Revision-Date: 2020-09-13 04:32+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"X-Generator: Gtranslator 3.32.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Marek Černocký <marek@manet.cz>, 2009, 2013"
+msgstr "Marek Černocký <marek@manet.cz>"
 
 #. (itstool) path: credit/name
-#: C/2player.page:9 C/ai-game.page:9 C/shortcuts.page:9
-msgid "Brian Grohe"
-msgstr "Brian Grohe"
+#: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
+#: C/configure.page:10 C/develop.page:15 C/documentation.page:15
+#: C/example.page:11 C/highlights.page:10 C/index.page:17 C/play.page:15
+#: C/rules.page:25 C/select-game.page:10 C/shortcuts.page:15
+#: C/start-position.page:11 C/theme.page:10 C/translate.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. (itstool) path: credit/years
-#: C/2player.page:11 C/ai-game.page:11 C/play.page:12 C/rules.page:12
-#: C/shortcuts.page:11 C/sound.page:11
-msgid "2012"
-msgstr "2012"
+#: C/2player.page:12 C/ai-game.page:12 C/ai-level.page:12 C/alternate.page:12
+#: C/configure.page:12 C/develop.page:17 C/documentation.page:17
+#: C/example.page:13 C/highlights.page:12 C/index.page:19 C/play.page:17
+#: C/rules.page:27 C/select-game.page:12 C/shortcuts.page:17
+#: C/start-position.page:13 C/theme.page:12 C/translate.page:21
+msgid "2020"
+msgstr "2020"
 
-#. (itstool) path: credit/name
-#: C/2player.page:14 C/ai-game.page:14 C/bug-filing.page:9
-#: C/change-color.page:9 C/develop.page:10 C/documentation.page:8
-#: C/index.page:12 C/play.page:10 C/rules.page:10 C/sound.page:9
-#: C/translate.page:10
-msgid "Tiffany Antopolski"
-msgstr "Tiffany Antopolski"
+#. (itstool) path: license/p
+#: C/2player.page:16 C/ai-game.page:16 C/ai-level.page:16 C/alternate.page:16
+#: C/bug-filing.page:16 C/configure.page:16 C/develop.page:21
+#: C/documentation.page:21 C/example.page:17 C/highlights.page:16
+#: C/index.page:23 C/play.page:21 C/rules.page:31 C/select-game.page:16
+#: C/shortcuts.page:21 C/sound.page:17 C/start-position.page:17
+#: C/strategy.page:20 C/theme.page:16 C/translate.page:25
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
 
 #. (itstool) path: page/title
-#: C/2player.page:19
-msgid "Two-player mode"
-msgstr "Režim pro dva hráče"
+#: C/2player.page:20
+msgid "Play with another player"
+msgstr "Jak hrát s dalšími hráči"
 
 #. (itstool) path: page/p
-#: C/2player.page:20
+#: C/2player.page:22
 msgid ""
-"Two player mode allows you to play against another human rather than a "
-"computer. To enable this:"
+"<app>Reversi</app> allows you to play against another human, instead of "
+"against the computer."
 msgstr ""
-"Režim pro dva hráče vám umožňuje hrát proti jinému lidskému soupeři namísto "
-"proti počítači. Zapnete ho následovně:"
+"<app>Reversi</app> umožňuje hrát proti jinému lidskému soupeři namísto proti "
+"počítači."
 
-#. (itstool) path: item/p
-#: C/2player.page:23
-msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
+#. (itstool) path: page/p
+#: C/2player.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter "
+"case, <app>Reversi</app> is already configured to start a two-player game, "
+"else it would start a game against the computer."
 msgstr ""
-"Klikněte na <guiseq><gui>Nastavení</gui> <gui>Předvolby</gui></guiseq>."
+"Až si <link xref=\"configure\">nastavíte novou hru</link>, podívejte se po "
+"prvním tlačítku se šipkou dolů. Měl by na něm být popisek <gui>Barva: černý</"
+"gui>, <gui>Barva: bílý</gui> nebo <gui>Dva hráči</gui>. V posledním "
+"jmenovaném případě je hra <app>Reversi</app> připravená pro hraní dvěma "
+"hráči, ve zbývajících případech se spustí hraní proti počítači."
 
-#. (itstool) path: item/p
-#: C/2player.page:24 C/ai-game.page:25 C/sound.page:21
-msgid "Select the <gui>Game</gui> tab."
-msgstr "Vyberte kartu <gui>Hra</gui>."
+#. (itstool) path: page/p
+#: C/2player.page:26
+msgid ""
+"If the button does not indicate <gui>Two players</gui>, select it, and in "
+"the menu that appears, select <gui>Two players</gui>. The button will change "
+"its label to <gui>Two players</gui>. You can then select the <gui>Start "
+"Game</gui> button to launch your game and <link xref=\"play\">play</link>."
+msgstr ""
+"Pokud tlačítko nehlásá <gui>Dva hráči</gui>, vyberte jej a v nabídce, která "
+"se rozbalí, zvolte <gui>Dva hráči</gui>. Tlačítko změní příslušně svůj "
+"popisek. Nyní můžete tlačítkem <gui>Začít hru</gui> hru odstartovat a <link "
+"xref=\"play\">hrát</link>."
 
-#. (itstool) path: item/p
-#: C/2player.page:25
-msgid "Check <gui>human</gui> in both player columns."
-msgstr "Zvolte <gui>Člověk</gui> u obou hráčů."
-
-#. (itstool) path: item/p
-#: C/2player.page:26 C/change-color.page:31
-msgid "Click <gui>Close</gui>"
-msgstr "Klikněte na <gui>Zavřít</gui>."
-
-#. (itstool) path: note/p
-#: C/2player.page:27
-msgid "Your changes will apply when a new game is started."
-msgstr "Vaše změny se projeví až po započetí nové hry."
+#. (itstool) path: page/p
+#: C/2player.page:28
+msgid ""
+"If you asked the game to <link xref=\"start-position\">vary start position</"
+"link> and start a two-player game, you will start the game with a special "
+"<link xref=\"start-position#human-overture\">two-player game overture</link>."
+msgstr ""
+"Jestliže řeknete hře, aby <link xref=\"start-position\">měnila počáteční "
+"postavení</link> a začnete pak hru pro dva hráče, bude na úvod speciální "
+"<link xref=\"start-position#human-overture\">rozehrávka hry pro dva hráče</"
+"link>."
 
 #. (itstool) path: page/title
 #: C/ai-game.page:20
@@ -87,67 +110,255 @@ msgid "Play against the computer"
 msgstr "Jak hrát proti počítači"
 
 #. (itstool) path: page/p
-#: C/ai-game.page:21
+#: C/ai-game.page:22
 msgid ""
-"The computer has different levels of difficulty: Level One, Level Two, and "
-"Level Three. To change this setting:"
+"<app>Reversi</app> allows you to play against the computer, with three "
+"different levels of difficulty. You can also decide which player, between "
+"the computer and you, will start."
 msgstr ""
-"Počítač má různé úrovně náročnosti: První úroveň, Druhá úroveň a Třetí "
-"úroveň. Pokud ji chcete změnit:"
+"<app>Reversi</app> umožňuje hrát proti počítači ve třech různých úrovních "
+"náročnosti. Také se můžete rozhodnout, jestli jako první začíná počítač nebo "
+"vy."
 
-#. (itstool) path: item/p
-#: C/ai-game.page:24 C/change-color.page:24
-msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+#. (itstool) path: page/p
+#: C/ai-game.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the two "
+"first cases, <app>Reversi</app> is already configured to start a game "
+"against the computer, else it would start a two-player game."
 msgstr ""
-"Klikněte na <guiseq><gui>Nastavení</gui> <gui>Předvolby</gui></guiseq>."
+"Až si <link xref=\"configure\">nastavíte novou hru</link>, podívejte se po "
+"prvním tlačítku se šipkou dolů. Měl by na něm být popisek <gui>Barva: černý</"
+"gui>, <gui>Barva: bílý</gui> nebo <gui>Dva hráči</gui>. V prvních dvou "
+"případech je <app>Reversi</app> nastavená na hraní proti počítači, v "
+"posledním případě se spustí pro dva lidské hráče."
 
-#. (itstool) path: item/p
+#. (itstool) path: page/p
 #: C/ai-game.page:26
-msgid "Select the difficulty level for your computer opponent."
-msgstr "Vyberte úroveň náročnosti pro vašecho počítačového soupeře."
+msgid ""
+"If the button is labelled <gui>Color: Dark</gui>, that means that you will "
+"do the first move. Of course, <gui>Color: Light</gui> means that it will be "
+"the computer."
+msgstr ""
+"Když má tlačítko popisek <gui>Barva: černý</gui>, znamená to, že budete "
+"táhnout první. Logicky pak <gui>Barva: bílý</gui> znamená, že první táhne "
+"počítač."
 
-#. (itstool) path: item/p
-#: C/ai-game.page:27 C/sound.page:23
-msgid "Click <gui>Close</gui>."
-msgstr "Klikněte na <gui>Zavřít</gui>."
+#. (itstool) path: page/p
+#: C/ai-game.page:28
+msgid ""
+"If the button indicates <gui>Two players</gui>, select it, and in the menu "
+"that appears, select <gui>Play first (Dark)</gui> if you want to start the "
+"game, or <gui>Play second (Light)</gui> if you want the computer to start. "
+"The button will change its label to <gui>Color: Dark</gui> in the former "
+"case, and to <gui>Color: Light</gui> in the latter."
+msgstr ""
+"Pokud tlačítko hlásá <gui>Dva hráči</gui>, vyberte jej a v nabídce, která se "
+"rozbalí, vyberte <gui>Hrát první (černý)</gui> v případě, že chcete hru "
+"začínat vy, nebo <gui>Hrát druhý (bílý)</gui>, když má začínat počítač. "
+"Tlačítko změní svůj popisek na <gui>Barva: černý</gui>, respektive "
+"<gui>Barva: bílý</gui>."
+
+#. (itstool) path: page/p
+#: C/ai-game.page:30
+msgid ""
+"Once you have configured <app>Reversi</app> to play a game against the "
+"computer, you may <link xref=\"ai-level\">change the computer level</link>."
+msgstr ""
+"Když máte <app>Reversi</app> nastavené na hraní proti počítači, můžete <link "
+"xref=\"ai-level\">změnit herní úroveň počítače</link>."
+
+#. (itstool) path: page/title
+#: C/ai-level.page:20
+msgid "Change the computer level"
+msgstr "Změna úrovně hraní počítače"
+
+#. (itstool) path: page/p
+#: C/ai-level.page:22
+msgid ""
+"<app>Reversi</app> offers you three level of difficulty if you want to play "
+"against the computer."
+msgstr ""
+"<app>Reversi</app> nabízí tři úrovně náročnosti při hraní proti počítači."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:24
+msgid ""
+"These levels are called: <em>Easy</em>, <em>Medium</em>, and <em>Hard</em>. "
+"The first one is suitable for beginners, the second for casual players, and "
+"the last one should please regular players."
+msgstr ""
+"Tyto úrovně se nazývají: <em>snadná</em>, <em>střední</em>, <em>těžká</em>. "
+"První jmenovaná je vhodná pro začátečníky, druhá pro příležitostné hráče a "
+"poslední by si měli zvolit pravidelní hráči."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:26
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the second button with a down arrow; it should either be labelled "
+"<gui>Difficulty: Easy</gui>, <gui>Difficulty: Medium</gui>, <gui>Difficulty: "
+"Hard</gui> or <gui>More options</gui>. The first three possibilities "
+"indicate which one of the three levels would be used if starting a new game. "
+"In the latter case, <app>Reversi</app> is currently configured for a two-"
+"player game, and you should first configure that you want to <link xref=\"ai-"
+"game\">play against the computer</link>."
+msgstr ""
+"Až si <link xref=\"configure\">nastavíte novou hru</link>, podívejte se po "
+"druhém tlačítku se šipkou dolů. Měl by na něm být popisek <gui>Náročnost: "
+"snadná</gui>, <gui>Náročnost: střední</gui>, <gui>Náročnost: těžká</gui> "
+"nebo <gui>Další volby</gui>. První tři možnosti dávají najevo, která ze tří "
+"úrovní náročnosti se má použít při startu nové hry. V posledním zmíněném "
+"případě je hra <app>Reversi</app> zrovna nastavená pro dva lidské hráče a "
+"museli byste se nejprve přepnout na <link xref=\"ai-game\">hraní proti "
+"počítači</link>, abyste mohli měnit náročnost."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:28
+msgid ""
+"Once that is done, if the indicated level is not the one you want, select "
+"the button, and in the menu that appears, select <gui>Easy</gui>, "
+"<gui>Medium</gui> or <gui>Hard</gui>, as you prefer. The button will change "
+"its label accordingly."
+msgstr ""
+"Jestliže máte nastavené hraní proti počítači a oznamovaná náročnost není ta, "
+"co byste chtěli, zmáčkněte tlačítko a rozbalí se nabídka. Podle potřeby si "
+"vyberte <gui>snadná</gui>, <gui>střední</gui> a <gui>těžká</gui>. Tlačítko "
+"příslušně změní popisek."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:30
+msgid ""
+"When the indicated level is good for your, you can select the <gui>Start "
+"Game</gui> button to launch your game and <link xref=\"play\">play</link>."
+msgstr ""
+"Jakmile vám nastavená úroveň vyhovuje, můžete tlačítkem <gui>Začít hru</gui> "
+"hru odstartovat a <link xref=\"play\">hrát</link>."
+
+#. (itstool) path: page/title
+#: C/alternate.page:20
+msgid "Alternate who starts"
+msgstr "Změna začínajícího hráče"
+
+#. (itstool) path: page/p
+#: C/alternate.page:22
+msgid ""
+"If you are playing multiple games in a row <link xref=\"ai-game\">against "
+"the computer</link>, <app>Reversi</app> allows you to automatically altern "
+"who will start the next game bewteen you and the computer."
+msgstr ""
+"Když hrajete více her po sobě <link xref=\"ai-game\">proti počítači</link>, "
+"mohou <app>Reversi</app> automaticky prohazovat mezi vámi a počítačem, kdo "
+"začíná."
+
+#. (itstool) path: page/p
+#: C/alternate.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter "
+"case, <app>Reversi</app> is configured to start a two-player game; if so, "
+"first, configure a game <link xref=\"ai-game\">against the computer</link>."
+msgstr ""
+"Ve chvíli, kdy <link xref=\"configure\">nastavujete novou hru</link>, "
+"podívejte se po prvním tlačítku se šipkou dolů. Měl by na něm být popisek "
+"<gui>Barva: černý</gui>, <gui>Barva: bílý</gui> nebo <gui>Dva hráči</gui>. V "
+"posledním jmenovaném případě je <app>Reversi</app> nastavená pro hraní dvou "
+"lidských hráčů. První dva znamenají hru <link xref=\"ai-game\">proti "
+"počítači</link>."
+
+#. (itstool) path: page/p
+#: C/alternate.page:26
+msgid ""
+"Select the button. In the menu that appears, there is an entry called "
+"<gui>Alternate who starts</gui>."
+msgstr ""
+"Zmáčkněte tlačítko. V nabídce, která se rozbalí, je položka <gui>Střídat "
+"začínajícího</gui>."
+
+#. (itstool) path: page/p
+#: C/alternate.page:28
+msgid ""
+"If the <gui>Alternate who starts</gui> option is disabled, every new game "
+"will be started by the same player: you will be the first player if the "
+"label of the button is <gui>Color: Dark</gui>, and it will be the computer "
+"if the label is <gui>Color: Light</gui>; to change who starts, see how to "
+"configure a game <link xref=\"ai-game\">against the computer</link>."
+msgstr ""
+"Pokud je volba <gui>Střídat začínajícího</gui> vypnutá, bude každou novou "
+"hru začínat stejný hráč. Popisek <gui>Barva: černá</gui> na prvním tlačítku "
+"znamená, že budete první hráč, <gui>Barva: bílá</gui> pak, že první bude "
+"počítač. Podívejte se, jak nastavit hraní <link xref=\"ai-game\">proti "
+"počítači</link>."
+
+#. (itstool) path: page/p
+#: C/alternate.page:30
+msgid ""
+"If the <gui>Alternate who starts</gui> option is enabled, then at each new "
+"game, who will be the first player will be automatically changed. So if you "
+"started a game, the next time you <link xref=\"configure\">configure a new "
+"game</link>, the button will be labelled <gui>Color: Light</gui>, and the "
+"computer will be starting the following game."
+msgstr ""
+"Pokud je volba <gui>Střídat začínajícího</gui> zapnutá, bude se pro každou "
+"novou hru první hráč automaticky měnit. Takže, jestli jste hru začali vy, "
+"při příštím <link xref=\"configure\">nastavování hry</link> bude na první "
+"tlačítku <gui>Barva: bílá</gui> a následující hru začne počítač."
+
+#. (itstool) path: page/p
+#: C/alternate.page:32
+msgid ""
+"To enable or disable the option, just select the <gui>Alternate who starts</"
+"gui> entry."
+msgstr ""
+"Když chcete zapnout nebo vypnout tuto volbu, stačí přepnout <gui>Střídat "
+"začínajícího</gui>."
+
+#. (itstool) path: page/p
+#: C/alternate.page:34
+msgid "This option is selected by default."
+msgstr "Tato volba je ve výchozím stavu vybraná."
+
+#. (itstool) path: credit/name
+#: C/bug-filing.page:10 C/develop.page:10 C/documentation.page:10
+#: C/index.page:13 C/play.page:10 C/rules.page:11 C/sound.page:11
+#: C/strategy.page:10 C/translate.page:10
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
 
 #. (itstool) path: credit/years
-#: C/bug-filing.page:11 C/change-color.page:11 C/develop.page:12
-#: C/documentation.page:10 C/strategy.page:11 C/translate.page:12
+#: C/bug-filing.page:12 C/develop.page:12 C/documentation.page:12
+#: C/strategy.page:12 C/translate.page:12
 msgid "2011"
 msgstr "2011"
 
-#. (itstool) path: license/p
-#: C/bug-filing.page:14 C/develop.page:15 C/documentation.page:13
-#: C/index.page:16 C/translate.page:19
-msgid "Creative Commons Share Alike 3.0"
-msgstr "Creative Commons Share Alike 3.0"
-
 #. (itstool) path: page/title
-#: C/bug-filing.page:18
-msgid "Help make <app>Iagno</app> better"
-msgstr "Pomozte vylepšovat hru <app>Iagno</app>"
+#: C/bug-filing.page:20
+msgid "Help make <app>Reversi</app> better"
+msgstr "Pomozte vylepšovat hru <app>Reversi</app>"
 
 #. (itstool) path: section/title
-#: C/bug-filing.page:21
+#: C/bug-filing.page:23
 msgid "Report a bug or suggest an improvement"
 msgstr "Hlaste chyby nebo navrhujte vylepšení"
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:22
+#: C/bug-filing.page:24
 msgid ""
-"<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
-"participate. If you notice a problem you can file a <em>bug report</em>. To "
-"file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues/"
-"\"/>."
-msgstr ""
-"O hru <app>Iagno</app> se stará komunita dobrovolníků. Vaše případná účast "
-"bude vítána. Pokud si povšimnete nějakého problému, můžete vyplnit "
-"<em>chybové hlášení</em> na <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
+"<app>Reversi</app> is maintained by a volunteer community. You are welcome "
+"to participate. If you notice a problem you can file a <em>bug report</em>. "
+"To file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
 "issues/\"/>."
+msgstr ""
+"O hru <app>Reversi</app> se stará komunita dobrovolníků. Vaše případná účast "
+"bude vítána. Pokud si povšimnete nějakého problému, můžete vyplnit "
+"<em>chybové hlášení</em> na <link href=\"https://gitlab.gnome.org/GNOME/"
+"iagno/issues/\"/>."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:25
+#: C/bug-filing.page:28
 msgid ""
 "This is a bug tracking system where users and developers can file details "
 "about bugs, crashes and request enhancements."
@@ -157,7 +368,7 @@ msgstr ""
 "angličtině."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:28
+#: C/bug-filing.page:32
 msgid ""
 "To participate you need an account which will give you the ability to gain "
 "access, file bugs, and make comments. Also, you need to register so you can "
@@ -168,80 +379,117 @@ msgstr ""
 "Abyste se mohli zapojit, musíte si vytvořit účet, díky kterému získáte "
 "přistup, můžete hlásit chyby a psát komentáře. Registraci potřebujete také k "
 "tomu, aby vám přicházely na e-mail informace o stavu vaší chyby. Jestli účet "
-"zatím nemáte, stačí pro vytvoření kliknout na odkaz <gui>Sign in / Register"
-"</gui>."
+"zatím nemáte, stačí pro vytvoření kliknout na odkaz <gui>Sign in / Register</"
+"gui>."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:32
+#: C/bug-filing.page:36
 msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
-"reporting a bug, please read the <link href=\"https://bugzilla.gnome.org/"
-"page.cgi?id=bug-writing.html\">bug writing guidelines</link>, and please "
-"<link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">browse</link> for "
-"the bug to see if it already exists."
+"reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/BugReportingGuidelines\">bug writing guidelines</"
+"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
+"\">browse</link> for the bug to see if it already exists."
 msgstr ""
 "Když už účet máte, přihlaste se a klikněte na <gui>New issue</gui>. Před "
-"nahlášením chyby si prosím přečtěte <link href=\"https://bugzilla.gnome.org/"
-"page.cgi?id=bug-writing.html\">přiručku k hlášení chyb</link> (odkaz je v "
-"angličtině) a <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">"
-"podívejte</link> se prosím, jestli stejnou chybu nenahlásil už někdo jiný."
+"nahlášením chyby si prosím přečtěte <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/BugReportingGuidelines\">příručku k hlášení chyb</"
+"link> (odkaz je v angličtině) a <link href=\"https://gitlab.gnome.org/GNOME/"
+"iagno/issues\">podívejte</link> se prosím, jestli stejnou chybu nenahlásil "
+"už někdo jiný."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:37
+#: C/bug-filing.page:40
 msgid ""
 "If you are requesting a new feature, choose <gui>1. Feature</gui> in the "
 "<gui>Labels</gui> menu. Fill in the Title and Description sections and click "
 "<gui>Submit Issue</gui>."
 msgstr ""
 "V případě, že žádáte o novou funkčnost, zvolte v nabídce <gui>Labels</gui> "
-"položku <gui>1. Feature</gui>. Vyplňte pole Title a Description a klikněte na "
-"<gui>Submit Issue</gui>."
+"položku <gui>1. Feature</gui>. Vyplňte pole Title a Description a klikněte "
+"na <gui>Submit Issue</gui>."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:41
+#: C/bug-filing.page:45
 msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
-"is being dealt with. Thanks for helping make <app>Iagno</app> better!"
+"is being dealt with. Thanks for helping make <app>Reversi</app> better!"
 msgstr ""
 "Vaše hlášení dostane přiděleno identifikační číslo a jak bude postupně "
-"řešeno, bude se měnit jeho stav."
+"řešeno, bude se měnit jeho stav. Děkujeme, že pomáháte hru <app>Reversi</"
+"app> vylepšovat."
 
 #. (itstool) path: page/title
-#: C/change-color.page:17
-msgid "Change player color and difficulty"
-msgstr "Jak změnit barvu hráče a obtížnost"
+#: C/configure.page:20
+msgid "Configure a new game"
+msgstr "Nastavení nové hry"
 
 #. (itstool) path: page/p
-#: C/change-color.page:19
-msgid "To change the player for each color:"
-msgstr "Když chcete změnit hráče některé barvy:"
-
-#. (itstool) path: item/p
-#: C/change-color.page:25
-msgid "Select the <gui>Game</gui> tab"
-msgstr "Vyberte kartu <gui>Hra</gui>."
-
-#. (itstool) path: item/p
-#: C/change-color.page:26
+#: C/configure.page:22
 msgid ""
-"Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
-"gui>."
+"When <app>Reversi</app> is opened, it displays a screen that allows you to "
+"configure a new game and to launch it."
 msgstr ""
-"Vyberte typ hráče/náročnost vedle <gui>Černý hráč</gui> a/nebo <gui>Bílý "
-"hráč</gui>."
+"Po spuštění zobrazí <app>Reversi</app> okno, ve kterém si můžete nastavit "
+"novou hru a spustit ji."
 
-#. (itstool) path: note/p
-#: C/change-color.page:27
-msgid "Your choice is effective immediately."
-msgstr "Váše volba se ihned projeví."
+#. (itstool) path: page/p
+#: C/configure.page:24
+msgid ""
+"This screen notably allows to select if you want to play <link xref=\"select-"
+"game\"><em>Classic Reversi</em> or <em>Reverse Reversi</em></link>, to "
+"choose if you are going to play <link xref=\"ai-game\">against the computer</"
+"link> or <link xref=\"2player\">with another player</link>, and in the "
+"former case to <link xref=\"ai-level\">change the computer level</link>."
+msgstr ""
+"Zejména si můžete vybrat, jestli chcete hrát <link xref=\"select-game"
+"\"><em>klasické Reversi</em> nebo <em>žravé Reversi</em></link>, zvolit, "
+"jestli hodláte hrát <link xref=\"ai-game\">proti počítači</link> nebo <link "
+"xref=\"2player\">s jiným hráčem</link> a v prvním případe <link xref=\"ai-"
+"level\">změnit úroveň hraní počítače</link>. "
+
+#. (itstool) path: page/p
+#: C/configure.page:26
+msgid ""
+"If you are opening the application for the first time, <app>Reversi</app> "
+"defaults on an easy <em>Classic Reversi</em> against the computer. Else, it "
+"will have remembered you previous settings."
+msgstr ""
+"Když spustíte aplikaci poprvé, <app>Reversi</app> nabídnou výchozí hodnoty, "
+"což jsou snadné <em>Klasické Reversi</em> proti počítači. Pro příště si pak "
+"už zapamatují vaše předchozí nastavení."
+
+#. (itstool) path: page/p
+#: C/configure.page:28
+msgid ""
+"For launching a game from here, just click on the <gui>Start Game</gui> "
+"button. A game can also be launched with the <keyseq><key>Shift</"
+"key><key>Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-"
+"selection\">keyboard shortcut</link>."
+msgstr ""
+"Pro spuštění hry stačí zmáčknout tlačítko <gui>Začít hru</gui>. Hra se dá "
+"spustit také <link xref=\"shortcuts#game-selection\">klávesovou zkratkou</"
+"link> <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>."
+
+#. (itstool) path: page/p
+#: C/configure.page:30
+msgid ""
+"Once a game has been launched, you can always go back to this screen by "
+"clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> <link xref=\"shortcuts#during-game\">keyboard "
+"shortcut</link>."
+msgstr ""
+"Když už je hra spuštěná, můžete se vrátit zpět na tuto obrazovku zmáčknutím "
+"tlačítka <gui>Nová hra</gui> nebo pomocí <link xref=\"shortcuts#during-game"
+"\">klávesové zkratky</link> <keyseq><key>Ctrl</key><key>N</key></keyseq>."
 
 #. (itstool) path: page/title
-#: C/develop.page:19
+#: C/develop.page:25
 msgid "Help develop"
 msgstr "Pomozte s vývojem"
 
 #. (itstool) path: page/p
-#: C/develop.page:20
+#: C/develop.page:27
 msgid ""
 "The <app>GNOME Games</app> are developed and maintained by a volunteer "
 "community. You are welcome to participate."
@@ -250,29 +498,40 @@ msgstr ""
 "případná účast bude vítána."
 
 #. (itstool) path: page/p
-#: C/develop.page:23
+#: C/develop.page:31
 msgid ""
 "If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
-"Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
-"touch with the developers using <link href=\"https://cbe005.chat.mibbit.com/?"
-"url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our <link "
-"href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
-"link>."
+"Contribute\">help develop <app>GNOME Games</app></link>, you can get in "
+"touch with the developers <link href=\"https://wiki.gnome.org/Community/"
+"GettingInTouch/IRC\">using IRC</link> (on the <code>#gnome-games</code> "
+"channel). People on the channel are located worldwide, so you may not get an "
+"immediate response as a result of timezone differences."
 msgstr ""
 "Jestli chcete <link href=\"https://wiki.gnome.org/Apps/Games/Contributing"
 "\">pomoci s vývojem <app>her GNOME</app></link>, můžete se s vývojáři "
-"kontaktovat na <link href=\"https://cbe005.chat.mibbit.com/?url=irc%3A%2F"
-"%2Firc.gnome.org%2Fgnome-games\">IRC</link> nebo přes <link href=\"http://"
-"mail.gnome.org/mailman/listinfo/games-list\">poštovní konferenci</link>. Ke "
-"komunikaci se používá angličtina."
+"zkontaktovat na <link href=\"https://wiki.gnome.org/Community/GettingInTouch/"
+"IRC\">IRC</link> (na kanále <code>#gnome-games</code>). Lidé na tomto kanále "
+"pocházejí z celého světa, takže kvůli rozdílným časovým pásmům nemusí "
+"reagovat hned."
+
+#. (itstool) path: page/p
+#: C/develop.page:33
+msgid ""
+"Alternatively, you can contact GNOME games developers using the dedicated "
+"<link href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing "
+"list</link>."
+msgstr ""
+"Případně můžete kontaktovat vývojáře her GNOME přes vyhrazenou <link href="
+"\"http://mail.gnome.org/mailman/listinfo/games-list\">poštovní konferenci</"
+"link>."
 
 #. (itstool) path: page/title
-#: C/documentation.page:17
+#: C/documentation.page:25
 msgid "Help write documentation"
 msgstr "Pomozte psát dokumentaci"
 
 #. (itstool) path: page/p
-#: C/documentation.page:19
+#: C/documentation.page:27
 msgid ""
 "The <app>GNOME Games</app> documentation is maintained by a volunteer "
 "community. You are welcome to participate."
@@ -281,80 +540,348 @@ msgstr ""
 "případná účast bude vítána."
 
 #. (itstool) path: page/p
-#: C/documentation.page:22
+#: C/documentation.page:30
 msgid ""
 "To contribute to the Documentation Project, feel free to get in touch with "
-"us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
-"gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail.gnome.org/"
-"mailman/listinfo/gnome-doc-list\">mailing list</link>."
+"us <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC\">using "
+"irc</link> (on the <code>#docs</code> channel). People on the channel are "
+"located worldwide, so you may not get an immediate response as a result of "
+"timezone differences."
 msgstr ""
-"Jestli chcete přispívat do Dokumentačního projektu, nebojte se nás "
-"kontaktovat na <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F"
-"%2Firc.gnome.org%2Fdocs\">IRC</link> nebo přes <link href=\"http://mail."
-"gnome.org/mailman/listinfo/gnome-doc-list\">poštovní konferenci</link>. Ke "
-"komunikaci se používá angličtina."
+"Pokud byste chtěli přispět do Dokumentačního projektu, neváhejte nás "
+"kontaktovat <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC"
+"\">pomocí IRC</link> (na kanále <code>#docs</code>). Lidé na tomto kanále "
+"jsou z celého světa, tak počítejte s tím, že kvůli rozdílným časovým pásmům, "
+"nemusí reagovat hned."
 
 #. (itstool) path: page/p
-#: C/documentation.page:24
+#: C/documentation.page:32
 msgid ""
-"Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
-"\">wiki</link> page contains useful information."
+"Alternatively, you can contact the Documentation Project using the dedicated "
+"<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list"
+"\">mailing list</link>."
 msgstr ""
-"Užitečné informace obsahuje naše <link href=\"https://live.gnome.org/"
+"Případně můžete kontaktovat Dokumentační projekt přes vyhrazenou <link href="
+"\"http://mail.gnome.org/mailman/listinfo/gnome-doc-list\">poštovní "
+"konferenci</link>."
+
+#. (itstool) path: page/p
+#: C/documentation.page:34
+msgid ""
+"Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
+"\">wiki page</link> contains useful information."
+msgstr ""
+"Užitečné informace obsahuje naše <link href=\"https://wiki.gnome.org/"
 "DocumentationProject/Contributing\">wikistránka</link>."
+
+#. (itstool) path: page/title
+#: C/example.page:21
+msgid "Example game first moves"
+msgstr "Příklad prvního tahu hry"
+
+#. (itstool) path: media/p
+#: C/example.page:27
+msgid "Usual start position: E4 and D5 are dark, D4 and E5 are light."
+msgstr "Obvyklé počáteční postavení: E4 a D5 jsou černé, D4 a E5 jsou bílé."
+
+#. (itstool) path: td/p
+#: C/example.page:31
+msgid "<em>Start position</em>"
+msgstr "<em>Počáteční postavení</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:33
+msgid "This is the usual start position of the reversi game family."
+msgstr "Jedná se o obvyklé počáteční postavení her z rodiny reversi."
+
+#. (itstool) path: td/p
+#: C/example.page:35
+msgid ""
+"<app>Reversi</app> also allows you to <link xref=\"start-position\">use "
+"other start positions</link>."
+msgstr ""
+"<app>Reversi</app> nabízí i <link xref=\"start-position\">použití jiných "
+"počátečních postavení</link>."
+
+#. (itstool) path: media/p
+#: C/example.page:42
+msgid "Example first move: <em>Dark</em> plays D3, capturing D4 thanks to D5."
+msgstr "Příklad prvního tahu: <em>černý</em> hraje D3, sebere tím D4 díky D5."
+
+#. (itstool) path: td/p
+#: C/example.page:46
+msgid "<em>Example first move</em>"
+msgstr "<em>Příklad prvního tahu</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:48
+msgid "<em>Dark</em> always starts in the reversi game family."
+msgstr "V hrách z rodiny reversi vždy začíná <em>černý</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:50
+msgid "Whatever start position is used, there are four possible first moves."
+msgstr ""
+"Ať už je počáteční postavení jakékoliv, existují čtyři možné první tahy."
+
+#. (itstool) path: td/p
+#: C/example.page:52
+msgid ""
+"In the usual start position like here, the four possibilities are equivalent "
+"by symmetry."
+msgstr ""
+"V obvyklém počátečním postavení, jako je zde, jsou si čtyři možnosti "
+"symetricky rovny."
+
+#. (itstool) path: media/p
+#: C/example.page:59
+msgid "First <em>Light</em> move: playing E3 and capturing E4 thanks to E5."
+msgstr "První tah <em>bílého</em>: hraje E3 a bere E4 díky E5."
+
+#. (itstool) path: td/p
+#: C/example.page:63
+msgid "<em>Possible second move</em>"
+msgstr "<em>Možný druhý tah</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:65
+msgid "<em>Light</em> has three possibilities of capturing one piece."
+msgstr "<em>Bílý</em> má tři možnosti, jak sebrat jeden kámen."
+
+#. (itstool) path: td/p
+#: C/example.page:67
+msgid ""
+"The game will require to search for the <link xref=\"strategy\">best "
+"strategy</link>!"
+msgstr ""
+"Podstatou hry je hledání <link xref=\"strategy\">nejlepší strategie</link>."
+
+#. (itstool) path: media/p
+#: C/example.page:74
+msgid ""
+"<em>Dark</em> turns multiple rows: playing F3, it captures both E3 due to D3 "
+"and E4 due to D5."
+msgstr ""
+"<em>Černý</em> otočí více řádků naráz: hraje F3 a tím bere jak E3 díky D3, "
+"tak E4 díky D5."
+
+#. (itstool) path: td/p
+#: C/example.page:78
+msgid "<em>Capturing multiple rows</em>"
+msgstr "<em>Sebrání více řádků</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:80
+msgid "<em>Dark</em> has five possibilities to play, all on the sixth column."
+msgstr "<em>Černý</em> má pět možností, jak hrát, všechny v šestém sloupci."
+
+#. (itstool) path: td/p
+#: C/example.page:82
+msgid ""
+"Two of these possibilities allow capturing in two directions at the same "
+"time, one piece in each."
+msgstr ""
+"Dvě z těchto možností umožňují brát ve dvou směrech naráz, po jednom kameni "
+"v každém z nich."
+
+#. (itstool) path: td/p
+#: C/example.page:84
+msgid ""
+"Capturing the higher number of tiles is not required in reversi, and may not "
+"be the best solution even. Only the number of owned tiles at the end of the "
+"game will count."
+msgstr ""
+"Jestli seberete protihráči více kamenů naráz, není v reversi až tak "
+"podstatné a nemusí to nutně vést k vítězství. Jediné, na čem záleží, je "
+"počet vlastněných kamenů na konci hry."
+
+#. (itstool) path: media/p
+#: C/example.page:91
+msgid ""
+"<em>Light</em> turns a row of two pieces: playing E2, it turns E3 and E4 "
+"thanks to E5"
+msgstr ""
+"<em>Bílý</em> otočí dva kameny v řadě: hraje E2, otočí E3 a E4 díky E5."
+
+#. (itstool) path: td/p
+#: C/example.page:95
+msgid "<em>Turning a two-pieces row</em>"
+msgstr "<em>Otočení dvou kamenů v řadě</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:97
+msgid "<em>Light</em> has again three play possibilities."
+msgstr "<em>Bílý</em> má opět tři možnosti jak hrát."
+
+#. (itstool) path: td/p
+#: C/example.page:99
+msgid "One of them is to capture two dark pieces in a row."
+msgstr "Jednou z nich je sebrat dva černé kameny v řadě."
+
+#. (itstool) path: td/p
+#: C/example.page:101
+msgid ""
+"Playing that way may allow <em>Dark</em> to play next on the board edge. Is "
+"that a good strategy? Who knows!"
+msgstr ""
+"Pokud zahraje takto, umožní <em>černému</em> hrát další tah na hraně herní "
+"desky. Je to dobrá strategie? Kdo ví?"
+
+#. (itstool) path: page/title
+#: C/highlights.page:20
+msgid "Display helpful highlights"
+msgstr "Pomocné zvýrazňování"
+
+#. (itstool) path: page/p
+#: C/highlights.page:22
+msgid ""
+"<app>Reversi</app> can display some helpful highlights during a game, be it "
+"a <em>Classic Reversi</em> or a <em>Reverse Reversi</em>."
+msgstr ""
+"Hra <app>Reversi</app> může během hraní pomáhat zvýrazňováním možností a "
+"můžete ji hrát v <em>klasické</em> nebo <em>žravé</em> variantě."
+
+#. (itstool) path: section/title
+#: C/highlights.page:25
+msgid "Highlight playable tiles"
+msgstr "Zvýrazňování hratelných polí"
+
+#. (itstool) path: section/p
+#: C/highlights.page:27
+msgid ""
+"<app>Reversi</app> can first highlight the tiles that can be played by the "
+"current player. This information could be quite useful for beginners "
+"notably, for learning the game."
+msgstr ""
+"V první řadě, <app>Reversi</app> umí zvýrazňovat kameny, s kterými může hrát "
+"hráč, který je na tahu. Tato informace se může docela hodit začátečníkům, "
+"zejména při učení hry."
+
+#. (itstool) path: section/p
+#: C/highlights.page:29 C/highlights.page:39
+msgid ""
+"This can be activated both in a <link xref=\"ai-game\">game against the "
+"computer</link> and in a <link xref=\"2player\">two-player game</link>. "
+"There is no way for only enabling this highlight for one of the players of a "
+"two-player game."
+msgstr ""
+"Tuto funkci lze aktivovat jak ve <link xref=\"ai-game\">hře proti počítači</"
+"link>, tak ve <link xref=\"2player\">hře pro dva hráče</link>. U hry pro dva "
+"hráče ale nelze zapnout zvýrazňování jen pro jednoho z nich."
+
+#. (itstool) path: section/p
+#: C/highlights.page:31
+msgid ""
+"To enable or disable this highlight, press the menu button in the top-right "
+"corner of the window, select <gui>Appearance</gui>, and in the "
+"<gui>Highlights</gui> section select <gui>Playable tiles</gui>."
+msgstr ""
+"Když chcete zapnout, nebo vypnout toto zvýrazňování, zmáčkněte tlačítko "
+"nabídky v pravém horním rohu okna, vyberte <gui>Vzhled</gui> a v části "
+"<gui>Zvýrazňování</gui> zaškrtněte <gui>Hratelná pole</gui>."
+
+#. (itstool) path: section/title
+#: C/highlights.page:35
+msgid "Highlight capturable tiles"
+msgstr "Zvýrazňování zabratelných kamenů"
+
+#. (itstool) path: section/p
+#: C/highlights.page:37
+msgid ""
+"<app>Reversi</app> can also highlight the tiles that would be captured by a "
+"given play. That might help for having a better visualisation of what the "
+"board would then look like."
+msgstr ""
+"<app>Reversi</app> umí zvýrazňovat také kameny, které lze daným tahem "
+"potenciálně sebrat. Pomáhá to s lepší představivostí, jak bude herní deska "
+"po tahu vypadat."
+
+#. (itstool) path: section/p
+#: C/highlights.page:41
+msgid ""
+"To enable or disable this highlight, press the menu button in the top-right "
+"corner of the window, select <gui>Appearance</gui>, and in the "
+"<gui>Highlights</gui> section select <gui>Capturable tiles</gui>."
+msgstr ""
+"Když chcete zapnout, nebo vypnout toto zvýrazňování, zmáčkněte tlačítko "
+"nabídky v pravém horním rohu okna, vyberte <gui>Vzhled</gui> a v části "
+"<gui>Zvýrazňování</gui> zaškrtněte <gui>Zabratelné kameny</gui>."
 
 #. (itstool) path: info/title
 #: C/index.page:8
 msgctxt "link"
-msgid "Iagno"
-msgstr "Iagno"
+msgid "Reversi"
+msgstr "Reversi"
 
 #. (itstool) path: info/title
 #: C/index.page:9
 msgctxt "text"
-msgid "Iagno"
-msgstr "Iagno"
+msgid "Reversi"
+msgstr "Reversi"
 
 #. (itstool) path: media/span
-#: C/index.page:20
-msgid "Iagno logo"
-msgstr "Logo hry Iagno"
+#: C/index.page:27
+msgid "Reversi logo"
+msgstr "Logo Reversi"
 
 #. (itstool) path: page/title
-#: C/index.page:20
-msgid "<_:media-1/> Iagno"
-msgstr "<_:media-1/> Iagno"
+#: C/index.page:27
+msgid "<_:media-1/> Reversi"
+msgstr "<_:media-1/> Reversi"
 
 #. (itstool) path: page/p
-#: C/index.page:22
+#: C/index.page:29
 msgid ""
-"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
-"on one side and light on the other. When a piece is captured it is turned "
-"over to join the capturing player's forces; the winner is the player with "
-"the most pieces of their color at the end of the game."
+"<app>Reversi</app> is a boardgame played with pieces dark on one side and "
+"light on the other. <em>Dark</em> and <em>Light</em> play one after each "
+"other by adding on an empty tile a new piece of their color, trapping at "
+"least one opponent row of pieces; when pieces are captured that way, they "
+"are turned over to join the capturing player's forces. See <link xref=\"rules"
+"\">reversi rules</link> to discover more about the game."
 msgstr ""
-"<app>Iagno</app> je desková hra hraná v mřížce 8×8 s 64 hracími kameny, "
-"černými pro jednu stranu a bílými pro druhou. Když je kámen chycen, převrátí "
-"se a stane se tak kamenem hráče, který jej chytil. Vyhrává ten hráč, který "
-"má na konci hry většinu kamenů své barvy."
+"<app>Reversi</app> je desková hra hraná kameny, které jsou na jedné straně "
+"černé a na druhé bílé. <em>Černý</em> a <em>býlý</em> hrají po sobě, každý "
+"po jednom tahu tak, že přidají na prázdné pole nový kámen svojí barvy a musí "
+"přitom chytit do pasti minimálně jeden protivníkův kámen. Kameny, které "
+"takto chytí, obrátí svoji barvu a přidají se ke kamenům táhnoucího hráče. "
+"Více o hře najdete v <link xref=\"rules\">pravidlech hry reversi</link>."
+
+#. (itstool) path: page/p
+#: C/index.page:31
+msgid ""
+"<app>Reversi</app> allows you to play <link xref=\"select-game\">two "
+"variations of the reversi game</link>: the classic version of reversi, where "
+"you try to dominate the board at the end, and the <em>Reverse Reversi</em>, "
+"where the goal is to finish with <em>less</em> pieces than your opponent. "
+"You can play both either <link xref=\"ai-game\">against the computer</link> "
+"or <link xref=\"2player\">with another player</link>. Check these options "
+"when you <link xref=\"configure\">configure a new game</link>. Have fun!"
+msgstr ""
+"<app>Reversi</app> umožňují hrát <link xref=\"select-game\">dvě varianty hry "
+"reversi</link>: klasickou verzi, kde se snažíte získat na konci hry navrch, "
+"a <em>žravé reversi</em>, jejichž cílem je skončit s <em>méně</em> kameny, "
+"než protivník. Obojí můžete hrát jak <link xref=\"ai-game\">proti počítači</"
+"link>, tak <link xref=\"2player\">s jiným hráčem</link>. Tyto věci si "
+"rozhodněte, když <link xref=\"configure\">nastavujete novou hru</link>. "
+"Přejeme hodně zábavy."
 
 #. (itstool) path: section/title
-#: C/index.page:26
+#: C/index.page:34
 msgid "Game Play"
 msgstr "Hraní hry"
 
 #. (itstool) path: section/title
-#: C/index.page:30
+#: C/index.page:38
+msgid "Game of reversi"
+msgstr "Hra reversi"
+
+#. (itstool) path: section/title
+#: C/index.page:42
 msgid "Useful tips"
 msgstr "Užitečné tipy"
 
 #. (itstool) path: section/title
-#: C/index.page:34
-msgid "Advanced"
-msgstr "Pokročilé"
-
-#. (itstool) path: section/title
-#: C/index.page:38
+#: C/index.page:46
 msgid "Get Involved"
 msgstr "Zapojte se"
 
@@ -459,13 +986,1187 @@ msgstr ""
 "nebo si přečtěte <link href=\"http://creativecommons.org/licenses/by-sa/3.0/"
 "\">výtah dokumentu pro neprávníky</link>."
 
+#. (itstool) path: credit/years
+#: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:13
+msgid "2012"
+msgstr "2012"
+
 #. (itstool) path: page/title
-#: C/play.page:18
+#: C/play.page:25
+msgid "Play with mouse or keyboard"
+msgstr "Hraní pomocí myši nebo klávesnice"
+
+#. (itstool) path: page/p
+#: C/play.page:27
+msgid ""
+"<app>Reversi</app> allows you to easily play with a mouse or with the "
+"keyboard."
+msgstr "<app>Reversi</app> lze hrát jednoduše pomocí myši i klávesnice."
+
+#. (itstool) path: section/title
+#: C/play.page:30
+msgid "How to play with a mouse"
+msgstr "Jak hrát pomocí myši"
+
+#. (itstool) path: section/p
+#: C/play.page:32 C/play.page:57
+msgid "To make a move:"
+msgstr "Když chcete provést tah:"
+
+#. (itstool) path: item/p
+#: C/play.page:35
+msgid ""
+"Move the cursor on the tile you would like to place your piece in. The tile "
+"is highlighted if it is playable."
+msgstr ""
+"Přesuňte se ukazatelem na pole, na které si přejete hrát. Pokud na něj hrát "
+"lze, zvýrazní se."
+
+#. (itstool) path: item/p
+#: C/play.page:38
+msgid "Click on the tile to drop the piece."
+msgstr "Kliknutím na pole umístíte nový kámen."
+
+#. (itstool) path: note/p
+#: C/play.page:40 C/play.page:65
+msgid ""
+"If you select a tile where you cannot move, the game notifies you that the "
+"move is impossible."
+msgstr ""
+"Pokud se pokusíte položit kámen na pole, na které to nelze, hra vás "
+"upozorní, že to není možné."
+
+#. (itstool) path: item/p
+#: C/play.page:44 C/play.page:69
+msgid ""
+"To show possible moves, select a tile where there is already a piece, "
+"whatever its color is. Alternatively, you might want to <link xref="
+"\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
+msgstr ""
+"Aby se vám ukázaly možné tahy, vyberte kterékoliv pole, na kterém již kámen "
+"je, bez ohledu na jeho barvu. Případně si můžete nechat <link xref="
+"\"highlights#highlight-playable-tiles\">zvýrazňovat hratelná pole</link>."
+
+#. (itstool) path: item/p
+#: C/play.page:47
+msgid ""
+"You can always undo your move. For that, press the button with an arrow and "
+"a circle in the top-right corner (or in the bottom bar on small windows) and "
+"select <gui>Undo last move</gui>."
+msgstr ""
+"Můžete rovněž vrátit zpět svůj poslední tah. Stačí zmáčknout tlačítko se "
+"šipkou a kolečkem v pravém horním rohu (nebo na dolní liště u malých oken) a "
+"vybrat <gui>Zpět poslední tah</gui>."
+
+#. (itstool) path: section/p
+#: C/play.page:51
+msgid "You can also <link xref=\"#keyboard-play\">use the keyboard</link>."
+msgstr "Můžete také <link xref=\"#keyboard-play\">používat klávesnici</link>."
+
+#. (itstool) path: section/title
+#: C/play.page:55
+msgid "How to play with the keyboard"
+msgstr "Jak hrát pomocí klávesnice"
+
+#. (itstool) path: item/p
+#: C/play.page:60
+msgid ""
+"Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> "
+"arrows to go at the tile you want to move. The currently selected tile is "
+"indicated by an highlight on the board."
+msgstr ""
+"Použijte šipky <key>←</key>, <key>→</key>, <key>↑</key> a <key>↓</key> k "
+"najetí na pole, na které chcete hrát. Právě vybrané pole je na herní desce "
+"vyznačené zvýrazněním."
+
+#. (itstool) path: item/p
+#: C/play.page:63
+msgid ""
+"Use the <key>Space</key> or the <key>Return</key> key to drop a piece one "
+"the selected tile."
+msgstr ""
+"Zmáčknutím klávesy <key>mezerník</key> nebo <key>Enter</key> položíte nový "
+"kámen na vybrané pole."
+
+#. (itstool) path: item/p
+#: C/play.page:72
+msgid ""
+"You can always undo your move. For that, use the <keyseq><key>Ctrl</"
+"key><key>Z</key></keyseq> keys sequence."
+msgstr ""
+"Svůj tah můžete kdykoliv vzít zpět. Slouží k tomu klávesová zkratka "
+"<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+
+#. (itstool) path: section/p
+#: C/play.page:76
+msgid ""
+"More shortcuts are available, documented either on the <link xref="
+"\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the dialog "
+"that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+msgstr ""
+"K dispozici jsou i další klávesovou zkratky. Jejich seznam najdete v "
+"dokumentaci v kapitole <link xref=\"shortcuts#how-to-play\">Klávesové "
+"zkratky</link>, nebo v dialogovém okně, které se objeví po zmáčknutí "
+"<keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+
+#. (itstool) path: section/p
+#: C/play.page:78
+msgid "You can also <link xref=\"#mouse-play\">use a mouse</link>."
+msgstr "Můžete také <link xref=\"#mouse-play\">používat myš</link>."
+
+#. (itstool) path: credit/name
+#: C/rules.page:16 C/strategy.page:15 C/translate.page:15
+msgid "Michael Hill"
+msgstr "Michael Hill"
+
+#. (itstool) path: credit/name
+#: C/rules.page:20
+msgid "Stephen Pearce"
+msgstr "Stephen Pearce"
+
+#. (itstool) path: credit/years
+#: C/rules.page:22
+msgid "2015"
+msgstr "2015"
+
+#. (itstool) path: page/title
+#: C/rules.page:35
+msgid "Rules"
+msgstr "Pravidla"
+
+#. (itstool) path: page/p
+#: C/rules.page:37
+msgid ""
+"<em>Classic Reversi</em> and <em>Reverse Reversi</em> are boardgames "
+"opposing two players, called <em>Dark</em> and <em>Light</em>. Both games "
+"are using the same rules; only the end goal differs between them: in "
+"<em>Classic Reversi</em>, the goal is to finish with <em>more</em> pieces "
+"than the opponent; while in <em>Reverse Reversi</em>, it is to finish with "
+"<em>less</em> pieces."
+msgstr ""
+"<em>Klasické reversi</em> a <em>žravé reversi</em> jsou deskové hry pro dva "
+"protihráče označené jako <em>černý</em> a <em>bílý</em>. Pro obě hry platí "
+"stejná pravidla, liší se jen cílem hry: v <em>klasických reversi</em> je "
+"cílem skončit s <em>větším</m> počtem kamenů, než protivník, zatím co v "
+"<em>žravých reversi</em> s <em>menším</em> počtem kamenů."
+
+#. (itstool) path: page/p
+#: C/rules.page:39
+msgid ""
+"Both are played with pieces that are dark on one side and light on the "
+"other. <em>Dark</em> and <em>Light</em> play one after each other by adding "
+"on an empty tile a new piece of their color, trapping at least one opponent "
+"row of pieces; when pieces are captured that way, they are turned over to "
+"join the capturing player's forces."
+msgstr ""
+"Obě dvě se hrají s kameny, která mají jednu stranu tmavou a druhou světlou. "
+"<em>Černý</em> a <em>bílý</em> hrají na střídačku přidáním jednoho nového "
+"kamenu své barvy na prázdné pole. Přitom musí chytit do sevření nejméně "
+"jeden protivníkův kámen. Obklíčené kameny se pak překlopí a tím jsou "
+"protivníkovi sebrány."
+
+#. (itstool) path: section/title
+#: C/rules.page:42
+msgid "Game start"
+msgstr "Začátek hry"
+
+#. (itstool) path: section/p
+#: C/rules.page:44
+msgid ""
+"Games from the reversi game family are usually played on an 8 by 8 board. "
+"The game begins with four pieces, two light and two dark, placed on the four "
+"central tiles of the board."
+msgstr ""
+"Hry z rodiny reversi se obvykle hrají na herní desce 8 krát 8. Hra začíná se "
+"čtyřmi hracími kameny, dvěma bílými a dvěma černými, umístěnými na čtyřech "
+"polích ve středu herní desky."
+
+#. (itstool) path: section/p
+#: C/rules.page:46
+msgid ""
+"<app>Reversi</app> uses by default the most usual start position for the "
+"reversi game family, that is displayed on the following figure; but it also "
+"allows you to <link xref=\"start-position\">vary start position</link> if "
+"you prefer."
+msgstr ""
+"<app>Reversi</app> používají jako výchozí počáteční postavení to, které je v "
+"rodině her reversi nejběžnější. Můžete jej vidět na následujícím obrázku. "
+"Pokud ale chcete, můžete nechat <link xref=\"start-position\">počáteční "
+"postavení měnit</link>."
+
+#. (itstool) path: media/p
+#: C/rules.page:52 C/start-position.page:48
+msgid "Usual start position: light-dark, dark-light"
+msgstr "Obvyklé počáteční postavení: bílá – černá, černá – bílá"
+
+#. (itstool) path: td/p
+#: C/rules.page:58
+msgid "<em>The usual start position</em>"
+msgstr "<em>Obvyklé počáteční postavení</em>"
+
+#. (itstool) path: section/p
+#: C/rules.page:63
+msgid "<em>Dark</em> goes first."
+msgstr "<em>Černý</em> táhne první."
+
+#. (itstool) path: section/title
+#: C/rules.page:67
+msgid "During the game"
+msgstr "Během hraní"
+
+#. (itstool) path: section/p
+#: C/rules.page:69
+msgid ""
+"One player after the other –<em>Dark</em> playing first– places a tile of "
+"its color on the board in such a way that at least one row of opponent tiles "
+"is trapped between the newly placed piece and an already placed one of the "
+"same color."
+msgstr ""
+"Hráči na střídačku, přičemž <em>černý</em> začíná, umisťují jeden kámen své "
+"barvy na herní desku takovým způsobem, aby nejméně jeden protihráčův kamen "
+"zůstal chycen mezi nově položeným kamenem a některým ze stávajících kamenů "
+"barvy táhnoucího hráče."
+
+#. (itstool) path: note/p
+#: C/rules.page:71
+msgid "This placement can be horizontal, vertical or diagonal."
+msgstr "Pro umístění lze volit vodorovný, svislý nebo úhlopříčný směr."
+
+#. (itstool) path: section/p
+#: C/rules.page:74
+msgid ""
+"When the tile is placed, the row of tiles between the newly placed tile and "
+"the other is flipped over, taking the players color. If multiple rows of "
+"tiles are trapped that way, they are all flipped over."
+msgstr ""
+"Jakmile je kámen položen, kameny v řadě mezi nově položeným a původním "
+"kamenem se překlopí na barvu hrajícího hráče. Pokud se takto povede chytit "
+"více řad kamenů, překlopí se všechny z nich."
+
+#. (itstool) path: section/p
+#: C/rules.page:76
+msgid ""
+"If there is no possible moves in a turn, the player has to pass. A player "
+"cannot pass a turn if there is a possible move. If both players cannot move, "
+"notably when the board is full, the game is over."
+msgstr ""
+"Pokud hráč nemá žádný možný tah, tak kolo vynechává. Pokud nějaký tah hrát "
+"může, nelze kolo vynechat. Pokud nemůže táhnout ani jeden z hráčů, převážně "
+"proto, že je herní deska plná, hra končí."
+
+#. (itstool) path: section/title
+#: C/rules.page:80
+msgid "End of game"
+msgstr "Konec hry"
+
+#. (itstool) path: section/p
+#: C/rules.page:82
+msgid ""
+"The players alternate turns until no more legal moves can be made by either "
+"player. At this point the game is over."
+msgstr ""
+"Hráči se střídají v tazích, dokud již není pro některého z hráčů žádný "
+"platný tah možný. V tento okamžik hra končí."
+
+#. (itstool) path: section/p
+#: C/rules.page:84
+msgid ""
+"The end of the game often results in a full board, but not necessarily. In "
+"either way, it is the number of pieces that will matter to decide who wins."
+msgstr ""
+"Častým důvodem konce hry je plná herní deska, ale nemusí tomu tak být nutně. "
+"Kromě toho, vítěze neurčuje, kdo skončí, ale počet získaných kamenů."
+
+#. (itstool) path: section/p
+#: C/rules.page:86
+msgid ""
+"If you are playing <em>Classic Reversi</em>, the winner is the player with "
+"the <em>most</em> pieces of his color on the board; if you are in a "
+"<em>Reverse Reversi</em> game, it is the opposite: the winner is the player "
+"with the <em>least</em> pieces on the board."
+msgstr ""
+"Když hrajete <em>klasické reversi</em>, je vítězem hráč s <em>větším počtem</"
+"em> kamenů jeho barvy na herní desce. U <em>žravých reversi</em> je to "
+"přesně naopak – vítězem je hráč s <em>menším počtem</em> kamenů jeho barvy "
+"na herní desce."
+
+#. (itstool) path: section/p
+#: C/rules.page:88
+msgid ""
+"If there is the same number of dark and light tiles, the game is declared a "
+"draw."
+msgstr "V případě stejného počtu černých a bílých je hra označena jako remíza."
+
+#. (itstool) path: page/title
+#: C/select-game.page:20
+msgid "<em>Classic Reversi</em> or <em>Reverse Reversi</em>"
+msgstr "<em>Klasické Reversi</em> nebo <em>žravé Reversi</em>"
+
+#. (itstool) path: page/p
+#: C/select-game.page:22
+msgid ""
+"<app>Reversi</app> allows you to play two variants of the same game: "
+"<em>Classic Reversi</em> and <em>Reverse Reversi</em>."
+msgstr ""
+"<app>Reversi</app> můžete hrát ve dvou variantách: <em>klasické Reversi</em> "
+"nebo <em>žravé Reversi</em>"
+
+#. (itstool) path: page/p
+#: C/select-game.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, just choose the "
+"game you want to play by selecting the <gui>Classic Reversi</gui> or "
+"<gui>Reverse Reversi</gui> buttons."
+msgstr ""
+"Když <link xref=\"configure\">nastavujete novou hru</link>, jednoduše si "
+"vyberte typ hry, který chcete hrát, pomocí tlačítek <gui>Klasické reversi</"
+"gui> nebo <gui>Žravé reversi</gui>."
+
+#. (itstool) path: page/p
+#: C/select-game.page:26
+msgid ""
+"As you can imagine with its name, the <em>Classic Reversi</em> game is the "
+"reversi as it is known around the world."
+msgstr ""
+"Jak už napovídá název, hra <gui>klasické reversi</em> je tou, která je známá "
+"po celém světě."
+
+#. (itstool) path: page/p
+#: C/select-game.page:28
+msgid ""
+"Both games are in fact using the same rules; only the end goal differs "
+"between them: in <em>Classic Reversi</em>, the goal is to finish with "
+"<em>more</em> pieces than the opponent; while in <em>Reverse Reversi</em>, "
+"it is to finish with <em>less</em> pieces."
+msgstr ""
+"Obě hry ale v zásadě používají stejná pravidla, jediný rozdíl je v cíli hry: "
+"v <em>klasických reversi</em> je cílem dokončit hru s <em>většinou</em> "
+"kamenů své barvy, zatím co ve <em>žravých reversi</em> s <em>menšinou</em> "
+"kamenů své barvy."
+
+#. (itstool) path: page/p
+#: C/select-game.page:30
+msgid ""
+"This variation in the goal makes <em>Reverse Reversi</em> a quite "
+"interesting game, as you have to elaborate a different <link xref=\"strategy"
+"\">strategy</link> to win. Try it!"
+msgstr ""
+"Tato drobná změna dělá ze <em>žravých reversi</em> velmi zajímavou variantu "
+"hry , protože musíte zaujmout zcela jinou <link xref=\"strategy\">strategii</"
+"link>, abyste vyhráli. Zkuste to!"
+
+#. (itstool) path: page/p
+#: C/select-game.page:32
+msgid ""
+"If you want to try other variations of the reversi game, you can also choose "
+"to <link xref=\"start-position\">vary start position</link>."
+msgstr ""
+"Jestli vás zaujalo zkoušení jiných variant hry <em>reversi</em>, zkuste také "
+"<link xref=\"start-position\">změnit počáteční postavení</link>."
+
+#. (itstool) path: credit/name
+#: C/shortcuts.page:10
+msgid "Brian Grohe"
+msgstr "Brian Grohe"
+
+#. (itstool) path: page/title
+#. (itstool) path: td/p
+#: C/shortcuts.page:25 C/shortcuts.page:83
+msgid "Keyboard shortcuts"
+msgstr "Klávesové zkratky"
+
+#. (itstool) path: page/p
+#: C/shortcuts.page:27
+msgid ""
+"<app>Reversi</app> can easily be <link xref=\"play#keyboard-play\">used with "
+"keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse Reversi</em> "
+"games are both played with the same shortcuts."
+msgstr ""
+"<app>Reversi</app> se dá jednoduše hrát <link xref=\"play#keyboard-play"
+"\">pomocí klávesnice</link>. Jak <em>klasické reversi</em>, tak <em>žravé "
+"reversi</em> se hraje pomocí stejných klávesových zkratek."
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:30
+msgid "During game selection"
+msgstr "Během výběru hry"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:33
+msgid "Start new game"
+msgstr "Začít novou hru"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:34
+msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:37
+msgid "Go back"
+msgstr "Vrátit tah zpět"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:38
+msgid "<key>Escape</key>"
+msgstr "<key>Escape</key>"
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:44
+msgid "Play with keyboard"
+msgstr "Hraní pomocí klávesnice"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:47
+msgid "Select where to play"
+msgstr "Vybrat, kde hrát"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:48
+msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
+msgstr "<key>←</key>, <key>→</key>, <key>↑</key> a <key>↓</key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:51
+msgid "Select the given row"
+msgstr "Vybrat daný řádek"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:52
+msgid "<key>1</key> to <key>8</key>"
+msgstr "<key>1</key> až <key>8</key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:55
+msgid "Select the given column"
+msgstr "Vybrat daný sloupec"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:56
+msgid "<key>a</key> to <key>h</key>"
+msgstr "<key>a</key> až <key>h</key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:59
+msgid "Play on selected tile"
+msgstr "Hrát vybraným kamenem"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:60
+msgid "<key>Return</key>, <key>Space</key>"
+msgstr "<key>Enter</key>, <key>mezerník</key>"
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:66
+msgid "During a game"
+msgstr "Během hry"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:69
+msgid "New game"
+msgstr "Nová hra"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:70
+msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:73
+msgid "Undo last move"
+msgstr "Vrátit zpět poslední tah"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:74
+msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:80
+msgid "Generic"
+msgstr "Obecné"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:84
+msgid ""
+"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+"key><key>F1</key></keyseq>"
+msgstr ""
+"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+"key><key>F1</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:87
+msgid "Help"
+msgstr "Nápověda"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:88
+msgid "<key>F1</key>"
+msgstr "<key>F1</key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:91
+msgid "About"
+msgstr "O aplikaci"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:92
+msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:95
+msgid "Quit"
+msgstr "Ukončit"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:96
+msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
+
+#. (itstool) path: page/title
+#: C/sound.page:21
+msgid "Enable and disable sound"
+msgstr "Povolení a zakázání zvuků"
+
+#. (itstool) path: page/p
+#: C/sound.page:23
+msgid ""
+"To enable or disable the sound, press the menu button in the top-right "
+"corner of the window and select <gui>Sound</gui>."
+msgstr ""
+"Pro zapnutí nebo vypnutí zvuků zmáčkněte tlačítko nabídky v pravém horním "
+"rohu okna a vyberte <gui>Zvuk</gui>."
+
+#. (itstool) path: page/title
+#: C/start-position.page:21
+msgid "Vary start position"
+msgstr "Varianty počátečního postavení"
+
+#. (itstool) path: page/p
+#: C/start-position.page:23
+msgid ""
+"<app>Reversi</app> allows to start a game with a different initial position "
+"than the usual one of the reversi game family."
+msgstr ""
+"<app>Reversi</app> umožňují začít hru s jiným počátečním postavením, než je "
+"to jedno obvyklé u her z rodiny reversi."
+
+#. (itstool) path: section/title
+#: C/start-position.page:26
+msgid "Varying start position"
+msgstr "Střídání počátečního postavení"
+
+#. (itstool) path: section/p
+#: C/start-position.page:28
+msgid ""
+"To enable or disable this option, while <link xref=\"configure\">configuring "
+"a new game</link>, click on the <gui>Difficulty</gui> button, and in the "
+"menu that appears, select <gui>Vary start position</gui>."
+msgstr ""
+"Tato volba se zapíná nebo vypíná během <link xref=\"configure\">nastavování "
+"nové hry</link>. Klikněte na tlačítko <gui>Náročnost</gui> a v nabídce, "
+"která se objeví, vyberete <gui>Měnit počáteční postavení</gui>."
+
+#. (itstool) path: section/p
+#: C/start-position.page:30
+msgid ""
+"If you are playing a <link xref=\"ai-game\">game against the computer</"
+"link>, enabling this option will start new games with a random position in "
+"the six <link xref=\"#start-positions\">possible start positions</link>."
+msgstr ""
+"V případě, že hrajete <link xref=\"ai-game\">proti počítači</link>, budou po "
+"zapnutí této volby nové hry s postavením náhodně vybraným ze šesti <link "
+"xref=\"#start-positions\">možných počátečních postavení</link>."
+
+#. (itstool) path: section/p
+#: C/start-position.page:32
+msgid ""
+"If you are <link xref=\"2player\">playing with another player</link>, "
+"enabling this option will start new games with the <link xref=\"#human-"
+"overture\">two-player game overture</link>."
+msgstr ""
+"Pokud <link xref=\"2player\">hrajete s jiným hráčem</link>, budou se nové "
+"hry začínat s <link xref=\"#human-overture\">rozehrávkou pro dva hráče</"
+"link>."
+
+#. (itstool) path: section/p
+#: C/start-position.page:34
+msgid ""
+"If the option is disabled, then the usual position of the reversi game "
+"family is always used for new games. See its description in the list of "
+"<link xref=\"#start-positions\">possible start positions</link>."
+msgstr ""
+"Když je volba vypnutá, je pro hru vždy použito obvyklé postavení her rodiny "
+"reversi. Popsané jej najdete v seznamu <link xref=\"#start-positions"
+"\">možných počátečních postavení</link>."
+
+#. (itstool) path: section/title
+#: C/start-position.page:38
+msgid "Possible start positions"
+msgstr "Možná počáteční postavení"
+
+#. (itstool) path: section/p
+#: C/start-position.page:40
+msgid ""
+"There are really two possible start positions in <app>Reversi</app>, up to "
+"six as their symmetries can also be played."
+msgstr ""
+"V <app>Reversi</app> existují dvě skutečně možná počáteční postavení, "
+"respektive lze hrát až šest postavení při použití jejich symetrických "
+"protějšků."
+
+#. (itstool) path: section/p
+#: C/start-position.page:42
+msgid "The two main positions are the following:"
+msgstr "Dvě hlavní postavení jsou následující:"
+
+#. (itstool) path: media/p
+#: C/start-position.page:53
+msgid "Alternative position: dark-light, dark-light"
+msgstr "Alternativní postavení: černý – bílý, černý – bílý"
+
+#. (itstool) path: td/p
+#: C/start-position.page:59
+msgid "<em>Usual start position</em>"
+msgstr "<em>Obvyklé počáteční postavení</em>"
+
+#. (itstool) path: td/p
+#: C/start-position.page:62
+msgid "<em>Alternative position</em>"
+msgstr "<em>Alternativní postavení</em>"
+
+#. (itstool) path: section/p
+#: C/start-position.page:67
+msgid "Their allowed symmetries are the following:"
+msgstr "Možná symetrická postavení:"
+
+#. (itstool) path: media/p
+#: C/start-position.page:73
+msgid "Only symmetry of the usual start position: dark-light, light-dark"
+msgstr ""
+"Jediná možná symetrie obvyklého počátečního postavení: černý – bílý, bílý –"
+" černý"
+
+#. (itstool) path: media/p
+#: C/start-position.page:78
+msgid "First symmetry of the alternative position: dark-dark, light-light"
+msgstr ""
+"První možná symetrie alternativního postavení: černý – černý, bílý – bílý"
+
+#. (itstool) path: media/p
+#: C/start-position.page:83
+msgid "Second symmetry of the alternative position: light-dark, light-dark"
+msgstr ""
+"Druhá možná symetrie alternativního postavení: bílý – černý, bílý – černý"
+
+#. (itstool) path: media/p
+#: C/start-position.page:88
+msgid "Last symmetry of the alternative position: light-light, dark-dark"
+msgstr ""
+"Poslední možná symetrie alternativního postavení: bílý – bílý, černý – černý"
+
+#. (itstool) path: section/title
+#: C/start-position.page:96
+msgid "Two-player game overture"
+msgstr "Rozehrávka hry pro dva hráče"
+
+#. (itstool) path: section/p
+#: C/start-position.page:98
+msgid ""
+"When <link xref=\"2player\">playing with another player</link> with the the "
+"<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
+"option enabled, new games will start with a special two-player game overture."
+msgstr ""
+"Pokud <link xref=\"2player\">hrajete s dalším hráčem</link> se zapnutou "
+"volbou <link xref=\"#varying-start-position\"><gui>Měnit počáteční "
+"postavení</gui></link> budou nové hry začínat speciální rozehrávkou pro dva "
+"hráče."
+
+#. (itstool) path: section/p
+#: C/start-position.page:100
+msgid ""
+"The board is started empty. The two players are going to place the four "
+"initial pieces before starting the game."
+msgstr ""
+"Na začátku je herní deska prázdná. Dva hráči musí před začátkem vlastní hry "
+"umístit čtyři počáteční kameny."
+
+#. (itstool) path: item/p
+#: C/start-position.page:104
+msgid ""
+"<em>Dark</em> goes first, and places the first piece on one of the four "
+"central tiles of the board."
+msgstr ""
+"<em>Černý</em> táhne první a umístí první kámen do jednoho ze čtyř rohů "
+"středu herní desky."
+
+#. (itstool) path: item/p
+#: C/start-position.page:107
+msgid ""
+"<em>Light</em> places one piece in one of the two available positions next "
+"to the dark piece."
+msgstr ""
+"<em>Bílý</em> umístí jeden kámen do jedné zde dvou možných pozic vedle "
+"černého kamene."
+
+#. (itstool) path: item/p
+#: C/start-position.page:110
+msgid ""
+"<em>Dark</em> then places a piece on one of the two remaining central tiles "
+"of the board."
+msgstr ""
+"<em>Černý</em> pak umístí kámen na jednu ze zbývajících dvou centrálních "
+"pozic."
+
+#. (itstool) path: item/p
+#: C/start-position.page:113
+msgid ""
+"<em>Light</em> finishes the opening by placing a second piece at the "
+"remaining place."
+msgstr ""
+"<em>Bílý</em> zakončí otevření hry umístěním svého druhého kamene na "
+"zbývající pozici."
+
+#. (itstool) path: item/p
+#: C/start-position.page:116
+msgid ""
+"The game is then started, following the <link xref=\"rules\">reversi rules</"
+"link>."
+msgstr ""
+"Následně začne vlastní hra podle <link xref=\"rules\">pravidel reversi</"
+"link>."
+
+#. (itstool) path: section/p
+#: C/start-position.page:120
+msgid ""
+"This opening allows the first player to choose if the game will start with a "
+"position “in cross” (the usual start position or its symmetry) or a "
+"“parallel” position (the alternative position or one of its symmetries)."
+msgstr ""
+"Toto otevření hry dává prvnímu hráči možnost volby, jestli se má hra začít v "
+"postavení „do kříže“ (obvyklé startovní postavení nebo jeho symetrie) nebo "
+"„vedle sebe“ (alternativní postavení nebo některá jeho symetrie)."
+
+#. (itstool) path: page/title
+#: C/strategy.page:24
+msgid "Strategy"
+msgstr "Strategie"
+
+#. (itstool) path: page/p
+#: C/strategy.page:26
+msgid ""
+"<app>Reversi</app> doesn't have one particular winning strategy. Rather it "
+"has strategic elements which can be used to help one gain advantage. Some "
+"strategies, such as trying to flip as many of your opponent's pieces early "
+"on in the game, should be avoided."
+msgstr ""
+"Hra <app>Reversi</app> nemá jednu konkrétní vítěznou strategii. Spíše má "
+"strategické prvky, které mohou být použity k získání výhody. Některým "
+"postupům, například snažit se převrátit co nejvíce ze soupeřových kamenů "
+"hned na začátku hry, je naopak lepší se vyhnout."
+
+#. (itstool) path: page/p
+#: C/strategy.page:31
+msgid ""
+"Much has been written on the topic of strategy for the games <em>Othello</"
+"em> and <em>Reversi</em>."
+msgstr ""
+"Na téma strategií ve hře <em>Othello</em> a <em>Reversi</em> toho již byly "
+"popsány hromady papíru a webových stránek."
+
+#. (itstool) path: page/p
+#: C/strategy.page:38
+msgid ""
+"If you are interested in learning about specific strategies for the game, "
+"the following links may be of interest:"
+msgstr ""
+"Pokud máte zájem se něco naučit o konkrétních strategiích pro tuto hru, "
+"můžeme vám doporučit následující odkazy:"
+
+#. (itstool) path: item/p
+#: C/strategy.page:43
+msgid ""
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
+"to strategy and tactics</link>"
+msgstr ""
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">Úvod do "
+"strategie a taktiky</link> (příručka je v angličtině)"
+
+#. (itstool) path: item/p
+#: C/strategy.page:47
+msgid "<link href=\"https://en.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
+msgstr ""
+"<link href=\"http://cs.wikipedia.org/wiki/Othello_%28deskov%C3%A1_hra"
+"%29#Strategie\">Česká Wikipedie</link> (velmi stručné) nebo <link href="
+"\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements\">anglická "
+"Wikipedia</link> (podrobnější)"
+
+#. (itstool) path: item/p
+#: C/strategy.page:50
+msgid ""
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
+"guide</link>"
+msgstr ""
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">Příručka "
+"strategie</link> (příručka je v angličtině)"
+
+#. (itstool) path: page/title
+#: C/theme.page:20
+msgid "Change the board theme"
+msgstr "Změna motivu herní desky"
+
+#. (itstool) path: page/p
+#: C/theme.page:22
+msgid ""
+"<app>Reversi</app> supports various board themes, so that you can adjust its "
+"look to your taste."
+msgstr ""
+"Aplikace <app>Reversi</app> podporuje různé motivy herní desky, ze kterých "
+"si můžete vybírat podle svého gusta."
+
+#. (itstool) path: page/p
+#: C/theme.page:24
+msgid ""
+"Until the theme has been changed, the application tries to choose a theme "
+"adapted to your environment; see the section about the <link xref=\"#default-"
+"theme\"><em>Default</em> theme</link>."
+msgstr ""
+"Dokud neprovedete změnu motivu, bude se aplikace snažit zvolit motiv nejlépe "
+"zapadající do uživatelského prostředí, viz část o <link xref=\"#default-theme"
+"\"><em>výchozím</em> motivu</link>."
+
+#. (itstool) path: section/title
+#: C/theme.page:27
+msgid "Changing theme"
+msgstr "Změna motivu"
+
+#. (itstool) path: section/p
+#: C/theme.page:29
+msgid ""
+"For changing theme, press the menu button in the top-right corner of the "
+"window, select <gui>Appearance</gui>, and select one of the items in the "
+"given list."
+msgstr ""
+"Když chcete změnit motiv, zmáčkněte tlačítko nabídky v pravém horním rohu "
+"okna, vyberte <gui>Vzhled</gui> a následně vyberte jednu z položek v seznamu."
+
+#. (itstool) path: section/p
+#: C/theme.page:31
+msgid ""
+"The first item of the list is called <gui><em>Default</em></gui> and lets "
+"the application try to choose a theme adapted to your environment; see the "
+"section about the <link xref=\"#default-theme\"><em>Default</em> theme</"
+"link>. The following suggestions are described in the <link xref=\"#themes-"
+"list\">themes list</link>."
+msgstr ""
+"První položka seznamu se nazývá <gui><em>Výchozí</em></gui> a nechává na "
+"aplikaci, aby se pokusila motiv přizpůsobit uživatelskému prostředí. Viz "
+"část o <link xref=\"#default-theme\"><em>výchozím</em> motivu</link>. "
+"Následující doporučení jsou popsána v <link xref=\"#themes-list\">seznamu "
+"motivů</link>."
+
+#. (itstool) path: section/p
+#: C/theme.page:33
+msgid ""
+"Following the themes list, the options of the section <gui>Highlights</gui> "
+"are for <link xref=\"highlights\">displaying helpful highlights</link>. "
+"These are working whatever theme you decide to use."
+msgstr ""
+"Za seznamem motivů následují volby týkající se <gui>Zvýrazňování</gui>. Ty "
+"slouží k <link xref=\"highlights\">zobrazování nápověd v podobě zvýraznění "
+"herních prvků</link> a fungují bez ohledu na to, pro který motiv jste se "
+"rozhodli."
+
+#. (itstool) path: section/title
+#: C/theme.page:37
+msgid "Themes list"
+msgstr "Seznam motivů"
+
+#. (itstool) path: section/p
+#: C/theme.page:39
+msgid "<app>Reversi</app> comes with four themes installed:"
+msgstr "<app>Reversi</app> je připravená se čtyřmi základními motivy:"
+
+#. (itstool) path: item/p
+#: C/theme.page:43
+msgid ""
+"<em>Classic</em>: this theme mimics the most usual reversi boards, with a "
+"green background and bicolor pieces;"
+msgstr ""
+"<em>Klasický</em>: tento motiv napodobuje obvyklý vzhled reálných herních "
+"desek se zeleným pozadím a dvoubarevnými kameny."
+
+#. (itstool) path: item/p
+#: C/theme.page:46
+msgid ""
+"<em>Black and White</em>: this theme is more conceptual, featuring geometric "
+"shapes and a high black and white contrast;"
+msgstr ""
+"<em>Černá a bílá</em>: tento motiv je spíše praktický v podobě geometrických "
+"tvarů a s vysokým kontrastem černé a bílé."
+
+#. (itstool) path: item/p
+#: C/theme.page:49
+msgid ""
+"<em>Adwaita</em>: this theme uses a blue board, more suitable if the theme "
+"of your windows is a dark one;"
+msgstr ""
+"<em>Adwaita</em>: tento motiv používá modrou herní desku, která je "
+"vhodnější, když používáte tmavý motiv oken."
+
+#. (itstool) path: item/p
+#: C/theme.page:52
+msgid ""
+"<em>Sun and Star</em>: this theme is a variant of the <em>Classic</em> one, "
+"with some decorations on the pieces."
+msgstr ""
+"<em>Slunce a hvězda</em>: tento motiv je variací na <em>klasický</em> motiv, "
+"navíc s dekoracemi na kamenech."
+
+#. (itstool) path: section/p
+#: C/theme.page:56
+msgid ""
+"The first entry in the themes list is called <em>Default</em> and has a "
+"special behavior; see the section about the <link xref=\"#default-theme"
+"\"><em>Default</em> theme</link>."
+msgstr ""
+"První položka v seznamu motivů se nazývá <em>Výchozí</em> a má speciální "
+"chování. Viz kapitola o <link xref=\"#default-theme\"><em>výchozím</em> "
+"motivu</link>."
+
+#. (itstool) path: section/title
+#: C/theme.page:60
+msgid "<em>Default</em> theme"
+msgstr "<em>Výchozí</em> motiv"
+
+#. (itstool) path: section/p
+#: C/theme.page:62
+msgid ""
+"The first entry in the themes list is called <em>Default</em> and has a "
+"special behavior."
+msgstr ""
+"První položka v seznamu motivů se nazývá <em>Výchozí</em> a má speciální "
+"chování."
+
+#. (itstool) path: section/p
+#: C/theme.page:64
+msgid ""
+"When this entry is selected, the application tries to choose a theme adapted "
+"to your environment:"
+msgstr ""
+"Kdy tuto položku vyberete, pokusí se aplikace zvolit motiv, který je nejlépe "
+"přizpůsobený vašemu uživatelskému prostředí."
+
+#. (itstool) path: item/p
+#: C/theme.page:68
+msgid ""
+"if you are using a theme for your windows known for being dark –like "
+"<em>Adwaita Dark</em>– or if you have activated GNOME night mode, the board "
+"theme used will be the one called <em>Adwaita</em>, that is darker than the "
+"other themes thanks to its blue background;"
+msgstr ""
+"Pokud používáte pro svá okna motiv známý jako tmavý, např. <em>Adwaita Dark</"
+"em>, nebo máte aktivovaný noční režim GNOME, bude použit motiv s názvem "
+"<em>Adwaita</em>, který je tmavší, než ostatní motivy, díky svému modrému "
+"pozadí."
+
+#. (itstool) path: item/p
+#: C/theme.page:71
+msgid ""
+"if you are using a theme for your windows created specially for having a "
+"high contrast, notably if you activated the “High Contrast” GNOME "
+"accessibility option, the board theme used will be the one called <em>Black "
+"and White</em>, that should be a perfect fit;"
+msgstr ""
+"Pokud používáte pro svá okna motiv vytvořený speciálně pro vysoký kontrast, "
+"zvláště pokud máte zapnutou volbu zpřístupnění GNOME „Vysoký kontrast“, bude "
+"použit motiv s názvem <em>černá a bílá</em>, který dokonale zapadne."
+
+#. (itstool) path: item/p
+#: C/theme.page:74
+msgid ""
+"else, the theme used will be the one called <em>Classic</em>, that uses a "
+"green board quite common for reversi games."
+msgstr ""
+"V ostatních situacích bude použit motiv s názvem <em>klasický</em>, který má "
+"zelenou herní desku, nejběžnější pro hry reversi."
+
+#. (itstool) path: section/p
+#: C/theme.page:78
+msgid "This behavior is of course the default one of the application."
+msgstr "Toto chování je samozřejmě výchozí pro tuto aplikaci."
+
+#. (itstool) path: section/title
+#: C/theme.page:82
+msgid "More informations"
+msgstr "Další informace"
+
+#. (itstool) path: section/p
+#: C/theme.page:84
+msgid ""
+"There is no way to install a different theme than the ones described here."
+msgstr ""
+"Není k dispozici žádný způsob, jak nainstalovat jiný motiv, než jsou čtyři "
+"výše popsané."
+
+#. (itstool) path: section/p
+#: C/theme.page:86
+msgid ""
+"These themes have been designed by Arnaud Bonatti, with pieces created by "
+"Masuichi Ito."
+msgstr "Popsané motivy navrhl Arnaud Bonatti, kameny navrhl Masuichi Ito."
+
+#. (itstool) path: section/p
+#: C/theme.page:88
+msgid ""
+"If you have a suggestion for a new theme, or if you are interested in "
+"contributing a new theme, please <link xref=\"bug-filing\">open an issue</"
+"link> about it."
+msgstr ""
+"Jestli máte nápad na nový motiv, nebo zájem přispívat novými motivy, "
+"otevřete prosím <link xref=\"bug-filing\">na danou věc problém ve sledovacím "
+"systému</link>."
+
+#. (itstool) path: page/title
+#: C/translate.page:29
+msgid "Help translate"
+msgstr "Pomozte překládat"
+
+#. (itstool) path: page/p
+#: C/translate.page:31
+msgid ""
+"The <app>GNOME Games</app> user interface and documentation is being "
+"translated by a world-wide volunteer community. You are welcome to "
+"participate."
+msgstr ""
+"Uživatelské rozhraní a dokumentaci <app>her GNOME</app> překládá komunita "
+"dobrovolníků z celého světa. Vaše případná účast bude vítána."
+
+#. (itstool) path: page/p
+#: C/translate.page:35
+msgid ""
+"There are <link href=\"https://l10n.gnome.org/module/iagno/\">many "
+"languages</link> for which translations are still needed."
+msgstr ""
+"Stále je <link href=\"https://l10n.gnome.org/module/iagno/\">řada jazyků</"
+"link>, do kterých je třeba překlad udělat."
+
+#. (itstool) path: page/p
+#: C/translate.page:39
+msgid ""
+"To start translating you will need to <link href=\"https://l10n.gnome.org"
+"\">create an account</link> and join the <link href=\"https://l10n.gnome.org/"
+"teams/\">translation team</link> for your language. This will give you the "
+"ability to upload new translations."
+msgstr ""
+"Jestli chcete překládat, musíte si <link href=\"https://l10n.gnome.org"
+"\">vytvořit účet</link> a přidat se k <link href=\"https://l10n.gnome.org/"
+"teams/\">překladatelskému týmu</link> svého jazyka. Pak budete moci odesílat "
+"své nové překlady."
+
+#. (itstool) path: page/p
+#: C/translate.page:43
+msgid ""
+"You can chat with GNOME translators <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/IRC\">using IRC</link> (on the <code>#i18n</code> "
+"channel). People on the channel are located worldwide, so you may not get an "
+"immediate response as a result of timezone differences."
+msgstr ""
+"S ostatními překladateli můžete komunikovat <link href=\"https://wiki.gnome."
+"org/Community/GettingInTouch/IRC\">pomocí IRC</link> (na kanále <code>#i18n</"
+"code>). Lidé na tomto kanále jsou z celého světa, tak počítejte s tím, že "
+"kvůli rozdílným časovým pásmům, nemusí reagovat hned."
+
+#. (itstool) path: page/p
+#: C/translate.page:45
+msgid ""
+"Alternatively, you can contact the Internationalization Team using the "
+"dedicated <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
+"\">mailing list</link>."
+msgstr ""
+"Případně můžete kontaktovat Internacionalizační tým přes jeho vyhrazenou "
+"<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">poštovní "
+"konferenci</link>."
+
+msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
+msgstr ""
+"Klikněte na <guiseq><gui>Nastavení</gui> <gui>Předvolby</gui></guiseq>."
+
+msgid "Select the <gui>Game</gui> tab."
+msgstr "Vyberte kartu <gui>Hra</gui>."
+
+msgid "Check <gui>human</gui> in both player columns."
+msgstr "Zvolte <gui>Člověk</gui> u obou hráčů."
+
+msgid "Click <gui>Close</gui>"
+msgstr "Klikněte na <gui>Zavřít</gui>."
+
+msgid "Your changes will apply when a new game is started."
+msgstr "Vaše změny se projeví až po započetí nové hry."
+
+msgid ""
+"The computer has different levels of difficulty: Level One, Level Two, and "
+"Level Three. To change this setting:"
+msgstr ""
+"Počítač má různé úrovně náročnosti: První úroveň, Druhá úroveň a Třetí "
+"úroveň. Pokud ji chcete změnit:"
+
+msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+msgstr ""
+"Klikněte na <guiseq><gui>Nastavení</gui> <gui>Předvolby</gui></guiseq>."
+
+msgid "Select the difficulty level for your computer opponent."
+msgstr "Vyberte úroveň náročnosti pro vašecho počítačového soupeře."
+
+msgid "Click <gui>Close</gui>."
+msgstr "Klikněte na <gui>Zavřít</gui>."
+
+msgid "Change player color and difficulty"
+msgstr "Jak změnit barvu hráče a obtížnost"
+
+msgid "To change the player for each color:"
+msgstr "Když chcete změnit hráče některé barvy:"
+
+msgid ""
+"Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
+"gui>."
+msgstr ""
+"Vyberte typ hráče/náročnost vedle <gui>Černý hráč</gui> a/nebo <gui>Bílý "
+"hráč</gui>."
+
+msgid "Your choice is effective immediately."
+msgstr "Váše volba se ihned projeví."
+
+msgctxt "link"
+msgid "Iagno"
+msgstr "Iagno"
+
+msgctxt "text"
+msgid "Iagno"
+msgstr "Iagno"
+
+msgid "Iagno logo"
+msgstr "Logo hry Iagno"
+
+msgid ""
+"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
+"on one side and light on the other. When a piece is captured it is turned "
+"over to join the capturing player's forces; the winner is the player with "
+"the most pieces of their color at the end of the game."
+msgstr ""
+"<app>Iagno</app> je desková hra hraná v mřížce 8×8 s 64 hracími kameny, "
+"černými pro jednu stranu a bílými pro druhou. Když je kámen chycen, převrátí "
+"se a stane se tak kamenem hráče, který jej chytil. Vyhrává ten hráč, který "
+"má na konci hry většinu kamenů své barvy."
+
+msgid "Advanced"
+msgstr "Pokročilé"
+
 msgid "How to Play"
 msgstr "Jak hrát"
 
-#. (itstool) path: page/p
-#: C/play.page:20
 msgid ""
 "<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
 "play."
@@ -473,8 +2174,6 @@ msgstr ""
 "Hra <app>Iagno</app> má jednoduchá <link xref=\"rules\">pravidla</link> a je "
 "snadná na hraní."
 
-#. (itstool) path: page/p
-#: C/play.page:22
 msgid ""
 "When the game first starts, you play <em>Dark</em> and the computer player "
 "plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
@@ -484,18 +2183,9 @@ msgstr ""
 "<em>bílými</em>. Výchozí <link xref=\"ai-game\">úroveň náročnosti</link> je "
 "<gui>první úroveň</gui>."
 
-#. (itstool) path: page/p
-#: C/play.page:25
 msgid "The game is played using the mouse. To make a move:"
 msgstr "Hra se hraje pomocí myši. Tah provedete takto:"
 
-#. (itstool) path: item/p
-#: C/play.page:28
-msgid "Click on the cell you would like to place your piece in."
-msgstr "Kliknete na pole, do kterého si přejete položit svůj hrací kámen."
-
-#. (itstool) path: note/p
-#: C/play.page:29
 msgid ""
 "If the move is legal, the piece will be placed in the cell, and the opponent "
 "pieces will be flipped to match your color."
@@ -503,13 +2193,9 @@ msgstr ""
 "Pokud je tah platný, do pole bude umístěn kámen a soupeřovy kameny se "
 "převrátí na vaši barvu."
 
-#. (itstool) path: note/p
-#: C/play.page:31
 msgid "If the move is not allowed, nothing will happen."
 msgstr "Pokud tah možný není, nic se nestane."
 
-#. (itstool) path: item/p
-#: C/play.page:35
 msgid ""
 "You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
 "guiseq>."
@@ -517,33 +2203,9 @@ msgstr ""
 "Tah můžete vrátit zpět kliknutím na <guiseq><gui>Hra</gui> <gui>Tah zpět</"
 "gui></guiseq>."
 
-#. (itstool) path: section/title
-#: C/play.page:41
 msgid "Video demonstration"
 msgstr "Videoukázka"
 
-#. (itstool) path: credit/name
-#: C/rules.page:15 C/strategy.page:14 C/translate.page:15
-msgid "Michael Hill"
-msgstr "Michael Hill"
-
-#. (itstool) path: credit/name
-#: C/rules.page:19
-msgid "Stephen Pearce"
-msgstr "Stephen Pearce"
-
-#. (itstool) path: credit/years
-#: C/rules.page:21
-msgid "2015"
-msgstr "2015"
-
-#. (itstool) path: page/title
-#: C/rules.page:27
-msgid "Rules"
-msgstr "Pravidla"
-
-#. (itstool) path: page/p
-#: C/rules.page:29
 msgid ""
 "The object of the game is to flip as many of the opponent tiles while "
 "blocking your opponent from flipping your tiles. In order to flip a tile, "
@@ -554,22 +2216,6 @@ msgstr ""
 "mu bránit, aby převrátil ty vaše. Soupeřovy kameny převrátíte tak, že je "
 "uzavřete mezi své dva kameny, ať už vodorovně, svisle nebo úhlopříčně."
 
-#. (itstool) path: item/p
-#: C/rules.page:31
-msgid ""
-"The game begins with four pieces, two light and two dark, placed in the "
-"center of the board."
-msgstr ""
-"Hra začíná se čtyřmi hracími kameny, dvěma bílými a dvěma černými, "
-"umístěnými ve středu hrací desky."
-
-#. (itstool) path: item/p
-#: C/rules.page:34
-msgid "Dark goes first."
-msgstr "Černý táhne první."
-
-#. (itstool) path: item/p
-#: C/rules.page:35
 msgid ""
 "Dark places a tile on the board in such a way that it traps white tiles "
 "between two of the dark tiles."
@@ -577,169 +2223,23 @@ msgstr ""
 "Černý umístí kámen na hrací desku takovým způsobem, aby uzavřel bílé kameny "
 "mezi dva černé kameny."
 
-#. (itstool) path: note/p
-#: C/rules.page:36
-msgid "This placement can be horizontal, vertical or diagonal."
-msgstr "Pro umístění lze volit vodorovný, svislý nebo úhlopříčný směr."
-
-#. (itstool) path: item/p
-#: C/rules.page:38
-msgid ""
-"When the dark tile is placed, the light tiles between the newly placed dark "
-"tile and another dark tile are flipped over and become part of the dark "
-"forces."
-msgstr ""
-"Jakmile je černý kámen položen, bílé kameny nacházející se mezi ním a "
-"nějakým jiným černým kamenem se převrátí a stanou se černými."
-
-#. (itstool) path: item/p
-#: C/rules.page:42
-msgid ""
-"The players alternate turns until no more legal moves can be made by either "
-"player. At this point the game is over. The end of the game often results in "
-"a full board."
-msgstr ""
-"Hráči se střídají v tazích, dokud již není pro některého z hráčů žádný "
-"platný tah možný. V tento okamžik hra končí. Často je důvodem konce hry plná "
-"hrací deska."
-
-#. (itstool) path: item/p
-#: C/rules.page:43
 msgid ""
 "The winner is the the player with the most pieces of his color on the board."
 msgstr "Vyhrává hráč, který má na hrací desce většinu kamenů své barvy."
 
-#. (itstool) path: media/p
-#: C/rules.page:50
-msgid "Start position"
-msgstr "Počáteční rozložení"
-
-#. (itstool) path: media/p
-#: C/rules.page:55
-msgid "Example first move"
-msgstr "Příklad prvního tahu"
-
-#. (itstool) path: media/p
-#: C/rules.page:60
 msgid "Blocking move"
 msgstr "Blokující tah"
 
-#. (itstool) path: td/p
-#: C/rules.page:65
-msgid "<em>Start position</em>"
-msgstr "<em>Počáteční rozložení</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:66
-msgid "<em>Example first move</em>"
-msgstr "<em>Příklad prvního tahu</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:67
-msgid "<em>A blocking move</em>"
-msgstr "<em>Blokující tah</em>"
-
-#. (itstool) path: page/title
-#: C/shortcuts.page:17
-msgid "Keyboard shortcuts"
-msgstr "Klávesové zkratky"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:20
-msgid "New game"
-msgstr "Nová hra"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:21
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:25
-msgid "Undo Move"
-msgstr "Tah zpět"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:26
-msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:29
-msgid "Help"
-msgstr "Nápověda"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:30
-msgid "<key>F1</key>"
-msgstr "<key>F1</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:33
-msgid "Quit"
-msgstr "Ukončit"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:34
-msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
-
-#. (itstool) path: page/title
-#: C/sound.page:17
-msgid "Enable and disable sound"
-msgstr "Povolení a zakázání zvuků"
-
-#. (itstool) path: page/p
-#: C/sound.page:18
-msgid "To enable or disable the sound:"
-msgstr "Když chcete povolit nebo zakázat zvuky:"
-
-#. (itstool) path: item/p
-#: C/sound.page:20
 msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
 msgstr ""
 "Klikněte na <guiseq><gui>Nastavení</gui> <gui>Předvolby</gui></guiseq>."
 
-#. (itstool) path: item/p
-#: C/sound.page:22
 msgid "Click the <gui>Enable sounds</gui> checkbox."
 msgstr "Zaškrtněte políčko <gui>Povolit zvuky</gui>."
 
-#. (itstool) path: note/p
-#: C/sound.page:24
 msgid "The change will be available immediately."
 msgstr "Změna se ihned projeví."
 
-#. (itstool) path: page/title
-#: C/strategy.page:21
-msgid "Strategy"
-msgstr "Strategie"
-
-#. (itstool) path: page/p
-#: C/strategy.page:23
-msgid ""
-"<app>Iagno</app> doesn't have one particular winning strategy. Rather it has "
-"strategic elements which can be used to help one gain advantage. Some "
-"strategies, such as trying to flip as many of your opponent's pieces early "
-"on in the game, should be avoided."
-msgstr ""
-"Hra <app>Iagno</app> nemá jednu konkrétní vítěznou strategii. Spíše má "
-"strategické prvky, které mohou být použity k získání výhody. Některým "
-"postupům, například snažit se převrátit co nejvíce ze soupeřových kamenů "
-"hned na začátku hry, je naopak lepší se vyhnout."
-
-#. (itstool) path: page/p
-#: C/strategy.page:28
-msgid ""
-"Much has been written on the topic of strategy for the games <em>Othello</"
-"em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
-msgstr ""
-"Na téma strategií ve hře <em>Othello</em> a <em>Reversi</em>, ze kterých "
-"<app>Iagno</app> vychází, toho již byly popsány hromady papíru a webových "
-"stránek."
-
-#. (itstool) path: note/p
-#: C/strategy.page:31
 msgid ""
 "Some sources state that Reversi does not have a predefined starting "
 "position, whereas Othello and <app>Iagno</app> do."
@@ -747,116 +2247,5 @@ msgstr ""
 "Některé zdroje uvádí, že v Reversi není určeno počáteční rozložení, zatímco "
 "v hrách Othello a <app>Iagno</app> ano."
 
-#. (itstool) path: page/p
-#: C/strategy.page:35
-msgid ""
-"If you are interested in learning about specific strategies for the game, "
-"the following links may be of interest:"
-msgstr ""
-"Pokud máte zajem se něco naučit o konkrétních strategiích pro tuto hru, "
-"můžeme vám doporučit následující odkazy:"
-
-#. (itstool) path: item/p
-#: C/strategy.page:40
-msgid ""
-"<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
-"beginner's guide to strategy of the game</link>"
-msgstr ""
-"<link href=\"http://othello.dk/book/index.php/From_Scratch\">Skvělá příručka "
-"o strategii hry pro začátečníky</link> (příručka je v angličtině)"
-
-#. (itstool) path: item/p
-#: C/strategy.page:44
-msgid ""
-"<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
-"to strategy and tactics</link>"
-msgstr ""
-"<link href=\"http://gaurang.org/gothello/guide/guide.html\">Úvod do "
-"strategie a taktiky</link> (příručka je v angličtině)"
-
-#. (itstool) path: item/p
-#: C/strategy.page:48
-msgid ""
-"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
-"\">Wikipedia: Strategic elements</link>"
-msgstr ""
-"<link href=\"http://cs.wikipedia.org/wiki/Othello_%28deskov%C3%A1_hra"
-"%29#Strategie\">Wikipedia: Strategie</link> (česky, velmi stručné) nebo "
-"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
-"\">Wikipedia: Strategické prvky</link> (anglicky, podrobnější)"
-
-#. (itstool) path: item/p
-#: C/strategy.page:52
-msgid ""
-"<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
-"guide</link>"
-msgstr ""
-"<link href=\"http://radagast.se/othello/Help/strategy.html\">Příručka "
-"strategie</link> (příručka je v angličtině)"
-
-#. (itstool) path: page/title
-#: C/translate.page:23
-msgid "Help translate"
-msgstr "Pomozte překládat"
-
-#. (itstool) path: page/p
-#: C/translate.page:24
-msgid ""
-"The <app>GNOME Games</app> user interface and documentation is being "
-"translated by a world-wide volunteer community. You are welcome to "
-"participate."
-msgstr ""
-"Uživatelské rozhraní a dokumentaci <app>her GNOME</app> překládá komunita "
-"dobrovolníků z celého světa. Vaše případná účast bude vítána."
-
-#. (itstool) path: page/p
-#: C/translate.page:27
-msgid ""
-"There are <link href=\"http://l10n.gnome.org/module/iagno/\">many languages</"
-"link> for which translations are still needed."
-msgstr ""
-"Stále je <link href=\"http://l10n.gnome.org/module/quadrapassel/\">řada "
-"jazyků</link>, do kterých je třeba překlad udělat."
-
-#. (itstool) path: page/p
-#: C/translate.page:30
-msgid ""
-"To start translating you will need to <link href=\"http://l10n.gnome.org"
-"\">create an account</link> and join the <link href=\"http://l10n.gnome.org/"
-"teams/\">translation team</link> for your language. This will give you the "
-"ability to upload new translations."
-msgstr ""
-"Jestli chcete překládat, musíte si <link href=\"http://l10n.gnome.org"
-"\">vytvořit účet</link> a přidat se k <link href=\"http://l10n.gnome.org/"
-"teams/\">překladatelskému týmu</link> svého jazyka. Pak budete moci odesílat "
-"své nové překlady."
-
-#. (itstool) path: page/p
-#: C/translate.page:34
-msgid ""
-"You can chat with GNOME translators using <link href=\"https://cbe003.chat."
-"mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. People on the "
-"channel are located worldwide, so you may not get an immediate response as a "
-"result of timezone differences."
-msgstr ""
-"S ostatními překladateli můžete komunikovat pomocí <link href=\"https://"
-"cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">IRC</link>. "
-"Lidé na tomto kanále jsou z celého světa, tak počítejte s tím, že kvůli "
-"rozdílným časovým pásmům, nemusí reagovat hned."
-
-#. (itstool) path: page/p
-#: C/translate.page:37
-msgid ""
-"Alternatively, you can contact the Internationalization Team using their "
-"<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
-"list</link>."
-msgstr ""
-"Případně můžete kontaktovat Internacionalizační tým přes jeho <link href="
-"\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">poštovní konferenci</"
-"link>."
-
-#~ msgid "<app>Iagno</app> game over position."
-#~ msgstr "Rozložení na konci hry <app>Iagno</app>"
-
-#~ msgid "<em>Game over position</em>"
-#~ msgstr "<em>Rozložení na konci hry</em>"
+msgid "<app>Iagno</app> game over position."
+msgstr "Rozložení na konci hry <app>Iagno</app>"
