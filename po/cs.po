@@ -348,12 +348,12 @@ msgstr "Od 1 pro nejjednoduší umělou inteligenci, do 3 pro nejnáročnější
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:72
 msgid "A flag to highlight playable tiles"
-msgstr "Zda zvýrazňovat hratelné kameny"
+msgstr "Zda zvýrazňovat hratelná pole"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:74
 msgid "If “true”, the tiles where you can play are highlighted."
-msgstr "Když je zapnuto, jsou zvýrazňovány kameny, na které můžete hrát."
+msgstr "Když je zapnuto, jsou zvýrazňována pole, na které můžete hrát."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
@@ -377,7 +377,7 @@ msgstr "Zda se hraje proti počítači nebo jinému lidskému hráči."
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
 #: data/org.gnome.Reversi.gschema.xml:93
 msgid "A flag to randomize start position"
-msgstr "Zda náhodně volit počáteční pozici"
+msgstr "Zda náhodně volit počáteční postavení"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
 #: data/org.gnome.Reversi.gschema.xml:95
@@ -390,10 +390,10 @@ msgid ""
 "random-start” is given instead on the command-line, this flag will be "
 "ignored."
 msgstr ""
-"Reversi je možné hrát se dvěma počátečními pozicemi (a jejich symetrickými "
-"variantami). Když je nastaveno „pravda“, bude hra začína náhodně v jedné "
-"nebo druhé pozici. Když „nepravda“, bude se používat jen nejběžnější "
-"počáteční pozice. Ke střídání pozic můžete hru přimět pomocí přepínače „--"
+"Reversi je možné hrát se dvěma počátečními postaveními (a jejich symetrickými "
+"variantami). Když je nastaveno „pravda“, bude hra začína náhodně v jednom "
+"nebo druhém postavení. Když „nepravda“, bude se používat jen nejběžnější "
+"počáteční postavení. Ke střídání postavení můžete hru přimět pomocí přepínače „--"
 "alternative-start“ v příkazové řádce. Toto nastavení bude ignorováno také v "
 "případě, že je v příkazové řádce zadán přepínač „--usual-start“ nebo „--"
 "random-start“."
@@ -522,7 +522,7 @@ msgstr "_Začít hru"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:75
 msgid "Start with an alternative position"
-msgstr "Začít na alternativní pozici"
+msgstr "Začít s alternativním postavením"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:78
@@ -557,12 +557,12 @@ msgstr "Vypnout zvuk"
 #. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
 #: src/iagno.vala:96
 msgid "Log the game moves"
-msgstr "Zaznamenávat herní tahy"
+msgstr "Zaznamenávat tahy hry"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:99
 msgid "Start with a random position"
-msgstr "Začít na náhodné pozici"
+msgstr "Začít s náhodným postavením"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:102
@@ -597,7 +597,7 @@ msgstr "Zapnout zvuk"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:120
 msgid "Start with the usual position"
-msgstr "Začít na obvyklé pozici"
+msgstr "Začít s obvyklým postaveným"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:123
@@ -673,7 +673,7 @@ msgstr "_Těžká"
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:315
 msgid "_Vary start position"
-msgstr "_Měnit počáteční pozici"
+msgstr "_Měnit počáteční postavení"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
@@ -695,7 +695,7 @@ msgstr "Výchozí"
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:393
 msgid "Pla_yable tiles"
-msgstr "Hratelné kamen_y"
+msgstr "Hratelná pol_e"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:397
@@ -715,7 +715,7 @@ msgstr "_Zpět poslední tah"
 #. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:413
 msgid "_Show final board"
-msgstr "_Zobrazit výsledné rozložení"
+msgstr "_Zobrazit výsledné postavení"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:430
@@ -730,12 +730,12 @@ msgstr "Dva hráči"
 #. Translators: when configuring a new game, button label if the player choose to start
 #: src/iagno.vala:622
 msgid "Color: Dark"
-msgstr "Barva: černá"
+msgstr "Barva: černý"
 
 #. Translators: when configuring a new game, button label if the player choose let computer start
 #: src/iagno.vala:626
 msgid "Color: Light"
-msgstr "Barva: bílá"
+msgstr "Barva: bílý"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
 #: src/iagno.vala:683
@@ -745,17 +745,17 @@ msgstr "Další volby"
 #. Translators: when configuring a new game, button label for the AI level, if easy
 #: src/iagno.vala:687
 msgid "Difficulty: Easy"
-msgstr "Obtížnost: snadná"
+msgstr "Náročnost: snadná"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
 #: src/iagno.vala:691
 msgid "Difficulty: Medium"
-msgstr "Obtížnost: střední"
+msgstr "Náročnost: střední"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
 #: src/iagno.vala:695
 msgid "Difficulty: Hard"
-msgstr "Obtížnost: těžká"
+msgstr "Náročnost: těžká"
 
 #. Translators: during a game, notification to display when Light has no possible moves
 #: src/iagno.vala:900
