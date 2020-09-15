@@ -78,7 +78,7 @@ msgstr ""
 "Quan es <link xref=\"configure\">configura un nou joc</link>, es mira al "
 "primer botó amb una fletxa cap avall; o bé s'ha d'etiquetar <gui>Color: "
 "Fosc</gui>, <gui>Color: Clar</gui> o <gui>Dos jugadors</gui>. En aquest "
-"últim cas, <app>Reversi</app> ija està configurat per començar un joc de dos"
+"últim cas, <app>Reversi</app> ja està configurat per començar un joc de dos"
 " jugadors, en cas contrari començaria un joc contra l'ordinador."
 
 #. (itstool) path: page/p
@@ -888,7 +888,7 @@ msgstr ""
 "El <app>Reversi</app> us permet jugar a <link xref=\"select-game\">dues "
 "variacions del joc</link>: la versió clàssica, on intenteu dominar el tauler"
 " al final, i el <em>Reversi invertit</em>, on l'objectiu és acabar amb "
-"<em>menys</em> peces que el rival. Podeu jugar  <link xref=\"ai-"
+"<em>menys</em> peces que el rival. Podeu jugar <link xref=\"ai-"
 "game\">contra l'ordinador</link> o <link xref=\"2player\">amb un altre "
 "jugador</link>. Configureu aquestes opcions abans de <link "
 "xref=\"configure\">jugar una partida nova</link>. Divertiu-vos!"
@@ -1440,7 +1440,7 @@ msgstr "<keyseq><key>Maj</key><key>Ctrl</key><key>N</key></keyseq>"
 #. (itstool) path: td/p
 #: C/shortcuts.page:37
 msgid "Go back"
-msgstr "Ves enrere"
+msgstr "Torna enrere"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:38
@@ -1932,7 +1932,7 @@ msgid ""
 "green background and bicolor pieces;"
 msgstr ""
 "<em>Clàssic</em>: aquest tema imita els taulers de reversi més habituals, "
-"amb un fons verd i peces bicolor."
+"amb un fons verd i peces bicolor;"
 
 #. (itstool) path: item/p
 #: C/theme.page:46
