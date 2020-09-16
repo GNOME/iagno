@@ -1147,7 +1147,7 @@ msgstr ""
 "<em>Klasické reversi</em> a <em>žravé reversi</em> jsou deskové hry pro dva "
 "protihráče označené jako <em>černý</em> a <em>bílý</em>. Pro obě hry platí "
 "stejná pravidla, liší se jen cílem hry: v <em>klasických reversi</em> je "
-"cílem skončit s <em>větším</m> počtem kamenů, než protivník, zatím co v <em>"
+"cílem skončit s <em>větším</em> počtem kamenů, než protivník, zatím co v <em>"
 "žravých reversi</em> s <em>menším</em> počtem kamenů."
 
 #. (itstool) path: page/p
@@ -1329,7 +1329,7 @@ msgid ""
 "As you can imagine with its name, the <em>Classic Reversi</em> game is the "
 "reversi as it is known around the world."
 msgstr ""
-"Jak už napovídá název, hra <gui>klasické reversi</em> je tou, která je známá "
+"Jak už napovídá název, hra <em>klasické reversi</em> je tou, která je známá "
 "po celém světě."
 
 #. (itstool) path: page/p
