@@ -387,7 +387,7 @@ msgstr ""
 "otra posición. Si es falso, sólo se usa la posición inicial más habitual. "
 "Puede forzar el juego para que use la posición alternativa usando el "
 "parámetro «--alternative-start» en la línea de comandos; si en su lugar se "
-"usan los parámetros «--usual-start» o «--random-start» en la líneade "
+"usan los parámetros «--usual-start» o «--random-start» en la línea de "
 "comandos, esta opción se ignorará."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
