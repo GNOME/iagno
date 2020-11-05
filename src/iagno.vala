@@ -142,6 +142,7 @@ private class Iagno : Gtk.Application, BaseApplication
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (PROGRAM_NAME);
+        Environment.set_prgname ("org.gnome.Reversi");
         Window.set_default_icon_name ("org.gnome.Reversi");
 
         return new Iagno ().run (args);
