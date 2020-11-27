@@ -1565,7 +1565,7 @@ msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 #. (itstool) path: page/title
 #: C/sound.page:21
 msgid "Enable and disable sound"
-msgstr "Habilita/Inhabilita el so"
+msgstr "Habilitar i inhabilitar el so"
 
 #. (itstool) path: page/p
 #: C/sound.page:23
@@ -1837,7 +1837,7 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/strategy.page:47
 msgid "<link href=\"https://en.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
-msgstr "<link href=\"https://en.wikipedia.org/wiki/Reversi\">Viquipèdia</link>"
+msgstr "<link href=\"https://ca.wikipedia.org/wiki/Othello_(joc)\">Viquipèdia</link>"
 
 #. (itstool) path: item/p
 #: C/strategy.page:50

@@ -160,19 +160,19 @@ msgstr "Jugueu amb el teclat"
 #: data/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Select where to play"
-msgstr "Seleccioneu on jugar"
+msgstr "Selecciona on jugar"
 
 #. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
 #: data/ui/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Select the given row"
-msgstr "Seleccioneu la fila donada"
+msgstr "Selecciona la fila donada"
 
 #. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
 #: data/ui/help-overlay.ui:83
 msgctxt "shortcut window"
 msgid "Select the given column"
-msgstr "Seleccioneu la columna donada"
+msgstr "Selecciona la columna donada"
 
 #. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
 #: data/ui/help-overlay.ui:91
@@ -437,7 +437,7 @@ msgstr ""
 "simetries). Si és «true», el joc s'iniciarà aleatòriament amb una o l'altra "
 "posició; si «false» només s'utilitzarà la posició inicial més comuna. Podeu "
 "forçar el joc a utilitzar la posició alternativa utilitzant l'argument "
-"«---alternative-start» a la línia d'ordres; si s'ignora si els s'usen els arguments «-usual-start»"
+"«---alternative-start» a la línia d'ordres; si s'ignora si s'usen els arguments «-usual-start»"
 " o «-random-start»."
 
 #. Translators: summary of a settings key, see 'dconf-editor
