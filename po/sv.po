@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-06-10 17:32+0000\n"
-"PO-Revision-Date: 2020-06-23 21:07+0200\n"
+"POT-Creation-Date: 2020-10-03 15:48+0000\n"
+"PO-Revision-Date: 2020-12-04 18:15+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
 msgid "GNOME Reversi"
@@ -82,7 +82,7 @@ msgstr "Reversi"
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
 #: data/org.gnome.Reversi.desktop.in:9
 msgid "Dominate the board in a classic version of Reversi"
-msgstr "Dominera brädet i en klassisk version av Reversi"
+msgstr "Dominera brädet i en klassisk version av reversi"
 
 #. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Reversi.desktop.in:11
@@ -516,7 +516,7 @@ msgstr "Börja med en alternativ position"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:78
 msgid "Play Classic Reversi"
-msgstr "Spela klassisk Reversi"
+msgstr "Spela klassisk reversi"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:81
@@ -556,7 +556,7 @@ msgstr "Börja med en slumpmässig position"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:102
 msgid "Play Reverse Reversi"
-msgstr "Spela omvänd Reversi"
+msgstr "Spela omvänd reversi"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:105
@@ -667,13 +667,13 @@ msgstr "_Variera startposition"
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:322 src/iagno.vala:981
 msgid "Classic Reversi"
-msgstr "Klassisk Reversi"
+msgstr "Klassisk reversi"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:326 src/iagno.vala:978
 msgid "Reverse Reversi"
-msgstr "Omvänd Reversi"
+msgstr "Omvänd reversi"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
 #: src/iagno.vala:337
@@ -790,7 +790,7 @@ msgstr "Klicka på en av de markerade rutorna för att flytta vald pjäs dit."
 #. Translators: about dialog text
 #: src/iagno.vala:1091
 msgid "A disk flipping game derived from Reversi"
-msgstr "Ett brickvändningsspel som utvecklats från Reversi"
+msgstr "Ett brickvändningsspel som utvecklats från reversi"
 
 #. Translators: text crediting an artist, in the about dialog
 #: src/iagno.vala:1095
