@@ -383,7 +383,7 @@ msgid ""
 "have an account, just click on the <gui>Sign in / Register</gui> link to "
 "create one."
 msgstr ""
-"Per participar-hi, necessiteu un compte que us donarà la possibilitat "
+"Per a participar-hi, necessiteu un compte que us donarà la possibilitat "
 "d'accedir-hi, d'enviar informes d'errors i de fer comentaris. A més, us heu "
 "de registrar per a poder rebre actualitzacions per correu electrònic sobre "
 "l'estat de l'informe d'error. Si encara no teniu un compte, feu clic a "
@@ -537,7 +537,7 @@ msgstr ""
 #. (itstool) path: page/title
 #: C/documentation.page:25
 msgid "Help write documentation"
-msgstr "Ajudeu a escriure documentació"
+msgstr "Ajudar a escriure documentació"
 
 #. (itstool) path: page/p
 #: C/documentation.page:27
@@ -755,7 +755,7 @@ msgid ""
 "<app>Reversi</app> can display some helpful highlights during a game, be it "
 "a <em>Classic Reversi</em> or a <em>Reverse Reversi</em>."
 msgstr ""
-"El <app>Reversi</app> pot mostrar informació útil durant la partida, ja "
+"El <app>Reversi</app> pot mostrar informació útil durant la partida, "
 "sigui de <em>Reversi clàssic</em> o de <em>Reversi invertit</em>."
 
 #. (itstool) path: section/title
@@ -903,7 +903,7 @@ msgstr "Consells útils"
 #. (itstool) path: section/title
 #: C/index.page:46
 msgid "Get Involved"
-msgstr "Participeu"
+msgstr "Participar-hi"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
@@ -1214,7 +1214,7 @@ msgid ""
 msgstr ""
 "El <app>Reversi</app> utilitza per defecte la posició inicial més habitual "
 "de la família, que es mostra a continuació, però també us permet <link xref="
-"\"start-position\">variar la posició inicial</link> si ho preferiu. "
+"\"start-position\">variar la posició inicial</link> si ho preferiu."
 
 #. (itstool) path: media/p
 #: C/rules.page:52 C/start-position.page:48
