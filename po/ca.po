@@ -43,8 +43,8 @@ msgid ""
 "use tiles that are dark on one side and light on the other."
 msgstr ""
 "El Iagno és una versió per ordinador del joc Reversi, un joc de taula "
-"d'estratègia per a dos jugadors. El joc es juga amb peces que són negres per"
-" una banda i blanques per l'altra."
+"d'estratègia per a dos jugadors. El joc es juga amb peces que són negres per "
+"una banda i blanques per l'altra."
 
 #: data/org.gnome.Reversi.appdata.xml.in:15
 msgid ""
@@ -53,8 +53,8 @@ msgid ""
 "tiles are flipped when trapped between an already placed tile of your color "
 "and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
-"La finalitat del reversi és donar la volta a tantes peces del vostre oponent"
-" com pugueu mentre eviteu que el vostre oponent volti les vostres. Això "
+"La finalitat del reversi és donar la volta a tantes peces del vostre oponent "
+"com pugueu mentre eviteu que el vostre oponent volti les vostres. Això "
 "s'aconsegueix atrapant les peces de l'oponent entre dues peces del vostre "
 "color. Qui acaba amb més fitxes guanya!"
 
@@ -289,14 +289,14 @@ msgstr "Sol i estrella"
 #. /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:6
 msgid "A flag to follow system night light"
-msgstr "Un senyalador per seguir la llum nocturna del sistema"
+msgstr "Un senyalador per a seguir la llum nocturna del sistema"
 
 #. Translators: description of a settings key, see 'dconf-editor
 #. /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:8
 msgid "Use GNOME night light setting to activate night-mode."
 msgstr ""
-"Utilitza el paràmetre de llum nocturna del GNOME per activar el mode "
+"Utilitza el paràmetre de llum nocturna del GNOME per a activar el mode "
 "nocturn."
 
 #. Translators: summary of a settings key, see 'dconf-editor
@@ -327,7 +327,7 @@ msgstr "L'alçada de la finestra principal en píxels."
 #. /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:31
 msgid "A flag to enable maximized mode"
-msgstr "Un senyalador per habilitar el mode maximitzat"
+msgstr "Un senyalador per a habilitar el mode maximitzat"
 
 #. Translators: description of a settings key, see 'dconf-editor
 #. /org/gnome/iagno/window-is-maximized'
@@ -339,7 +339,7 @@ msgstr "Si és «true» (cert), la finestra principal s'inicia maximitzada."
 #. /org/gnome/iagno/alternate-who-starts'
 #: data/org.gnome.Reversi.gschema.xml:50
 msgid "A flag to alternate who starts"
-msgstr "Una bandera per alternar qui comença"
+msgstr "Una bandera per a alternar qui comença"
 
 #. Translators: description of a settings key, see 'dconf-editor
 #. /org/gnome/iagno/alternate-who-starts'
@@ -383,7 +383,7 @@ msgstr "Des d'1, el més senzill, fins a 3, el més difícil."
 #. /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:72
 msgid "A flag to highlight playable tiles"
-msgstr "Un senyalador per ressaltar les peces movibles"
+msgstr "Un senyalador per a ressaltar les peces movibles"
 
 #. Translators: description of a settings key, see 'dconf-editor
 #. /org/gnome/iagno/highlight-playable-tiles'
@@ -396,7 +396,7 @@ msgstr "Si «true» (cert) es ressaltaran les fitxes on podeu jugar."
 #. tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
 msgid "A flag to highlight capturable tiles"
-msgstr "Un senyalador per ressaltar les peces que es poden capturar"
+msgstr "Un senyalador per a ressaltar les peces que es poden capturar"
 
 #. Translators: description of a settings key, see 'dconf-editor
 #. /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor
@@ -419,7 +419,7 @@ msgstr "Si jugueu contra l'ordinador o un altre humà."
 #. /org/gnome/iagno/random-start-position'
 #: data/org.gnome.Reversi.gschema.xml:93
 msgid "A flag to randomize start position"
-msgstr "Una bandera per aleatoritzar la posició inicial"
+msgstr "Una bandera per a aleatoritzar la posició inicial"
 
 #. Translators: description of a settings key, see 'dconf-editor
 #. /org/gnome/iagno/random-start-position'
@@ -427,18 +427,18 @@ msgstr "Una bandera per aleatoritzar la posició inicial"
 msgid ""
 "Reversi can be played with two different initial positions (and their "
 "symmetries). If “true”, the game will randomly start with one or the other "
-"position; if “false”, only the most common initial position is used. You can"
-" force the game to use the alternative position by using the “--alternative-"
-"start” argument on the command-line; also, if either “--usual-start” or "
-"“--random-start” is given instead on the command-line, this flag will be "
+"position; if “false”, only the most common initial position is used. You can "
+"force the game to use the alternative position by using the “--alternative-"
+"start” argument on the command-line; also, if either “--usual-start” or “--"
+"random-start” is given instead on the command-line, this flag will be "
 "ignored."
 msgstr ""
 "El Reversi es pot jugar amb dues posicions inicials diferents (i les seves "
 "simetries). Si és «true», el joc s'iniciarà aleatòriament amb una o l'altra "
 "posició; si «false» només s'utilitzarà la posició inicial més comuna. Podeu "
-"forçar el joc a utilitzar la posició alternativa utilitzant l'argument "
-"«---alternative-start» a la línia d'ordres; si s'ignora si s'usen els arguments «-usual-start»"
-" o «-random-start»."
+"forçar el joc a utilitzar la posició alternativa utilitzant l'argument «---"
+"alternative-start» a la línia d'ordres; si s'ignora si s'usen els arguments "
+"«-usual-start» o «-random-start»."
 
 #. Translators: summary of a settings key, see 'dconf-editor
 #. /org/gnome/iagno/sound'
@@ -483,8 +483,8 @@ msgid ""
 "game, where you try to have more pieces), or “reverse” (the opposite game, "
 "where you try to have less pieces)."
 msgstr ""
-"El nom del joc que es jugarà. Pot ser «clàssic» (el joc habitual on intenteu"
-" tenir més peces) o «revers» (el joc oposat on intenteu tenir menys peces)."
+"El nom del joc que es jugarà. Pot ser «clàssic» (el joc habitual on intenteu "
+"tenir més peces) o «revers» (el joc oposat on intenteu tenir menys peces)."
 
 #. Translators: on really small windows, the about dialog is replaced by an
 #. in-window view; here is the label of one of two buttons that have the same
@@ -920,15 +920,14 @@ msgstr ""
 #. notification displayed if the board is clicked elsewhere of the four
 #. playable tiles that are highlighted
 #: src/iagno.vala:958
-msgid ""
-"Click on one of the highlighted tiles to move the selected piece there."
+msgid "Click on one of the highlighted tiles to move the selected piece there."
 msgstr ""
-"Clica en una de les peces ressaltades per moure la peça seleccionada aquí."
+"Clica en una de les peces ressaltades per a moure la peça seleccionada aquí."
 
 #. Translators: about dialog text
 #: src/iagno.vala:1091
 msgid "A disk flipping game derived from Reversi"
-msgstr "Un joc on es dóna la volta a discs, derivat del Reversi"
+msgstr "Un joc on es dona la volta a discs, derivat del Reversi"
 
 #. Translators: text crediting an artist, in the about dialog
 #: src/iagno.vala:1095
