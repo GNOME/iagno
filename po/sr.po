@@ -1,21 +1,20 @@
 # Serbian translation of gnome-games
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2018.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2021.
 # This file is distributed under the same license as the gnome-games package.
+# Милош Поповић <gpopac@gmai, 2010.
 # Душан Марјановић <madafaka@bsd.org.yu>
 # Игор Несторовић <igor@prevod.org>, 2005.
-# Бранко Кокановић <branko.kokanovic@gmail.com>, 2010.
-# Милош Поповић <gpopac@gmai, 2010.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2018.
 # Марко М. Костић <marko.m.kostic@gmail.com>, 2020.
-#
+# Бранко Кокановић <branko.kokanovic@gmail.com>, 2010.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: Гномове игре\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-03-09 22:18+0000\n"
-"PO-Revision-Date: 2020-05-17 21:29+0200\n"
-"Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
-"Language-Team: Serbian <gnome-sr@googlegroups.org>\n"
+"POT-Creation-Date: 2020-10-02 17:15+0000\n"
+"PO-Revision-Date: 2021-01-23 10:31+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,15 +22,12 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2\n"
 "X-Project-Style: gnome\n"
-"X-Generator: Gtranslator 3.36.0\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
-#| msgid "Reversi"
 msgid "GNOME Reversi"
 msgstr "Гном Реверси"
 
 #: data/org.gnome.Reversi.appdata.xml.in:8
-#| msgid "Dominate the board in a classic version of Reversi"
 msgid ""
 "Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr ""
@@ -39,10 +35,6 @@ msgstr ""
 "варијанту"
 
 #: data/org.gnome.Reversi.appdata.xml.in:11
-#| msgid ""
-#| "Iagno is a computer version of the game Reversi, a two-player strategy "
-#| "board game. The game is played with tiles that are dark on one side and "
-#| "light on the other."
 msgid ""
 "Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
 "use tiles that are dark on one side and light on the other."
@@ -52,7 +44,6 @@ msgstr ""
 "страни."
 
 #: data/org.gnome.Reversi.appdata.xml.in:15
-#, fuzzy
 #| msgid ""
 #| "The object of Iagno is to flip as many of your opponent’s tiles to your "
 #| "color as possible while preventing your opponent from flipping your tiles "
@@ -64,9 +55,10 @@ msgid ""
 "tiles are flipped when trapped between an already placed tile of your color "
 "and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
-"Циљ ове игре је да окренете што више противничких плочица на вашу боју "
-"спречавајући вашег противника да окрене ваше плочице на његову боју. Ово "
-"остварујете заробљавањем противничких плочица између две плочице ваше боје."
+"Циљ ове игре је да окренете што више противничких плочица на вашу боју, док "
+"ваш противник покушава да окрене ваше плочице на његову боју. Противникове "
+"плочице се окрећу када су заробљене између већ постављене плочице ваше боје "
+"и плочице коју додате. Победник је ко заврши са више плочица!"
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
@@ -78,10 +70,9 @@ msgstr ""
 "варијантуј где је циљ да игру завршите са мање плочица него ваш противник."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
-#, fuzzy
 #| msgid "A GNOME Iagno game preview"
 msgid "A GNOME Reversi game preview"
-msgstr "Преглед игре Гноме Јагно"
+msgstr "Преглед игре Гноме Реверси"
 
 #: data/org.gnome.Reversi.appdata.xml.in:49
 msgid "The GNOME Project"
@@ -102,7 +93,7 @@ msgstr "Освојите већи део табле у класичном изд
 #. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Reversi.desktop.in:11
 msgid "reversi;othello;"
-msgstr "реверси;отело;"
+msgstr "реверси;отело;reversi;othello;"
 
 #. Translators: accessible name of the hamburger menu
 #: data/ui/base-headerbar.ui:113
@@ -216,13 +207,11 @@ msgstr "Крај!"
 
 #. Translators: when configuring a new game, header of the game type that appears on small screen
 #: data/ui/new-game-screen.ui:32
-#| msgid "_New Game"
 msgid "Game"
 msgstr "Игра"
 
 #. Translators: when configuring a new game, header of the options that appears on small screen
 #: data/ui/new-game-screen.ui:88
-#| msgid "Actions"
 msgid "Options"
 msgstr "Опције"
 
@@ -298,6 +287,9 @@ msgid ""
 "every new game request, making the next game being started with inverted "
 "roles (previous Dark player playing Light). Ignored for two-player games."
 msgstr ""
+"Ако је изабрано, када играте против рачунара, поставка „боје“ се окида након "
+"сваког новог захтева игре, чинећи да следећа игра започне обрнутим улогама ("
+"претходни црни играч игра као бели). Занемарује се за игре са два играча."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:57
@@ -322,37 +314,33 @@ msgstr "Од 1 (најлакше) до 3 (најтеже)."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:72
-#, fuzzy
 #| msgid "A flag to highlight turnable tiles"
 msgid "A flag to highlight playable tiles"
-msgstr "Заставица за истицање могућих поља"
+msgstr "Заставица за истицање плочица за играње"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:74
-#, fuzzy
 #| msgid ""
 #| "If “true”, the tiles that will be captured to the opponent by a ply are "
 #| "highlighted."
 msgid "If “true”, the tiles where you can play are highlighted."
-msgstr "Ако је тачно, истиче поља које ће противник заробити."
+msgstr "Ако је тачно, истиче плочице које можете да играте."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
-#, fuzzy
 #| msgid "A flag to highlight turnable tiles"
 msgid "A flag to highlight capturable tiles"
-msgstr "Заставица за истицање могућих поља"
+msgstr "Заставица за истицање плочица за освајање"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:81
-#, fuzzy
 #| msgid ""
 #| "If “true”, the tiles that will be captured to the opponent by a ply are "
 #| "highlighted."
 msgid ""
 "If “true”, the tiles that will be captured to the opponent by a play are "
 "highlighted."
-msgstr "Ако је тачно, истиче поља које ће противник заробити."
+msgstr "Ако је тачно, истиче плочице које ће противник заробити."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
 #: data/org.gnome.Reversi.gschema.xml:87
@@ -362,7 +350,7 @@ msgstr "Да ли се игра против рачунара или људск�
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
 #: data/org.gnome.Reversi.gschema.xml:93
 msgid "A flag to randomize start position"
-msgstr ""
+msgstr "Заставица за насумичност почетног положаја"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
 #: data/org.gnome.Reversi.gschema.xml:95
@@ -375,6 +363,12 @@ msgid ""
 "random-start” is given instead on the command-line, this flag will be "
 "ignored."
 msgstr ""
+"Реверси се може играти са два различита почетна положаја (и њиховим "
+"симетријама). Ако је изабрано, игра ће насумично почети са једним или другим "
+"положајем; ако није изабрано, користи се само најуобичајенији почетни "
+"положај. Можете да приморате игру да користи неки други положај користећи "
+"аргумент „--alternative-start“ у терминалу; такође, ако је „--usual-start“ "
+"или „--random-start“ дато на линији наредби, ова ће опција бити занемарена."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
 #: data/org.gnome.Reversi.gschema.xml:100
@@ -393,7 +387,6 @@ msgstr "Тема"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
 #: data/org.gnome.Reversi.gschema.xml:109
-#, fuzzy
 #| msgid ""
 #| "Filename of the theme used, or \"default\". Are provided \"adwaita.theme"
 #| "\", \"high_contrast.theme\" and \"sun_and_star.theme\"."
@@ -401,8 +394,8 @@ msgid ""
 "Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
 "“high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
-"Име датотеке која садржи тему која се користи, или „подразумевано“. Доступне "
-"су „adwaita.theme“, „high_contrast.theme“ и „sun_and_star.theme“."
+"Назив датотеке теме која се користи, или „подразумевано“. Доступне су "
+"„adwaita.theme“, „high_contrast.theme“ и „sun_and_star.theme“."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
 #: data/org.gnome.Reversi.gschema.xml:114
@@ -416,6 +409,9 @@ msgid ""
 "game, where you try to have more pieces), or “reverse” (the opposite game, "
 "where you try to have less pieces)."
 msgstr ""
+"Назив игре која ће се играти. Може бити „classic“ (уобичајена игра, у којој "
+"покушавате да сакупите више комада), или „reverse“ (супротна игра, у којој "
+"покушавате да сакупите мање комада)."
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
@@ -539,7 +535,6 @@ msgstr "Бележи потезе у игри"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:99
-#| msgid "Start with an alternative position"
 msgid "Start with a random position"
 msgstr "Почни са наизменичним положајем"
 
@@ -575,7 +570,6 @@ msgstr "Укључи звук"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:120
-#| msgid "Start with an alternative position"
 msgid "Start with the usual position"
 msgstr "Почни са уобичајеним положајем"
 
@@ -590,11 +584,13 @@ msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments "
 "are mutually exclusive."
 msgstr ""
+"Аргументи „--alternative-start“, „--random-start“ и „--usual-start“ се "
+"узајамно искључују."
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
 #: src/iagno.vala:178
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
-msgstr ""
+msgstr "Аргументи „--classic“ и „--reverse“ се узајамно искључују."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
 #: src/iagno.vala:185
@@ -614,20 +610,18 @@ msgstr ""
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:273
-#| msgid "Play first (Dark)"
 msgid "Play _first (Dark)"
 msgstr "Играј _први (црни)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:277
-#| msgid "Play second (Light)"
 msgid "Play _second (Light)"
 msgstr "Играј _други (бели)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:283
 msgid "_Alternate who starts"
-msgstr ""
+msgstr "_Ко почиње први"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:289
@@ -652,19 +646,17 @@ msgstr "_Тешко"
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:315
 msgid "_Vary start position"
-msgstr ""
+msgstr "_Измени почетни положај"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:322 src/iagno.vala:981
-#| msgid "Reversi"
 msgid "Classic Reversi"
 msgstr "Класични Реверси"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:326 src/iagno.vala:978
-#| msgid "Reversi"
 msgid "Reverse Reversi"
 msgstr "Обрнути Реверси"
 
@@ -675,16 +667,13 @@ msgstr "Подразумевана"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:393
-#| msgctxt "shortcut window"
-#| msgid "Play on selected tile"
 msgid "Pla_yable tiles"
-msgstr ""
+msgstr "_Поља за игру"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
 #: src/iagno.vala:397
-#| msgid "Highlight _turnable tiles"
 msgid "_Capturable tiles"
-msgstr ""
+msgstr "_Освојива поља"
 
 #. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
 #: src/iagno.vala:401
@@ -703,19 +692,16 @@ msgstr "При_кажи завршну таблу"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:430
-#| msgid "Reversi"
 msgid "_About Reversi"
 msgstr "О Р_еверсију"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
 #: src/iagno.vala:618
-#| msgid "_Two players"
 msgid "Two players"
 msgstr "Два играча"
 
 #. Translators: when configuring a new game, button label if the player choose to start
 #: src/iagno.vala:622
-#| msgid "Color"
 msgid "Color: Dark"
 msgstr "Боја: тамна"
 
@@ -731,19 +717,16 @@ msgstr "Више опција"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
 #: src/iagno.vala:687
-#| msgid "Difficulty"
 msgid "Difficulty: Easy"
 msgstr "Тежина: лака"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
 #: src/iagno.vala:691
-#| msgid "Difficulty"
 msgid "Difficulty: Medium"
 msgstr "Тежина: средња"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
 #: src/iagno.vala:695
-#| msgid "Difficulty"
 msgid "Difficulty: Hard"
 msgstr "Тежина: тешка"
 
@@ -783,11 +766,12 @@ msgstr "То је немогућ потез!"
 #: src/iagno.vala:954
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
 msgstr ""
+"У овом отварању, светли може да игра само на пољима која додирују црног."
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
 #: src/iagno.vala:958
 msgid "Click on one of the highlighted tiles to move the selected piece there."
-msgstr ""
+msgstr "Клик на једно истакнуто поље за померање изабране фигуре."
 
 #. Translators: about dialog text
 #: src/iagno.vala:1091
