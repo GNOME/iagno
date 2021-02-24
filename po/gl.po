@@ -2,6 +2,7 @@
 # Copyright (C) 2000 Jesús Bravo Álvarez.
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en http://www.trasno.net
+#
 # Jesús Bravo Álvarez <jba@pobox.com>, 2000.
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
 # Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2008.
@@ -10,22 +11,21 @@
 # Antón Méixome <meixome@mancomun.org>, 2009.
 # Fran Diéguez <frandieguez@gnome.org>, 2009, 2010, 2011.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
-# Fran Dieguez <frandieguez@gnome.org>, 2011-2020.
-#
+# Fran Dieguez <frandieguez@gnome.org>, 2011-2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-07-05 10:49+0000\n"
-"PO-Revision-Date: 2020-08-13 00:40+0200\n"
+"POT-Creation-Date: 2020-10-03 15:48+0000\n"
+"PO-Revision-Date: 2021-02-23 20:29+0100\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"X-Generator: Gtranslator 3.38.0\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
@@ -56,7 +56,7 @@ msgid ""
 "and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
 "O obxectivo de Iagno é voltear todas as fichas do seu opoñente que poida, "
-"evitando que o seu opoñente faga o mesmo coas suas. Isto conséguese "
+"evitando que o seu opoñente faga o mesmo coas súas. Isto conséguese "
 "atrapando as fichas do opoñente entre dúas fichas da súa cor!"
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
@@ -65,7 +65,7 @@ msgid ""
 "reversed variant, where the goal is to finish with less tile than your "
 "opponent."
 msgstr ""
-"GNOMW Reversi permítelle xogar tanto ao xogo reversi clásico, como unha "
+"GNOME Reversi permítelle xogar tanto ao xogo reversi clásico, como unha "
 "variante invertida, onde o obxectivo é rematar con menos teselas que o "
 "opoñente."
 
@@ -139,7 +139,6 @@ msgstr "Desfacer o último movemento"
 
 #. Translators: in the Keyboard Shortcuts window, section "During a game"
 #: data/ui/help-overlay.ui:52
-#| msgid "Log the game moves"
 msgctxt "shortcut window"
 msgid "Toggle game menu"
 msgstr "Trocar ao menú do xogo"
@@ -266,7 +265,7 @@ msgstr "Sol e estrela"
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:6
 msgid "A flag to follow system night light"
-msgstr "Un parámetro para seguir a luz noctura do sistema"
+msgstr "Un parámetro para seguir a luz nocturna do sistema"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
 #: data/org.gnome.Reversi.gschema.xml:8
@@ -468,7 +467,7 @@ msgstr "Documentadores"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
 #: src/about-list.vala:166
 msgid "Translators"
-msgstr "Traductores"
+msgstr "Tradutores"
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the pictural artists names
 #: src/about-list.vala:172
@@ -607,12 +606,12 @@ msgid ""
 "are mutually exclusive."
 msgstr ""
 "Os parámetros “--alternative-start”, “--random-start” e “--usual-start” son "
-"exclusivos mutualmente."
+"exclusivos mutuamente."
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
 #: src/iagno.vala:178
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
-msgstr "Os argumentos “--classic” e “--reverse” son exclusivos mutualmente."
+msgstr "Os argumentos “--classic” e “--reverse” son exclusivos mutuamente."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
 #: src/iagno.vala:185
