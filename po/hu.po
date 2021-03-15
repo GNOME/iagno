@@ -9,22 +9,22 @@
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
-# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2015, 2016, 2018, 2019, 2020.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2015, 2016, 2018, 2019, 2020, 2021.
 # Balázs Meskó <mesko.balazs at fsf dot hu>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2020-07-05 10:49+0000\n"
-"PO-Revision-Date: 2020-09-06 17:57+0200\n"
-"Last-Translator: Meskó Balázs <mesko.balazs@fsf.hu>\n"
+"POT-Creation-Date: 2021-02-24 00:10+0000\n"
+"PO-Revision-Date: 2021-03-15 17:25+0100\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Lokalize 19.12.3\n"
 
 #: data/org.gnome.Reversi.appdata.xml.in:7
 msgid "GNOME Reversi"
@@ -43,7 +43,7 @@ msgid ""
 "use tiles that are dark on one side and light on the other."
 msgstr ""
 "A Reversi egy kétszemélyes, stratégiai játék, amelyet 8×8-as táblán "
-"játszanak. A játékot egyik oldalon sötét, a másikon világos kövekkel "
+"játszanak. A játékot egyik oldalon sötét, a másikon világos bábukkal "
 "játsszák."
 
 #: data/org.gnome.Reversi.appdata.xml.in:15
@@ -53,10 +53,10 @@ msgid ""
 "tiles are flipped when trapped between an already placed tile of your color "
 "and the tile you add. Who finishes with more tiles wins!"
 msgstr ""
-"A Reversi célja az ellenfél lehető legtöbb kövének megfordítása a saját "
-"színre, miközben az ellenfél is ugyanerre törekszik. Az ellenfél kövei akkor "
-"kerülnek átfordításra, ha egy már meglévő saját kő és egy frissen "
-"elhelyezett kő közti csapdába esnek. Az nyer, aki több kővel végez."
+"A Reversi célja az ellenfél lehető legtöbb bábujának megfordítása a saját "
+"színre, miközben az ellenfél is ugyanerre törekszik. Az ellenfél bábui akkor "
+"kerülnek átfordításra, ha egy már meglévő saját bábu és egy frissen "
+"elhelyezett bábu közti csapdába esnek. Az nyer, aki több bábuval végez."
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
@@ -65,7 +65,7 @@ msgid ""
 "opponent."
 msgstr ""
 "A GNOME Reversivel játszhat a klasszikus reversi játékkal, és a fordított "
-"változattal, ahol a cél az, hogy kevesebb kővel végezzen, mint az ellenfél."
+"változattal, ahol a cél az, hogy kevesebb bábuval végezzen mint az ellenfél."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
 msgid "A GNOME Reversi game preview"
@@ -169,7 +169,7 @@ msgstr "A megadott oszlop kiválasztása"
 #: data/ui/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Play on selected tile"
-msgstr "A kijelölt kő megjátszása"
+msgstr "A kijelölt csempe megjátszása"
 
 #. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
 #: data/ui/help-overlay.ui:101
@@ -344,18 +344,19 @@ msgstr "A legkönnyebb 1-től a legnehezebb 3-ig."
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:72
 msgid "A flag to highlight playable tiles"
-msgstr "Egy jelző a megjátszható kövek kiemeléséhez"
+msgstr "Egy jelző a megjátszható csempék kiemeléséhez"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:74
 msgid "If “true”, the tiles where you can play are highlighted."
 msgstr ""
-"Ha „igaz”, akkor ki vannak emelve azok a kövek, amelyeket meg lehet játszani."
+"Ha „igaz”, akkor ki vannak emelve azok a csempék, amelyeket meg lehet"
+" játszani."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
 msgid "A flag to highlight capturable tiles"
-msgstr "Egy jelző a megszerezhető kövek kiemeléséhez"
+msgstr "Egy jelző a megszerezhető csempék kiemeléséhez"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:81
@@ -363,7 +364,7 @@ msgid ""
 "If “true”, the tiles that will be captured to the opponent by a play are "
 "highlighted."
 msgstr ""
-"Ha „igaz”, akkor ki vannak emelve azok a kövek, amelyeket az ellenfél egy "
+"Ha „igaz”, akkor ki vannak emelve azok a csempék, amelyeket az ellenfél egy "
 "lépéssel meg fog szerezni."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
@@ -432,9 +433,9 @@ msgid ""
 "game, where you try to have more pieces), or “reverse” (the opposite game, "
 "where you try to have less pieces)."
 msgstr ""
-"A játszandó játék neve. Lehet „classic” (a szokásos játék, ahol több darabot "
+"A játszandó játék neve. Lehet „classic” (a szokásos játék, ahol több bábut "
 "próbál megszerezni) vagy „reverse” (az ellentétes játék, ahol kevesebb "
-"darabot próbál megszerezni)."
+"bábut próbál megszerezni)."
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
@@ -602,7 +603,7 @@ msgid "Print release version and exit"
 msgstr "Kiadási verzió kiírása és kilépés"
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
-#: src/iagno.vala:171
+#: src/iagno.vala:172
 msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments "
 "are mutually exclusive."
@@ -611,247 +612,249 @@ msgstr ""
 "kölcsönösen kizárják egymást."
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
-#: src/iagno.vala:178
+#: src/iagno.vala:179
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
 msgstr ""
 "A „--classic” és „--reverse” argumentumok kölcsönösen kizárják egymást."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
-#: src/iagno.vala:185
+#: src/iagno.vala:186
 msgid "Size must be at least 4."
 msgstr "A méretnek legalább 4-nek kell lennie."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
-#: src/iagno.vala:191
+#: src/iagno.vala:192
 msgid "Size must not be more than 16."
 msgstr "A méret nem lehet nagyobb 16-nál."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:257
+#: src/iagno.vala:258
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr ""
 "A szintnek 1 (könnyű) és 3 (nehéz) között kell lennie. A beállítások nem "
 "változtak."
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:273
+#: src/iagno.vala:274
 msgid "Play _first (Dark)"
 msgstr "_Első játékos (sötét)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:277
+#: src/iagno.vala:278
 msgid "Play _second (Light)"
 msgstr "_Második játékos (világos)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:283
+#: src/iagno.vala:284
 msgid "_Alternate who starts"
 msgstr "_Váltakozzon, hogy ki kezd"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:289
+#: src/iagno.vala:290
 msgid "_Two players"
 msgstr "_Két játékos"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:298
+#: src/iagno.vala:299
 msgid "_Easy"
 msgstr "Kö_nnyű"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:302
+#: src/iagno.vala:303
 msgid "_Medium"
 msgstr "Kö_zepes"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:306
+#: src/iagno.vala:307
 msgid "_Hard"
 msgstr "Ne_héz"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:315
+#: src/iagno.vala:316
 msgid "_Vary start position"
 msgstr "Kezdési pozíció _változtatása"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:322 src/iagno.vala:981
+#: src/iagno.vala:323 src/iagno.vala:982
 msgid "Classic Reversi"
 msgstr "Klasszikus Reversi"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:326 src/iagno.vala:978
+#: src/iagno.vala:327 src/iagno.vala:979
 msgid "Reverse Reversi"
 msgstr "Fordított Reversi"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
-#: src/iagno.vala:337
+#: src/iagno.vala:338
 msgid "Default"
 msgstr "Alapértelmezett"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:393
+#: src/iagno.vala:394
 msgid "Pla_yable tiles"
-msgstr "Meg_játszható kövek"
+msgstr "Meg_játszható csempék"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
-#: src/iagno.vala:397
+#: src/iagno.vala:398
 msgid "_Capturable tiles"
-msgstr "_Megszerezhető kövek"
+msgstr "_Megszerezhető csempék"
 
 #. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
-#: src/iagno.vala:401
+#: src/iagno.vala:402
 msgid "Highlights"
 msgstr "Kiemelések"
 
 #. Translators: history menu entry (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:408
+#: src/iagno.vala:409
 msgid "_Undo last move"
 msgstr "_Utolsó lépés visszavonása"
 
 #. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:413
+#: src/iagno.vala:414
 msgid "_Show final board"
 msgstr "_Végső tábla megjelenítése"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:430
+#: src/iagno.vala:431
 msgid "_About Reversi"
 msgstr "A Reversi _névjegye"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
-#: src/iagno.vala:618
+#: src/iagno.vala:619
 msgid "Two players"
 msgstr "Két játékos"
 
 #. Translators: when configuring a new game, button label if the player choose to start
-#: src/iagno.vala:622
+#: src/iagno.vala:623
 msgid "Color: Dark"
 msgstr "Szín: sötét"
 
 #. Translators: when configuring a new game, button label if the player choose let computer start
-#: src/iagno.vala:626
+#: src/iagno.vala:627
 msgid "Color: Light"
 msgstr "Szín: világos"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
-#: src/iagno.vala:683
+#: src/iagno.vala:684
 msgid "More options"
 msgstr "További beállítások"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
-#: src/iagno.vala:687
+#: src/iagno.vala:688
 msgid "Difficulty: Easy"
 msgstr "Nehézség: könnyű"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
-#: src/iagno.vala:691
+#: src/iagno.vala:692
 msgid "Difficulty: Medium"
 msgstr "Nehézség: közepes"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
-#: src/iagno.vala:695
+#: src/iagno.vala:696
 msgid "Difficulty: Hard"
 msgstr "Nehézség: nehéz"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:900
+#: src/iagno.vala:901
 msgid "Light must pass, Dark’s move"
 msgstr "A világos nem tud lépni, a sötét jön"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:905
+#: src/iagno.vala:906
 msgid "Dark must pass, Light’s move"
 msgstr "A sötét nem tud lépni, a világos jön"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
-#: src/iagno.vala:919
+#: src/iagno.vala:920
 #, c-format
 msgid "Light wins! (%u-%u)"
 msgstr "A világos nyert! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
-#: src/iagno.vala:924
+#: src/iagno.vala:925
 #, c-format
 msgid "Dark wins! (%u-%u)"
 msgstr "A sötét nyert! (%u-%u)"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:928
+#: src/iagno.vala:929
 msgid "The game is draw."
 msgstr "Az eredmény döntetlen."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:947
+#: src/iagno.vala:948
 msgid "You can’t move there!"
 msgstr "Nem léphet oda!"
 
 #. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
-#: src/iagno.vala:954
+#: src/iagno.vala:955
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
-msgstr "Ebben a nyitásban a világos csak a sötéttel határos kövekkel játszhat."
+msgstr ""
+"Ebben a nyitásban a világos csak a sötéttel határos csempékkel játszhat."
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
-#: src/iagno.vala:958
+#: src/iagno.vala:959
 msgid "Click on one of the highlighted tiles to move the selected piece there."
-msgstr "Kattintson a kiemelt kövek egyikére a kijelölt darab oda mozgatásához."
+msgstr ""
+"Kattintson a kiemelt csempék egyikére a kijelölt bábu oda mozgatásához."
 
 #. Translators: about dialog text
-#: src/iagno.vala:1091
+#: src/iagno.vala:1092
 msgid "A disk flipping game derived from Reversi"
 msgstr "A Reversiből származtatott korongfordítgatós játék"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1095
+#: src/iagno.vala:1096
 msgid "Masuichi Ito (pieces)"
-msgstr "Masuichi Ito (darabok)"
+msgstr "Masuichi Ito (bábuk)"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1099
+#: src/iagno.vala:1100
 msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (témák)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1104
+#: src/iagno.vala:1105
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1108
+#: src/iagno.vala:1109
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1112
+#: src/iagno.vala:1113
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1117
+#: src/iagno.vala:1118
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Copyright © %u-%u – Ian Peters"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1121
+#: src/iagno.vala:1122
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Copyright © %u-%u – Michael Catanzaro"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1125
+#: src/iagno.vala:1126
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:1129
+#: src/iagno.vala:1130
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:1134
+#: src/iagno.vala:1135
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -865,7 +868,7 @@ msgstr ""
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:1139
+#: src/iagno.vala:1140
 msgid "Page on GNOME wiki"
 msgstr "Oldal a GNOME wikin"
 
