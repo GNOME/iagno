@@ -4,7 +4,7 @@
       xmlns:its="http://www.w3.org/2005/11/its"> <!-- the "its" line is allowing translations for medias -->
 
   <info>
-    <title type='link' role="trail"><media type="image" mime="image/png" src="figures/logo.png" its:translate="no"/></title>
+    <title type='link' role="trail">Reversi</title>
     <title type='link'>Reversi</title>
     <title type='text'>Reversi</title>
     <revision pkgversion="3.36" version="0.2" date="2020-02-01" status="final"/>
@@ -24,7 +24,7 @@
     </license>
   </info>
 
-  <title><media type="image" mime="image/png" src="figures/logo32.png" its:translate="no"><span its:translate="yes">Reversi logo</span></media> Reversi</title>
+  <title><media type="image" width="48px" height="48px" src="figures/org.gnome.Reversi.svg" its:translate="no" /> Reversi</title>
 
   <p><app>Reversi</app> is a boardgame played with pieces dark on one side and light on the other. <em>Dark</em> and <em>Light</em> play one after each other by adding on an empty tile a new piece of their color, trapping at least one opponent row of pieces; when pieces are captured that way, they are turned over to join the capturing player's forces. See <link xref="rules">reversi rules</link> to discover more about the game.</p>
 

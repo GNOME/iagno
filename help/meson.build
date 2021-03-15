@@ -3,12 +3,11 @@ help_media = [
     'figures/alternative-start-1.png',
     'figures/alternative-start-2.png',
     'figures/alternative-start-3.png',
-    'figures/logo32.png',
-    'figures/logo.png',
     'figures/move-1.png',
     'figures/move-2.png',
     'figures/move-3.png',
     'figures/move-4.png',
+    'figures/org.gnome.Reversi.svg',
     'figures/symmetric-start.png',
     'figures/usual-start.png'
 ]
