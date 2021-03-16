@@ -1,88 +1,117 @@
 # Hungarian translation for iagno help.
-# Copyright (C) 2013, 2014, 2015, 2017, 2018. Free Software Foundation, Inc.
+# Copyright (C) 2013, 2014, 2015, 2017, 2018, 2021. Free Software Foundation, Inc.
 # This file is distributed under the same license as the iagno help.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2013, 2014, 2015, 2017.
-# Balázs Úr <urbalazs at gmail dot com>, 2014, 2018.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2018, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno-help master\n"
-"POT-Creation-Date: 2018-09-10 19:42+0000\n"
-"PO-Revision-Date: 2018-09-13 23:45+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
+"POT-Creation-Date: 2020-07-05 21:05+0000\n"
+"PO-Revision-Date: 2021-03-17 00:14+0100\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 19.12.3\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Kelemen Gábor <kelemeng at gnome dot hu>, 2013, 2014, 2015."
+msgstr ""
+"Kelemen Gábor <kelemeng at gnome dot hu>, 2013, 2014, 2015.\n"
+"Úr Balázs <ur.balazs at fsf dot hu>, 2021."
 
 #. (itstool) path: credit/name
-#: C/2player.page:9 C/ai-game.page:9 C/shortcuts.page:9
-msgid "Brian Grohe"
-msgstr "Brian Grohe"
+#: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
+#: C/configure.page:10 C/develop.page:15 C/documentation.page:15
+#: C/example.page:11 C/highlights.page:10 C/index.page:17 C/play.page:15
+#: C/rules.page:25 C/select-game.page:10 C/shortcuts.page:15
+#: C/start-position.page:11 C/theme.page:10 C/translate.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
 
 #. (itstool) path: credit/years
-#: C/2player.page:11 C/ai-game.page:11 C/play.page:12 C/rules.page:12
-#: C/shortcuts.page:11 C/sound.page:11
-msgid "2012"
-msgstr "2012"
+#: C/2player.page:12 C/ai-game.page:12 C/ai-level.page:12 C/alternate.page:12
+#: C/configure.page:12 C/develop.page:17 C/documentation.page:17
+#: C/example.page:13 C/highlights.page:12 C/index.page:19 C/play.page:17
+#: C/rules.page:27 C/select-game.page:12 C/shortcuts.page:17
+#: C/start-position.page:13 C/theme.page:12 C/translate.page:21
+msgid "2020"
+msgstr "2020"
 
-#. (itstool) path: credit/name
-#: C/2player.page:14 C/ai-game.page:14 C/bug-filing.page:9
-#: C/change-color.page:9 C/develop.page:10 C/documentation.page:8
-#: C/index.page:12 C/play.page:10 C/rules.page:10 C/sound.page:9
-#: C/translate.page:10
-msgid "Tiffany Antopolski"
-msgstr "Tiffany Antopolski"
+#. (itstool) path: license/p
+#: C/2player.page:16 C/ai-game.page:16 C/ai-level.page:16 C/alternate.page:16
+#: C/bug-filing.page:16 C/configure.page:16 C/develop.page:21
+#: C/documentation.page:21 C/example.page:17 C/highlights.page:16
+#: C/index.page:23 C/play.page:21 C/rules.page:31 C/select-game.page:16
+#: C/shortcuts.page:21 C/sound.page:17 C/start-position.page:17
+#: C/strategy.page:20 C/theme.page:16 C/translate.page:25
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons – Így add tovább! 3.0"
 
 #. (itstool) path: page/title
-#: C/2player.page:19
-msgid "Two-player mode"
-msgstr "Kétszemélyes mód"
+#: C/2player.page:20
+#| msgid "Play against the computer"
+msgid "Play with another player"
+msgstr "Játék egy másik játékossal"
 
 #. (itstool) path: page/p
-#: C/2player.page:20
+#: C/2player.page:22
+#| msgid ""
+#| "Two player mode allows you to play against another human rather than a "
+#| "computer. To enable this:"
 msgid ""
-"Two player mode allows you to play against another human rather than a "
-"computer. To enable this:"
+"<app>Reversi</app> allows you to play against another human, instead of "
+"against the computer."
 msgstr ""
-"A kétszemélyes mód lehetővé teszi egy másik ember elleni játékot a "
-"számítógép helyett. Ehhez:"
+"A <app>Reversi</app> lehetővé tesz egy másik ember elleni játékot a"
+" számítógép helyett."
 
-#. (itstool) path: item/p
-#: C/2player.page:23
-msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
+#. (itstool) path: page/p
+#: C/2player.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter "
+"case, <app>Reversi</app> is already configured to start a two-player game, "
+"else it would start a game against the computer."
 msgstr ""
-"Válassza a <guiseq><gui>Beállítások</gui><gui>Beállítások</gui></guiseq> "
-"menüpontot."
+"Ha <link xref=\"configure\">beállít egy új játékot</link>, akkor vessen egy"
+" pillantást a lefelé mutató nyíllal rendelkező első gombra. A gombnak <gui"
+">Szín: sötét</gui>, <gui>Szín: világos</gui> vagy <gui>Két játékos</gui>"
+" felirata van. Az utóbbi esetben a <app>Reversi</app> már be van állítva egy"
+" kétszemélyes játék indításához, egyébként a számítógép elleni játékot"
+" indítana."
 
-#. (itstool) path: item/p
-#: C/2player.page:24 C/ai-game.page:25 C/sound.page:21
-msgid "Select the <gui>Game</gui> tab."
-msgstr "Válassza a <gui>Játék</gui> lapot."
-
-#. (itstool) path: item/p
-#: C/2player.page:25
-msgid "Check <gui>human</gui> in both player columns."
-msgstr "Jelölje be az <gui>Ember</gui> lehetőséget mindkét játékos oszlopban."
-
-#. (itstool) path: item/p
-#: C/2player.page:26 C/change-color.page:31
-msgid "Click <gui>Close</gui>"
-msgstr "Nyomja meg a <gui>Bezárás</gui> gombot."
-
-#. (itstool) path: note/p
-#: C/2player.page:27
-msgid "Your changes will apply when a new game is started."
+#. (itstool) path: page/p
+#: C/2player.page:26
+msgid ""
+"If the button does not indicate <gui>Two players</gui>, select it, and in "
+"the menu that appears, select <gui>Two players</gui>. The button will change "
+"its label to <gui>Two players</gui>. You can then select the <gui>Start "
+"Game</gui> button to launch your game and <link xref=\"play\">play</link>."
 msgstr ""
-"A változtatásai automatikusan életbe lépnek a következő játék elindításakor."
+"Ha a gomb nem jelzi a <gui>Két játékos</gui> lehetőséget, akkor nyomja meg,"
+" és a megjelenő menüben válassza a <gui>Két játékos</gui> menüpontot. A gomb"
+" meg fogja változtatni a feliratát <gui>Két játékos</gui> értékre. Ezután"
+" megnyomhatja a <gui>Játék indítása</gui> gombot a játék elindításához és a <"
+"link xref=\"play\">játék</link> elkezdéséhez."
+
+#. (itstool) path: page/p
+#: C/2player.page:28
+msgid ""
+"If you asked the game to <link xref=\"start-position\">vary start position</"
+"link> and start a two-player game, you will start the game with a special "
+"<link xref=\"start-position#human-overture\">two-player game overture</link>."
+msgstr ""
+"Ha arra kérte a játékot, hogy <link xref=\"start-position\">változtassa a"
+" kezdési pozíciót</link> és kétszemélyes játékot indított, akkor a játékot"
+" egy különleges <link xref=\"start-position#human-overture\">kétszemélyes"
+" játéknyitánnyal</link> fogja indítani."
 
 #. (itstool) path: page/title
 #: C/ai-game.page:20
@@ -90,68 +119,269 @@ msgid "Play against the computer"
 msgstr "Játék a számítógép ellen"
 
 #. (itstool) path: page/p
-#: C/ai-game.page:21
+#: C/ai-game.page:22
 msgid ""
-"The computer has different levels of difficulty: Level One, Level Two, and "
-"Level Three. To change this setting:"
+"<app>Reversi</app> allows you to play against the computer, with three "
+"different levels of difficulty. You can also decide which player, between "
+"the computer and you, will start."
 msgstr ""
-"A számítógép különböző nehézségi fokozatokat ismer: első, második és "
-"harmadik szint. A beállítás módosításához:"
+"A <app>Reversi</app> három különböző nehézségi szinten teszi lehetővé a"
+" számítógép elleni játékot. Azt is eldöntheti, hogy melyik játékos – a"
+" számítógép vagy Ön – fog kezdeni."
 
-#. (itstool) path: item/p
-#: C/ai-game.page:24 C/change-color.page:24
-msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+#. (itstool) path: page/p
+#: C/ai-game.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the two "
+"first cases, <app>Reversi</app> is already configured to start a game "
+"against the computer, else it would start a two-player game."
 msgstr ""
-"Válassza a <guiseq><gui>Beállítások</gui><gui>Beállítások</gui></guiseq> "
-"menüpontot."
+"Ha <link xref=\"configure\">beállít egy új játékot</link>, akkor vessen egy"
+" pillantást a lefelé mutató nyíllal rendelkező első gombra. A gombnak <gui"
+">Szín: sötét</gui>, <gui>Szín: világos</gui> vagy <gui>Két játékos</gui>"
+" felirata van. Az első két esetben a <app>Reversi</app> már be van állítva a"
+" számítógép elleni játék indításához, egyébként kétszemélyes játékot indítana."
 
-#. (itstool) path: item/p
+#. (itstool) path: page/p
 #: C/ai-game.page:26
-msgid "Select the difficulty level for your computer opponent."
-msgstr "Válassza ki a nehézségi szintet a számítógép ellenfélhez."
+msgid ""
+"If the button is labelled <gui>Color: Dark</gui>, that means that you will "
+"do the first move. Of course, <gui>Color: Light</gui> means that it will be "
+"the computer."
+msgstr ""
+"Ha a gomb felirata <gui>Szín: sötét</gui>, akkor ez azt jelenti, hogy Ön"
+" fogja elvégezni az első lépést. Természetesen a <gui>Szín: világos</gui> azt"
+" jelenti, hogy az a számítógép lesz."
 
-#. (itstool) path: item/p
-#: C/ai-game.page:27 C/sound.page:23
-msgid "Click <gui>Close</gui>."
-msgstr "Nyomja meg a <gui>Bezárás</gui> gombot."
+#. (itstool) path: page/p
+#: C/ai-game.page:28
+msgid ""
+"If the button indicates <gui>Two players</gui>, select it, and in the menu "
+"that appears, select <gui>Play first (Dark)</gui> if you want to start the "
+"game, or <gui>Play second (Light)</gui> if you want the computer to start. "
+"The button will change its label to <gui>Color: Dark</gui> in the former "
+"case, and to <gui>Color: Light</gui> in the latter."
+msgstr ""
+"Ha a gomb <gui>Két játékost</gui> jelez, akkor nyomja meg, és a megjelenő"
+" menüben válassza az <gui>Első játékos (sötét)</gui> menüpontot, ha Ön"
+" szeretné kezdeni a játékot, vagy válassza a <gui>Második játékos (világos)<"
+"/gui> menüpontot, ha azt szeretné, hogy a számítógép kezdjen. Az előző"
+" esetben a gomb meg fogja változtatni a feliratát <gui>Szín: sötét</gui>"
+" értékre, illetve <gui>Szín: világos</gui> értékre az utóbbi esetben."
+
+#. (itstool) path: page/p
+#: C/ai-game.page:30
+msgid ""
+"Once you have configured <app>Reversi</app> to play a game against the "
+"computer, you may <link xref=\"ai-level\">change the computer level</link>."
+msgstr ""
+"Miután beállította a <app>Reversi</app> játékot a számítógép elleni játékhoz,"
+" esetleg <link xref=\"ai-level\">megváltoztathatja a számítógép szintjét<"
+"/link>."
+
+#. (itstool) path: page/title
+#: C/ai-level.page:20
+#| msgid "Play against the computer"
+msgid "Change the computer level"
+msgstr "A számítógép szintjének megváltoztatása"
+
+#. (itstool) path: page/p
+#: C/ai-level.page:22
+msgid ""
+"<app>Reversi</app> offers you three level of difficulty if you want to play "
+"against the computer."
+msgstr ""
+"A <app>Reversi</app> három nehézségi szintet ajánl, ha a számítógép ellen"
+" szeretne játszani."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:24
+msgid ""
+"These levels are called: <em>Easy</em>, <em>Medium</em>, and <em>Hard</em>. "
+"The first one is suitable for beginners, the second for casual players, and "
+"the last one should please regular players."
+msgstr ""
+"Ezek a szintek <em>Könnyű</em>, <em>Közepes</em> és <em>Nehéz</em> néven"
+" vannak. Az első a kezdők számára megfelelő, a második az alkalmi"
+" játékosoknak, míg az utolsót csak rendszeres játékosok válasszák."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:26
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the second button with a down arrow; it should either be labelled "
+"<gui>Difficulty: Easy</gui>, <gui>Difficulty: Medium</gui>, <gui>Difficulty: "
+"Hard</gui> or <gui>More options</gui>. The first three possibilities "
+"indicate which one of the three levels would be used if starting a new game. "
+"In the latter case, <app>Reversi</app> is currently configured for a two-"
+"player game, and you should first configure that you want to <link xref=\"ai-"
+"game\">play against the computer</link>."
+msgstr ""
+"Ha <link xref=\"configure\">beállít egy új játékot</link>, akkor vessen egy"
+" pillantást a lefelé mutató nyíllal rendelkező második gombra. A gombnak <gui"
+">Nehézség: könnyű</gui>, <gui>Nehézség: közepes</gui>, <gui>Nehézség: nehéz<"
+"/gui> vagy <gui>További beállítások</gui> felirata van. Az első három"
+" lehetőség azt jelzi, hogy a három szint közül melyiket kellene használni egy"
+" új játék indításakor. Az utolsó esetben a <app>Reversi</app> jelenleg"
+" kétszemélyes játékhoz van beállítva, és először azt kell beállítania, hogy a"
+" <link xref=\"ai-game\">számítógép ellen</link> szeretne játszani."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:28
+msgid ""
+"Once that is done, if the indicated level is not the one you want, select "
+"the button, and in the menu that appears, select <gui>Easy</gui>, "
+"<gui>Medium</gui> or <gui>Hard</gui>, as you prefer. The button will change "
+"its label accordingly."
+msgstr ""
+"Ha ez megtörtént és a jelzett szint nem az, amelyet szeretne, akkor"
+" kattintson a gombra, és a megjelenő menüben válassza a <gui>Könnyű</gui>, <"
+"gui>Közepes</gui> vagy <gui>Nehéz</gui> szintet az igényei szerint. A gomb"
+" ennek megfelelően fogja megváltoztatni a feliratát."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:30
+msgid ""
+"When the indicated level is good for your, you can select the <gui>Start "
+"Game</gui> button to launch your game and <link xref=\"play\">play</link>."
+msgstr ""
+"Ha a jelzett szint megfelelő Önnek, akkor rákattinthat a <gui>Játék indítása<"
+"/gui> gombra a játék elindításához és a <link xref=\"play\">játék</link>"
+" elkezdéséhez."
+
+#. (itstool) path: page/title
+#: C/alternate.page:20
+msgid "Alternate who starts"
+msgstr "Annak váltogatása, hogy ki kezd"
+
+#. (itstool) path: page/p
+#: C/alternate.page:22
+msgid ""
+"If you are playing multiple games in a row <link xref=\"ai-game\">against "
+"the computer</link>, <app>Reversi</app> allows you to automatically "
+"alternate who will start the next game between you and the computer."
+msgstr ""
+"Ha több játékot játszik egymás után a <link xref=\"ai-game\">számítógép"
+" ellen</link>, akkor <app>Reversi</app> lehetővé teszi az automatikus"
+" váltogatását annak, hogy ki fogja kezdeni a következő játékot: Ön vagy a"
+" számítógép."
+
+#. (itstool) path: page/p
+#: C/alternate.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter "
+"case, <app>Reversi</app> is configured to start a two-player game; if so, "
+"first, configure a game <link xref=\"ai-game\">against the computer</link>."
+msgstr ""
+"Ha <link xref=\"configure\">beállít egy új játékot</link>, akkor vessen egy"
+" pillantást a lefelé mutató nyíllal rendelkező első gombra. A gombnak <gui"
+">Szín: sötét</gui>, <gui>Szín: világos</gui> vagy <gui>Két játékos</gui>"
+" felirata van. Az utóbbi esetben a <app>Reversi</app> egy kétszemélyes játék"
+" indításához van beállítva. Ebben az esetben először állítson be egy <link"
+" xref=\"ai-game\">számítógép elleni</link> játékot."
+
+#. (itstool) path: page/p
+#: C/alternate.page:26
+msgid ""
+"Select the button. In the menu that appears, there is an entry called "
+"<gui>Alternate who starts</gui>."
+msgstr ""
+"Kattintson a gombra. A megjelenő menüben van egy <gui>Váltakozzon, hogy ki"
+" kezd</gui> elnevezésű menüpont."
+
+#. (itstool) path: page/p
+#: C/alternate.page:28
+msgid ""
+"If the <gui>Alternate who starts</gui> option is disabled, every new game "
+"will be started by the same player: you will be the first player if the "
+"label of the button is <gui>Color: Dark</gui>, and it will be the computer "
+"if the label is <gui>Color: Light</gui>; to change who starts, see how to "
+"configure a game <link xref=\"ai-game\">against the computer</link>."
+msgstr ""
+"Ha a <gui>Váltakozzon, hogy ki kezd</gui> lehetőség le van tiltva, akkor"
+" minden új játékot ugyanaz a játékos fog kezdeni. Ön lesz az első játékos, ha"
+" a gomb felirata a <gui>Szín: sötét</gui>, és a számítógép lesz az első, ha a"
+" felirat a <gui>Szín: világos</gui>. Annak megváltoztatásához, hogy ki kezd,"
+" nézze meg, hogy hogyan kell beállítani a <link xref=\"ai-game\">számítógép"
+" elleni</link> játékot."
+
+#. (itstool) path: page/p
+#: C/alternate.page:30
+msgid ""
+"If the <gui>Alternate who starts</gui> option is enabled, then at each new "
+"game, who will be the first player will be automatically changed. So if you "
+"started a game, the next time you <link xref=\"configure\">configure a new "
+"game</link>, the button will be labelled <gui>Color: Light</gui>, and the "
+"computer will be starting the following game."
+msgstr ""
+"Ha a <gui>Váltakozzon, hogy ki kezd</gui> lehetőség engedélyezve van, akkor"
+" minden új játéknál automatikusan változik, hogy ki lesz az első játékos."
+" Vagyis ha Ön indította a játékot, akkor legközelebb, ha <link"
+" xref=\"configure\">új játékot állít be</link>, a gomb felirata <gui>Szín:"
+" világos</gui> lesz, és a számítógép fogja kezdeni a következő játékot."
+
+#. (itstool) path: page/p
+#: C/alternate.page:32
+msgid ""
+"To enable or disable the option, just select the <gui>Alternate who starts</"
+"gui> entry."
+msgstr ""
+"A lehetőség engedélyezéséhez vagy letiltásához egyszerűen válassza ki a <gui"
+">Váltakozzon, hogy ki kezd</gui> menüpontot."
+
+#. (itstool) path: page/p
+#: C/alternate.page:34
+msgid "This option is selected by default."
+msgstr "Ez a lehetőség alapértelmezetten ki van választva."
+
+#. (itstool) path: credit/name
+#: C/bug-filing.page:10 C/develop.page:10 C/documentation.page:10
+#: C/index.page:13 C/play.page:10 C/rules.page:11 C/sound.page:11
+#: C/strategy.page:10 C/translate.page:10
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
 
 #. (itstool) path: credit/years
-#: C/bug-filing.page:11 C/change-color.page:11 C/develop.page:12
-#: C/documentation.page:10 C/strategy.page:11 C/translate.page:12
+#: C/bug-filing.page:12 C/develop.page:12 C/documentation.page:12
+#: C/strategy.page:12 C/translate.page:12
 msgid "2011"
 msgstr "2011"
 
-#. (itstool) path: license/p
-#: C/bug-filing.page:14 C/develop.page:15 C/documentation.page:13
-#: C/index.page:16 C/translate.page:19
-msgid "Creative Commons Share Alike 3.0"
-msgstr "Creative Commons Share Alike 3.0"
-
 #. (itstool) path: page/title
-#: C/bug-filing.page:18
-msgid "Help make <app>Iagno</app> better"
-msgstr "Segítsen az <app>Iagnot</app> jobbá tenni"
+#: C/bug-filing.page:20
+#| msgid "Help make <app>Iagno</app> better"
+msgid "Help make <app>Reversi</app> better"
+msgstr "Segítsen a <app>Reversi</app> jobbá tételében"
 
 #. (itstool) path: section/title
-#: C/bug-filing.page:21
+#: C/bug-filing.page:23
 msgid "Report a bug or suggest an improvement"
 msgstr "Hiba jelentése vagy továbbfejlesztés kérése"
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:22
+#: C/bug-filing.page:24
+#| msgid ""
+#| "<app>Iagno</app> is maintained by a volunteer community. You are welcome "
+#| "to participate. If you notice a problem you can file a <em>bug report</"
+#| "em>. To file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/"
+#| "iagno/issues/\"/>."
 msgid ""
-"<app>Iagno</app> is maintained by a volunteer community. You are welcome to "
-"participate. If you notice a problem you can file a <em>bug report</em>. To "
-"file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues/"
-"\"/>."
+"<app>Reversi</app> is maintained by a volunteer community. You are welcome "
+"to participate. If you notice a problem you can file a <em>bug report</em>. "
+"To file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
+"issues/\"/>."
 msgstr ""
-"Az <app>Iagno</app> játékot egy önkéntes közösség tartja karban. "
-"Közreműködését szívesen fogadjuk. Ha hibát észlelt, beküldhet egy <em>"
-"hibajelentést</em>. Ehhez keresse fel a <link href=\"https://gitlab.gnome."
-"org/GNOME/iagno/issues/\"/> oldalt."
+"A <app>Reversi</app> játékot egy önkéntes közösség tartja karban. "
+"Közreműködését szívesen fogadjuk. Ha hibát észlelt, beküldhet egy "
+"<em>hibajelentést</em>. Ehhez keresse fel a <link href=\"https://gitlab."
+"gnome.org/GNOME/iagno/issues/\"/> oldalt."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:25
+#: C/bug-filing.page:28
 msgid ""
 "This is a bug tracking system where users and developers can file details "
 "about bugs, crashes and request enhancements."
@@ -161,7 +391,7 @@ msgstr ""
 "kérhetnek."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:28
+#: C/bug-filing.page:32
 msgid ""
 "To participate you need an account which will give you the ability to gain "
 "access, file bugs, and make comments. Also, you need to register so you can "
@@ -170,29 +400,35 @@ msgid ""
 "create one."
 msgstr ""
 "A részvételhez létre kell hoznia egy fiókot, amely lehetővé teszi a "
-"hozzáférést, hibajelentések beküldését és a hibákhoz való hozzászólást. Azért "
-"is regisztrálnia kell, hogy frissítéseket kapjon e-mailben a hiba állapotáról."
-" Ha még nincs fiókja, akkor a <gui>Sign in / Register</gui> hivatkozásra "
-"kattintva létrehozhat egyet."
+"hozzáférést, hibajelentések beküldését és a hibákhoz való hozzászólást. "
+"Azért is regisztrálnia kell, hogy frissítéseket kapjon e-mailben a hiba "
+"állapotáról. Ha még nincs fiókja, akkor a <gui>Sign in / Register</gui> "
+"hivatkozásra kattintva létrehozhat egyet."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:32
+#: C/bug-filing.page:36
+#| msgid ""
+#| "Once you have an account, log in, and click on <gui>New issue</gui>. "
+#| "Before reporting a bug, please read the <link href=\"https://bugzilla."
+#| "gnome.org/page.cgi?id=bug-writing.html\">bug writing guidelines</link>, "
+#| "and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
+#| "\">browse</link> for the bug to see if it already exists."
 msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
-"reporting a bug, please read the <link href=\"https://bugzilla.gnome.org/"
-"page.cgi?id=bug-writing.html\">bug writing guidelines</link>, and please "
-"<link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">browse</link> for "
-"the bug to see if it already exists."
+"reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/BugReportingGuidelines\">bug writing guidelines</"
+"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
+"\">browse</link> for the bug to see if it already exists."
 msgstr ""
-"Ha létrehozta fiókját, jelentkezzen be, kattintson a <gui>New issue</gui> "
-"hivatkozásokra. Hiba jelentése előtt olvassa el a <link "
-"href=\"https://bugzilla.gnome.org/page.cgi?id=bug-writing.html\">"
-"hibajelentés-írási irányelveket</link>, és <link href=\"https://gitlab.gnome."
-"org/GNOME/iagno/issues\">ellenőrizze</link>, hogy nincs-e már a hiba "
-"bejelentve."
+"Ha létrehozta fiókját, jelentkezzen be, kattintson a <gui>New issue</gui>"
+" hivatkozásokra. Hiba jelentése előtt olvassa el a <link"
+" href=\"https://wiki.gnome.org/Community/GettingInTouch/BugReportingGuidelines"
+"\">hibajelentés-írási irányelveket</link>, és <link"
+" href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">ellenőrizze</link>,"
+" hogy nincs-e már a hiba bejelentve."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:37
+#: C/bug-filing.page:40
 msgid ""
 "If you are requesting a new feature, choose <gui>1. Feature</gui> in the "
 "<gui>Labels</gui> menu. Fill in the Title and Description sections and click "
@@ -203,51 +439,92 @@ msgstr ""
 "és kattintson a <gui>Submit Issue</gui> gombra."
 
 #. (itstool) path: section/p
-#: C/bug-filing.page:41
+#: C/bug-filing.page:45
+#| msgid ""
+#| "Your report will be given an ID number, and its status will be updated as "
+#| "it is being dealt with. Thanks for helping make <app>Iagno</app> better!"
 msgid ""
 "Your report will be given an ID number, and its status will be updated as it "
-"is being dealt with. Thanks for helping make <app>Iagno</app> better!"
+"is being dealt with. Thanks for helping make <app>Reversi</app> better!"
 msgstr ""
 "A hibajelentés kapni fog egy azonosítószámot, az állapota pedig a "
 "feldolgozása során frissülni fog. Köszönjük, hogy segít jobbá tenni az "
-"<app>Iagnot</app>!"
+"<app>Reversi</app> játékot!"
 
 #. (itstool) path: page/title
-#: C/change-color.page:17
-msgid "Change player color and difficulty"
-msgstr "A játékos színének és nehézségi szintjének módosítása"
+#: C/configure.page:20
+msgid "Configure a new game"
+msgstr "Új játék beállítása"
 
 #. (itstool) path: page/p
-#: C/change-color.page:19
-msgid "To change the player for each color:"
-msgstr "Az adott színnel játszó játékos módosításához:"
-
-#. (itstool) path: item/p
-#: C/change-color.page:25
-msgid "Select the <gui>Game</gui> tab"
-msgstr "Válassza a <gui>Játék</gui> lapot"
-
-#. (itstool) path: item/p
-#: C/change-color.page:26
+#: C/configure.page:22
 msgid ""
-"Select the type of player/difficulty under <gui>Dark</gui> and <gui>Light</"
-"gui>."
+"When <app>Reversi</app> is opened, it displays a screen that allows you to "
+"configure a new game and to launch it."
 msgstr ""
-"Válassza ki a játékos típusát és nehézségét a <gui>Sötét</gui> és "
-"<gui>Világos</gui> alatt."
+"Ha a <app>Reversi</app> megnyílt, akkor megjelenít egy képernyőt, amely"
+" lehetővé teszi egy új játék beállítását és annak elindítását."
 
-#. (itstool) path: note/p
-#: C/change-color.page:27
-msgid "Your choice is effective immediately."
-msgstr "A választása azonnal életbe lép."
+#. (itstool) path: page/p
+#: C/configure.page:24
+msgid ""
+"This screen notably allows to select if you want to play <link xref=\"select-"
+"game\"><em>Classic Reversi</em> or <em>Reverse Reversi</em></link>, to "
+"choose if you are going to play <link xref=\"ai-game\">against the computer</"
+"link> or <link xref=\"2player\">with another player</link>, and in the "
+"former case to <link xref=\"ai-level\">change the computer level</link>."
+msgstr ""
+"Ez a képernyő különösen annak kiválasztását teszi lehetővé, hogy a <link"
+" xref=\"select-game\"><em>Klasszikus Reversi</em> vagy a <em>Fordított"
+" Reversi</em></link> játékot választja, a <link xref=\"ai-game\">számítógép"
+" ellen</link> vagy egy <link xref=\"2player\">másik játékossal</link>"
+" szeretne játszani, és az előbbi esetén lehetővé teszi a <link"
+" xref=\"ai-level\">számítógép szintjének megváltoztatását</link>."
+
+#. (itstool) path: page/p
+#: C/configure.page:26
+msgid ""
+"If you are opening the application for the first time, <app>Reversi</app> "
+"defaults on an easy <em>Classic Reversi</em> against the computer. Else, it "
+"will have remembered you previous settings."
+msgstr ""
+"Amikor első alkalommal nyitja meg az alkalmazást, akkor a <app>Reversi</app>"
+" alapértelmezetten a számítógép elleni könnyű <em>Klasszikus Reversi</em>"
+" módban indul. Egyébként emlékezni fog az előző beállításokra."
+
+#. (itstool) path: page/p
+#: C/configure.page:28
+msgid ""
+"For launching a game from here, just click on the <gui>Start Game</gui> "
+"button. A game can also be launched with the <keyseq><key>Shift</"
+"key><key>Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-"
+"selection\">keyboard shortcut</link>."
+msgstr ""
+"A játék innen történő indításához egyszerűen kattintson a <gui>Játék"
+" indítása</gui> gombra. A játék elindítható a <keyseq><key>Shift</key><key"
+">Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-selection\""
+">gyorsbillentyűvel</link> is."
+
+#. (itstool) path: page/p
+#: C/configure.page:30
+msgid ""
+"Once a game has been launched, you can always go back to this screen by "
+"clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> <link xref=\"shortcuts#during-game\">keyboard "
+"shortcut</link>."
+msgstr ""
+"Ha egy játék elindult, bármikor visszatérhet ehhez a képernyőhöz az <gui>Új"
+" játék</gui> gombra kattintva vagy a <keyseq><key>Ctrl</key><key>N</key><"
+"/keyseq> <link xref=\"shortcuts#during-game\">gyorsbillentyű</link>"
+" használatával."
 
 #. (itstool) path: page/title
-#: C/develop.page:19
+#: C/develop.page:25
 msgid "Help develop"
 msgstr "Segítsen a fejlesztésben"
 
 #. (itstool) path: page/p
-#: C/develop.page:20
+#: C/develop.page:27
 msgid ""
 "The <app>GNOME Games</app> are developed and maintained by a volunteer "
 "community. You are welcome to participate."
@@ -256,29 +533,52 @@ msgstr ""
 "karban. Közreműködését szívesen fogadjuk!"
 
 #. (itstool) path: page/p
-#: C/develop.page:23
+#: C/develop.page:31
+#| msgid ""
+#| "If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
+#| "Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
+#| "touch with the developers using <link href=\"https://cbe005.chat.mibbit."
+#| "com/?url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our "
+#| "<link href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing "
+#| "list</link>."
 msgid ""
 "If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
-"Contributing\">help develop <app>GNOME Games</app></link>, you can get in "
-"touch with the developers using <link href=\"https://cbe005.chat.mibbit.com/?"
-"url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">irc</link>, or via our <link "
-"href=\"http://mail.gnome.org/mailman/listinfo/games-list\">mailing list</"
-"link>."
+"Contribute\">help develop <app>GNOME Games</app></link>, you can get in "
+"touch with the developers <link href=\"https://wiki.gnome.org/Community/"
+"GettingInTouch/IRC\">using IRC</link> (on the <code>#gnome-games</code> "
+"channel). People on the channel are located worldwide, so you may not get an "
+"immediate response as a result of timezone differences."
 msgstr ""
-"Ha szeretne <link href=\"https://wiki.gnome.org/Apps/Games/Contributing"
-"\">közreműködni a <app>GNOME játékok</app> fejlesztésében</link>, akkor a "
-"fejlesztőkkel a kapcsolatot <link href=\"https://cbe005.chat.mibbit.com/?"
-"url=irc%3A%2F%2Firc.gnome.org%2Fgnome-games\">IRC</link>-n vagy a <link href="
-"\"http://mail.gnome.org/mailman/listinfo/games-list\">levelezőlistán</link> "
-"veheti fel."
+"Ha szeretne <link href=\"https://wiki.gnome.org/Apps/Games/Contribute\""
+">közreműködni a <app>GNOME játékok</app> fejlesztésében</link>, akkor a"
+" fejlesztőkkel <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IR"
+"C\">IRC használatával</link> (a <code>#gnome-games</code> csatornán) veheti"
+" fel a kapcsolatot. A csatornán a világ minden részéről vannak emberek, így"
+" előfordulhat, hogy az időzóna-eltérések miatt nem kap azonnal választ."
+
+#. (itstool) path: page/p
+#: C/develop.page:33
+#| msgid ""
+#| "Alternatively, you can contact the Internationalization Team using their "
+#| "<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+#| "list</link>."
+msgid ""
+"Alternatively, you can contact GNOME games developers using the dedicated "
+"<link href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing "
+"list</link>."
+msgstr ""
+"Alternatív megoldásként kapcsolatba léphet a GNOME játékok fejlesztőivel a"
+" kifejezetten számukra fenntartott <link"
+" href=\"https://mail.gnome.org/mailman/listinfo/games-list\">levelezőlista<"
+"/link> használatával."
 
 #. (itstool) path: page/title
-#: C/documentation.page:17
+#: C/documentation.page:25
 msgid "Help write documentation"
 msgstr "Segítsen dokumentációt írni"
 
 #. (itstool) path: page/p
-#: C/documentation.page:19
+#: C/documentation.page:27
 msgid ""
 "The <app>GNOME Games</app> documentation is maintained by a volunteer "
 "community. You are welcome to participate."
@@ -287,86 +587,384 @@ msgstr ""
 "karban. Közreműködését szívesen fogadjuk!"
 
 #. (itstool) path: page/p
-#: C/documentation.page:22
+#: C/documentation.page:30
+#| msgid ""
+#| "You can chat with GNOME translators using <link href=\"https://cbe003."
+#| "chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. "
+#| "People on the channel are located worldwide, so you may not get an "
+#| "immediate response as a result of timezone differences."
 msgid ""
 "To contribute to the Documentation Project, feel free to get in touch with "
-"us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc."
-"gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail.gnome.org/"
-"mailman/listinfo/gnome-doc-list\">mailing list</link>."
+"us <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC\">using "
+"irc</link> (on the <code>#docs</code> channel). People on the channel are "
+"located worldwide, so you may not get an immediate response as a result of "
+"timezone differences."
 msgstr ""
-"A dokumentációs projekthez csatlakozáshoz keresse fel nyugodtan az <link "
-"href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fdocs"
-"\">irc</link> csatornát vagy a <link href=\"http://mail.gnome.org/mailman/"
-"listinfo/gnome-doc-list\">levelezőlistát</link>."
+"A dokumentációs projektben való közreműködéshez nyugodtan lépjen velünk"
+" kapcsolatba <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC"
+"\">IRC használatával</link> (a <code>#docs</code> csatornán). A csatornán a"
+" világ minden részéről vannak emberek, így előfordulhat, hogy az"
+" időzóna-eltérések miatt nem kap azonnal választ."
 
 #. (itstool) path: page/p
-#: C/documentation.page:24
+#: C/documentation.page:32
+#| msgid ""
+#| "Alternatively, you can contact the Internationalization Team using their "
+#| "<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+#| "list</link>."
 msgid ""
-"Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
-"\">wiki</link> page contains useful information."
+"Alternatively, you can contact the Documentation Project using the dedicated "
+"<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list"
+"\">mailing list</link>."
 msgstr ""
-"A projekt <link href=\"https://live.gnome.org/DocumentationProject/"
-"Contributing\">wiki</link> oldala tartalmazza a legfontosabb információkat."
+"Alternatív megoldásként kapcsolatba léphet a dokumentációs projekttel a"
+" kifejezetten számukra fenntartott <link"
+" href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list\""
+">levelezőlista</link> használatával."
+
+#. (itstool) path: page/p
+#: C/documentation.page:34
+#| msgid ""
+#| "Our <link href=\"https://live.gnome.org/DocumentationProject/Contributing"
+#| "\">wiki</link> page contains useful information."
+msgid ""
+"Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
+"\">wiki page</link> contains useful information."
+msgstr ""
+"A <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing\""
+">wiki oldalunk</link> hasznos információkat tartalmaz."
+
+#. (itstool) path: page/title
+#: C/example.page:21
+#| msgid "Example first move"
+msgid "Example game first moves"
+msgstr "Példa a játék első lépéseire"
+
+#. (itstool) path: media/p
+#: C/example.page:27
+msgid "Usual start position: E4 and D5 are dark, D4 and E5 are light."
+msgstr "Szokásos kezdési pozíció: E4 és D5 sötét, D4 és E5 világos."
+
+#. (itstool) path: td/p
+#: C/example.page:31
+msgid "<em>Start position</em>"
+msgstr "<em>Kezdési pozíció</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:33
+msgid "This is the usual start position of the reversi game family."
+msgstr "Ez a reversi játékcsalád szokásos kezdési pozíciója."
+
+#. (itstool) path: td/p
+#: C/example.page:35
+msgid ""
+"<app>Reversi</app> also allows you to <link xref=\"start-position\">use "
+"other start positions</link>."
+msgstr ""
+"A <app>Reversi</app> lehetővé teszi <link xref=\"start-position\">más kezdési"
+" pozíciók használatát</link> is."
+
+#. (itstool) path: media/p
+#: C/example.page:42
+msgid "Example first move: <em>Dark</em> plays D3, capturing D4 thanks to D5."
+msgstr ""
+"Példa az első lépésre: a <em>sötét</em> megjátssza D3-at, elfoglalja D4-et"
+" D5-nek köszönhetően."
+
+#. (itstool) path: td/p
+#: C/example.page:46
+msgid "<em>Example first move</em>"
+msgstr "<em>Példa az első lépésre</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:48
+msgid "<em>Dark</em> always starts in the reversi game family."
+msgstr "Mindig a <em>sötét</em> kezd a reversi játékcsaládban."
+
+#. (itstool) path: td/p
+#: C/example.page:50
+msgid "Whatever start position is used, there are four possible first moves."
+msgstr ""
+"Akármelyik kezdési pozíciót használják, négy lehetséges első lépés van."
+
+#. (itstool) path: td/p
+#: C/example.page:52
+msgid ""
+"In the usual start position like here, the four possibilities are equivalent "
+"by symmetry."
+msgstr ""
+"Az ittenihez hasonló szokásos kezdési pozícióban a négy lehetőség egyenértékű"
+" a szimmetria alapján."
+
+#. (itstool) path: media/p
+#: C/example.page:59
+msgid "First <em>Light</em> move: playing E3 and capturing E4 thanks to E5."
+msgstr ""
+"Első <em>világos</em> lépés: E3 megjátszása és E4 elfoglalása E5-nek"
+" köszönhetően."
+
+#. (itstool) path: td/p
+#: C/example.page:63
+#| msgid "<em>A blocking move</em>"
+msgid "<em>Possible second move</em>"
+msgstr "<em>Lehetséges második lépés</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:65
+msgid "<em>Light</em> has three possibilities of capturing one piece."
+msgstr "A <em>világosnak</em> három lehetősége van egy bábu elfoglalására."
+
+#. (itstool) path: td/p
+#: C/example.page:67
+msgid ""
+"The game will require to search for the <link xref=\"strategy\">best "
+"strategy</link>!"
+msgstr ""
+"A játékhoz az szükséges, hogy megkeresse a <link xref=\"strategy\">legjobb"
+" stratégiát</link>."
+
+#. (itstool) path: media/p
+#: C/example.page:74
+msgid ""
+"<em>Dark</em> turns multiple rows: playing F3, it captures both E3 due to D3 "
+"and E4 due to D5."
+msgstr ""
+"A <em>sötét</em> több sort fordít át: F3 megjátszása megszerzi mind E3-at D3"
+" miatt, mind E4-et D5 miatt."
+
+#. (itstool) path: td/p
+#: C/example.page:78
+#| msgid "<em>Attribution</em>"
+msgid "<em>Capturing multiple rows</em>"
+msgstr "<em>Több sor elfoglalása</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:80
+msgid "<em>Dark</em> has five possibilities to play, all on the sixth column."
+msgstr ""
+"A <em>sötétnek</em> öt lehetősége van a játékra, mind a hatodik oszlopban van."
+
+#. (itstool) path: td/p
+#: C/example.page:82
+msgid ""
+"Two of these possibilities allow capturing in two directions at the same "
+"time, one piece in each."
+msgstr ""
+"Ezen lehetőségek közül kettő egyszerre két irányban teszi lehetővé az"
+" elfoglalást, minden irányban egy-egy bábut."
+
+#. (itstool) path: td/p
+#: C/example.page:84
+msgid ""
+"Capturing the higher number of tiles is not required in reversi, and may not "
+"be the best solution even. Only the number of owned tiles at the end of the "
+"game will count."
+msgstr ""
+"A csempék nagyobb számának elfoglalása nem követelmény a reversiben, valamint"
+" lehet, hogy nem is a legjobb megoldás. Csak a játék végén birtokolt csempék"
+" száma fog számítani."
+
+#. (itstool) path: media/p
+#: C/example.page:91
+msgid ""
+"<em>Light</em> turns a row of two pieces: playing E2, it turns E3 and E4 "
+"thanks to E5"
+msgstr ""
+"A <em>világos</em> átfordítja két bábu sorát: E2 megjátszása átfordítja E3-at"
+" és E4-et E5-nek köszönhetően."
+
+#. (itstool) path: td/p
+#: C/example.page:95
+msgid "<em>Turning a two-pieces row</em>"
+msgstr "<em>Egy kétbábus sor átfordítása</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:97
+msgid "<em>Light</em> has again three play possibilities."
+msgstr "A <em>világosnak</em> megint három játéklehetősége van."
+
+#. (itstool) path: td/p
+#: C/example.page:99
+msgid "One of them is to capture two dark pieces in a row."
+msgstr "Ezek egyike két sötét bábu megszerzése egy sorban."
+
+#. (itstool) path: td/p
+#: C/example.page:101
+msgid ""
+"Playing that way may allow <em>Dark</em> to play next on the board edge. Is "
+"that a good strategy? Who knows!"
+msgstr ""
+"Az ilyen módon történő játék lehetővé teheti a <em>sötét</em> számára, hogy a"
+" tábla szélére lépjen legközelebb. Ez jó stratégia? Ki tudja!"
+
+#. (itstool) path: page/title
+#: C/highlights.page:20
+msgid "Display helpful highlights"
+msgstr "Segítő kiemelések megjelenítése"
+
+#. (itstool) path: page/p
+#: C/highlights.page:22
+msgid ""
+"<app>Reversi</app> can display some helpful highlights during a game, be it "
+"a <em>Classic Reversi</em> or a <em>Reverse Reversi</em>."
+msgstr ""
+"A <app>Reversi</app> megjeleníthet néhány hasznos kiemelést játék közben,"
+" legyen az <em>Klasszikus Reversi</em> vagy <em>Fordított Reversi</em>."
+
+#. (itstool) path: section/title
+#: C/highlights.page:25
+msgid "Highlight playable tiles"
+msgstr "Megjátszható csempék kiemelése"
+
+#. (itstool) path: section/p
+#: C/highlights.page:27
+msgid ""
+"<app>Reversi</app> can first highlight the tiles that can be played by the "
+"current player. This information could be quite useful for beginners "
+"notably, for learning the game."
+msgstr ""
+"A <app>Reversi</app> először kiemelheti azokat a csempéket, amelyeket"
+" megjátszhat az aktuális játékos. Ez az információ különösen hasznos lehet"
+" kezdők számára a játék megtanulásához."
+
+#. (itstool) path: section/p
+#: C/highlights.page:29 C/highlights.page:39
+msgid ""
+"This can be activated both in a <link xref=\"ai-game\">game against the "
+"computer</link> and in a <link xref=\"2player\">two-player game</link>. "
+"There is no way for only enabling this highlight for one of the players of a "
+"two-player game."
+msgstr ""
+"Ez bekapcsolható egy <link xref=\"ai-game\">számítógép elleni játékban</link>"
+" és egy <link xref=\"2player\">kétszemélyes játékban</link> is. Nincs"
+" lehetőség ennek a kiemelésnek a kétszemélyes játék csak egyetlen játékosa"
+" számára történő engedélyezésének."
+
+#. (itstool) path: section/p
+#: C/highlights.page:31
+msgid ""
+"To enable or disable this highlight, press the menu button in the top-right "
+"corner of the window, select <gui>Appearance</gui>, and in the "
+"<gui>Highlights</gui> section select <gui>Playable tiles</gui>."
+msgstr ""
+"A kiemelés engedélyezéséhez vagy letiltásához nyomja meg az ablak jobb felső"
+" sarkában lévő menügombot, válassza a <gui>Megjelenés</gui> menüpontot, és a"
+" <gui>Kiemelések</gui> szakaszban válassza a <gui>Megjátszható csempék</gui>"
+" lehetőséget."
+
+#. (itstool) path: section/title
+#: C/highlights.page:35
+msgid "Highlight capturable tiles"
+msgstr "Megszerezhető csempék kiemelése"
+
+#. (itstool) path: section/p
+#: C/highlights.page:37
+msgid ""
+"<app>Reversi</app> can also highlight the tiles that would be captured by a "
+"given play. That might help for having a better visualisation of what the "
+"board would then look like."
+msgstr ""
+"A <app>Reversi</app> azokat a csempéket is ki tudja emelni, amelyek"
+" megszerezhetők lehetnek egy adott játékkal. Ez segíthet annak jobb látható"
+" megjelenítésében, hogy a tábla hogyan nézne ki azután."
+
+#. (itstool) path: section/p
+#: C/highlights.page:41
+msgid ""
+"To enable or disable this highlight, press the menu button in the top-right "
+"corner of the window, select <gui>Appearance</gui>, and in the "
+"<gui>Highlights</gui> section select <gui>Capturable tiles</gui>."
+msgstr ""
+"A kiemelés engedélyezéséhez vagy letiltásához nyomja meg az ablak jobb felső"
+" sarkában lévő menügombot, válassza a <gui>Megjelenés</gui> menüpontot, és a"
+" <gui>Kiemelések</gui> szakaszban válassza a <gui>Megszerezhető csempék</gui>"
+" lehetőséget."
 
 #. (itstool) path: info/title
 #: C/index.page:8
 msgctxt "link"
-msgid "Iagno"
-msgstr "Iagno"
+msgid "Reversi"
+msgstr "Reversi"
 
 #. (itstool) path: info/title
 #: C/index.page:9
 msgctxt "text"
-msgid "Iagno"
-msgstr "Iagno"
+msgid "Reversi"
+msgstr "Reversi"
 
 #. (itstool) path: media/span
-#: C/index.page:20
-msgid "Iagno logo"
-msgstr "Iagno logó"
+#: C/index.page:27
+msgid "Reversi logo"
+msgstr "Reversi logó"
 
 #. (itstool) path: page/title
-#: C/index.page:20
-msgid "<_:media-1/> Iagno"
-msgstr "<_:media-1/> Iagno"
+#: C/index.page:27
+#| msgid "<_:media-1/> Iagno"
+msgid "<_:media-1/> Reversi"
+msgstr "<_:media-1/> Reversi"
 
 #. (itstool) path: page/p
-#: C/index.page:22
+#: C/index.page:29
 msgid ""
-"<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, dark "
-"on one side and light on the other. When a piece is captured it is turned "
-"over to join the capturing player's forces; the winner is the player with "
-"the most pieces of their color at the end of the game."
+"<app>Reversi</app> is a boardgame played with pieces dark on one side and "
+"light on the other. <em>Dark</em> and <em>Light</em> play one after each "
+"other by adding on an empty tile a new piece of their color, trapping at "
+"least one opponent row of pieces; when pieces are captured that way, they "
+"are turned over to join the capturing player's forces. See <link xref=\"rules"
+"\">reversi rules</link> to discover more about the game."
 msgstr ""
-"Az <app>Iagno</app> egy 8x8-as táblán 64 (egyik oldalán sötét, a másikon "
-"világos) figurával játszott táblajáték. Az egyik figura elfogásakor az "
-"megfordul és a másik játékos erőihez csatlakozik; a nyertes az a játékos, "
-"akinek több azonos színű figurája van a játék végén."
+"A <app>Reversi</app> egy bábukkal játszható táblajáték, egyik oldalról"
+" sötétekkel, a másik oldalról világosakkal. A <em>sötét</em> és a <em"
+">világos</em> egymás után következik, és a színüknek megfelelő bábukat"
+" tesznek egy üres csempére, csapdába ejtve az ellenfél legalább egy"
+" bábusorát. Ha a bábuk ily módon megszerzésre kerülnek, akkor átfordulnak,"
+" hogy az megszerző játékos seregéhez csatlakozzanak. Nézze meg a <link"
+" xref=\"rules\">reversi szabályait</link>, hogy többet tudjon meg a játékról."
+
+#. (itstool) path: page/p
+#: C/index.page:31
+msgid ""
+"<app>Reversi</app> allows you to play <link xref=\"select-game\">two "
+"variations of the reversi game</link>: the classic version of reversi, where "
+"you try to dominate the board at the end, and the <em>Reverse Reversi</em>, "
+"where the goal is to finish with <em>less</em> pieces than your opponent. "
+"You can play both either <link xref=\"ai-game\">against the computer</link> "
+"or <link xref=\"2player\">with another player</link>. Check these options "
+"when you <link xref=\"configure\">configure a new game</link>. Have fun!"
+msgstr ""
+"A <app>Reversi</app> <link xref=\"select-game\">a reversi játék két"
+" variációjával</link> való játékot tesz lehetővé: a reversi klasszikus"
+" verziójával, ahol megpróbálja dominálni a táblát a végén, és a <em>Fordított"
+" Reversi</em> verzióval, ahol a játék célja az, hogy <em>kevesebb</em>"
+" bábuval fejezze be a játékot mint az ellenfele. Mindkettőt játszhatja a <"
+"link xref=\"ai-game\">számítógép ellen</link> vagy egy <link xref=\"2player\""
+">másik játékossal</link>. Nézze meg ezeket a lehetőségeket, ha <link"
+" xref=\"configure\">új játékot állít be</link>. Érezze jól magát!"
 
 #. (itstool) path: section/title
-#: C/index.page:26
+#: C/index.page:34
 msgid "Game Play"
 msgstr "Játékmenet"
 
 #. (itstool) path: section/title
-#: C/index.page:30
+#: C/index.page:38
+msgid "Game of reversi"
+msgstr "A reverzi játék"
+
+#. (itstool) path: section/title
+#: C/index.page:42
 msgid "Useful tips"
 msgstr "Hasznos tippek"
 
 #. (itstool) path: section/title
-#: C/index.page:34
-msgid "Advanced"
-msgstr "Speciális"
-
-#. (itstool) path: section/title
-#: C/index.page:38
+#: C/index.page:46
 msgid "Get Involved"
 msgstr "Közreműködés"
 
 #. (itstool) path: p/link
 #: C/legal.xml:3
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Nevezd meg!–Így add tovább! 3.0 átíratlan licenc"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
@@ -389,8 +987,8 @@ msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
 msgstr ""
-"Ez a mű a CreativeCommons Attribution-Share Alike 3.0 Unported licenc "
-"feltételei szerint terjeszthető."
+"Ez a mű a CreativeCommons Nevezd meg!–Így add tovább! 3.0 átíratlan licenc"
+" feltételei szerint terjeszthető."
 
 #. (itstool) path: page/p
 #: C/license.page:20
@@ -434,8 +1032,9 @@ msgid ""
 "licensor (but not in any way that suggests that they endorse you or your use "
 "of the work)."
 msgstr ""
-"A szerző vagy a jogosult által meghatározott módon fel kell tüntetnie a "
-"műhöz kapcsolódó információkat (pl. a szerző nevét vagy álnevét, a Mű címét)."
+"A szerző vagy a jogosult által meghatározott módon fel kell tüntetnie a műhöz"
+" kapcsolódó információkat (de nem olyan módon, amely arra utalna, hogy"
+" támogatnák Önt vagy a mű használatát)."
 
 #. (itstool) path: item/title
 #: C/license.page:46
@@ -448,8 +1047,9 @@ msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
 msgstr ""
-"Ha megváltoztatja, átalakítja, feldolgozza ezt a művet, az így létrejött "
-"alkotást csak a jelenlegivel megegyező licenc alatt terjesztheti."
+"Ha megváltoztatja, átalakítja, feldolgozza ezt a művet, az így létrejött"
+" alkotást csak a jelenlegivel megegyező, hasonló vagy kompatibilis licenc"
+" alatt terjesztheti."
 
 #. (itstool) path: page/p
 #: C/license.page:53
@@ -464,298 +1064,806 @@ msgstr ""
 "teljes <link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons "
 "összefoglalót</link>."
 
+#. (itstool) path: credit/years
+#: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:13
+msgid "2012"
+msgstr "2012"
+
 #. (itstool) path: page/title
-#: C/play.page:18
-msgid "How to Play"
-msgstr "Hogyan kell játszani?"
-
-#. (itstool) path: page/p
-#: C/play.page:20
-msgid ""
-"<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy to "
-"play."
-msgstr ""
-"Az <app>Iagno</app> egyszerű <link xref=\"rules\">szabályokkal</link> "
-"rendelkezik, és egyszerű játszani."
-
-#. (itstool) path: page/p
-#: C/play.page:22
-msgid ""
-"When the game first starts, you play <em>Dark</em> and the computer player "
-"plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</link> is "
-"<gui>Level one</gui> by default."
-msgstr ""
-"A játék első indításakor Ön a <em>Sötét</em> színnel van, és a számítógép a "
-"<em>Világossal</em>. A <link xref=\"ai-game\">nehézségi szint</link> "
-"alapesetben az <gui>Első</gui>."
-
-#. (itstool) path: page/p
 #: C/play.page:25
-msgid "The game is played using the mouse. To make a move:"
-msgstr "A játékot az egérrel kell játszani. A lépéshez:"
+msgid "Play with mouse or keyboard"
+msgstr "Játék egérrel vagy billentyűzettel"
 
-#. (itstool) path: item/p
-#: C/play.page:28
-msgid "Click on the cell you would like to place your piece in."
-msgstr "Kattintson arra a cellára, amelybe a figuráját el szeretné helyezni."
-
-#. (itstool) path: note/p
-#: C/play.page:29
+#. (itstool) path: page/p
+#: C/play.page:27
 msgid ""
-"If the move is legal, the piece will be placed in the cell, and the opponent "
-"pieces will be flipped to match your color."
+"<app>Reversi</app> allows you to easily play with a mouse or with the "
+"keyboard."
 msgstr ""
-"Ha a lépés érvényes, akkor a figura elhelyezésre kerül a cellába, és az "
-"ellenfél figurái megfordulnak, hogy az Ön színét erősítsék."
+"A <app>Reversi</app> lehetővé teszi, hogy egyszerűen játsszon egérrel vagy"
+" billentyűzettel."
 
-#. (itstool) path: note/p
-#: C/play.page:31
-msgid "If the move is not allowed, nothing will happen."
-msgstr "Ha a lépés nem engedélyezett, akkor semmi nem történik."
+#. (itstool) path: section/title
+#: C/play.page:30
+msgid "How to play with a mouse"
+msgstr "Hogyan játsszon egérrel"
+
+#. (itstool) path: section/p
+#: C/play.page:32 C/play.page:57
+msgid "To make a move:"
+msgstr "Egy lépés megtételéhez:"
 
 #. (itstool) path: item/p
 #: C/play.page:35
 msgid ""
-"You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</gui></"
-"guiseq>."
+"Move the cursor on the tile you would like to place your piece in. The tile "
+"is highlighted if it is playable."
 msgstr ""
-"Egy lépést a <guiseq><gui>Játék</gui><gui>Visszavonás</gui></guiseq> "
-"menüpont kiválasztásával vonhat vissza."
+"Mozgassa a kurzort azon csempe fölé, amelyre a bábut szeretné tenni. A csempe"
+" kiemelésre kerül, ha megjátszható."
+
+#. (itstool) path: item/p
+#: C/play.page:38
+#| msgid "Click on the cell you would like to place your piece in."
+msgid "Click on the tile to drop the piece."
+msgstr "Kattintson a csempére a bábu elhelyezéséhez."
+
+#. (itstool) path: note/p
+#: C/play.page:40 C/play.page:65
+msgid ""
+"If you select a tile where you cannot move, the game notifies you that the "
+"move is impossible."
+msgstr ""
+"Ha olyan csempét választ, ahova nem léphet, akkor a játék értesíti Önt, hogy"
+" a lépés lehetetlen."
+
+#. (itstool) path: item/p
+#: C/play.page:44 C/play.page:69
+msgid ""
+"To show possible moves, select a tile where there is already a piece, "
+"whatever its color is. Alternatively, you might want to <link xref="
+"\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
+msgstr ""
+"A lehetséges lépések megjelenítéséhez válasszon egy olyan csempét, ahol már"
+" van egy bábu, mindegy hogy mi a színe. Alternatívaként érdemes lehet <link"
+" xref=\"highlights#highlight-playable-tiles\">kiemelni a megjátszható"
+" csempéket</link>."
+
+#. (itstool) path: item/p
+#: C/play.page:47
+msgid ""
+"You can always undo your move. For that, press the button with an arrow and "
+"a circle in the top-right corner (or in the bottom bar on small windows) and "
+"select <gui>Undo last move</gui>."
+msgstr ""
+"Bármikor visszavonhatja a lépését. Ehhez nyomja meg a jobb felső sarokban"
+" (vagy kis ablakoknál az alsó sávon) lévő nyíllal és körrel rendelkező"
+" gombot, és válassza az <gui>Utolsó lépés visszavonása</gui> lehetőséget."
+
+#. (itstool) path: section/p
+#: C/play.page:51
+msgid "You can also <link xref=\"#keyboard-play\">use the keyboard</link>."
+msgstr "<link xref=\"#keyboard-play\">Használhatja a billentyűzetet</link> is."
 
 #. (itstool) path: section/title
-#: C/play.page:41
-msgid "Video demonstration"
-msgstr "Videobemutató"
+#: C/play.page:55
+msgid "How to play with the keyboard"
+msgstr "Hogyan játsszon billentyűzettel"
+
+#. (itstool) path: item/p
+#: C/play.page:60
+msgid ""
+"Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> "
+"arrows to go at the tile you want to move. The currently selected tile is "
+"indicated by an highlight on the board."
+msgstr ""
+"Használja a <key>Balra</key>, <key>Jobbra</key>, <key>Fel</key> és <key>Le<"
+"/key> nyilakat, hogy ahhoz a csempéhez menjen, amelyre lépni szeretne. Az"
+" aktuálisan kiválasztott csempe kiemeléssel lesz jelezve a táblán."
+
+#. (itstool) path: item/p
+#: C/play.page:63
+msgid ""
+"Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the "
+"selected tile."
+msgstr ""
+"Használja a <key>Szóköz</key> vagy az <key>Enter</key> billentyűket, hogy"
+" elhelyezzen egy bábut a kiválasztott csempére."
+
+#. (itstool) path: item/p
+#: C/play.page:72
+#| msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+msgid ""
+"You can always undo your move. For that, use <keyseq><key>Ctrl</key><key>Z</"
+"key></keyseq>."
+msgstr ""
+"Bármikor visszavonhatja a lépését. Ehhez használja a <keyseq><key>Ctrl</key><"
+"key>Z</key></keyseq> billentyűkombinációt."
+
+#. (itstool) path: section/p
+#: C/play.page:76
+msgid ""
+"More shortcuts are available, documented either on the <link xref="
+"\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the dialog "
+"that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+msgstr ""
+"További gyorsbillentyűk érhetők el, amelyek vagy a <link"
+" xref=\"shortcuts#how-to-play\">Gyorsbillentyűk</link> oldalon, vagy a <"
+"keyseq><key>Ctrl</key><key>F1</key></keyseq> megnyomásával megjelenő"
+" párbeszédablakban vannak dokumentálva."
+
+#. (itstool) path: section/p
+#: C/play.page:78
+msgid "You can also <link xref=\"#mouse-play\">use a mouse</link>."
+msgstr "<link xref=\"#mouse-play\">Használhatja az egeret</link> is."
 
 #. (itstool) path: credit/name
-#: C/rules.page:15 C/strategy.page:14 C/translate.page:15
+#: C/rules.page:16 C/strategy.page:15 C/translate.page:15
 msgid "Michael Hill"
 msgstr "Michael Hill"
 
 #. (itstool) path: credit/name
-#: C/rules.page:19
+#: C/rules.page:20
 msgid "Stephen Pearce"
 msgstr "Stephen Pearce"
 
 #. (itstool) path: credit/years
-#: C/rules.page:21
+#: C/rules.page:22
 msgid "2015"
 msgstr "2015"
 
 #. (itstool) path: page/title
-#: C/rules.page:27
+#: C/rules.page:35
 msgid "Rules"
 msgstr "Szabályok"
 
 #. (itstool) path: page/p
-#: C/rules.page:29
+#: C/rules.page:37
 msgid ""
-"The object of the game is to flip as many of the opponent tiles while "
-"blocking your opponent from flipping your tiles. In order to flip a tile, "
-"you must first trap it between two of your tiles, horizontally, vertically "
-"or diagonally."
+"<em>Classic Reversi</em> and <em>Reverse Reversi</em> are boardgames "
+"opposing two players, called <em>Dark</em> and <em>Light</em>. Both games "
+"are using the same rules; only the end goal differs between them: in "
+"<em>Classic Reversi</em>, the goal is to finish with <em>more</em> pieces "
+"than the opponent; while in <em>Reverse Reversi</em>, it is to finish with "
+"<em>less</em> pieces."
 msgstr ""
-"A játék célja az ellenfél minél több figuráját megfordítani, miközben "
-"megakadályozza, hogy az ellenfél megfordítsa az Ön figuráit. Egy figura "
-"megfordításához csapdába kell azt ejtenie a sajátjai között vízszintesen, "
-"függőlegesen vagy átlósan."
+"A <em>Klasszikus Reversi</em> és a <em>Fordított Reversi</em> olyan"
+" táblajátékok, ahol két játékos, a <em>sötét</em> és a <em>világos</em>"
+" játszik egymás ellen. Mindkét játéknál ugyanazok a szabályok, csak a végcél"
+" különbözik köztük: a <em>Klasszikus Reversi</em> célja, hogy <em>több</em>"
+" bábuval fejezze be a játékot, mint amennyi az ellenfélnek van, míg a <em"
+">Fordított Reversi</em> esetén <em>kevesebb</em> bábuval kell befejezni."
 
-#. (itstool) path: item/p
-#: C/rules.page:31
+#. (itstool) path: page/p
+#: C/rules.page:39
 msgid ""
-"The game begins with four pieces, two light and two dark, placed in the "
-"center of the board."
+"Both are played with pieces that are dark on one side and light on the "
+"other. <em>Dark</em> and <em>Light</em> play one after each other by adding "
+"on an empty tile a new piece of their color, trapping at least one opponent "
+"row of pieces; when pieces are captured that way, they are turned over to "
+"join the capturing player's forces."
 msgstr ""
-"A játék négy figurával indul, két világossal és két sötéttel, amelyek a "
-"tábla közepén találhatók."
+"Mindkettőt bábukkal játsszák, egyik oldalról sötétekkel, a másik oldalról"
+" világosakkal. A <em>sötét</em> és a <em>világos</em> egymás után következik,"
+" és a színüknek megfelelő bábukat tesznek egy üres csempére, csapdába ejtve"
+" az ellenfél legalább egy bábusorát. Ha a bábuk ily módon megszerzésre"
+" kerülnek, akkor átfordulnak, hogy az megszerző játékos seregéhez"
+" csatlakozzanak."
 
-#. (itstool) path: item/p
-#: C/rules.page:34
-msgid "Dark goes first."
-msgstr "Először a sötét lép."
+#. (itstool) path: section/title
+#: C/rules.page:42
+#| msgid "Game Play"
+msgid "Game start"
+msgstr "Játék kezdete"
 
-#. (itstool) path: item/p
-#: C/rules.page:35
+#. (itstool) path: section/p
+#: C/rules.page:44
+#| msgid ""
+#| "The game begins with four pieces, two light and two dark, placed in the "
+#| "center of the board."
 msgid ""
-"Dark places a tile on the board in such a way that it traps white tiles "
-"between two of the dark tiles."
+"Games from the reversi game family are usually played on an 8 by 8 board. "
+"The game begins with four pieces, two light and two dark, placed on the four "
+"central tiles of the board."
 msgstr ""
-"A sötét elhelyez egy figurát a táblán úgy, hogy két sötét figura között "
-"világosakat fogjon el."
+"A reversi játékcsalád játékait általában 8×8-as táblán játsszák. A játék négy"
+" bábuval indul, két világossal és két sötéttel, amelyek a tábla négy középső"
+" csempéjén vannak elhelyezve."
+
+#. (itstool) path: section/p
+#: C/rules.page:46
+msgid ""
+"<app>Reversi</app> uses by default the most usual start position for the "
+"reversi game family, that is displayed on the following figure; but it also "
+"allows you to <link xref=\"start-position\">vary start position</link> if "
+"you prefer."
+msgstr ""
+"A <app>Reversi</app> alapértelmezetten a reversi játékcsalád legszokásosabb"
+" kezdési pozícióját használja, ami a következő ábrán látható. Azonban"
+" lehetővé teszi, hogy <link xref=\"start-position\">megváltoztassa a kezdési"
+" pozíciót</link>, ha szeretné."
+
+#. (itstool) path: media/p
+#: C/rules.page:52 C/start-position.page:48
+msgid "Usual start position: light-dark, dark-light"
+msgstr "Szokásos kezdési pozíció: világos-sötét, sötét-világos"
+
+#. (itstool) path: td/p
+#: C/rules.page:58
+#| msgid "<em>Start position</em>"
+msgid "<em>The usual start position</em>"
+msgstr "<em>A szokásos kezdési pozíció</em>"
+
+#. (itstool) path: section/p
+#: C/rules.page:63
+#| msgid "Dark goes first."
+msgid "<em>Dark</em> goes first."
+msgstr "Először a <em>sötét</em> lép."
+
+#. (itstool) path: section/title
+#: C/rules.page:67
+msgid "During the game"
+msgstr "Játék közben"
+
+#. (itstool) path: section/p
+#: C/rules.page:69
+msgid ""
+"One player after the other –<em>Dark</em> playing first– places a tile of "
+"its color on the board in such a way that at least one row of opponent tiles "
+"is trapped between the newly placed piece and an already placed one of the "
+"same color."
+msgstr ""
+"Az egyik játékos a másik után – a <em>sötét</em> lép először – helyezi a"
+" színe szerinti bábut a táblára oly módon, hogy az ellenfél bábui legalább"
+" egy sorát csapdába ejtse az újonnan elhelyezett bábu és egy már hasonló"
+" színű, korábban elhelyezz bábu között."
 
 #. (itstool) path: note/p
-#: C/rules.page:36
+#: C/rules.page:71
 msgid "This placement can be horizontal, vertical or diagonal."
 msgstr "Ez az elhelyezés lehet vízszintes, függőleges vagy átlós."
 
-#. (itstool) path: item/p
-#: C/rules.page:38
+#. (itstool) path: section/p
+#: C/rules.page:74
+#| msgid ""
+#| "When the dark tile is placed, the light tiles between the newly placed "
+#| "dark tile and another dark tile are flipped over and become part of the "
+#| "dark forces."
 msgid ""
-"When the dark tile is placed, the light tiles between the newly placed dark "
-"tile and another dark tile are flipped over and become part of the dark "
-"forces."
+"When the tile is placed, the row of tiles between the newly placed tile and "
+"the other is flipped over, taking the players color. If multiple rows of "
+"tiles are trapped that way, they are all flipped over."
 msgstr ""
-"A sötét figura elhelyezésekor az újonnan elhelyezett sötét figura és egy "
-"másik sötét figura közötti világos figurák megfordulnak, és a sötét erők "
-"részeivé válnak."
+"A bábu elhelyezésekor az újonnan elhelyezett bábu és egy másik bábu közötti"
+" bábusor átfordul, és felveszik a játékosok színét. Ha ily módon több bábusor"
+" is csapdába lesz ejtve, akkor az összes átfordul."
 
-#. (itstool) path: item/p
-#: C/rules.page:42
+#. (itstool) path: section/p
+#: C/rules.page:76
+msgid ""
+"If there is no possible moves in a turn, the player has to pass. A player "
+"cannot pass a turn if there is a possible move. If both players cannot move, "
+"notably when the board is full, the game is over."
+msgstr ""
+"Ha egy körben nincsenek lehetséges lépések, akkor a játékosnak passzolni"
+" kell. Egy játékos nem passzolhat egy kört, ha van lehetséges lépés. Ha egyik"
+" játékos sem tud lépni, valószínűleg azért, mert a tábla megtelt, a játék"
+" véget ér."
+
+#. (itstool) path: section/title
+#: C/rules.page:80
+msgid "End of game"
+msgstr "Játék vége"
+
+#. (itstool) path: section/p
+#: C/rules.page:82
+#| msgid ""
+#| "The players alternate turns until no more legal moves can be made by "
+#| "either player. At this point the game is over. The end of the game often "
+#| "results in a full board."
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
-"player. At this point the game is over. The end of the game often results in "
-"a full board."
+"player. At this point the game is over."
 msgstr ""
-"A játékosok felváltva lépnek, amíg tudnak. Ha már egyik játékos sem tud "
-"lépni, akkor vége a játéknak. A játék vége gyakran teli táblát is eredményez."
+"A játékosok felváltva lépnek, amíg egyik játékos sem tud több szabályos"
+" lépést tenni. Ekkor a játék véget ér."
 
-#. (itstool) path: item/p
-#: C/rules.page:43
+#. (itstool) path: section/p
+#: C/rules.page:84
 msgid ""
-"The winner is the the player with the most pieces of his color on the board."
+"The end of the game often results in a full board, but not necessarily. In "
+"either way, it is the number of pieces that will matter to decide who wins."
 msgstr ""
-"Az a játékos nyer, aki a táblán több azonos színű figurával rendelkezik."
+"A játék vége gyakran megtelt táblát eredményez, de nem szükségszerűen."
+" Mindkét esetben a bábuk száma számít annak eldöntéséhez, hogy ki nyert."
 
-#. (itstool) path: media/p
-#: C/rules.page:50
-msgid "Start position"
-msgstr "Kezdőpozíció"
+#. (itstool) path: section/p
+#: C/rules.page:86
+msgid ""
+"If you are playing <em>Classic Reversi</em>, the winner is the player with "
+"the <em>most</em> pieces of his color on the board; if you are in a "
+"<em>Reverse Reversi</em> game, it is the opposite: the winner is the player "
+"with the <em>least</em> pieces on the board."
+msgstr ""
+"Ha a <em>Klasszikus Reversivel</em> játszik, akkor az a játékos a győztes,"
+" akinek a <em>legtöbb</em> saját színű bábuja van a táblán. Ha a <em"
+">Fordított Reversi</em> játékban van, akkor az ennek az ellentéte: az a"
+" játékos a győztes, akinek <em>kevesebb</em> bábuja van a táblán."
 
-#. (itstool) path: media/p
-#: C/rules.page:55
-msgid "Example first move"
-msgstr "Példa első lépés"
-
-#. (itstool) path: media/p
-#: C/rules.page:60
-msgid "Blocking move"
-msgstr "Blokkoló lépés"
-
-#. (itstool) path: td/p
-#: C/rules.page:65
-msgid "<em>Start position</em>"
-msgstr "<em>Kezdőpozíció</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:66
-msgid "<em>Example first move</em>"
-msgstr "<em>Példa első lépés</em>"
-
-#. (itstool) path: td/p
-#: C/rules.page:67
-msgid "<em>A blocking move</em>"
-msgstr "<em>Egy blokkoló lépés</em>"
+#. (itstool) path: section/p
+#: C/rules.page:88
+msgid ""
+"If there is the same number of dark and light tiles, the game is declared a "
+"draw."
+msgstr "Ha ugyanannyi sötét és világos bábu van, akkor a játék döntetlen."
 
 #. (itstool) path: page/title
-#: C/shortcuts.page:17
+#: C/select-game.page:20
+msgid "<em>Classic Reversi</em> or <em>Reverse Reversi</em>"
+msgstr "<em>Klasszikus Reversi</em> vagy <em>Fordított Reversi</em>"
+
+#. (itstool) path: page/p
+#: C/select-game.page:22
+msgid ""
+"<app>Reversi</app> allows you to play two variants of the same game: "
+"<em>Classic Reversi</em> and <em>Reverse Reversi</em>."
+msgstr ""
+"A <app>Reversi</app> ugyanazon játék két változatának játszását teszi"
+" lehetővé: <em>Klasszikus Reversi</em> és <em>Fordított Reversi</em>."
+
+#. (itstool) path: page/p
+#: C/select-game.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, just choose the "
+"game you want to play by selecting the <gui>Classic Reversi</gui> or "
+"<gui>Reverse Reversi</gui> buttons."
+msgstr ""
+"Egy <link xref=\"configure\">új játék beállításakor</link> a <gui>Klasszikus"
+" Reversi</gui> vagy a <gui>Fordított Reversi</gui> gombokra kattintva"
+" egyszerűen válassza ki azt a játékot, amelyet játszani szeretne."
+
+#. (itstool) path: page/p
+#: C/select-game.page:26
+msgid ""
+"As you can imagine with its name, the <em>Classic Reversi</em> game is the "
+"reversi as it is known around the world."
+msgstr ""
+"Amint a nevéből következtethet rá, a <em>Klasszikus Reversi</em> játék az a"
+" reversi, ahogy szerte a világon ismerik."
+
+#. (itstool) path: page/p
+#: C/select-game.page:28
+msgid ""
+"Both games are in fact using the same rules; only the end goal differs "
+"between them: in <em>Classic Reversi</em>, the goal is to finish with "
+"<em>more</em> pieces than the opponent; while in <em>Reverse Reversi</em>, "
+"it is to finish with <em>less</em> pieces."
+msgstr ""
+"Valójában mindkét játéknál ugyanazok a szabályok, csak a végcél különbözik"
+" köztük: a <em>Klasszikus Reversi</em> célja, hogy <em>több</em> bábuval"
+" fejezze be a játékot, mint amennyi az ellenfélnek van, míg a <em>Fordított"
+" Reversi</em> esetén <em>kevesebb</em> bábuval kell befejezni."
+
+#. (itstool) path: page/p
+#: C/select-game.page:30
+msgid ""
+"This variation in the goal makes <em>Reverse Reversi</em> a quite "
+"interesting game, as you have to elaborate a different <link xref=\"strategy"
+"\">strategy</link> to win. Try it!"
+msgstr ""
+"Ez a variáció a játékcélban meglehetősen érdekesé teszi a <em>Fordított"
+" Reversi</em> játékot, mivel eltérő <link xref=\"strategy\">stratégiát</link>"
+" kell kidolgoznia a győzelemhez. Próbálja ki!"
+
+#. (itstool) path: page/p
+#: C/select-game.page:32
+msgid ""
+"If you want to try other variations of the reversi game, you can also choose "
+"to <link xref=\"start-position\">vary start position</link>."
+msgstr ""
+"Ha ki szeretné próbálni a reversi játék egyéb variációit, akkor választhatja"
+" a <link xref=\"start-position\">kezdési pozíció változtatását</link> is."
+
+#. (itstool) path: credit/name
+#: C/shortcuts.page:10
+msgid "Brian Grohe"
+msgstr "Brian Grohe"
+
+#. (itstool) path: page/title
+#. (itstool) path: td/p
+#: C/shortcuts.page:25 C/shortcuts.page:83
 msgid "Keyboard shortcuts"
 msgstr "Gyorsbillentyűk"
 
+#. (itstool) path: page/p
+#: C/shortcuts.page:27
+msgid ""
+"<app>Reversi</app> can easily be <link xref=\"play#keyboard-play\">used with "
+"keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse Reversi</em> "
+"games are both played with the same shortcuts."
+msgstr ""
+"A <app>Reversi</app> egyszerűen <link xref=\"play#keyboard-play\">használható"
+" billentyűzettel</link>. A <em>Klasszikus Reversi</em> és a <em>Fordított"
+" Reversi</em> játékok is ugyanazokkal a gyorsbillentyűkkel játszhatók."
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:30
+msgid "During game selection"
+msgstr "Játék közbeni kijelölés"
+
 #. (itstool) path: td/p
-#: C/shortcuts.page:20
+#: C/shortcuts.page:33
+#| msgid "New game"
+msgid "Start new game"
+msgstr "Új játék indítása"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:34
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:37
+msgid "Go back"
+msgstr "Vissza"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:38
+#| msgid "<key>F1</key>"
+msgid "<key>Escape</key>"
+msgstr "<key>Escape</key>"
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:44
+msgid "Play with keyboard"
+msgstr "Játék billentyűzettel"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:47
+msgid "Select where to play"
+msgstr "Annak kiválasztása, hogy hol játsszon"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:48
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
+msgstr "<key>Balra</key>, <key>Jobbra</key>, <key>Fel</key> és <key>Le</key>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:51
+#| msgid "Select the <gui>Game</gui> tab"
+msgid "Select the given row"
+msgstr "Az adott sor kiválasztása"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:52
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<key>1</key> to <key>8</key>"
+msgstr "<key>1</key>-től <key>8</key>-ig"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:55
+msgid "Select the given column"
+msgstr "Az adott oszlop kiválasztása"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:56
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<key>a</key> to <key>h</key>"
+msgstr "<key>a</key>-tól <key>h</key>-ig"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:59
+msgid "Play on selected tile"
+msgstr "A kijelölt csempe megjátszása"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:60
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<key>Return</key>, <key>Space</key>"
+msgstr "<key>Enter</key>, <key>Szóköz</key>"
+
+#. (itstool) path: section/title
+#: C/shortcuts.page:66
+msgid "During a game"
+msgstr "Játék közben"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:69
 msgid "New game"
 msgstr "Új játék"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:21
+#: C/shortcuts.page:70
 msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:25
-msgid "Undo Move"
-msgstr "Lépés visszavonása"
+#: C/shortcuts.page:73
+#| msgid "Undo Move"
+msgid "Undo last move"
+msgstr "Utolsó lépés visszavonása"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:26
+#: C/shortcuts.page:74
 msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 
+#. (itstool) path: section/title
+#: C/shortcuts.page:80
+msgid "Generic"
+msgstr "Általános"
+
 #. (itstool) path: td/p
-#: C/shortcuts.page:29
+#: C/shortcuts.page:84
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid ""
+"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+"key><key>F1</key></keyseq>"
+msgstr ""
+"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+"key><key>F1</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:87
 msgid "Help"
 msgstr "Súgó"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:30
+#: C/shortcuts.page:88
 msgid "<key>F1</key>"
 msgstr "<key>F1</key>"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:33
+#: C/shortcuts.page:91
+msgid "About"
+msgstr "Névjegy"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:92
+#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcuts.page:95
 msgid "Quit"
 msgstr "Kilépés"
 
 #. (itstool) path: td/p
-#: C/shortcuts.page:34
+#: C/shortcuts.page:96
 msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 
 #. (itstool) path: page/title
-#: C/sound.page:17
+#: C/sound.page:21
 msgid "Enable and disable sound"
-msgstr "Hang ki- és bekapcsolása"
+msgstr "Hang engedélyezése és letiltása"
 
 #. (itstool) path: page/p
-#: C/sound.page:18
-msgid "To enable or disable the sound:"
-msgstr "A hang be- vagy kikapcsolása:"
-
-#. (itstool) path: item/p
-#: C/sound.page:20
-msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
+#: C/sound.page:23
+msgid ""
+"To enable or disable the sound, press the menu button in the top-right "
+"corner of the window and select <gui>Sound</gui>."
 msgstr ""
-"Válassza a <guiseq><gui>Beállítások</gui><gui>Beállítások</gui></guiseq> "
-"menüpontot."
-
-#. (itstool) path: item/p
-#: C/sound.page:22
-msgid "Click the <gui>Enable sounds</gui> checkbox."
-msgstr "Jelölje be a <gui>Hangok bekapcsolása</gui> négyzetet."
-
-#. (itstool) path: note/p
-#: C/sound.page:24
-msgid "The change will be available immediately."
-msgstr "A változtatás azonnal alkalmazásra kerül."
+"A hang engedélyezéséhez vagy letiltásához nyomja az ablak jobb felső sarkában"
+" lévő menügombot, és válassza a <gui>Hang</gui> menüpontot."
 
 #. (itstool) path: page/title
-#: C/strategy.page:21
+#: C/start-position.page:21
+#| msgid "Start position"
+msgid "Vary start position"
+msgstr "Kezdési pozíció változtatása"
+
+#. (itstool) path: page/p
+#: C/start-position.page:23
+msgid ""
+"<app>Reversi</app> allows to start a game with a different initial position "
+"than the usual one of the reversi game family."
+msgstr ""
+"A <app>Reversi</app> lehetővé teszi a reversi játékcsalád szokás kezdési"
+" pozíciójától eltérő kezdési pozícióval történő játékindítást."
+
+#. (itstool) path: section/title
+#: C/start-position.page:26
+#| msgid "Start position"
+msgid "Varying start position"
+msgstr "Kezdési pozíció változtatása"
+
+#. (itstool) path: section/p
+#: C/start-position.page:28
+msgid ""
+"To enable or disable this option, while <link xref=\"configure\">configuring "
+"a new game</link>, click on the <gui>Difficulty</gui> button, and in the "
+"menu that appears, select <gui>Vary start position</gui>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:30
+msgid ""
+"If you are playing a <link xref=\"ai-game\">game against the computer</"
+"link>, enabling this option will start new games with a random position in "
+"the six <link xref=\"#start-positions\">possible start positions</link>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:32
+msgid ""
+"If you are <link xref=\"2player\">playing with another player</link>, "
+"enabling this option will start new games with the <link xref=\"#human-"
+"overture\">two-player game overture</link>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:34
+msgid ""
+"If the option is disabled, then the usual position of the reversi game "
+"family is always used for new games. See its description in the list of "
+"<link xref=\"#start-positions\">possible start positions</link>."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/start-position.page:38
+#| msgid "Start position"
+msgid "Possible start positions"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:40
+msgid ""
+"There are really two possible start positions in <app>Reversi</app>, up to "
+"six as their symmetries can also be played."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:42
+msgid "The two main positions are the following:"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:53
+msgid "Alternative position: dark-light, dark-light"
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/start-position.page:59
+#| msgid "<em>Start position</em>"
+msgid "<em>Usual start position</em>"
+msgstr ""
+
+#. (itstool) path: td/p
+#: C/start-position.page:62
+#| msgid "<em>Start position</em>"
+msgid "<em>Alternative position</em>"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:67
+msgid "Their allowed symmetries are the following:"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:73
+msgid "Only symmetry of the usual start position: dark-light, light-dark"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:78
+msgid "First symmetry of the alternative position: dark-dark, light-light"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:83
+msgid "Second symmetry of the alternative position: light-dark, light-dark"
+msgstr ""
+
+#. (itstool) path: media/p
+#: C/start-position.page:88
+msgid "Last symmetry of the alternative position: light-light, dark-dark"
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/start-position.page:96
+#| msgid "Two-player mode"
+msgid "Two-player game overture"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:98
+msgid ""
+"When <link xref=\"2player\">playing with another player</link> with the "
+"<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
+"option enabled, new games will start with a special two-player game overture."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:100
+msgid ""
+"The board is started empty. The two players are going to place the four "
+"initial pieces before starting the game."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:104
+msgid ""
+"<em>Dark</em> goes first, and places the first piece on one of the four "
+"central tiles of the board."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:107
+msgid ""
+"<em>Light</em> places one piece in one of the two available positions next "
+"to the dark piece."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:110
+msgid ""
+"<em>Dark</em> then places a piece on one of the two remaining central tiles "
+"of the board."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:113
+msgid ""
+"<em>Light</em> finishes the opening by placing a second piece at the "
+"remaining place."
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/start-position.page:116
+msgid ""
+"The game is then started, following the <link xref=\"rules\">reversi rules</"
+"link>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/start-position.page:120
+msgid ""
+"This opening allows the first player to choose if the game will start with a "
+"position “in cross” (the usual start position or its symmetry) or a "
+"“parallel” position (the alternative position or one of its symmetries)."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/strategy.page:24
 msgid "Strategy"
 msgstr "Stratégia"
 
 #. (itstool) path: page/p
-#: C/strategy.page:23
+#: C/strategy.page:26
+#| msgid ""
+#| "<app>Iagno</app> doesn't have one particular winning strategy. Rather it "
+#| "has strategic elements which can be used to help one gain advantage. Some "
+#| "strategies, such as trying to flip as many of your opponent's pieces "
+#| "early on in the game, should be avoided."
 msgid ""
-"<app>Iagno</app> doesn't have one particular winning strategy. Rather it has "
-"strategic elements which can be used to help one gain advantage. Some "
+"<app>Reversi</app> doesn't have one particular winning strategy. Rather it "
+"has strategic elements which can be used to help one gain advantage. Some "
 "strategies, such as trying to flip as many of your opponent's pieces early "
 "on in the game, should be avoided."
 msgstr ""
-"Az <app>Iagno</app> nem rendelkezik egy konkrét nyerő stratégiával. Ehelyett "
+"A <app>Reversi</app> nem rendelkezik egy konkrét nyerő stratégiával. Ehelyett "
 "stratégiai elemek vannak, amelyek előnyszerzésre használhatók. Egyes "
 "stratégiák kerülendők, mint például az ellenfél minél több figurájának "
 "átfordítása a játék elején."
 
 #. (itstool) path: page/p
-#: C/strategy.page:28
+#: C/strategy.page:31
+#| msgid ""
+#| "Much has been written on the topic of strategy for the games <em>Othello</"
+#| "em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
 msgid ""
 "Much has been written on the topic of strategy for the games <em>Othello</"
-"em> and <em>Reversi</em>, which <app>Iagno</app> is based on."
+"em> and <em>Reversi</em>."
 msgstr ""
-"Sok írás született az <em>Othello</em> és <em>Reversi</em> játékok "
-"stratégiájának témájában, amelyeken az <app>Iagno</app> alapul."
-
-#. (itstool) path: note/p
-#: C/strategy.page:31
-msgid ""
-"Some sources state that Reversi does not have a predefined starting "
-"position, whereas Othello and <app>Iagno</app> do."
-msgstr ""
-"Egyes források szerint a Reversinek nincs előre megadott kezdőpozíciója, míg "
-"az Othellonak és az <app>Iagnonak</app> van."
+"Sok írás született az <em>Othello</em> és a <em>Reversi</em> játékok"
+" stratégiájának témájában."
 
 #. (itstool) path: page/p
-#: C/strategy.page:35
+#: C/strategy.page:38
 msgid ""
 "If you are interested in learning about specific strategies for the game, "
 "the following links may be of interest:"
@@ -764,16 +1872,7 @@ msgstr ""
 "(angol nyelvű) hivatkozások érdekelhetik:"
 
 #. (itstool) path: item/p
-#: C/strategy.page:40
-msgid ""
-"<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
-"beginner's guide to strategy of the game</link>"
-msgstr ""
-"<link href=\"http://othello.dk/book/index.php/From_Scratch\">Egy remek "
-"útmutató kezdőknek a játék stratégiájáról</link>"
-
-#. (itstool) path: item/p
-#: C/strategy.page:44
+#: C/strategy.page:43
 msgid ""
 "<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction "
 "to strategy and tactics</link>"
@@ -782,16 +1881,17 @@ msgstr ""
 "stratégiába és a taktikába</link>"
 
 #. (itstool) path: item/p
-#: C/strategy.page:48
-msgid ""
-"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
-"\">Wikipedia: Strategic elements</link>"
+#: C/strategy.page:47
+#| msgid ""
+#| "<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
+#| "\">Wikipedia: Strategic elements</link>"
+msgid "<link href=\"https://en.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
 msgstr ""
-"<link href=\"http://en.wikipedia.org/wiki/Reversi#Strategic_elements"
-"\">Wikipedia: stratégiai elemek</link>"
+"<link href=\"https://hu.wikipedia.org/wiki/Fon%C3%A1kol%C3%B3s\">Wikipédia<"
+"/link>"
 
 #. (itstool) path: item/p
-#: C/strategy.page:52
+#: C/strategy.page:50
 msgid ""
 "<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy "
 "guide</link>"
@@ -800,12 +1900,185 @@ msgstr ""
 "útmutató</link>"
 
 #. (itstool) path: page/title
-#: C/translate.page:23
+#: C/theme.page:20
+msgid "Change the board theme"
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/theme.page:22
+msgid ""
+"<app>Reversi</app> supports various board themes, so that you can adjust its "
+"look to your taste."
+msgstr ""
+
+#. (itstool) path: page/p
+#: C/theme.page:24
+msgid ""
+"Until the theme has been changed, the application tries to choose a theme "
+"adapted to your environment; see the section about the <link xref=\"#default-"
+"theme\"><em>Default</em> theme</link>."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/theme.page:27
+msgid "Changing theme"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:29
+msgid ""
+"For changing theme, press the menu button in the top-right corner of the "
+"window, select <gui>Appearance</gui>, and select one of the items in the "
+"given list."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:31
+msgid ""
+"The first item of the list is called <gui><em>Default</em></gui> and lets "
+"the application try to choose a theme adapted to your environment; see the "
+"section about the <link xref=\"#default-theme\"><em>Default</em> theme</"
+"link>. The following suggestions are described in the <link xref=\"#themes-"
+"list\">themes list</link>."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:33
+msgid ""
+"Following the themes list, the options of the section <gui>Highlights</gui> "
+"are for <link xref=\"highlights\">displaying helpful highlights</link>. "
+"These are working whatever theme you decide to use."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/theme.page:37
+msgid "Themes list"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:39
+msgid "<app>Reversi</app> comes with four themes installed:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:43
+msgid ""
+"<em>Classic</em>: this theme mimics the most usual reversi boards, with a "
+"green background and bicolor pieces;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:46
+msgid ""
+"<em>Black and White</em>: this theme is more conceptual, featuring geometric "
+"shapes and a high black and white contrast;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:49
+msgid ""
+"<em>Adwaita</em>: this theme uses a blue board, more suitable if the theme "
+"of your windows is a dark one;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:52
+msgid ""
+"<em>Sun and Star</em>: this theme is a variant of the <em>Classic</em> one, "
+"with some decorations on the pieces."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:56
+msgid ""
+"The first entry in the themes list is called <em>Default</em> and has a "
+"special behavior; see the section about the <link xref=\"#default-theme"
+"\"><em>Default</em> theme</link>."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/theme.page:60
+msgid "<em>Default</em> theme"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:62
+msgid ""
+"The first entry in the themes list is called <em>Default</em> and has a "
+"special behavior."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:64
+msgid ""
+"When this entry is selected, the application tries to choose a theme adapted "
+"to your environment:"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:68
+msgid ""
+"if you are using a theme for your windows known for being dark –like "
+"<em>Adwaita Dark</em>– or if you have activated GNOME night mode, the board "
+"theme used will be the one called <em>Adwaita</em>, that is darker than the "
+"other themes thanks to its blue background;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:71
+msgid ""
+"if you are using a theme for your windows created specially for having a "
+"high contrast, notably if you activated the “High Contrast” GNOME "
+"accessibility option, the board theme used will be the one called <em>Black "
+"and White</em>, that should be a perfect fit;"
+msgstr ""
+
+#. (itstool) path: item/p
+#: C/theme.page:74
+msgid ""
+"else, the theme used will be the one called <em>Classic</em>, that uses a "
+"green board quite common for reversi games."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:78
+msgid "This behavior is of course the default one of the application."
+msgstr ""
+
+#. (itstool) path: section/title
+#: C/theme.page:82
+#| msgid "Legal information."
+msgid "More information"
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:84
+msgid ""
+"There is no way to install a different theme than the ones described here."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:86
+msgid ""
+"These themes have been designed by Arnaud Bonatti, with pieces created by "
+"Masuichi Ito."
+msgstr ""
+
+#. (itstool) path: section/p
+#: C/theme.page:88
+msgid ""
+"If you have a suggestion for a new theme, or if you are interested in "
+"contributing a new theme, please <link xref=\"bug-filing\">open an issue</"
+"link> about it."
+msgstr ""
+
+#. (itstool) path: page/title
+#: C/translate.page:29
 msgid "Help translate"
 msgstr "Segítsen a fordításban"
 
 #. (itstool) path: page/p
-#: C/translate.page:24
+#: C/translate.page:31
 msgid ""
 "The <app>GNOME Games</app> user interface and documentation is being "
 "translated by a world-wide volunteer community. You are welcome to "
@@ -815,50 +2088,65 @@ msgstr ""
 "önkéntes közösség fordítja. Közreműködését szívesen fogadjuk!"
 
 #. (itstool) path: page/p
-#: C/translate.page:27
+#: C/translate.page:35
+#| msgid ""
+#| "There are <link href=\"http://l10n.gnome.org/module/iagno/\">many "
+#| "languages</link> for which translations are still needed."
 msgid ""
-"There are <link href=\"http://l10n.gnome.org/module/iagno/\">many languages</"
-"link> for which translations are still needed."
+"There are <link href=\"https://l10n.gnome.org/module/iagno/\">many "
+"languages</link> for which translations are still needed."
 msgstr ""
-"<link href=\"http://l10n.gnome.org/module/iagno/\">Számos nyelv van</link>, "
+"<link href=\"https://l10n.gnome.org/module/iagno/\">Számos nyelv van</link>, "
 "amelyhez még szükség van fordításokra."
 
 #. (itstool) path: page/p
-#: C/translate.page:30
+#: C/translate.page:39
+#| msgid ""
+#| "To start translating you will need to <link href=\"http://l10n.gnome.org"
+#| "\">create an account</link> and join the <link href=\"http://l10n.gnome."
+#| "org/teams/\">translation team</link> for your language. This will give "
+#| "you the ability to upload new translations."
 msgid ""
-"To start translating you will need to <link href=\"http://l10n.gnome.org"
-"\">create an account</link> and join the <link href=\"http://l10n.gnome.org/"
+"To start translating you will need to <link href=\"https://l10n.gnome.org"
+"\">create an account</link> and join the <link href=\"https://l10n.gnome.org/"
 "teams/\">translation team</link> for your language. This will give you the "
 "ability to upload new translations."
 msgstr ""
-"A fordítás elkezdéséhez <link href=\"http://l10n.gnome.org\">létre kell "
+"A fordítás elkezdéséhez <link href=\"https://l10n.gnome.org\">létre kell "
 "hoznia egy fiókot</link>, és csatlakoznia kell a nyelvének megfelelő <link "
-"href=\"http://l10n.gnome.org/teams/\">fordítócsapathoz</link>. Ez lehetővé "
+"href=\"https://l10n.gnome.org/teams/\">fordítócsapathoz</link>. Ez lehetővé "
 "teszi Önnek az új fordítások feltöltését."
 
 #. (itstool) path: page/p
-#: C/translate.page:34
+#: C/translate.page:43
+#| msgid ""
+#| "You can chat with GNOME translators using <link href=\"https://cbe003."
+#| "chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. "
+#| "People on the channel are located worldwide, so you may not get an "
+#| "immediate response as a result of timezone differences."
 msgid ""
-"You can chat with GNOME translators using <link href=\"https://cbe003.chat."
-"mibbit.com/?url=irc%3A%2F%2Firc.gnome.org%2Fi18n\">irc</link>. People on the "
-"channel are located worldwide, so you may not get an immediate response as a "
-"result of timezone differences."
+"You can chat with GNOME translators <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/IRC\">using IRC</link> (on the <code>#i18n</code> "
+"channel). People on the channel are located worldwide, so you may not get an "
+"immediate response as a result of timezone differences."
 msgstr ""
-"A GNOME fordítókkal <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A"
-"%2F%2Firc.gnome.org%2Fi18n\">IRC-en</link> is cseveghet. A csatornán a világ "
-"minden részéről vannak emberek, így előfordulhat, hogy az időzóna-eltérések "
-"miatt nem kap azonnal választ."
+"A GNOME fordítókkal <link href=\"https://wiki.gnome.org/Community/GettingInTou"
+"ch/IRC\">IRC használatával</link> (az <code>#i18n</code> csatornán)"
+" cseveghet. A csatornán a világ minden részéről vannak emberek, így"
+" előfordulhat, hogy az időzóna-eltérések miatt nem kap azonnal választ."
 
 #. (itstool) path: page/p
-#: C/translate.page:37
+#: C/translate.page:45
+#| msgid ""
+#| "Alternatively, you can contact the Internationalization Team using their "
+#| "<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
+#| "list</link>."
 msgid ""
-"Alternatively, you can contact the Internationalization Team using their "
-"<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
-"list</link>."
+"Alternatively, you can contact the Internationalization Team using the "
+"dedicated <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
+"\">mailing list</link>."
 msgstr ""
-"Ennek alternatívájaként megkeresheti a nemzetközi fordítócsapatot <link href="
-"\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">levelezőlistán</link> "
-"is. A magyar csapat <link href=\"http://l10n.gnome.org/languages/hu/"
-"\">kezdőoldalán</link> megtalálja a magyar levelezőlista címét és a "
-"fordítások megkezdéséhez szükséges információkat."
-
+"Alternatív megoldásként kapcsolatba léphet a nemzetközi fordítócsapattal a"
+" kifejezetten számukra fenntartott <link"
+" href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n\">levelezőlista<"
+"/link> használatával."
