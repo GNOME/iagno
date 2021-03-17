@@ -20,7 +20,7 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/base-headerbar.ui")]
 private class BaseHeaderBar : NightTimeAwareHeaderBar, AdaptativeWidget
 {
-    [GtkChild] protected Box center_box;
+    [GtkChild] protected unowned Box center_box;
 
     construct
     {
@@ -190,13 +190,13 @@ private class BaseHeaderBar : NightTimeAwareHeaderBar, AdaptativeWidget
     * * default widgets
     \*/
 
-    [GtkChild] private   Button     go_back_button;
-    [GtkChild] private   Separator  ltr_left_separator;
-    [GtkChild] private   Label      title_label;
-    [GtkChild] private   MenuButton info_button;
-    [GtkChild] private   Separator  ltr_right_separator;
+    [GtkChild] private   unowned Button     go_back_button;
+    [GtkChild] private   unowned Separator  ltr_left_separator;
+    [GtkChild] private   unowned Label      title_label;
+    [GtkChild] private   unowned MenuButton info_button;
+    [GtkChild] private   unowned Separator  ltr_right_separator;
 
-    [GtkChild] protected Stack      quit_button_stack;
+    [GtkChild] protected unowned Stack      quit_button_stack;
 
     protected void set_default_widgets_states (string?  title_label_text_or_null,
                                                bool     show_go_back_button,

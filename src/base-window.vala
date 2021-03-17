@@ -74,9 +74,9 @@ private class BaseWindow : AdaptativeWindow, AdaptativeWidget
     * * main layout
     \*/
 
-    [GtkChild] private Grid main_grid;
-    [GtkChild] private Button unfullscreen_button;
-    [GtkChild] private Overlay main_overlay;
+    [GtkChild] private unowned Grid main_grid;
+    [GtkChild] private unowned Button unfullscreen_button;
+    [GtkChild] private unowned Overlay main_overlay;
 
     protected void add_to_main_overlay (Widget widget)
     {

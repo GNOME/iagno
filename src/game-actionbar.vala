@@ -28,8 +28,8 @@ private class GameActionBar : Revealer, AdaptativeWidget
     [CCode (notify = false)] public string  window_name  { private get; protected construct set; default = ""   ; }
     [CCode (notify = false)] public Widget? game_widget  { private get; protected construct    ; default = null ; }
 
-    [GtkChild] private ActionBar action_bar;
-    [GtkChild] private Label game_label;
+    [GtkChild] private unowned ActionBar action_bar;
+    [GtkChild] private unowned Label game_label;
 
     construct
     {
@@ -93,7 +93,7 @@ private class GameActionBar : Revealer, AdaptativeWidget
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-actionbar-placeholder.ui")]
 private class GameActionBarPlaceHolder : Revealer, AdaptativeWidget
 {
-    [GtkChild] private Widget placeholder_child;
+    [GtkChild] private unowned Widget placeholder_child;
     private GameActionBar actionbar;
 
     internal GameActionBarPlaceHolder (GameActionBar _actionbar)
