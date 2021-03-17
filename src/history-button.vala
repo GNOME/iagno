@@ -25,8 +25,8 @@ private class HistoryButton : MenuButton, AdaptativeWidget
 {
     [CCode (notify = false)] public ThemeManager theme_manager { private get; protected construct; }
 
-    [GtkChild] private Stack stack;
-    [GtkChild] private DrawingArea drawing;
+    [GtkChild] private unowned Stack stack;
+    [GtkChild] private unowned DrawingArea drawing;
 
     internal HistoryButton (GLib.Menu menu, ThemeManager theme_manager)
     {

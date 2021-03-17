@@ -23,8 +23,8 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-headerbar.ui")]
 private class GameHeaderBar : BaseHeaderBar, AdaptativeWidget
 {
-    [GtkChild] private Button           new_game_button;
-    [GtkChild] private Button           back_button;
+    [GtkChild] private unowned Button           new_game_button;
+    [GtkChild] private unowned Button           back_button;
 
     [CCode (notify = false)] public bool window_has_name { private get; protected construct set; default = false; }
     [CCode (notify = false)] public string window_name   { private get; protected construct set; default = ""; }

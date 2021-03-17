@@ -23,11 +23,11 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/new-game-screen.ui")]
 private class NewGameScreen : Box, AdaptativeWidget
 {
-    [GtkChild] private ModelButton modelbutton_one;
-    [GtkChild] private ModelButton modelbutton_two;
+    [GtkChild] private unowned ModelButton modelbutton_one;
+    [GtkChild] private unowned ModelButton modelbutton_two;
 
-    [GtkChild] private Gtk.MenuButton menubutton_one;
-    [GtkChild] private Gtk.MenuButton menubutton_two;
+    [GtkChild] private unowned Gtk.MenuButton menubutton_one;
+    [GtkChild] private unowned Gtk.MenuButton menubutton_two;
 
     construct
     {
@@ -106,12 +106,12 @@ private class NewGameScreen : Box, AdaptativeWidget
         map.connect (() => games_box.show ());
     }
 
-    [GtkChild] private Box          games_box;
-    [GtkChild] private Box          options_box;
+    [GtkChild] private unowned Box          games_box;
+    [GtkChild] private unowned Box          options_box;
 
-    [GtkChild] private Label        games_label;
-    [GtkChild] private Label        options_label;
-    [GtkChild] private Separator    options_separator;
+    [GtkChild] private unowned Label        games_label;
+    [GtkChild] private unowned Label        options_label;
+    [GtkChild] private unowned Separator    options_separator;
 
     private bool phone_size = false;
     private bool extra_thin = false;
