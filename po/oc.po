@@ -6,266 +6,976 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-connections master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/connections/"
-"issues\n"
-"POT-Creation-Date: 2021-03-20 14:02+0000\n"
-"PO-Revision-Date: 2021-06-12 11:35+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2021-06-12 09:50+0000\n"
+"PO-Revision-Date: 2021-06-24 21:49+0200\n"
+"Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan <totenoc@gmail.com>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 
-#: data/org.gnome.Connections.appdata.xml.in:7
-msgid "GNOME Connections"
-msgstr "Connexions de GNOME"
+#: data/org.gnome.Reversi.appdata.xml.in:7
+msgid "GNOME Reversi"
+msgstr ""
 
-#: data/org.gnome.Connections.appdata.xml.in:8 src/application.vala:81
-#: src/application.vala:230
-msgid "A remote desktop client for the GNOME desktop environment"
-msgstr "Un client de burèu distant per l’environament de burèu GNOME"
+#: data/org.gnome.Reversi.appdata.xml.in:8
+msgid ""
+"Dominate the board in a classic reversi game, or play the reversed variant"
+msgstr ""
 
-#: data/org.gnome.Connections.appdata.xml.in:10
-msgid "A remote desktop client for the GNOME desktop environment."
-msgstr "Un client de burèu distant per l’environament de burèu GNOME."
+#: data/org.gnome.Reversi.appdata.xml.in:11
+msgid ""
+"Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
+"use tiles that are dark on one side and light on the other."
+msgstr ""
 
-#: data/org.gnome.Connections.appdata.xml.in:28
+#: data/org.gnome.Reversi.appdata.xml.in:15
+msgid ""
+"The object of reversi is to flip your opponent’s tiles to your color, while "
+"your opponent is trying to flip your tiles to his own color. Opponent’s "
+"tiles are flipped when trapped between an already placed tile of your color "
+"and the tile you add. Who finishes with more tiles wins!"
+msgstr ""
+
+#: data/org.gnome.Reversi.appdata.xml.in:21
+msgid ""
+"GNOME Reversi allows you to play both a classic reversi game, and the "
+"reversed variant, where the goal is to finish with less tile than your "
+"opponent."
+msgstr ""
+
+#: data/org.gnome.Reversi.appdata.xml.in:30
+msgid "A GNOME Reversi game preview"
+msgstr ""
+
+#: data/org.gnome.Reversi.appdata.xml.in:49
 msgid "The GNOME Project"
 msgstr "Lo projècte GNOME"
 
-#: data/org.gnome.Connections.desktop.in:3 src/application.vala:84
-#: src/ui/topbar.ui:9
-msgid "Connections"
-msgstr "Connexions"
-
-#: data/org.gnome.Connections.xml:5
-msgid "Remote Desktop (VNC) file"
-msgstr "Fichièr d'accès a distància (VNC)"
-
-#: src/actions-popover.vala:44
-msgid "Delete"
-msgstr "Suprimir"
-
-#: src/actions-popover.vala:48 src/topbar.vala:59 src/ui/topbar.ui:216
-msgid "Properties"
-msgstr "Proprietats "
-
-#: src/application.vala:80
-msgid "translator-credits"
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
+#: src/iagno.vala:28
+msgid "Reversi"
 msgstr ""
 
-#: src/application.vala:144
-#, c-format
-msgid "Couldn’t open file of unknown mime type %s"
-msgstr "Impossible de dobrir lo fichièr de tipe mime desconegut %s"
-
-#: src/application.vala:174
-#, c-format
-msgid "Connection to “%s” has been deleted"
-msgstr "La connexion cap a « %s » es estada suprimida"
-
-#: src/application.vala:176
-msgid "Undo"
-msgstr "Desfar"
-
-#: src/application.vala:222
-msgid "URL to connect"
-msgstr "URL de connexion"
-
-#: src/application.vala:223
-msgid "Open .vnc or .rdp file at the given PATH"
-msgstr "Dobrir lo fichièr .vnc o .rdp al camin donat"
-
-#: src/application.vala:245
-msgid "Too many command-line arguments specified.\n"
+#. Translators: a Comment that gives the application function, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:9
+msgid "Dominate the board in a classic version of Reversi"
 msgstr ""
-"Nombre de paramètres de linha de comanda especificats tròp important.\n"
 
-#. Translators: %s => the timestamp of when the screenshot was taken.
-#: src/connection.vala:127
-#, c-format
-msgid "Screenshot from %s"
-msgstr "Captura d'ecran de %s"
-
-#: src/connection.vala:142
-msgid "Screenshot taken"
-msgstr "Captura d’ecran efectuada"
-
-#. Translators: Open is a verb
-#: src/connection.vala:145
-msgid "Open"
-msgstr "Dobrir"
-
-#: src/connection.vala:188
-#, c-format
-msgid "“%s” requires authentication"
-msgstr "« %s » requerís l’autentificacion"
-
-#. Translators: Showing size of widget as WIDTH×HEIGHT here.
-#: src/display-view.vala:138
-#, c-format
-msgid "%d×%d"
-msgstr "%d×%d"
-
-#: src/rdp-connection.vala:128 src/vnc-properties-dialog.vala:28
-msgid "Scaling"
-msgstr "Mesa a l'escala"
-
-#: src/topbar.vala:55 src/ui/topbar.ui:212
-msgid "Take Screenshot"
-msgstr "Prendre una captura d’ecran"
-
-#: src/ui/assistant.ui:9
-msgid "Create a New Connection"
-msgstr "Crear una novèla connexion"
-
-#: src/ui/assistant.ui:34
-msgid ""
-"Enter a machine address to connect to. Address can begin with rdp:// or "
-"vnc://"
+#. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Reversi.desktop.in:11
+msgid "reversi;othello;"
 msgstr ""
-"Picatz una adreça de maquina per vos i connectar. L’adreça pòt començar "
-"amb rdp:// o vnc://"
 
-#: src/ui/assistant.ui:58
-msgid "Server"
-msgstr "Servidor"
+#. Translators: accessible name of the hamburger menu
+#: data/ui/base-headerbar.ui:113
+msgid "Actions"
+msgstr "Accions"
 
-#: src/ui/assistant.ui:94 src/ui/properties.ui:67
-msgid "Name"
-msgstr "Nom"
+#. Translators: accessible description of the hamburger menu
+#: data/ui/base-headerbar.ui:115
+msgid "Current view actions"
+msgstr "Accions de la vista actuala"
 
-#: src/ui/assistant.ui:120
-msgid "Cancel"
-msgstr "Anullar"
+#. Translators: during a game, tooltip text of the New Game button
+#: data/ui/game-headerbar.ui:33
+msgid "Start a new game"
+msgstr "Començar una partida novèla"
 
-#: src/ui/assistant.ui:129
-msgid "Create"
-msgstr "Crear"
+#. Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt)
+#: data/ui/game-headerbar.ui:42
+msgid "_New Game"
+msgstr "Partida _novèla"
 
-#: src/ui/auth-notification.ui:39
-msgid "_Username"
-msgstr "_Nom d’utilizaire"
+#. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
+#: data/ui/game-headerbar.ui:56
+msgid "Go back to the current game"
+msgstr "Tornar a la partida en cors"
 
-#: src/ui/auth-notification.ui:71
-msgid "_Password"
-msgstr "_Senhal"
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "During a game"
+msgstr "Pendent una partida"
 
-#: src/ui/auth-notification.ui:108
-msgid "Sign In"
-msgstr "Se connectar"
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
+msgctxt "shortcut window"
+msgid "New game"
+msgstr "Novèla partida"
 
-#: src/ui/empty-view.ui:28
-msgid "Welcome to Connections"
-msgstr "Benvenguda dins Connexions"
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Undo last move"
+msgstr "Anulla vòstre darrièr desplaçament"
 
-#: src/ui/empty-view.ui:41
-msgid "Just hit the <b>+</b> button to make your first connection."
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+msgctxt "shortcut window"
+msgid "Toggle game menu"
 msgstr ""
-"Quichatz simplament sul boton <b>+</b> per establir vòstra primièra "
-"connexion."
 
-#: src/ui/properties.ui:9
-msgid "Connection Properties"
-msgstr "Proprietats de connexion"
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr ""
 
-#: src/ui/properties.ui:32
-msgid "Address"
-msgstr "Adreça"
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr ""
 
-#: src/ui/topbar.ui:21
-msgid "New"
-msgstr "Novèla"
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr ""
 
-#: src/ui/topbar.ui:42
-msgid "Application Menu"
-msgstr "Menú de l’aplicacion"
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr ""
 
-#: src/ui/topbar.ui:70
-msgid "Search"
-msgstr "Cercar"
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr ""
 
-#: src/ui/topbar.ui:104
-msgid "Go Back"
-msgstr "Retorn"
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "Pendent la seleccion de la partida"
 
-#: src/ui/topbar.ui:125
-msgid "Display Menu"
-msgstr "Menú d’afichatge"
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "Començar una novèla partida"
 
-#: src/ui/topbar.ui:149
-msgid "Disconnect"
-msgstr "Desconnectar"
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Tornar en arrièr"
 
-#: src/ui/topbar.ui:174
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "Generic"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr ""
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
+msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
-msgstr "Acorchis clavièr"
+msgstr "Acorchis de clavièr"
 
-#: src/ui/topbar.ui:197
-msgid "Keyboard Shortcuts"
-msgstr "Acorchis clavièr"
-
-#: src/ui/topbar.ui:201
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
+msgctxt "shortcut window"
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/ui/topbar.ui:205
-msgid "About Connections"
-msgstr "A prepaus de Connexions"
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
+msgctxt "shortcut window"
+msgid "About"
+msgstr "A prepaus de"
 
-#: src/ui/topbar.ui:230
-msgid "Ctrl + Alt + Backspace"
-msgstr "Ctrl + Alt + Retorn Arrièr"
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitar"
 
-#: src/ui/topbar.ui:237
-msgid "Ctrl + Alt + Del"
-msgstr "Ctrl + Alt + Supr"
+#. Translators: label of the game status button (in the headerbar, next to the hamburger button), when the game is finished; please keep the string as small as possible (3~5 characters)
+#: data/ui/history-button.ui:43
+msgid "End!"
+msgstr "Fin !"
 
-#: src/ui/topbar.ui:244
-msgid "Ctrl + Alt + F1"
-msgstr "Ctrl + Alt + F1"
+#. Translators: when configuring a new game, header of the game type that appears on small screen
+#: data/ui/new-game-screen.ui:32
+msgid "Game"
+msgstr "Jòc"
 
-#: src/ui/topbar.ui:251
-msgid "Ctrl + Alt + F2"
-msgstr "Ctrl + Alt + F2"
+#. Translators: when configuring a new game, header of the options that appears on small screen
+#: data/ui/new-game-screen.ui:88
+msgid "Options"
+msgstr "Opcions"
 
-#: src/ui/topbar.ui:258
-msgid "Ctrl + Alt + F3"
-msgstr "Ctrl + Alt + F3"
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
+#: data/themes/adwaita.theme.desktop.in:22
+msgid "Adwaita"
+msgstr "Adwaita"
 
-#: src/ui/topbar.ui:265
-msgid "Ctrl + Alt + F7"
-msgstr "Ctrl + Alt + F7"
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; copies the look of the most common physical board
+#: data/themes/classic.theme.desktop.in:22
+msgid "Classic"
+msgstr "Classic"
 
-#: src/vnc-connection.vala:167
-msgid "Couldn’t parse the file"
-msgstr "Impossible d’analisar lo fichièr"
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; uses only two colors, one really dark and one really light
+#: data/themes/high_contrast.theme.desktop.in:23
+msgid "Black and White"
+msgstr "Blanc e negre"
 
-#. Translators: %s is a VNC file key
-#: src/vnc-connection.vala:175 src/vnc-connection.vala:180
-#: src/vnc-connection.vala:186 src/vnc-connection.vala:191
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
+#: data/themes/sun_and_star.theme.desktop.in:22
+msgid "Sun and Star"
+msgstr "Solelh e estelas"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:6
+msgid "A flag to follow system night light"
+msgstr ""
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:8
+msgid "Use GNOME night light setting to activate night-mode."
+msgstr ""
+"Utilizar la configuracion del mòde nuèch de GNOME per activar lo mòde nuèch."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:15
+msgid "The width of the window"
+msgstr "La largor de la fenèstra"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:17
+msgid "The width of the main window in pixels."
+msgstr "La largor de la fenèstra principala en pixèls."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:24
+msgid "The height of the window"
+msgstr "La nautor de la fenèstra"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:26
+msgid "The height of the main window in pixels."
+msgstr "La nautor de la fenèstra principala en pixèls."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:31
+msgid "A flag to enable maximized mode"
+msgstr "Una bandièra per activar lo mòde maximizat"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:33
+msgid "If “true”, the main window starts in maximized mode."
+msgstr ""
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:50
+msgid "A flag to alternate who starts"
+msgstr ""
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:52
+msgid ""
+"If “true”, when playing against AI, the “color” settings is toggled after "
+"every new game request, making the next game being started with inverted "
+"roles (previous Dark player playing Light). Ignored for two-player games."
+msgstr ""
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
+#: data/org.gnome.Reversi.gschema.xml:57
+msgid "Color to play as"
+msgstr "Color amb la quala se jòga"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color'
+#: data/org.gnome.Reversi.gschema.xml:59
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr ""
+"Indica se se jòga amb los negres o los blancs. Ignorat per las partidas a "
+"dos jogaires."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:65
+msgid "Computer’s AI level"
+msgstr ""
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:67
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "De 1, lo mai aisit, a 3, lo mai dificil."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:72
+msgid "A flag to highlight playable tiles"
+msgstr ""
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:74
+msgid "If “true”, the tiles where you can play are highlighted."
+msgstr ""
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
+#: data/org.gnome.Reversi.gschema.xml:79
+msgid "A flag to highlight capturable tiles"
+msgstr ""
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
+#: data/org.gnome.Reversi.gschema.xml:81
+msgid ""
+"If “true”, the tiles that will be captured to the opponent by a play are "
+"highlighted."
+msgstr ""
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
+#: data/org.gnome.Reversi.gschema.xml:87
+msgid "Whether to play against the computer or another human."
+msgstr "Indica se se jòga contra l'ordenador o una autra persona."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:93
+msgid "A flag to randomize start position"
+msgstr ""
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:95
+msgid ""
+"Reversi can be played with two different initial positions (and their "
+"symmetries). If “true”, the game will randomly start with one or the other "
+"position; if “false”, only the most common initial position is used. You can "
+"force the game to use the alternative position by using the “--alternative-"
+"start” argument on the command-line; also, if either “--usual-start” or “--"
+"random-start” is given instead on the command-line, this flag will be "
+"ignored."
+msgstr ""
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
+#: data/org.gnome.Reversi.gschema.xml:100
+msgid "Sound"
+msgstr "Son"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
+#: data/org.gnome.Reversi.gschema.xml:102
+msgid "Whether or not to play event sounds."
+msgstr ""
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#: data/org.gnome.Reversi.gschema.xml:107
+msgid "Theme"
+msgstr "Tèma"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
+#: data/org.gnome.Reversi.gschema.xml:109
+msgid ""
+"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
+"“high_contrast.theme” and “sun_and_star.theme”."
+msgstr ""
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:114
+msgid "Name of the game"
+msgstr "Nom del jòc"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:116
+msgid ""
+"The name of the game that will be played. It could be “classic” (the usual "
+"game, where you try to have more pieces), or “reverse” (the opposite game, "
+"where you try to have less pieces)."
+msgstr ""
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
+#: src/about-list.vala:44 src/base-headerbar.vala:288
+msgid "About"
+msgstr "A prepaus de"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the first is "About"
+#: src/about-list.vala:46
+msgid "Credits"
+msgstr "Crèdits"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of the link to the GPL license; TODO better text, as in the usual about dialog
+#: src/about-list.vala:135
+msgid ""
+"GNU General Public License\n"
+"version 3 or later"
+msgstr ""
+"Licéncia publica generala GNU\n"
+"version 3 o ulteriora"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the programmers names
+#: src/about-list.vala:154
+msgid "Creators"
+msgstr "Creators"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the documenters names
+#: src/about-list.vala:161
+msgid "Documenters"
+msgstr "Documentalistas"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
+#: src/about-list.vala:166
+msgid "Translators"
+msgstr "Traductors"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the pictural artists names
+#: src/about-list.vala:172
+msgid "Artists"
+msgstr "Artistas"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:149
+msgid "Pause night mode"
+msgstr "Metre en pausa lo mòde nuèit"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:153
+msgid "Reuse night mode"
+msgstr "Reütilizar lo mòde nuèit"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:157
+msgid "Use night mode"
+msgstr "Utilizar lo mòde nuèit"
+
+#. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
+#: src/base-headerbar.vala:116
+msgid "_Keyboard Shortcuts"
+msgstr "_Acorchis de clavièr"
+
+#. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
+#: src/base-headerbar.vala:125
+msgid "_Help"
+msgstr "_Ajuda"
+
+#. Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:200
+msgid "A_ppearance"
+msgstr "A_paréncia"
+
+#. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:204
+msgid "_Sound"
+msgstr "_Son"
+
+#. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
+#: src/game-view.vala:58
+msgid "_Start Game"
+msgstr "_Començar partida"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:75
+msgid "Start with an alternative position"
+msgstr "Començar per una posicion alternativa"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:78
+msgid "Play Classic Reversi"
+msgstr ""
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:81
+msgid "Reduce delay before AI moves"
+msgstr "Redutz lo relambi abans desplaçament de l'IA"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:84
+msgid "Play first"
+msgstr "Jogar en primièr"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:87
+msgid "Set the level of the computer’s AI"
+msgstr ""
+
+#. Translators: in the command-line options description, text to indicate the user should specify a level, see 'iagno --help'
+#: src/iagno.vala:90
+msgid "LEVEL"
+msgstr "NIVÈL"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:93
+msgid "Turn off the sound"
+msgstr ""
+
+#. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
+#: src/iagno.vala:96
+msgid "Log the game moves"
+msgstr ""
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:99
+msgid "Start with a random position"
+msgstr ""
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:102
+msgid "Play Reverse Reversi"
+msgstr ""
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:105
+msgid "Play second"
+msgstr "Jogar en segond"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:108
+msgid "Size of the board (debug only)"
+msgstr "Talha del platèu (desbugatge unicament)"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size, see 'iagno --help'
+#: src/iagno.vala:111
+msgid "SIZE"
+msgstr "TALHA"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:114
+msgid "Two-players mode"
+msgstr "Mòde dos jogaires"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:117
+msgid "Turn on the sound"
+msgstr ""
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:120
+msgid "Start with the usual position"
+msgstr ""
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:123
+msgid "Print release version and exit"
+msgstr "Imprimís lo numèro de version e quita"
+
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
+#: src/iagno.vala:172
+msgid ""
+"The “--alternative-start”, “--random-start” and “--usual-start” arguments "
+"are mutually exclusive."
+msgstr ""
+
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
+#: src/iagno.vala:179
+msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
+msgstr ""
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
+#: src/iagno.vala:186
+msgid "Size must be at least 4."
+msgstr "La talha deu èsser al minimum 4."
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
+#: src/iagno.vala:192
+msgid "Size must not be more than 16."
+msgstr ""
+
+#. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
+#: src/iagno.vala:258
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr ""
+"Lo nivèl deu èsser entre 1 (aisit) e 3 (dificil). Pas de cambiament dels "
+"reglatges."
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:274
+msgid "Play _first (Dark)"
+msgstr ""
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:278
+msgid "Play _second (Light)"
+msgstr ""
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:284
+msgid "_Alternate who starts"
+msgstr ""
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:290
+msgid "_Two players"
+msgstr ""
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:299
+msgid "_Easy"
+msgstr ""
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:303
+msgid "_Medium"
+msgstr "_Mejana"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:307
+msgid "_Hard"
+msgstr "_Dificil"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:316
+msgid "_Vary start position"
+msgstr ""
+
+#. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:323 src/iagno.vala:982
+msgid "Classic Reversi"
+msgstr ""
+
+#. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:327 src/iagno.vala:979
+msgid "Reverse Reversi"
+msgstr ""
+
+#. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
+#: src/iagno.vala:338
+msgid "Default"
+msgstr "Estandard"
+
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:394
+msgid "Pla_yable tiles"
+msgstr ""
+
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
+#: src/iagno.vala:398
+msgid "_Capturable tiles"
+msgstr ""
+
+#. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
+#: src/iagno.vala:402
+msgid "Highlights"
+msgstr "Mesa en susbrilhança"
+
+#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:409
+msgid "_Undo last move"
+msgstr ""
+
+#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:414
+msgid "_Show final board"
+msgstr ""
+
+#. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:431
+msgid "_About Reversi"
+msgstr "_A prepaus de Reversi"
+
+#. Translators: when configuring a new game, button label if a two-players game is chosen
+#: src/iagno.vala:619
+msgid "Two players"
+msgstr ""
+
+#. Translators: when configuring a new game, button label if the player choose to start
+#: src/iagno.vala:623
+msgid "Color: Dark"
+msgstr ""
+
+#. Translators: when configuring a new game, button label if the player choose let computer start
+#: src/iagno.vala:627
+msgid "Color: Light"
+msgstr ""
+
+#. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
+#: src/iagno.vala:684
+msgid "More options"
+msgstr "Mai d'opcions"
+
+#. Translators: when configuring a new game, button label for the AI level, if easy
+#: src/iagno.vala:688
+msgid "Difficulty: Easy"
+msgstr ""
+
+#. Translators: when configuring a new game, button label for the AI level, if medium
+#: src/iagno.vala:692
+msgid "Difficulty: Medium"
+msgstr ""
+
+#. Translators: when configuring a new game, button label for the AI level, if hard
+#: src/iagno.vala:696
+msgid "Difficulty: Hard"
+msgstr ""
+
+#. Translators: during a game, notification to display when Light has no possible moves
+#: src/iagno.vala:901
+msgid "Light must pass, Dark’s move"
+msgstr "Los blancs devon passar lor torn, als negres de jogar"
+
+#. Translators: during a game, notification to display when Dark has no possible moves
+#: src/iagno.vala:906
+msgid "Dark must pass, Light’s move"
+msgstr "Los negres devon passar lor torn, als blancs de jogar"
+
+#. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
+#: src/iagno.vala:920
 #, c-format
-msgid "VNC File is missing key “%s”"
-msgstr "Clau « %s » mancanta pel fichièr VNC"
+msgid "Light wins! (%u-%u)"
+msgstr ""
 
-#: src/vnc-properties-dialog.vala:33
-msgid "View only"
-msgstr "Afichar solament"
+#. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
+#: src/iagno.vala:925
+#, c-format
+msgid "Dark wins! (%u-%u)"
+msgstr ""
 
-#: src/vnc-properties-dialog.vala:38
-msgid "Show local pointer"
-msgstr "Afichar lo puntador local"
+#. Translators: during a game, notification to display when the game is a draw
+#: src/iagno.vala:929
+msgid "The game is draw."
+msgstr "La partida es nulla."
 
-#: src/vnc-properties-dialog.vala:44
-msgid "Bandwidth"
-msgstr "Benda passanta"
+#. Translators: during a game, notification to display when the player tries to make an illegal move
+#: src/iagno.vala:948
+msgid "You can’t move there!"
+msgstr "Podètz pas vos desplaçar enlai !"
 
-#: src/vnc-properties-dialog.vala:46
-msgid "High quality"
-msgstr "Nauta qualitat"
+#. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
+#: src/iagno.vala:955
+msgid "In this opening, Light can only play on tiles bordering on Dark one."
+msgstr ""
 
-#: src/vnc-properties-dialog.vala:47
-msgid "Fast refresh"
-msgstr "Actualizacion rapida"
+#. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
+#: src/iagno.vala:959
+msgid "Click on one of the highlighted tiles to move the selected piece there."
+msgstr ""
+
+#. Translators: about dialog text
+#: src/iagno.vala:1092
+msgid "A disk flipping game derived from Reversi"
+msgstr "Un jòc de revirament de pions derivat de Reversi"
+
+#. Translators: text crediting an artist, in the about dialog
+#: src/iagno.vala:1096
+msgid "Masuichi Ito (pieces)"
+msgstr ""
+
+#. Translators: text crediting an artist, in the about dialog
+#: src/iagno.vala:1100
+msgid "Arnaud Bonatti (themes)"
+msgstr "Arnaud Bonatti (themes)"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1105
+msgid "Ian Peters"
+msgstr "Ian Peters"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1109
+msgid "Robert Ancell"
+msgstr "Robert Ancell"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1113
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1118
+#, c-format
+msgid "Copyright © %u-%u – Ian Peters"
+msgstr "Copyright © %u-%u – Ian Peters"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1122
+#, c-format
+msgid "Copyright © %u-%u – Michael Catanzaro"
+msgstr "Copyright © %u-%u – Michael Catanzaro"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1126
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Copyright © %u-%u – Arnaud Bonatti"
+
+#. Translators: text crediting a documenter, in the about dialog
+#: src/iagno.vala:1130
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/iagno.vala:1135
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Cédric VALMARY (Tot en òc) https://launchpad.net/~cvalmary\n"
+"  Vincent L. https://launchpad.net/~vincent-laporte\n"
+"  Yannig MARCHEGAY (Kokoyaya) https://launchpad.net/~yannick-marchegay"
+
+#. Translators: about dialog text; label of the website link
+#: src/iagno.vala:1140
+msgid "Page on GNOME wiki"
+msgstr "Pagina sul wiki GNOME"
+
+#. Translators: when configuring a new game, button label for the size of the game ("3 × 3", or 4, or 5)
+#: src/new-game-screen.vala:95
+#, c-format
+msgid "Size: %d × %d ▾"
+msgstr "Talha : %d × %d ▾"
+
+#~ msgid "GNOME Connections"
+#~ msgstr "Connexions de GNOME"
+
+#~ msgid "A remote desktop client for the GNOME desktop environment"
+#~ msgstr "Un client de burèu distant per l’environament de burèu GNOME"
+
+#~ msgid "A remote desktop client for the GNOME desktop environment."
+#~ msgstr "Un client de burèu distant per l’environament de burèu GNOME."
+
+#~ msgid "Remote Desktop (VNC) file"
+#~ msgstr "Fichièr d'accès a distància (VNC)"
+
+#~ msgid "Delete"
+#~ msgstr "Suprimir"
+
+#~ msgid "Properties"
+#~ msgstr "Proprietats "
+
+#~ msgid "Couldn’t open file of unknown mime type %s"
+#~ msgstr "Impossible de dobrir lo fichièr de tipe mime desconegut %s"
+
+#~ msgid "Connection to “%s” has been deleted"
+#~ msgstr "La connexion cap a « %s » es estada suprimida"
+
+#~ msgid "Undo"
+#~ msgstr "Desfar"
+
+#~ msgid "URL to connect"
+#~ msgstr "URL de connexion"
+
+#~ msgid "Open .vnc or .rdp file at the given PATH"
+#~ msgstr "Dobrir lo fichièr .vnc o .rdp al camin donat"
+
+#~ msgid "Too many command-line arguments specified.\n"
+#~ msgstr ""
+#~ "Nombre de paramètres de linha de comanda especificats tròp important.\n"
+
+#~ msgid "Screenshot from %s"
+#~ msgstr "Captura d'ecran de %s"
+
+#~ msgid "Screenshot taken"
+#~ msgstr "Captura d’ecran efectuada"
+
+#~ msgid "Open"
+#~ msgstr "Dobrir"
+
+#~ msgid "“%s” requires authentication"
+#~ msgstr "« %s » requerís l’autentificacion"
+
+#~ msgid "%d×%d"
+#~ msgstr "%d×%d"
+
+#~ msgid "Scaling"
+#~ msgstr "Mesa a l'escala"
+
+#~ msgid "Take Screenshot"
+#~ msgstr "Prendre una captura d’ecran"
+
+#~ msgid ""
+#~ "Enter a machine address to connect to. Address can begin with rdp:// or "
+#~ "vnc://"
+#~ msgstr ""
+#~ "Picatz una adreça de maquina per vos i connectar. L’adreça pòt començar "
+#~ "amb rdp:// o vnc://"
+
+#~ msgid "Server"
+#~ msgstr "Servidor"
+
+#~ msgid "Name"
+#~ msgstr "Nom"
+
+#~ msgid "Cancel"
+#~ msgstr "Anullar"
+
+#~ msgid "_Username"
+#~ msgstr "_Nom d’utilizaire"
+
+#~ msgid "_Password"
+#~ msgstr "_Senhal"
+
+#~ msgid "Sign In"
+#~ msgstr "Se connectar"
+
+#~ msgid "Welcome to Connections"
+#~ msgstr "Benvenguda dins Connexions"
+
+#~ msgid "Just hit the <b>+</b> button to make your first connection."
+#~ msgstr ""
+#~ "Quichatz simplament sul boton <b>+</b> per establir vòstra primièra "
+#~ "connexion."
+
+#~ msgid "Connection Properties"
+#~ msgstr "Proprietats de connexion"
+
+#~ msgid "Address"
+#~ msgstr "Adreça"
+
+#~ msgid "New"
+#~ msgstr "Novèla"
+
+#~ msgid "Application Menu"
+#~ msgstr "Menú de l’aplicacion"
+
+#~ msgid "Search"
+#~ msgstr "Cercar"
+
+#~ msgid "Go Back"
+#~ msgstr "Retorn"
+
+#~ msgid "Display Menu"
+#~ msgstr "Menú d’afichatge"
+
+#~ msgid "Disconnect"
+#~ msgstr "Desconnectar"
+
+#~ msgid "About Connections"
+#~ msgstr "A prepaus de Connexions"
+
+#~ msgid "Ctrl + Alt + Backspace"
+#~ msgstr "Ctrl + Alt + Retorn Arrièr"
+
+#~ msgid "Ctrl + Alt + Del"
+#~ msgstr "Ctrl + Alt + Supr"
+
+#~ msgid "Ctrl + Alt + F1"
+#~ msgstr "Ctrl + Alt + F1"
+
+#~ msgid "Ctrl + Alt + F2"
+#~ msgstr "Ctrl + Alt + F2"
+
+#~ msgid "Ctrl + Alt + F3"
+#~ msgstr "Ctrl + Alt + F3"
+
+#~ msgid "Ctrl + Alt + F7"
+#~ msgstr "Ctrl + Alt + F7"
+
+#~ msgid "Couldn’t parse the file"
+#~ msgstr "Impossible d’analisar lo fichièr"
+
+#~ msgid "VNC File is missing key “%s”"
+#~ msgstr "Clau « %s » mancanta pel fichièr VNC"
+
+#~ msgid "View only"
+#~ msgstr "Afichar solament"
+
+#~ msgid "Show local pointer"
+#~ msgstr "Afichar lo puntador local"
+
+#~ msgid "Bandwidth"
+#~ msgstr "Benda passanta"
+
+#~ msgid "Fast refresh"
+#~ msgstr "Actualizacion rapida"
