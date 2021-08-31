@@ -1,25 +1,27 @@
-# Tests generation
-run_target('update-perfs-tests', command: executable ('iagno-perfs-tests-generator',
-        [
-            'vapi/config.vapi',
-            'perfs-tests-generator.vala',
-            'computer-player.vala',
-            'computer-reversi.vala',
-            'game.vala',
-            'player.vala'
-        ],
-        c_args: [
-            '-include', 'config.h'
-        ],
-        vala_args: [
-            '--enable-experimental-non-null'
-        ],
-        dependencies : [
-            gio_dependency,
-            posix_dependency
-        ]
+if meson.can_run_host_binaries()
+    # Tests generation
+    run_target('update-perfs-tests', command: executable ('iagno-perfs-tests-generator',
+            [
+                'vapi/config.vapi',
+                'perfs-tests-generator.vala',
+                'computer-player.vala',
+                'computer-reversi.vala',
+                'game.vala',
+                'player.vala'
+            ],
+            c_args: [
+                '-include', 'config.h'
+            ],
+            vala_args: [
+                '--enable-experimental-non-null'
+            ],
+            dependencies : [
+                gio_dependency,
+                posix_dependency
+            ]
+        )
     )
-)
+endif
 
 # Generated tests
 if get_option('perfs_tests')
