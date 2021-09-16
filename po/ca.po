@@ -34,7 +34,7 @@ msgstr "GNOME Reversi"
 msgid ""
 "Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr ""
-"Domineu el tauler en una versió clàssica del Reversi o jugueu la variant "
+"Domineu el tauler en una versió clàssica del Reversi, o jugueu la variant "
 "invertida del joc"
 
 #: data/org.gnome.Reversi.appdata.xml.in:11
@@ -178,7 +178,7 @@ msgstr "Selecciona la columna donada"
 #: data/ui/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Play on selected tile"
-msgstr "Jugueu amb el mosaic seleccionat"
+msgstr "Juga amb el mosaic seleccionat"
 
 #. Translators: in the Keyboard Shortcuts window, name of a section; contains
 #. “Start new game” and “Go back”
@@ -192,7 +192,7 @@ msgstr "Durant la selecció del joc"
 #: data/ui/help-overlay.ui:106
 msgctxt "shortcut window"
 msgid "Start new game"
-msgstr "Començar una partida nova"
+msgstr "Comença una partida nova"
 
 #. Translators: in the Keyboard Shortcuts window, section "During game
 #. selection"
