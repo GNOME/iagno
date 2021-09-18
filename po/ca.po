@@ -358,7 +358,7 @@ msgstr ""
 #. /org/gnome/iagno/color'
 #: data/org.gnome.Reversi.gschema.xml:57
 msgid "Color to play as"
-msgstr "Color amb el que voleu jugar"
+msgstr "Color amb el qual voleu jugar"
 
 #. Translators: description of a settings key, see 'dconf-editor
 #. /org/gnome/iagno/color'
