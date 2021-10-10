@@ -541,7 +541,7 @@ msgid ""
 msgstr ""
 "Para contribuir al Proyecto de Documentación, no dude en ponerse en contacto con "
 "nosotros <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC"
-"\">utilizando irc (en el canal <code>#docs</code>). Las personas en el canal se "
+"\">utilizando irc</link> (en el canal <code>#docs</code>). Las personas en el canal se "
 "encuentran en todo el mundo, por lo que es posible que no obtenga una respuesta "
 "inmediata como resultado de las diferencias de zona horaria."
 
