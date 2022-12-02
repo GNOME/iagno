@@ -5,14 +5,14 @@
 #
 msgid ""
 msgstr "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2021-03-23 22:00+0000\n"
-"PO-Revision-Date: 2021-04-24 20:06+0000\n"
+"POT-Creation-Date: 2022-05-26 14:20+0000\n"
+"PO-Revision-Date: 2022-07-25 20:06+0000\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eu\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -67,7 +67,7 @@ msgid ""
 "Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter "
 "case, <app>Reversi</app> is already configured to start a two-player game, "
 "else it would start a game against the computer."
-msgstr ""
+msgstr "<link xref=\"configure\">Joko berria konfiguratzean</link>, begiratu beheranzko gezia duen lehen botoiari. Honako etiketa bat eduki beharko luke: <gui>Kolorea: Iluna</gui>, <gui>Kolorea: Argia</gui> edo <gui>Bi jokalari</gui>. Azken kasuan, <app>Reversi</app> dagoeneko bi jokalarirekin abiarazteko konfiguratuta dago; bestela, ordenagailuaren aurka jokatuko da."
 
 #. (itstool) path: page/p
 #: C/2player.page:26
@@ -76,7 +76,7 @@ msgid ""
 "the menu that appears, select <gui>Two players</gui>. The button will change "
 "its label to <gui>Two players</gui>. You can then select the <gui>Start "
 "Game</gui> button to launch your game and <link xref=\"play\">play</link>."
-msgstr ""
+msgstr "Botoiak ez badu <gui>Bi jokalari</gui> adierazten, hautatu botoia eta, agertuko den menuan, hautatu <gui>Bi jokalari</gui>. Botoiaren etiketa aldatuko da eta <gui>Bi jokalari</gui> esango du. Ondoren, <gui>Hasi jokoa</gui> botoia hautatu daiteke jokoa abiarazteko eta <link xref=\"play\">jokatzeko</link>."
 
 #. (itstool) path: page/p
 #: C/2player.page:28
@@ -107,7 +107,7 @@ msgid ""
 "Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the two "
 "first cases, <app>Reversi</app> is already configured to start a game "
 "against the computer, else it would start a two-player game."
-msgstr ""
+msgstr "<link xref=\"configure\">Joko berria konfiguratzean</link>, begiratu beheranzko gezia duen lehen botoiari. Honako etiketa bat eduki beharko luke: <gui>Kolorea: Iluna</gui>, <gui>Kolorea: Argia</gui> edo <gui>Bi jokalari</gui>. Lehen bi kasuetan, <app>Reversi</app> hasieran ordenagailuaren aurka jokatzeko prestatuta dago; bestela, bi jokalarirekin abiaraziko da."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:26
@@ -115,7 +115,7 @@ msgid ""
 "If the button is labelled <gui>Color: Dark</gui>, that means that you will "
 "do the first move. Of course, <gui>Color: Light</gui> means that it will be "
 "the computer."
-msgstr ""
+msgstr "Botoiaren etiketa <gui>Kolorea: Iluna</gui> bada, zuk egin behar duzu lehen mugimendua. Etiketa <gui>Kolorea: Argia</gui> bada, ordenagailua hasiko da."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:28
@@ -125,7 +125,7 @@ msgid ""
 "game, or <gui>Play second (Light)</gui> if you want the computer to start. "
 "The button will change its label to <gui>Color: Dark</gui> in the former "
 "case, and to <gui>Color: Light</gui> in the latter."
-msgstr ""
+msgstr "Botoiak <gui>Bi jokalari</gui> adierazten badu, hautatu botoia eta, agertuko den menuan, hautatu <gui>Jokatu lehen (Iluna)</gui> zuk hasi nahi baduzu jokoa, edo <gui>Jokatu bigarren (Argia)</gui> ordenagailua hasi dadin nahi baduzu. Botoiaren etiketa aldatuko da eta <gui>Kolorea: Iluna</gui> esango du lehen kasuan eta <gui>Kolorea: Argia</gui> bigarrenean."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:30
@@ -152,7 +152,7 @@ msgid ""
 "These levels are called: <em>Easy</em>, <em>Medium</em>, and <em>Hard</em>. "
 "The first one is suitable for beginners, the second for casual players, and "
 "the last one should please regular players."
-msgstr ""
+msgstr "Mailak honakoak dira: <em>Erraza</em>, <em>Ertaina</em> eta <em>Zaila</em>. Lehena hasiberrientzat da, bigarrean noizean behin jokatzen dutenentzat eta azkena jokalari adituentzat."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:26
@@ -418,7 +418,7 @@ msgid ""
 "irc</link> (on the <code>#docs</code> channel). People on the channel are "
 "located worldwide, so you may not get an immediate response as a result of "
 "timezone differences."
-msgstr ""
+msgstr "Dokumentazioaren proiektuan laguntzeko, erabili <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC\">irc</link> (<code>#docs</code> kanalean). Kanaleko jendea mundu osokoa da, beraz zenbaitetan ez duzu berehalako erantzunik jasoko, ordu-zonen ondorioz."
 
 #. (itstool) path: page/p
 #: C/documentation.page:32
@@ -426,7 +426,7 @@ msgid ""
 "Alternatively, you can contact the Documentation Project using the dedicated "
 "<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list"
 "\">mailing list</link>."
-msgstr ""
+msgstr "Beste komunikazio-kanal bat dokumentazio-taldearen <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list\">posta-zerrenda</link> da."
 
 #. (itstool) path: page/p
 #: C/documentation.page:34
@@ -443,80 +443,80 @@ msgstr "Lehen mugimenduen adibide bat"
 #. (itstool) path: media/p
 #: C/example.page:27
 msgid "Usual start position: E4 and D5 are dark, D4 and E5 are light."
-msgstr "Ohiko hasierako kokalekua: E4 eta D5 ilunak dira, D4 eta E5 argiak dira."
+msgstr "Ohiko hasierako posizioa: E4 eta D5 ilunak dira, D4 eta E5 argiak dira."
 
 #. (itstool) path: td/p
 #: C/example.page:31
 msgid "<em>Start position</em>"
-msgstr "<em>Hasierako kokalekua</em>"
+msgstr "<em>Hasierako posizioa</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:33
 msgid "This is the usual start position of the reversi game family."
-msgstr ""
+msgstr "Hau da Reversi joko-familliaren hasierako posizio arruntena."
 
 #. (itstool) path: td/p
 #: C/example.page:35
 msgid ""
 "<app>Reversi</app> also allows you to <link xref=\"start-position\">use "
 "other start positions</link>."
-msgstr ""
+msgstr "<app>Reversi</app> aplikazioan <link xref=\"start-position\">hasierako beste posizio batzuk</link> ere erabili daitezke."
 
 #. (itstool) path: media/p
 #: C/example.page:42
 msgid "Example first move: <em>Dark</em> plays D3, capturing D4 thanks to D5."
-msgstr ""
+msgstr "Lehen mugimendurako adibidea: <em>Ilunak</em> D3 jokatzen du, D4 harrapatzeko D5i eske."
 
 #. (itstool) path: td/p
 #: C/example.page:46
 msgid "<em>Example first move</em>"
-msgstr ""
+msgstr "<em>Lehen mugimenduaren adibidea</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:48
 msgid "<em>Dark</em> always starts in the reversi game family."
-msgstr ""
+msgstr "<em>Iluna</em> da beti hasten den Reversi joko-familian."
 
 #. (itstool) path: td/p
 #: C/example.page:50
 msgid "Whatever start position is used, there are four possible first moves."
-msgstr ""
+msgstr "Berdin dio hasierako posizioa zein den, beti daude lehenengo lau mugimendu posible."
 
 #. (itstool) path: td/p
 #: C/example.page:52
 msgid ""
 "In the usual start position like here, the four possibilities are equivalent "
 "by symmetry."
-msgstr ""
+msgstr "Hau bezalako hasierako posizio normalean, lau aukerak baliokideak dira simetriagatik."
 
 #. (itstool) path: media/p
 #: C/example.page:59
 msgid "First <em>Light</em> move: playing E3 and capturing E4 thanks to E5."
-msgstr ""
+msgstr "<em>Argien</em> lehen mugimendua: E3 jokatzea eta E4 harrapatzea E5i esker."
 
 #. (itstool) path: td/p
 #: C/example.page:63
 msgid "<em>Possible second move</em>"
-msgstr ""
+msgstr "<em>Bigarren mugimendu posiblea</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:65
 msgid "<em>Light</em> has three possibilities of capturing one piece."
-msgstr ""
+msgstr "<em>Argiek</em> pieza bat harrapatzeko hiru aukera dituzte."
 
 #. (itstool) path: td/p
 #: C/example.page:67
 msgid ""
 "The game will require to search for the <link xref=\"strategy\">best "
 "strategy</link>!"
-msgstr ""
+msgstr "Jokoan ondo jokatzeko, <link xref=\"strategy\">estrategiarik onena</link> aukeratu behar da."
 
 #. (itstool) path: media/p
 #: C/example.page:74
 msgid ""
 "<em>Dark</em> turns multiple rows: playing F3, it captures both E3 due to D3 "
 "and E4 due to D5."
-msgstr ""
+msgstr "<em>Ilunek</em> errenkada anitz iraultzen dituzte: F3 jokatuta, E3 harrapatzen dute D3i esker eta E4 harrapatzen dute D5i esker."
 
 #. (itstool) path: td/p
 #: C/example.page:78
@@ -526,14 +526,14 @@ msgstr "<em>Errenkada anitz harrapatzea</em>"
 #. (itstool) path: td/p
 #: C/example.page:80
 msgid "<em>Dark</em> has five possibilities to play, all on the sixth column."
-msgstr ""
+msgstr "<em>Ilunek</em> jokatzeko bost aukera dituzte, denak seigarren zutabean."
 
 #. (itstool) path: td/p
 #: C/example.page:82
 msgid ""
 "Two of these possibilities allow capturing in two directions at the same "
 "time, one piece in each."
-msgstr ""
+msgstr "Aukera horietako bik aldi berean bi norabidetan harrapatzea ahalbidetzen dute, bakoitzean pieza bat."
 
 #. (itstool) path: td/p
 #: C/example.page:84
@@ -541,53 +541,53 @@ msgid ""
 "Capturing the higher number of tiles is not required in reversi, and may not "
 "be the best solution even. Only the number of owned tiles at the end of the "
 "game will count."
-msgstr ""
+msgstr "Reversin ez da derrigorrezkoa ahalik eta lauza kopuru handiena harrapatzea, agian ez baita konponbiderik onena. Garrantzitsuena da zenbat lauza dituen bakoitzak jokoaren amaieran."
 
 #. (itstool) path: media/p
 #: C/example.page:91
 msgid ""
 "<em>Light</em> turns a row of two pieces: playing E2, it turns E3 and E4 "
 "thanks to E5"
-msgstr ""
+msgstr "<em>Argiek</em> bi piezen errenkada bat iraultzen dute: E2 jokatuta, E3 eta E4 iraultzen dira E5i esker"
 
 #. (itstool) path: td/p
 #: C/example.page:95
 msgid "<em>Turning a two-pieces row</em>"
-msgstr ""
+msgstr "<em>Bi piezen errenkada bat iraultzea</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:97
 msgid "<em>Light</em> has again three play possibilities."
-msgstr ""
+msgstr "<em>Argiek</em> jokatzeko hiru aukera dituzte berriro."
 
 #. (itstool) path: td/p
 #: C/example.page:99
 msgid "One of them is to capture two dark pieces in a row."
-msgstr ""
+msgstr "Horietako bat da bi pieza ilun errenkadan harrapatzea."
 
 #. (itstool) path: td/p
 #: C/example.page:101
 msgid ""
 "Playing that way may allow <em>Dark</em> to play next on the board edge. Is "
 "that a good strategy? Who knows!"
-msgstr ""
+msgstr "Horrela jokatuta, <em>Ilunek</em> hurrengoa taularen ertzean jokatuko dute. Hori estrategia ona al da? Batek daki!"
 
 #. (itstool) path: page/title
 #: C/highlights.page:20
 msgid "Display helpful highlights"
-msgstr ""
+msgstr "Bistaratu nabarmentze lagungarriak"
 
 #. (itstool) path: page/p
 #: C/highlights.page:22
 msgid ""
 "<app>Reversi</app> can display some helpful highlights during a game, be it "
 "a <em>Classic Reversi</em> or a <em>Reverse Reversi</em>."
-msgstr ""
+msgstr "<app>Reversik</app> laguntzak bistaratu ditzake jokoan zehar, bai <em>Reversi klasikoan</em> bai <em>Alderantzizko Reversi</em> jokoan."
 
 #. (itstool) path: section/title
 #: C/highlights.page:25
 msgid "Highlight playable tiles"
-msgstr ""
+msgstr "Nabarmendu jokatu daitezkeen lauzak"
 
 #. (itstool) path: section/p
 #: C/highlights.page:27
@@ -617,7 +617,7 @@ msgstr ""
 #. (itstool) path: section/title
 #: C/highlights.page:35
 msgid "Highlight capturable tiles"
-msgstr ""
+msgstr "Nabarmendu harrapatu daitezkeen lauzak"
 
 #. (itstool) path: section/p
 #: C/highlights.page:37
@@ -806,7 +806,7 @@ msgstr "Jokatu teklatuarekin edo saguarekin"
 msgid ""
 "<app>Reversi</app> allows you to easily play with a mouse or with the "
 "keyboard."
-msgstr ""
+msgstr "<app>Reversi</app> jokoan sagua zein taklatua erabili daitezke."
 
 #. (itstool) path: section/title
 #: C/play.page:30
@@ -876,7 +876,7 @@ msgstr ""
 msgid ""
 "Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the "
 "selected tile."
-msgstr ""
+msgstr "Erabili <key>Zuriunea</key> tekla edo <key>Return</key> tekla pieza bat hautatutako lauzan uzteko."
 
 #. (itstool) path: item/p
 #: C/play.page:72
@@ -950,7 +950,7 @@ msgid ""
 "Games from the reversi game family are usually played on an 8 by 8 board. "
 "The game begins with four pieces, two light and two dark, placed on the four "
 "central tiles of the board."
-msgstr ""
+msgstr "Reversi familiako jokoak 8x8 tamainako taulan jokatzen dira normalean. Jokoa lau piezarekin hasten da, bi pieza argi eta bi pieza ilun, taularen erdiguneko lau lauzatan kokatuta."
 
 #. (itstool) path: section/p
 #: C/rules.page:46
@@ -964,17 +964,17 @@ msgstr ""
 #. (itstool) path: media/p
 #: C/rules.page:52 C/start-position.page:48
 msgid "Usual start position: light-dark, dark-light"
-msgstr ""
+msgstr "Ohiko hasierako posizioa: argia-iluna, iluna-argia"
 
 #. (itstool) path: td/p
 #: C/rules.page:58
 msgid "<em>The usual start position</em>"
-msgstr ""
+msgstr "<em>Ohiko hasierako posizioa</em>"
 
 #. (itstool) path: section/p
 #: C/rules.page:63
 msgid "<em>Dark</em> goes first."
-msgstr ""
+msgstr "<em>Iluna</em> lehena doa."
 
 #. (itstool) path: section/title
 #: C/rules.page:67
@@ -993,7 +993,7 @@ msgstr ""
 #. (itstool) path: note/p
 #: C/rules.page:71
 msgid "This placement can be horizontal, vertical or diagonal."
-msgstr ""
+msgstr "Kokatzea horizontala, bertikala edo zeharkakoa izan daiteke."
 
 #. (itstool) path: section/p
 #: C/rules.page:74
@@ -1001,7 +1001,7 @@ msgid ""
 "When the tile is placed, the row of tiles between the newly placed tile and "
 "the other is flipped over, taking the players color. If multiple rows of "
 "tiles are trapped that way, they are all flipped over."
-msgstr ""
+msgstr "Lauza kokatzen denean, kokatu berri den lauzaren eta gainerakoen arteko lauzen errenkada irauli egiten da eta jokalariaren kolorea hartzen dute. Lauzen errenkada anitz harrapatzen badira horrela, den-denak irauliko dira."
 
 #. (itstool) path: section/p
 #: C/rules.page:76
@@ -1009,7 +1009,7 @@ msgid ""
 "If there is no possible moves in a turn, the player has to pass. A player "
 "cannot pass a turn if there is a possible move. If both players cannot move, "
 "notably when the board is full, the game is over."
-msgstr ""
+msgstr "Txanda batean ez badago mugimendu posiblerik, jokalariak paso egin behar du. Jokalariak ezin du paso egin mugimendu posible bat badago. Bi jokalarietako batek ere ezin badu mugitu, batez ere taula beteta dagoenean gertatzen dena, jokoa amaitu egingo da."
 
 #. (itstool) path: section/title
 #: C/rules.page:80
@@ -1021,14 +1021,14 @@ msgstr "Jokoaren amaiera"
 msgid ""
 "The players alternate turns until no more legal moves can be made by either "
 "player. At this point the game is over."
-msgstr ""
+msgstr "Jokalariek txandaka egiten dituzte mugimenduak, legezko mugimendu gehiagorik egin ezin den arte. Puntu horretan, jokoa amaitu egingo da."
 
 #. (itstool) path: section/p
 #: C/rules.page:84
 msgid ""
 "The end of the game often results in a full board, but not necessarily. In "
 "either way, it is the number of pieces that will matter to decide who wins."
-msgstr ""
+msgstr "Jokoaren amaieran gehienetan taula beteta egoten da, baina ez beti. Edonola ere, irabazlea nor den erabakitzeko, bakoitzaren pieza kopurua zenbatzen da."
 
 #. (itstool) path: section/p
 #: C/rules.page:86
@@ -1044,7 +1044,7 @@ msgstr ""
 msgid ""
 "If there is the same number of dark and light tiles, the game is declared a "
 "draw."
-msgstr ""
+msgstr "Lauza argiak eta ilunak kopuru berean badaude, jokoa berdindu dela ebatziko da."
 
 #. (itstool) path: page/title
 #: C/select-game.page:20
@@ -1139,7 +1139,7 @@ msgstr "Joan atzera"
 #. (itstool) path: td/p
 #: C/shortcuts.page:38
 msgid "<key>Escape</key>"
-msgstr ""
+msgstr "<key>Escape</key>"
 
 #. (itstool) path: section/title
 #: C/shortcuts.page:44
@@ -1154,7 +1154,7 @@ msgstr "Hautatu non jokatu"
 #. (itstool) path: td/p
 #: C/shortcuts.page:48
 msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
-msgstr ""
+msgstr "<key>←</key>, <key>→</key>, <key>↑</key> eta <key>↓</key>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:51
@@ -1184,7 +1184,7 @@ msgstr "Jokatu hautatutako lauzan"
 #. (itstool) path: td/p
 #: C/shortcuts.page:60
 msgid "<key>Return</key>, <key>Space</key>"
-msgstr ""
+msgstr "<key>Return</key>, <key>Zuriunea</key>"
 
 #. (itstool) path: section/title
 #: C/shortcuts.page:66
@@ -1263,7 +1263,7 @@ msgstr "Gaitu edo desgaitu soinua"
 msgid ""
 "To enable or disable the sound, press the menu button in the top-right "
 "corner of the window and select <gui>Sound</gui>."
-msgstr ""
+msgstr "Soinua gaitzeko edo desgaitzeko, sakatu leihoaren goiko eskuineko menu-botoia eta hautatu <gui>Soinua</gui>."
 
 #. (itstool) path: page/title
 #: C/start-position.page:21
@@ -1329,27 +1329,27 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/start-position.page:42
 msgid "The two main positions are the following:"
-msgstr ""
+msgstr "Bi posizio nagusiak honakoak dira:"
 
 #. (itstool) path: media/p
 #: C/start-position.page:53
 msgid "Alternative position: dark-light, dark-light"
-msgstr ""
+msgstr "Ordezko posizioa: iluna-argia, iluna-argia"
 
 #. (itstool) path: td/p
 #: C/start-position.page:59
 msgid "<em>Usual start position</em>"
-msgstr ""
+msgstr "<em>Ohiko hasierako posizioa</em>"
 
 #. (itstool) path: td/p
 #: C/start-position.page:62
 msgid "<em>Alternative position</em>"
-msgstr ""
+msgstr "<em>Ordezko posizioa</em>"
 
 #. (itstool) path: section/p
 #: C/start-position.page:67
 msgid "Their allowed symmetries are the following:"
-msgstr ""
+msgstr "Onartutako simetriak honakoak dira:"
 
 #. (itstool) path: media/p
 #: C/start-position.page:73
@@ -1581,21 +1581,21 @@ msgstr ""
 #. (itstool) path: section/title
 #: C/theme.page:60
 msgid "<em>Default</em> theme"
-msgstr ""
+msgstr "Gai <em>lehenetsia</em>"
 
 #. (itstool) path: section/p
 #: C/theme.page:62
 msgid ""
 "The first entry in the themes list is called <em>Default</em> and has a "
 "special behavior."
-msgstr ""
+msgstr "Gaien zerrenden lehen sarrera <em>Lehenetsia</em> da eta portaera berezia du."
 
 #. (itstool) path: section/p
 #: C/theme.page:64
 msgid ""
 "When this entry is selected, the application tries to choose a theme adapted "
 "to your environment:"
-msgstr ""
+msgstr "Sarrera hori hautatzen bada, aplikazioak zure inguruneari egokitutako gai bat aukeratzen saiatzen da."
 
 #. (itstool) path: item/p
 #: C/theme.page:68
@@ -1625,7 +1625,7 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/theme.page:78
 msgid "This behavior is of course the default one of the application."
-msgstr ""
+msgstr "Portaera hori aplikazioaren portaera lehenetsia da."
 
 #. (itstool) path: section/title
 #: C/theme.page:82
@@ -1636,14 +1636,14 @@ msgstr "Informazio gehiago"
 #: C/theme.page:84
 msgid ""
 "There is no way to install a different theme than the ones described here."
-msgstr ""
+msgstr "Ez dago gai bat instalatzeko beste modurik, hemen deskribatutakoez aparte."
 
 #. (itstool) path: section/p
 #: C/theme.page:86
 msgid ""
 "These themes have been designed by Arnaud Bonatti, with pieces created by "
 "Masuichi Ito."
-msgstr ""
+msgstr "Gaiak Arnaud Bonattik diseinatu ditu, eta piezak Masuichi Itok sortu ditu."
 
 #. (itstool) path: section/p
 #: C/theme.page:88
