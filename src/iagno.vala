@@ -303,7 +303,7 @@ private class Iagno : Gtk.Application, BaseApplication
         level_menu.append (_("_Medium"), "app.change-level('2')");
 
 
-        /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt) */
+        /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt) */
         level_menu.append (_("_Hard"),   "app.change-level('3')");
         section.freeze ();
         level_menu.append_section (null, section);

@@ -57,7 +57,7 @@
     <p>To make a move:</p>
     <steps>
       <item>
-        <p>Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> arrows to go at the tile you want to move. The currently selected tile is indicated by an highlight on the board.</p>
+        <p>Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> arrows to go at the tile you want to move. The currently selected tile is indicated by a highlight on the board.</p>
       </item>
       <item>
         <p>Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the selected tile.</p>
