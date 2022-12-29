@@ -6,20 +6,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2020-07-05 21:05+0000\n"
-"PO-Revision-Date: 2017-01-14 21:07+0700\n"
+"POT-Creation-Date: 2022-10-12 11:35+0000\n"
+"PO-Revision-Date: 2022-12-29 18:45+0700\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Kukuh Syafaat <syafaatkukuh@gmail.com>, 2017."
+msgstr ""
+"Kukuh Syafaat <syafaatkukuh@gmail.com>, 2017.\n"
+"Andika Triwidada <andika@gmail.com>, 2022."
 
 #. (itstool) path: credit/name
 #: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
@@ -28,7 +30,7 @@ msgstr "Kukuh Syafaat <syafaatkukuh@gmail.com>, 2017."
 #: C/rules.page:25 C/select-game.page:10 C/shortcuts.page:15
 #: C/start-position.page:11 C/theme.page:10 C/translate.page:19
 msgid "Arnaud Bonatti"
-msgstr ""
+msgstr "Arnaud Bonatti"
 
 #. (itstool) path: credit/years
 #: C/2player.page:12 C/ai-game.page:12 C/ai-level.page:12 C/alternate.page:12
@@ -37,7 +39,7 @@ msgstr ""
 #: C/rules.page:27 C/select-game.page:12 C/shortcuts.page:17
 #: C/start-position.page:13 C/theme.page:12 C/translate.page:21
 msgid "2020"
-msgstr ""
+msgstr "2020"
 
 #. (itstool) path: license/p
 #: C/2player.page:16 C/ai-game.page:16 C/ai-level.page:16 C/alternate.page:16
@@ -51,10 +53,8 @@ msgstr "Creative Commons Share Alike 3.0"
 
 #. (itstool) path: page/title
 #: C/2player.page:20
-#, fuzzy
-#| msgid "Play against the computer"
 msgid "Play with another player"
-msgstr "Bermain melawan komputer"
+msgstr "Bermain dengan pemain lain"
 
 #. (itstool) path: page/p
 #: C/2player.page:22
@@ -71,6 +71,7 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/2player.page:24
+#, fuzzy
 msgid ""
 "When <link xref=\"configure\">configuring a new game</link>, have a look to "
 "the first button with a down arrow; it should either be labelled <gui>Color: "
@@ -78,6 +79,11 @@ msgid ""
 "case, <app>Reversi</app> is already configured to start a two-player game, "
 "else it would start a game against the computer."
 msgstr ""
+"Saat <link xref=\"configure\">mengonfigurasi game baru, lihat tombol pertama "
+"dengan panah bawah; itu harus diberi label Warna: <gui>Gelap, Warna:</gui> "
+"<gui>Terang</gui> atau <gui>Dua pemain</gui>. Dalam kasus terakhir, "
+"<app>Reversi</app> sudah dikonfigurasi untuk memulai permainan dua pemain, "
+"jika tidak maka akan memulai permainan melawan komputer."
 
 #. (itstool) path: page/p
 #: C/2player.page:26
@@ -87,6 +93,11 @@ msgid ""
 "its label to <gui>Two players</gui>. You can then select the <gui>Start "
 "Game</gui> button to launch your game and <link xref=\"play\">play</link>."
 msgstr ""
+"Jika tombol tidak menunjukkan <gui>Dua pemain</gui>, pilih itu, dan di menu "
+"yang muncul, pilih <gui>Dua pemain</gui>. Tombol akan mengubah labelnya "
+"menjadi <gui>Dua pemain</gui>. Anda kemudian dapat memilih tombol <gui>Mulai "
+"Permainan</gui> untuk meluncurkan permainan Anda dan <link xref=\"play"
+"\">bermain</link>."
 
 #. (itstool) path: page/p
 #: C/2player.page:28
@@ -95,6 +106,10 @@ msgid ""
 "link> and start a two-player game, you will start the game with a special "
 "<link xref=\"start-position#human-overture\">two-player game overture</link>."
 msgstr ""
+"Jika Anda meminta permainan untuk <link xref=\"start-position"
+"\">memvariasikan posisi awal</link> dan memulai permainan dua pemain, Anda "
+"akan memulai permainan dengan <link xref=\"start-position#human-overture"
+"\">permainan dua pemain</link> khusus."
 
 #. (itstool) path: page/title
 #: C/ai-game.page:20
@@ -108,9 +123,13 @@ msgid ""
 "different levels of difficulty. You can also decide which player, between "
 "the computer and you, will start."
 msgstr ""
+"<app>Reversi</app> memungkinkan Anda bermain melawan komputer, dengan tiga "
+"tingkat kesulitan yang berbeda. Anda juga dapat memutuskan pemain mana, "
+"antara komputer dan Anda, yang akan memulai."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:24
+#, fuzzy
 msgid ""
 "When <link xref=\"configure\">configuring a new game</link>, have a look to "
 "the first button with a down arrow; it should either be labelled <gui>Color: "
@@ -118,6 +137,11 @@ msgid ""
 "first cases, <app>Reversi</app> is already configured to start a game "
 "against the computer, else it would start a two-player game."
 msgstr ""
+"Saat <link xref=\"configure\">mengonfigurasi game baru, lihat tombol pertama "
+"dengan panah bawah; itu harus diberi label Warna: <gui>Gelap, Warna:</gui> "
+"<gui>Terang</gui> atau <gui>Dua pemain</gui>. Dalam dua kasus pertama, "
+"<app>Reversi</app> sudah dikonfigurasi untuk memulai permainan melawan "
+"komputer, jika tidak maka akan memulai permainan dua pemain."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:26
@@ -126,6 +150,9 @@ msgid ""
 "do the first move. Of course, <gui>Color: Light</gui> means that it will be "
 "the computer."
 msgstr ""
+"Jika tombol diberi label <gui>Warna: Gelap</gui>, itu berarti Anda akan "
+"melakukan langkah pertama. Tentu saja, <gui>Warna: Terang</gui> berarti itu "
+"adalah komputer."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:28
@@ -136,38 +163,52 @@ msgid ""
 "The button will change its label to <gui>Color: Dark</gui> in the former "
 "case, and to <gui>Color: Light</gui> in the latter."
 msgstr ""
+"Jika tombol menunjukkan <gui>Dua pemain</gui>, pilih itu, dan di menu yang "
+"muncul, pilih <gui>Main pertama (Gelap)</gui> jika Anda ingin memulai "
+"permainan, atau <gui>Main kedua (Terang)</gui> jika Anda ingin komputer "
+"memulai. Tombol akan mengubah labelnya menjadi <gui>Warna: Gelap</gui> pada "
+"kasus pertama, dan menjadi <gui>Warna: Terang</gui> pada kasus yang terakhir."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:30
+#, fuzzy
 msgid ""
 "Once you have configured <app>Reversi</app> to play a game against the "
 "computer, you may <link xref=\"ai-level\">change the computer level</link>."
 msgstr ""
+"Setelah Anda mengonfigurasi <app>Reversi</app> untuk memainkan game melawan "
+"komputer, Anda dapat <link xref=\"ai-level\">mengubah level komputer."
 
 #. (itstool) path: page/title
 #: C/ai-level.page:20
-#, fuzzy
-#| msgid "Play against the computer"
 msgid "Change the computer level"
-msgstr "Bermain melawan komputer"
+msgstr "Mengubah level komputer"
 
 #. (itstool) path: page/p
 #: C/ai-level.page:22
+#, fuzzy
 msgid ""
 "<app>Reversi</app> offers you three level of difficulty if you want to play "
 "against the computer."
 msgstr ""
+"<app>Reversi</app> menawarkan tiga tingkat kesulitan jika Anda ingin bermain "
+"melawan komputer."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:24
+#, fuzzy
 msgid ""
 "These levels are called: <em>Easy</em>, <em>Medium</em>, and <em>Hard</em>. "
 "The first one is suitable for beginners, the second for casual players, and "
 "the last one should please regular players."
 msgstr ""
+"Level-level ini disebut: <em>Mudah</em>, <em>Sedang</em>, dan <em>Keras</"
+"em>. Yang pertama cocok untuk pemula, yang kedua untuk pemain biasa, dan "
+"yang terakhir harus menyenangkan pemain reguler."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:26
+#, fuzzy
 msgid ""
 "When <link xref=\"configure\">configuring a new game</link>, have a look to "
 "the second button with a down arrow; it should either be labelled "
@@ -178,38 +219,62 @@ msgid ""
 "player game, and you should first configure that you want to <link xref=\"ai-"
 "game\">play against the computer</link>."
 msgstr ""
+"Saat <link xref=\"configure\">mengonfigurasi game baru, lihat tombol kedua "
+"dengan panah bawah; itu harus diberi label Kesulitan: Mudah, Kesulitan: "
+"<gui>Sedang,</gui> <gui>Kesulitan: Opsi Sulit</gui> atau <gui>Lebih Banyak</"
+"gui>.<gui></gui> Tiga kemungkinan pertama menunjukkan mana dari tiga level "
+"yang akan digunakan jika memulai permainan baru. Dalam kasus terakhir, "
+"<app>Reversi</app> saat ini dikonfigurasi untuk permainan dua pemain, dan "
+"Anda harus terlebih dahulu mengkonfigurasi bahwa Anda ingin <link xref=\"ai-"
+"game\">bermain melawan komputer."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:28
+#, fuzzy
 msgid ""
 "Once that is done, if the indicated level is not the one you want, select "
 "the button, and in the menu that appears, select <gui>Easy</gui>, "
 "<gui>Medium</gui> or <gui>Hard</gui>, as you prefer. The button will change "
 "its label accordingly."
 msgstr ""
+"Setelah selesai, jika level yang ditunjukkan bukan yang Anda inginkan, pilih "
+"tombol, dan di menu yang muncul, pilih <gui>Mudah</gui>, <gui>Sedang</gui> "
+"atau <gui>Keras</gui>, seperti yang Anda inginkan. Tombol akan mengubah "
+"labelnya sesuai dengan itu."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:30
+#, fuzzy
 msgid ""
 "When the indicated level is good for your, you can select the <gui>Start "
 "Game</gui> button to launch your game and <link xref=\"play\">play</link>."
 msgstr ""
+"Ketika level yang ditunjukkan baik untuk Anda, Anda dapat memilih tombol "
+"<gui>Mulai Game</gui> untuk meluncurkan game Anda dan <link xref=\"play"
+"\">bermain."
 
 #. (itstool) path: page/title
 #: C/alternate.page:20
+#, fuzzy
 msgid "Alternate who starts"
-msgstr ""
+msgstr "Alternatif siapa yang memulai"
 
 #. (itstool) path: page/p
 #: C/alternate.page:22
+#, fuzzy
 msgid ""
 "If you are playing multiple games in a row <link xref=\"ai-game\">against "
 "the computer</link>, <app>Reversi</app> allows you to automatically "
 "alternate who will start the next game between you and the computer."
 msgstr ""
+"Jika Anda memainkan beberapa game berturut-turut <link xref=\"ai-game"
+"\">melawan komputer, <app>Reversi</app> memungkinkan Anda untuk secara "
+"otomatis mengganti siapa yang akan memulai game berikutnya antara Anda dan "
+"komputer."
 
 #. (itstool) path: page/p
 #: C/alternate.page:24
+#, fuzzy
 msgid ""
 "When <link xref=\"configure\">configuring a new game</link>, have a look to "
 "the first button with a down arrow; it should either be labelled <gui>Color: "
@@ -217,16 +282,26 @@ msgid ""
 "case, <app>Reversi</app> is configured to start a two-player game; if so, "
 "first, configure a game <link xref=\"ai-game\">against the computer</link>."
 msgstr ""
+"Saat <link xref=\"configure\">mengonfigurasi game baru, lihat tombol pertama "
+"dengan panah bawah; itu harus diberi label Warna: <gui>Gelap, Warna:</gui> "
+"<gui>Terang</gui> atau <gui>Dua pemain</gui>. Dalam kasus terakhir, "
+"<app>Reversi</app> dikonfigurasi untuk memulai permainan dua pemain; Jika "
+"demikian, pertama-tama, konfigurasikan game <link xref=\"ai-game\">terhadap "
+"komputer."
 
 #. (itstool) path: page/p
 #: C/alternate.page:26
+#, fuzzy
 msgid ""
 "Select the button. In the menu that appears, there is an entry called "
 "<gui>Alternate who starts</gui>."
 msgstr ""
+"Pilih tombol. Di menu yang muncul, ada entri bernama <gui>Alternate who "
+"start</gui>."
 
 #. (itstool) path: page/p
 #: C/alternate.page:28
+#, fuzzy
 msgid ""
 "If the <gui>Alternate who starts</gui> option is disabled, every new game "
 "will be started by the same player: you will be the first player if the "
@@ -234,9 +309,16 @@ msgid ""
 "if the label is <gui>Color: Light</gui>; to change who starts, see how to "
 "configure a game <link xref=\"ai-game\">against the computer</link>."
 msgstr ""
+"Jika opsi <gui>Alternate who starts</gui> dinonaktifkan, setiap game baru "
+"akan dimulai oleh pemain yang sama: Anda akan menjadi pemain pertama jika "
+"label tombolnya adalah Color: Dark, dan itu akan menjadi komputer jika "
+"labelnya adalah <gui>Color: Light</gui>;<gui></gui> Untuk mengubah siapa "
+"yang memulai, lihat cara mengonfigurasi game <link xref=\"ai-game\">terhadap "
+"komputer."
 
 #. (itstool) path: page/p
 #: C/alternate.page:30
+#, fuzzy
 msgid ""
 "If the <gui>Alternate who starts</gui> option is enabled, then at each new "
 "game, who will be the first player will be automatically changed. So if you "
@@ -244,18 +326,26 @@ msgid ""
 "game</link>, the button will be labelled <gui>Color: Light</gui>, and the "
 "computer will be starting the following game."
 msgstr ""
+"Jika opsi <gui>Alternate who starts</gui> diaktifkan, maka pada setiap game "
+"baru, siapa yang akan menjadi pemain pertama akan secara otomatis diubah. "
+"Jadi jika Anda memulai permainan, lain kali Anda <link xref=\"configure"
+"\">mengkonfigurasi permainan baru, tombol akan diberi label <gui>Warna: "
+"Cahaya</gui>, dan komputer akan memulai permainan berikut."
 
 #. (itstool) path: page/p
 #: C/alternate.page:32
+#, fuzzy
 msgid ""
 "To enable or disable the option, just select the <gui>Alternate who starts</"
 "gui> entry."
 msgstr ""
+"Untuk mengaktifkan atau menonaktifkan opsi, cukup pilih <gui>Alternatif yang "
+"memulai</gui> entri."
 
 #. (itstool) path: page/p
 #: C/alternate.page:34
 msgid "This option is selected by default."
-msgstr ""
+msgstr "Opsi ini dipilih secara baku."
 
 #. (itstool) path: credit/name
 #: C/bug-filing.page:10 C/develop.page:10 C/documentation.page:10
@@ -272,10 +362,8 @@ msgstr "2011"
 
 #. (itstool) path: page/title
 #: C/bug-filing.page:20
-#, fuzzy
-#| msgid "Help make <app>Iagno</app> better"
 msgid "Help make <app>Reversi</app> better"
-msgstr "Bantu membuat <app>Iagno</app> menjadi lebih baik"
+msgstr "Bantu membuat <app>Reversi</app> menjadi lebih baik"
 
 #. (itstool) path: section/title
 #: C/bug-filing.page:23
@@ -325,11 +413,11 @@ msgid ""
 "have an account, just click on the <gui>Sign in / Register</gui> link to "
 "create one."
 msgstr ""
-"Untuk berpartisipasi Anda perlu akun yang akan memberikan Anda kemampuan "
-"untuk mendapatkan akses, mengajukan kutu, dan membuat komentar. Juga, Anda "
-"harus mendaftar sehingga Anda dapat menerima pembaruan melalui surel tentang "
-"status kutu Anda. Jika Anda belum memiliki akun, klik pada <gui>Akun baru</"
-"gui> untuk membuatnya."
+"Untuk berpartisipasi Anda membutuhkan akun yang akan memberi hak untuk "
+"mendapat akses, melaporkan kutu, dan memberi komentar. Juga, Anda perlu "
+"terdaftar agar Anda dapat menerima pemutakhiran melalui surel tentang status "
+"laporan kutu Anda. Jika Anda belum memiliki akun, klik saja pada tautan "
+"<gui>Masuk / Mendaftar</gui> untuk membuat akun."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:36
@@ -367,8 +455,8 @@ msgid ""
 "<gui>Labels</gui> menu. Fill in the Title and Description sections and click "
 "<gui>Submit Issue</gui>."
 msgstr ""
-"Jika Anda meminta fitur baru, pilih <gui>tambahan</gui> dalam menu "
-"<gui>Severity</gui>. Isi bagian Ringkasan dan Deskripsi dan klik <gui>Komit</"
+"Bila Anda meminta fitur baru, pilih <gui>1. Fitur</gui> dalam menu "
+"<gui>Label</gui>. Isi seksi Judul dan Deskripsi dan klik <gui>Lapor Masalah</"
 "gui>."
 
 #. (itstool) path: section/p
@@ -387,18 +475,23 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/configure.page:20
+#, fuzzy
 msgid "Configure a new game"
-msgstr ""
+msgstr "Mengonfigurasi game baru"
 
 #. (itstool) path: page/p
 #: C/configure.page:22
+#, fuzzy
 msgid ""
 "When <app>Reversi</app> is opened, it displays a screen that allows you to "
 "configure a new game and to launch it."
 msgstr ""
+"Ketika <app>Reversi</app> dibuka, itu menampilkan layar yang memungkinkan "
+"Anda untuk mengkonfigurasi game baru dan untuk meluncurkannya."
 
 #. (itstool) path: page/p
 #: C/configure.page:24
+#, fuzzy
 msgid ""
 "This screen notably allows to select if you want to play <link xref=\"select-"
 "game\"><em>Classic Reversi</em> or <em>Reverse Reversi</em></link>, to "
@@ -406,32 +499,51 @@ msgid ""
 "link> or <link xref=\"2player\">with another player</link>, and in the "
 "former case to <link xref=\"ai-level\">change the computer level</link>."
 msgstr ""
+"Layar ini terutama memungkinkan untuk memilih apakah Anda ingin memainkan "
+"<link xref=\"select-game\"> Classic Reversi atau <em>Reverse Reversi</em>, "
+"untuk memilih apakah Anda akan bermain <link xref=\"ai-game\">melawan "
+"komputer atau <link xref=\"2player\">dengan pemain lain, dan dalam kasus "
+"sebelumnya untuk<em></em> <link xref=\"ai-level\">mengubah level komputer."
 
 #. (itstool) path: page/p
 #: C/configure.page:26
+#, fuzzy
 msgid ""
 "If you are opening the application for the first time, <app>Reversi</app> "
 "defaults on an easy <em>Classic Reversi</em> against the computer. Else, it "
 "will have remembered you previous settings."
 msgstr ""
+"Jika Anda membuka aplikasi untuk pertama kalinya, Reversi default pada "
+"<em>Reversi Klasik</em> yang mudah terhadap komputer. <app></app> Jika "
+"tidak, itu akan mengingat Anda pengaturan sebelumnya."
 
 #. (itstool) path: page/p
 #: C/configure.page:28
+#, fuzzy
 msgid ""
 "For launching a game from here, just click on the <gui>Start Game</gui> "
 "button. A game can also be launched with the <keyseq><key>Shift</"
 "key><key>Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-"
 "selection\">keyboard shortcut</link>."
 msgstr ""
+"Untuk meluncurkan game dari sini, cukup klik tombol <gui>Start Game</gui>. "
+"Sebuah game juga dapat diluncurkan dengan pintasan keyboard "
+"<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq><link xref="
+"\"shortcuts#game-selection\">."
 
 #. (itstool) path: page/p
 #: C/configure.page:30
+#, fuzzy
 msgid ""
 "Once a game has been launched, you can always go back to this screen by "
 "clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> <link xref=\"shortcuts#during-game\">keyboard "
 "shortcut</link>."
 msgstr ""
+"Setelah game diluncurkan, Anda selalu dapat kembali ke layar ini dengan "
+"mengklik tombol <gui>Game Baru</gui>, atau menggunakan pintasan keyboard "
+"<keyseq><key>Ctrl</key><key>N</key></keyseq><link xref=\"shortcuts#during-"
+"game\">."
 
 #. (itstool) path: page/title
 #: C/develop.page:25
@@ -562,7 +674,7 @@ msgstr "Contoh langkah pertama"
 #. (itstool) path: media/p
 #: C/example.page:27
 msgid "Usual start position: E4 and D5 are dark, D4 and E5 are light."
-msgstr ""
+msgstr "Posisi awal yang biasa: E4 dan D5 gelap, D4 dan E5 terang."
 
 #. (itstool) path: td/p
 #: C/example.page:31
@@ -571,20 +683,26 @@ msgstr "<em>Posisi memulai</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:33
+#, fuzzy
 msgid "This is the usual start position of the reversi game family."
-msgstr ""
+msgstr "Ini adalah posisi awal yang biasa dari keluarga game reversi."
 
 #. (itstool) path: td/p
 #: C/example.page:35
+#, fuzzy
 msgid ""
 "<app>Reversi</app> also allows you to <link xref=\"start-position\">use "
 "other start positions</link>."
 msgstr ""
+"<app>Reversi</app> juga memungkinkan Anda untuk <link xref=\"start-position"
+"\">menggunakan posisi awal lainnya."
 
 #. (itstool) path: media/p
 #: C/example.page:42
+#, fuzzy
 msgid "Example first move: <em>Dark</em> plays D3, capturing D4 thanks to D5."
 msgstr ""
+"Contoh langkah pertama: <em>Dark</em> memainkan D3, menangkap D4 berkat D5."
 
 #. (itstool) path: td/p
 #: C/example.page:46
@@ -593,195 +711,251 @@ msgstr "<em>Contoh langkah pertama</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:48
+#, fuzzy
 msgid "<em>Dark</em> always starts in the reversi game family."
-msgstr ""
+msgstr "<em>Gelap</em> selalu dimulai dalam keluarga game reversi."
 
 #. (itstool) path: td/p
 #: C/example.page:50
 msgid "Whatever start position is used, there are four possible first moves."
 msgstr ""
+"Apa pun posisi awal yang digunakan, ada empat kemungkinan gerakan pertama."
 
 #. (itstool) path: td/p
 #: C/example.page:52
+#, fuzzy
 msgid ""
 "In the usual start position like here, the four possibilities are equivalent "
 "by symmetry."
 msgstr ""
+"Dalam posisi awal yang biasa seperti di sini, keempat kemungkinan tersebut "
+"setara dengan simetri."
 
 #. (itstool) path: media/p
 #: C/example.page:59
+#, fuzzy
 msgid "First <em>Light</em> move: playing E3 and capturing E4 thanks to E5."
 msgstr ""
+"Gerakan <em>Cahaya</em> Pertama: memainkan E3 dan menangkap E4 berkat E5."
 
 #. (itstool) path: td/p
 #: C/example.page:63
-#, fuzzy
-#| msgid "<em>A blocking move</em>"
 msgid "<em>Possible second move</em>"
-msgstr "<em>Langkah memblokir</em>"
+msgstr "<em>Kemungkinan langkah kedua</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:65
+#, fuzzy
 msgid "<em>Light</em> has three possibilities of capturing one piece."
-msgstr ""
+msgstr "<em>Cahaya</em> memiliki tiga kemungkinan untuk menangkap satu bagian."
 
 #. (itstool) path: td/p
 #: C/example.page:67
+#, fuzzy
 msgid ""
 "The game will require to search for the <link xref=\"strategy\">best "
 "strategy</link>!"
-msgstr ""
+msgstr "Gim ini perlu mencari <link xref=\"strategy\">strategi terbaik!"
 
 #. (itstool) path: media/p
 #: C/example.page:74
+#, fuzzy
 msgid ""
 "<em>Dark</em> turns multiple rows: playing F3, it captures both E3 due to D3 "
 "and E4 due to D5."
 msgstr ""
+"<em>Gelap</em> mengubah beberapa baris: bermain F3, ia menangkap E3 karena "
+"D3 dan E4 karena D5."
 
 #. (itstool) path: td/p
 #: C/example.page:78
 msgid "<em>Capturing multiple rows</em>"
-msgstr ""
+msgstr "<em>Menangkap beberapa baris</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:80
+#, fuzzy
 msgid "<em>Dark</em> has five possibilities to play, all on the sixth column."
 msgstr ""
+"<em>Dark</em> memiliki lima kemungkinan untuk dimainkan, semuanya di kolom "
+"keenam."
 
 #. (itstool) path: td/p
 #: C/example.page:82
+#, fuzzy
 msgid ""
 "Two of these possibilities allow capturing in two directions at the same "
 "time, one piece in each."
 msgstr ""
+"Dua dari kemungkinan ini memungkinkan penangkapan dalam dua arah pada saat "
+"yang sama, masing-masing satu bagian."
 
 #. (itstool) path: td/p
 #: C/example.page:84
+#, fuzzy
 msgid ""
 "Capturing the higher number of tiles is not required in reversi, and may not "
 "be the best solution even. Only the number of owned tiles at the end of the "
 "game will count."
 msgstr ""
+"Menangkap jumlah ubin yang lebih tinggi tidak diperlukan dalam reversi, dan "
+"mungkin bukan solusi terbaik bahkan. Hanya jumlah ubin yang dimiliki di "
+"akhir permainan yang akan dihitung."
 
 #. (itstool) path: media/p
 #: C/example.page:91
+#, fuzzy
 msgid ""
 "<em>Light</em> turns a row of two pieces: playing E2, it turns E3 and E4 "
 "thanks to E5"
 msgstr ""
+"<em>Cahaya</em> mengubah deretan dua bagian: memainkan E2, ternyata E3 dan "
+"E4 berkat E5"
 
 #. (itstool) path: td/p
 #: C/example.page:95
+#, fuzzy
 msgid "<em>Turning a two-pieces row</em>"
-msgstr ""
+msgstr "<em>Mengubah baris dua bagian</em>"
 
 #. (itstool) path: td/p
 #: C/example.page:97
+#, fuzzy
 msgid "<em>Light</em> has again three play possibilities."
-msgstr ""
+msgstr "<em>Light</em> kembali memiliki tiga kemungkinan bermain."
 
 #. (itstool) path: td/p
 #: C/example.page:99
+#, fuzzy
 msgid "One of them is to capture two dark pieces in a row."
-msgstr ""
+msgstr "Salah satunya adalah menangkap dua bagian gelap berturut-turut."
 
 #. (itstool) path: td/p
 #: C/example.page:101
+#, fuzzy
 msgid ""
 "Playing that way may allow <em>Dark</em> to play next on the board edge. Is "
 "that a good strategy? Who knows!"
 msgstr ""
+"Bermain seperti itu dapat memungkinkan <em>Dark</em> untuk bermain "
+"berikutnya di tepi papan. Apakah itu strategi yang bagus? Siapa tahu!"
 
 #. (itstool) path: page/title
 #: C/highlights.page:20
+#, fuzzy
 msgid "Display helpful highlights"
-msgstr ""
+msgstr "Tampilkan sorotan yang bermanfaat"
 
 #. (itstool) path: page/p
 #: C/highlights.page:22
+#, fuzzy
 msgid ""
 "<app>Reversi</app> can display some helpful highlights during a game, be it "
 "a <em>Classic Reversi</em> or a <em>Reverse Reversi</em>."
 msgstr ""
+"<app>Reversi</app> dapat menampilkan beberapa sorotan bermanfaat selama "
+"permainan, baik itu Reversi <em>Klasik</em> atau <em>Reversi Terbalik</em>."
 
 #. (itstool) path: section/title
 #: C/highlights.page:25
+#, fuzzy
 msgid "Highlight playable tiles"
-msgstr ""
+msgstr "Sorot ubin yang dapat diputar"
 
 #. (itstool) path: section/p
 #: C/highlights.page:27
+#, fuzzy
 msgid ""
 "<app>Reversi</app> can first highlight the tiles that can be played by the "
 "current player. This information could be quite useful for beginners "
 "notably, for learning the game."
 msgstr ""
+"<app>Reversi</app> pertama-tama dapat menyorot ubin yang dapat dimainkan "
+"oleh pemain saat ini. Informasi ini bisa sangat berguna bagi pemula "
+"terutama, untuk mempelajari permainan."
 
 #. (itstool) path: section/p
 #: C/highlights.page:29 C/highlights.page:39
+#, fuzzy
 msgid ""
 "This can be activated both in a <link xref=\"ai-game\">game against the "
 "computer</link> and in a <link xref=\"2player\">two-player game</link>. "
 "There is no way for only enabling this highlight for one of the players of a "
 "two-player game."
 msgstr ""
+"Ini dapat diaktifkan baik dalam permainan melawan komputer maupun dalam "
+"<link xref=\"ai-game\"><link xref=\"2player\">permainan dua pemain. Tidak "
+"ada cara untuk hanya mengaktifkan sorotan ini untuk salah satu pemain dari "
+"permainan dua pemain."
 
 #. (itstool) path: section/p
 #: C/highlights.page:31
+#, fuzzy
 msgid ""
 "To enable or disable this highlight, press the menu button in the top-right "
 "corner of the window, select <gui>Appearance</gui>, and in the "
 "<gui>Highlights</gui> section select <gui>Playable tiles</gui>."
 msgstr ""
+"Untuk mengaktifkan atau menonaktifkan sorotan ini, tekan tombol menu di "
+"sudut kanan atas jendela, pilih <gui>Penampilan</gui>, dan di bagian "
+"<gui>Sorotan</gui> pilih <gui>Ubin yang dapat dimainkan</gui>."
 
 #. (itstool) path: section/title
 #: C/highlights.page:35
+#, fuzzy
 msgid "Highlight capturable tiles"
-msgstr ""
+msgstr "Sorot ubin yang dapat ditangkap"
 
 #. (itstool) path: section/p
 #: C/highlights.page:37
+#, fuzzy
 msgid ""
 "<app>Reversi</app> can also highlight the tiles that would be captured by a "
 "given play. That might help for having a better visualisation of what the "
 "board would then look like."
 msgstr ""
+"<app>Reversi</app> juga dapat menyorot ubin yang akan ditangkap oleh drama "
+"tertentu. Itu mungkin membantu untuk memiliki visualisasi yang lebih baik "
+"tentang seperti apa papan itu nantinya."
 
 #. (itstool) path: section/p
 #: C/highlights.page:41
+#, fuzzy
 msgid ""
 "To enable or disable this highlight, press the menu button in the top-right "
 "corner of the window, select <gui>Appearance</gui>, and in the "
 "<gui>Highlights</gui> section select <gui>Capturable tiles</gui>."
 msgstr ""
+"Untuk mengaktifkan atau menonaktifkan sorotan ini, tekan tombol menu di "
+"sudut kanan atas jendela, pilih <gui>Penampilan</gui>, dan di bagian "
+"<gui>Sorotan</gui> pilih <gui>Ubin yang dapat ditangkap</gui>."
 
 #. (itstool) path: info/title
 #: C/index.page:8
 msgctxt "link"
 msgid "Reversi"
-msgstr ""
+msgstr "Reversi"
 
 #. (itstool) path: info/title
 #: C/index.page:9
 msgctxt "text"
 msgid "Reversi"
-msgstr ""
+msgstr "Reversi"
 
 #. (itstool) path: media/span
 #: C/index.page:27
 msgid "Reversi logo"
-msgstr ""
+msgstr "Logo reversi"
 
 #. (itstool) path: page/title
 #: C/index.page:27
-#, fuzzy
 #| msgid "<_:media-1/> Iagno"
 msgid "<_:media-1/> Reversi"
-msgstr "<_:media-1/> Iagno"
+msgstr "<_:media-1/> Reversi"
 
 #. (itstool) path: page/p
 #: C/index.page:29
+#, fuzzy
 msgid ""
 "<app>Reversi</app> is a boardgame played with pieces dark on one side and "
 "light on the other. <em>Dark</em> and <em>Light</em> play one after each "
@@ -790,9 +964,17 @@ msgid ""
 "are turned over to join the capturing player's forces. See <link xref=\"rules"
 "\">reversi rules</link> to discover more about the game."
 msgstr ""
+"<app>Reversi</app> adalah permainan papan yang dimainkan dengan potongan-"
+"potongan gelap di satu sisi dan terang di sisi lain. <em>Dark</em> and "
+"<em>Light</em> bermain satu demi satu dengan menambahkan pada ubin kosong "
+"sepotong warna baru mereka, menjebak setidaknya satu baris bidak lawan; "
+"Ketika potongan-potongan ditangkap dengan cara itu, mereka diserahkan untuk "
+"bergabung dengan pasukan pemain yang menangkap. Lihat <link xref=\"rules"
+"\">aturan reversi untuk mengetahui lebih banyak tentang game ini."
 
 #. (itstool) path: page/p
 #: C/index.page:31
+#, fuzzy
 msgid ""
 "<app>Reversi</app> allows you to play <link xref=\"select-game\">two "
 "variations of the reversi game</link>: the classic version of reversi, where "
@@ -802,6 +984,14 @@ msgid ""
 "or <link xref=\"2player\">with another player</link>. Check these options "
 "when you <link xref=\"configure\">configure a new game</link>. Have fun!"
 msgstr ""
+"<app>Reversi</app> memungkinkan Anda memainkan <link xref=\"select-game"
+"\">dua variasi permainan reversi: versi klasik reversi, di mana Anda mencoba "
+"mendominasi papan di akhir, dan <em>Reverse Reversi</em>, di mana tujuannya "
+"adalah untuk menyelesaikan dengan <em>potongan yang lebih sedikit</em> "
+"daripada lawan Anda. Anda dapat bermain melawan <link xref=\"ai-game"
+"\">komputer atau <link xref=\"2player\">dengan pemain lain. Periksa opsi ini "
+"saat Anda <link xref=\"configure\">mengonfigurasi game baru. Selamat "
+"bersenang-senang!"
 
 #. (itstool) path: section/title
 #: C/index.page:34
@@ -811,7 +1001,7 @@ msgstr "Bermain Permainan"
 #. (itstool) path: section/title
 #: C/index.page:38
 msgid "Game of reversi"
-msgstr ""
+msgstr "Permainan reversi"
 
 #. (itstool) path: section/title
 #: C/index.page:42
@@ -831,7 +1021,7 @@ msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 #. (itstool) path: license/p
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
-msgstr "Karya ini berada dibawah lisensi <_:link-1/>."
+msgstr "Karya ini berada di bawah lisensi <_:link-1/>."
 
 #. (itstool) path: info/desc
 #: C/license.page:8
@@ -855,50 +1045,54 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/license.page:20
 msgid "You are free:"
-msgstr ""
+msgstr "Anda bebas:"
 
 #. (itstool) path: item/title
 #: C/license.page:25
 msgid "<em>To share</em>"
-msgstr ""
+msgstr "<em>Untuk berbagi</em>"
 
 #. (itstool) path: item/p
 #: C/license.page:26
 msgid "To copy, distribute and transmit the work."
-msgstr ""
+msgstr "Untuk menyalin, menyebarkan, dan mengirimkan karya."
 
 #. (itstool) path: item/title
 #: C/license.page:29
 msgid "<em>To remix</em>"
-msgstr ""
+msgstr "<em>Untuk mencampur ulang</em>"
 
 #. (itstool) path: item/p
 #: C/license.page:30
 msgid "To adapt the work."
-msgstr ""
+msgstr "Untuk mengadaptasi karya."
 
 #. (itstool) path: page/p
 #: C/license.page:33
 msgid "Under the following conditions:"
-msgstr ""
+msgstr "Di bawah persyaratan berikut:"
 
 #. (itstool) path: item/title
 #: C/license.page:38
 msgid "<em>Attribution</em>"
-msgstr ""
+msgstr "<em>Atribusi</em>"
 
 #. (itstool) path: item/p
 #: C/license.page:39
+#, fuzzy
 msgid ""
 "You must attribute the work in the manner specified by the author or "
 "licensor (but not in any way that suggests that they endorse you or your use "
 "of the work)."
 msgstr ""
+"Anda harus mengatribusi karya dengan cara yang telah ditentukan oleh "
+"pengarang atau pelisensi (tapi tidak bermaksud mengesankan bahwa mereka "
+"mendorong Anda atau penggunaan Anda terhadap karyanya)."
 
 #. (itstool) path: item/title
 #: C/license.page:46
 msgid "<em>Share Alike</em>"
-msgstr ""
+msgstr "<em>Saling Berbagi</em>"
 
 #. (itstool) path: item/p
 #: C/license.page:47
@@ -906,6 +1100,9 @@ msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
 msgstr ""
+"Jika Anda mengubah, mentranformasikan, atau membuat atas dasar karya ini, "
+"Anda dapat membagikan karya yang dihasilkan hanya di bawah lisensi yang "
+"sama, mirip, atau yang kompatibel."
 
 #. (itstool) path: page/p
 #: C/license.page:53
@@ -915,6 +1112,10 @@ msgid ""
 "link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
+"Untuk teks lengkap lisensi, lihat <link href=\"http://creativecommons.org/"
+"licenses/by-sa/3.0/legalcode\">laman situs CreativeCommons</link>, atau baca "
+"lengkap <link href=\"http://creativecommons.org/licenses/by-sa/3.0/"
+"\">Commons Deed</link>."
 
 #. (itstool) path: credit/years
 #: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:13
@@ -924,31 +1125,37 @@ msgstr "2012"
 #. (itstool) path: page/title
 #: C/play.page:25
 msgid "Play with mouse or keyboard"
-msgstr ""
+msgstr "Bermain dengan tetikus atau papan ketik"
 
 #. (itstool) path: page/p
 #: C/play.page:27
+#, fuzzy
 msgid ""
 "<app>Reversi</app> allows you to easily play with a mouse or with the "
 "keyboard."
 msgstr ""
+"<app>Reversi</app> memungkinkan Anda bermain dengan mudah dengan mouse atau "
+"keyboard."
 
 #. (itstool) path: section/title
 #: C/play.page:30
 msgid "How to play with a mouse"
-msgstr ""
+msgstr "Cara bermain dengan tetikus"
 
 #. (itstool) path: section/p
 #: C/play.page:32 C/play.page:57
 msgid "To make a move:"
-msgstr ""
+msgstr "Untuk bergerak:"
 
 #. (itstool) path: item/p
 #: C/play.page:35
+#, fuzzy
 msgid ""
 "Move the cursor on the tile you would like to place your piece in. The tile "
 "is highlighted if it is playable."
 msgstr ""
+"Gerakkan kursor pada ubin tempat Anda ingin menempatkan bagian Anda. Ubin "
+"disorot jika dapat dimainkan."
 
 #. (itstool) path: item/p
 #: C/play.page:38
@@ -959,51 +1166,70 @@ msgstr "Klik pada sel yang ingin Anda tempatkan biji."
 
 #. (itstool) path: note/p
 #: C/play.page:40 C/play.page:65
+#, fuzzy
 msgid ""
 "If you select a tile where you cannot move, the game notifies you that the "
 "move is impossible."
 msgstr ""
+"Jika Anda memilih ubin di mana Anda tidak dapat bergerak, gim ini memberi "
+"tahu Anda bahwa pemindahan itu tidak mungkin."
 
 #. (itstool) path: item/p
 #: C/play.page:44 C/play.page:69
+#, fuzzy
 msgid ""
 "To show possible moves, select a tile where there is already a piece, "
 "whatever its color is. Alternatively, you might want to <link xref="
 "\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
 msgstr ""
+"Untuk menunjukkan kemungkinan gerakan, pilih ubin di mana sudah ada bagian, "
+"apa pun warnanya. Atau, Anda mungkin ingin <link xref=\"highlights#highlight-"
+"playable-tiles\">menyorot ubin yang dapat dimainkan."
 
 #. (itstool) path: item/p
 #: C/play.page:47
+#, fuzzy
 msgid ""
 "You can always undo your move. For that, press the button with an arrow and "
 "a circle in the top-right corner (or in the bottom bar on small windows) and "
 "select <gui>Undo last move</gui>."
 msgstr ""
+"Anda selalu dapat membatalkan langkah Anda. Untuk itu, tekan tombol dengan "
+"panah dan lingkaran di sudut kanan atas (atau di bilah bawah pada jendela "
+"kecil) dan pilih <gui>Batalkan langkah terakhir</gui>."
 
 #. (itstool) path: section/p
 #: C/play.page:51
+#, fuzzy
 msgid "You can also <link xref=\"#keyboard-play\">use the keyboard</link>."
-msgstr ""
+msgstr "Anda juga <link xref=\"#keyboard-play\">dapat menggunakan keyboard."
 
 #. (itstool) path: section/title
 #: C/play.page:55
 msgid "How to play with the keyboard"
-msgstr ""
+msgstr "Cara bermain dengan papan ketik"
 
 #. (itstool) path: item/p
 #: C/play.page:60
+#, fuzzy
 msgid ""
 "Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> "
 "arrows to go at the tile you want to move. The currently selected tile is "
 "indicated by an highlight on the board."
 msgstr ""
+"Gunakan panah <key>Kiri</key>, <key>Kanan</key>, <key>Atas</key> , dan "
+"<key>Bawah</key> untuk membuka ubin yang ingin Anda pindahkan. Ubin yang "
+"saat ini dipilih ditunjukkan oleh sorotan di papan tulis."
 
 #. (itstool) path: item/p
 #: C/play.page:63
+#, fuzzy
 msgid ""
 "Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the "
 "selected tile."
 msgstr ""
+"Gunakan <key>tombol Spasi</key> atau <key>Return</key> untuk meletakkan "
+"sepotong pada petak peta yang dipilih."
 
 #. (itstool) path: item/p
 #: C/play.page:72
@@ -1016,16 +1242,20 @@ msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 
 #. (itstool) path: section/p
 #: C/play.page:76
+#, fuzzy
 msgid ""
 "More shortcuts are available, documented either on the <link xref="
 "\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the dialog "
 "that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 msgstr ""
+"Lebih banyak pintasan tersedia, didokumentasikan baik di halaman Pintasan "
+"keyboard, atau dalam dialog yang muncul di <link xref=\"shortcuts#how-to-play"
+"\"><keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 
 #. (itstool) path: section/p
 #: C/play.page:78
 msgid "You can also <link xref=\"#mouse-play\">use a mouse</link>."
-msgstr ""
+msgstr "Anda juga <link xref=\"#mouse-play\">dapat menggunakan tetikus</link>."
 
 #. (itstool) path: credit/name
 #: C/rules.page:16 C/strategy.page:15 C/translate.page:15
@@ -1049,6 +1279,7 @@ msgstr "Peraturan"
 
 #. (itstool) path: page/p
 #: C/rules.page:37
+#, fuzzy
 msgid ""
 "<em>Classic Reversi</em> and <em>Reverse Reversi</em> are boardgames "
 "opposing two players, called <em>Dark</em> and <em>Light</em>. Both games "
@@ -1057,9 +1288,17 @@ msgid ""
 "than the opponent; while in <em>Reverse Reversi</em>, it is to finish with "
 "<em>less</em> pieces."
 msgstr ""
+"<em>Classic</em> Reversi dan <em>Reverse Reversi</em> adalah boardgame yang "
+"menentang dua pemain, yang disebut <em>Dark</em> dan <em>Light</em>. Kedua "
+"game menggunakan aturan yang sama; hanya tujuan akhir yang berbeda di antara "
+"mereka: di <em>Classic Reversi</em>, tujuannya adalah untuk menyelesaikan "
+"dengan <em>lebih banyak</em> bidak daripada lawan; sedangkan di <em>Reverse "
+"Reversi</em>, itu adalah untuk menyelesaikan dengan <em>potongan yang lebih "
+"sedikit</em> ."
 
 #. (itstool) path: page/p
 #: C/rules.page:39
+#, fuzzy
 msgid ""
 "Both are played with pieces that are dark on one side and light on the "
 "other. <em>Dark</em> and <em>Light</em> play one after each other by adding "
@@ -1067,6 +1306,11 @@ msgid ""
 "row of pieces; when pieces are captured that way, they are turned over to "
 "join the capturing player's forces."
 msgstr ""
+"Keduanya dimainkan dengan potongan yang gelap di satu sisi dan terang di "
+"sisi lain. <em>Dark</em> and <em>Light</em> bermain satu demi satu dengan "
+"menambahkan pada ubin kosong sepotong warna baru mereka, menjebak setidaknya "
+"satu baris bidak lawan; Ketika potongan-potongan ditangkap dengan cara itu, "
+"mereka diserahkan untuk bergabung dengan pasukan pemain yang menangkap."
 
 #. (itstool) path: section/title
 #: C/rules.page:42
@@ -1091,17 +1335,23 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/rules.page:46
+#, fuzzy
 msgid ""
 "<app>Reversi</app> uses by default the most usual start position for the "
 "reversi game family, that is displayed on the following figure; but it also "
 "allows you to <link xref=\"start-position\">vary start position</link> if "
 "you prefer."
 msgstr ""
+"<app>Reversi</app> menggunakan secara default posisi awal yang paling umum "
+"untuk keluarga game reversi, yang ditampilkan pada gambar berikut; Tetapi "
+"ini juga memungkinkan Anda untuk <link xref=\"start-position\">memvariasikan "
+"posisi awal jika Anda mau."
 
 #. (itstool) path: media/p
 #: C/rules.page:52 C/start-position.page:48
+#, fuzzy
 msgid "Usual start position: light-dark, dark-light"
-msgstr ""
+msgstr "Posisi awal yang biasa: terang-gelap, gelap-terang"
 
 #. (itstool) path: td/p
 #: C/rules.page:58
@@ -1112,24 +1362,27 @@ msgstr "<em>Posisi memulai</em>"
 
 #. (itstool) path: section/p
 #: C/rules.page:63
-#, fuzzy
-#| msgid "Dark goes first."
 msgid "<em>Dark</em> goes first."
-msgstr "Gelap memulai dulu."
+msgstr "<em>Gelap</em> pertama melangkah."
 
 #. (itstool) path: section/title
 #: C/rules.page:67
 msgid "During the game"
-msgstr ""
+msgstr "Selama permainan"
 
 #. (itstool) path: section/p
 #: C/rules.page:69
+#, fuzzy
 msgid ""
 "One player after the other –<em>Dark</em> playing first– places a tile of "
 "its color on the board in such a way that at least one row of opponent tiles "
 "is trapped between the newly placed piece and an already placed one of the "
 "same color."
 msgstr ""
+"Satu demi satu pemain –<em>Dark</em> bermain lebih dulu– menempatkan ubin "
+"warnanya di papan sedemikian rupa sehingga setidaknya satu baris ubin lawan "
+"terperangkap di antara bidak yang baru ditempatkan dan yang sudah "
+"ditempatkan dengan warna yang sama."
 
 #. (itstool) path: note/p
 #: C/rules.page:71
@@ -1154,16 +1407,21 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/rules.page:76
+#, fuzzy
 msgid ""
 "If there is no possible moves in a turn, the player has to pass. A player "
 "cannot pass a turn if there is a possible move. If both players cannot move, "
 "notably when the board is full, the game is over."
 msgstr ""
+"Jika tidak ada gerakan yang mungkin dalam satu giliran, pemain harus lulus. "
+"Seorang pemain tidak dapat melewati belokan jika ada kemungkinan gerakan. "
+"Jika kedua pemain tidak bisa bergerak, terutama saat papan penuh, permainan "
+"berakhir."
 
 #. (itstool) path: section/title
 #: C/rules.page:80
 msgid "End of game"
-msgstr ""
+msgstr "Akhir permainan"
 
 #. (itstool) path: section/p
 #: C/rules.page:82
@@ -1182,77 +1440,112 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/rules.page:84
+#, fuzzy
 msgid ""
 "The end of the game often results in a full board, but not necessarily. In "
 "either way, it is the number of pieces that will matter to decide who wins."
 msgstr ""
+"Akhir permainan sering menghasilkan papan penuh, tetapi belum tentu. "
+"Bagaimanapun, itu adalah jumlah bidak yang akan penting untuk memutuskan "
+"siapa yang menang."
 
 #. (itstool) path: section/p
 #: C/rules.page:86
+#, fuzzy
 msgid ""
 "If you are playing <em>Classic Reversi</em>, the winner is the player with "
 "the <em>most</em> pieces of his color on the board; if you are in a "
 "<em>Reverse Reversi</em> game, it is the opposite: the winner is the player "
 "with the <em>least</em> pieces on the board."
 msgstr ""
+"Jika Anda memainkan <em>Classic Reversi</em>, pemenangnya adalah pemain "
+"dengan potongan warnanya <em>terbanyak</em> di papan; jika Anda berada dalam "
+"permainan <em>Reverse Reversi</em> , itu adalah kebalikannya: pemenangnya "
+"adalah pemain dengan potongan <em>paling sedikit</em> di papan."
 
 #. (itstool) path: section/p
 #: C/rules.page:88
+#, fuzzy
 msgid ""
 "If there is the same number of dark and light tiles, the game is declared a "
 "draw."
 msgstr ""
+"Jika ada jumlah ubin gelap dan terang yang sama, permainan dinyatakan seri."
 
 #. (itstool) path: page/title
 #: C/select-game.page:20
+#, fuzzy
 msgid "<em>Classic Reversi</em> or <em>Reverse Reversi</em>"
-msgstr ""
+msgstr "<em>Reversi Klasik</em> atau <em>Reversi Terbalik</em>"
 
 #. (itstool) path: page/p
 #: C/select-game.page:22
+#, fuzzy
 msgid ""
 "<app>Reversi</app> allows you to play two variants of the same game: "
 "<em>Classic Reversi</em> and <em>Reverse Reversi</em>."
 msgstr ""
+"<app>Reversi</app> memungkinkan Anda memainkan dua varian dari game yang "
+"sama: Classic Reversi dan <em>Reverse Reversi</em>. <em></em>"
 
 #. (itstool) path: page/p
 #: C/select-game.page:24
+#, fuzzy
 msgid ""
 "When <link xref=\"configure\">configuring a new game</link>, just choose the "
 "game you want to play by selecting the <gui>Classic Reversi</gui> or "
 "<gui>Reverse Reversi</gui> buttons."
 msgstr ""
+"Saat <link xref=\"configure\">mengkonfigurasi game baru, cukup pilih game "
+"yang ingin Anda mainkan dengan memilih tombol <gui>Classic</gui> Reversi "
+"atau <gui>Reverse Reversi</gui>."
 
 #. (itstool) path: page/p
 #: C/select-game.page:26
+#, fuzzy
 msgid ""
 "As you can imagine with its name, the <em>Classic Reversi</em> game is the "
 "reversi as it is known around the world."
 msgstr ""
+"Seperti yang bisa kamu bayangkan dengan namanya, game <em>Classic Reversi "
+"adalah reversi</em> seperti yang dikenal di seluruh dunia."
 
 #. (itstool) path: page/p
 #: C/select-game.page:28
+#, fuzzy
 msgid ""
 "Both games are in fact using the same rules; only the end goal differs "
 "between them: in <em>Classic Reversi</em>, the goal is to finish with "
 "<em>more</em> pieces than the opponent; while in <em>Reverse Reversi</em>, "
 "it is to finish with <em>less</em> pieces."
 msgstr ""
+"Kedua game tersebut sebenarnya menggunakan aturan yang sama; hanya tujuan "
+"akhir yang berbeda di antara mereka: di <em>Classic Reversi</em>, tujuannya "
+"adalah untuk menyelesaikan dengan <em>lebih banyak</em> bidak daripada "
+"lawan; sedangkan di <em>Reverse Reversi</em>, itu adalah untuk menyelesaikan "
+"dengan <em>potongan yang lebih sedikit</em> ."
 
 #. (itstool) path: page/p
 #: C/select-game.page:30
+#, fuzzy
 msgid ""
 "This variation in the goal makes <em>Reverse Reversi</em> a quite "
 "interesting game, as you have to elaborate a different <link xref=\"strategy"
 "\">strategy</link> to win. Try it!"
 msgstr ""
+"Variasi tujuan ini membuat <em>Reverse Reversi</em> menjadi permainan yang "
+"cukup menarik, karena Anda harus menguraikan strategi yang berbeda <link "
+"xref=\"strategy\">untuk menang. Cobalah!"
 
 #. (itstool) path: page/p
 #: C/select-game.page:32
+#, fuzzy
 msgid ""
 "If you want to try other variations of the reversi game, you can also choose "
 "to <link xref=\"start-position\">vary start position</link>."
 msgstr ""
+"Jika Anda ingin mencoba variasi lain dari permainan reversi, Anda juga dapat "
+"memilih untuk <link xref=\"start-position\">memvariasikan posisi awal."
 
 #. (itstool) path: credit/name
 #: C/shortcuts.page:10
@@ -1267,102 +1560,95 @@ msgstr "Pintasan papan tik"
 
 #. (itstool) path: page/p
 #: C/shortcuts.page:27
+#, fuzzy
 msgid ""
 "<app>Reversi</app> can easily be <link xref=\"play#keyboard-play\">used with "
 "keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse Reversi</em> "
 "games are both played with the same shortcuts."
 msgstr ""
+"<app>Reversi</app> dapat dengan mudah digunakan dengan <link xref="
+"\"play#keyboard-play\">keyboard. Game <em>Classic</em> Reversi dan "
+"<em>Reverse Reversi</em> sama-sama dimainkan dengan shortcut yang sama."
 
 #. (itstool) path: section/title
 #: C/shortcuts.page:30
+#, fuzzy
 msgid "During game selection"
-msgstr ""
+msgstr "Selama pemilihan permainan"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:33
-#, fuzzy
-#| msgid "New game"
 msgid "Start new game"
-msgstr "Permainan baru"
+msgstr "Mulai permainan baru"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:34
-#, fuzzy
 #| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:37
 msgid "Go back"
-msgstr ""
+msgstr "Mundur"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:38
-#, fuzzy
 #| msgid "<key>F1</key>"
 msgid "<key>Escape</key>"
-msgstr "<key>F1</key>"
+msgstr "<key>Escape</key>"
 
 #. (itstool) path: section/title
 #: C/shortcuts.page:44
 msgid "Play with keyboard"
-msgstr ""
+msgstr "Bermain dengan papan ketik"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:47
 msgid "Select where to play"
-msgstr ""
+msgstr "Pilih tempat bermain"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:48
-#, fuzzy
-#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr ""
+"<key>Kiri</key>, <key>Kanan</key>, <key>Naik</key>, dan <key>Turun</key>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:51
-#, fuzzy
-#| msgid "Select the <gui>Game</gui> tab"
 msgid "Select the given row"
-msgstr "Pilih tab <gui>Permainan</gui>"
+msgstr "Pilih baris yang diberikan"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:52
-#, fuzzy
-#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgid "<key>1</key> to <key>8</key>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<key>1</key> hingga <key>8</key>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:55
 msgid "Select the given column"
-msgstr ""
+msgstr "Pilih kolom yang diberikan"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:56
-#, fuzzy
-#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgid "<key>a</key> to <key>h</key>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<key>a</key> hingga <key>h</key>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:59
+#, fuzzy
 msgid "Play on selected tile"
-msgstr ""
+msgstr "Putar di petak yang dipilih"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:60
-#, fuzzy
-#| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgid "<key>Return</key>, <key>Space</key>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<key>Return</key>, <key>Spasi</key>"
 
 #. (itstool) path: section/title
 #: C/shortcuts.page:66
 msgid "During a game"
-msgstr ""
+msgstr "Selama permainan"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:69
@@ -1376,8 +1662,6 @@ msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:73
-#, fuzzy
-#| msgid "Undo Move"
 msgid "Undo last move"
 msgstr "Batalkan langkah terakhir"
 
@@ -1389,16 +1673,17 @@ msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
 #. (itstool) path: section/title
 #: C/shortcuts.page:80
 msgid "Generic"
-msgstr ""
+msgstr "Generik"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:84
-#, fuzzy
 #| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgid ""
 "<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
 "key><key>F1</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr ""
+"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+"key><key>F1</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:87
@@ -1413,14 +1698,13 @@ msgstr "<key>F1</key>"
 #. (itstool) path: td/p
 #: C/shortcuts.page:91
 msgid "About"
-msgstr ""
+msgstr "Tentang"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:92
-#, fuzzy
 #| msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>F1</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/shortcuts.page:95
@@ -1439,10 +1723,13 @@ msgstr "Aktifkan dan non-aktifkan suara"
 
 #. (itstool) path: page/p
 #: C/sound.page:23
+#, fuzzy
 msgid ""
 "To enable or disable the sound, press the menu button in the top-right "
 "corner of the window and select <gui>Sound</gui>."
 msgstr ""
+"Untuk mengaktifkan atau menonaktifkan suara, tekan tombol menu di sudut "
+"kanan atas jendela dan pilih <gui>Suara</gui>."
 
 #. (itstool) path: page/title
 #: C/start-position.page:21
@@ -1453,10 +1740,13 @@ msgstr "Posisi memulai"
 
 #. (itstool) path: page/p
 #: C/start-position.page:23
+#, fuzzy
 msgid ""
 "<app>Reversi</app> allows to start a game with a different initial position "
 "than the usual one of the reversi game family."
 msgstr ""
+"<app>Reversi</app> memungkinkan untuk memulai permainan dengan posisi awal "
+"yang berbeda dari biasanya salah satu keluarga permainan reversi."
 
 #. (itstool) path: section/title
 #: C/start-position.page:26
@@ -1467,35 +1757,51 @@ msgstr "Posisi memulai"
 
 #. (itstool) path: section/p
 #: C/start-position.page:28
+#, fuzzy
 msgid ""
 "To enable or disable this option, while <link xref=\"configure\">configuring "
 "a new game</link>, click on the <gui>Difficulty</gui> button, and in the "
 "menu that appears, select <gui>Vary start position</gui>."
 msgstr ""
+"Untuk mengaktifkan atau menonaktifkan opsi ini, saat <link xref=\"configure"
+"\">mengonfigurasi game baru, klik tombol <gui>Kesulitan</gui>, dan di menu "
+"yang muncul, pilih <gui>Variasikan posisi awal</gui>."
 
 #. (itstool) path: section/p
 #: C/start-position.page:30
+#, fuzzy
 msgid ""
 "If you are playing a <link xref=\"ai-game\">game against the computer</"
 "link>, enabling this option will start new games with a random position in "
 "the six <link xref=\"#start-positions\">possible start positions</link>."
 msgstr ""
+"Jika Anda bermain <link xref=\"ai-game\">game melawan komputer, mengaktifkan "
+"opsi ini akan memulai game baru dengan posisi acak di enam <link xref="
+"\"#start-positions\">posisi awal yang mungkin."
 
 #. (itstool) path: section/p
 #: C/start-position.page:32
+#, fuzzy
 msgid ""
 "If you are <link xref=\"2player\">playing with another player</link>, "
 "enabling this option will start new games with the <link xref=\"#human-"
 "overture\">two-player game overture</link>."
 msgstr ""
+"Jika Anda <link xref=\"2player\">bermain dengan pemain lain, mengaktifkan "
+"opsi ini akan memulai game baru dengan <link xref=\"#human-overture"
+"\">overture game dua pemain."
 
 #. (itstool) path: section/p
 #: C/start-position.page:34
+#, fuzzy
 msgid ""
 "If the option is disabled, then the usual position of the reversi game "
 "family is always used for new games. See its description in the list of "
 "<link xref=\"#start-positions\">possible start positions</link>."
 msgstr ""
+"Jika opsi dinonaktifkan, maka posisi biasa dari keluarga game reversi selalu "
+"digunakan untuk game baru. Lihat deskripsinya dalam daftar <link xref="
+"\"#start-positions\">kemungkinan posisi awal."
 
 #. (itstool) path: section/title
 #: C/start-position.page:38
@@ -1506,20 +1812,25 @@ msgstr "Posisi memulai"
 
 #. (itstool) path: section/p
 #: C/start-position.page:40
+#, fuzzy
 msgid ""
 "There are really two possible start positions in <app>Reversi</app>, up to "
 "six as their symmetries can also be played."
 msgstr ""
+"Sebenarnya ada dua kemungkinan posisi awal di <app>Reversi</app>, hingga "
+"enam karena simetri mereka juga dapat dimainkan."
 
 #. (itstool) path: section/p
 #: C/start-position.page:42
+#, fuzzy
 msgid "The two main positions are the following:"
-msgstr ""
+msgstr "Dua posisi utama adalah sebagai berikut:"
 
 #. (itstool) path: media/p
 #: C/start-position.page:53
+#, fuzzy
 msgid "Alternative position: dark-light, dark-light"
-msgstr ""
+msgstr "Posisi alternatif: gelap-terang, gelap-terang"
 
 #. (itstool) path: td/p
 #: C/start-position.page:59
@@ -1537,28 +1848,33 @@ msgstr "<em>Posisi memulai</em>"
 
 #. (itstool) path: section/p
 #: C/start-position.page:67
+#, fuzzy
 msgid "Their allowed symmetries are the following:"
-msgstr ""
+msgstr "Simetri yang diizinkan adalah sebagai berikut:"
 
 #. (itstool) path: media/p
 #: C/start-position.page:73
+#, fuzzy
 msgid "Only symmetry of the usual start position: dark-light, light-dark"
-msgstr ""
+msgstr "Hanya simetri dari posisi awal yang biasa: gelap-terang, terang-gelap"
 
 #. (itstool) path: media/p
 #: C/start-position.page:78
+#, fuzzy
 msgid "First symmetry of the alternative position: dark-dark, light-light"
-msgstr ""
+msgstr "Simetri pertama dari posisi alternatif: gelap-gelap, terang-terang"
 
 #. (itstool) path: media/p
 #: C/start-position.page:83
+#, fuzzy
 msgid "Second symmetry of the alternative position: light-dark, light-dark"
-msgstr ""
+msgstr "Simetri kedua dari posisi alternatif: terang-gelap, terang-gelap"
 
 #. (itstool) path: media/p
 #: C/start-position.page:88
+#, fuzzy
 msgid "Last symmetry of the alternative position: light-light, dark-dark"
-msgstr ""
+msgstr "Simetri terakhir dari posisi alternatif: terang-terang, gelap-gelap"
 
 #. (itstool) path: section/title
 #: C/start-position.page:96
@@ -1569,61 +1885,87 @@ msgstr "Mode dua pemain"
 
 #. (itstool) path: section/p
 #: C/start-position.page:98
+#, fuzzy
 msgid ""
 "When <link xref=\"2player\">playing with another player</link> with the "
 "<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
 "option enabled, new games will start with a special two-player game overture."
 msgstr ""
+"Saat <link xref=\"2player\">bermain dengan pemain lain dengan opsi "
+"<gui>posisi mulai Vary</gui> diaktifkan<link xref=\"#varying-start-position"
+"\">, game baru akan dimulai dengan overture game dua pemain khusus."
 
 #. (itstool) path: section/p
 #: C/start-position.page:100
+#, fuzzy
 msgid ""
 "The board is started empty. The two players are going to place the four "
 "initial pieces before starting the game."
 msgstr ""
+"Papan mulai kosong. Kedua pemain akan menempatkan empat bidak awal sebelum "
+"memulai permainan."
 
 #. (itstool) path: item/p
 #: C/start-position.page:104
+#, fuzzy
 msgid ""
 "<em>Dark</em> goes first, and places the first piece on one of the four "
 "central tiles of the board."
 msgstr ""
+"<em>Gelap</em> menjadi yang pertama, dan menempatkan bagian pertama di salah "
+"satu dari empat ubin tengah papan."
 
 #. (itstool) path: item/p
 #: C/start-position.page:107
+#, fuzzy
 msgid ""
 "<em>Light</em> places one piece in one of the two available positions next "
 "to the dark piece."
 msgstr ""
+"<em>Cahaya</em> menempatkan satu bagian di salah satu dari dua posisi yang "
+"tersedia di sebelah bagian gelap."
 
 #. (itstool) path: item/p
 #: C/start-position.page:110
+#, fuzzy
 msgid ""
 "<em>Dark</em> then places a piece on one of the two remaining central tiles "
 "of the board."
 msgstr ""
+"<em>Dark</em> kemudian menempatkan sepotong di salah satu dari dua ubin "
+"tengah papan yang tersisa."
 
 #. (itstool) path: item/p
 #: C/start-position.page:113
+#, fuzzy
 msgid ""
 "<em>Light</em> finishes the opening by placing a second piece at the "
 "remaining place."
 msgstr ""
+"<em>Cahaya</em> menyelesaikan pembukaan dengan menempatkan potongan kedua di "
+"tempat yang tersisa."
 
 #. (itstool) path: item/p
 #: C/start-position.page:116
+#, fuzzy
 msgid ""
 "The game is then started, following the <link xref=\"rules\">reversi rules</"
 "link>."
 msgstr ""
+"Permainan kemudian dimulai, mengikuti <link xref=\"rules\">aturan reversi."
 
 #. (itstool) path: section/p
 #: C/start-position.page:120
+#, fuzzy
 msgid ""
 "This opening allows the first player to choose if the game will start with a "
 "position “in cross” (the usual start position or its symmetry) or a "
 "“parallel” position (the alternative position or one of its symmetries)."
 msgstr ""
+"Pembukaan ini memungkinkan pemain pertama untuk memilih apakah permainan "
+"akan dimulai dengan posisi \"dalam salib\" (posisi awal yang biasa atau "
+"simetrinya) atau posisi \"paralel\" (posisi alternatif atau salah satu "
+"simetrinya)."
 
 #. (itstool) path: page/title
 #: C/strategy.page:24
@@ -1703,39 +2045,51 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/theme.page:20
+#, fuzzy
 msgid "Change the board theme"
-msgstr ""
+msgstr "Mengubah tema papan"
 
 #. (itstool) path: page/p
 #: C/theme.page:22
+#, fuzzy
 msgid ""
 "<app>Reversi</app> supports various board themes, so that you can adjust its "
 "look to your taste."
 msgstr ""
+"<app>Reversi</app> mendukung berbagai tema papan, sehingga Anda dapat "
+"menyesuaikan tampilannya dengan selera Anda."
 
 #. (itstool) path: page/p
 #: C/theme.page:24
+#, fuzzy
 msgid ""
 "Until the theme has been changed, the application tries to choose a theme "
 "adapted to your environment; see the section about the <link xref=\"#default-"
 "theme\"><em>Default</em> theme</link>."
 msgstr ""
+"Sampai tema diubah, aplikasi mencoba memilih tema yang disesuaikan dengan "
+"lingkungan Anda; lihat bagian tentang <link xref=\"#default-theme\"> tema "
+"<em>Default</em>."
 
 #. (itstool) path: section/title
 #: C/theme.page:27
 msgid "Changing theme"
-msgstr ""
+msgstr "Mengubah tema"
 
 #. (itstool) path: section/p
 #: C/theme.page:29
+#, fuzzy
 msgid ""
 "For changing theme, press the menu button in the top-right corner of the "
 "window, select <gui>Appearance</gui>, and select one of the items in the "
 "given list."
 msgstr ""
+"Untuk mengubah tema, tekan tombol menu di sudut kanan atas jendela, pilih "
+"<gui>Penampilan</gui>, dan pilih salah satu item dalam daftar yang diberikan."
 
 #. (itstool) path: section/p
 #: C/theme.page:31
+#, fuzzy
 msgid ""
 "The first item of the list is called <gui><em>Default</em></gui> and lets "
 "the application try to choose a theme adapted to your environment; see the "
@@ -1743,129 +2097,178 @@ msgid ""
 "link>. The following suggestions are described in the <link xref=\"#themes-"
 "list\">themes list</link>."
 msgstr ""
+"Item pertama dari daftar ini disebut <gui><em>Default</em></gui> dan "
+"memungkinkan aplikasi mencoba memilih tema yang disesuaikan dengan "
+"lingkungan Anda; lihat bagian tentang <link xref=\"#default-theme\"> tema "
+"<em>Default</em>. Saran berikut dijelaskan dalam <link xref=\"#themes-list"
+"\">daftar tema."
 
 #. (itstool) path: section/p
 #: C/theme.page:33
+#, fuzzy
 msgid ""
 "Following the themes list, the options of the section <gui>Highlights</gui> "
 "are for <link xref=\"highlights\">displaying helpful highlights</link>. "
 "These are working whatever theme you decide to use."
 msgstr ""
+"Mengikuti daftar tema, opsi bagian <gui>Sorotan</gui> adalah untuk <link "
+"xref=\"highlights\">menampilkan sorotan yang bermanfaat. Ini berfungsi "
+"dengan tema apa pun yang Anda putuskan untuk digunakan."
 
 #. (itstool) path: section/title
 #: C/theme.page:37
+#, fuzzy
 msgid "Themes list"
-msgstr ""
+msgstr "List Theme"
 
 #. (itstool) path: section/p
 #: C/theme.page:39
+#, fuzzy
 msgid "<app>Reversi</app> comes with four themes installed:"
-msgstr ""
+msgstr "<app>Reversi</app> hadir dengan empat tema yang diinstal:"
 
 #. (itstool) path: item/p
 #: C/theme.page:43
+#, fuzzy
 msgid ""
 "<em>Classic</em>: this theme mimics the most usual reversi boards, with a "
 "green background and bicolor pieces;"
 msgstr ""
+"<em>Klasik</em>: tema ini meniru papan reversi yang paling biasa, dengan "
+"latar belakang hijau dan potongan bicolor;"
 
 #. (itstool) path: item/p
 #: C/theme.page:46
+#, fuzzy
 msgid ""
 "<em>Black and White</em>: this theme is more conceptual, featuring geometric "
 "shapes and a high black and white contrast;"
 msgstr ""
+"<em>Hitam Putih</em>: tema ini lebih konseptual, menampilkan bentuk "
+"geometris dan kontras hitam dan putih yang tinggi;"
 
 #. (itstool) path: item/p
 #: C/theme.page:49
+#, fuzzy
 msgid ""
 "<em>Adwaita</em>: this theme uses a blue board, more suitable if the theme "
 "of your windows is a dark one;"
 msgstr ""
+"<em>Adwaita</em>: tema ini menggunakan papan biru, lebih cocok jika tema "
+"jendela Anda gelap;"
 
 #. (itstool) path: item/p
 #: C/theme.page:52
+#, fuzzy
 msgid ""
 "<em>Sun and Star</em>: this theme is a variant of the <em>Classic</em> one, "
 "with some decorations on the pieces."
 msgstr ""
+"<em>Sun and Star</em>: tema ini adalah varian dari tema <em>Klasik</em> , "
+"dengan beberapa dekorasi pada potongannya."
 
 #. (itstool) path: section/p
 #: C/theme.page:56
+#, fuzzy
 msgid ""
 "The first entry in the themes list is called <em>Default</em> and has a "
 "special behavior; see the section about the <link xref=\"#default-theme"
 "\"><em>Default</em> theme</link>."
 msgstr ""
+"Entri pertama dalam daftar tema disebut <em>Default</em> dan memiliki "
+"perilaku khusus; lihat bagian tentang <link xref=\"#default-theme\"> tema "
+"<em>Default</em>."
 
 #. (itstool) path: section/title
 #: C/theme.page:60
 msgid "<em>Default</em> theme"
-msgstr ""
+msgstr "Tema <em>baku</em>"
 
 #. (itstool) path: section/p
 #: C/theme.page:62
+#, fuzzy
 msgid ""
 "The first entry in the themes list is called <em>Default</em> and has a "
 "special behavior."
 msgstr ""
+"Entri pertama dalam daftar tema disebut <em>Default</em> dan memiliki "
+"perilaku khusus."
 
 #. (itstool) path: section/p
 #: C/theme.page:64
+#, fuzzy
 msgid ""
 "When this entry is selected, the application tries to choose a theme adapted "
 "to your environment:"
 msgstr ""
+"Ketika entri ini dipilih, aplikasi mencoba untuk memilih tema yang "
+"disesuaikan dengan lingkungan Anda:"
 
 #. (itstool) path: item/p
 #: C/theme.page:68
+#, fuzzy
 msgid ""
 "if you are using a theme for your windows known for being dark –like "
 "<em>Adwaita Dark</em>– or if you have activated GNOME night mode, the board "
 "theme used will be the one called <em>Adwaita</em>, that is darker than the "
 "other themes thanks to its blue background;"
 msgstr ""
+"jika Anda menggunakan tema untuk jendela Anda yang dikenal gelap – seperti "
+"Adwaita Dark – atau jika Anda telah mengaktifkan mode malam GNOME, tema "
+"papan yang digunakan adalah yang disebut <em>Adwaita</em>, yang lebih gelap "
+"daripada <em></em>tema lainnya berkat latar belakang birunya;"
 
 #. (itstool) path: item/p
 #: C/theme.page:71
+#, fuzzy
 msgid ""
 "if you are using a theme for your windows created specially for having a "
 "high contrast, notably if you activated the “High Contrast” GNOME "
 "accessibility option, the board theme used will be the one called <em>Black "
 "and White</em>, that should be a perfect fit;"
 msgstr ""
+"jika Anda menggunakan tema untuk jendela Anda yang dibuat khusus untuk "
+"memiliki kontras tinggi, terutama jika Anda mengaktifkan opsi aksesibilitas "
+"GNOME \"Kontras Tinggi\", tema papan yang digunakan adalah yang disebut "
+"<em>Hitam Putih</em>, yang seharusnya sangat cocok;"
 
 #. (itstool) path: item/p
 #: C/theme.page:74
+#, fuzzy
 msgid ""
 "else, the theme used will be the one called <em>Classic</em>, that uses a "
 "green board quite common for reversi games."
 msgstr ""
+"jika tidak, tema yang digunakan adalah yang disebut <em>Classic</em>, yang "
+"menggunakan papan hijau yang cukup umum untuk game reversi."
 
 #. (itstool) path: section/p
 #: C/theme.page:78
+#, fuzzy
 msgid "This behavior is of course the default one of the application."
-msgstr ""
+msgstr "Perilaku ini tentu saja merupakan salah satu aplikasi default."
 
 #. (itstool) path: section/title
 #: C/theme.page:82
-#, fuzzy
-#| msgid "Legal information."
 msgid "More information"
-msgstr "Informasi hukum."
+msgstr "Informasi lebih lanjut"
 
 #. (itstool) path: section/p
 #: C/theme.page:84
 msgid ""
 "There is no way to install a different theme than the ones described here."
 msgstr ""
+"Tidak ada cara untuk memasang tema yang berbeda dari yang dijelaskan di sini."
 
 #. (itstool) path: section/p
 #: C/theme.page:86
+#, fuzzy
 msgid ""
 "These themes have been designed by Arnaud Bonatti, with pieces created by "
 "Masuichi Ito."
 msgstr ""
+"Tema-tema ini telah dirancang oleh Arnaud Bonatti, dengan karya-karya yang "
+"dibuat oleh Masuichi Ito."
 
 #. (itstool) path: section/p
 #: C/theme.page:88
@@ -1874,6 +2277,9 @@ msgid ""
 "contributing a new theme, please <link xref=\"bug-filing\">open an issue</"
 "link> about it."
 msgstr ""
+"Jika Anda memiliki saran untuk tema baru, atau jika Anda tertarik untuk "
+"menyumbangkan tema baru, silakan <link xref=\"bug-filing\">buka masalah</"
+"link> tentang hal itu."
 
 #. (itstool) path: page/title
 #: C/translate.page:29
@@ -1893,10 +2299,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/translate.page:35
-#, fuzzy
-#| msgid ""
-#| "There are <link href=\"http://l10n.gnome.org/module/iagno/\">many "
-#| "languages</link> for which translations are still needed."
 msgid ""
 "There are <link href=\"https://l10n.gnome.org/module/iagno/\">many "
 "languages</link> for which translations are still needed."
@@ -1918,9 +2320,9 @@ msgid ""
 "teams/\">translation team</link> for your language. This will give you the "
 "ability to upload new translations."
 msgstr ""
-"Untuk memulai menerjemahkan Anda akan perlu untuk <link href=\"http://l10n."
-"gnome.org\">membuat akun</link> dan bergabung dengan <link href=\"http://"
-"l10n.gnome.org/teams/\">tim translasi</link> untuk bahasa Anda. Ini akan "
+"Untuk memulai menerjemahkan Anda akan perlu untuk <link href=\"https://l10n."
+"gnome.org\">membuat akun</link> dan bergabung dengan <link href=\"https://"
+"l10n.gnome.org/teams/\">tim penerjemahan</link> bagi bahasa Anda. Ini akan "
 "memberikan Anda kemampuan untuk mengunggah terjemahan baru."
 
 #. (itstool) path: page/p
@@ -1945,196 +2347,11 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/translate.page:45
-#, fuzzy
-#| msgid ""
-#| "Alternatively, you can contact the Internationalization Team using their "
-#| "<link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n\">mailing "
-#| "list</link>."
 msgid ""
 "Alternatively, you can contact the Internationalization Team using the "
 "dedicated <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
 "\">mailing list</link>."
 msgstr ""
 "Sebagai alternatif, Anda dapat menghubungi Tim Internasionalisasi "
-"menggunakan <link href=\"http://mail.gnome.org/mailman/listinfo/gnome-i18n"
-"\">milis</link>."
-
-#~ msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
-#~ msgstr "Klik <guiseq><gui>Pengaturan</gui><gui>Preferensi</gui></guiseq>"
-
-#~ msgid "Select the <gui>Game</gui> tab."
-#~ msgstr "Pilih tab <gui>Permainan</gui>."
-
-#~ msgid "Check <gui>human</gui> in both player columns."
-#~ msgstr "Ceklis <gui>manusia</gui> pada kedua kolom pemain."
-
-#~ msgid "Click <gui>Close</gui>"
-#~ msgstr "Klik <gui>Tutup</gui>"
-
-#~ msgid "Your changes will apply when a new game is started."
-#~ msgstr "Perubahan Anda akan berlaku saat permainan baru dimulai."
-
-#~ msgid ""
-#~ "The computer has different levels of difficulty: Level One, Level Two, "
-#~ "and Level Three. To change this setting:"
-#~ msgstr ""
-#~ "Komputer memiliki tingkat kesulitan yang berbeda: Tingkat Satu, Tingkat "
-#~ "Dua, dan Tingkat Tiga. Untuk mengubah pengaturan ini:"
-
-#~ msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
-#~ msgstr "Klik <guiseq><gui>Pengaturan</gui><gui>Preferensi</gui></guiseq>."
-
-#~ msgid "Select the difficulty level for your computer opponent."
-#~ msgstr "Pilih tingkat kesulitan bagi lawan komputer Anda."
-
-#~ msgid "Click <gui>Close</gui>."
-#~ msgstr "Klik <gui>Tutup</gui>."
-
-#~ msgid "Change player color and difficulty"
-#~ msgstr "Ubah warna pemain dan tingkat kesulitan"
-
-#~ msgid "To change the player for each color:"
-#~ msgstr "Untuk mengubah pemain untuk setiap warna:"
-
-#~ msgid ""
-#~ "Select the type of player/difficulty under <gui>Dark</gui> and "
-#~ "<gui>Light</gui>."
-#~ msgstr ""
-#~ "Pilih jenis pemain/tingkat kesulitan dibawah <gui>Gelap</gui> dan "
-#~ "<gui>Terang</gui>."
-
-#~ msgid "Your choice is effective immediately."
-#~ msgstr "Pilihan Anda segera berlaku."
-
-#~ msgid ""
-#~ "To contribute to the Documentation Project, feel free to get in touch "
-#~ "with us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F"
-#~ "%2Firc.gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail."
-#~ "gnome.org/mailman/listinfo/gnome-doc-list\">mailing list</link>."
-#~ msgstr ""
-#~ "Untuk berkontribusi pada Proyek Dokumentasi, jangan ragu untuk "
-#~ "menghubungi kami menggunakan <link href=\"https://cbe003.chat.mibbit.com/?"
-#~ "url=irc%3A%2F%2Firc.gnome.org%2Fdocs\">irc</link>, atau melalui <link "
-#~ "href=\"http://mail.gnome.org/mailman/listinfo/gnome-doc-list\">milis</"
-#~ "link>."
-
-#~ msgctxt "link"
-#~ msgid "Iagno"
-#~ msgstr "Iagno"
-
-#~ msgctxt "text"
-#~ msgid "Iagno"
-#~ msgstr "Iagno"
-
-#~ msgid "Iagno logo"
-#~ msgstr "Logo iagno"
-
-#~ msgid ""
-#~ "<app>Iagno</app> is a boardgame played on an 8X8 grid with 64 pieces, "
-#~ "dark on one side and light on the other. When a piece is captured it is "
-#~ "turned over to join the capturing player's forces; the winner is the "
-#~ "player with the most pieces of their color at the end of the game."
-#~ msgstr ""
-#~ "<app>Iagno</app> merupakan permainan papan yang dimainkan pada grid 8X8 "
-#~ "dengan 64 biji, gelap di satu sisi dan terang di sisi lain. Ketika sebuah "
-#~ "biji ditangkap, maka biji tersebut diserahkan untuk bergabung dengan "
-#~ "menangkap pemain; pemenangnya adalah pemain dengan pieces warna paling "
-#~ "banyak di akhir pertandingan."
-
-#~ msgid "Advanced"
-#~ msgstr "Lanjutan"
-
-#~ msgid "How to Play"
-#~ msgstr "Cara Bermain"
-
-#~ msgid ""
-#~ "<app>Iagno</app> has simple <link xref=\"rules\">rules</link> and is easy "
-#~ "to play."
-#~ msgstr ""
-#~ "<app>Iagno</app> memiliki <link xref=\"rules\">aturan</link> yang "
-#~ "sederhana dan mudah untuk bermain."
-
-#~ msgid ""
-#~ "When the game first starts, you play <em>Dark</em> and the computer "
-#~ "player plays <em>Light</em>. The <link xref=\"ai-game\">difficulty level</"
-#~ "link> is <gui>Level one</gui> by default."
-#~ msgstr ""
-#~ "Ketika permainan pertama dimulai, Anda bermain <em>Terang</em> dan pemain "
-#~ "komputer memainkan <em>Terang</em>. <link xref=\"ai-game\">Tingkat "
-#~ "kesulitan</link> adalah <gui>Tingkat satu</gui> secara bawaan."
-
-#~ msgid "The game is played using the mouse. To make a move:"
-#~ msgstr "Permainan ini dimainkan dengan menggunakan tetikus. Untuk bergerak:"
-
-#~ msgid ""
-#~ "If the move is legal, the piece will be placed in the cell, and the "
-#~ "opponent pieces will be flipped to match your color."
-#~ msgstr ""
-#~ "Jika langkah ini legal, biji akan ditempatkan pada sel, dan biji lawan "
-#~ "akan membalik untuk mencocokkan dengan warna Anda."
-
-#~ msgid "If the move is not allowed, nothing will happen."
-#~ msgstr "Jika langkah ini tidak diperbolehkan, tidak akan terjadi."
-
-#~ msgid ""
-#~ "You can undo a move by clicking <guiseq><gui>Game</gui><gui>Undo move</"
-#~ "gui></guiseq>."
-#~ msgstr ""
-#~ "Anda dapat membatalkan langkah dengan mengklik <guiseq><gui>Permainan</"
-#~ "gui><gui>Batalkan langkah terakhir</gui></guiseq>."
-
-#~ msgid "Video demonstration"
-#~ msgstr "Video demonstrasi"
-
-#~ msgid ""
-#~ "The object of the game is to flip as many of the opponent tiles while "
-#~ "blocking your opponent from flipping your tiles. In order to flip a tile, "
-#~ "you must first trap it between two of your tiles, horizontally, "
-#~ "vertically or diagonally."
-#~ msgstr ""
-#~ "Tujuan dari permainan ini adalah untuk membalik sebanyak mungkin ubin "
-#~ "lawan sementara memblokir lawan dari membalik ubin Anda. Dalam rangka "
-#~ "untuk membalik ubin, pertama Anda harus menjebak antara dua ubin Anda, "
-#~ "horizontal, vertikal atau diagonal."
-
-#~ msgid ""
-#~ "Dark places a tile on the board in such a way that it traps white tiles "
-#~ "between two of the dark tiles."
-#~ msgstr ""
-#~ "Gelap menempatkan ubin di papan sedemikian rupa yang menjebak ubin putih "
-#~ "antara dua dari ubin gelap."
-
-#~ msgid ""
-#~ "The winner is the the player with the most pieces of his color on the "
-#~ "board."
-#~ msgstr ""
-#~ "Pemenangnya adalah pemain yang biji warnanya paling banyak di papan."
-
-#~ msgid "Blocking move"
-#~ msgstr "Langkah memblokir"
-
-#~ msgid "To enable or disable the sound:"
-#~ msgstr "Untuk mengaktifkan dan menon-aktifkan suara:"
-
-#~ msgid "Click on <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>."
-#~ msgstr "Klik <guiseq><gui>Pengaturan</gui><gui>Preferensi</gui></guiseq>."
-
-#~ msgid "Click the <gui>Enable sounds</gui> checkbox."
-#~ msgstr "Klik <gui>Aktifkan suara</gui>."
-
-#~ msgid "The change will be available immediately."
-#~ msgstr "Perubahan ini akan tersedia segera."
-
-#~ msgid ""
-#~ "Some sources state that Reversi does not have a predefined starting "
-#~ "position, whereas Othello and <app>Iagno</app> do."
-#~ msgstr ""
-#~ "Beberapa sumber menyatakan bahwa Reversi tidak memiliki posisi awal yang "
-#~ "telah ditetapkan, sedangkan Othello dan <app>Iagno</app> memiliki."
-
-#~ msgid ""
-#~ "<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
-#~ "beginner's guide to strategy of the game</link>"
-#~ msgstr ""
-#~ "<link href=\"http://othello.dk/book/index.php/From_Scratch\">A great "
-#~ "beginner's guide to strategy of the game</link>"
+"menggunakan <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
+"\">milis</link> khusus."
