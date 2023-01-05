@@ -403,6 +403,8 @@ msgid ""
 "GNU General Public License\n"
 "version 3 or later"
 msgstr ""
+"GNU General Public License\n"
+"аверсиа 3 мамзар еиҳа иҿыцу "
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the programmers names
 #: src/about-list.vala:154
@@ -596,7 +598,7 @@ msgstr ""
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:290
 msgid "_Two players"
-msgstr ""
+msgstr "Ҩыџьа ахәмарҩцәа"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:299
@@ -621,8 +623,6 @@ msgstr ""
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:323 src/iagno.vala:982
-#, fuzzy
-#| msgid "Classic"
 msgid "Classic Reversi"
 msgstr "Иклассику"
 
@@ -689,22 +689,16 @@ msgstr "Еиҳаны ахкқәа"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
 #: src/iagno.vala:688
-#, fuzzy
-#| msgid "Difficulty"
 msgid "Difficulty: Easy"
 msgstr "Ауадаҩра"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
 #: src/iagno.vala:692
-#, fuzzy
-#| msgid "Difficulty"
 msgid "Difficulty: Medium"
 msgstr "Ауадаҩра"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
 #: src/iagno.vala:696
-#, fuzzy
-#| msgid "Difficulty"
 msgid "Difficulty: Hard"
 msgstr "Ауадаҩра"
 
