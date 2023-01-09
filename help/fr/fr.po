@@ -4,13 +4,13 @@
 #
 # Claude Paroz <claude@2xlibre.net>, 2007-2008, 2020.
 # Bruno Brouard <annoa.b@gmail.com>, 2012.
-# Charles Monzat <charles.monzat@free.fr>, 2016-2020.
+# Charles Monzat <charles.monzat@free.fr>, 2016-2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno doc fr\n"
-"POT-Creation-Date: 2020-07-05 21:05+0000\n"
-"PO-Revision-Date: 2020-09-14 18:44+0200\n"
+"POT-Creation-Date: 2021-04-24 07:45+0000\n"
+"PO-Revision-Date: 2022-04-10 23:28+0200\n"
 "Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"X-Generator: Gtranslator 40.0\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -54,8 +54,7 @@ msgstr "2020"
 #: C/shortcuts.page:21 C/sound.page:17 C/start-position.page:17
 #: C/strategy.page:20 C/theme.page:16 C/translate.page:25
 msgid "Creative Commons Share Alike 3.0"
-msgstr ""
-"Creative Commons Paternité-Partage des Conditions Initiales à l’Identique 3.0"
+msgstr "Creative Commons Paternité - Partage dans les Mêmes Conditions 3.0"
 
 #. (itstool) path: page/title
 #: C/2player.page:20
@@ -259,10 +258,6 @@ msgstr "Alterner qui commence"
 
 #. (itstool) path: page/p
 #: C/alternate.page:22
-#| msgid ""
-#| "If you are playing multiple games in a row <link xref=\"ai-game\">against "
-#| "the computer</link>, <app>Reversi</app> allows you to automatically "
-#| "altern who will start the next game bewteen you and the computer."
 msgid ""
 "If you are playing multiple games in a row <link xref=\"ai-game\">against "
 "the computer</link>, <app>Reversi</app> allows you to automatically "
@@ -934,8 +929,8 @@ msgstr "Comment s’impliquer"
 #: C/legal.xml:3
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
 msgstr ""
-"licence Creative Commons Paternité-Partage des Conditions Initiales à "
-"l’Identique 3.0 non transposé"
+"licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 "
+"non transposé"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
@@ -958,8 +953,8 @@ msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
 msgstr ""
-"Cette œuvre est distribuée sous licence Creative Commons Paternité-Partage "
-"des Conditions Initiales à l’Identique 3.0 non transposé."
+"Cette œuvre est distribuée sous licence Creative Commons Attribution - "
+"Partage dans les Mêmes Conditions 3.0 non transposé."
 
 #. (itstool) path: page/p
 #: C/license.page:20
@@ -1006,7 +1001,7 @@ msgstr ""
 "Vous devez citer le nom de l’auteur original de la manière indiquée par "
 "l’auteur de l’œuvre ou le titulaire des droits qui vous confère cette "
 "autorisation (mais pas d’une manière qui suggérerait qu’ils vous soutiennent "
-"ou approuvent votre utilisation de l'œuvre)."
+"ou approuvent votre utilisation de l’œuvre)."
 
 #. (itstool) path: item/title
 #: C/license.page:46
@@ -1032,7 +1027,7 @@ msgid ""
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
 "Pour prendre connaissance du texte complet de la licence, consultez le <link "
-"href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">site Web "
+"href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">site web "
 "CreativeCommons</link> ou lisez in extenso le <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/\">contrat Commons</link>."
 
@@ -1085,7 +1080,7 @@ msgid ""
 "If you select a tile where you cannot move, the game notifies you that the "
 "move is impossible."
 msgstr ""
-"Si vous sélectionnez une case sur laquelle il n'est pas possible de poser un "
+"Si vous sélectionnez une case sur laquelle il n’est pas possible de poser un "
 "pion, le jeu vous informe que le placement est impossible."
 
 #. (itstool) path: item/p
@@ -1138,9 +1133,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/play.page:63
-#| msgid ""
-#| "Use the <key>Space</key> or the <key>Return</key> key to drop a piece one "
-#| "the selected tile."
 msgid ""
 "Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the "
 "selected tile."
@@ -1150,9 +1142,6 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/play.page:72
-#| msgid ""
-#| "You can always undo your move. For that, use the <keyseq><key>Ctrl</"
-#| "key><key>Z</key></keyseq> keys sequence."
 msgid ""
 "You can always undo your move. For that, use <keyseq><key>Ctrl</key><key>Z</"
 "key></keyseq>."
@@ -1748,11 +1737,6 @@ msgstr "Ouverture de jeu à deux"
 
 #. (itstool) path: section/p
 #: C/start-position.page:98
-#| msgid ""
-#| "When <link xref=\"2player\">playing with another player</link> with the "
-#| "the <link xref=\"#varying-start-position\"><gui>Vary start position</"
-#| "gui></link> option enabled, new games will start with a special two-"
-#| "player game overture."
 msgid ""
 "When <link xref=\"2player\">playing with another player</link> with the "
 "<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
@@ -2081,7 +2065,6 @@ msgstr "Ce comportement est bien sûr celui par défaut de l’application."
 
 #. (itstool) path: section/title
 #: C/theme.page:82
-#| msgid "More informations"
 msgid "More information"
 msgstr "Informations complémentaires"
 
