@@ -40,7 +40,7 @@
 To start translating you will need to <link href="https://l10n.gnome.org">create an account</link> and join the <link href="https://l10n.gnome.org/teams/">translation team</link> for your language. This will give you the ability to upload new translations.
 </p>
 
-  <p>You can chat with GNOME translators <link href="https://wiki.gnome.org/Community/GettingInTouch/IRC">using IRC</link> (on the <code>#i18n</code> channel). People on the channel are located worldwide, so you may not get an immediate response as a result of timezone differences.</p>
+  <p>You can chat with GNOME translators <link href="https://wiki.gnome.org/GettingInTouch/IRC">using IRC</link> (on the <code>#gnome-i18n</code> channel). People on the channel are located worldwide, so you may not get an immediate response as a result of timezone differences.</p>
 
   <p>Alternatively, you can contact the Internationalization Team using <link href="https://discourse.gnome.org/tag/i18n">GNOME Discourse</link>.</p>
 
