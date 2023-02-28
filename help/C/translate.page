@@ -42,6 +42,6 @@ To start translating you will need to <link href="https://l10n.gnome.org">create
 
   <p>You can chat with GNOME translators <link href="https://wiki.gnome.org/Community/GettingInTouch/IRC">using IRC</link> (on the <code>#i18n</code> channel). People on the channel are located worldwide, so you may not get an immediate response as a result of timezone differences.</p>
 
-  <p>Alternatively, you can contact the Internationalization Team using the dedicated <link href="https://mail.gnome.org/mailman/listinfo/gnome-i18n">mailing list</link>.</p>
+  <p>Alternatively, you can contact the Internationalization Team using <link href="https://discourse.gnome.org/tag/i18n">GNOME Discourse</link>.</p>
 
 </page>
