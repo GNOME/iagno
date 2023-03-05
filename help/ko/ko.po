@@ -1,26 +1,26 @@
 # Korean translation for iagno.
 # Copyright (C) 2021 iagno's COPYRIGHT HOLDER
 # This file is distributed under the same license as the iagno package.
-# Seong-ho Cho <shcho@gnome.org>, 2021.
+# Seong-ho Cho <shcho@gnome.org>, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2021-09-21 06:55+0000\n"
-"PO-Revision-Date: 2021-09-23 20:29+0900\n"
+"POT-Creation-Date: 2023-02-28 15:00+0000\n"
+"PO-Revision-Date: 2023-03-05 01:15+0900\n"
+"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: Korean <gnome-kr@googlegroups.com>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "X-Generator: Poedit 2.3.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "조성호 <shcho@gnome.org>, 2021"
+msgstr "조성호 <shcho@gnome.org>, 2021, 2023"
 
 #. (itstool) path: credit/name
 #: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
@@ -97,8 +97,8 @@ msgid ""
 "<link xref=\"start-position#human-overture\">two-player game overture</link>."
 msgstr ""
 "<link xref=\"start-position\">시작 위치 바꾸기</link>를 게임에 요청하고 2인 "
-"플레이어 게임으로 시작하면, 특별한 <link xref=\"start-position#human-overture"
-"\">2인 플레이어 게임 초반부 진행</link> 방식으로 게임을 시작합니다."
+"플레이어 게임으로 시작하면, 특별한 <link xref=\"start-position#human-"
+"overture\">2인 플레이어 게임 초반부 진행</link> 방식으로 게임을 시작합니다."
 
 #. (itstool) path: page/title
 #: C/ai-game.page:20
@@ -164,8 +164,8 @@ msgid ""
 "Once you have configured <app>Reversi</app> to play a game against the "
 "computer, you may <link xref=\"ai-level\">change the computer level</link>."
 msgstr ""
-"<app>리버시</app>를 컴퓨터를 상태로 게임하기로 설정하고 나면, <link xref="
-"\"ai-level\">컴퓨터 난이도를 바꿀</link> 수 있습니다."
+"<app>리버시</app>를 컴퓨터를 상태로 게임하기로 설정하고 나면, <link "
+"xref=\"ai-level\">컴퓨터 난이도를 바꿀</link> 수 있습니다."
 
 #. (itstool) path: page/title
 #: C/ai-level.page:20
@@ -206,10 +206,10 @@ msgid ""
 msgstr ""
 "<link xref=\"configure\">새 게임을 설정</link>할 때, <gui>난이도: 쉬움</"
 "gui>, <gui>난이도: 중간</gui>, <gui>난이도: 어려움</gui>, <gui>추가 옵션</"
-"gui> 중 하나가 두번째 단추 레이블에 아래 화살표를 덧붙여 나타냅니다. 처음 "
-"세가지 경우는 새 게임을 시작할 때 사용할 3단계 난이도입니다. 마지막의 경우"
-"는 <app>리버시</app>에 현재 2인 플레이어 게임으로 설정한 상태이며, <link x"
-"ref=\"ai-game\">컴퓨터 상대 플레이</link> 설정을 먼저 해야 함을 나타냅니다."
+"gui> 중 하나가 두번째 단추 레이블에 아래 화살표를 덧붙여 나타냅니다. 처음 세"
+"가지 경우는 새 게임을 시작할 때 사용할 3단계 난이도입니다. 마지막의 경우는 "
+"<app>리버시</app>에 현재 2인 플레이어 게임으로 설정한 상태이며, <link "
+"xref=\"ai-game\">컴퓨터 상대 플레이</link> 설정을 먼저 해야 함을 나타냅니다."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:28
@@ -377,8 +377,8 @@ msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
 "reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
 "Community/GettingInTouch/BugReportingGuidelines\">bug writing guidelines</"
-"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
-"\">browse</link> for the bug to see if it already exists."
+"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
+"issues\">browse</link> for the bug to see if it already exists."
 msgstr ""
 "계정이 있으면 로그인 후 <gui>New issue</gui>를 누르십시오. 버그를 보고하기 전"
 "에 <link href=\"https://wiki.gnome.org/Community/GettingInTouch/Bugzilla/"
@@ -429,9 +429,9 @@ msgid ""
 "former case to <link xref=\"ai-level\">change the computer level</link>."
 msgstr ""
 "이 화면에서는 <link xref=\"select-game\"><em>고전 리버시</em> 또는 <em>반전 "
-"리버시</em></link> 중 어느 하나를 플레이할 지 선택할 수 있고, <link xref="
-"\"ai-game\">컴퓨터를 상대</link>로 할 지, <link xref=\"2player\">다른 플레이"
-"어를 상대</link>로 할 지를 정할 수 있으며, 컴퓨터를 상태로 할 경우 <link "
+"리버시</em></link> 중 어느 하나를 플레이할 지 선택할 수 있고, <link "
+"xref=\"ai-game\">컴퓨터를 상대</link>로 할 지, <link xref=\"2player\">다른 플"
+"레이어를 상대</link>로 할 지를 정할 수 있으며, 컴퓨터를 상태로 할 경우 <link "
 "xref=\"ai-level\">컴퓨터 난이도를 바꿀</link> 수 있습니다."
 
 #. (itstool) path: page/p
@@ -454,8 +454,9 @@ msgid ""
 "selection\">keyboard shortcut</link>."
 msgstr ""
 "여기서 게임을 시작하려면 <gui>게임 시작</gui> 단추를 누릅니다. 게임은 "
-"<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> <link xref="
-"\"shortcuts#game-selection\">키보드 바로 가기</link>로 시작할 수도 있습니다."
+"<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> <link "
+"xref=\"shortcuts#game-selection\">키보드 바로 가기</link>로 시작할 수도 있습"
+"니다."
 
 #. (itstool) path: page/p
 #: C/configure.page:30
@@ -502,12 +503,11 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/develop.page:33
 msgid ""
-"Alternatively, you can contact GNOME games developers using the dedicated "
-"<link href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing "
-"list</link>."
+"Alternatively, you can contact GNOME games developers using <link "
+"href=\"https://discourse.gnome.org/tag/games\">GNOME Discourse</link>."
 msgstr ""
-"대신, 그놈 게임 개발자 팀에 <link href=\"https://mail.gnome.org/mailman/"
-"listinfo/games-list\">메일링 리스트</link>로 연락할 수도 있습니다."
+"대신, 그놈 게임 개발자 팀에 <link href=\"https://discourse.gnome.org/tag/"
+"games\">그놈 디스코스</link>로 연락할 수도 있습니다."
 
 #. (itstool) path: page/title
 #: C/documentation.page:25
@@ -527,31 +527,31 @@ msgstr ""
 #: C/documentation.page:30
 msgid ""
 "To contribute to the Documentation Project, feel free to get in touch with "
-"us <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC\">using "
-"irc</link> (on the <code>#docs</code> channel). People on the channel are "
-"located worldwide, so you may not get an immediate response as a result of "
-"timezone differences."
+"us <link href=\"https://wiki.gnome.org/GettingInTouch/IRC\">using irc</link> "
+"(on the <code>#gnome-docs</code> channel). People on the channel are located "
+"worldwide, so you may not get an immediate response as a result of timezone "
+"differences."
 msgstr ""
-"문서 프로젝트에 기여하려면 <link href=\"https://wiki.gnome.org/Community/"
-"GettingInTouch/IRC\">IRC</link>(<code>#docs</code> 채널)로 언제든지 연락 주십"
-"시오. 전세계 여러 문서 기여자가 이 채널에 있어 시차에 따라 답변을 바로 받지 "
-"못할 수도 있습니다."
+"문서 프로젝트에 기여하려면 <link href=\"https://wiki.gnome.org/"
+"GettingInTouch/IRC\">IRC</link>(<code>#gnome-docs</code> 채널)로 자유롭게 언"
+"제든지 연락 주십시오. 전세계 여러 문서 기여자가 이 채널에 있어 시차에 따라 답"
+"변을 바로 받지 못할 수도 있습니다."
 
 #. (itstool) path: page/p
 #: C/documentation.page:32
 msgid ""
-"Alternatively, you can contact the Documentation Project using the dedicated "
-"<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list"
-"\">mailing list</link>."
+"Alternatively, you can contact the Documentation Project via <link "
+"href=\"https://discourse.gnome.org/tag/documentation\">GNOME Discourse</"
+"link>."
 msgstr ""
-"대신, 문서 프로젝트 팀에 <link href=\"https://mail.gnome.org/mailman/"
-"listinfo/gnome-doc-list\">메일링 리스트</link>로 연락할 수도 있습니다."
+"대신, 문서 프로젝트 팀에 <link href=\"https://discourse.gnome.org/tag/"
+"documentation\">그놈 디스코스</link>로 연락할 수도 있습니다."
 
 #. (itstool) path: page/p
 #: C/documentation.page:34
 msgid ""
-"Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
-"\">wiki page</link> contains useful information."
+"Our <link href=\"https://wiki.gnome.org/DocumentationProject/"
+"Contributing\">wiki page</link> contains useful information."
 msgstr ""
 "<link href=\"https://live.gnome.org/DocumentationProject/Contributing\">위키"
 "</link> 페이지에 안내 정보가 있습니다."
@@ -633,8 +633,8 @@ msgid ""
 "The game will require to search for the <link xref=\"strategy\">best "
 "strategy</link>!"
 msgstr ""
-"게임을 진행하는 동안 <link xref=\"strategy\">최고의 전략</link> 탐색이 필"
-"요합니다!"
+"게임을 진행하는 동안 <link xref=\"strategy\">최고의 전략</link> 탐색이 필요합"
+"니다!"
 
 #. (itstool) path: media/p
 #: C/example.page:74
@@ -746,9 +746,10 @@ msgid ""
 "There is no way for only enabling this highlight for one of the players of a "
 "two-player game."
 msgstr ""
-"이 기능은 <link xref=\"ai-game\">컴퓨터 상대 게임</link> 과 <link xref="
-"\"2player\">2인 플레이어 게임</link> 둘 다 켜둘 수 있습니다. 2인 플레이어 게"
-"임의 경우 플레이어 하나에 대해서만 강조 힌트를 줄 수 있는 방법은 없습니다."
+"이 기능은 <link xref=\"ai-game\">컴퓨터 상대 게임</link> 과 <link "
+"xref=\"2player\">2인 플레이어 게임</link> 둘 다 켜둘 수 있습니다. 2인 플레이"
+"어 게임의 경우 플레이어 하나에 대해서만 강조 힌트를 줄 수 있는 방법은 없습니"
+"다."
 
 #. (itstool) path: section/p
 #: C/highlights.page:31
@@ -816,14 +817,14 @@ msgid ""
 "light on the other. <em>Dark</em> and <em>Light</em> play one after each "
 "other by adding on an empty tile a new piece of their color, trapping at "
 "least one opponent row of pieces; when pieces are captured that way, they "
-"are turned over to join the capturing player's forces. See <link xref=\"rules"
-"\">reversi rules</link> to discover more about the game."
+"are turned over to join the capturing player's forces. See <link "
+"xref=\"rules\">reversi rules</link> to discover more about the game."
 msgstr ""
 "<app>리버시</app>는 양면에 각각 어두운 색과 밝은 색이 붙은 말을 두는 보드 게"
 "임입니다. <em>어두운 색</em>과 <em>밝은 색</em>은 게임판의 빈 칸에 두어, 한 "
 "개 이상의 직선상에 있는 말을 잡습니다. 이런 방식으로 말을 잡으면서, 플레이어"
-"의 공격에 가세할 차례를 넘겨받습니다. 게임에 대해 더 알아보려면 <link xref=\""
-"rules\">리버시 규칙</link>을 살펴보십시오."
+"의 공격에 가세할 차례를 넘겨받습니다. 게임에 대해 더 알아보려면 <link "
+"xref=\"rules\">리버시 규칙</link>을 살펴보십시오."
 
 #. (itstool) path: page/p
 #: C/index.page:31
@@ -962,9 +963,9 @@ msgid ""
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
 "라이선스 전문을 보려면, <link href=\"http://creativecommons.org/licenses/by-"
-"sa/3.0/legalcode\">크리에이티브 커먼즈 웹사이트 </link> 또는 <link href="
-"\"http://creativecommons.org/licenses/by-sa/3.0/\">일반 권리 증서</link>를 참"
-"조합니다."
+"sa/3.0/legalcode\">크리에이티브 커먼즈 웹사이트 </link> 또는 <link "
+"href=\"http://creativecommons.org/licenses/by-sa/3.0/\">일반 권리 증서</link>"
+"를 참조합니다."
 
 #. (itstool) path: credit/years
 #: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:13
@@ -1021,8 +1022,8 @@ msgstr ""
 #: C/play.page:44 C/play.page:69
 msgid ""
 "To show possible moves, select a tile where there is already a piece, "
-"whatever its color is. Alternatively, you might want to <link xref="
-"\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
+"whatever its color is. Alternatively, you might want to <link "
+"xref=\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
 msgstr ""
 "말을 둘 수 있는 가능한 곳을 보려면, 어떤 색상이든지간에 이미 둔 말 하나를 선"
 "택합니다. 대신 <link xref=\"highlights#highlight-playable-tiles\">둘 수 있는 "
@@ -1080,9 +1081,9 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/play.page:76
 msgid ""
-"More shortcuts are available, documented either on the <link xref="
-"\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the dialog "
-"that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+"More shortcuts are available, documented either on the <link "
+"xref=\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the "
+"dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 msgstr ""
 "이외에도 <link xref=\"shortcuts#how-to-play\">키보드 바로 가기</link> 페이지"
 "에 문서로 남겨두었거나 <keyseq><key>Ctrl</key><key>F1</key></keyseq> 키를 눌"
@@ -1198,9 +1199,9 @@ msgid ""
 "is trapped between the newly placed piece and an already placed one of the "
 "same color."
 msgstr ""
-"<em>어두운 색</em> 플레이어가 먼저 두고 나면 다른 플레이어가 게임판에 자신의"
-" 색상의 말을 인접한 새 위치에 두어 최소한 한 줄 이상 위치한 상대방의 말을 포"
-"획하여 동일한 색상으로 바꿉니다."
+"<em>어두운 색</em> 플레이어가 먼저 두고 나면 다른 플레이어가 게임판에 자신의 "
+"색상의 말을 인접한 새 위치에 두어 최소한 한 줄 이상 위치한 상대방의 말을 포획"
+"하여 동일한 색상으로 바꿉니다."
 
 #. (itstool) path: note/p
 #: C/rules.page:71
@@ -1321,8 +1322,8 @@ msgstr ""
 #: C/select-game.page:30
 msgid ""
 "This variation in the goal makes <em>Reverse Reversi</em> a quite "
-"interesting game, as you have to elaborate a different <link xref=\"strategy"
-"\">strategy</link> to win. Try it!"
+"interesting game, as you have to elaborate a different <link "
+"xref=\"strategy\">strategy</link> to win. Try it!"
 msgstr ""
 "이 목표의 차이는 <em>반전 리버시</em>를 좀 더 흥미로운 게임이 되게 함과 동시"
 "에, 플레이어 여러분이 이기기 위한 전혀 다른 정교한 <link xref=\"strategy\">전"
@@ -1880,11 +1881,11 @@ msgstr ""
 #: C/theme.page:56
 msgid ""
 "The first entry in the themes list is called <em>Default</em> and has a "
-"special behavior; see the section about the <link xref=\"#default-theme"
-"\"><em>Default</em> theme</link>."
+"special behavior; see the section about the <link xref=\"#default-"
+"theme\"><em>Default</em> theme</link>."
 msgstr ""
-"테마 항목 첫번째는 <em>기본</em>이며, 특별한 동작을 취합니다. <link xref="
-"\"#default-theme\"><em>기본</em> 테마</link> 섹션을 살펴보십시오."
+"테마 항목 첫번째는 <em>기본</em>이며, 특별한 동작을 취합니다. <link "
+"xref=\"#default-theme\"><em>기본</em> 테마</link> 섹션을 살펴보십시오."
 
 #. (itstool) path: section/title
 #: C/theme.page:60
@@ -1998,10 +1999,10 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/translate.page:39
 msgid ""
-"To start translating you will need to <link href=\"https://l10n.gnome.org"
-"\">create an account</link> and join the <link href=\"https://l10n.gnome.org/"
-"teams/\">translation team</link> for your language. This will give you the "
-"ability to upload new translations."
+"To start translating you will need to <link href=\"https://l10n.gnome."
+"org\">create an account</link> and join the <link href=\"https://l10n.gnome."
+"org/teams/\">translation team</link> for your language. This will give you "
+"the ability to upload new translations."
 msgstr ""
 "번역을 시작하려면 <link href=\"https://l10n.gnome.org\">계정 만들기</link>를 "
 "진행하고, 여러분의 언어에 해당하는 <link href=\"https://l10n.gnome.org/teams/"
@@ -2012,20 +2013,20 @@ msgstr ""
 #: C/translate.page:43
 msgid ""
 "You can chat with GNOME translators <link href=\"https://wiki.gnome.org/"
-"Community/GettingInTouch/IRC\">using IRC</link> (on the <code>#i18n</code> "
+"GettingInTouch/IRC\">using IRC</link> (on the <code>#gnome-i18n</code> "
 "channel). People on the channel are located worldwide, so you may not get an "
 "immediate response as a result of timezone differences."
 msgstr ""
-"<link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC\">IRC</"
-"link>(<code>#i18n</code> 채널)에서 그놈 번역자와 대화할 수 있습니다. 전세계 "
-"여러 번역자가 이 채널에 있어 시차에 따라 답변을 바로 받지 못할 수도 있습니다."
+"<link href=\"https://wiki.gnome.org/GettingInTouch/IRC\">IRC</"
+"link>(<code>#gnome-i18n</code> 채널)에서 그놈 번역자와 대화할 수 있습니다. 전"
+"세계 여러 번역자가 이 채널에 있어 시차에 따라 답변을 바로 받지 못할 수도 있습"
+"니다."
 
 #. (itstool) path: page/p
 #: C/translate.page:45
 msgid ""
-"Alternatively, you can contact the Internationalization Team using the "
-"dedicated <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
-"\">mailing list</link>."
+"Alternatively, you can contact the Internationalization Team using <link "
+"href=\"https://discourse.gnome.org/tag/i18n\">GNOME Discourse</link>."
 msgstr ""
-"대신, 국제화 팀에 <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-"
-"i18n\">메일링 리스트</link>로 연락할 수도 있습니다."
+"대신, 국제화 팀에 <link href=\"https://discourse.gnome.org/tag/i18n\">그놈 디"
+"스코스</link>로 연락할 수도 있습니다."
