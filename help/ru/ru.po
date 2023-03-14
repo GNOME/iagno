@@ -1,27 +1,27 @@
 # Russian translation for iagno.
 # Copyright (C) 2022 iagno's COPYRIGHT HOLDER
 # This file is distributed under the same license as the iagno package.
-# Ser82-png <sw@atrus.ru>, 2022.
+# Ser82-png <asvmail.as@gmail.com>, 2022-2023
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2021-12-24 06:53+0000\n"
-"PO-Revision-Date: 2022-01-12 22:40+1000\n"
+"POT-Creation-Date: 2023-02-28 15:00+0000\n"
+"PO-Revision-Date: 2023-03-07 19:45+1000\n"
+"Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Last-Translator: Ser82-png\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Ser82-png <sw@atrus.ru>, 2022."
+msgstr "Ser82-png <asvmail.as@gmail.com>, 2022-2023"
 
 #. (itstool) path: credit/name
 #: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
@@ -168,8 +168,8 @@ msgid ""
 "Once you have configured <app>Reversi</app> to play a game against the "
 "computer, you may <link xref=\"ai-level\">change the computer level</link>."
 msgstr ""
-"Настроив <app>Реверси</app> для игры против компьютера, вы можете <link xref="
-"\"ai-level\">изменить уровень сложности игры компьютера</link>."
+"Настроив <app>Реверси</app> для игры против компьютера, вы можете <link "
+"xref=\"ai-level\">изменить уровень сложности игры компьютера</link>."
 
 #. (itstool) path: page/title
 #: C/ai-level.page:20
@@ -214,8 +214,8 @@ msgstr ""
 "Трудно</gui> или <gui>Больше параметров</gui>. Первые три варианта "
 "указывают, какой из трех уровней будет использоваться при запуске новой "
 "игры. Последний случай свидетельствует о том, что <app>Реверси</app> "
-"настроено на игру двух игроков, и вам следует указать, что хотите <link xref="
-"\"ai-game\">играть против компьютера</link>."
+"настроено на игру двух игроков, и вам следует указать, что хотите <link "
+"xref=\"ai-game\">играть против компьютера</link>."
 
 #. (itstool) path: page/p
 #: C/ai-level.page:28
@@ -236,8 +236,8 @@ msgid ""
 "Game</gui> button to launch your game and <link xref=\"play\">play</link>."
 msgstr ""
 "Когда вы установили подходящий уровень сложности, можете нажать кнопку "
-"<gui>Начать игру</gui>, чтобы запустить игру и начать в неё <link xref=\"play"
-"\">играть</link>."
+"<gui>Начать игру</gui>, чтобы запустить игру и начать в неё <link "
+"xref=\"play\">играть</link>."
 
 #. (itstool) path: page/title
 #: C/alternate.page:20
@@ -268,8 +268,8 @@ msgstr ""
 "на первую кнопку со стрелкой вниз, она может иметь надписи <gui>Цвет: "
 "Тёмный</gui>, <gui>Цвет: Светлый</gui> или <gui>Два игрока</gui>. В "
 "последнем случае <app>Реверси</app> настроено на запуск игры для двух "
-"игроков; если это так, то сначала настройте игру <link xref=\"ai-game"
-"\">против компьютера</link>."
+"игроков; если это так, то сначала настройте игру <link xref=\"ai-"
+"game\">против компьютера</link>."
 
 #. (itstool) path: page/p
 #: C/alternate.page:26
@@ -306,9 +306,9 @@ msgid ""
 msgstr ""
 "Если параметр <gui>Начинать по очереди</gui> включен, то приложение будет "
 "автоматически менять того, кто будет начинать следующую игру. Поэтому, если "
-"вы начинали игру, то в следующий раз, на этапе <link xref=\"configure"
-"\">настройки новой игры</link> кнопка будет помечена как <gui>Цвет: Светлый</"
-"gui>, и следующую игру будет начинать компьютер."
+"вы начинали игру, то в следующий раз, на этапе <link "
+"xref=\"configure\">настройки новой игры</link> кнопка будет помечена как "
+"<gui>Цвет: Светлый</gui>, и следующую игру будет начинать компьютер."
 
 #. (itstool) path: page/p
 #: C/alternate.page:32
@@ -391,15 +391,16 @@ msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
 "reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
 "Community/GettingInTouch/BugReportingGuidelines\">bug writing guidelines</"
-"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
-"\">browse</link> for the bug to see if it already exists."
+"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
+"issues\">browse</link> for the bug to see if it already exists."
 msgstr ""
 "Если у вас есть учётная запись, войдите в неё и нажмите <gui>New issue</"
 "gui>. Прежде чем сообщать об ошибке, ознакомьтесь с <link href=\"https://"
-"wiki.gnome.org/Community/GettingInTouch/BugReportingGuidelines"
-"\">руководством по написанию ошибок</link> и, пожалуйста, <link href="
-"\"https://gitlab.gnome.org/GNOME/iagno/issues\">просмотрите</link> список "
-"ошибок, чтобы убедиться, что о ней ещё никто не сообщил."
+"wiki.gnome.org/Community/GettingInTouch/"
+"BugReportingGuidelines\">руководством по написанию ошибок</link> и, "
+"пожалуйста, <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
+"issues\">просмотрите</link> список ошибок, чтобы убедиться, что о ней ещё "
+"никто не сообщил."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:40
@@ -409,7 +410,7 @@ msgid ""
 "<gui>Submit Issue</gui>."
 msgstr ""
 "Если вы запрашиваете новую функцию, выберите <gui>1. Feature</gui> в меню "
-"<gui>Labels</gui>. Заполните разделы «Заголовок» и «Описание» и нажмите "
+"<gui>Labels</gui>. Заполните разделы «Title» и «Description» и нажмите "
 "<gui>Submit Issue</gui>."
 
 #. (itstool) path: section/p
@@ -445,8 +446,8 @@ msgid ""
 "link> or <link xref=\"2player\">with another player</link>, and in the "
 "former case to <link xref=\"ai-level\">change the computer level</link>."
 msgstr ""
-"Это окно позволяет выбрать, хотите ли вы играть в <link xref=\"select-game"
-"\"><em>Классическое \"Реверси\"</em> или <em>Обратное \"Реверси\"</em></"
+"Это окно позволяет выбрать, хотите ли вы играть в <link xref=\"select-"
+"game\"><em>Классическое «Реверси»</em> или <em>Обратное «Реверси»</em></"
 "link>. Также даёт возможность выбрать - играть <link xref=\"ai-game\">против "
 "компьютера</link> или <link xref=\"2player\">с другим игроком</link>, и в "
 "первом случае - <link xref=\"ai- level\">изменить уровень сложности</link>."
@@ -459,7 +460,7 @@ msgid ""
 "will have remembered you previous settings."
 msgstr ""
 "Если вы открываете приложение в первый раз, <app>Реверси</app> по умолчанию "
-"будет использовать <em>Классическое \"Реверси\"</em> против компьютера на "
+"будет использовать <em>Классическое «Реверси»</em> против компьютера на "
 "простом уровне сложности. В противном случае - программа восстановит ваши "
 "предыдущие настройки."
 
@@ -512,23 +513,22 @@ msgid ""
 "channel). People on the channel are located worldwide, so you may not get an "
 "immediate response as a result of timezone differences."
 msgstr ""
-"Если вы хотите <link href=\"https://wiki.gnome.org/Apps/Games/Contribute"
-"\">помочь в разработке <app>GNOME Games</app></link>, то можете связаться с "
-"разработчиками <link href=\"https://wiki.gnome.org/Community/GettingInTouch/"
-"IRC\">используя IRC</link> (на канале <code>#gnome-games</code>). Люди на "
-"канале находятся по всему миру, поэтому вы можете не получить немедленный "
-"ответ из-за разницы часовых поясов."
+"Если вы хотите <link href=\"https://wiki.gnome.org/Apps/Games/"
+"Contribute\">помочь в разработке <app>GNOME Games</app></link>, то можете "
+"связаться с разработчиками <link href=\"https://wiki.gnome.org/Community/"
+"GettingInTouch/IRC\">используя IRC</link> (на канале <code>#gnome-games</"
+"code>). Люди на канале находятся по всему миру, поэтому вы можете не "
+"получить немедленный ответ из-за разницы часовых поясов."
 
 #. (itstool) path: page/p
 #: C/develop.page:33
 msgid ""
-"Alternatively, you can contact GNOME games developers using the dedicated "
-"<link href=\"https://mail.gnome.org/mailman/listinfo/games-list\">mailing "
-"list</link>."
+"Alternatively, you can contact GNOME games developers using <link "
+"href=\"https://discourse.gnome.org/tag/games\">GNOME Discourse</link>."
 msgstr ""
-"Кроме того, вы можете связаться с разработчиками GNOME games, используя "
-"соответствующий <link href=\"https://mail.gnome.org/mailman/listinfo/games-"
-"list\">список рассылки</link>."
+"Кроме того, вы можете связаться с разработчиками «GNOME games» используя "
+"соответствующий <link href=\"https://discourse.gnome.org/tag/games\">GNOME "
+"Discourse</link>."
 
 #. (itstool) path: page/title
 #: C/documentation.page:25
@@ -548,35 +548,35 @@ msgstr ""
 #: C/documentation.page:30
 msgid ""
 "To contribute to the Documentation Project, feel free to get in touch with "
-"us <link href=\"https://wiki.gnome.org/Community/GettingInTouch/IRC\">using "
-"irc</link> (on the <code>#docs</code> channel). People on the channel are "
-"located worldwide, so you may not get an immediate response as a result of "
-"timezone differences."
+"us <link href=\"https://wiki.gnome.org/GettingInTouch/IRC\">using irc</link> "
+"(on the <code>#gnome-docs</code> channel). People on the channel are located "
+"worldwide, so you may not get an immediate response as a result of timezone "
+"differences."
 msgstr ""
-"Чтобы внести свой вклад в Documentation Project, свяжитесь с нами <link href="
-"\"https://wiki.gnome.org/Community/GettingInTouch/IRC\">с помощью irc</link> "
-"(на <code># документы</code>). Люди на канале находятся по всему миру, "
-"поэтому вы можете не получить немедленный ответ из-за разницы часовых поясов."
+"Чтобы внести свой вклад в Documentation Project, свяжитесь с нами <link "
+"href=\"https://wiki.gnome.org/GettingInTouch/IRC\">с помощью irc</link> (на "
+"<code>#gnome-docs</code>). Люди на канале находятся по всему миру, поэтому "
+"вы можете не получить немедленный ответ из-за разницы часовых поясов."
 
 #. (itstool) path: page/p
 #: C/documentation.page:32
 msgid ""
-"Alternatively, you can contact the Documentation Project using the dedicated "
-"<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-list"
-"\">mailing list</link>."
+"Alternatively, you can contact the Documentation Project via <link "
+"href=\"https://discourse.gnome.org/tag/documentation\">GNOME Discourse</"
+"link>."
 msgstr ""
-"Кроме того, вы можете связаться с Documentation Project, используя "
-"специальный <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-doc-"
-"list\">список рассылки</link>."
+"Кроме того, вы можете связаться с Documentation Project через <link "
+"href=\"https://discourse.gnome.org/tag/documentation\">GNOME Discourse</"
+"link>."
 
 #. (itstool) path: page/p
 #: C/documentation.page:34
 msgid ""
-"Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
-"\">wiki page</link> contains useful information."
+"Our <link href=\"https://wiki.gnome.org/DocumentationProject/"
+"Contributing\">wiki page</link> contains useful information."
 msgstr ""
-"Наша <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
-"\">wiki-страница</link> содержит полезную информацию."
+"Наша <link href=\"https://wiki.gnome.org/DocumentationProject/"
+"Contributing\">wiki-страница</link> содержит полезную информацию."
 
 #. (itstool) path: page/title
 #: C/example.page:21
@@ -604,8 +604,8 @@ msgid ""
 "<app>Reversi</app> also allows you to <link xref=\"start-position\">use "
 "other start positions</link>."
 msgstr ""
-"<app>Реверси</app> также позволяет <link xref=\"start-position"
-"\">использовать другие стартовые позиции</link>."
+"<app>Реверси</app> также позволяет <link xref=\"start-"
+"position\">использовать другие стартовые позиции</link>."
 
 #. (itstool) path: media/p
 #: C/example.page:42
@@ -697,7 +697,7 @@ msgid ""
 "be the best solution even. Only the number of owned tiles at the end of the "
 "game will count."
 msgstr ""
-"Захват сразу большего количества фишек в \"Реверси\" не требуется, и даже "
+"Захват сразу большего количества фишек в «Реверси» не требуется, и даже "
 "может быть не лучшим решением. Учитывается только количество фишек в конце "
 "игры."
 
@@ -746,8 +746,8 @@ msgid ""
 "a <em>Classic Reversi</em> or a <em>Reverse Reversi</em>."
 msgstr ""
 "Во время игры <app>Реверси</app> может подсвечивать некоторые полезные "
-"моменты, как в <em>Классическом \"Реверси\"</em>, так и в <em>Обратном "
-"\"Реверси\"</em>."
+"моменты, как в <em>Классическом «Реверси»</em>, так и в <em>Обратном "
+"«Реверси»</em>."
 
 #. (itstool) path: section/title
 #: C/highlights.page:25
@@ -831,7 +831,7 @@ msgstr "Реверси"
 #. (itstool) path: media/span
 #: C/index.page:27
 msgid "Reversi logo"
-msgstr "Логотип \"Реверси\""
+msgstr "Логотип «Реверси»"
 
 #. (itstool) path: page/title
 #: C/index.page:27
@@ -845,8 +845,8 @@ msgid ""
 "light on the other. <em>Dark</em> and <em>Light</em> play one after each "
 "other by adding on an empty tile a new piece of their color, trapping at "
 "least one opponent row of pieces; when pieces are captured that way, they "
-"are turned over to join the capturing player's forces. See <link xref=\"rules"
-"\">reversi rules</link> to discover more about the game."
+"are turned over to join the capturing player's forces. See <link "
+"xref=\"rules\">reversi rules</link> to discover more about the game."
 msgstr ""
 "<app>Реверси</app> – это настольная игра, в которой фишки окрашены в два "
 "цвета, тёмные с одной стороны и светлые с другой. <em>Тёмные</em> и "
@@ -867,14 +867,14 @@ msgid ""
 "or <link xref=\"2player\">with another player</link>. Check these options "
 "when you <link xref=\"configure\">configure a new game</link>. Have fun!"
 msgstr ""
-"Компьютерная игра <app>Реверси</app> позволяет вам играть в <link xref="
-"\"select-game\">два варианта игры реверси</link>: классическая версия, где "
-"вы пытаетесь доминировать на доске в конце игры, и <em>Обратное \"Реверси\"</"
-"em>, где цель состоит в том, чтобы закончить с <em>меньшим</em> количеством "
-"фишек, чем у противника. Вы можете играть как <link xref=\"ai-game\">против "
-"компьютера</link>, так и <link xref=\"2player\">с другим игроком</link>. "
-"Отметьте эти параметры при <link xref=\"configure\">настройке новой игры</"
-"link>. Развлекайся!"
+"Компьютерная игра <app>Реверси</app> позволяет вам играть в <link "
+"xref=\"select-game\">два варианта игры реверси</link>: классическая версия, "
+"где вы пытаетесь доминировать на доске в конце игры, и <em>Обратное "
+"«Реверси»</em>, где цель состоит в том, чтобы закончить с <em>меньшим</em> "
+"количеством фишек, чем у противника. Вы можете играть как <link xref=\"ai-"
+"game\">против компьютера</link>, так и <link xref=\"2player\">с другим "
+"игроком</link>. Отметьте эти параметры при <link "
+"xref=\"configure\">настройке новой игры</link>. Развлекайся!"
 
 #. (itstool) path: section/title
 #: C/index.page:34
@@ -884,7 +884,7 @@ msgstr "Процесс игры"
 #. (itstool) path: section/title
 #: C/index.page:38
 msgid "Game of reversi"
-msgstr "Игра в \"Реверси\""
+msgstr "Игра в «Реверси»"
 
 #. (itstool) path: section/title
 #: C/index.page:42
@@ -1054,13 +1054,13 @@ msgstr ""
 #: C/play.page:44 C/play.page:69
 msgid ""
 "To show possible moves, select a tile where there is already a piece, "
-"whatever its color is. Alternatively, you might want to <link xref="
-"\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
+"whatever its color is. Alternatively, you might want to <link "
+"xref=\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
 msgstr ""
 "Чтобы посмотреть возможные ходы, нажмите на клетку, на которой уже есть "
-"фишка, независимо от её цвета. В качестве альтернативы вы можете <link xref="
-"\"highlights#highlight-playable-tiles\">подсвечивать подходящие для игры "
-"клетки</link>."
+"фишка, независимо от её цвета. В качестве альтернативы вы можете <link "
+"xref=\"highlights#highlight-playable-tiles\">подсвечивать подходящие для "
+"игры клетки</link>."
 
 #. (itstool) path: item/p
 #: C/play.page:47
@@ -1116,9 +1116,9 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/play.page:76
 msgid ""
-"More shortcuts are available, documented either on the <link xref="
-"\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the dialog "
-"that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+"More shortcuts are available, documented either on the <link "
+"xref=\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the "
+"dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 msgstr ""
 "Доступны дополнительные сочетания клавиш, задокументированные либо на "
 "странице <link xref=\"shortcuts#how-to-play\">Комбинации клавиш</link>, либо "
@@ -1160,12 +1160,12 @@ msgid ""
 "than the opponent; while in <em>Reverse Reversi</em>, it is to finish with "
 "<em>less</em> pieces."
 msgstr ""
-"<em>Классическое \"Реверси\"</em> и <em>Обратное \"Реверси\"</em> — это "
+"<em>Классическое «Реверси»</em> и <em>Обратное «Реверси»</em> — это "
 "настольные игры, в которых участвуют два игрока, называемые <em>Тёмные</em> "
 "и <em>Светлые</em>. В обеих играх используются одни и те же правила; между "
-"ними различается только конечная цель: в <em>Классическом \"Реверси\"</em> "
+"ними различается только конечная цель: в <em>Классическом «Реверси»</em> "
 "цель состоит в том, чтобы закончить с <em>большим</em> количеством фишек, "
-"чем у противника; в то время как в <em>Обратном \"Реверси\"</em> нужно "
+"чем у противника; в то время как в <em>Обратном «Реверси»</em> нужно "
 "закончить с <em>меньшим</em> количеством фишек."
 
 #. (itstool) path: page/p
@@ -1307,7 +1307,7 @@ msgid ""
 msgstr ""
 "Если вы играете в <em>Классическое \"Рверси\"</em>, то побеждает игрок, у "
 "которого на доске <em>больше всего</em> фишек своего цвета; если вы "
-"участвуете в игре <em>Обратное \"Реверси\"</em> - всё наоборот: побеждает "
+"участвуете в игре <em>Обратное «Реверси»</em> - всё наоборот: побеждает "
 "игрок с <em>наименьшим</em> числом фишек на доске."
 
 #. (itstool) path: section/p
@@ -1321,7 +1321,7 @@ msgstr ""
 #. (itstool) path: page/title
 #: C/select-game.page:20
 msgid "<em>Classic Reversi</em> or <em>Reverse Reversi</em>"
-msgstr "<em>Классическое \"Реверси\"</em> или <em>Обратное \"Реверси\"</em>"
+msgstr "<em>Классическое «Реверси»</em> или <em>Обратное «Реверси»</em>"
 
 #. (itstool) path: page/p
 #: C/select-game.page:22
@@ -1330,7 +1330,7 @@ msgid ""
 "<em>Classic Reversi</em> and <em>Reverse Reversi</em>."
 msgstr ""
 "Приложение <app>Реверси</app> позволяет играть в два варианта одной и той же "
-"игры: <em>Классическое \"Реверси\"</em> и <em>Обратное \"Реверси\"</em>."
+"игры: <em>Классическое «Реверси»</em> и <em>Обратное «Реверси»</em>."
 
 #. (itstool) path: page/p
 #: C/select-game.page:24
@@ -1340,8 +1340,8 @@ msgid ""
 "<gui>Reverse Reversi</gui> buttons."
 msgstr ""
 "При <link xref=\"configure\">настройке новой игры</link> просто выберите "
-"игру, в которую хотите играть, с помощью кнопок <gui>Классическое \"Реверси"
-"\"</gui> или <gui>Обратное \"Реверси\"</gui>."
+"игру, в которую хотите играть, с помощью кнопок <gui>Классическое «Реверси»</"
+"gui> или <gui>Обратное «Реверси»</gui>."
 
 #. (itstool) path: page/p
 #: C/select-game.page:26
@@ -1349,8 +1349,8 @@ msgid ""
 "As you can imagine with its name, the <em>Classic Reversi</em> game is the "
 "reversi as it is known around the world."
 msgstr ""
-"Как вы можете догадаться по названию, игра <em>Классическое \"Реверси\"</em> "
-"— это игра Реверси, известная во всем мире."
+"Как вы можете догадаться по названию, игра <em>Классическое «Реверси»</em> — "
+"это игра Реверси, известная во всем мире."
 
 #. (itstool) path: page/p
 #: C/select-game.page:28
@@ -1361,21 +1361,21 @@ msgid ""
 "it is to finish with <em>less</em> pieces."
 msgstr ""
 "Обе игры фактически используют одни и те же правила; между ними различается "
-"только конечная цель: в <em>Классическом \"Реверси\"</em> цель состоит в "
-"том, чтобы закончить с <em>большим</em> количеством фишек, чем у противника; "
-"в то время как в <em>Обратном \"Реверси\"</em> нужно закончить с "
-"<em>меньшим</em> количеством фишек."
+"только конечная цель: в <em>Классическом «Реверси»</em> цель состоит в том, "
+"чтобы закончить с <em>большим</em> количеством фишек, чем у противника; в то "
+"время как в <em>Обратном «Реверси»</em> нужно закончить с <em>меньшим</em> "
+"количеством фишек."
 
 #. (itstool) path: page/p
 #: C/select-game.page:30
 msgid ""
 "This variation in the goal makes <em>Reverse Reversi</em> a quite "
-"interesting game, as you have to elaborate a different <link xref=\"strategy"
-"\">strategy</link> to win. Try it!"
+"interesting game, as you have to elaborate a different <link "
+"xref=\"strategy\">strategy</link> to win. Try it!"
 msgstr ""
-"Такой вариант цели делает <em>Обратное \"Реверси\"</em> довольно интересной "
-"игрой, поскольку для победы вам нужно разработать другую <link xref="
-"\"strategy\">стратегию</link>. Попробуйте!"
+"Такой вариант цели делает <em>Обратное «Реверси»</em> довольно интересной "
+"игрой, поскольку для победы вам нужно разработать другую <link "
+"xref=\"strategy\">стратегию</link>. Попробуйте!"
 
 #. (itstool) path: page/p
 #: C/select-game.page:32
@@ -1383,7 +1383,7 @@ msgid ""
 "If you want to try other variations of the reversi game, you can also choose "
 "to <link xref=\"start-position\">vary start position</link>."
 msgstr ""
-"Если хотите попробовать другие возможности игры \"Реверси\", вы также можете "
+"Если хотите попробовать другие возможности игры «Реверси», вы также можете "
 "<link xref=\"start-position\">изменить начальную позицию</link>."
 
 #. (itstool) path: credit/name
@@ -1404,9 +1404,9 @@ msgid ""
 "keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse Reversi</em> "
 "games are both played with the same shortcuts."
 msgstr ""
-"В <app>Реверси</app> можно легко <link xref=\"play#keyboard-play"
-"\">пользоваться клавиатурой</link>. В игры <em>Классическое \"Реверси\"</em> "
-"и <em>Обратное \"Реверси\"</em> можно играть одними и теми же клавишами "
+"В <app>Реверси</app> можно легко <link xref=\"play#keyboard-"
+"play\">пользоваться клавиатурой</link>. В игры <em>Классическое «Реверси»</"
+"em> и <em>Обратное «Реверси»</em> можно играть одними и теми же клавишами "
 "быстрого доступа."
 
 #. (itstool) path: section/title
@@ -1589,9 +1589,10 @@ msgid ""
 "a new game</link>, click on the <gui>Difficulty</gui> button, and in the "
 "menu that appears, select <gui>Vary start position</gui>."
 msgstr ""
-"Чтобы включить или отключить этот параметр, во время <link xref=\"configure"
-"\">настройки новой игры</link> нажмите кнопку <gui>Сложность</gui> и в "
-"появившемся меню выберите <gui>Менять начальную позицию</gui>."
+"Чтобы включить или отключить этот параметр, во время <link "
+"xref=\"configure\">настройки новой игры</link> нажмите кнопку "
+"<gui>Сложность</gui> и в появившемся меню выберите <gui>Менять начальную "
+"позицию</gui>."
 
 #. (itstool) path: section/p
 #: C/start-position.page:30
@@ -1623,8 +1624,8 @@ msgid ""
 "<link xref=\"#start-positions\">possible start positions</link>."
 msgstr ""
 "Если опция отключена, то для новых игр всегда будет использоваться обычная "
-"позиция семейства игр реверси. Смотрите описание в списке <link xref="
-"\"#start-positions\">возможных стартовых позиций</link>."
+"позиция семейства игр реверси. Смотрите описание в списке <link "
+"xref=\"#start-positions\">возможных стартовых позиций</link>."
 
 #. (itstool) path: section/title
 #: C/start-position.page:38
@@ -1852,8 +1853,8 @@ msgid ""
 "theme\"><em>Default</em> theme</link>."
 msgstr ""
 "Пока тема не изменена, приложение будет пытаться выбрать тему, "
-"адаптированную к вашей среде; смотрите раздел о <link xref=\"#default-theme"
-"\"><em>теме по умолчанию</em></link>."
+"адаптированную к вашей среде; смотрите раздел о <link xref=\"#default-"
+"theme\"><em>теме по умолчанию</em></link>."
 
 #. (itstool) path: section/title
 #: C/theme.page:27
@@ -1946,8 +1947,8 @@ msgstr ""
 #: C/theme.page:56
 msgid ""
 "The first entry in the themes list is called <em>Default</em> and has a "
-"special behavior; see the section about the <link xref=\"#default-theme"
-"\"><em>Default</em> theme</link>."
+"special behavior; see the section about the <link xref=\"#default-"
+"theme\"><em>Default</em> theme</link>."
 msgstr ""
 "Первая запись в списке тем называется <em>По умолчанию</em> и имеет особое "
 "поведение; смотрите раздел о <link xref=\"#default-theme\"><em>теме по "
@@ -2076,13 +2077,13 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/translate.page:39
 msgid ""
-"To start translating you will need to <link href=\"https://l10n.gnome.org"
-"\">create an account</link> and join the <link href=\"https://l10n.gnome.org/"
-"teams/\">translation team</link> for your language. This will give you the "
-"ability to upload new translations."
+"To start translating you will need to <link href=\"https://l10n.gnome."
+"org\">create an account</link> and join the <link href=\"https://l10n.gnome."
+"org/teams/\">translation team</link> for your language. This will give you "
+"the ability to upload new translations."
 msgstr ""
-"Чтобы начать перевод, вам необходимо <link href=\"https://l10n.gnome.org"
-"\">создать учетную запись</link> и присоединиться к <link href=\"https://"
+"Чтобы начать перевод, вам необходимо <link href=\"https://l10n.gnome."
+"org\">создать учетную запись</link> и присоединиться к <link href=\"https://"
 "l10n.gnome.org/teams/ \">команде переводчиков</link> для вашего языка. Это "
 "даст вам возможность загружать новые переводы."
 
@@ -2090,22 +2091,20 @@ msgstr ""
 #: C/translate.page:43
 msgid ""
 "You can chat with GNOME translators <link href=\"https://wiki.gnome.org/"
-"Community/GettingInTouch/IRC\">using IRC</link> (on the <code>#i18n</code> "
+"GettingInTouch/IRC\">using IRC</link> (on the <code>#gnome-i18n</code> "
 "channel). People on the channel are located worldwide, so you may not get an "
 "immediate response as a result of timezone differences."
 msgstr ""
-"Вы можете общаться с переводчиками GNOME, <link href=\"https://wiki.gnome."
-"org/Community/GettingInTouch/IRC\">используя IRC</link> (на канале "
-"<code>#i18n</code>). Люди на канале находятся по всему миру, поэтому вы "
-"можете не получить немедленный ответ из-за разницы часовых поясов."
+"Вы можете общаться с переводчиками GNOME <link href=\"https://wiki.gnome.org/"
+"GettingInTouch/IRC\">используя IRC</link> (на канале <code>#gnome-i18n</"
+"code>). Люди на канале находятся по всему миру, поэтому вы можете не "
+"получить немедленный ответ из-за разницы часовых поясов."
 
 #. (itstool) path: page/p
 #: C/translate.page:45
 msgid ""
-"Alternatively, you can contact the Internationalization Team using the "
-"dedicated <link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n"
-"\">mailing list</link>."
+"Alternatively, you can contact the Internationalization Team using <link "
+"href=\"https://discourse.gnome.org/tag/i18n\">GNOME Discourse</link>."
 msgstr ""
-"Кроме того, вы можете связаться с командой интернационализации, используя их "
-"<link href=\"https://mail.gnome.org/mailman/listinfo/gnome-i18n\">список "
-"рассылки</link>."
+"Кроме того, вы можете связаться с командой интернационализации используя "
+"<link href=\"https://discourse.gnome.org/tag/i18n\">GNOME Discourse</link>."
