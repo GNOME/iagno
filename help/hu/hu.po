@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno-help master\n"
 "POT-Creation-Date: 2023-02-28 15:00+0000\n"
-"PO-Revision-Date: 2023-03-15 01:33+0100\n"
+"PO-Revision-Date: 2023-03-16 01:47+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1615,6 +1615,10 @@ msgid ""
 "a new game</link>, click on the <gui>Difficulty</gui> button, and in the "
 "menu that appears, select <gui>Vary start position</gui>."
 msgstr ""
+"Ezen lehetőség engedélyezéséhez vagy letiltásához <link xref=\"configure\">új"
+" játék beállításakor</link> kattintson a <gui>Nehézség</gui> gombra, és a"
+" megjelenő menüben jelölje be a <gui>Kezdési pozíció változtatása</gui>"
+" lehetőséget."
 
 #. (itstool) path: section/p
 #: C/start-position.page:30
@@ -1623,6 +1627,10 @@ msgid ""
 "link>, enabling this option will start new games with a random position in "
 "the six <link xref=\"#start-positions\">possible start positions</link>."
 msgstr ""
+"Ha a <link xref=\"ai-game\">a számítógép ellen</link> játszik, akkor ennek a"
+" lehetőségnek az engedélyezése az új játékokat a hat <link"
+" xref=\"#start-positions\">lehetséges kezdőpozícióban</link> lévő"
+" véletlenszerű pozícióban fogja kezdeni."
 
 #. (itstool) path: section/p
 #: C/start-position.page:32
@@ -1631,6 +1639,10 @@ msgid ""
 "enabling this option will start new games with the <link xref=\"#human-"
 "overture\">two-player game overture</link>."
 msgstr ""
+"Ha <link xref=\"2player\">másik játékossal játszik</link>, akkor ennek a"
+" lehetőségnek az engedélyezésével az új játékok a <link"
+" xref=\"#human-overture\">kétszemélyes játék nyitányával</link> fognak"
+" kezdődni."
 
 #. (itstool) path: section/p
 #: C/start-position.page:34
@@ -1639,11 +1651,14 @@ msgid ""
 "family is always used for new games. See its description in the list of "
 "<link xref=\"#start-positions\">possible start positions</link>."
 msgstr ""
+"Ha a beállítás le van tiltva, akkor mindig a reversi játékcsalád szokásos"
+" pozíciója lesz használva az új játékoknál. Nézze meg a leírását a <link"
+" xref=\"#start-positions\">lehetséges kezdési pozíciók</link> listájában."
 
 #. (itstool) path: section/title
 #: C/start-position.page:38
 msgid "Possible start positions"
-msgstr ""
+msgstr "Lehetséges kezdési pozíciók"
 
 #. (itstool) path: section/p
 #: C/start-position.page:40
@@ -1651,56 +1666,61 @@ msgid ""
 "There are really two possible start positions in <app>Reversi</app>, up to "
 "six as their symmetries can also be played."
 msgstr ""
+"A <app>Reversi</app> játékban valójában két lehetséges kezdési pozíció van,"
+" ami akár hat is lehet, mivel a szimmetriájuk is megjátszható."
 
 #. (itstool) path: section/p
 #: C/start-position.page:42
 msgid "The two main positions are the following:"
-msgstr ""
+msgstr "A két fő pozíció a következő:"
 
 #. (itstool) path: media/p
 #: C/start-position.page:53
 msgid "Alternative position: dark-light, dark-light"
-msgstr ""
+msgstr "Alternatív pozíció: sötét-világos, sötét-világos"
 
 #. (itstool) path: td/p
 #: C/start-position.page:59
 msgid "<em>Usual start position</em>"
-msgstr ""
+msgstr "<em>Szokásos kezdési pozíció</em>"
 
 #. (itstool) path: td/p
 #: C/start-position.page:62
 msgid "<em>Alternative position</em>"
-msgstr ""
+msgstr "<em>Alternatív pozíció</em>"
 
 #. (itstool) path: section/p
 #: C/start-position.page:67
 msgid "Their allowed symmetries are the following:"
-msgstr ""
+msgstr "A megengedett szimmetriáik a következők:"
 
 #. (itstool) path: media/p
 #: C/start-position.page:73
 msgid "Only symmetry of the usual start position: dark-light, light-dark"
 msgstr ""
+"Csak a szokásos kezdési pozíció szimmetriája: sötét-világos, világos-sötét"
 
 #. (itstool) path: media/p
 #: C/start-position.page:78
 msgid "First symmetry of the alternative position: dark-dark, light-light"
-msgstr ""
+msgstr "Az alternatív pozíció első szimmetriája: sötét-sötét, világos-világos"
 
 #. (itstool) path: media/p
 #: C/start-position.page:83
 msgid "Second symmetry of the alternative position: light-dark, light-dark"
 msgstr ""
+"Az alternatív pozíció második szimmetriája: világos-sötét, világos-sötét"
 
 #. (itstool) path: media/p
 #: C/start-position.page:88
 msgid "Last symmetry of the alternative position: light-light, dark-dark"
 msgstr ""
+"Az alternatív pozíció utolsó szimmetriája: világos-világos, sötét-sötét"
 
 #. (itstool) path: section/title
 #: C/start-position.page:96
 msgid "Two-player game overture"
-msgstr ""
+msgstr "Kétszemélyes játék nyitánya"
 
 #. (itstool) path: section/p
 #: C/start-position.page:98
@@ -1709,6 +1729,10 @@ msgid ""
 "<link xref=\"#varying-start-position\"><gui>Vary start position</gui></link> "
 "option enabled, new games will start with a special two-player game overture."
 msgstr ""
+"Ha <link xref=\"2player\">másik játékossal játszik</link> az engedélyezett <"
+"link xref=\"#varying-start-position\"><gui>Kezdési pozíció változtatása</gui"
+"></link> lehetőséggel, akkor az új játékok különleges kétszemélyes játék"
+" nyitánnyal fognak kezdődni."
 
 #. (itstool) path: section/p
 #: C/start-position.page:100
@@ -1716,6 +1740,8 @@ msgid ""
 "The board is started empty. The two players are going to place the four "
 "initial pieces before starting the game."
 msgstr ""
+"A tábla üresen indul. A két játékos a játék megkezdése előtt elhelyezi a négy"
+" kezdeti bábut."
 
 #. (itstool) path: item/p
 #: C/start-position.page:104
@@ -1723,6 +1749,8 @@ msgid ""
 "<em>Dark</em> goes first, and places the first piece on one of the four "
 "central tiles of the board."
 msgstr ""
+"A <em>sötét</em> lép először, és elhelyezi az első bábut a tábla négy középső"
+" csempéjének egyikére."
 
 #. (itstool) path: item/p
 #: C/start-position.page:107
@@ -1730,6 +1758,8 @@ msgid ""
 "<em>Light</em> places one piece in one of the two available positions next "
 "to the dark piece."
 msgstr ""
+"A <em>világos</em> elhelyezi az egyik bábut a sötét bábu mellett elérhető két"
+" pozíció egyikére."
 
 #. (itstool) path: item/p
 #: C/start-position.page:110
@@ -1737,6 +1767,8 @@ msgid ""
 "<em>Dark</em> then places a piece on one of the two remaining central tiles "
 "of the board."
 msgstr ""
+"Ezután a <em>sötét</em> elhelyez egy bábut a tábla megmaradt két középső"
+" csempéjének egyikére."
 
 #. (itstool) path: item/p
 #: C/start-position.page:113
@@ -1744,6 +1776,8 @@ msgid ""
 "<em>Light</em> finishes the opening by placing a second piece at the "
 "remaining place."
 msgstr ""
+"A <em>világos</em> befejezi a nyitást azzal, hogy a második bábut elhelyezi a"
+" megmaradt helyre."
 
 #. (itstool) path: item/p
 #: C/start-position.page:116
@@ -1751,6 +1785,8 @@ msgid ""
 "The game is then started, following the <link xref=\"rules\">reversi rules</"
 "link>."
 msgstr ""
+"A játék ezután a <link xref=\"rules\">reversi szabályait</link> követve"
+" elindul."
 
 #. (itstool) path: section/p
 #: C/start-position.page:120
@@ -1759,6 +1795,10 @@ msgid ""
 "position “in cross” (the usual start position or its symmetry) or a "
 "“parallel” position (the alternative position or one of its symmetries)."
 msgstr ""
+"Ez a nyitás lehetővé teszi az első játékos számára annak kiválasztását, hogy"
+" a játék „keresztben lévő” pozícióval (a szokásos kezdési pozícióval vagy"
+" annak szimmetriájával) vagy „párhuzamos” pozícióval (az alternatív"
+" pozícióval vagy annak egyik szimmetriájával) kezdődjön."
 
 #. (itstool) path: page/title
 #: C/strategy.page:24
@@ -1824,7 +1864,7 @@ msgstr ""
 #. (itstool) path: page/title
 #: C/theme.page:20
 msgid "Change the board theme"
-msgstr ""
+msgstr "A tábla témájának megváltoztatása"
 
 #. (itstool) path: page/p
 #: C/theme.page:22
@@ -1832,6 +1872,8 @@ msgid ""
 "<app>Reversi</app> supports various board themes, so that you can adjust its "
 "look to your taste."
 msgstr ""
+"A <app>Reversi</app> különböző táblatémákat támogat, így saját ízléséhez"
+" igazíthatja a megjelenését."
 
 #. (itstool) path: page/p
 #: C/theme.page:24
@@ -1840,11 +1882,15 @@ msgid ""
 "adapted to your environment; see the section about the <link xref=\"#default-"
 "theme\"><em>Default</em> theme</link>."
 msgstr ""
+"Amíg a téma nem kerül megváltoztatásra, az alkalmazás megpróbál a"
+" környezetéhez igazodó témát választani. Nézze meg az <link"
+" xref=\"#default-theme\"><em>alapértelmezett</em> témával</link> kapcsolatos"
+" szakaszt."
 
 #. (itstool) path: section/title
 #: C/theme.page:27
 msgid "Changing theme"
-msgstr ""
+msgstr "Téma megváltoztatása"
 
 #. (itstool) path: section/p
 #: C/theme.page:29
@@ -1853,6 +1899,9 @@ msgid ""
 "window, select <gui>Appearance</gui>, and select one of the items in the "
 "given list."
 msgstr ""
+"A téma megváltoztatásához nyomja meg az ablak jobb felső sarkában lévő menü"
+" gombot, válassza a <gui>Megjelenés</gui> menüpontot, és válasszon egy elemet"
+" a megadott listából."
 
 #. (itstool) path: section/p
 #: C/theme.page:31
@@ -1863,6 +1912,12 @@ msgid ""
 "link>. The following suggestions are described in the <link xref=\"#themes-"
 "list\">themes list</link>."
 msgstr ""
+"A lista első eleme az <gui><em>Alapértelmezett</em></gui> nevet viseli, és"
+" lehetővé teszi, hogy az alkalmazás megpróbáljon a környezetéhez igazodó"
+" témát választani. Nézze meg az <link xref=\"#default-theme\"><em"
+">alapértelmezett</em> témával</link> kapcsolatos szakaszt. A következő"
+" javaslatok a <link xref=\"#themes-list\">témák listája</link> szakaszban"
+" kerülnek bemutatásra."
 
 #. (itstool) path: section/p
 #: C/theme.page:33
@@ -1871,16 +1926,19 @@ msgid ""
 "are for <link xref=\"highlights\">displaying helpful highlights</link>. "
 "These are working whatever theme you decide to use."
 msgstr ""
+"A témák listáját követően a <gui>Kiemelések</gui> szakasz beállításai a <link"
+" xref=\"highlights\">hasznos kiemelések megjelenítésére</link> szolgálnak."
+" Ezek mindig működnek, bármilyen téma használata mellett dönt."
 
 #. (itstool) path: section/title
 #: C/theme.page:37
 msgid "Themes list"
-msgstr ""
+msgstr "Témák listája"
 
 #. (itstool) path: section/p
 #: C/theme.page:39
 msgid "<app>Reversi</app> comes with four themes installed:"
-msgstr ""
+msgstr "A <app>Reversi</app> négy telepített témával érkezik:"
 
 #. (itstool) path: item/p
 #: C/theme.page:43
@@ -1888,6 +1946,8 @@ msgid ""
 "<em>Classic</em>: this theme mimics the most usual reversi boards, with a "
 "green background and bicolor pieces;"
 msgstr ""
+"<em>Klasszikus</em>: ez a téma a legáltalánosabb reversi táblákat utánozza,"
+" zöld háttérrel és kétszínű bábukkal."
 
 #. (itstool) path: item/p
 #: C/theme.page:46
@@ -1895,6 +1955,8 @@ msgid ""
 "<em>Black and White</em>: this theme is more conceptual, featuring geometric "
 "shapes and a high black and white contrast;"
 msgstr ""
+"<em>Fekete-fehér</em>: ez a téma inkább fogalmi, geometrikus formákkal és"
+" nagy fekete-fehér kontraszttal."
 
 #. (itstool) path: item/p
 #: C/theme.page:49
@@ -1902,6 +1964,8 @@ msgid ""
 "<em>Adwaita</em>: this theme uses a blue board, more suitable if the theme "
 "of your windows is a dark one;"
 msgstr ""
+"<em>Adwaita</em>: ez a téma kék táblát használ, akkor alkalmasabb, ha az"
+" ablakok témája sötét."
 
 #. (itstool) path: item/p
 #: C/theme.page:52
@@ -1909,6 +1973,8 @@ msgid ""
 "<em>Sun and Star</em>: this theme is a variant of the <em>Classic</em> one, "
 "with some decorations on the pieces."
 msgstr ""
+"<em>Nap és csillag</em>: ez a téma a <em>Klasszikus</em> téma egy változata"
+" néhány díszítéssel a bábukon."
 
 #. (itstool) path: section/p
 #: C/theme.page:56
@@ -1917,11 +1983,15 @@ msgid ""
 "special behavior; see the section about the <link xref=\"#default-"
 "theme\"><em>Default</em> theme</link>."
 msgstr ""
+"A témák listájában az első bejegyzés az <gui><em>Alapértelmezett</em></gui>"
+" nevet viseli, és különleges viselkedéssel rendelkezik. Nézze meg az <link"
+" xref=\"#default-theme\"><em>alapértelmezett</em> témával</link> kapcsolatos"
+" szakaszt."
 
 #. (itstool) path: section/title
 #: C/theme.page:60
 msgid "<em>Default</em> theme"
-msgstr ""
+msgstr "<em>Alapértelmezett</em> téma"
 
 #. (itstool) path: section/p
 #: C/theme.page:62
@@ -1929,6 +1999,8 @@ msgid ""
 "The first entry in the themes list is called <em>Default</em> and has a "
 "special behavior."
 msgstr ""
+"A témák listájában az első bejegyzés az <gui>Alapértelmezett</gui> nevet"
+" viseli, és különleges viselkedéssel rendelkezik."
 
 #. (itstool) path: section/p
 #: C/theme.page:64
@@ -1936,6 +2008,8 @@ msgid ""
 "When this entry is selected, the application tries to choose a theme adapted "
 "to your environment:"
 msgstr ""
+"Ha ez a bejegyzés van kiválasztva, akkor az alkalmazás megpróbál a"
+" környezetéhez igazodó témát választani:"
 
 #. (itstool) path: item/p
 #: C/theme.page:68
@@ -1945,6 +2019,10 @@ msgid ""
 "theme used will be the one called <em>Adwaita</em>, that is darker than the "
 "other themes thanks to its blue background;"
 msgstr ""
+"ha olyan témát használ az ablakaihoz, amelyről köztudott, hogy sötét – mint"
+" például az <em>Adwaita sötét</em> –, vagy bekapcsolta a GNOME éjszakai"
+" fényt, akkor a használt táblatéma az <em>Adwaita</em> elnevezésű lesz, amely"
+" a kék hátterének köszönhetően sötétebb a többi témánál;"
 
 #. (itstool) path: item/p
 #: C/theme.page:71
@@ -1954,6 +2032,10 @@ msgid ""
 "accessibility option, the board theme used will be the one called <em>Black "
 "and White</em>, that should be a perfect fit;"
 msgstr ""
+"ha olyan témát használ az ablakaihoz, amelyet kifejezetten nagy kontraszt"
+" meglétére hoztak létre, nevezetesen, ha bekapcsolta a „Nagy kontraszt” GNOME"
+" akadálymentesítési beállítást, akkor a használt táblatéma a <em"
+">Fekete-fehér</em> nevű lesz, amelynek tökéletesen kell illeszkednie;"
 
 #. (itstool) path: item/p
 #: C/theme.page:74
@@ -1961,22 +2043,25 @@ msgid ""
 "else, the theme used will be the one called <em>Classic</em>, that uses a "
 "green board quite common for reversi games."
 msgstr ""
+"egyébként a használt téma a <em>Klasszikus</em> nevű téma lesz, amely a"
+" reversi játékoknál meglehetősen gyakori zöld táblát használ."
 
 #. (itstool) path: section/p
 #: C/theme.page:78
 msgid "This behavior is of course the default one of the application."
 msgstr ""
+"Ez a viselkedés természetesen az alkalmazás alapértelmezett viselkedése."
 
 #. (itstool) path: section/title
 #: C/theme.page:82
 msgid "More information"
-msgstr ""
+msgstr "További információk"
 
 #. (itstool) path: section/p
 #: C/theme.page:84
 msgid ""
 "There is no way to install a different theme than the ones described here."
-msgstr ""
+msgstr "Nincs mód az itt leírtaktól eltérő téma telepítésére."
 
 #. (itstool) path: section/p
 #: C/theme.page:86
@@ -1984,6 +2069,7 @@ msgid ""
 "These themes have been designed by Arnaud Bonatti, with pieces created by "
 "Masuichi Ito."
 msgstr ""
+"Ezeket a témákat Arnaud Bonatti tervezte, a bábukat Masuichi Ito készítette."
 
 #. (itstool) path: section/p
 #: C/theme.page:88
@@ -1992,6 +2078,9 @@ msgid ""
 "contributing a new theme, please <link xref=\"bug-filing\">open an issue</"
 "link> about it."
 msgstr ""
+"Ha új témára van javaslata, vagy ha érdekli egy új témában való közreműködés,"
+" akkor <link xref=\"bug-filing\">nyisson egy hibajegyet</link> ezzel"
+" kapcsolatban."
 
 #. (itstool) path: page/title
 #: C/translate.page:29
