@@ -30,7 +30,6 @@ help_files = [
     'play.page',
     'rules.page',
     'select-game.page',
-    'shortcuts.page',
     'sound.page',
     'start-position.page',
     'strategy.page',
