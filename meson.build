@@ -7,8 +7,6 @@ project_id = 'org.gnome.Reversi'
 gnome = import('gnome')
 # used for internationalization
 i18n = import('i18n')
-# used to run post install script
-python3 = import('python3')
 
 cc = meson.get_compiler('c')
 valac = meson.get_compiler('vala')
@@ -52,8 +50,8 @@ subdir('po')
 subdir('help')
 subdir('src')
 
-meson.add_install_script(python3.find_python().path(),
-                         join_paths(meson.source_root(), 'build-aux', 'meson_post_install.py'),
-                         icondir,
-                         schemadir,
-                         appsdir)
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true,
+  update_desktop_database: true,
+)
