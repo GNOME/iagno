@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2023-02-28 15:00+0000\n"
-"PO-Revision-Date: 2023-03-07 19:45+1000\n"
+"POT-Creation-Date: 2023-06-21 12:34+0000\n"
+"PO-Revision-Date: 2023-06-22 20:36+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -27,8 +27,8 @@ msgstr "Ser82-png <asvmail.as@gmail.com>, 2022-2023"
 #: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
 #: C/configure.page:10 C/develop.page:15 C/documentation.page:15
 #: C/example.page:11 C/highlights.page:10 C/index.page:17 C/play.page:15
-#: C/rules.page:25 C/select-game.page:10 C/shortcuts.page:15
-#: C/start-position.page:11 C/theme.page:10 C/translate.page:19
+#: C/rules.page:25 C/select-game.page:10 C/start-position.page:11
+#: C/theme.page:10 C/translate.page:19
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
@@ -36,8 +36,8 @@ msgstr "Arnaud Bonatti"
 #: C/2player.page:12 C/ai-game.page:12 C/ai-level.page:12 C/alternate.page:12
 #: C/configure.page:12 C/develop.page:17 C/documentation.page:17
 #: C/example.page:13 C/highlights.page:12 C/index.page:19 C/play.page:17
-#: C/rules.page:27 C/select-game.page:12 C/shortcuts.page:17
-#: C/start-position.page:13 C/theme.page:12 C/translate.page:21
+#: C/rules.page:27 C/select-game.page:12 C/start-position.page:13
+#: C/theme.page:12 C/translate.page:21
 msgid "2020"
 msgstr "2020"
 
@@ -46,8 +46,8 @@ msgstr "2020"
 #: C/bug-filing.page:16 C/configure.page:16 C/develop.page:21
 #: C/documentation.page:21 C/example.page:17 C/highlights.page:16
 #: C/index.page:23 C/play.page:21 C/rules.page:31 C/select-game.page:16
-#: C/shortcuts.page:21 C/sound.page:17 C/start-position.page:17
-#: C/strategy.page:20 C/theme.page:16 C/translate.page:25
+#: C/sound.page:17 C/start-position.page:17 C/strategy.page:20 C/theme.page:16
+#: C/translate.page:25
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
@@ -817,6 +817,12 @@ msgstr ""
 "<gui>Подсвечивать</gui> выберите <gui>Захватываемые фишки</gui>."
 
 #. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Reversi"
+msgstr "Реверси"
+
+#. (itstool) path: info/title
 #: C/index.page:8
 msgctxt "link"
 msgid "Reversi"
@@ -827,11 +833,6 @@ msgstr "Реверси"
 msgctxt "text"
 msgid "Reversi"
 msgstr "Реверси"
-
-#. (itstool) path: media/span
-#: C/index.page:27
-msgid "Reversi logo"
-msgstr "Логотип «Реверси»"
 
 #. (itstool) path: page/title
 #: C/index.page:27
@@ -1000,7 +1001,7 @@ msgstr ""
 "sa/3.0/\">Commons Deed</link>."
 
 #. (itstool) path: credit/years
-#: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:13
+#: C/play.page:12 C/rules.page:13 C/sound.page:13
 msgid "2012"
 msgstr "2012"
 
@@ -1089,7 +1090,7 @@ msgstr "Как играть на клавиатуре"
 msgid ""
 "Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> "
 "arrows to go at the tile you want to move. The currently selected tile is "
-"indicated by an highlight on the board."
+"indicated by a highlight on the board."
 msgstr ""
 "Используйте стрелки <key>Влево</key>, <key>Вправо</key>, <key>Вверх</key> и "
 "<key>Вниз</key>, чтобы перейти к клетке, на которую хотите поместить фишку. "
@@ -1385,169 +1386,6 @@ msgid ""
 msgstr ""
 "Если хотите попробовать другие возможности игры «Реверси», вы также можете "
 "<link xref=\"start-position\">изменить начальную позицию</link>."
-
-#. (itstool) path: credit/name
-#: C/shortcuts.page:10
-msgid "Brian Grohe"
-msgstr "Brian Grohe"
-
-#. (itstool) path: page/title
-#. (itstool) path: td/p
-#: C/shortcuts.page:25 C/shortcuts.page:83
-msgid "Keyboard shortcuts"
-msgstr "Комбинации клавиш"
-
-#. (itstool) path: page/p
-#: C/shortcuts.page:27
-msgid ""
-"<app>Reversi</app> can easily be <link xref=\"play#keyboard-play\">used with "
-"keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse Reversi</em> "
-"games are both played with the same shortcuts."
-msgstr ""
-"В <app>Реверси</app> можно легко <link xref=\"play#keyboard-"
-"play\">пользоваться клавиатурой</link>. В игры <em>Классическое «Реверси»</"
-"em> и <em>Обратное «Реверси»</em> можно играть одними и теми же клавишами "
-"быстрого доступа."
-
-#. (itstool) path: section/title
-#: C/shortcuts.page:30
-msgid "During game selection"
-msgstr "Во время выбора игры"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:33
-msgid "Start new game"
-msgstr "Начать новую игру"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:34
-msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:37
-msgid "Go back"
-msgstr "Вернуться"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:38
-msgid "<key>Escape</key>"
-msgstr "<key>Escape</key>"
-
-#. (itstool) path: section/title
-#: C/shortcuts.page:44
-msgid "Play with keyboard"
-msgstr "Играть с помощью клавиатуры"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:47
-msgid "Select where to play"
-msgstr "Выбрать где играть"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:48
-msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
-msgstr ""
-"<key>Влево</key>, <key>Вправо</key>, <key>Вверх</key> и <key>Вниз</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:51
-msgid "Select the given row"
-msgstr "Выбрать определённый ряд"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:52
-msgid "<key>1</key> to <key>8</key>"
-msgstr "от <key>1</key> до <key>8</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:55
-msgid "Select the given column"
-msgstr "Выбрать определённый столбец"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:56
-msgid "<key>a</key> to <key>h</key>"
-msgstr "от <key>a</key> до <key>h</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:59
-msgid "Play on selected tile"
-msgstr "Играть выбранной фишкой"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:60
-msgid "<key>Return</key>, <key>Space</key>"
-msgstr "<key>Return</key>, <key>Space</key>"
-
-#. (itstool) path: section/title
-#: C/shortcuts.page:66
-msgid "During a game"
-msgstr "Во время игры"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:69
-msgid "New game"
-msgstr "Новая игра"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:70
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:73
-msgid "Undo last move"
-msgstr "Отменить последний ход"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:74
-msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
-
-#. (itstool) path: section/title
-#: C/shortcuts.page:80
-msgid "Generic"
-msgstr "Общее"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:84
-msgid ""
-"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
-"key><key>F1</key></keyseq>"
-msgstr ""
-"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
-"key><key>F1</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:87
-msgid "Help"
-msgstr "Справка"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:88
-msgid "<key>F1</key>"
-msgstr "<key>F1</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:91
-msgid "About"
-msgstr "О приложении"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:92
-msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
-msgstr "<keyseq><key>Shift</key><key>F1</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:95
-msgid "Quit"
-msgstr "Выход"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:96
-msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
 
 #. (itstool) path: page/title
 #: C/sound.page:21
@@ -2108,3 +1946,108 @@ msgid ""
 msgstr ""
 "Кроме того, вы можете связаться с командой интернационализации используя "
 "<link href=\"https://discourse.gnome.org/tag/i18n\">GNOME Discourse</link>."
+
+#~ msgid "Reversi logo"
+#~ msgstr "Логотип «Реверси»"
+
+#~ msgid "Brian Grohe"
+#~ msgstr "Brian Grohe"
+
+#~ msgid "Keyboard shortcuts"
+#~ msgstr "Комбинации клавиш"
+
+#~ msgid ""
+#~ "<app>Reversi</app> can easily be <link xref=\"play#keyboard-play\">used "
+#~ "with keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse "
+#~ "Reversi</em> games are both played with the same shortcuts."
+#~ msgstr ""
+#~ "В <app>Реверси</app> можно легко <link xref=\"play#keyboard-"
+#~ "play\">пользоваться клавиатурой</link>. В игры <em>Классическое "
+#~ "«Реверси»</em> и <em>Обратное «Реверси»</em> можно играть одними и теми "
+#~ "же клавишами быстрого доступа."
+
+#~ msgid "During game selection"
+#~ msgstr "Во время выбора игры"
+
+#~ msgid "Start new game"
+#~ msgstr "Начать новую игру"
+
+#~ msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+#~ msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+
+#~ msgid "Go back"
+#~ msgstr "Вернуться"
+
+#~ msgid "<key>Escape</key>"
+#~ msgstr "<key>Escape</key>"
+
+#~ msgid "Play with keyboard"
+#~ msgstr "Играть с помощью клавиатуры"
+
+#~ msgid "Select where to play"
+#~ msgstr "Выбрать где играть"
+
+#~ msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
+#~ msgstr ""
+#~ "<key>Влево</key>, <key>Вправо</key>, <key>Вверх</key> и <key>Вниз</key>"
+
+#~ msgid "Select the given row"
+#~ msgstr "Выбрать определённый ряд"
+
+#~ msgid "<key>1</key> to <key>8</key>"
+#~ msgstr "от <key>1</key> до <key>8</key>"
+
+#~ msgid "Select the given column"
+#~ msgstr "Выбрать определённый столбец"
+
+#~ msgid "<key>a</key> to <key>h</key>"
+#~ msgstr "от <key>a</key> до <key>h</key>"
+
+#~ msgid "Play on selected tile"
+#~ msgstr "Играть выбранной фишкой"
+
+#~ msgid "<key>Return</key>, <key>Space</key>"
+#~ msgstr "<key>Return</key>, <key>Space</key>"
+
+#~ msgid "During a game"
+#~ msgstr "Во время игры"
+
+#~ msgid "New game"
+#~ msgstr "Новая игра"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+
+#~ msgid "Undo last move"
+#~ msgstr "Отменить последний ход"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+
+#~ msgid "Generic"
+#~ msgstr "Общее"
+
+#~ msgid ""
+#~ "<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+#~ "key><key>F1</key></keyseq>"
+#~ msgstr ""
+#~ "<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+#~ "key><key>F1</key></keyseq>"
+
+#~ msgid "Help"
+#~ msgstr "Справка"
+
+#~ msgid "<key>F1</key>"
+#~ msgstr "<key>F1</key>"
+
+#~ msgid "About"
+#~ msgstr "О приложении"
+
+#~ msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+#~ msgstr "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+
+#~ msgid "Quit"
+#~ msgstr "Выход"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
