@@ -7,15 +7,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno help master\n"
-"POT-Creation-Date: 2023-02-28 15:46+0000\n"
-"PO-Revision-Date: 2023-03-03 13:06+0100\n"
-"Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
+"POT-Creation-Date: 2023-06-25 14:05+0000\n"
+"PO-Revision-Date: 2023-07-14 11:33+0200\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -31,8 +31,8 @@ msgstr ""
 #: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
 #: C/configure.page:10 C/develop.page:15 C/documentation.page:15
 #: C/example.page:11 C/highlights.page:10 C/index.page:17 C/play.page:15
-#: C/rules.page:25 C/select-game.page:10 C/shortcuts.page:15
-#: C/start-position.page:11 C/theme.page:10 C/translate.page:19
+#: C/rules.page:25 C/select-game.page:10 C/start-position.page:11
+#: C/theme.page:10 C/translate.page:19
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
@@ -40,8 +40,8 @@ msgstr "Arnaud Bonatti"
 #: C/2player.page:12 C/ai-game.page:12 C/ai-level.page:12 C/alternate.page:12
 #: C/configure.page:12 C/develop.page:17 C/documentation.page:17
 #: C/example.page:13 C/highlights.page:12 C/index.page:19 C/play.page:17
-#: C/rules.page:27 C/select-game.page:12 C/shortcuts.page:17
-#: C/start-position.page:13 C/theme.page:12 C/translate.page:21
+#: C/rules.page:27 C/select-game.page:12 C/start-position.page:13
+#: C/theme.page:12 C/translate.page:21
 msgid "2020"
 msgstr "2020"
 
@@ -50,8 +50,8 @@ msgstr "2020"
 #: C/bug-filing.page:16 C/configure.page:16 C/develop.page:21
 #: C/documentation.page:21 C/example.page:17 C/highlights.page:16
 #: C/index.page:23 C/play.page:21 C/rules.page:31 C/select-game.page:16
-#: C/shortcuts.page:21 C/sound.page:17 C/start-position.page:17
-#: C/strategy.page:20 C/theme.page:16 C/translate.page:25
+#: C/sound.page:17 C/start-position.page:17 C/strategy.page:20 C/theme.page:16
+#: C/translate.page:25
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
@@ -106,10 +106,10 @@ msgid ""
 "link> and start a two-player game, you will start the game with a special "
 "<link xref=\"start-position#human-overture\">two-player game overture</link>."
 msgstr ""
-"Wenn Sie eingestellt haben, beim Spiel die <link xref=\"start-position"
-"\">Startposition zu variieren</link> und ein Zwei-Spieler-Spiel starten, "
-"beginnt das Spiel mit einer besonderen <link xref=\"start-position#human-"
-"overture\">Zwei-Spieler-Eröffnung</link>."
+"Wenn Sie eingestellt haben, beim Spiel die <link xref=\"start-"
+"position\">Startposition zu variieren</link> und ein Zwei-Spieler-Spiel "
+"starten, beginnt das Spiel mit einer besonderen <link xref=\"start-"
+"position#human-overture\">Zwei-Spieler-Eröffnung</link>."
 
 #. (itstool) path: page/title
 #: C/ai-game.page:20
@@ -318,9 +318,9 @@ msgid ""
 msgstr ""
 "Wenn die Einstellung <gui>Abwechselnd beginnen</gui> aktiviert ist, ändert "
 "sich automatisch der Startspieler mit jedem neuen Spiel. Wenn Sie also ein "
-"Spiel gestartet haben, wechselt bei der nächsten <link xref=\"configure"
-"\">Einrichtung eines neuen Spiels</link> der Knopf auf <gui>Farbe: Weiß</"
-"gui> und der Rechner fängt das nächste Spiel an."
+"Spiel gestartet haben, wechselt bei der nächsten <link "
+"xref=\"configure\">Einrichtung eines neuen Spiels</link> der Knopf auf "
+"<gui>Farbe: Weiß</gui> und der Rechner fängt das nächste Spiel an."
 
 #. (itstool) path: page/p
 #: C/alternate.page:32
@@ -403,15 +403,15 @@ msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
 "reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
 "Community/GettingInTouch/BugReportingGuidelines\">bug writing guidelines</"
-"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues"
-"\">browse</link> for the bug to see if it already exists."
+"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
+"issues\">browse</link> for the bug to see if it already exists."
 msgstr ""
 "Sobald die Erstellung des Kontos abgeschlossen ist, klicken Sie auf <gui>New "
-"issue</gui>. Bevor Sie einen Fehler melden, lesen Sie bitte die <link href="
-"\"https://wiki.gnome.org/Community/GettingInTouch/BugReportingGuidelines"
-"\">bug writing guidelines</link> und <link href=\"https://gitlab.gnome.org/"
-"GNOME/iagno/issues\">schauen Sie bitte nach</link>, ob der Fehler vielleicht "
-"schon gemeldet wurde."
+"issue</gui>. Bevor Sie einen Fehler melden, lesen Sie bitte die <link "
+"href=\"https://wiki.gnome.org/Community/GettingInTouch/"
+"BugReportingGuidelines\">bug writing guidelines</link> und <link "
+"href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">schauen Sie bitte nach</"
+"link>, ob der Fehler vielleicht schon gemeldet wurde."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:40
@@ -458,8 +458,8 @@ msgid ""
 "link> or <link xref=\"2player\">with another player</link>, and in the "
 "former case to <link xref=\"ai-level\">change the computer level</link>."
 msgstr ""
-"Das Fenster erlaubt Ihnen auszuwählen, ob Sie ein <link xref=\"select-game"
-"\"><em>Klassisches Reversi</em> oder <em>Umgekehrtes Reversi</em></link> "
+"Das Fenster erlaubt Ihnen auszuwählen, ob Sie ein <link xref=\"select-"
+"game\"><em>Klassisches Reversi</em> oder <em>Umgekehrtes Reversi</em></link> "
 "spielen möchten, und ob Sie <link xref=\"ai-game\">gegen den Rechner</link> "
 "oder <link xref=\"2player\">mit einem anderen Spieler</link> spielen "
 "möchten. Wenn Sie gegen den Rechner spielen, können Sie außerdem die <link "
@@ -485,9 +485,10 @@ msgid ""
 "selection\">keyboard shortcut</link>."
 msgstr ""
 "Um von diesem Fenster aus ein Spiel zu starten, klicken Sie einfach auf den "
-"Knopf <gui>Spiel beginnen</gui>. Ein Spiel kann auch mit der <link xref="
-"\"shortcuts#game-selection\">Tastenkombination</link> <keyseq><key>Umschalt</"
-"key><key>Strg</key><key>N</key></keyseq> gestartet werden."
+"Knopf <gui>Spiel beginnen</gui>. Ein Spiel kann auch mit der <link "
+"xref=\"shortcuts#game-selection\">Tastenkombination</link> "
+"<keyseq><key>Umschalt</key><key>Strg</key><key>N</key></keyseq> gestartet "
+"werden."
 
 #. (itstool) path: page/p
 #: C/configure.page:30
@@ -537,11 +538,11 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/develop.page:33
 msgid ""
-"Alternatively, you can contact GNOME games developers using <link href="
-"\"https://discourse.gnome.org/tag/games\">GNOME Discourse</link>."
+"Alternatively, you can contact GNOME games developers using <link "
+"href=\"https://discourse.gnome.org/tag/games\">GNOME Discourse</link>."
 msgstr ""
-"Alternativ können Sie die Entwickler von GNOME Games über <link href="
-"\"https://discourse.gnome.org/tag/games\">GNOME Discourse</link> "
+"Alternativ können Sie die Entwickler von GNOME Games über <link "
+"href=\"https://discourse.gnome.org/tag/games\">GNOME Discourse</link> "
 "kontaktieren."
 
 #. (itstool) path: page/title
@@ -567,17 +568,19 @@ msgid ""
 "worldwide, so you may not get an immediate response as a result of timezone "
 "differences."
 msgstr ""
-"Um im Dokumentationsprojekt mitzuwirken, können Sie mittels <link href="
-"\"https://wiki.gnome.org/GettingInTouch/IRC\">IRC</link> in Kontakt treten "
-"(im Kanal <code>#gnome-docs</code>). Die Teilnehmer in diesem Kanal sind "
-"über die ganze Welt verstreut, sodass Sie aufgrund der unterschiedlichen "
-"Zeitzonen nicht unbedingt sofort eine Antwort erhalten werden."
+"Um im Dokumentationsprojekt mitzuwirken, können Sie mittels <link "
+"href=\"https://wiki.gnome.org/GettingInTouch/IRC\">IRC</link> in Kontakt "
+"treten (im Kanal <code>#gnome-docs</code>). Die Teilnehmer in diesem Kanal "
+"sind über die ganze Welt verstreut, sodass Sie aufgrund der "
+"unterschiedlichen Zeitzonen nicht unbedingt sofort eine Antwort erhalten "
+"werden."
 
 #. (itstool) path: page/p
 #: C/documentation.page:32
 msgid ""
-"Alternatively, you can contact the Documentation Project via <link href="
-"\"https://discourse.gnome.org/tag/documentation\">GNOME Discourse</link>."
+"Alternatively, you can contact the Documentation Project via <link "
+"href=\"https://discourse.gnome.org/tag/documentation\">GNOME Discourse</"
+"link>."
 msgstr ""
 "Alternativ können Sie das Dokumentationsprojekt über <link href=\"https://"
 "discourse.gnome.org/tag/documentation\">GNOME Discourse</link> kontaktieren."
@@ -585,11 +588,12 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/documentation.page:34
 msgid ""
-"Our <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
-"\">wiki page</link> contains useful information."
+"Our <link href=\"https://wiki.gnome.org/DocumentationProject/"
+"Contributing\">wiki page</link> contains useful information."
 msgstr ""
-"Unser <link href=\"https://wiki.gnome.org/DocumentationProject/Contributing"
-"\">Wiki</link> enthält eine Reihe nützlicher Informationen für Sie bereit."
+"Unser <link href=\"https://wiki.gnome.org/DocumentationProject/"
+"Contributing\">Wiki</link> enthält eine Reihe nützlicher Informationen für "
+"Sie bereit."
 
 #. (itstool) path: page/title
 #: C/example.page:21
@@ -617,8 +621,8 @@ msgid ""
 "<app>Reversi</app> also allows you to <link xref=\"start-position\">use "
 "other start positions</link>."
 msgstr ""
-"<app>Reversi</app> ermöglicht Ihnen auch, <link xref=\"start-position"
-"\">andere Startpositionen zu verwenden</link>."
+"<app>Reversi</app> ermöglicht Ihnen auch, <link xref=\"start-"
+"position\">andere Startpositionen zu verwenden</link>."
 
 #. (itstool) path: media/p
 #: C/example.page:42
@@ -831,6 +835,12 @@ msgstr ""
 "Spielsteine</gui>."
 
 #. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Reversi"
+msgstr "Reversi"
+
+#. (itstool) path: info/title
 #: C/index.page:8
 msgctxt "link"
 msgid "Reversi"
@@ -841,11 +851,6 @@ msgstr "Reversi"
 msgctxt "text"
 msgid "Reversi"
 msgstr "Reversi"
-
-#. (itstool) path: media/span
-#: C/index.page:27
-msgid "Reversi logo"
-msgstr "Reversi-Logo"
 
 #. (itstool) path: page/title
 #: C/index.page:27
@@ -859,16 +864,16 @@ msgid ""
 "light on the other. <em>Dark</em> and <em>Light</em> play one after each "
 "other by adding on an empty tile a new piece of their color, trapping at "
 "least one opponent row of pieces; when pieces are captured that way, they "
-"are turned over to join the capturing player's forces. See <link xref=\"rules"
-"\">reversi rules</link> to discover more about the game."
+"are turned over to join the capturing player's forces. See <link "
+"xref=\"rules\">reversi rules</link> to discover more about the game."
 msgstr ""
 "<app>Reversi</app> ist ein Brettspiel mit Spielsteinen, die auf einer Seite "
 "schwarz und auf der anderen Seite weiß sind. <em>Schwarz</em> und <em>Weiß</"
 "em> spielen abwechselnd und legen jeweils einen Stein ihrer Farbe auf ein "
 "leeres Spielfeld, wobei mindestens eine gegnerische Steinreihe "
 "eingeschlossen wird. So eingefangene Steine werden umgedreht und gehören "
-"fortan zu den Spielsteinen des Einfängers. Lesen Sie die <link xref=\"rules"
-"\">Regeln von Reversi</link>, um mehr über das Spiel zu erfahren."
+"fortan zu den Spielsteinen des Einfängers. Lesen Sie die <link "
+"xref=\"rules\">Regeln von Reversi</link>, um mehr über das Spiel zu erfahren."
 
 #. (itstool) path: page/p
 #: C/index.page:31
@@ -885,10 +890,11 @@ msgstr ""
 "des Reversi-Spiels</link> zu spielen: Die klassische Version von Reversi, wo "
 "jeder Spieler das Spielbrett am Spielende dominieren will, und das "
 "<em>umgekehrte Reversi</em>, wo es Ziel ist, mit <em>weniger</em> Steinen "
-"als Ihr Gegner das Spiel zu beenden. Sie können beide entweder <link xref="
-"\"ai-game\">gegen den Rechner spielen</link> oder <link xref=\"2player\">mit "
-"einem anderen Spieler spielen</link>. Wählen Sie diese Optionen beim <link "
-"xref=\"configure\">Einrichten eines neuen Spiels</link>. Viel Spaß!"
+"als Ihr Gegner das Spiel zu beenden. Sie können beide entweder <link "
+"xref=\"ai-game\">gegen den Rechner spielen</link> oder <link "
+"xref=\"2player\">mit einem anderen Spieler spielen</link>. Wählen Sie diese "
+"Optionen beim <link xref=\"configure\">Einrichten eines neuen Spiels</link>. "
+"Viel Spaß!"
 
 #. (itstool) path: section/title
 #: C/index.page:34
@@ -1018,7 +1024,7 @@ msgstr ""
 "org/licenses/by-sa/3.0/\">Commons Deed</link> lesen."
 
 #. (itstool) path: credit/years
-#: C/play.page:12 C/rules.page:13 C/shortcuts.page:12 C/sound.page:13
+#: C/play.page:12 C/rules.page:13 C/sound.page:13
 msgid "2012"
 msgstr "2012"
 
@@ -1071,8 +1077,8 @@ msgstr ""
 #: C/play.page:44 C/play.page:69
 msgid ""
 "To show possible moves, select a tile where there is already a piece, "
-"whatever its color is. Alternatively, you might want to <link xref="
-"\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
+"whatever its color is. Alternatively, you might want to <link "
+"xref=\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
 msgstr ""
 "Sie können sich mögliche Spielzüge anzeigen lassen, indem Sie auf ein Feld "
 "klicken, auf dem bereits ein Stein egal welcher Farbe liegt. Alternativ "
@@ -1107,10 +1113,10 @@ msgstr "So spielen Sie mit der Tastatur"
 msgid ""
 "Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> "
 "arrows to go at the tile you want to move. The currently selected tile is "
-"indicated by an highlight on the board."
+"indicated by a highlight on the board."
 msgstr ""
 "Verwenden Sie die Pfeiltasten <key>←</key>, <key>→</key>, <key>↑</key> und "
-"<key>↓</key>, um sich zum gewünschten Spielfeld zu bewegen. Das aktuell "
+"<key>↓</key>, um sich zum gewünschten Feld zu bewegen. Das aktuell "
 "ausgewählte Feld ist auf dem Spielbrett hervorgehoben."
 
 #. (itstool) path: item/p
@@ -1134,14 +1140,14 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/play.page:76
 msgid ""
-"More shortcuts are available, documented either on the <link xref="
-"\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the dialog "
-"that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+"More shortcuts are available, documented either on the <link "
+"xref=\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the "
+"dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 msgstr ""
-"Weitere Tastenkombinationen finden Sie entweder auf der <link xref="
-"\"shortcuts#how-to-play\">Tastenkombinationen</link>-Hilfeseite oder in dem "
-"Dialog, den Sie mit <keyseq><key>Strg</key><key>F1</key></keyseq> aufrufen "
-"können."
+"Weitere Tastenkombinationen finden Sie entweder auf der <link "
+"xref=\"shortcuts#how-to-play\">Tastenkombinationen</link>-Hilfeseite oder in "
+"dem Dialog, den Sie mit <keyseq><key>Strg</key><key>F1</key></keyseq> "
+"aufrufen können."
 
 #. (itstool) path: section/p
 #: C/play.page:78
@@ -1390,13 +1396,13 @@ msgstr ""
 #: C/select-game.page:30
 msgid ""
 "This variation in the goal makes <em>Reverse Reversi</em> a quite "
-"interesting game, as you have to elaborate a different <link xref=\"strategy"
-"\">strategy</link> to win. Try it!"
+"interesting game, as you have to elaborate a different <link "
+"xref=\"strategy\">strategy</link> to win. Try it!"
 msgstr ""
 "Diese Variation des Ziels verwandelt <em>umgekehrtes Reversi</em> in ein "
-"sehr interessantes Spiel, weil Sie sich eine andere <link xref=\"strategy"
-"\">Strategie</link> überlegen müssen, um zu gewinnen. Versuchen Sie es "
-"einmal!"
+"sehr interessantes Spiel, weil Sie sich eine andere <link "
+"xref=\"strategy\">Strategie</link> überlegen müssen, um zu gewinnen. "
+"Versuchen Sie es einmal!"
 
 #. (itstool) path: page/p
 #: C/select-game.page:32
@@ -1406,168 +1412,6 @@ msgid ""
 msgstr ""
 "Wenn Sie andere Varianten von Reversi ausprobieren möchten, so können Sie "
 "auch die <link xref=\"start-position\">Startposition wechseln</link>."
-
-#. (itstool) path: credit/name
-#: C/shortcuts.page:10
-msgid "Brian Grohe"
-msgstr "Brian Grohe"
-
-#. (itstool) path: page/title
-#. (itstool) path: td/p
-#: C/shortcuts.page:25 C/shortcuts.page:83
-msgid "Keyboard shortcuts"
-msgstr "Tastenkombinationen"
-
-#. (itstool) path: page/p
-#: C/shortcuts.page:27
-msgid ""
-"<app>Reversi</app> can easily be <link xref=\"play#keyboard-play\">used with "
-"keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse Reversi</em> "
-"games are both played with the same shortcuts."
-msgstr ""
-"<app>Reversi</app> kann sehr gut <link xref=\"play#keyboard-play\">mit der "
-"Tastatur</link> gespielt werden. Das <em>klassische Reversi</em> und "
-"<em>umgekehrte Reversi</em> lassen sich mit den gleichen Tastenkombinationen "
-"spielen."
-
-#. (itstool) path: section/title
-#: C/shortcuts.page:30
-msgid "During game selection"
-msgstr "Während der Spielauswahl"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:33
-msgid "Start new game"
-msgstr "Ein neues Spiel starten"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:34
-msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Umschalttaste</key><key>Strg</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:37
-msgid "Go back"
-msgstr "Zurück gehen"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:38
-msgid "<key>Escape</key>"
-msgstr "<key>Esc</key>"
-
-#. (itstool) path: section/title
-#: C/shortcuts.page:44
-msgid "Play with keyboard"
-msgstr "Spielen mit Tastatur"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:47
-msgid "Select where to play"
-msgstr "Spielfeld auswählen"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:48
-msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
-msgstr "<key>←</key>, <key>→</key>, <key>↑</key> und <key>↓</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:51
-msgid "Select the given row"
-msgstr "Zeile auswählen"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:52
-msgid "<key>1</key> to <key>8</key>"
-msgstr "<key>1</key> bis <key>8</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:55
-msgid "Select the given column"
-msgstr "Spalte auswählen"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:56
-msgid "<key>a</key> to <key>h</key>"
-msgstr "<key>a</key> bis <key>h</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:59
-msgid "Play on selected tile"
-msgstr "Auf ausgewähltem Feld spielen"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:60
-msgid "<key>Return</key>, <key>Space</key>"
-msgstr "<key>Eingabetaste</key>, <key>Rücktaste</key>"
-
-#. (itstool) path: section/title
-#: C/shortcuts.page:66
-msgid "During a game"
-msgstr "Während eines Spiels"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:69
-msgid "New game"
-msgstr "Neues Spiel"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:70
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:73
-msgid "Undo last move"
-msgstr "Den letzten Spielzug zurück nehmen"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:74
-msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Z</key></keyseq>"
-
-#. (itstool) path: section/title
-#: C/shortcuts.page:80
-msgid "Generic"
-msgstr "Allgemein"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:84
-msgid ""
-"<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
-"key><key>F1</key></keyseq>"
-msgstr ""
-"<keyseq><key>Strg</key><key>?</key></keyseq>, <keyseq><key>Strg</"
-"key><key>F1</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:87
-msgid "Help"
-msgstr "Hilfe"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:88
-msgid "<key>F1</key>"
-msgstr "<key>F1</key>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:91
-msgid "About"
-msgstr "Info"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:92
-msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
-msgstr "<keyseq><key>Umschalttaste</key><key>F1</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:95
-msgid "Quit"
-msgstr "Beenden"
-
-#. (itstool) path: td/p
-#: C/shortcuts.page:96
-msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Q</key></keyseq>"
 
 #. (itstool) path: page/title
 #: C/sound.page:21
@@ -1872,8 +1716,8 @@ msgid ""
 "theme\"><em>Default</em> theme</link>."
 msgstr ""
 "Die Anwendung wählt ein Thema entsprechend Ihrer Arbeitsumgebung, sofern es "
-"noch nicht geändert wurde. Lesen Sie auch den Abschnitt <link xref="
-"\"#default-theme\"><em>Vorgabe-</em>Thema</link>."
+"noch nicht geändert wurde. Lesen Sie auch den Abschnitt <link "
+"xref=\"#default-theme\"><em>Vorgabe-</em>Thema</link>."
 
 #. (itstool) path: section/title
 #: C/theme.page:27
@@ -1902,9 +1746,9 @@ msgid ""
 msgstr ""
 "Der erste Listeneintrag lautet <gui><em>Vorgabe</em></gui>. Hierbei versucht "
 "die Anwendung, ein Thema zu nutzen, das sich an Ihrer Arbeitsumgebung "
-"orientiert. Lesen Sie dazu auch den Abschnitt <link xref=\"#default-theme"
-"\"><em>Vorgabe-</em>Thema</link>. Die übrigen Listeneinträge werden in der "
-"<link xref=\"#themes-list\">Themen-Liste</link> vorgestellt."
+"orientiert. Lesen Sie dazu auch den Abschnitt <link xref=\"#default-"
+"theme\"><em>Vorgabe-</em>Thema</link>. Die übrigen Listeneinträge werden in "
+"der <link xref=\"#themes-list\">Themen-Liste</link> vorgestellt."
 
 #. (itstool) path: section/p
 #: C/theme.page:33
@@ -1967,12 +1811,12 @@ msgstr ""
 #: C/theme.page:56
 msgid ""
 "The first entry in the themes list is called <em>Default</em> and has a "
-"special behavior; see the section about the <link xref=\"#default-theme"
-"\"><em>Default</em> theme</link>."
+"special behavior; see the section about the <link xref=\"#default-"
+"theme\"><em>Default</em> theme</link>."
 msgstr ""
 "Der erste Listeneintrag lautet <em>Vorgabe</em> und hat ein besonderes "
-"Verhalten. Lesen Sie dazu den Abschnitt über das <link xref=\"#default-theme"
-"\"><em>Vorgabe</em>-Thema</link>."
+"Verhalten. Lesen Sie dazu den Abschnitt über das <link xref=\"#default-"
+"theme\"><em>Vorgabe</em>-Thema</link>."
 
 #. (itstool) path: section/title
 #: C/theme.page:60
@@ -2067,8 +1911,8 @@ msgid ""
 "link> about it."
 msgstr ""
 "Wenn Sie Vorschläge für ein neues Thema haben, oder ein neues Thema "
-"beitragen möchten, erstellen Sie bitte dafür einen <link xref=\"bug-filing"
-"\">Verbesserungsvorschlag</link>."
+"beitragen möchten, erstellen Sie bitte dafür einen <link xref=\"bug-"
+"filing\">Verbesserungsvorschlag</link>."
 
 #. (itstool) path: page/title
 #: C/translate.page:29
@@ -2098,10 +1942,10 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/translate.page:39
 msgid ""
-"To start translating you will need to <link href=\"https://l10n.gnome.org"
-"\">create an account</link> and join the <link href=\"https://l10n.gnome.org/"
-"teams/\">translation team</link> for your language. This will give you the "
-"ability to upload new translations."
+"To start translating you will need to <link href=\"https://l10n.gnome."
+"org\">create an account</link> and join the <link href=\"https://l10n.gnome."
+"org/teams/\">translation team</link> for your language. This will give you "
+"the ability to upload new translations."
 msgstr ""
 "Um mit der Übersetzung zu beginnen, müssen Sie zunächst <link href=\"https://"
 "l10n.gnome.org\">ein Konto anlegen</link> und einem <link href=\"https://"
@@ -2128,8 +1972,114 @@ msgid ""
 "Alternatively, you can contact the Internationalization Team using <link "
 "href=\"https://discourse.gnome.org/tag/i18n\">GNOME Discourse</link>."
 msgstr ""
-"Alternativ können Sie das Internationalisierungsteam über <link href="
-"\"https://discourse.gnome.org/tag/i18n\">GNOME Discourse</link> kontaktieren."
+"Alternativ können Sie das Internationalisierungsteam über <link "
+"href=\"https://discourse.gnome.org/tag/i18n\">GNOME Discourse</link> "
+"kontaktieren."
+
+#~ msgid "Reversi logo"
+#~ msgstr "Reversi-Logo"
+
+#~ msgid "Brian Grohe"
+#~ msgstr "Brian Grohe"
+
+#~ msgid "Keyboard shortcuts"
+#~ msgstr "Tastenkombinationen"
+
+#~ msgid ""
+#~ "<app>Reversi</app> can easily be <link xref=\"play#keyboard-play\">used "
+#~ "with keyboard</link>. The <em>Classic Reversi</em> and <em>Reverse "
+#~ "Reversi</em> games are both played with the same shortcuts."
+#~ msgstr ""
+#~ "<app>Reversi</app> kann sehr gut <link xref=\"play#keyboard-play\">mit "
+#~ "der Tastatur</link> gespielt werden. Das <em>klassische Reversi</em> und "
+#~ "<em>umgekehrte Reversi</em> lassen sich mit den gleichen "
+#~ "Tastenkombinationen spielen."
+
+#~ msgid "During game selection"
+#~ msgstr "Während der Spielauswahl"
+
+#~ msgid "Start new game"
+#~ msgstr "Ein neues Spiel starten"
+
+#~ msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
+#~ msgstr ""
+#~ "<keyseq><key>Umschalttaste</key><key>Strg</key><key>N</key></keyseq>"
+
+#~ msgid "Go back"
+#~ msgstr "Zurück gehen"
+
+#~ msgid "<key>Escape</key>"
+#~ msgstr "<key>Esc</key>"
+
+#~ msgid "Play with keyboard"
+#~ msgstr "Spielen mit Tastatur"
+
+#~ msgid "Select where to play"
+#~ msgstr "Spielfeld auswählen"
+
+#~ msgid "<key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key>"
+#~ msgstr "<key>←</key>, <key>→</key>, <key>↑</key> und <key>↓</key>"
+
+#~ msgid "Select the given row"
+#~ msgstr "Zeile auswählen"
+
+#~ msgid "<key>1</key> to <key>8</key>"
+#~ msgstr "<key>1</key> bis <key>8</key>"
+
+#~ msgid "Select the given column"
+#~ msgstr "Spalte auswählen"
+
+#~ msgid "<key>a</key> to <key>h</key>"
+#~ msgstr "<key>a</key> bis <key>h</key>"
+
+#~ msgid "Play on selected tile"
+#~ msgstr "Auf ausgewähltem Feld spielen"
+
+#~ msgid "<key>Return</key>, <key>Space</key>"
+#~ msgstr "<key>Eingabetaste</key>, <key>Rücktaste</key>"
+
+#~ msgid "During a game"
+#~ msgstr "Während eines Spiels"
+
+#~ msgid "New game"
+#~ msgstr "Neues Spiel"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+#~ msgstr "<keyseq><key>Strg</key><key>N</key></keyseq>"
+
+#~ msgid "Undo last move"
+#~ msgstr "Den letzten Spielzug zurück nehmen"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Z</key></keyseq>"
+#~ msgstr "<keyseq><key>Strg</key><key>Z</key></keyseq>"
+
+#~ msgid "Generic"
+#~ msgstr "Allgemein"
+
+#~ msgid ""
+#~ "<keyseq><key>Ctrl</key><key>?</key></keyseq>, <keyseq><key>Ctrl</"
+#~ "key><key>F1</key></keyseq>"
+#~ msgstr ""
+#~ "<keyseq><key>Strg</key><key>?</key></keyseq>, <keyseq><key>Strg</"
+#~ "key><key>F1</key></keyseq>"
+
+#~ msgid "Help"
+#~ msgstr "Hilfe"
+
+#~ msgid "<key>F1</key>"
+#~ msgstr "<key>F1</key>"
+
+#~ msgid "About"
+#~ msgstr "Info"
+
+#~ msgid "<keyseq><key>Shift</key><key>F1</key></keyseq>"
+#~ msgstr "<keyseq><key>Umschalttaste</key><key>F1</key></keyseq>"
+
+#~ msgid "Quit"
+#~ msgstr "Beenden"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Q</key></keyseq>"
+#~ msgstr "<keyseq><key>Strg</key><key>Q</key></keyseq>"
 
 #~ msgid "Click <guiseq><gui>Settings</gui><gui>Preferences</gui></guiseq>"
 #~ msgstr ""
@@ -2185,13 +2135,14 @@ msgstr ""
 
 #~ msgid ""
 #~ "To contribute to the Documentation Project, feel free to get in touch "
-#~ "with us using <link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F"
-#~ "%2Firc.gnome.org%2Fdocs\">irc</link>, or via our <link href=\"http://mail."
-#~ "gnome.org/mailman/listinfo/gnome-doc-list\">mailing list</link>."
+#~ "with us using <link href=\"https://cbe003.chat.mibbit.com/?"
+#~ "url=irc%3A%2F%2Firc.gnome.org%2Fdocs\">irc</link>, or via our <link "
+#~ "href=\"http://mail.gnome.org/mailman/listinfo/gnome-doc-list\">mailing "
+#~ "list</link>."
 #~ msgstr ""
 #~ "Falls Sie sich am Dokumentationsprojekt beteiligen wollen, nehmen Sie im "
-#~ "<link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome.org"
-#~ "%2Fdocs\">IRC</link> oder über die <link href=\"http://mail.gnome.org/"
+#~ "<link href=\"https://cbe003.chat.mibbit.com/?url=irc%3A%2F%2Firc.gnome."
+#~ "org%2Fdocs\">IRC</link> oder über die <link href=\"http://mail.gnome.org/"
 #~ "mailman/listinfo/gnome-doc-list\">Mailingliste</link> mit uns Kontakt auf."
 
 #~ msgctxt "link"
@@ -2237,8 +2188,9 @@ msgstr ""
 #~ "link> is <gui>Level one</gui> by default."
 #~ msgstr ""
 #~ "Wenn das Spiel zum ersten Mal startet, spielen Sie <em>Schwarz</em> und "
-#~ "der Computergegner spielt <em>Weiß</em>. Der <link xref=\"ai-game"
-#~ "\">Schwierigkeitsgrad</link> ist auf <gui>Level eins</gui> voreingestellt."
+#~ "der Computergegner spielt <em>Weiß</em>. Der <link xref=\"ai-"
+#~ "game\">Schwierigkeitsgrad</link> ist auf <gui>Level eins</gui> "
+#~ "voreingestellt."
 
 #~ msgid "The game is played using the mouse. To make a move:"
 #~ msgstr "Das Spiel wird mit der Maus bedient. So führen Sie einen Zug aus:"
