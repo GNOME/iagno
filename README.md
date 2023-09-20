@@ -1,4 +1,4 @@
-# GNOME Reversi
+# Reversi
 
 A reversi game for GNOME.
 

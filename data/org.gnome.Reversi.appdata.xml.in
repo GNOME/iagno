@@ -4,7 +4,7 @@
   <id>org.gnome.Reversi</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <name>GNOME Reversi</name>
+  <name>Reversi</name>
   <summary>Dominate the board in a classic reversi game,
            or play the reversed variant</summary>
   <description>
@@ -19,7 +19,7 @@
       of your color and the tile you add. Who finishes with more tiles wins!
     </p>
     <p>
-      GNOME Reversi allows you to play both a classic reversi game, and the
+      Reversi allows you to play both a classic reversi game, and the
       reversed variant, where the goal is to finish with less tile than your
       opponent.
     </p>
@@ -27,7 +27,7 @@
   <screenshots>
     <screenshot height="447" width="700" type="default">
       <image>https://gitlab.gnome.org/GNOME/iagno/-/raw/master/data/screenshot.png</image>
-      <caption>A GNOME Reversi game preview</caption>
+      <caption>A Reversi game preview</caption>
     </screenshot>
   </screenshots>
   <provides>
@@ -46,7 +46,7 @@
     <kudo>UserDocs</kudo>
   </kudos>
   <translation type="gettext">iagno</translation>
-  <developer_name>The GNOME Project</developer_name>
+  <developer_name>The Reversi Team</developer_name>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
     <content_attribute id="violence-fantasy">none</content_attribute>
