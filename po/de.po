@@ -20,24 +20,28 @@
 # Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012.
 # Bernd Homuth <dev@hmt.im>, 2015.
 # Tim Sabsch <tim@sabsch.com>, 2019-2020, 2023.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2023-01-25 20:42+0000\n"
-"PO-Revision-Date: 2023-02-27 20:51+0100\n"
-"Last-Translator: Tim Sabsch <tim@sabsch.com>\n"
+"POT-Creation-Date: 2023-09-20 21:19+0000\n"
+"PO-Revision-Date: 2023-09-21 19:32+0200\n"
+"Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
-#: data/org.gnome.Reversi.appdata.xml.in:7
-msgid "GNOME Reversi"
-msgstr "GNOME Reversi"
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
+#: data/org.gnome.Reversi.desktop.in:7 src/iagno.vala:28
+msgid "Reversi"
+msgstr "Reversi"
 
 #: data/org.gnome.Reversi.appdata.xml.in:8
 msgid ""
@@ -69,27 +73,19 @@ msgstr ""
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
-"GNOME Reversi allows you to play both a classic reversi game, and the "
-"reversed variant, where the goal is to finish with less tile than your "
-"opponent."
+"Reversi allows you to play both a classic reversi game, and the reversed "
+"variant, where the goal is to finish with less tile than your opponent."
 msgstr ""
-"GNOME Reversi bietet Ihnen die klassische Variante sowie eine umgekehrte "
-"Variante, bei der Sie weniger Spielsteine als Ihr Gegner erreichen müssen."
+"Reversi bietet Ihnen die klassische Variante sowie eine umgekehrte Variante, "
+"bei der Sie weniger Spielsteine als Ihr Gegner erreichen müssen."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
-msgid "A GNOME Reversi game preview"
-msgstr "Eine Vorschau auf GNOME Reversi"
+msgid "A Reversi game preview"
+msgstr "Eine Vorschau auf Reversi"
 
 #: data/org.gnome.Reversi.appdata.xml.in:49
-msgid "The GNOME Project"
-msgstr "Das GNOME-Projekt"
-
-#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
-#. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
-#: src/iagno.vala:28
-msgid "Reversi"
-msgstr "Reversi"
+msgid "The Reversi Team"
+msgstr "Das Reversi-Team"
 
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
 #: data/org.gnome.Reversi.desktop.in:9
@@ -672,7 +668,7 @@ msgstr "_Einfach"
 msgid "_Medium"
 msgstr "_Mittel"
 
-#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:307
 msgid "_Hard"
 msgstr "_Schwer"
@@ -882,7 +878,8 @@ msgstr ""
 "Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Christian Kirbach <Christian.Kirbach@gmail.com>\n"
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>\n"
-"Tim Sabsch <tim@sabsch.com>"
+"Tim Sabsch <tim@sabsch.com>\n"
+"Jürgen Benvenuti <gastornis@posteo.org>"
 
 #. Translators: about dialog text; label of the website link
 #: src/iagno.vala:1140
@@ -894,6 +891,12 @@ msgstr "Seite im GNOME-Wiki"
 #, c-format
 msgid "Size: %d × %d ▾"
 msgstr "Größe: %d × %d ▾"
+
+#~ msgid "GNOME Reversi"
+#~ msgstr "GNOME Reversi"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Das GNOME-Projekt"
 
 #~ msgid "Iagno"
 #~ msgstr "Iagno"
