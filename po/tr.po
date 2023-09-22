@@ -9,7 +9,7 @@
 # Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
 # Muhammet Kara <muhammetk@gmail.com>, 2011, 2014, 2015, 2018.
 # Sabri Ünal <libreajans@gmail.com>, 2019-2020.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2019-2020.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2019-2023.
 #
 # ---------------------------------------------------------------------------
 # Turkish translation of iagno.
@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNOME Reversi master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2022-07-30 14:04+0000\n"
-"PO-Revision-Date: 2020-08-19 12:39+0300\n"
+"POT-Creation-Date: 2023-09-20 21:19+0000\n"
+"PO-Revision-Date: 2023-09-22 11:55+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -33,9 +33,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 2.3\n"
 
-#: data/org.gnome.Reversi.appdata.xml.in:7
-msgid "GNOME Reversi"
-msgstr "GNOME Reversi"
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
+#: data/org.gnome.Reversi.desktop.in:7 src/iagno.vala:28
+msgid "Reversi"
+msgstr "Reversi"
 
 #: data/org.gnome.Reversi.appdata.xml.in:8
 msgid ""
@@ -65,27 +68,19 @@ msgstr ""
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
-"GNOME Reversi allows you to play both a classic reversi game, and the "
-"reversed variant, where the goal is to finish with less tile than your "
-"opponent."
+"Reversi allows you to play both a classic reversi game, and the reversed "
+"variant, where the goal is to finish with less tile than your opponent."
 msgstr ""
-"GNOME Reversi, hem klasik reversi oyununu, hem de hedefin rakibinizden daha "
+"Reversi, hem klasik reversi oyununu, hem de hedefin rakibinizden daha "
 "az döşemeyle bitirmek olduğu ters reversi oyununu oynamanızı sağlar."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
-msgid "A GNOME Reversi game preview"
-msgstr "GNOME Reversi oyunu önizlemesi"
+msgid "A Reversi game preview"
+msgstr "Reversi oyunu ön izlemesi"
 
 #: data/org.gnome.Reversi.appdata.xml.in:49
-msgid "The GNOME Project"
-msgstr "GNOME Projesi"
-
-#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
-#. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
-#: src/iagno.vala:28
-msgid "Reversi"
-msgstr "Reversi"
+msgid "The Reversi Team"
+msgstr "Reversi Takımı"
 
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
 #: data/org.gnome.Reversi.desktop.in:9
@@ -665,7 +660,7 @@ msgstr "_Kolay"
 msgid "_Medium"
 msgstr "_Orta"
 
-#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:307
 msgid "_Hard"
 msgstr "_Zor"
@@ -872,3 +867,9 @@ msgstr "GNOME wikiʼdeki sayfası"
 #, c-format
 msgid "Size: %d × %d ▾"
 msgstr "Boyut: %d × %d ▾"
+
+#~ msgid "GNOME Reversi"
+#~ msgstr "GNOME Reversi"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "GNOME Projesi"
