@@ -19,21 +19,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2022-01-10 17:44+0000\n"
-"PO-Revision-Date: 2022-02-19 23:05+1000\n"
-"Last-Translator: Ser82-png <sw@atrus.ru>\n"
+"POT-Creation-Date: 2023-09-20 21:19+0000\n"
+"PO-Revision-Date: 2023-09-22 16:38+1000\n"
+"Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
 
-#: data/org.gnome.Reversi.appdata.xml.in:7
-msgid "GNOME Reversi"
-msgstr "Реверси GNOME"
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
+#: data/org.gnome.Reversi.desktop.in:7 src/iagno.vala:28
+msgid "Reversi"
+msgstr "Реверси"
 
 #: data/org.gnome.Reversi.appdata.xml.in:8
 msgid ""
@@ -66,28 +69,20 @@ msgstr ""
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
-"GNOME Reversi allows you to play both a classic reversi game, and the "
-"reversed variant, where the goal is to finish with less tile than your "
-"opponent."
+"Reversi allows you to play both a classic reversi game, and the reversed "
+"variant, where the goal is to finish with less tile than your opponent."
 msgstr ""
-"Реверси GNOME позволяет вам играть как в классическую игру реверси, так и в "
-"обратный вариант, где цель состоит в том, чтобы закончить с меньшим "
-"количеством фишек, чем у вашего противника."
+"«Реверси» позволяет вам играть как в классическую игру реверси, так и в "
+"обратный вариант, где цель состоит в том, чтобы закончить с меньшим, чем у "
+"вашего противника, количеством фишек."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
-msgid "A GNOME Reversi game preview"
-msgstr "Просмотр игры \"Реверси GNOME\""
+msgid "A Reversi game preview"
+msgstr "Просмотр игры «Реверси»"
 
 #: data/org.gnome.Reversi.appdata.xml.in:49
-msgid "The GNOME Project"
-msgstr "Проект GNOME"
-
-#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
-#. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
-#: src/iagno.vala:28
-msgid "Reversi"
-msgstr "Реверси"
+msgid "The Reversi Team"
+msgstr "Команда «Реверси»"
 
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
 #: data/org.gnome.Reversi.desktop.in:9
@@ -307,7 +302,7 @@ msgstr "Флаг для включения развёрнутого режима
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
 #: data/org.gnome.Reversi.gschema.xml:33
 msgid "If “true”, the main window starts in maximized mode."
-msgstr "Если “true”, то главное окно запускается в развёрнутом состоянии."
+msgstr "Если «true», главное окно запускается в развернутом режиме."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
 #: data/org.gnome.Reversi.gschema.xml:50
@@ -321,9 +316,9 @@ msgid ""
 "every new game request, making the next game being started with inverted "
 "roles (previous Dark player playing Light). Ignored for two-player games."
 msgstr ""
-"Если установлено значение \"true\", при игре против компьютера настройки "
-"\"цвета\" переключаются с каждой новой игрой, в результате чего следующая "
-"игра начинается с перевернутыми ролями (игрок, в предыдущей партии игравший "
+"Если установлено значение «true», при игре против компьютера настройки "
+"«цвета» переключаются с каждой новой игрой, в результате чего следующая игра "
+"начинается с перевернутыми ролями (игрок, в предыдущей партии игравший "
 "тёмными, в следующей - будет играть светлыми). Игнорируется при игре вдвоём."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
@@ -354,7 +349,7 @@ msgstr "Флаг для выделения играбельных клеток"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
 #: data/org.gnome.Reversi.gschema.xml:74
 msgid "If “true”, the tiles where you can play are highlighted."
-msgstr "Если \"true\", клетки, на которых вы можете играть, подсвечиваются."
+msgstr "Если «true», клетки, на которых вы можете играть, подсвечиваются."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
 #: data/org.gnome.Reversi.gschema.xml:79
@@ -367,7 +362,7 @@ msgid ""
 "If “true”, the tiles that will be captured to the opponent by a play are "
 "highlighted."
 msgstr ""
-"Если \"true\", подсвечиваются фишки, которые будут захвачены противником в "
+"Если «true», подсвечиваются фишки, которые будут захвачены противником в "
 "результате розыгрыша."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
@@ -391,13 +386,13 @@ msgid ""
 "random-start” is given instead on the command-line, this flag will be "
 "ignored."
 msgstr ""
-"В \"Реверси\" можно играть с двух разных начальных позиций (и их "
-"симметриями). Если \"true\", игра будет случайным образом начинаться с той "
-"или иной позиции; если \"false\", используется только самая распространенная "
-"начальная позиция. Вы можете заставить игру использовать альтернативную "
-"позицию с помощью аргумента \"--alternative-start\" в командной строке; если "
-"вместо этого в командной строке будет указано \"--usual-start\" или \"--"
-"random-start\", этот флаг проигнорируется."
+"В «Реверси» можно играть с двух разных начальных позиций (и их симметриями). "
+"Если «true», игра будет случайным образом начинаться с той или иной позиции; "
+"если «false», используется только самая распространенная начальная позиция. "
+"Вы можете заставить игру использовать альтернативную позицию с помощью "
+"аргумента «--alternative-start» в командной строке; если вместо этого в "
+"командной строке будет указано «--usual-start» или «--random-start», этот "
+"флаг проигнорируется."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
 #: data/org.gnome.Reversi.gschema.xml:100
@@ -420,8 +415,8 @@ msgid ""
 "Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
 "“high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
-"Имя файла используемой темы (или \"default\"). Доступные темы: \"adwaita."
-"theme\", \"high_contrast.theme\" и \"sun_and_star.theme\"."
+"Имя файла используемой темы (или «default»). Доступные темы: «adwaita."
+"theme», «high_contrast.theme» и «sun_and_star.theme»."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
 #: data/org.gnome.Reversi.gschema.xml:114
@@ -435,9 +430,9 @@ msgid ""
 "game, where you try to have more pieces), or “reverse” (the opposite game, "
 "where you try to have less pieces)."
 msgstr ""
-"Название игры, в которую будете играть. Это может быть \"классическая"
-"\" (обычная игра, в которой вы пытаетесь получить больше фигур) или "
-"\"обратная\" (игра, в которой вы пытаетесь получить меньше фигур)."
+"Название игры, в которую будете играть. Это может быть "
+"«классическая» (обычная игра, в которой вы пытаетесь получить больше фигур) "
+"или «обратная» (игра, в которой вы пытаетесь получить меньше фигур)."
 
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
 #. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
@@ -527,7 +522,7 @@ msgstr "Начать с другой позиции"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:78
 msgid "Play Classic Reversi"
-msgstr "Играть в классическое \"Реверси\""
+msgstr "Играть в классическое «Реверси»"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:81
@@ -567,7 +562,7 @@ msgstr "Начать со случайной позиции"
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:102
 msgid "Play Reverse Reversi"
-msgstr "Играть в обратное \"Реверси\""
+msgstr "Играть в обратное «Реверси»"
 
 #. Translators: command-line option description, see 'iagno --help'
 #: src/iagno.vala:105
@@ -610,13 +605,13 @@ msgid ""
 "The “--alternative-start”, “--random-start” and “--usual-start” arguments "
 "are mutually exclusive."
 msgstr ""
-"Аргументы \"--alternative-start\", \"--random-start\" и \"--usual-start\" "
-"являются взаимоисключающими."
+"Аргументы «--alternative-start», «--random-start» и «--usual-start» являются "
+"взаимоисключающими."
 
 #. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
 #: src/iagno.vala:179
 msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
-msgstr "Аргументы --classic и --reverse являются взаимоисключающими."
+msgstr "Аргументы «--classic» и «--reverse» являются взаимоисключающими."
 
 #. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
 #: src/iagno.vala:186
@@ -637,12 +632,12 @@ msgstr ""
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:274
 msgid "Play _first (Dark)"
-msgstr "Игр_ать первым (Тёмные)"
+msgstr "Играть _первым (Тёмные)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:278
 msgid "Play _second (Light)"
-msgstr "Играть втор_ым (Светлые)"
+msgstr "Играть _вторым (Светлые)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:284
@@ -664,7 +659,7 @@ msgstr "_Легко"
 msgid "_Medium"
 msgstr "_Средне"
 
-#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:307
 msgid "_Hard"
 msgstr "_Трудно"
@@ -678,13 +673,13 @@ msgstr "_Менять начальную позицию"
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:323 src/iagno.vala:982
 msgid "Classic Reversi"
-msgstr "Классическое \"Реверси\""
+msgstr "Классическое «Реверси»"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
 #: src/iagno.vala:327 src/iagno.vala:979
 msgid "Reverse Reversi"
-msgstr "Обратное \"Реверси\""
+msgstr "Обратное «Реверси»"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
 #: src/iagno.vala:338
@@ -719,7 +714,7 @@ msgstr "Показать _финальный расклад"
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:431
 msgid "_About Reversi"
-msgstr "_О приложении Реверси"
+msgstr "_О приложении"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
 #: src/iagno.vala:619
@@ -804,7 +799,7 @@ msgstr ""
 #. Translators: about dialog text
 #: src/iagno.vala:1092
 msgid "A disk flipping game derived from Reversi"
-msgstr "Игра с переворачиванием фишек, основанная на \"Реверси\""
+msgstr "Игра с переворачиванием фишек, основанная на «Реверси»"
 
 #. Translators: text crediting an artist, in the about dialog
 #: src/iagno.vala:1096
@@ -873,6 +868,12 @@ msgstr "Страница на GNOME wiki"
 #, c-format
 msgid "Size: %d × %d ▾"
 msgstr "Размер: %d × %d ▾"
+
+#~ msgid "GNOME Reversi"
+#~ msgstr "Реверси GNOME"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Проект GNOME"
 
 #~ msgid "Iagno"
 #~ msgstr "Ягно"
