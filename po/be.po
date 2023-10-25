@@ -6,22 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2021-10-05 11:48+0000\n"
-"PO-Revision-Date: 2021-10-07 07:31+0300\n"
-"Last-Translator: Launchpad translators\n"
+"POT-Creation-Date: 2023-09-20 21:19+0000\n"
+"PO-Revision-Date: 2023-10-25 22:51+0300\n"
+"Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Poedit 3.0\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Project-Style: gnome\n"
 
-#: data/org.gnome.Reversi.appdata.xml.in:7
-msgid "GNOME Reversi"
-msgstr "Рэверсі GNOME"
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
+#: data/org.gnome.Reversi.desktop.in:7 src/iagno.vala:28
+msgid "Reversi"
+msgstr "Рэверсі"
 
 #: data/org.gnome.Reversi.appdata.xml.in:8
 msgid ""
@@ -54,27 +57,19 @@ msgstr ""
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
-"GNOME Reversi allows you to play both a classic reversi game, and the "
-"reversed variant, where the goal is to finish with less tile than your "
-"opponent."
+"Reversi allows you to play both a classic reversi game, and the reversed "
+"variant, where the goal is to finish with less tile than your opponent."
 msgstr ""
-"Рэверсі GNOME дае магчымасць гуляць у класічны рэверсі і адваротны, у якім "
-"перамагае той, чыіх фішак у канцы гульні меней."
+"Праграма дазваляе гуляць у класічны рэверсі і адваротны, у якім перамагае "
+"той, чыіх фішак у канцы гульні меней."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
-msgid "A GNOME Reversi game preview"
-msgstr "Папярэдні прагляд гульні Рэверсі GNOME"
+msgid "A Reversi game preview"
+msgstr "Папярэдні прагляд гульні Рэверсі"
 
 #: data/org.gnome.Reversi.appdata.xml.in:49
-msgid "The GNOME Project"
-msgstr "Праект GNOME"
-
-#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
-#. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
-#: src/iagno.vala:28
-msgid "Reversi"
-msgstr "Рэверсі"
+msgid "The Reversi Team"
+msgstr "Каманда Рэверсі"
 
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
 #: data/org.gnome.Reversi.desktop.in:9
@@ -655,7 +650,7 @@ msgstr "_Проста"
 msgid "_Medium"
 msgstr "_Сярэдняя"
 
-#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:307
 msgid "_Hard"
 msgstr "_Цяжка"
@@ -861,3 +856,9 @@ msgstr "Старонка на GNOME wiki"
 #, c-format
 msgid "Size: %d × %d ▾"
 msgstr "Памер: %d × %d ▾"
+
+#~ msgid "GNOME Reversi"
+#~ msgstr "Рэверсі GNOME"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Праект GNOME"
