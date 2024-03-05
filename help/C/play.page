@@ -73,7 +73,7 @@
       </item>
     </steps>
 
-    <p>More shortcuts are available, documented either on the <link xref="shortcuts#how-to-play">Keyboard shortcuts</link> page, or in the dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>.</p>
+    <p>More shortcuts are available in the dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>.</p>
 
     <p>You can also <link xref="#mouse-play">use a mouse</link>.</p>
   </section>

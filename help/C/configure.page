@@ -25,7 +25,7 @@
 
   <p>If you are opening the application for the first time, <app>Reversi</app> defaults on an easy <em>Classic Reversi</em> against the computer. Else, it will have remembered you previous settings.</p>
 
-  <p>For launching a game from here, just click on the <gui>Start Game</gui> button. A game can also be launched with the <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> <link xref="shortcuts#game-selection">keyboard shortcut</link>.</p>
+  <p>For launching a game from here, just click on the <gui>Start Game</gui> button. A game can also be launched with the <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> keyboard shortcut.</p>
 
-  <p>Once a game has been launched, you can always go back to this screen by clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</key><key>N</key></keyseq> <link xref="shortcuts#during-game">keyboard shortcut</link>.</p>
+  <p>Once a game has been launched, you can always go back to this screen by clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</key><key>N</key></keyseq> keyboard shortcut.</p>
 </page>
