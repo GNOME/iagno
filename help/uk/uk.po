@@ -2,12 +2,12 @@
 # Copyright (C) 2020 iagno's COPYRIGHT HOLDER
 # This file is distributed under the same license as the iagno package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2023-06-21 12:34+0000\n"
-"PO-Revision-Date: 2023-06-25 17:04+0300\n"
+"POT-Creation-Date: 2024-03-05 14:22+0000\n"
+"PO-Revision-Date: 2024-03-05 22:50+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -465,29 +465,37 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/configure.page:28
+#| msgid ""
+#| "For launching a game from here, just click on the <gui>Start Game</gui> "
+#| "button. A game can also be launched with the <keyseq><key>Shift</"
+#| "key><key>Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-"
+#| "selection\">keyboard shortcut</link>."
 msgid ""
 "For launching a game from here, just click on the <gui>Start Game</gui> "
 "button. A game can also be launched with the <keyseq><key>Shift</"
-"key><key>Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-"
-"selection\">keyboard shortcut</link>."
+"key><key>Ctrl</key><key>N</key></keyseq> keyboard shortcut."
 msgstr ""
 "Для того, щоб запустити гру, просто натисніть кнопку <gui>Почати гру</gui>. "
 "Крім того, гру можна розпочати за допомогою натискання комбінації "
-"<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>, одного із "
-"<link xref=\"shortcuts#game-selection\">клавіатурних скорочень</link>."
+"<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>, одного із"
+" клавіатурних скорочень."
 
 #. (itstool) path: page/p
 #: C/configure.page:30
+#| msgid ""
+#| "Once a game has been launched, you can always go back to this screen by "
+#| "clicking on the <gui>New Game</gui> button, or using the "
+#| "<keyseq><key>Ctrl</key><key>N</key></keyseq> <link "
+#| "xref=\"shortcuts#during-game\">keyboard shortcut</link>."
 msgid ""
 "Once a game has been launched, you can always go back to this screen by "
 "clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</"
-"key><key>N</key></keyseq> <link xref=\"shortcuts#during-game\">keyboard "
-"shortcut</link>."
+"key><key>N</key></keyseq> keyboard shortcut."
 msgstr ""
 "У процесі гри ви завжди можете повернутися до цієї сторінки за допомогою "
 "натискання кнопки <gui>Нова гра</gui> або натискання комбінації клавіш "
-"<keyseq><key>Ctrl</key><key>N</key></keyseq>, одного із <link "
-"xref=\"shortcuts#during-game\">клавіатурних скорочень</link>."
+"<keyseq><key>Ctrl</key><key>N</key></keyseq>, одного із клавіатурних"
+" скорочень."
 
 #. (itstool) path: page/title
 #: C/develop.page:25
@@ -816,8 +824,6 @@ msgstr ""
 
 #. (itstool) path: info/title
 #: C/index.page:7
-#| msgctxt "link"
-#| msgid "Reversi"
 msgctxt "link:trail"
 msgid "Reversi"
 msgstr "Реверсі"
@@ -1087,10 +1093,6 @@ msgstr "Як грати за допомогою клавіатури"
 
 #. (itstool) path: item/p
 #: C/play.page:60
-#| msgid ""
-#| "Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</"
-#| "key> arrows to go at the tile you want to move. The currently selected "
-#| "tile is indicated by an highlight on the board."
 msgid ""
 "Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> "
 "arrows to go at the tile you want to move. The currently selected tile is "
@@ -1120,14 +1122,16 @@ msgstr ""
 
 #. (itstool) path: section/p
 #: C/play.page:76
+#| msgid ""
+#| "More shortcuts are available, documented either on the <link "
+#| "xref=\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the "
+#| "dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 msgid ""
-"More shortcuts are available, documented either on the <link "
-"xref=\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the "
-"dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+"More shortcuts are available in the dialog that appears on "
+"<keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 msgstr ""
-"Можна скористатися іншими клавіатурними скороченнями. Документацію щодо них "
-"можна знайти на сторінці <link xref=\"shortcuts#how-to-play\">Клавіатурні "
-"скорочення</link> або у вікні, яке буде показано у відповідь на натискання "
+"Можна скористатися іншими клавіатурними скороченнями у вікні, яке буде"
+" показано у відповідь на натискання "
 "комбінації клавіш <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 
 #. (itstool) path: section/p
