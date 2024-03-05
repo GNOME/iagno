@@ -1,12 +1,12 @@
 # Daniel Nylander <po@danielnylander.se>, 2007, 2009.
 # Erik Sköldås <erik.skoldas@tele2.se>, 2015.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2017, 2018, 2023.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2017, 2018, 2023, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno doc\n"
-"POT-Creation-Date: 2023-06-21 12:34+0000\n"
-"PO-Revision-Date: 2023-06-21 18:29+0200\n"
+"POT-Creation-Date: 2024-03-05 14:22+0000\n"
+"PO-Revision-Date: 2024-03-05 20:46+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -64,7 +64,7 @@ msgid ""
 "<app>Reversi</app> allows you to play against another human, instead of "
 "against the computer."
 msgstr ""
-"<app>Reversi</app> låter dig spela mot en annan person istället för mot "
+"<app>Reversi</app> låter dig spela mot en annan person i stället för mot "
 "datorn."
 
 #. (itstool) path: page/p
@@ -146,7 +146,7 @@ msgid ""
 "the computer."
 msgstr ""
 "Om knappen är märkt <gui>Färg: Svart</gui> så betyder det att du gör första "
-"draget. <gui>Färg: Vit</gui> betyder förstås att det istället är datorn."
+"draget. <gui>Färg: Vit</gui> betyder förstås att det i stället är datorn."
 
 #. (itstool) path: page/p
 #: C/ai-game.page:28
@@ -467,12 +467,10 @@ msgstr ""
 msgid ""
 "For launching a game from here, just click on the <gui>Start Game</gui> "
 "button. A game can also be launched with the <keyseq><key>Shift</"
-"key><key>Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-"
-"selection\">keyboard shortcut</link>."
+"key><key>Ctrl</key><key>N</key></keyseq> keyboard shortcut."
 msgstr ""
 "För att starta ett spel härifrån klickar du helt enkelt på knappen "
-"<gui>Starta spel</gui>. Ett spel kan också startas med <link "
-"xref=\"shortcuts#game-selection\">tangentbordsgenvägen</link> "
+"<gui>Starta spel</gui>. Ett spel kan också startas med tangentbordsgenvägen "
 "<keyseq><key>Skift</key><key>Ctrl</key><key>N</key></keyseq>."
 
 #. (itstool) path: page/p
@@ -480,13 +478,11 @@ msgstr ""
 msgid ""
 "Once a game has been launched, you can always go back to this screen by "
 "clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</"
-"key><key>N</key></keyseq> <link xref=\"shortcuts#during-game\">keyboard "
-"shortcut</link>."
+"key><key>N</key></keyseq> keyboard shortcut."
 msgstr ""
 "När ett spel har startats kan du alltid gå tillbaka till denna skärm genom "
-"att klicka på knappen <gui>Nytt spel</gui>, eller använda <link "
-"xref=\"shortcuts#during-game\">tangentbordsgenvägen</link> "
-"<keyseq><key>Ctrl</key><key>N</key></keyseq>."
+"att klicka på knappen <gui>Nytt spel</gui>, eller använda "
+"tangentbordsgenvägen <keyseq><key>Ctrl</key><key>N</key></keyseq>."
 
 #. (itstool) path: page/title
 #: C/develop.page:25
@@ -1110,13 +1106,11 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/play.page:76
 msgid ""
-"More shortcuts are available, documented either on the <link "
-"xref=\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the "
-"dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+"More shortcuts are available in the dialog that appears on "
+"<keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 msgstr ""
-"Fler kortkommandon finns tillgängliga, dokumenterade antingen på sidan <link "
-"xref=\"shortcuts#how-to-play\">Tangentbordsgenvägar</link> eller i "
-"dialogrutan som visas av <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+"Fler kortkommandon finns tillgängliga i dialogrutan som visas av "
+"<keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 
 #. (itstool) path: section/p
 #: C/play.page:78
@@ -1353,8 +1347,8 @@ msgid ""
 msgstr ""
 "Båda spelen använder faktiskt samma regler, endast slutmålet skiljer sig åt "
 "mellan dem: i <em>klassisk reversi</em> är målet att sluta med <em>fler</em> "
-"brickor än motståndaren, och i <em>omvänd reversi</em> är målet istället att "
-"sluta med <em>färre</em> brickor."
+"brickor än motståndaren, och i <em>omvänd reversi</em> är målet i stället "
+"att sluta med <em>färre</em> brickor."
 
 #. (itstool) path: page/p
 #: C/select-game.page:30
