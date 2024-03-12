@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
-"POT-Creation-Date: 2023-06-21 12:34+0000\n"
-"PO-Revision-Date: 2023-06-22 20:36+1000\n"
+"POT-Creation-Date: 2024-03-05 14:22+0000\n"
+"PO-Revision-Date: 2024-03-09 09:45+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Ser82-png <asvmail.as@gmail.com>, 2022-2023"
+msgstr "Ser82-png <asvmail.as@gmail.com>, 2022-2024"
 
 #. (itstool) path: credit/name
 #: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
@@ -469,25 +469,22 @@ msgstr ""
 msgid ""
 "For launching a game from here, just click on the <gui>Start Game</gui> "
 "button. A game can also be launched with the <keyseq><key>Shift</"
-"key><key>Ctrl</key><key>N</key></keyseq> <link xref=\"shortcuts#game-"
-"selection\">keyboard shortcut</link>."
+"key><key>Ctrl</key><key>N</key></keyseq> keyboard shortcut."
 msgstr ""
 "Чтобы начать игру, просто нажмите кнопку <gui>Начать игру</gui>. Игру также "
-"можно запустить с помощью <link xref=\"shortcuts#game-selection\" "
-">комбинации клавиш</link> - <keyseq><key>Shift</key><key>Ctrl</key><key>N</"
-"key></keyseq>."
+"можно запустить с помощью комбинации клавиш <keyseq><key>Shift</"
+"key><key>Ctrl</key><key>N</key></keyseq>."
 
 #. (itstool) path: page/p
 #: C/configure.page:30
 msgid ""
 "Once a game has been launched, you can always go back to this screen by "
 "clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</"
-"key><key>N</key></keyseq> <link xref=\"shortcuts#during-game\">keyboard "
-"shortcut</link>."
+"key><key>N</key></keyseq> keyboard shortcut."
 msgstr ""
 "После запуска игры вы всегда можете вернуться к этому экрану, нажав кнопку "
-"<gui>Новая игра</gui> или <link xref=\"shortcuts#during-game\">комбинации "
-"клавиш</link> - <keyseq><key>Ctrl</key><key>N</key></keyseq>."
+"<gui>Новая игра</gui> или комбинацию клавиш <keyseq><key>Ctrl</key><key>N</"
+"key></keyseq>."
 
 #. (itstool) path: page/title
 #: C/develop.page:25
@@ -1117,14 +1114,11 @@ msgstr ""
 #. (itstool) path: section/p
 #: C/play.page:76
 msgid ""
-"More shortcuts are available, documented either on the <link "
-"xref=\"shortcuts#how-to-play\">Keyboard shortcuts</link> page, or in the "
-"dialog that appears on <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
+"More shortcuts are available in the dialog that appears on "
+"<keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 msgstr ""
-"Доступны дополнительные сочетания клавиш, задокументированные либо на "
-"странице <link xref=\"shortcuts#how-to-play\">Комбинации клавиш</link>, либо "
-"в диалоговом окне, которое появляется при нажатии <keyseq><key>Ctrl</"
-"key><key>F1</key></keyseq>."
+"Дополнительные сочетания клавиш доступны в диалоговом окне, которое "
+"появляется при нажатии <keyseq><key>Ctrl</key><key>F1</key></keyseq>."
 
 #. (itstool) path: section/p
 #: C/play.page:78
