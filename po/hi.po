@@ -8,190 +8,925 @@
 # Rajesh Ranjan <rranjan@redhat.com>, 2005, 2006, 2007.
 # Ravishankar Shrivastava <raviratlami@aol.in>, 2009.
 # Rajesh Ranjan <rajesh672@gmail.com>, 2009, 2013.
+# Scrambled777 <weblate.scrambled777@simplelogin.com>, 2024.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master.hi\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=iagno&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-02 22:23+0000\n"
-"PO-Revision-Date: 2013-03-25 16:32+0530\n"
-"Last-Translator: raj <raj>\n"
-"Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
+"POT-Creation-Date: 2023-09-20 21:19+0000\n"
+"PO-Revision-Date: 2024-04-03 17:49+0530\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Gtranslator 46.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../data/iagno.desktop.in.in.h:1 ../src/iagno.vala:82 ../src/iagno.vala:295
-#: ../src/iagno.vala:620
-msgid "Iagno"
-msgstr "इआग्नो"
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
+#: data/org.gnome.Reversi.desktop.in:7 src/iagno.vala:28
+msgid "Reversi"
+msgstr "Reversi"
 
-#: ../data/iagno.desktop.in.in.h:2
+#: data/org.gnome.Reversi.appdata.xml.in:8
+msgid ""
+"Dominate the board in a classic reversi game, or play the reversed variant"
+msgstr "शास्त्रीय रिवर्सी खेल में बोर्ड पर हावी हों, या उल्टा संस्करण खेलें"
+
+#: data/org.gnome.Reversi.appdata.xml.in:11
+msgid ""
+"Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
+"use tiles that are dark on one side and light on the other."
+msgstr ""
+"रिवर्सी दो खिलाड़ियों वाला रणनीति खेल है, जो 8 बाय 8 बोर्ड पर खेला जाता है। खिलाड़ी "
+"ऐसी टाइलों का उपयोग करते हैं जो एक तरफ गहरे रंग की और दूसरी तरफ हल्की होती हैं।"
+
+#: data/org.gnome.Reversi.appdata.xml.in:15
+msgid ""
+"The object of reversi is to flip your opponent’s tiles to your color, while "
+"your opponent is trying to flip your tiles to his own color. Opponent’s "
+"tiles are flipped when trapped between an already placed tile of your color "
+"and the tile you add. Who finishes with more tiles wins!"
+msgstr ""
+"रिवर्सी का उद्देश्य आपके प्रतिद्वंद्वी की टाइलों को आपके रंग में बदलना है, जबकि आपका "
+"प्रतिद्वंद्वी आपकी टाइलों को अपने रंग में बदलने का प्रयास कर रहा है। आपके रंग की पहले से रखी "
+"टाइल और आपके द्वारा जोड़ी गई टाइल के बीच फंसने पर प्रतिद्वंद्वी की टाइलें पलट जाती हैं। जो "
+"अधिक टाइलों के साथ समापन करता है वह जीतता है!"
+
+#: data/org.gnome.Reversi.appdata.xml.in:21
+msgid ""
+"Reversi allows you to play both a classic reversi game, and the reversed "
+"variant, where the goal is to finish with less tile than your opponent."
+msgstr ""
+"रिवर्सी आपको शास्त्रीय रिवर्सी खेल और उल्टा संस्करण दोनों खेलने की अनुमति देता है, जहां "
+"लक्ष्य अपने प्रतिद्वंद्वी की तुलना में कम टाइल के साथ समाप्त करना है।"
+
+#: data/org.gnome.Reversi.appdata.xml.in:30
+msgid "A Reversi game preview"
+msgstr "रिवर्सी खेल का पूर्वावलोकन"
+
+#: data/org.gnome.Reversi.appdata.xml.in:49
+msgid "The Reversi Team"
+msgstr "रिवर्सी टीम"
+
+#. Translators: a Comment that gives the application function, as defined in the desktop file spec
+#: data/org.gnome.Reversi.desktop.in:9
 msgid "Dominate the board in a classic version of Reversi"
-msgstr "क्लासिक रिवर्सी के संस्करण से बोर्ड डामिनेट रखें"
+msgstr "रिवर्सी के शास्त्रीय संस्करण में बोर्ड पर प्रभुत्व रखें"
 
-#: ../data/iagno.desktop.in.in.h:3
-msgid "othello;"
-msgstr "othello;"
+#. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Reversi.desktop.in:11
+msgid "reversi;othello;"
+msgstr "रिवर्सी;ओथेलो;"
 
-#: ../data/iagno.ui.h:1
+#. Translators: accessible name of the hamburger menu
+#: data/ui/base-headerbar.ui:113
+msgid "Actions"
+msgstr "क्रियाएँ"
+
+#. Translators: accessible description of the hamburger menu
+#: data/ui/base-headerbar.ui:115
+msgid "Current view actions"
+msgstr "वर्तमान दृश्य क्रियाएँ"
+
+#. Translators: during a game, tooltip text of the New Game button
+#: data/ui/game-headerbar.ui:33
+msgid "Start a new game"
+msgstr "नया खेल प्रारंभ करें"
+
+#. Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt)
+#: data/ui/game-headerbar.ui:42
 msgid "_New Game"
 msgstr "नया खेल (_N)"
 
-#: ../data/iagno.ui.h:2
-msgid "_Undo"
-msgstr "पूर्ववत् करें (_U)"
+#. Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button
+#: data/ui/game-headerbar.ui:56
+msgid "Go back to the current game"
+msgstr "वर्तमान खेल पर वापस जाएँ"
 
-#: ../data/iagno.ui.h:3
-msgid "_Preferences"
-msgstr "वरीयताएँ (_P)"
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move”
+#: data/ui/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "During a game"
+msgstr "खेल के दौरान"
 
-#: ../data/iagno.ui.h:4
-msgid "_Help"
-msgstr "मदद (_H)"
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:36
+msgctxt "shortcut window"
+msgid "New game"
+msgstr "नया खेल (_N)"
 
-#: ../data/iagno.ui.h:5
-msgid "_About"
-msgstr "के बारे में (_A)"
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Undo last move"
+msgstr "पिछली चाल पूर्ववत करें"
 
-#: ../data/iagno.ui.h:6
-msgid "_Quit"
-msgstr "बाहर (_Q)"
+#. Translators: in the Keyboard Shortcuts window, section "During a game"
+#: data/ui/help-overlay.ui:52
+msgctxt "shortcut window"
+msgid "Toggle game menu"
+msgstr "खेल मेनू टॉगल करें"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc.
+#: data/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "कीबोर्ड से खेलें"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Select where to play"
+msgstr "चुनें कि कहां खेलना है"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "दी गई पंक्ति का चयन करें"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Select the given column"
+msgstr "दिए गए कॉलम को चुनें"
+
+#. Translators: in the Keyboard Shortcuts window, section "Play with keyboard"
+#: data/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Play on selected tile"
+msgstr "चयनित टाइल पर खेलें"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back”
+#: data/ui/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "During game selection"
+msgstr "खेल चयन के दौरान"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:106
+msgctxt "shortcut window"
+msgid "Start new game"
+msgstr "नया खेल प्रारंभ करें"
+
+#. Translators: in the Keyboard Shortcuts window, section "During game selection"
+#: data/ui/help-overlay.ui:114
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "पीछे जाएँ"
+
+#. Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc.
+#: data/ui/help-overlay.ui:124
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "सामान्य"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:129
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "मुख्य मेनू टॉगल करें"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:137
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "कीबोर्ड शॉर्टकट"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:145
+msgctxt "shortcut window"
+msgid "Help"
+msgstr "सहायता"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:153
+msgctxt "shortcut window"
+msgid "About"
+msgstr "बारे में"
+
+#. Translators: in the Keyboard Shortcuts window, section "Generic"
+#: data/ui/help-overlay.ui:161
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "छोड़ें"
+
+#. Translators: label of the game status button (in the headerbar, next to the hamburger button), when the game is finished; please keep the string as small as possible (3~5 characters)
+#: data/ui/history-button.ui:43
+msgid "End!"
+msgstr "समाप्त!"
+
+#. Translators: when configuring a new game, header of the game type that appears on small screen
+#: data/ui/new-game-screen.ui:32
+msgid "Game"
+msgstr "खेल"
+
+#. Translators: when configuring a new game, header of the options that appears on small screen
+#: data/ui/new-game-screen.ui:88
+msgid "Options"
+msgstr "विकल्प"
+
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
+#: data/themes/adwaita.theme.desktop.in:22
+msgid "Adwaita"
+msgstr "अद्वैता"
+
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; copies the look of the most common physical board
+#: data/themes/classic.theme.desktop.in:22
+msgid "Classic"
+msgstr "शास्त्रीय"
+
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; uses only two colors, one really dark and one really light
+#: data/themes/high_contrast.theme.desktop.in:23
+msgid "Black and White"
+msgstr "काला और सफेद"
+
+#. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
+#: data/themes/sun_and_star.theme.desktop.in:22
+msgid "Sun and Star"
+msgstr "सूर्य और तारा"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:6
+msgid "A flag to follow system night light"
+msgstr "प्रणाली रात्रि प्रकाश का अनुसरण करने हेतु ध्वज"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/automatic-night-mode'
+#: data/org.gnome.Reversi.gschema.xml:8
+msgid "Use GNOME night light setting to activate night-mode."
+msgstr "रात्रि-मोड सक्रिय करने के लिए GNOME रात्रि प्रकाश प्रणाली का उपयोग करें।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:15
+msgid "The width of the window"
+msgstr "विंडो की चौड़ाई"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-width'
+#: data/org.gnome.Reversi.gschema.xml:17
+msgid "The width of the main window in pixels."
+msgstr "मुख्य विंडो की चौड़ाई पिक्सल में।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:24
+msgid "The height of the window"
+msgstr "विंडो की ऊँचाई"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-height'
+#: data/org.gnome.Reversi.gschema.xml:26
+msgid "The height of the main window in pixels."
+msgstr "मुख्य विंडो की ऊंचाई पिक्सल में।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:31
+msgid "A flag to enable maximized mode"
+msgstr "अधिकतम मोड सक्षम करने हेतु ध्वज"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/window-is-maximized'
+#: data/org.gnome.Reversi.gschema.xml:33
+msgid "If “true”, the main window starts in maximized mode."
+msgstr "यदि \"सही\" है, तो मुख्य विंडो अधिकतम मोड में प्रारंभ होती है।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:50
+msgid "A flag to alternate who starts"
+msgstr "प्रारंभ करने वाले को वैकल्पिक करने हेतु ध्वज"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/alternate-who-starts'
+#: data/org.gnome.Reversi.gschema.xml:52
+msgid ""
+"If “true”, when playing against AI, the “color” settings is toggled after "
+"every new game request, making the next game being started with inverted "
+"roles (previous Dark player playing Light). Ignored for two-player games."
+msgstr ""
+"यदि \"सही\" है, तो AI के खिलाफ खेलते समय, \"रंग\" सेटिंग्स को हर नए खेल अनुरोध के बाद "
+"टॉगल किया जाता है, जिससे अगला खेल उलटी भूमिकाओं (पिछला गहरा खिलाड़ी हल्के से खेल रहा "
+"है) के साथ शुरू किया जा रहा है। दो-खिलाड़ियों वाले खेल के लिए अनदेखा किया गया।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/color'
+#: data/org.gnome.Reversi.gschema.xml:57
+msgid "Color to play as"
+msgstr "इस रंग से खेलने के लिए"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/color'
+#: data/org.gnome.Reversi.gschema.xml:59
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr "चाहे तो गहरे या हल्के रंग से खेलें। दो-खिलाड़ी वाले खेलों के लिए अनदेखा किया गया।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:65
+msgid "Computer’s AI level"
+msgstr "कंप्यूटर के AI का स्तर"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/computer-level'
+#: data/org.gnome.Reversi.gschema.xml:67
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "1 (सबसे आसान) से 3 (सबसे कठिन) तक।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:72
+msgid "A flag to highlight playable tiles"
+msgstr "खेलने योग्य टाइलों को चिन्हांकित करने हेतु ध्वज"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-playable-tiles'
+#: data/org.gnome.Reversi.gschema.xml:74
+msgid "If “true”, the tiles where you can play are highlighted."
+msgstr "यदि \"सही\" है, तो वे टाइलें चिन्हांकित हो जाती हैं जहां आप खेल सकते हैं।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; these are not the playable tiles, but the one that could be captured by a play
+#: data/org.gnome.Reversi.gschema.xml:79
+msgid "A flag to highlight capturable tiles"
+msgstr "कब्ज़े योग्य टाइलों को चिन्हांकित करने हेतु ध्वज"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
+#: data/org.gnome.Reversi.gschema.xml:81
+msgid ""
+"If “true”, the tiles that will be captured to the opponent by a play are "
+"highlighted."
+msgstr ""
+"यदि \"सही\" है, तो वे टाइलें चिन्हांकित हो जाती हैं जिन्हें प्रतिद्वंद्वी की चाल द्वारा कब्ज़े "
+"में लिया जा सकता है।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
+#: data/org.gnome.Reversi.gschema.xml:87
+msgid "Whether to play against the computer or another human."
+msgstr "चाहे कंप्यूटर या किसी अन्य मानव के विरुद्ध खेलें।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:93
+msgid "A flag to randomize start position"
+msgstr "प्रारंभ स्थिति को यादृच्छिक बनाने हेतु ध्वज"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/random-start-position'
+#: data/org.gnome.Reversi.gschema.xml:95
+msgid ""
+"Reversi can be played with two different initial positions (and their "
+"symmetries). If “true”, the game will randomly start with one or the other "
+"position; if “false”, only the most common initial position is used. You can "
+"force the game to use the alternative position by using the “--alternative-"
+"start” argument on the command-line; also, if either “--usual-start” or “--"
+"random-start” is given instead on the command-line, this flag will be "
+"ignored."
+msgstr ""
+"रिवर्सी को दो अलग प्रारंभिक स्थितियों (और उनकी समरूपता) के साथ खेला जा सकता है। यदि "
+"\"सही\" है, तो खेल बेतरतीब ढंग से एक या दूसरे स्थान से शुरू होगा; यदि \"गलत\" है, तो केवल "
+"सबसे सामान्य प्रारंभिक स्थिति का उपयोग किया जाता है। आप कमांड-लाइन पर \"--"
+"alternative-start\" तर्क का उपयोग करके खेल को वैकल्पिक स्थिति का उपयोग करने के लिए "
+"बाध्य कर सकते हैं; इसके अलावा, यदि कमांड-लाइन पर इसके बजाय \"--usual-start\" या \"--"
+"random-start\" दिया गया है, तो इस ध्वज को अनदेखा कर दिया जाएगा।"
 
 # #-#-#-#-#  gnome-icon-theme.gnome-2-2.hi.po (gnome-icon theme 2.2)  #-#-#-#-#
 # 48x48/emblems/emblem-sound.icon.in.h:1
 # 48x48/emblems/emblem-sound.icon.in.h:1
-#: ../data/org.gnome.iagno.gschema.xml.in.h:1
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
+#: data/org.gnome.Reversi.gschema.xml:100
 msgid "Sound"
 msgstr "ध्वनि"
 
-#: ../data/org.gnome.iagno.gschema.xml.in.h:2
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
+#: data/org.gnome.Reversi.gschema.xml:102
 msgid "Whether or not to play event sounds."
-msgstr "घटनाओं हेतु ध्वनि बजाएँ या नहीं."
+msgstr "घटनाओं हेतु ध्वनि बजाएँ या नहीं।"
 
-#: ../data/org.gnome.iagno.gschema.xml.in.h:3
-msgid "Width of the window in pixels"
-msgstr "पिक्सेल में विंडो में चौड़ाई"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/theme'
+#: data/org.gnome.Reversi.gschema.xml:107
+msgid "Theme"
+msgstr "थीम"
 
-#: ../data/org.gnome.iagno.gschema.xml.in.h:4
-msgid "Height of the window in pixels"
-msgstr "पिक्सेल में विंडो की ऊंचाई."
-
-#: ../data/org.gnome.iagno.gschema.xml.in.h:5
-msgid "true if the window is maximized"
-msgstr "सही यदि विंडो सबसे बड़े आकार का होना चाहिए"
-
-#: ../data/org.gnome.iagno.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "सही यदि विंडो पूर्णस्क्रीन है"
-
-#: ../src/iagno.vala:137 ../src/iagno.vala:254 ../src/iagno.vala:262
-msgid "Dark:"
-msgstr "गहराः"
-
-#: ../src/iagno.vala:145 ../src/iagno.vala:255 ../src/iagno.vala:263
-msgid "Light:"
-msgstr "हल्काः"
-
-#: ../src/iagno.vala:246
-msgid "Light must pass, Dark's move"
-msgstr "हल्के रंग को पास करना होगा. गहरे रंग की बारी"
-
-#: ../src/iagno.vala:248
-msgid "Dark must pass, Light's move"
-msgstr "गहरे रंग  को पास करना होगा. हल्के रंग  की बारी"
-
-# libgnomeprint/gnome-print-paper.c:51
-#. Translators: this is a 2 digit representation of the current score.
-#: ../src/iagno.vala:257 ../src/iagno.vala:258 ../src/iagno.vala:265
-#: ../src/iagno.vala:266
-#, c-format
-msgid "%.2d"
-msgstr "%.2d"
-
-#: ../src/iagno.vala:300
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
+#: data/org.gnome.Reversi.gschema.xml:109
 msgid ""
-"A disk flipping game derived from Reversi.\n"
-"\n"
-"Iagno is a part of GNOME Games."
+"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
+"“high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
-"रिवर्सी से व्युत्पन्न डिस्क फ्लिपिंग खेल.\n"
-"\n"
-"लेग्नो, ग्नोम खेल का हिस्सा है."
+"प्रयुक्त थीम का फाइल नाम, या \"डिफ़ॉल्ट\"। \"adwaita.theme\", \"high_contrast."
+"theme\" और \"sun_and_star.theme\" उपलब्ध कराए गए हैं।"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:114
+msgid "Name of the game"
+msgstr "खेल का नाम"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/type'
+#: data/org.gnome.Reversi.gschema.xml:116
+msgid ""
+"The name of the game that will be played. It could be “classic” (the usual "
+"game, where you try to have more pieces), or “reverse” (the opposite game, "
+"where you try to have less pieces)."
+msgstr ""
+"उस खेल का नाम जो खेला जाएगा। यह \"शास्त्रीय\" (सामान्य खेल, जहां आप अधिक टुकड़े रखने की "
+"कोशिश करते हैं), या \"उल्टा\" (विपरीत खेल, जहां आप कम टुकड़े रखने की कोशिश करते हैं) हो "
+"सकता है।"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the second is "Credits"
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the name of the view, displayed in the headerbar
+#: src/about-list.vala:44 src/base-headerbar.vala:288
+msgid "About"
+msgstr "बारे में"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of one of two buttons that have the same role as the stack switcher in the usual about dialog, the first is "About"
+#: src/about-list.vala:46
+msgid "Credits"
+msgstr "श्रेय"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the label of the link to the GPL license; TODO better text, as in the usual about dialog
+#: src/about-list.vala:135
+msgid ""
+"GNU General Public License\n"
+"version 3 or later"
+msgstr ""
+"GNU जनरल पब्लिक लाइसेंस\n"
+"संस्करण 3 या बाद का"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the programmers names
+#: src/about-list.vala:154
+msgid "Creators"
+msgstr "निर्माता"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the documenters names
+#: src/about-list.vala:161
+msgid "Documenters"
+msgstr "दस्तावेज़कर्ता"
 
 #  Translator credits
-#: ../src/iagno.vala:303
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the translators names
+#: src/about-list.vala:166
+msgid "Translators"
+msgstr ""
+"रविशंकर श्रीवास्तव (raviratlami@yahoo.com)\n"
+"राजेश रंजन (rajeshkajha@yahoo.com)\n"
+"Scrambled777 <weblate.scrambled777@simplelogin.com>"
+
+#. Translators: on really small windows, the about dialog is replaced by an in-window view; here is the header of the pictural artists names
+#: src/about-list.vala:172
+msgid "Artists"
+msgstr "कलाकार"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:149
+msgid "Pause night mode"
+msgstr "रात्रि मोड रोकें"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:153
+msgid "Reuse night mode"
+msgstr "रात्रि मोड का पुनः उपयोग"
+
+#. Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night
+#: src/adaptative-window.vala:157
+msgid "Use night mode"
+msgstr "रात्रि मोड का उपयोग करें"
+
+#. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
+#: src/base-headerbar.vala:116
+msgid "_Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट (_K)"
+
+#. Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt)
+#: src/base-headerbar.vala:125
+msgid "_Help"
+msgstr "सहायता (_H)"
+
+#. Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:200
+msgid "A_ppearance"
+msgstr "दिखावट (_p)"
+
+# #-#-#-#-#  gnome-icon-theme.gnome-2-2.hi.po (gnome-icon theme 2.2)  #-#-#-#-#
+# 48x48/emblems/emblem-sound.icon.in.h:1
+# 48x48/emblems/emblem-sound.icon.in.h:1
+#. Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt)
+#: src/game-headerbar.vala:204
+msgid "_Sound"
+msgstr "ध्वनि (_S)"
+
+#. Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt)
+#: src/game-view.vala:58
+msgid "_Start Game"
+msgstr "खेल शुरू करें (_S)"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:75
+msgid "Start with an alternative position"
+msgstr "वैकल्पिक स्थिति से शुरुआत करें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:78
+msgid "Play Classic Reversi"
+msgstr "शास्त्रीय रिवर्सी खेलें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:81
+msgid "Reduce delay before AI moves"
+msgstr "AI के चलने से पहले देरी कम करें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:84
+msgid "Play first"
+msgstr "पहले खेलें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:87
+msgid "Set the level of the computer’s AI"
+msgstr "कंप्यूटर के AI का स्तर निर्धारित करें"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a level, see 'iagno --help'
+#: src/iagno.vala:90
+msgid "LEVEL"
+msgstr "स्तर"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:93
+msgid "Turn off the sound"
+msgstr "ध्वनि बंद करें"
+
+#. Translators: command-line option description, currently hidden; might appear one day in 'iagno --help'
+#: src/iagno.vala:96
+msgid "Log the game moves"
+msgstr "खेल की चालों का हिसाब रखें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:99
+msgid "Start with a random position"
+msgstr "किसी यादृच्छिक स्थिति से प्रारंभ करें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:102
+msgid "Play Reverse Reversi"
+msgstr "उल्टा रिवर्सी खेलें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:105
+msgid "Play second"
+msgstr "दूसरा खेलें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:108
+msgid "Size of the board (debug only)"
+msgstr "बोर्ड का आकार (केवल डिबग)"
+
+#. Translators: in the command-line options description, text to indicate the user should specify a size, see 'iagno --help'
+#: src/iagno.vala:111
+msgid "SIZE"
+msgstr "आकार"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:114
+msgid "Two-players mode"
+msgstr "दो-खिलाड़ी मोड"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:117
+msgid "Turn on the sound"
+msgstr "ध्वनि चालू करें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:120
+msgid "Start with the usual position"
+msgstr "सामान्य स्थिति से प्रारंभ करें"
+
+#. Translators: command-line option description, see 'iagno --help'
+#: src/iagno.vala:123
+msgid "Print release version and exit"
+msgstr "रिलीज़ संस्करण प्रिंट करें और बाहर निकलें"
+
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --usual-start --alternative-start'
+#: src/iagno.vala:172
+msgid ""
+"The “--alternative-start”, “--random-start” and “--usual-start” arguments "
+"are mutually exclusive."
+msgstr ""
+"\"--alternative-start\", \"--random-start\" और \"--usual-start\" तर्क परस्पर "
+"अनन्य हैं।"
+
+#. Translators: command-line error message, displayed when two antagonist arguments are used; try 'iagno --reverse --classic'
+#: src/iagno.vala:179
+msgid "The “--classic” and “--reverse” arguments are mutually exclusive."
+msgstr "\"--classic\" और \"--reverse\" तर्क परस्पर अनन्य हैं"
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 2'
+#: src/iagno.vala:186
+msgid "Size must be at least 4."
+msgstr "आकार कम से कम 4 होना चाहिए।"
+
+#. Translators: command-line error message, displayed for an incorrect game size request; try 'iagno -s 17'
+#: src/iagno.vala:192
+msgid "Size must not be more than 16."
+msgstr "आकार 16 से अधिक नहीं होना चाहिए।"
+
+#. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
+#: src/iagno.vala:258
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr "स्तर 1 (आसान) और 3 (कठिन) के बीच होना चाहिए। सेटिंग्स अपरिवर्तित।"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:274
+msgid "Play _first (Dark)"
+msgstr "पहले खेलें (गहरा) (_f)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:278
+msgid "Play _second (Light)"
+msgstr "दूसरा खेलें (हल्का) (_s)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:284
+msgid "_Alternate who starts"
+msgstr "वैकल्पिक कौन प्रारंभ करें (_A)"
+
+#. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:290
+msgid "_Two players"
+msgstr "दो खिलाड़ी (_T)"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:299
+msgid "_Easy"
+msgstr "आसान (_E)"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:303
+msgid "_Medium"
+msgstr "मध्यम (_M)"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:307
+msgid "_Hard"
+msgstr "कठिन (_H)"
+
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:316
+msgid "_Vary start position"
+msgstr "आरंभिक स्थिति बदलें (_V)"
+
+#. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:323 src/iagno.vala:982
+msgid "Classic Reversi"
+msgstr "शास्त्रीय रिवर्सी"
+
+#. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
+#. Translators: name of one of the games, as displayed in the headerbar when playing
+#: src/iagno.vala:327 src/iagno.vala:979
+msgid "Reverse Reversi"
+msgstr "उल्टा रिवर्सी"
+
+#. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
+#: src/iagno.vala:338
+msgid "Default"
+msgstr "डिफ़ॉल्ट"
+
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:394
+msgid "Pla_yable tiles"
+msgstr "खेलने योग्य टाइलें (_y)"
+
+#. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
+#: src/iagno.vala:398
+msgid "_Capturable tiles"
+msgstr "कब्जायोग्य टाइलें (_C)"
+
+#. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
+#: src/iagno.vala:402
+msgid "Highlights"
+msgstr "चिन्हांकित"
+
+#. Translators: history menu entry (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:409
+msgid "_Undo last move"
+msgstr "पिछली चाल पूर्ववत करें (_U)"
+
+#. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:414
+msgid "_Show final board"
+msgstr "अंतिम बोर्ड दिखाएँ (_S)"
+
+#. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
+#: src/iagno.vala:431
+msgid "_About Reversi"
+msgstr "Reversi के बारे में (_A)"
+
+#. Translators: when configuring a new game, button label if a two-players game is chosen
+#: src/iagno.vala:619
+msgid "Two players"
+msgstr "दो खिलाड़ी"
+
+#. Translators: when configuring a new game, button label if the player choose to start
+#: src/iagno.vala:623
+msgid "Color: Dark"
+msgstr "रंग: गहरा"
+
+#. Translators: when configuring a new game, button label if the player choose let computer start
+#: src/iagno.vala:627
+msgid "Color: Light"
+msgstr "रंग: हल्का"
+
+#. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
+#: src/iagno.vala:684
+msgid "More options"
+msgstr "अधिक विकल्प"
+
+#. Translators: when configuring a new game, button label for the AI level, if easy
+#: src/iagno.vala:688
+msgid "Difficulty: Easy"
+msgstr "कठिनाई: आसान"
+
+#. Translators: when configuring a new game, button label for the AI level, if medium
+#: src/iagno.vala:692
+msgid "Difficulty: Medium"
+msgstr "कठिनाई: मध्यम"
+
+#. Translators: when configuring a new game, button label for the AI level, if hard
+#: src/iagno.vala:696
+msgid "Difficulty: Hard"
+msgstr "कठिनाई: कठिन"
+
+#. Translators: during a game, notification to display when Light has no possible moves
+#: src/iagno.vala:901
+msgid "Light must pass, Dark’s move"
+msgstr "हल्के को छोड़ना होगा, गहरे की चाल"
+
+#. Translators: during a game, notification to display when Dark has no possible moves
+#: src/iagno.vala:906
+msgid "Dark must pass, Light’s move"
+msgstr "गहरे को छोड़ना होगा, हल्के की चाल"
+
+#. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
+#: src/iagno.vala:920
+#, c-format
+msgid "Light wins! (%u-%u)"
+msgstr "हल्का जीता! (%u-%u)"
+
+#. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
+#: src/iagno.vala:925
+#, c-format
+msgid "Dark wins! (%u-%u)"
+msgstr "गहरा जीता! (%u-%u)"
+
+#. Translators: during a game, notification to display when the game is a draw
+#: src/iagno.vala:929
+msgid "The game is draw."
+msgstr "खेल बराबरी पर रहा।"
+
+#. Translators: during a game, notification to display when the player tries to make an illegal move
+#: src/iagno.vala:948
+msgid "You can’t move there!"
+msgstr "आप वहां नहीं जा सकते!"
+
+#. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
+#: src/iagno.vala:955
+msgid "In this opening, Light can only play on tiles bordering on Dark one."
+msgstr "इस उद्घाटन में, हल्का केवल गहरे की सीमा वाली टाइलों पर ही चल सकती है।"
+
+#. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
+#: src/iagno.vala:959
+msgid "Click on one of the highlighted tiles to move the selected piece there."
+msgstr "चयनित टुकड़े को चलने के लिए चिन्हांकित में से एक टाइलों पर क्लिक करें।"
+
+#. Translators: about dialog text
+#: src/iagno.vala:1092
+msgid "A disk flipping game derived from Reversi"
+msgstr "रिवर्सी से प्राप्त एक डिस्क फ़्लिपिंग खेल"
+
+#. Translators: text crediting an artist, in the about dialog
+#: src/iagno.vala:1096
+msgid "Masuichi Ito (pieces)"
+msgstr "मासुइची इतो (टुकड़े)"
+
+#. Translators: text crediting an artist, in the about dialog
+#: src/iagno.vala:1100
+msgid "Arnaud Bonatti (themes)"
+msgstr "अरनॉड बोनाटी (थीम)"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1105
+msgid "Ian Peters"
+msgstr "इयान पीटर्स"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1109
+msgid "Robert Ancell"
+msgstr "रॉबर्ट एंसेल"
+
+#. Translators: text crediting an author, in the about dialog
+#: src/iagno.vala:1113
+msgid "Arnaud Bonatti"
+msgstr "अरनॉड बोनाटी"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1118
+#, c-format
+msgid "Copyright © %u-%u – Ian Peters"
+msgstr "कॉपीराइट © %u-%u - इयान पीटर्स"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1122
+#, c-format
+msgid "Copyright © %u-%u – Michael Catanzaro"
+msgstr "कॉपीराइट © %u-%u - माइकल कैटनज़ारो"
+
+#. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
+#: src/iagno.vala:1126
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "कॉपीराइट © %u-%u - अरनॉड बोनाटी"
+
+#. Translators: text crediting a documenter, in the about dialog
+#: src/iagno.vala:1130
+msgid "Tiffany Antopolski"
+msgstr "टिफ़नी एंटोपोलस्की"
+
+#  Translator credits
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/iagno.vala:1135
 msgid "translator-credits"
 msgstr ""
 "रविशंकर श्रीवास्तव (raviratlami@yahoo.com)\n"
-"राजेश रंजन (rajeshkajha@yahoo.com)"
+"राजेश रंजन (rajeshkajha@yahoo.com)\n"
+"Scrambled777 <weblate.scrambled777@simplelogin.com>"
+
+#. Translators: about dialog text; label of the website link
+#: src/iagno.vala:1140
+msgid "Page on GNOME wiki"
+msgstr "GNOME विकी पर पेज"
+
+#. Translators: when configuring a new game, button label for the size of the game ("3 × 3", or 4, or 5)
+#: src/new-game-screen.vala:95
+#, c-format
+msgid "Size: %d × %d ▾"
+msgstr "आकार: %d × %d ▾"
+
+#~ msgid "Iagno"
+#~ msgstr "इआग्नो"
+
+#~ msgid "_Undo"
+#~ msgstr "पूर्ववत् करें (_U)"
+
+#~ msgid "_Preferences"
+#~ msgstr "वरीयताएँ (_P)"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "सही यदि विंडो पूर्णस्क्रीन है"
+
+#~ msgid "Dark:"
+#~ msgstr "गहराः"
+
+#~ msgid "Light:"
+#~ msgstr "हल्काः"
+
+# libgnomeprint/gnome-print-paper.c:51
+#, c-format
+#~ msgid "%.2d"
+#~ msgstr "%.2d"
 
 # libgnomeprintui/gnome-print-paper-selector.c:1453
-#: ../src/iagno.vala:305
-msgid "GNOME Games web site"
-msgstr "ग्नोम खेल वेबसाइट"
+#~ msgid "GNOME Games web site"
+#~ msgstr "ग्नोम खेल वेबसाइट"
 
-#: ../src/iagno.vala:368
-msgid "Light player wins!"
-msgstr "हल्के रंग वाला खिलाड़ी जीता!"
+#~ msgid "Light player wins!"
+#~ msgstr "हल्के रंग वाला खिलाड़ी जीता!"
 
-#: ../src/iagno.vala:370
-msgid "Dark player wins!"
-msgstr "गहरे रंग वाला खिलाड़ी जीता!"
+#~ msgid "Dark player wins!"
+#~ msgstr "गहरे रंग वाला खिलाड़ी जीता!"
 
-#: ../src/iagno.vala:372
-msgid "The game was a draw."
-msgstr "खेल बराबरी पर रहा."
+#~ msgid "Invalid move."
+#~ msgstr "अवैध चाल."
 
-#: ../src/iagno.vala:396
-msgid "Invalid move."
-msgstr "अवैध चाल."
+#~ msgid "Iagno Preferences"
+#~ msgstr "इआग्नो वरीयताएँ"
 
-#: ../src/iagno.vala:461
-msgid "Iagno Preferences"
-msgstr "इआग्नो वरीयताएँ"
+#~ msgid "Dark Player:"
+#~ msgstr "गहरे रंग वाला खिलाड़ी:"
 
-#: ../src/iagno.vala:480
-msgid "Dark Player:"
-msgstr "गहरे रंग वाला खिलाड़ी:"
+#~ msgid "Human"
+#~ msgstr "मनुष्य "
 
-#: ../src/iagno.vala:493 ../src/iagno.vala:522
-msgid "Human"
-msgstr "मनुष्य "
+#~ msgid "Level one"
+#~ msgstr "स्तर एक"
 
-#: ../src/iagno.vala:497 ../src/iagno.vala:526
-msgid "Level one"
-msgstr "स्तर एक"
+#~ msgid "Level two"
+#~ msgstr "स्तर दो"
 
-#: ../src/iagno.vala:501 ../src/iagno.vala:530
-msgid "Level two"
-msgstr "स्तर दो"
+#~ msgid "Level three"
+#~ msgstr "स्तर तीन"
 
-#: ../src/iagno.vala:505 ../src/iagno.vala:534
-msgid "Level three"
-msgstr "स्तर तीन"
-
-#: ../src/iagno.vala:510
-msgid "Light Player:"
-msgstr "हल्के रंग वाला खिलाड़ी:"
+#~ msgid "Light Player:"
+#~ msgstr "हल्के रंग वाला खिलाड़ी:"
 
 # libgnome/gnome-program.c:578
-#: ../src/iagno.vala:539
-msgid "E_nable sounds"
-msgstr "ध्वनियाँ सक्षम करें (_n)"
+#~ msgid "E_nable sounds"
+#~ msgstr "ध्वनियाँ सक्षम करें (_n)"
 
 #  show grid button
-#: ../src/iagno.vala:544
-msgid "S_how grid"
-msgstr "ग्रिड दिखाएँ (_h)"
+#~ msgid "S_how grid"
+#~ msgstr "ग्रिड दिखाएँ (_h)"
 
-#: ../src/iagno.vala:549
-msgid "_Flip final results"
-msgstr "अंतिम परिणाम पलटें (_F)"
+#~ msgid "_Flip final results"
+#~ msgstr "अंतिम परिणाम पलटें (_F)"
 
-#: ../src/iagno.vala:554
-msgid "_Tile set:"
-msgstr "टाइल सेट (_T):"
+#~ msgid "_Tile set:"
+#~ msgstr "टाइल सेट (_T):"
