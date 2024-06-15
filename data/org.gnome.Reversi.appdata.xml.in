@@ -5,8 +5,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Reversi</name>
-  <summary>Dominate the board in a classic reversi game,
-           or play the reversed variant</summary>
+  <summary>Dominate the board in a classic reversi game, or play the reversed variant</summary>
   <description>
     <p>
       Reversi is a two-player strategy game, played on an 8 by 8 board.
@@ -35,7 +34,8 @@
   </provides>
   <url type="homepage">https://wiki.gnome.org/Apps/Reversi</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/iagno/issues</url>
-  <url type="donation">https://www.gnome.org/friends/</url>
+  <url type="vcs-browser">https://gitlab.gnome.org/GNOME/iagno</url>
+  <url type="donation">https://www.gnome.org/donate/</url>
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
@@ -47,37 +47,11 @@
   </kudos>
   <translation type="gettext">iagno</translation>
   <developer_name>The Reversi Team</developer_name>
-  <content_rating type="oars-1.1">
-    <content_attribute id="violence-cartoon">none</content_attribute>
-    <content_attribute id="violence-fantasy">none</content_attribute>
-    <content_attribute id="violence-realistic">none</content_attribute>
-    <content_attribute id="violence-bloodshed">none</content_attribute>
-    <content_attribute id="violence-sexual">none</content_attribute>
-    <content_attribute id="violence-desecration">none</content_attribute>
-    <content_attribute id="violence-slavery">none</content_attribute>
-    <content_attribute id="violence-worship">none</content_attribute>
-    <content_attribute id="drugs-alcohol">none</content_attribute>
-    <content_attribute id="drugs-narcotics">none</content_attribute>
-    <content_attribute id="drugs-tobacco">none</content_attribute>
-    <content_attribute id="sex-nudity">none</content_attribute>
-    <content_attribute id="sex-themes">none</content_attribute>
-    <content_attribute id="sex-homosexuality">none</content_attribute>
-    <content_attribute id="sex-prostitution">none</content_attribute>
-    <content_attribute id="sex-adultery">none</content_attribute>
-    <content_attribute id="sex-appearance">none</content_attribute>
-    <content_attribute id="language-profanity">none</content_attribute>
-    <content_attribute id="language-humor">none</content_attribute>
-    <content_attribute id="language-discrimination">none</content_attribute>
-    <content_attribute id="social-chat">none</content_attribute>
-    <content_attribute id="social-info">none</content_attribute>
-    <content_attribute id="social-audio">none</content_attribute>
-    <content_attribute id="social-location">none</content_attribute>
-    <content_attribute id="social-contacts">none</content_attribute>
-    <content_attribute id="money-purchasing">none</content_attribute>
-    <content_attribute id="money-gambling">none</content_attribute>
-  </content_rating>
+  <developer id="org.gnome">
+    <name>The Reversi Team</name>
+  </developer>
+  <content_rating type="oars-1.1" />
   <custom>
-    <value key="Purism::form_factor">workstation</value>
     <value key="Purism::form_factor">mobile</value>
   </custom>
 
