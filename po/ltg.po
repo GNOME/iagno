@@ -1,0 +1,348 @@
+# translation of ltg.po to Latgalian
+# iagno for Latgalian.
+msgid ""
+msgstr ""
+"Project-Id-Version: lv\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=iagno"
+"&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2018-02-04 04:33+0000\n"
+"PO-Revision-Date: 2018-03-09 17:19+0200\n"
+"Last-Translator: Andrejs Meinerts <inni96@inbox.lv>\n"
+"Language-Team: Latgalian\n"
+"Language: ltg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 :"
+" 2);\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Poedit-Language: Latgalian\n"
+"X-Poedit-Country: LATVIA\n"
+
+#: data/iagno.appdata.xml.in:7 data/iagno.desktop.in:5 src/iagno.vala:86
+#: src/iagno.vala:173 src/iagno.vala:267
+msgid "Iagno"
+msgstr ""
+
+#: data/iagno.appdata.xml.in:8 data/iagno.desktop.in:7
+msgid "Dominate the board in a classic version of Reversi"
+msgstr "Ījemit goldu klasiskōs Reversi spielis variacejī"
+
+#: data/iagno.appdata.xml.in:10
+msgid ""
+"Iagno is a computer version of the game Reversi, a two-player strategy board "
+"game. The game is played with tiles that are dark on one side and light on "
+"the other."
+msgstr ""
+"Iango ir datora verseja spielái “Reversi”, kas ir diveju spieļmaņu "
+"golda spielá. Tū spielej ai kaulenim, kam vīna pusá bolta, ūtra - malna. "
+
+#: data/iagno.appdata.xml.in:15
+#| msgid ""
+#| "The object of Iagno is to flip as many of your opponent's tiles to your "
+#| "color as possible while preventing your opponent from flipping your tiles "
+#| "to his color. This is done by trapping your opponent's tiles between two "
+#| "tiles of your own color."
+msgid ""
+"The object of Iagno is to flip as many of your opponent’s tiles to your "
+"color as possible while preventing your opponent from flipping your tiles to "
+"his color. This is done by trapping your opponent’s tiles between two tiles "
+"of your own color."
+msgstr ""
+"Iagno spielis mierkis ir apgrīzț ūtraižōk cik viņ var vaira "
+"kauleņu iz sovu krōsu, tymā pošā laikā jōdazaver kab pretinīks mozōk "
+"vareitum  kauleņus iz sovu krōsu. Kauleni, kurī atsarūn storp jaunū izlyktū "
+"i tovejīm vacīm kaulenim, teik apgrīzti."
+
+#: data/iagno.appdata.xml.in:25
+msgid "A GNOME Iagno game preview"
+msgstr "GNOME Iagno spielis prīškskatiejums"
+
+#: data/iagno.appdata.xml.in:41
+msgid "The GNOME Project"
+msgstr "GNOME projekts"
+
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/iagno.desktop.in:4
+#| msgid "Iagno"
+msgid "iagno"
+msgstr ""
+
+#: data/iagno.desktop.in:6
+msgid "Reversi"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/iagno.desktop.in:9
+msgid "reversi;othello;"
+msgstr ""
+
+#: data/iagno.desktop.in:18
+msgid "Play first (Dark)"
+msgstr "Spēlēt pirmajam (tumšais)"
+
+#: data/iagno.desktop.in:22
+msgid "Play second (Light)"
+msgstr "Spieläț ūtrijaam (gaišīs)"
+
+#: data/iagno.desktop.in:26
+msgid "Two players game"
+msgstr "Div spieļmani"
+
+#: data/iagno-menus.ui:7
+msgid "A_ppearance"
+msgstr "_Izskots"
+
+#: data/iagno-menus.ui:11
+msgid "_Sound"
+msgstr "_Skaná"
+
+#: data/iagno-menus.ui:17
+msgid "_Help"
+msgstr "_Paleigs"
+
+#: data/iagno-menus.ui:22
+msgid "_About"
+msgstr "P_ar"
+
+#: data/iagno-menus.ui:26
+msgid "_Quit"
+msgstr "_Izīț"
+
+#: data/iagno-screens.ui:22
+msgid "Players"
+msgstr "Spieļmani"
+
+#: data/iagno-screens.ui:37
+msgid "_One"
+msgstr "_Vīns"
+
+#: data/iagno-screens.ui:48
+msgid "_Two"
+msgstr "_Divejūs"
+
+#: data/iagno-screens.ui:71
+msgid "Difficulty"
+msgstr "Gryutums"
+
+#: data/iagno-screens.ui:86
+msgid "_Easy"
+msgstr "Vīgls"
+
+#: data/iagno-screens.ui:97
+msgid "_Medium"
+msgstr "Videjs"
+
+#: data/iagno-screens.ui:108
+msgid "_Hard"
+msgstr "_Gryuts"
+
+#: data/iagno-screens.ui:131
+msgid "Color"
+msgstr "Krōsa"
+
+#: data/iagno-screens.ui:146
+msgid "_Dark"
+msgstr "_Tymsō"
+
+#: data/iagno-screens.ui:157
+msgid "_Light"
+msgstr "_Gaišō"
+
+#: data/iagno-themes.ui:9
+msgid "Select Theme"
+msgstr "Izavielejit motivu"
+
+#: data/iagno-themes.ui:54
+msgid "Default"
+msgstr "Nūkluseits"
+
+#: data/iagno.ui:21
+msgid "Go back to the current game"
+msgstr "Iz tānejū spieli"
+
+#: data/iagno.ui:76
+msgid "_New Game"
+msgstr "Jau_na spielá"
+
+#: data/iagno.ui:77
+msgid "Configure a new game"
+msgstr "Konfiguräț jaunu spieli"
+
+#: data/iagno.ui:81
+msgid "Start a new game"
+msgstr "Sōkț jaunu spieli"
+
+#: data/themes/adwaita.theme.desktop.in:4
+msgid "Adwaita"
+msgstr ""
+
+#: data/themes/classic.theme.desktop.in:4
+msgid "Classic"
+msgstr "Klasiska"
+
+#: data/themes/high_contrast.theme.desktop.in:4
+msgid "Black and White"
+msgstr "Malns i bolts"
+
+#: data/themes/sun_and_star.theme.desktop.in:4
+msgid "Sun and Star"
+msgstr "Saulá i zvaigzná"
+
+#: data/org.gnome.iagno.gschema.xml:11
+#| msgid "Computer's AI level"
+msgid "Computer’s AI level"
+msgstr "Datora MI leiminș"
+
+#: data/org.gnome.iagno.gschema.xml:12
+msgid "From 1, the easiest, to 3, the hardest."
+msgstr "Nu 1 (vīglōkīs) da 3 (gryutōkīs)."
+
+#: data/org.gnome.iagno.gschema.xml:17
+msgid "Whether to play against the computer or another human."
+msgstr "Spieläț pret datoru ci cytu cylvāku."
+
+#: data/org.gnome.iagno.gschema.xml:21
+msgid "Color to play as"
+msgstr "Ai kurū krōsu spieläț"
+
+#: data/org.gnome.iagno.gschema.xml:22
+msgid "Whether to play as Dark or Light. Ignored for two-player games."
+msgstr "Spieläț ai gaišīm ci tymsīm. Ignorej div spieļmaņu spieļōs."
+
+#: data/org.gnome.iagno.gschema.xml:26
+msgid "Theme"
+msgstr "Motivs"
+
+#: data/org.gnome.iagno.gschema.xml:27
+msgid ""
+"Filename of the theme used, or \"default\". Are provided \"adwaita.theme\", "
+"\"high_contrast.theme\" and \"sun_and_star.theme\"."
+msgstr ""
+"Izmontōtō motiva faila nūsaukums ci “nūkluseits“. Iraida "
+"“adwaita.theme”, “high_contrast.theme” i “sun_and_star.theme”."
+
+#: data/org.gnome.iagno.gschema.xml:31
+msgid "Sound"
+msgstr "Skaná"
+
+#: data/org.gnome.iagno.gschema.xml:32
+msgid "Whether or not to play event sounds."
+msgstr "Atskaņōț nūtykumu skanis."
+
+#: data/org.gnome.iagno.gschema.xml:36
+msgid "Width of the window in pixels"
+msgstr "Golvonō lūga plotums pikseļūs"
+
+#: data/org.gnome.iagno.gschema.xml:40
+msgid "Height of the window in pixels"
+msgstr "Golvonō lūga augstums pikseļūs"
+
+#: data/org.gnome.iagno.gschema.xml:44
+msgid "true if the window is maximized"
+msgstr "patīss, ka lūgs ir maksimizeits"
+
+#: src/game-window.vala:128
+msgid "_Start Game"
+msgstr "_Sōkț spieli"
+
+#: src/game-window.vala:153
+msgid "Undo your most recent move"
+msgstr "Atsaukț sovu pādejū gōjīni"
+
+#: src/iagno.vala:58
+msgid "Start with an alternative position"
+msgstr "Sōkț ai alternativū izvītōjumu"
+
+#: src/iagno.vala:59
+msgid "Reduce delay before AI moves"
+msgstr "Samozynōț aizturi storp MI gōjīnim"
+
+#: src/iagno.vala:60
+msgid "Play first"
+msgstr "Spieläț pyrmijam"
+
+#: src/iagno.vala:61
+#| msgid "Set the level of the computer's AI"
+msgid "Set the level of the computer’s AI"
+msgstr "Īstatäț datora MI leimini"
+
+#: src/iagno.vala:62
+msgid "Turn off the sound"
+msgstr "Izslägț skani"
+
+#: src/iagno.vala:63
+msgid "Play second"
+msgstr "Spieläț ūtrijam"
+
+#: src/iagno.vala:64
+msgid "Size of the board (debug only)"
+msgstr "Laukuma izmārs (viņ deļ debug)"
+
+#: src/iagno.vala:65
+msgid "Two-players mode"
+msgstr "Div spieļmaņu režims"
+
+#: src/iagno.vala:66
+msgid "Turn on the sound"
+msgstr "Īslägț skani"
+
+#: src/iagno.vala:67
+msgid "Print release version and exit"
+msgstr "Rōdäț informaceji par laidīni i izīț"
+
+#. Console message displayed for an incorrect size
+#: src/iagno.vala:111
+msgid "Size must be at least 4."
+msgstr "Izmārs na mozōks par 4."
+
+#: src/iagno.vala:158
+msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
+msgstr ""
+"Leiminám jōbȳn nu 1 (vīgls) da 3 (gryuts). Īstatiejumi nav maineiti."
+
+#: src/iagno.vala:275
+msgid "A disk flipping game derived from Reversi"
+msgstr "Kauleņu apgrīzšonys spielá, kas atvasynōta nu Reversi"
+
+#: src/iagno.vala:278
+msgid "translator-credits"
+msgstr ""
+"Andrejs Meinerts <inni96@inbox.lv>"
+
+#. Translators: this is a 2 digit representation of the current score.
+#: src/iagno.vala:340 src/iagno.vala:341
+#, c-format
+msgid "%.2d"
+msgstr ""
+
+#. Message to display when Light has no possible moves
+#: src/iagno.vala:408
+msgid "Light must pass, Dark’s move"
+msgstr "Gaišijam jōizlaiž, tymsō gōjīnș"
+
+#. Message to display when Dark has no possible moves
+#: src/iagno.vala:413
+msgid "Dark must pass, Light’s move"
+msgstr "Tymsijam jōizlaiž, gaišō gōjīnș"
+
+#. Message to display when Light has won the game
+#: src/iagno.vala:424
+msgid "Light wins!"
+msgstr "Vinnä gaišī!"
+
+#. Message to display when Dark has won the game
+#: src/iagno.vala:429
+msgid "Dark wins!"
+msgstr "Vinnä tymsī!"
+
+#. Message to display when the game is a draw
+#: src/iagno.vala:434
+msgid "The game is draw."
+msgstr "Spielá beidzās ai naizškiertu."
+
+#. Message to display when the player tries to make an illegal move
+#: src/iagno.vala:450
+msgid "You can’t move there!"
+msgstr "Itá navar īț!"
+
