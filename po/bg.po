@@ -3,18 +3,20 @@
 # Copyright (C) 2009, 2010, 2012, 2016, 2017 Free Software Foundation, Inc.
 # Copyright (C) 2010, 2012 Krasimir Chonov <mk2616@abv.bg>.
 # Copyright (C) 2022 Alexander Shopov <ash@kambanaria.org>.
+# Copyright (C) 2025 twlvnn kraftwerk <kraft_werk@tutanota.com>.
 # Evgeni Boevski <linkej@yahoo.com>, 2002, 2003.
 # Rostislav "zbrox" Raykov <zbrox@i-space.org>, 2004, 2005, 2006.
 # Alexander Shopov <ash@kambanaria.org>, 2007, 2008, 2009, 2010, 2012, 2016, 2017, 2022.
 # Yavor Doganov <yavor@gnu.org>, 2008.
 # Krasimir Chonov <mk2616@abv.bg>, 2010, 2012.
+# twlvnn kraftwerk <kraft_werk@tutanota.com>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2022-09-12 07:27+0000\n"
-"PO-Revision-Date: 2022-10-11 15:06+0200\n"
+"POT-Creation-Date: 2025-03-02 07:19+0000\n"
+"PO-Revision-Date: 2025-03-08 08:42+0100\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -22,10 +24,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
 
-#: data/org.gnome.Reversi.appdata.xml.in:7
-msgid "GNOME Reversi"
-msgstr "Реверси за GNOME"
+#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
+#. Translators: application name, as used in the window manager, the window title, the about dialog...
+#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
+#: data/org.gnome.Reversi.desktop.in:7 src/iagno.vala:28
+msgid "Reversi"
+msgstr "Реверси"
 
 #: data/org.gnome.Reversi.appdata.xml.in:8
 msgid ""
@@ -53,32 +59,24 @@ msgstr ""
 "Целта е да се обърнат максимален брой пулове във вашия цвят, като пречите на "
 "противника си да направи същото. Обръщането става като прихванете пулове в "
 "цвета на противника между два във вашия цвят. В края на играта печели "
-"играчът с повече пулове."
+"играчът с повече пулове!"
 
 #: data/org.gnome.Reversi.appdata.xml.in:21
 msgid ""
-"GNOME Reversi allows you to play both a classic reversi game, and the "
-"reversed variant, where the goal is to finish with less tile than your "
-"opponent."
+"Reversi allows you to play both a classic reversi game, and the reversed "
+"variant, where the goal is to finish with less tile than your opponent."
 msgstr ""
-"Реверси на GNOME ви позволява да ползвате класическите, както и обратните "
+"„Реверси“ на GNOME ви позволява да ползвате класическите, както и обратните "
 "правила. Така може да се стремите както към повече, така и към по-малко "
 "пулове."
 
 #: data/org.gnome.Reversi.appdata.xml.in:30
-msgid "A GNOME Reversi game preview"
-msgstr "Преглед на игра „Реверси“ от GNOME"
+msgid "A Reversi game preview"
+msgstr "Предварителен преглед на играта „Реверси“"
 
 #: data/org.gnome.Reversi.appdata.xml.in:49
-msgid "The GNOME Project"
-msgstr "Проектът GNOME"
-
-#. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
-#. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.desktop.in:3 data/org.gnome.Reversi.desktop.in:7
-#: src/iagno.vala:28
-msgid "Reversi"
-msgstr "Реверси"
+msgid "The Reversi Team"
+msgstr "Екипът на „Реверси“"
 
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
 #: data/org.gnome.Reversi.desktop.in:9
@@ -412,8 +410,8 @@ msgid ""
 "Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
 "“high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
-"Име на файла с темата или „default“ (стандартна). Възможностите са „adwaita."
-"theme“, „high_contrast.theme“ и „sun_and_star.theme“."
+"Име на файла с темата или „default“ (стандартна). Възможностите са "
+"„adwaita.theme“, „high_contrast.theme“ и „sun_and_star.theme“."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
 #: data/org.gnome.Reversi.gschema.xml:114
@@ -656,7 +654,7 @@ msgstr "_Лесна"
 msgid "_Medium"
 msgstr "_Средна"
 
-#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an hard-level computer adversary (with a mnemonic that appears pressing Alt)
+#. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
 #: src/iagno.vala:307
 msgid "_Hard"
 msgstr "_Трудна"
@@ -795,7 +793,7 @@ msgstr "Натиснете някоя от оцветените плочки, з
 #. Translators: about dialog text
 #: src/iagno.vala:1092
 msgid "A disk flipping game derived from Reversi"
-msgstr "Игра с обръщане на пулове."
+msgstr "Игра с обръщане на пулове, базирана на „Реверси“"
 
 #. Translators: text crediting an artist, in the about dialog
 #: src/iagno.vala:1096
@@ -857,7 +855,8 @@ msgstr ""
 "a>&gt;\n"
 "Красимир „bfaf“ Чонов &lt;<a href='mailto:mk2616@abv.bg'>mk2616@abv.bg</"
 "a>&gt;\n"
-"\n"
+"twlvnn kraftwerk &lt;<a "
+"href=‘mailto:kraft_werk@tutanota.com’>kraft_werk@tutanota.com</a>&gt;\n"
 "\n"
 "Проектът за превод на GNOME има нужда от подкрепа.\n"
 "Научете повече за нас на <a href='https://fsa-bg.org/project/gtp'>уеб сайта</"
@@ -874,4 +873,4 @@ msgstr "Страница в уикито на GNOME"
 #: src/new-game-screen.vala:95
 #, c-format
 msgid "Size: %d × %d ▾"
-msgstr "Размер: %d × %d ▾"
+msgstr "Размер: %d×%d ▾"
