@@ -216,6 +216,28 @@ private class Iagno : Gtk.Application, BaseApplication
         /* Settings */
         settings = new GLib.Settings ("org.gnome.Reversi");
 
+        /* Actions */
+        add_action_entries (app_actions, this);
+        set_accels_for_action ("ui.new-game",           {        "<Primary>n"       });
+        set_accels_for_action ("ui.start-game",         { "<Shift><Primary>n"       });
+        set_accels_for_action ("app.quit",              {        "<Primary>q",
+                                                          "<Shift><Primary>q"       });
+        set_accels_for_action ("ui.undo",               {        "<Primary>z"       });
+     // set_accels_for_action ("ui.redo",               { "<Shift><Primary>z"       });
+        set_accels_for_action ("base.escape",           {                 "Escape"  });
+        set_accels_for_action ("base.toggle-hamburger", {                 "F10"     });
+     // set_accels_for_action ("app.help",              {                 "F1"      });
+     // set_accels_for_action ("base.about",            {          "<Shift>F1"      });
+        add_action (settings.create_action ("highlight-playable-tiles"));
+        add_action (settings.create_action ("highlight-turnable-tiles"));
+        if (!alternative_start && !random_start && !usual_start)
+            add_action (settings.create_action ("random-start-position"));
+        add_action (settings.create_action ("sound"));
+        add_action (settings.create_action ("theme"));
+        add_action (settings.create_action ("type"));        // TODO window action?
+    }
+
+    private void create_window () {
         bool start_now = (two_players == true) || (play_first != null);
         if ((sound != null) || start_now || (level != null) || classic_game || reverse_game)
         {
@@ -448,26 +470,7 @@ private class Iagno : Gtk.Application, BaseApplication
 
         window.gtk_theme_changed.connect (theme_manager.gtk_theme_changed);
 
-        /* Actions and preferences */
-        add_action_entries (app_actions, this);
-        set_accels_for_action ("ui.new-game",           {        "<Primary>n"       });
-        set_accels_for_action ("ui.start-game",         { "<Shift><Primary>n"       });
-        set_accels_for_action ("app.quit",              {        "<Primary>q",
-                                                          "<Shift><Primary>q"       });
-        set_accels_for_action ("ui.undo",               {        "<Primary>z"       });
-     // set_accels_for_action ("ui.redo",               { "<Shift><Primary>z"       });
-        set_accels_for_action ("base.escape",           {                 "Escape"  });
-        set_accels_for_action ("base.toggle-hamburger", {                 "F10"     });
-     // set_accels_for_action ("app.help",              {                 "F1"      });
-     // set_accels_for_action ("base.about",            {          "<Shift>F1"      });
-        add_action (settings.create_action ("highlight-playable-tiles"));
-        add_action (settings.create_action ("highlight-turnable-tiles"));
-        if (!alternative_start && !random_start && !usual_start)
-            add_action (settings.create_action ("random-start-position"));
-        add_action (settings.create_action ("sound"));
-        add_action (settings.create_action ("theme"));
-        add_action (settings.create_action ("type"));        // TODO window action?
-
+        /* Preferences */
         settings.bind ("highlight-playable-tiles", view,            "show-playable-tiles", SettingsBindFlags.GET);
         settings.bind ("highlight-turnable-tiles", view,            "show-turnable-tiles", SettingsBindFlags.GET);
         settings.bind ("theme",                    theme_manager,   "theme",               SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
@@ -548,12 +551,17 @@ private class Iagno : Gtk.Application, BaseApplication
 
     protected override void activate ()
     {
+        if (get_active_window () == null)
+            create_window ();
+
         window.present ();
     }
 
     protected override void shutdown ()
     {
-        window.destroy ();
+        if (get_active_window () != null)
+            window.destroy ();
+
         base.shutdown ();
     }
 
