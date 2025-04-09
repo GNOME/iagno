@@ -19,7 +19,7 @@ libm_dependency = cc.find_library('m', required: false) # some platforms do not 
 posix_dependency = valac.find_library('posix')
 rsvg_dependency = dependency('librsvg-2.0', version: '>= 2.32.0')
 
-appstream_util          = find_program('appstream-util',        required: false)
+appstreamcli            = find_program('appstreamcli',          required: false)
 desktop_file_validate   = find_program('desktop-file-validate', required: false)
 glib_compile_schema     = find_program('glib-compile-schemas',  required: true) # useful?
 
