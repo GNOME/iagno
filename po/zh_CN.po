@@ -3,22 +3,22 @@
 # Aron Xu <aronxu@gnome.org>, 2011.
 # YunQiang Su <wzssyqa@gmail.com>, 2011, 2012.
 # Mingcong Bai <jeffbai@aosc.xyz>, 2018.
-# lumingzh <lumingzh@qq.com>, 2023.
+# lumingzh <lumingzh@qq.com>, 2023-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2023-09-20 21:19+0000\n"
-"PO-Revision-Date: 2023-10-05 20:55+0800\n"
+"POT-Creation-Date: 2025-05-10 20:00+0000\n"
+"PO-Revision-Date: 2025-05-11 17:28+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
-"Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: Gtranslator 45.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 48.0\n"
 
 #. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
@@ -32,7 +32,7 @@ msgid ""
 "Dominate the board in a classic reversi game, or play the reversed variant"
 msgstr "在经典的黑白棋游戏中占领棋盘，或者玩反转变体"
 
-#: data/org.gnome.Reversi.appdata.xml.in:11
+#: data/org.gnome.Reversi.appdata.xml.in:10
 msgid ""
 "Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
 "use tiles that are dark on one side and light on the other."
@@ -40,7 +40,7 @@ msgstr ""
 "黑白棋是一款双人战略游戏，在 8×8 的棋盘上进行。玩家使用一面黑色，另一面白色的"
 "方块。"
 
-#: data/org.gnome.Reversi.appdata.xml.in:15
+#: data/org.gnome.Reversi.appdata.xml.in:14
 msgid ""
 "The object of reversi is to flip your opponent’s tiles to your color, while "
 "your opponent is trying to flip your tiles to his own color. Opponent’s "
@@ -51,15 +51,15 @@ msgstr ""
 "到他自己的颜色。当对手的方块被困在你的颜色和你添加的方块之间时，对方的牌会反"
 "转。有更多方块的人获胜！"
 
-#: data/org.gnome.Reversi.appdata.xml.in:21
+#: data/org.gnome.Reversi.appdata.xml.in:20
 msgid ""
 "Reversi allows you to play both a classic reversi game, and the reversed "
-"variant, where the goal is to finish with less tile than your opponent."
+"variant, where the goal is to finish with less tiles than your opponent."
 msgstr ""
 "黑白棋允许您同时玩经典的黑白棋游戏和反转变体，目标是以比对手少的方块完成游"
 "戏。"
 
-#: data/org.gnome.Reversi.appdata.xml.in:30
+#: data/org.gnome.Reversi.appdata.xml.in:29
 msgid "A Reversi game preview"
 msgstr "黑白棋游戏预览"
 
@@ -338,9 +338,9 @@ msgstr "突出显示可捕获方块的标志"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:81
 msgid ""
-"If “true”, the tiles that will be captured to the opponent by a play are "
+"If “true”, the tiles that will be captured from the opponent by a play are "
 "highlighted."
-msgstr "如果为“真”，则会突出显示一场比赛被对手俘获的方块。"
+msgstr "如果为“真”，则会突出显示将从对手那里捕获的方块。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
 #: data/org.gnome.Reversi.gschema.xml:87
@@ -386,10 +386,10 @@ msgstr "主题"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
 #: data/org.gnome.Reversi.gschema.xml:109
 msgid ""
-"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
-"“high_contrast.theme” and “sun_and_star.theme”."
+"Filename of the theme used, or “default”. Provided themes are “adwaita."
+"theme”, “high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
-"所使用主题的文件名或“默认”。提供了“adwaita.theme”，“high_contrast."
+"所使用主题的文件名或“默认”。提供的主题为“adwaita.theme”、“high_contrast."
 "theme”和“sun_and_star.theme”。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
@@ -596,229 +596,229 @@ msgid "Size must not be more than 16."
 msgstr "尺寸不能超过 16。"
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:258
+#: src/iagno.vala:280
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "级别应在最简单的 1 级和最困难的 3 级之间。设置保持不变。"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:274
+#: src/iagno.vala:296
 msgid "Play _first (Dark)"
 msgstr "先手(黑棋)(_F)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:278
+#: src/iagno.vala:300
 msgid "Play _second (Light)"
 msgstr "后手(白棋)(_S)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:284
+#: src/iagno.vala:306
 msgid "_Alternate who starts"
 msgstr "交替谁先开始(_A)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:290
+#: src/iagno.vala:312
 msgid "_Two players"
 msgstr "两个玩家(_T)"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:299
+#: src/iagno.vala:321
 msgid "_Easy"
 msgstr "简单(_E)"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:303
+#: src/iagno.vala:325
 msgid "_Medium"
 msgstr "中等(_M)"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:307
+#: src/iagno.vala:329
 msgid "_Hard"
 msgstr "困难(_H)"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:316
+#: src/iagno.vala:338
 msgid "_Vary start position"
 msgstr "改变起始位置(_V)"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:323 src/iagno.vala:982
+#: src/iagno.vala:345 src/iagno.vala:990
 msgid "Classic Reversi"
 msgstr "经典黑白棋"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:327 src/iagno.vala:979
+#: src/iagno.vala:349 src/iagno.vala:987
 msgid "Reverse Reversi"
 msgstr "反转黑白棋"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
-#: src/iagno.vala:338
+#: src/iagno.vala:360
 msgid "Default"
 msgstr "默认"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:394
+#: src/iagno.vala:416
 msgid "Pla_yable tiles"
 msgstr "用于比赛的方块(_Y)"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
-#: src/iagno.vala:398
+#: src/iagno.vala:420
 msgid "_Capturable tiles"
 msgstr "可捕获方块(_C)"
 
 #. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
-#: src/iagno.vala:402
+#: src/iagno.vala:424
 msgid "Highlights"
 msgstr "突出显示"
 
 #. Translators: history menu entry (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:409
+#: src/iagno.vala:431
 msgid "_Undo last move"
 msgstr "撤销上一步(_U)"
 
 #. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:414
+#: src/iagno.vala:436
 msgid "_Show final board"
 msgstr "显示最终棋盘(_S)"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:431
+#: src/iagno.vala:453
 msgid "_About Reversi"
 msgstr "关于黑白棋(_A)"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
-#: src/iagno.vala:619
+#: src/iagno.vala:627
 msgid "Two players"
 msgstr "两个玩家"
 
 #. Translators: when configuring a new game, button label if the player choose to start
-#: src/iagno.vala:623
+#: src/iagno.vala:631
 msgid "Color: Dark"
 msgstr "颜色：黑"
 
 #. Translators: when configuring a new game, button label if the player choose let computer start
-#: src/iagno.vala:627
+#: src/iagno.vala:635
 msgid "Color: Light"
 msgstr "颜色：白"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
-#: src/iagno.vala:684
+#: src/iagno.vala:692
 msgid "More options"
 msgstr "更多选项"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
-#: src/iagno.vala:688
+#: src/iagno.vala:696
 msgid "Difficulty: Easy"
 msgstr "难度：简单"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
-#: src/iagno.vala:692
+#: src/iagno.vala:700
 msgid "Difficulty: Medium"
 msgstr "难度：中等"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
-#: src/iagno.vala:696
+#: src/iagno.vala:704
 msgid "Difficulty: Hard"
 msgstr "难度：困难"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:901
+#: src/iagno.vala:909
 msgid "Light must pass, Dark’s move"
 msgstr "白方必须略过，轮到黑方"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:906
+#: src/iagno.vala:914
 msgid "Dark must pass, Light’s move"
 msgstr "黑方必须略过，轮到白方"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
-#: src/iagno.vala:920
+#: src/iagno.vala:928
 #, c-format
 msgid "Light wins! (%u-%u)"
 msgstr "白方获胜！(%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
-#: src/iagno.vala:925
+#: src/iagno.vala:933
 #, c-format
 msgid "Dark wins! (%u-%u)"
 msgstr "黑方获胜！(%u-%u)"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:929
+#: src/iagno.vala:937
 msgid "The game is draw."
 msgstr "平局。"
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:948
+#: src/iagno.vala:956
 msgid "You can’t move there!"
 msgstr "不能放在这儿！"
 
 #. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
-#: src/iagno.vala:955
+#: src/iagno.vala:963
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
 msgstr "在这个开局下，白棋只能选择与黑棋相邻的方块进行游戏。"
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
-#: src/iagno.vala:959
+#: src/iagno.vala:967
 msgid "Click on one of the highlighted tiles to move the selected piece there."
 msgstr "单击其中一个突出显示的方块，将选定的块移动到那里。"
 
 #. Translators: about dialog text
-#: src/iagno.vala:1092
+#: src/iagno.vala:1100
 msgid "A disk flipping game derived from Reversi"
 msgstr "派生于黑白棋的翻转棋游戏"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1096
+#: src/iagno.vala:1104
 msgid "Masuichi Ito (pieces)"
 msgstr "Masuichi Ito(零件)"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1100
+#: src/iagno.vala:1108
 msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti(主题)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1105
+#: src/iagno.vala:1113
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1109
+#: src/iagno.vala:1117
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1113
+#: src/iagno.vala:1121
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1118
+#: src/iagno.vala:1126
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "版权所有 © %u-%u – Ian Peters"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1122
+#: src/iagno.vala:1130
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "版权所有 © %u-%u – Michael Catanzaro"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1126
+#: src/iagno.vala:1134
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "版权所有 © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:1130
+#: src/iagno.vala:1138
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:1135
+#: src/iagno.vala:1143
 msgid "translator-credits"
 msgstr ""
 "Yang Zhang <zyangmath@gmail.com>, 2007\n"
@@ -827,10 +827,10 @@ msgstr ""
 "Mandy Wang <wangmychn@gmai.com>, 2016\n"
 "Mingcong Bai <jeffbai@aosc.xyz>, 2018\n"
 "Weiyi Xu <xuweiyi0923@gmail.com>, 2020\n"
-"lumingzh <lumingzh@qq.com>, 2023"
+"lumingzh <lumingzh@qq.com>, 2023-2025"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:1140
+#: src/iagno.vala:1148
 msgid "Page on GNOME wiki"
 msgstr "GNOME 维基上的页面"
 
