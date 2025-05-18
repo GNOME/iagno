@@ -1,5 +1,5 @@
 # Turkish translation of GNOME Reversi.
-# Copyright (C) 2020-2022 GNOME Reversi's COPYRIGHT HOLDER
+# Copyright (C) 2020-2025 GNOME Reversi's COPYRIGHT HOLDER
 # This file is distributed under the same license as the GNOME Reversi package.
 #
 # Onur Kucuk, <okucuk@yahoo.com>, 2000.
@@ -8,8 +8,8 @@
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009.
 # Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
 # Muhammet Kara <muhammetk@gmail.com>, 2011, 2014, 2015, 2018.
-# Sabri Ünal <libreajans@gmail.com>, 2019-2020.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2019-2023.
+# Sabri Ünal <yakushabb@gmail.com>, 2019, 2020, 2025.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2019-2023, 2025.
 #
 # ---------------------------------------------------------------------------
 # Turkish translation of iagno.
@@ -22,16 +22,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNOME Reversi master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2023-09-20 21:19+0000\n"
-"PO-Revision-Date: 2023-09-22 11:55+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2025-05-10 20:00+0000\n"
+"PO-Revision-Date: 2025-05-16 22:45+0300\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.6\n"
 
 #. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Klasik reversi oyunundaki tahtanın hakimi ol, veya ters çevrilmiş türünü oyna"
 
-#: data/org.gnome.Reversi.appdata.xml.in:11
+#: data/org.gnome.Reversi.appdata.xml.in:10
 msgid ""
 "Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
 "use tiles that are dark on one side and light on the other."
@@ -54,7 +54,7 @@ msgstr ""
 "Reversi, 8’e 8 tahta üstünde oynanan iki oyunculu strateji oyunudur. "
 "Oyuncular, bir yüzü beyaz, diğer yüzü siyah döşemeler kullanır."
 
-#: data/org.gnome.Reversi.appdata.xml.in:15
+#: data/org.gnome.Reversi.appdata.xml.in:14
 msgid ""
 "The object of reversi is to flip your opponent’s tiles to your color, while "
 "your opponent is trying to flip your tiles to his own color. Opponent’s "
@@ -66,15 +66,15 @@ msgstr ""
 "çevirmektir. Bu, rakibinizin taşını kendi renginizden iki taşın arasında "
 "kapana kıstırarak yapılır. Daha çok döşemeyle bitiren kazanır!"
 
-#: data/org.gnome.Reversi.appdata.xml.in:21
+#: data/org.gnome.Reversi.appdata.xml.in:20
 msgid ""
 "Reversi allows you to play both a classic reversi game, and the reversed "
-"variant, where the goal is to finish with less tile than your opponent."
+"variant, where the goal is to finish with less tiles than your opponent."
 msgstr ""
-"Reversi, hem klasik reversi oyununu, hem de hedefin rakibinizden daha "
-"az döşemeyle bitirmek olduğu ters reversi oyununu oynamanızı sağlar."
+"Reversi, hem klasik reversi oyununu, hem de hedefin rakibinizden daha az "
+"döşemeyle bitirmek olduğu ters reversi oyununu oynamanızı sağlar."
 
-#: data/org.gnome.Reversi.appdata.xml.in:30
+#: data/org.gnome.Reversi.appdata.xml.in:29
 msgid "A Reversi game preview"
 msgstr "Reversi oyunu ön izlemesi"
 
@@ -357,7 +357,7 @@ msgstr "Yakalanabilir döşemeleri vurgulamak için bir bayrak"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:81
 msgid ""
-"If “true”, the tiles that will be captured to the opponent by a play are "
+"If “true”, the tiles that will be captured from the opponent by a play are "
 "highlighted."
 msgstr ""
 "Eğer “true” ise, hamle sırasında, rakip tarafından yakalanabilecek döşemeler "
@@ -410,10 +410,10 @@ msgstr "Tema"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
 #: data/org.gnome.Reversi.gschema.xml:109
 msgid ""
-"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
-"“high_contrast.theme” and “sun_and_star.theme”."
+"Filename of the theme used, or “default”. Provided themes are “adwaita."
+"theme”, “high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
-"Kullanılan temanın dosya adı veya “default” (öntanımlı). Sağlananlar "
+"Kullanılan temanın dosya adı veya “default” (öntanımlı). Sağlanan temalar "
 "“adwaita.theme”, “high_contrast.theme” ve “sun_and_star.theme”."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
@@ -626,239 +626,239 @@ msgid "Size must not be more than 16."
 msgstr "Boyut 16ʼdan çok olmamalı."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:258
+#: src/iagno.vala:280
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "Düzey, 1 (kolay) ile 3 (zor) arasında olmalı. Ayarlar değişmedi."
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:274
+#: src/iagno.vala:296
 msgid "Play _first (Dark)"
 msgstr "İlk oyna (_Siyah)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:278
+#: src/iagno.vala:300
 msgid "Play _second (Light)"
 msgstr "İkinci oyna (_Beyaz)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:284
+#: src/iagno.vala:306
 msgid "_Alternate who starts"
 msgstr "Kimin başlayacağını _değiştir"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:290
+#: src/iagno.vala:312
 msgid "_Two players"
 msgstr "_İki oyunculu"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:299
+#: src/iagno.vala:321
 msgid "_Easy"
 msgstr "_Kolay"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:303
+#: src/iagno.vala:325
 msgid "_Medium"
 msgstr "_Orta"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:307
+#: src/iagno.vala:329
 msgid "_Hard"
 msgstr "_Zor"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:316
+#: src/iagno.vala:338
 msgid "_Vary start position"
 msgstr "_Dönüşümlü başlangıç konumu"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:323 src/iagno.vala:982
+#: src/iagno.vala:345 src/iagno.vala:990
 msgid "Classic Reversi"
 msgstr "Klasik Reversi"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:327 src/iagno.vala:979
+#: src/iagno.vala:349 src/iagno.vala:987
 msgid "Reverse Reversi"
 msgstr "Ters Reversi"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
-#: src/iagno.vala:338
+#: src/iagno.vala:360
 msgid "Default"
 msgstr "Öntanımlı"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:394
+#: src/iagno.vala:416
 msgid "Pla_yable tiles"
 msgstr "_Oynanabilir döşemeler"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
-#: src/iagno.vala:398
+#: src/iagno.vala:420
 msgid "_Capturable tiles"
 msgstr "_Yakalanabilir döşemeler"
 
 #. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
-#: src/iagno.vala:402
+#: src/iagno.vala:424
 msgid "Highlights"
 msgstr "Vurgular"
 
 #. Translators: history menu entry (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:409
+#: src/iagno.vala:431
 msgid "_Undo last move"
 msgstr "_Son hareketi geri al"
 
 #. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:414
+#: src/iagno.vala:436
 msgid "_Show final board"
 msgstr "_Sonuç tahtasını göster"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:431
+#: src/iagno.vala:453
 msgid "_About Reversi"
 msgstr "Reversi _Hakkında"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
-#: src/iagno.vala:619
+#: src/iagno.vala:627
 msgid "Two players"
 msgstr "İki oyuncu"
 
 #. Translators: when configuring a new game, button label if the player choose to start
-#: src/iagno.vala:623
+#: src/iagno.vala:631
 msgid "Color: Dark"
 msgstr "Renk: Siyah"
 
 #. Translators: when configuring a new game, button label if the player choose let computer start
-#: src/iagno.vala:627
+#: src/iagno.vala:635
 msgid "Color: Light"
 msgstr "Renk: Beyaz"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
-#: src/iagno.vala:684
+#: src/iagno.vala:692
 msgid "More options"
 msgstr "Daha çok seçenek"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
-#: src/iagno.vala:688
+#: src/iagno.vala:696
 msgid "Difficulty: Easy"
 msgstr "Zorluk: Kolay"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
-#: src/iagno.vala:692
+#: src/iagno.vala:700
 msgid "Difficulty: Medium"
 msgstr "Zorluk: Orta"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
-#: src/iagno.vala:696
+#: src/iagno.vala:704
 msgid "Difficulty: Hard"
 msgstr "Zorluk: Zor"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:901
+#: src/iagno.vala:909
 msgid "Light must pass, Dark’s move"
 msgstr "Beyaz es geçmeli, Siyah’ın sırası"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:906
+#: src/iagno.vala:914
 msgid "Dark must pass, Light’s move"
 msgstr "Siyah es geçmeli, Beyaz’ın sırası"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
-#: src/iagno.vala:920
+#: src/iagno.vala:928
 #, c-format
 msgid "Light wins! (%u-%u)"
 msgstr "Beyaz kazandı! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
-#: src/iagno.vala:925
+#: src/iagno.vala:933
 #, c-format
 msgid "Dark wins! (%u-%u)"
 msgstr "Siyah kazandı! (%u-%u)"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:929
+#: src/iagno.vala:937
 msgid "The game is draw."
 msgstr "Oyun berabere bitti."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:948
+#: src/iagno.vala:956
 msgid "You can’t move there!"
 msgstr "Oraya taşınamaz!"
 
 #. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
-#: src/iagno.vala:955
+#: src/iagno.vala:963
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
 msgstr "Bu açılışta, Beyaz yalnızca Siyah olana sınır döşemelerde oynayabilir."
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
-#: src/iagno.vala:959
+#: src/iagno.vala:967
 msgid "Click on one of the highlighted tiles to move the selected piece there."
 msgstr "Seçilen parçayı taşımak için, vurgulanan döşemelerden birine tıkla."
 
 #. Translators: about dialog text
-#: src/iagno.vala:1092
+#: src/iagno.vala:1100
 msgid "A disk flipping game derived from Reversi"
 msgstr "Reversi’den türemiş bir disk çevirme oyunu"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1096
+#: src/iagno.vala:1104
 msgid "Masuichi Ito (pieces)"
 msgstr "Masuichi Ito (parçalar)"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1100
+#: src/iagno.vala:1108
 msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (temalar)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1105
+#: src/iagno.vala:1113
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1109
+#: src/iagno.vala:1117
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1113
+#: src/iagno.vala:1121
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1118
+#: src/iagno.vala:1126
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Telif Hakkı © %u-%u – Ian Peters"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1122
+#: src/iagno.vala:1130
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Telif Hakkı © %u-%u – Michael Catanzaro"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1126
+#: src/iagno.vala:1134
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Telif Hakkı © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:1130
+#: src/iagno.vala:1138
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:1135
+#: src/iagno.vala:1143
 msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr> \n"
 "Muhammet Kara <muhammetk@gmail.com>\n"
 "Çağatay Yiğit Şahin <cyigitsahin@outlook.com>\n"
 "Emin Tufan Çetin <etcetin@gmail.com>\n"
-"Sabri Ünal <libreajans@gmail.com>"
+"Sabri Ünal <yakushabb@gmail.com>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:1140
+#: src/iagno.vala:1148
 msgid "Page on GNOME wiki"
 msgstr "GNOME wikiʼdeki sayfası"
 
@@ -867,9 +867,3 @@ msgstr "GNOME wikiʼdeki sayfası"
 #, c-format
 msgid "Size: %d × %d ▾"
 msgstr "Boyut: %d × %d ▾"
-
-#~ msgid "GNOME Reversi"
-#~ msgstr "GNOME Reversi"
-
-#~ msgid "The GNOME Project"
-#~ msgstr "GNOME Projesi"
