@@ -1,7 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
-data/org.gnome.Reversi.appdata.xml.in
 data/org.gnome.Reversi.desktop.in
+data/org.gnome.Reversi.metainfo.xml.in
 data/ui/base-headerbar.ui
 data/ui/game-headerbar.ui
 data/ui/help-overlay.ui
