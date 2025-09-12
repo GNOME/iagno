@@ -9,7 +9,7 @@
 # Updated for iagno:
 #
 # Changwoo Ryu <cwryu@debian.org>, 2013-2016, 2018.
-# DaeHyun Sung <sungdh86+git@gmail.com>, 2017-2024.
+# DaeHyun Sung <sungdh86+git@gmail.com>, 2017-2025.
 #
 # 새로 번역하신 분은 아래 "translator-credits"에 추가하세요.
 #
@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iagno\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/iagno/issues\n"
-"POT-Creation-Date: 2024-08-11 00:41+0000\n"
-"PO-Revision-Date: 2024-08-27 15:44+0900\n"
+"POT-Creation-Date: 2025-09-04 13:00+0000\n"
+"PO-Revision-Date: 2025-09-07 19:42+0900\n"
 "Last-Translator: DaeHyun Sung <sungdh86+git@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -29,12 +29,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.7\n"
 
 #. Translators: a GenericName that gives the application goal, as defined in the desktop file spec
 #. Translators: application name, as used in the window manager, the window title, the about dialog...
-#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:3
-#: data/org.gnome.Reversi.desktop.in:7 src/iagno.vala:28
+#: data/org.gnome.Reversi.appdata.xml.in:7 data/org.gnome.Reversi.desktop.in:2
+#: data/org.gnome.Reversi.desktop.in:6 src/iagno.vala:28
 msgid "Reversi"
 msgstr "리버시"
 
@@ -44,7 +44,7 @@ msgid ""
 msgstr ""
 "고전 리버시 게임 또는 반전 변형 방식으로 플레이하여 게임판을 정복합니다"
 
-#: data/org.gnome.Reversi.appdata.xml.in:11
+#: data/org.gnome.Reversi.appdata.xml.in:10
 msgid ""
 "Reversi is a two-player strategy game, played on an 8 by 8 board. Players "
 "use tiles that are dark on one side and light on the other."
@@ -52,7 +52,7 @@ msgstr ""
 "리버시는 8 x 8 게임판으로 플레이 할 수 있는, 2인용 보드 게임입니다. 한쪽 면"
 "은 검은색이고 다른 면은 흰색인 말로 플레이합니다."
 
-#: data/org.gnome.Reversi.appdata.xml.in:15
+#: data/org.gnome.Reversi.appdata.xml.in:14
 msgid ""
 "The object of reversi is to flip your opponent’s tiles to your color, while "
 "your opponent is trying to flip your tiles to his own color. Opponent’s "
@@ -65,15 +65,15 @@ msgstr ""
 "있으면, 상대의 말이 뒤집어집니다. 더 많은 말 색상으로 마무리하는 사람이 승리"
 "합니다!"
 
-#: data/org.gnome.Reversi.appdata.xml.in:21
+#: data/org.gnome.Reversi.appdata.xml.in:20
 msgid ""
 "Reversi allows you to play both a classic reversi game, and the reversed "
-"variant, where the goal is to finish with less tile than your opponent."
+"variant, where the goal is to finish with less tiles than your opponent."
 msgstr ""
 "리버시는 고전 리버시 게임과 반전 변형 둘 다 모두 플레이할 수 있습니다. 반전 "
 "변형 게임의 목표는 반대편보다 적은 말을 남겨 끝내는 것입니다."
 
-#: data/org.gnome.Reversi.appdata.xml.in:30
+#: data/org.gnome.Reversi.appdata.xml.in:29
 msgid "A Reversi game preview"
 msgstr "리버시 게임 미리보기"
 
@@ -82,12 +82,12 @@ msgid "The Reversi Team"
 msgstr "리버시 팀"
 
 #. Translators: a Comment that gives the application function, as defined in the desktop file spec
-#: data/org.gnome.Reversi.desktop.in:9
+#: data/org.gnome.Reversi.desktop.in:8
 msgid "Dominate the board in a classic version of Reversi"
 msgstr "리버시 게임 고전 버전에서 게임판을 정복합니다"
 
 #. Translators: some search Keywords to find this application, as defined in the desktop file spec. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Reversi.desktop.in:11
+#: data/org.gnome.Reversi.desktop.in:10
 msgid "reversi;othello;"
 msgstr "reversi;리버시;othello;오델로;"
 
@@ -240,22 +240,22 @@ msgid "Options"
 msgstr "옵션"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; similar to Gtk theme name, should probably be kept unchanged
-#: data/themes/adwaita.theme.desktop.in:22
+#: data/themes/adwaita.theme.desktop.in:21
 msgid "Adwaita"
 msgstr "애드와이타"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; copies the look of the most common physical board
-#: data/themes/classic.theme.desktop.in:22
+#: data/themes/classic.theme.desktop.in:21
 msgid "Classic"
 msgstr "클래식"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; uses only two colors, one really dark and one really light
-#: data/themes/high_contrast.theme.desktop.in:23
+#: data/themes/high_contrast.theme.desktop.in:22
 msgid "Black and White"
 msgstr "흑백"
 
 #. Translators: name of a board graphical theme, as visible in the "Appearance" submenu of the hamburger menu; Light player uses a symbolized Sun, Dark player a symbolized five-arms star
-#: data/themes/sun_and_star.theme.desktop.in:22
+#: data/themes/sun_and_star.theme.desktop.in:21
 msgid "Sun and Star"
 msgstr "해와 별"
 
@@ -353,9 +353,9 @@ msgstr "잡을 수 있는 칸 강조 표시"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/highlight-turnable-tiles'; the player moves mouse cursor and sees what he can capture by playing there
 #: data/org.gnome.Reversi.gschema.xml:81
 msgid ""
-"If “true”, the tiles that will be captured to the opponent by a play are "
+"If “true”, the tiles that will be captured from the opponent by a play are "
 "highlighted."
-msgstr "“참”이면, 플레이하면서 상대방 말을 잡을 수 있는 칸을 강조합니다."
+msgstr "“참”이면, 플레이하면서 상대방 말을 잡을 수 있는 칸이 강조표시됩니다."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/num-players'
 #: data/org.gnome.Reversi.gschema.xml:87
@@ -378,12 +378,12 @@ msgid ""
 "random-start” is given instead on the command-line, this flag will be "
 "ignored."
 msgstr ""
-"리버시는 두개의 다른 초기 위치 (및 대칭 위치)에서 플레이할 수 있습니다. "
-"“참”일 경우, 게임은 무작위로 한 위치 또는 다른 위치로 시작됩니다. “거짓”일 경"
-"우 가장 일반적인 위치만 사용합니다. 명령줄에서 인자로 “--alternative-"
-"start”를 사용하면 대안적인 위치를 강제로 사용할 수 있습니다. 또한, 인자 “--"
-"usual-start” 또는 인자 “--random-start”를 명령줄에서 대신 지정한 경우, 이 플"
-"래그는 무시됩니다."
+"리버시는 두개의 다른 초기 위치 (및 대칭 위치)에서 플레이할 수 있습니다. “참”"
+"일 경우, 게임은 무작위로 한 위치 또는 다른 위치로 시작됩니다. “거짓”일 경우 "
+"가장 일반적인 위치만 사용합니다. 명령줄에서 인자로 “--alternative-start”를 사"
+"용하면 대안적인 위치를 강제로 사용할 수 있습니다. 또한, 인자 “--usual-start” "
+"또는 인자 “--random-start”를 명령줄에서 대신 지정한 경우, 이 플래그는 무시됩"
+"니다."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/sound'
 #: data/org.gnome.Reversi.gschema.xml:100
@@ -403,11 +403,11 @@ msgstr "테마"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/iagno/theme'; TODO the themes names are translated in the UI, but not in the settings; not sure what to do for now
 #: data/org.gnome.Reversi.gschema.xml:109
 msgid ""
-"Filename of the theme used, or “default”. Are provided “adwaita.theme”, "
-"“high_contrast.theme” and “sun_and_star.theme”."
+"Filename of the theme used, or “default”. Provided themes are "
+"“adwaita.theme”, “high_contrast.theme” and “sun_and_star.theme”."
 msgstr ""
 "사용할 테마의 파일 이름, 또는 “default”. 제공하는 테마는 “adwaita.theme”, "
-"“high_contrast.theme”, “sun_and_star.theme”."
+"“high_contrast.theme”, “sun_and_star.theme”입니다."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/iagno/type'
 #: data/org.gnome.Reversi.gschema.xml:114
@@ -616,236 +616,236 @@ msgid "Size must not be more than 16."
 msgstr "최대 크기는 16 입니다."
 
 #. Translators: command-line error message, displayed for an incorrect level request; try 'iagno -l 5'
-#: src/iagno.vala:258
+#: src/iagno.vala:280
 msgid "Level should be between 1 (easy) and 3 (hard). Settings unchanged."
 msgstr "난이도는 1 (쉬움)에서 3 (어려움)까지입니다. 설정은 바뀌지 않습니다."
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:274
+#: src/iagno.vala:296
 msgid "Play _first (Dark)"
 msgstr "먼저 플레이(어두운 색)(_F)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:278
+#: src/iagno.vala:300
 msgid "Play _second (Light)"
 msgstr "나중에 플레이(밝은 색)(_S)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:284
+#: src/iagno.vala:306
 msgid "_Alternate who starts"
 msgstr "시작할 플레이어 바꾸기(_A)"
 
 #. Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:290
+#: src/iagno.vala:312
 msgid "_Two players"
 msgstr "2인 플레이(_T)"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:299
+#: src/iagno.vala:321
 msgid "_Easy"
 msgstr "쉬움(_E)"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a medium-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:303
+#: src/iagno.vala:325
 msgid "_Medium"
 msgstr "중간(_M)"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose a hard-level computer adversary (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:307
+#: src/iagno.vala:329
 msgid "_Hard"
 msgstr "어려움(_H)"
 
 #. Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose to use randomly an alternative start position (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:316
+#: src/iagno.vala:338
 msgid "_Vary start position"
 msgstr "시작 위치 바꾸기(_V)"
 
 #. Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:323 src/iagno.vala:982
+#: src/iagno.vala:345 src/iagno.vala:990
 msgid "Classic Reversi"
 msgstr "고전 리버시"
 
 #. Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces
 #. Translators: name of one of the games, as displayed in the headerbar when playing
-#: src/iagno.vala:327 src/iagno.vala:979
+#: src/iagno.vala:349 src/iagno.vala:987
 msgid "Reverse Reversi"
 msgstr "반전 리버시"
 
 #. Translators: hamburger menu "Appearance" submenu entry; a name for the default theme
-#: src/iagno.vala:338
+#: src/iagno.vala:360
 msgid "Default"
 msgstr "기본값"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-playable-tiles togglebutton (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:394
+#: src/iagno.vala:416
 msgid "Pla_yable tiles"
 msgstr "둘 수 있는 칸(_Y)"
 
 #. Translators: hamburger menu "Appearance" submenu entry, in the "Highlight" section; highlight-capturable-tiles togglebutton (with a mnemonic that appears pressing Alt); these are not the playable tiles, but the one that could be captured by a play
-#: src/iagno.vala:398
+#: src/iagno.vala:420
 msgid "_Capturable tiles"
 msgstr "잡을 수 있는 칸(_C)"
 
 #. Translators: hamburger menu "Appearance" submenu section header; the section lists several game helpers that are done by highlighting tiles on the board: "Capturable tiles" and "Playable tiles"; "Highlights" is probably better understood as a noun than as a verb here
-#: src/iagno.vala:402
+#: src/iagno.vala:424
 msgid "Highlights"
 msgstr "강조"
 
 #. Translators: history menu entry (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:409
+#: src/iagno.vala:431
 msgid "_Undo last move"
 msgstr "최근 움직임 취소( _U)"
 
 #. Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:414
+#: src/iagno.vala:436
 msgid "_Show final board"
 msgstr "마지막 게임판 표시(_S)"
 
 #. Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt)
-#: src/iagno.vala:431
+#: src/iagno.vala:453
 msgid "_About Reversi"
 msgstr "리버시 정보(_A)"
 
 #. Translators: when configuring a new game, button label if a two-players game is chosen
-#: src/iagno.vala:619
+#: src/iagno.vala:627
 msgid "Two players"
 msgstr "2인 플레이"
 
 #. Translators: when configuring a new game, button label if the player choose to start
-#: src/iagno.vala:623
+#: src/iagno.vala:631
 msgid "Color: Dark"
 msgstr "색: 어두운 색"
 
 #. Translators: when configuring a new game, button label if the player choose let computer start
-#: src/iagno.vala:627
+#: src/iagno.vala:635
 msgid "Color: Light"
 msgstr "색: 밝은 색"
 
 #. Translators: when configuring a new game, second menubutton label, when configuring a two-player game
-#: src/iagno.vala:684
+#: src/iagno.vala:692
 msgid "More options"
 msgstr "추가 옵션"
 
 #. Translators: when configuring a new game, button label for the AI level, if easy
-#: src/iagno.vala:688
+#: src/iagno.vala:696
 msgid "Difficulty: Easy"
 msgstr "난이도: 쉬움"
 
 #. Translators: when configuring a new game, button label for the AI level, if medium
-#: src/iagno.vala:692
+#: src/iagno.vala:700
 msgid "Difficulty: Medium"
 msgstr "난이도: 중간"
 
 #. Translators: when configuring a new game, button label for the AI level, if hard
-#: src/iagno.vala:696
+#: src/iagno.vala:704
 msgid "Difficulty: Hard"
 msgstr "난이도: 어려움"
 
 #. Translators: during a game, notification to display when Light has no possible moves
-#: src/iagno.vala:901
+#: src/iagno.vala:909
 msgid "Light must pass, Dark’s move"
 msgstr "밝은 쪽은 차례를 걸러야 하고, 어두운 쪽 차례입니다"
 
 #. Translators: during a game, notification to display when Dark has no possible moves
-#: src/iagno.vala:906
+#: src/iagno.vala:914
 msgid "Dark must pass, Light’s move"
 msgstr "어두운 쪽은 차례를 걸러야 하고, 밝은 쪽 차례입니다"
 
 #. Translators: during a game, notification to display when Light has won the game; the %u are replaced with the Light and Dark number of tiles
-#: src/iagno.vala:920
+#: src/iagno.vala:928
 #, c-format
 msgid "Light wins! (%u-%u)"
 msgstr "밝은 쪽이 이겼습니다! (%u-%u)"
 
 #. Translators: during a game, notification to display when Dark has won the game; the %u are replaced with the Dark and Light number of tiles
-#: src/iagno.vala:925
+#: src/iagno.vala:933
 #, c-format
 msgid "Dark wins! (%u-%u)"
 msgstr "어두운 쪽이 이겼습니다! (%u-%u)"
 
 #. Translators: during a game, notification to display when the game is a draw
-#: src/iagno.vala:929
+#: src/iagno.vala:937
 msgid "The game is draw."
 msgstr "무승부입니다."
 
 #. Translators: during a game, notification to display when the player tries to make an illegal move
-#: src/iagno.vala:948
+#: src/iagno.vala:956
 msgid "You can’t move there!"
 msgstr "선택 위치로 움직일 수 없습니다!"
 
 #. Translators: during the overture (at the start) of a two-players game, when Dark has played, notification displayed if Light clicks at the opposite tile relatively to Dark one
-#: src/iagno.vala:955
+#: src/iagno.vala:963
 msgid "In this opening, Light can only play on tiles bordering on Dark one."
 msgstr "게임 시작시, 밝은 색은 어두운 색 칸의 가장자리에만 둘 수 있습니다."
 
 #. Translators: during the overture (at the start) of a two-players game, notification displayed if the board is clicked elsewhere of the four playable tiles that are highlighted
-#: src/iagno.vala:959
+#: src/iagno.vala:967
 msgid "Click on one of the highlighted tiles to move the selected piece there."
 msgstr "강조 표시한 칸 하나를 눌러 선택한 말을 두세요."
 
 #. Translators: about dialog text
-#: src/iagno.vala:1092
+#: src/iagno.vala:1100
 msgid "A disk flipping game derived from Reversi"
 msgstr "리버시에 기반한 원판 뒤집기 게임"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1096
+#: src/iagno.vala:1104
 msgid "Masuichi Ito (pieces)"
 msgstr "Masuichi Ito (게임 말)"
 
 #. Translators: text crediting an artist, in the about dialog
-#: src/iagno.vala:1100
+#: src/iagno.vala:1108
 msgid "Arnaud Bonatti (themes)"
 msgstr "Arnaud Bonatti (테마)"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1105
+#: src/iagno.vala:1113
 msgid "Ian Peters"
 msgstr "Ian Peters"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1109
+#: src/iagno.vala:1117
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting an author, in the about dialog
-#: src/iagno.vala:1113
+#: src/iagno.vala:1121
 msgid "Arnaud Bonatti"
 msgstr "Arnaud Bonatti"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1118
+#: src/iagno.vala:1126
 #, c-format
 msgid "Copyright © %u-%u – Ian Peters"
 msgstr "Copyright © %u-%u – Ian Peters"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1122
+#: src/iagno.vala:1130
 #, c-format
 msgid "Copyright © %u-%u – Michael Catanzaro"
 msgstr "Copyright © %u-%u – Michael Catanzaro"
 
 #. Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end
-#: src/iagno.vala:1126
+#: src/iagno.vala:1134
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: text crediting a documenter, in the about dialog
-#: src/iagno.vala:1130
+#: src/iagno.vala:1138
 msgid "Tiffany Antopolski"
 msgstr "Tiffany Antopolski"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/iagno.vala:1135
+#: src/iagno.vala:1143
 msgid "translator-credits"
 msgstr ""
 "류창우 <cwryu@debian.org>\n"
 "성대현 <sungdh86+git@gmail.com>"
 
 #. Translators: about dialog text; label of the website link
-#: src/iagno.vala:1140
+#: src/iagno.vala:1148
 msgid "Page on GNOME wiki"
 msgstr "그놈 위키 페이지"
 
