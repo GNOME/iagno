@@ -20,6 +20,13 @@
 
 private class ThemeManager : Object
 {
+    construct
+    {
+        var style_manager = Adw.StyleManager.get_default ();
+        style_manager.notify ["dark"].connect (gtk_theme_changed);
+        style_manager.notify ["high-contrast"].connect (gtk_theme_changed);
+    }
+
     internal signal void theme_changed ();
 
     /*\
@@ -28,7 +35,7 @@ private class ThemeManager : Object
 
     internal void gtk_theme_changed ()
     {
-        if (theme == "" || theme == "default")
+        if (!theme_set || _theme == "" || _theme == "default")
             theme = "default";  // yes
     }
 
@@ -70,13 +77,12 @@ private class ThemeManager : Object
 
     private void set_default_theme (ref KeyFile key)
     {
-        Gtk.Settings? defaults = Gtk.Settings.get_default ();
+        var style_manager = Adw.StyleManager.get_default ();
 
         string filename;
-        if (defaults != null && "HighContrast" in ((!) defaults).gtk_theme_name)
+        if (style_manager.high_contrast)
             filename = "high_contrast.theme";
-        else if (defaults != null && (((!) defaults).gtk_application_prefer_dark_theme == true
-                                   || ((!) defaults).gtk_theme_name == "Adwaita-dark"))
+        else if (style_manager.dark)
             filename = "adwaita.theme";
         else
             filename = "classic.theme";

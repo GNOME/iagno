@@ -22,7 +22,7 @@
 
 using Gtk;
 
-private class Iagno : Gtk.Application, BaseApplication
+private class Iagno : Gtk.Application
 {
     /* Translators: application name, as used in the window manager, the window title, the about dialog... */
     internal const string PROGRAM_NAME = _("Reversi");
@@ -50,12 +50,6 @@ private class Iagno : Gtk.Application, BaseApplication
     /* Widgets */
     private GameWindow window;
     private ReversiView view;
-    private NewGameScreen new_game_screen;
-    private HistoryButton history_button_1;
-    private HistoryButton history_button_2;
-
-    private GLib.Menu history_menu;
-    private GLib.Menu finish_menu;
 
     private ThemeManager theme_manager = new ThemeManager ();
 
@@ -131,6 +125,8 @@ private class Iagno : Gtk.Application, BaseApplication
         { "change-level", change_level_cb, "s" },
 
         { "set-use-night-mode", set_use_night_mode, "b" },
+        { "help", help },
+        { "about", about },
         { "quit", quit }
     };
 
@@ -143,6 +139,9 @@ private class Iagno : Gtk.Application, BaseApplication
 
         Environment.set_application_name (PROGRAM_NAME);
         Environment.set_prgname ("org.gnome.Reversi");
+
+        Adw.init ();
+
         Window.set_default_icon_name ("org.gnome.Reversi");
 
         return new Iagno ().run (args);
@@ -226,8 +225,8 @@ private class Iagno : Gtk.Application, BaseApplication
      // set_accels_for_action ("ui.redo",               { "<Shift><Primary>z"       });
         set_accels_for_action ("base.escape",           {                 "Escape"  });
         set_accels_for_action ("base.toggle-hamburger", {                 "F10"     });
-     // set_accels_for_action ("app.help",              {                 "F1"      });
-     // set_accels_for_action ("base.about",            {          "<Shift>F1"      });
+        set_accels_for_action ("app.help",              {                 "F1"      });
+        set_accels_for_action ("app.about",             {          "<Shift>F1"      });
         add_action (settings.create_action ("highlight-playable-tiles"));
         add_action (settings.create_action ("highlight-turnable-tiles"));
         if (!alternative_start && !random_start && !usual_start)
@@ -341,19 +340,6 @@ private class Iagno : Gtk.Application, BaseApplication
         }
         level_menu.freeze ();
 
-        /* Translators: when configuring a new game, label of the first big button; name of the usual reversi game, where you try to have more pieces */
-        new_game_screen = new NewGameScreen (_("Classic Reversi"),
-                                             "app.type('classic')",
-
-        /* Translators: when configuring a new game, label of the second big button; name of the opposite game, where you try to have less pieces */
-                                             _("Reverse Reversi"),
-                                             "app.type('reverse')");
-        new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.ONE, type_menu);
-        new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.TWO, level_menu);
-
-        if (settings.get_boolean ("sound"))
-            init_sound ();
-
         GLib.Menu appearance_menu = new GLib.Menu ();
         section = new GLib.Menu ();
         /* Translators: hamburger menu "Appearance" submenu entry; a name for the default theme */
@@ -424,51 +410,25 @@ private class Iagno : Gtk.Application, BaseApplication
         appearance_menu.append_section (_("Highlights"), section);
         appearance_menu.freeze ();
 
-        /* history buttons */
-
-        history_menu = new GLib.Menu ();
-        /* Translators: history menu entry (with a mnemonic that appears pressing Alt) */
-        history_menu.append (_("_Undo last move"), "ui.undo");
-        history_menu.freeze ();
-
-        finish_menu = new GLib.Menu ();
-        /* Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt) */
-        finish_menu.append (_("_Show final board"), "ui.undo");
-        finish_menu.freeze ();
-
-        history_button_1 = new HistoryButton (history_menu, theme_manager);
-        history_button_2 = new HistoryButton (history_menu, theme_manager);
-        view.notify_final_animation.connect ((undoing) => {
-                history_button_1.update_menu (undoing ? history_menu : finish_menu);
-                history_button_2.update_menu (undoing ? history_menu : finish_menu);
-            });
-        history_button_1.show ();
-        history_button_2.show ();
-
         /* window */
-        init_night_mode ();
-        window = new GameWindow ("/org/gnome/Reversi/ui/iagno.css",
-                                 PROGRAM_NAME,
-                                 /* Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt) */
-                                 _("_About Reversi"),
-                                 start_now,
-                                 GameWindowFlags.SHOW_START_BUTTON
-                                 | GameWindowFlags.HAS_SOUND
-                                 | GameWindowFlags.SHORTCUTS
-                                 | GameWindowFlags.SHOW_HELP,
-                                 (Box) new_game_screen,
-                                 view,
-                                 appearance_menu,
-                                 history_button_1,
-                                 history_button_2,
-                                 night_light_monitor);
+        window = new GameWindow (start_now, view, appearance_menu);
+
+        window.new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.ONE, type_menu);
+        window.new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.TWO, level_menu);
+
+        window.history_button1.theme_manager = theme_manager;
+        window.history_button2.theme_manager = theme_manager;
+        view.notify_final_animation.connect ((undoing) => {
+                window.history_button1.set_game_finished (!undoing);
+                window.history_button2.set_game_finished (!undoing);
+            });
 
         window.play.connect (start_game);
         window.wait.connect (wait_cb);
         window.back.connect (back_cb);
         window.undo.connect (undo_cb);
 
-        window.gtk_theme_changed.connect (theme_manager.gtk_theme_changed);
+        theme_manager.gtk_theme_changed ();
 
         /* Preferences */
         settings.bind ("highlight-playable-tiles", view,            "show-playable-tiles", SettingsBindFlags.GET);
@@ -569,18 +529,14 @@ private class Iagno : Gtk.Application, BaseApplication
     * * Night mode
     \*/
 
-    NightLightMonitor night_light_monitor;  // keep it here or it is unrefed
-
-    private void init_night_mode ()
-    {
-        night_light_monitor = new NightLightMonitor ("/org/gnome/iagno/");
-    }
-
     private void set_use_night_mode (SimpleAction action, Variant? gvariant)
         requires (gvariant != null)
     {
-        night_light_monitor.set_use_night_mode (((!) gvariant).get_boolean ());
-        theme_manager.gtk_theme_changed ();
+        var style_manager = Adw.StyleManager.get_default ();
+        if (((!) gvariant).get_boolean ())
+            style_manager.color_scheme = Adw.ColorScheme.PREFER_DARK;
+        else
+            style_manager.color_scheme = Adw.ColorScheme.FORCE_LIGHT;
     }
 
     /*\
@@ -622,17 +578,17 @@ private class Iagno : Gtk.Application, BaseApplication
         switch (type)
         {
             case "two":
-                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
                 /* Translators: when configuring a new game, button label if a two-players game is chosen */
-                                                         "%s ▾".printf (_("Two players")));             return;
+                                                         _("Two players"));             return;
             case "dark":
-                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
                 /* Translators: when configuring a new game, button label if the player choose to start */
-                                                         "%s ▾".printf (_("Color: Dark")));             return;
+                                                         _("Color: Dark"));             return;
             case "light":
-                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
                 /* Translators: when configuring a new game, button label if the player choose let computer start */
-                                                         "%s ▾".printf (_("Color: Light")));            return;
+                                                         _("Color: Light"));            return;
             default: assert_not_reached ();
         }
     }
@@ -658,7 +614,7 @@ private class Iagno : Gtk.Application, BaseApplication
                 change_level_action.set_enabled (false);
                 if (alternative_start || random_start || usual_start)
                 {
-                    new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, false);
+                    window.new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, false);
                     update_level_button_label ((uint8) settings.get_int ("computer-level"));
                 }
                 else
@@ -666,17 +622,17 @@ private class Iagno : Gtk.Application, BaseApplication
 
             case 1:
                 change_level_action.set_enabled (true);
-                new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
+                window.new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
                 update_level_button_label (1);                                                          return;
 
             case 2:
                 change_level_action.set_enabled (true);
-                new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
+                window.new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
                 update_level_button_label (2);                                                          return;
 
             case 3:
                 change_level_action.set_enabled (true);
-                new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
+                window.new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
                 update_level_button_label (3);                                                          return;
 
             default: assert_not_reached ();
@@ -687,21 +643,21 @@ private class Iagno : Gtk.Application, BaseApplication
         switch (level)
         {
             case 0:
-                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, second menubutton label, when configuring a two-player game */
-                                                         "%s ▾".printf (_("More options")));            return;
+                                                         _("More options"));            return;
             case 1:
-                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, button label for the AI level, if easy */
-                                                         "%s ▾".printf (_("Difficulty: Easy")));        return;
+                                                         _("Difficulty: Easy"));        return;
             case 2:
-                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, button label for the AI level, if medium */
-                                                         "%s ▾".printf (_("Difficulty: Medium")));      return;
+                                                         _("Difficulty: Medium"));      return;
             case 3:
-                new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
                 /* Translators: when configuring a new game, button label for the AI level, if hard */
-                                                         "%s ▾".printf (_("Difficulty: Hard")));        return;
+                                                         _("Difficulty: Hard"));        return;
             default: assert_not_reached ();
         }
     }
@@ -772,10 +728,10 @@ private class Iagno : Gtk.Application, BaseApplication
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
 
-        history_button_1.set_player (Player.DARK);
-        history_button_2.set_player (Player.DARK);
-        history_button_1.update_menu (history_menu);
-        history_button_2.update_menu (history_menu);
+        window.history_button1.set_player (Player.DARK);
+        window.history_button2.set_player (Player.DARK);
+        window.history_button1.set_game_finished (false);
+        window.history_button2.set_game_finished (false);
 
         if (two_players)
             computer = null;
@@ -919,8 +875,8 @@ private class Iagno : Gtk.Application, BaseApplication
         requires (game_is_set)
     {
         window.finish_game ();
-        history_button_1.set_player (Player.NONE);
-        history_button_2.set_player (Player.NONE);
+        window.history_button1.set_player (Player.NONE);
+        window.history_button2.set_player (Player.NONE);
 
         if ((!game.reverse && game.n_light_tiles > game.n_dark_tiles)
          || ( game.reverse && game.n_light_tiles < game.n_dark_tiles))
@@ -970,15 +926,14 @@ private class Iagno : Gtk.Application, BaseApplication
     private void clear_impossible_to_move_here_warning ()
         requires (game_is_set)
     {
-        window.clear_subtitle ();
     }
 
     private void update_scoreboard ()
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
-        history_button_1.set_player (game.current_color);
-        history_button_2.set_player (game.current_color);
+        window.history_button1.set_player (game.current_color);
+        window.history_button2.set_player (game.current_color);
     }
 
     private void set_window_title ()
@@ -994,8 +949,7 @@ private class Iagno : Gtk.Application, BaseApplication
     * * Sound
     \*/
 
-    private GSound.Context sound_context;
-    private SoundContextState sound_context_state = SoundContextState.INITIAL;
+    private MediaFile? last_played;
 
     private enum Sound
     {
@@ -1010,35 +964,11 @@ private class Iagno : Gtk.Application, BaseApplication
         ERRORED
     }
 
-    private void init_sound ()
-     // requires (sound_context_state == SoundContextState.INITIAL)
-    {
-        try
-        {
-            sound_context = new GSound.Context ();
-            sound_context_state = SoundContextState.WORKING;
-        }
-        catch (Error e)
-        {
-            warning (e.message);
-            sound_context_state = SoundContextState.ERRORED;
-        }
-    }
-
     private void play_sound (Sound sound)
     {
-        if (settings.get_boolean ("sound"))
-        {
-            if (sound_context_state == SoundContextState.INITIAL)
-                init_sound ();
-            if (sound_context_state == SoundContextState.WORKING)
-                _play_sound (sound, sound_context, theme_manager);
-        }
-    }
+        if (!settings.get_boolean ("sound"))
+            return;
 
-    private static inline void _play_sound (Sound sound, GSound.Context sound_context, ThemeManager theme_manager)
-     // requires (sound_context_state == SoundContextState.WORKING)
-    {
         string name;
         switch (sound)
         {
@@ -1055,96 +985,61 @@ private class Iagno : Gtk.Application, BaseApplication
             assert_not_reached ();
 
         string path = Path.build_filename (SOUND_DIRECTORY, name);
-        try
-        {
-            sound_context.play_simple (null, GSound.Attribute.MEDIA_NAME, name,
-                                             GSound.Attribute.MEDIA_FILENAME, path);
-        }
-        catch (Error e)
-        {
-            warning (e.message);
-        }
+        var media_file = MediaFile.for_filename (path);
+        last_played = media_file;
+        media_file.play ();
     }
 
-    /*\
-    * * Copy action
-    \*/
-
-    internal void copy (string text)
+    private void help (/* SimpleAction action, Variant? variant */)
     {
-        Gdk.Display? display = Gdk.Display.get_default ();
-        if (display == null)
-            return;
-
-        Gtk.Clipboard clipboard = Gtk.Clipboard.get_default ((!) display);
-        clipboard.set_text (text, text.length);
+        show_uri (active_window, "help:iagno", Gdk.CURRENT_TIME);
     }
 
-    /*\
-    * * about dialog infos
-    \*/
-
-    internal void get_about_dialog_infos (out string [] artists,
-                                          out string [] authors,
-                                          out string    comments,
-                                          out string    copyright,
-                                          out string [] documenters,
-                                          out string    logo_icon_name,
-                                          out string    program_name,
-                                          out string    translator_credits,
-                                          out string    version,
-                                          out string    website,
-                                          out string    website_label)
+    private void about (/* SimpleAction action, Variant? path_variant */)
     {
-        /* Translators: about dialog text */
-        comments = _("A disk flipping game derived from Reversi");
-
-        artists = {
-        /* Translators: text crediting an artist, in the about dialog */
+        var about_dialog = new Adw.AboutDialog ();
+        about_dialog.set_title (_("About"));
+        about_dialog.set_application_icon ("org.gnome.Reversi");
+        about_dialog.set_application_name (PROGRAM_NAME);
+        about_dialog.set_version (VERSION);
+        about_dialog.set_license_type (License.GPL_3_0);    // forced, 1/3
+        about_dialog.set_artists ({
+            /* Translators: text crediting an artist, in the about dialog */
             _("Masuichi Ito (pieces)"),
-
-
-        /* Translators: text crediting an artist, in the about dialog */
+            /* Translators: text crediting an artist, in the about dialog */
             _("Arnaud Bonatti (themes)")
-        };
-
-        authors = {
-        /* Translators: text crediting an author, in the about dialog */
+        });
+        about_dialog.set_developers ({
+            /* Translators: text crediting an author, in the about dialog */
             _("Ian Peters"),
-
-
-        /* Translators: text crediting an author, in the about dialog */
+            /* Translators: text crediting an author, in the about dialog */
             _("Robert Ancell"),
-
-
-        /* Translators: text crediting an author, in the about dialog */
+            /* Translators: text crediting an author, in the about dialog */
             _("Arnaud Bonatti")
-        };
+        });
+        about_dialog.set_comments (
+            /* Translators: about dialog text */
+            _("A disk flipping game derived from Reversi")
+        );
+        about_dialog.set_copyright (
+            /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
+            _("Copyright \xc2\xa9 %u-%u – Ian Peters").printf (1998, 2008) + "\n" +
+            /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
+            _("Copyright \xc2\xa9 %u-%u – Michael Catanzaro").printf (2013, 2015) + "\n" +
+            /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
+            _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2014, 2020)
+        );
+        about_dialog.set_documenters ({
+            /* Translators: text crediting a documenter, in the about dialog */
+            _("Tiffany Antopolski")
+        });
+        about_dialog.set_translator_credits (
+            /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
+            _("translator-credits")
+        );
+        about_dialog.set_website ("https://wiki.gnome.org/Apps/Reversi");
 
-
-        /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
-        copyright = _("Copyright \xc2\xa9 %u-%u – Ian Peters").printf (1998, 2008) + "\n" +
-
-
-        /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
-                    _("Copyright \xc2\xa9 %u-%u – Michael Catanzaro").printf (2013, 2015) + "\n" +
-
-
-        /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
-                    _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2014, 2020);
-
-
-        /* Translators: text crediting a documenter, in the about dialog */
-        documenters = { _("Tiffany Antopolski") };
-        logo_icon_name = "org.gnome.Reversi";
-        program_name = PROGRAM_NAME;
-
-        /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
-        translator_credits = _("translator-credits");
-        version = VERSION;
-
-        website = "https://wiki.gnome.org/Apps/Reversi";
-        /* Translators: about dialog text; label of the website link */
-        website_label = _("Page on GNOME wiki");
+        about_dialog.present (active_window);
     }
 }
+

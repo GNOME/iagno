@@ -23,34 +23,11 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/new-game-screen.ui")]
 private class NewGameScreen : Box, AdaptativeWidget
 {
-    [GtkChild] private unowned ModelButton modelbutton_one;
-    [GtkChild] private unowned ModelButton modelbutton_two;
+    [GtkChild] private unowned GameSelectButton modelbutton_one;
+    [GtkChild] private unowned GameSelectButton modelbutton_two;
 
     [GtkChild] private unowned Gtk.MenuButton menubutton_one;
     [GtkChild] private unowned Gtk.MenuButton menubutton_two;
-
-    construct
-    {
-        CssProvider css_provider = new CssProvider ();
-        css_provider.load_from_resource ("/org/gnome/Reversi/ui/new-game-screen.css");
-        Gdk.Screen? gdk_screen = Gdk.Screen.get_default ();
-        if (gdk_screen != null) // else..?
-            StyleContext.add_provider_for_screen ((!) gdk_screen, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        fix_race ();
-    }
-
-    internal NewGameScreen (string modelbutton_one_label,
-                            string modelbutton_one_action,
-                            string modelbutton_two_label,
-                            string modelbutton_two_action)
-    {
-        modelbutton_one.text = modelbutton_one_label;
-        modelbutton_two.text = modelbutton_two_label;
-
-        modelbutton_one.set_detailed_action_name (modelbutton_one_action);
-        modelbutton_two.set_detailed_action_name (modelbutton_two_action);
-    }
 
     /*\
     * * options buttons
@@ -88,23 +65,9 @@ private class NewGameScreen : Box, AdaptativeWidget
         }
     }
 
-    // that is a quite usual menubutton label, so put it here
-    internal static inline string get_size_button_label (int size)
-    {
-        /* Translators: when configuring a new game, button label for the size of the game ("3 × 3", or 4, or 5) */
-        return _("Size: %d × %d ▾").printf (size, size);
-     // return _("Size: %hhu × %hhu ▾").printf (size, size));   // TODO uint8
-    }
-
     /*\
     * * adaptative stuff
     \*/
-
-    private void fix_race ()   // FIXME things are a bit racy between the CSS and the box orientation changes, so delay games_box redraw
-    {
-        size_allocate.connect_after (() => games_box.show ());
-        map.connect (() => games_box.show ());
-    }
 
     [GtkChild] private unowned Box          games_box;
     [GtkChild] private unowned Box          options_box;
@@ -142,6 +105,9 @@ private class NewGameScreen : Box, AdaptativeWidget
                 options_box.set_orientation (Orientation.VERTICAL);
                 options_separator.set_orientation (Orientation.VERTICAL);
                 options_separator.show ();
+
+                modelbutton_one.with_image = false;
+                modelbutton_two.with_image = false;
             }
             else
             {
@@ -151,7 +117,9 @@ private class NewGameScreen : Box, AdaptativeWidget
                 this.set_orientation (Orientation.VERTICAL);
                 games_box.set_orientation (Orientation.HORIZONTAL);
                 options_box.set_orientation (Orientation.HORIZONTAL);
-                games_box.hide ();
+
+                modelbutton_one.with_image = true;
+                modelbutton_two.with_image = true;
             }
         }
         else if (_phone_size)
@@ -163,6 +131,9 @@ private class NewGameScreen : Box, AdaptativeWidget
             options_box.set_orientation (Orientation.VERTICAL);
             options_separator.set_orientation (Orientation.HORIZONTAL);
             options_separator.show ();
+
+            modelbutton_one.with_image = false;
+            modelbutton_two.with_image = false;
         }
         else
         {
@@ -172,6 +143,9 @@ private class NewGameScreen : Box, AdaptativeWidget
             options_box.set_orientation (Orientation.VERTICAL);
             games_label.show ();
             options_label.show ();
+
+            modelbutton_one.with_image = false;
+            modelbutton_two.with_image = false;
         }
         queue_allocate ();
     }

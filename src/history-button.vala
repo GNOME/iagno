@@ -21,33 +21,46 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/history-button.ui")]
-private class HistoryButton : MenuButton, AdaptativeWidget
+private class HistoryButton : Widget
 {
-    [CCode (notify = false)] public ThemeManager theme_manager { private get; protected construct; }
-
-    [GtkChild] private unowned Stack stack;
-    [GtkChild] private unowned DrawingArea drawing;
-
-    internal HistoryButton (GLib.Menu menu, ThemeManager theme_manager)
+    private ThemeManager _theme_manager;
+    [CCode (notify = false)] public ThemeManager theme_manager
     {
-        Object (menu_model: menu, theme_manager: theme_manager);
-    }
-
-    construct
-    {
-        drawing.configure_event.connect (configure_drawing);
-        drawing.draw.connect (update_drawing);
-        theme_manager.theme_changed.connect (() => {
-                if (!drawing_configured)
-                    return;
-                tiles_pattern = null;
+        get { return _theme_manager; }
+        set
+        {
+            _theme_manager = value;
+            _theme_manager.theme_changed.connect (() => {
                 if (current_player != Player.NONE)
                     drawing.queue_draw ();
             });
+        }
     }
 
-    protected override void set_window_size (AdaptativeWidget.WindowSize new_size)
+    [GtkChild] private unowned MenuButton menu_button;
+    [GtkChild] private unowned Stack stack;
+    [GtkChild] private unowned DrawingArea drawing;
+
+    private GLib.Menu history_menu;
+    private GLib.Menu finish_menu;
+
+    construct
     {
+        layout_manager = new BinLayout ();
+
+        history_menu = new GLib.Menu ();
+        /* Translators: history menu entry (with a mnemonic that appears pressing Alt) */
+        history_menu.append (_("_Undo last move"), "ui.undo");
+        history_menu.freeze ();
+
+        finish_menu = new GLib.Menu ();
+        /* Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt) */
+        finish_menu.append (_("_Show final board"), "ui.undo");
+        finish_menu.freeze ();
+
+        menu_button.menu_model = history_menu;
+
+        drawing.set_draw_func (update_drawing);
     }
 
     internal void set_player (Player player)
@@ -62,16 +75,20 @@ private class HistoryButton : MenuButton, AdaptativeWidget
         }
     }
 
-    internal inline void update_menu (GLib.Menu menu)
+    public void set_game_finished (bool finished)
     {
-        set_menu_model (menu);
+        menu_button.set_menu_model (finished ? finish_menu : history_menu);
+    }
+
+    public bool active
+    {
+        get { return menu_button.active; }
     }
 
     /*\
     * * drawing
     \*/
 
-    private bool drawing_configured = false;
     private int drawing_height      = int.MIN;
     private int drawing_width       = int.MIN;
     private double arrow_half_width = - double.MAX;
@@ -81,7 +98,7 @@ private class HistoryButton : MenuButton, AdaptativeWidget
 
     private Gdk.Pixbuf tileset_pixbuf;
 
-    private bool configure_drawing ()
+    private void configure_drawing ()
     {
         int height          = drawing.get_allocated_height ();
         int width           = drawing.get_allocated_width ();
@@ -95,9 +112,6 @@ private class HistoryButton : MenuButton, AdaptativeWidget
         drawing_width       =  vertical_fill ? (int) (new_height * 2.0) : width;
         board_x             =  vertical_fill ? (int) ((width  - drawing_width)  / 2.0) : 0;
         board_y             = !vertical_fill ? (int) ((height - drawing_height) / 2.0) : 0;
-
-        drawing_configured  = true;
-        return true;
     }
 
     private Cairo.Pattern? tiles_pattern = null;
@@ -113,17 +127,15 @@ private class HistoryButton : MenuButton, AdaptativeWidget
         tiles_pattern = new Cairo.Pattern.for_surface (surface);
     }
 
-    private bool update_drawing (Cairo.Context cr)
+    private void update_drawing (DrawingArea area, Cairo.Context cr, int w, int h)
     {
-        if (!drawing_configured)
-            return false;
+        configure_drawing ();
 
         if (tiles_pattern == null)
             init_pattern (cr);
 
         draw_arrow (cr);
         draw_piece (cr);
-        return true;
     }
 
     private const double arrow_margin_top = 3.0;

@@ -20,65 +20,71 @@
 
 using Gtk;
 
-[Flags]
-private enum GameWindowFlags {
-    HAS_SOUND,
-    SHORTCUTS,
-    SHOW_HELP,
-    SHOW_START_BUTTON;
-}
-
-private class GameWindow : BaseWindow, AdaptativeWidget
+[GtkTemplate (ui = "/org/gnome/Reversi/ui/game-window.ui")]
+private class GameWindow : AdaptativeWindow, AdaptativeWidget
 {
+    [GtkChild] private unowned Adw.WindowTitle  window_title;
+
+    [GtkChild] private unowned Button           new_game_button;
+    [GtkChild] private unowned Button           back_button;
+
+    [GtkChild] private unowned MenuButton       info_button;
+
+    [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
+
+    [GtkChild] private unowned Stack            game_stack;
+    [GtkChild] private unowned Box              game_box;
+    [GtkChild] private unowned Button           start_game_button;
+
+    [GtkChild] private unowned Box              action_bar;
+    [GtkChild] private unowned Label            game_label;
+
+    [GtkChild] public  unowned NewGameScreen    new_game_screen;
+    [GtkChild] public  unowned Box              history_button1_box;
+    [GtkChild] public  unowned HistoryButton    history_button1;
+    [GtkChild] public  unowned HistoryButton    history_button2;
+
     private bool game_finished = false;
 
     /* private widgets */
-    private GameHeaderBar   headerbar;
-    private GameView        game_view;
-    private GameActionBar   actionbar;
+    private GLib.Menu?      appearance_menu = null;
+    private Widget          game_content;
 
-    internal GameWindow (string? css_resource, string name, string about_action_label, bool start_now, GameWindowFlags flags, Box new_game_screen, Widget view_content, GLib.Menu? appearance_menu, Widget? game_widget_1, Widget? game_widget_2, NightLightMonitor night_light_monitor)
+    internal GameWindow (bool start_now, Widget view_content, GLib.Menu? appearance_menu)
     {
-        GameActionBar _actionbar = new GameActionBar (name, game_widget_2, /* show actionbar */ start_now);
-        GameActionBarPlaceHolder actionbar_placeholder = new GameActionBarPlaceHolder (_actionbar);
+        Object (title : Iagno.PROGRAM_NAME);
 
-        GameHeaderBar _headerbar = new GameHeaderBar (name, about_action_label, flags, appearance_menu, game_widget_1, night_light_monitor);
-        GameView      _game_view = new GameView (flags, new_game_screen, view_content, actionbar_placeholder);
+        window_title.title = Iagno.PROGRAM_NAME;
+        game_content = view_content;
 
-        Object (nta_headerbar               : (NightTimeAwareHeaderBar) _headerbar,
-                base_view                   : (BaseView) _game_view,
-                window_title                : Iagno.PROGRAM_NAME,
-                specific_css_class_or_empty : "",
-                help_string_or_empty        : "help:iagno",
-                schema_path                 : "/org/gnome/iagno/");
+        this.appearance_menu = appearance_menu;
+        update_hamburger_menu ();
 
-        headerbar = _headerbar;
-        game_view = _game_view;
-        actionbar = _actionbar;
+        game_content.hexpand = true;
+        game_content.vexpand = true;
+        game_content.halign = Align.FILL;
+        game_content.valign = Align.FILL;
+        game_content.margin_start = 6;
+        game_content.margin_end = 6;
+        game_content.margin_top = 6;
+        game_content.margin_bottom = 6;
+        game_box.prepend (game_content);
 
-        add_to_main_overlay (actionbar);
-        actionbar.valign = Align.END;
-
-        add_adaptative_child ((AdaptativeWidget) new_game_screen);
-        add_adaptative_child ((AdaptativeWidget) game_view);
-        add_adaptative_child ((AdaptativeWidget) actionbar);
-        add_adaptative_child ((AdaptativeWidget) actionbar_placeholder);
-
-        /* CSS */
-        if (css_resource != null)
-        {
-            CssProvider css_provider = new CssProvider ();
-            css_provider.load_from_resource ((!) css_resource);
-            Gdk.Screen? gdk_screen = Gdk.Screen.get_default ();
-            if (gdk_screen != null) // else..?
-                StyleContext.add_provider_for_screen ((!) gdk_screen, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
-        }
+        add_adaptative_child (this);
+        add_adaptative_child (new_game_screen);
 
         /* window actions */
+        install_action_entries ();
         install_ui_action_entries ();
 
         /* window config */
         set_title (name);
+
+        /* remember window state */
+        var settings = new GLib.Settings.with_path ("org.gnome.Reversi.Lib", "/org/gnome/iagno/");
+        settings.bind ("window-width", this, "default-width", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-height", this, "default-height", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-is-maximized", this, "maximized", SettingsBindFlags.DEFAULT);
 
         /* start or not */
         if (start_now)
@@ -87,16 +93,94 @@ private class GameWindow : BaseWindow, AdaptativeWidget
             show_new_game_screen ();
     }
 
+    construct
+    {
+        var style_manager = Adw.StyleManager.get_default ();
+        style_manager.notify ["dark"].connect (update_hamburger_menu);
+        style_manager.notify ["high-contrast"].connect (update_hamburger_menu);
+    }
+
+    /*\
+    * * hamburger menu
+    \*/
+
+    protected void update_hamburger_menu ()
+    {
+        GLib.Menu menu = new GLib.Menu ();
+
+        {
+            GLib.Menu section = new GLib.Menu ();
+
+            if (appearance_menu != null)
+                /* Translators: hamburger menu entry; "Appearance" submenu (with a mnemonic that appears pressing Alt) */
+                section.append_submenu (_("A_ppearance"), (!) appearance_menu);
+
+            /* Translators: hamburger menu entry; sound togglebutton (with a mnemonic that appears pressing Alt) */
+            section.append (_("_Sound"), "app.sound");
+
+            menu.append_section (null, section);
+        }
+        {
+            GLib.Menu section = new GLib.Menu ();
+
+            append_or_not_night_mode_entry (ref section);
+            append_or_not_keyboard_shortcuts_entry (ref section);
+
+            /* Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt) */
+            section.append (_("_Help"), "app.help");
+            /* Translators: hamburger menu entry; open about dialog (with a mnemonic that appears pressing Alt) */
+            section.append (_("_About Reversi"), "app.about");
+
+            menu.append_section (null, section);
+        }
+
+        info_button.set_menu_model ((MenuModel) menu);
+    }
+
+    private void append_or_not_night_mode_entry (ref GLib.Menu section)
+    {
+        var style_manager = Adw.StyleManager.get_default ();
+
+        if (style_manager.high_contrast)
+            return;
+
+        if (style_manager.dark)
+            /* Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night */
+            section.append (_("Pause night mode"), "app.set-use-night-mode(false)");
+
+        else if (style_manager.color_scheme != Adw.ColorScheme.PREFER_DARK)
+            /* Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night */
+            section.append (_("Reuse night mode"), "app.set-use-night-mode(true)");
+
+        else
+            /* Translators: there are three related actions: "use", "reuse" and "pause"; displayed in the hamburger menu at night */
+            section.append (_("Use night mode"), "app.set-use-night-mode(true)");
+    }
+
+    private inline void append_or_not_keyboard_shortcuts_entry (ref GLib.Menu section)
+    {
+        // TODO something in small windows
+        if (!has_a_phone_size)
+        {
+            /* Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt) */
+            section.append (_("_Keyboard Shortcuts"), "win.show-help-overlay");
+        }
+    }
+
     /*\
     * * adaptative stuff
     \*/
 
+    private bool is_extra_thin = true;
     private bool is_quite_thin = false;
+    private bool has_a_phone_size = false;
     protected override void set_window_size (AdaptativeWidget.WindowSize new_size)
     {
-        base.set_window_size (new_size);
-
+        is_extra_thin = AdaptativeWidget.WindowSize.is_extra_thin (new_size);
         is_quite_thin = AdaptativeWidget.WindowSize.is_quite_thin (new_size);
+        has_a_phone_size = AdaptativeWidget.WindowSize.is_phone_size (new_size);
+
+        update_hamburger_menu ();
     }
 
     /*\
@@ -106,25 +190,25 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     internal void finish_game ()
     {
         game_finished = true;
-        headerbar.finish_game ();
+        if (!history_button1.active)
+            new_game_button.grab_focus ();
+        else
+            set_default_widget (new_game_button);    // FIXME: grab_focus, but without closing the popover...
     }
 
-    protected override bool escape_pressed ()
+    private void escape_pressed (/* SimpleAction action, Variant? path_variant */)
     {
-        if (base.escape_pressed ())
-            return true;
-        if (back_action_disabled)
-            return true;
-        back_cb ();
-        return true;
+        if (!back_action_disabled)
+            back_cb ();
     }
+
     private void back_cb ()
     {
-        if (game_view.game_content_visible_if_true ())
+        if (game_content_visible_if_true ())
             return;
 
         // TODO change back headerbar subtitle?
-        game_view.configure_transition (StackTransitionType.SLIDE_RIGHT, 800);
+        configure_transition (StackTransitionType.SLIDE_RIGHT, 800);
         show_view ();
 
         back ();
@@ -137,22 +221,59 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     private void show_new_game_screen ()
     {
         hide_notification ();
-        headerbar.update_title (Iagno.PROGRAM_NAME);
-        actionbar.set_visibility (false);
-        bool grabs_focus = headerbar.show_new_game_screen (game_finished);
-        game_view.show_new_game_box (/* grab focus */ !grabs_focus);
+        update_title (Iagno.PROGRAM_NAME);
+        game_stack.set_visible_child_name ("new-game");
+        history_button1_box.visible = false;
+
+        if (!game_finished && back_button.visible)
+            back_button.grab_focus ();
+        else
+            start_game_button.grab_focus ();
     }
 
     private void show_view ()
     {
-        bool grabs_focus = headerbar.show_view (game_finished);
-        game_view.show_game_content (/* grab focus */ !grabs_focus);
+        back_button.hide ();        // TODO transition?
+        new_game_button.show ();    // TODO transition?
+        history_button1_box.visible = true;
+
+        bool grabs_focus;
+        if (game_finished)
+        {
+            new_game_button.grab_focus ();
+            grabs_focus = false;
+        }
+        else
+            grabs_focus = true;
+
+        show_game_content (grabs_focus);
         escape_action.set_enabled (false);
     }
 
     /*\
     * * actions
     \*/
+
+    private SimpleAction escape_action;
+
+    private void install_action_entries ()
+    {
+        SimpleActionGroup action_group = new SimpleActionGroup ();
+        action_group.add_action_entries (action_entries, this);
+        insert_action_group ("base", action_group);
+
+        GLib.Action? tmp_action = action_group.lookup_action ("escape");
+        if (tmp_action == null)
+            assert_not_reached ();
+        escape_action = (SimpleAction) (!) tmp_action;
+        escape_action.set_enabled (false);
+    }
+
+    private const GLib.ActionEntry [] action_entries =
+    {
+        { "escape",             escape_pressed      },  // Escape
+        { "toggle-hamburger",   toggle_hamburger    }   // F10
+    };
 
     internal signal void play ();
     internal signal void wait ();
@@ -197,11 +318,18 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         { "hint", hint_cb }
     };
 
+    /*\
+    * * keyboard open menus actions
+    \*/
+
+    private void toggle_hamburger (/* SimpleAction action, Variant? variant */)
+    {
+        info_button.active = !info_button.active;
+    }
+
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
     {
-        if (game_view.is_in_in_window_mode ())
-            return;
-        if (!game_view.game_content_visible_if_true ())
+        if (!game_content_visible_if_true ())
             return;
 
         new_game ();
@@ -209,9 +337,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
     private void undo_cb (/* SimpleAction action, Variant? variant */)
     {
-        if (game_view.is_in_in_window_mode ())
-            return;
-        if (!game_view.game_content_visible_if_true ())
+        if (!game_content_visible_if_true ())
         {
             if (!back_action_disabled)
                 back_cb ();     // FIXME not reached if undo_action is disabled, so at game start or finish
@@ -220,7 +346,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
         game_finished = false;
 
-        game_view.show_game_content (/* grab focus */ true);
+        show_game_content (/* grab focus */ true);
      // redo_action.set_enabled (true);
 
         undo ();
@@ -228,12 +354,10 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
     private void redo_cb (/* SimpleAction action, Variant? variant */)
     {
-        if (game_view.is_in_in_window_mode ())
-            return;
-        if (!game_view.game_content_visible_if_true ())
+        if (!game_content_visible_if_true ())
             return;
 
-        game_view.show_game_content (/* grab focus */ true);
+        show_game_content (/* grab focus */ true);
      // restart_action.set_enabled (true);
         undo_action.set_enabled (true);
 
@@ -242,9 +366,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
     private void hint_cb (/* SimpleAction action, Variant? variant */)
     {
-        if (game_view.is_in_in_window_mode ())
-            return;
-        if (!game_view.game_content_visible_if_true ())
+        if (!game_content_visible_if_true ())
             return;
 
         hint ();
@@ -254,28 +376,16 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     * * Some internal calls
     \*/
 
-    internal void cannot_undo_more ()
-    {
-        undo_action.set_enabled (false);
-        game_view.show_game_content (/* grab focus */ true);
-    }
-
     internal void new_turn_start (bool can_undo)
     {
         undo_action.set_enabled (can_undo);
         hide_notification ();
     }
 
-    internal void clear_subtitle ()
+    internal void update_title (string new_title)
     {
-        headerbar.set_subtitle (null);
-    }
-
-    internal void update_title (string game_name)
-    {
-        headerbar.update_title (game_name);
-        actionbar.update_title (game_name);
-        actionbar.set_visibility (true);
+        window_title.title = new_title;
+        game_label.set_label (new_title);
     }
 
     /*\
@@ -286,9 +396,11 @@ private class GameWindow : BaseWindow, AdaptativeWidget
     {
         wait ();
 
-        game_view.configure_transition (StackTransitionType.SLIDE_LEFT, 800);
+        configure_transition (StackTransitionType.SLIDE_LEFT, 800);
 
-        headerbar.new_game ();
+        back_button.show ();
+        new_game_button.hide ();        // TODO transition?
+
         back_action_disabled = false;
         escape_action.set_enabled (true);
         show_new_game_screen ();
@@ -296,10 +408,7 @@ private class GameWindow : BaseWindow, AdaptativeWidget
 
     private void start_game_cb ()
     {
-        if (game_view.is_in_in_window_mode ())
-            return;
-
-        if (game_view.game_content_visible_if_true ())
+        if (game_content_visible_if_true ())
             return;
 
         game_finished = false;
@@ -310,9 +419,46 @@ private class GameWindow : BaseWindow, AdaptativeWidget
         play ();        // FIXME lag (see in Taquin…)
 
         if (is_quite_thin)
-            game_view.configure_transition (StackTransitionType.SLIDE_DOWN, 1000);
+            configure_transition (StackTransitionType.SLIDE_DOWN, 1000);
         else
-            game_view.configure_transition (StackTransitionType.OVER_DOWN_UP, 1000);
+            configure_transition (StackTransitionType.OVER_DOWN_UP, 1000);
         show_view ();
+    }
+
+    /*\
+    * * notifications
+    \*/
+
+    internal void show_notification (string notification)
+    {
+        toast_overlay.add_toast (new Adw.Toast (notification));
+    }
+
+    internal void hide_notification ()
+    {
+        toast_overlay.dismiss_all ();
+    }
+
+    /*\
+    * * some internal calls
+    \*/
+
+    internal void show_game_content (bool grab_focus)
+    {
+        game_stack.set_visible_child_name ("game");
+        if (grab_focus)
+            game_content.grab_focus ();
+    }
+
+    internal bool game_content_visible_if_true ()
+    {
+        return game_stack.get_visible_child_name () == "game";
+    }
+
+    internal void configure_transition (StackTransitionType transition_type,
+                                        uint                transition_duration)
+    {
+        game_stack.set_transition_type (transition_type);
+        game_stack.set_transition_duration (transition_duration);
     }
 }

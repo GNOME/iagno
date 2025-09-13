@@ -11,13 +11,13 @@ i18n = import('i18n')
 cc = meson.get_compiler('c')
 valac = meson.get_compiler('vala')
 
-gio_dependency = dependency('gio-2.0', version: '>= 2.42.0')
-glib_dependency = dependency('glib-2.0', version: '>= 2.42.0')
-gsound_dependency = dependency('gsound', version: '>= 1.0.2')
-gtk_dependency = dependency('gtk+-3.0', version: '>= 3.24.0')
+gio_dependency = dependency('gio-2.0', version: '>= 2.78.0')
+glib_dependency = dependency('glib-2.0', version: '>= 2.78.0')
+gtk_dependency = dependency('gtk4', version: '>= 4.12.0')
+adw_dependency = dependency('libadwaita-1', version: '>= 1.6')
 libm_dependency = cc.find_library('m', required: false) # some platforms do not have libm separated from libc
 posix_dependency = valac.find_library('posix')
-rsvg_dependency = dependency('librsvg-2.0', version: '>= 2.32.0')
+rsvg_dependency = dependency('librsvg-2.0', version: '>= 2.56.0')
 
 appstreamcli            = find_program('appstreamcli',          required: false)
 desktop_file_validate   = find_program('desktop-file-validate', required: false)

@@ -12,6 +12,7 @@
         "--share=ipc",
         "--socket=x11",
         "--socket=wayland",
+        "--device=dri",
         "--socket=pulseaudio",
         "--filesystem=xdg-run/dconf",
         "--filesystem=~/.config/dconf:ro",
@@ -31,31 +32,6 @@
         "*.a"
     ],
     "modules" : [
-        {
-            "name" : "gsound",
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/gsound.git"
-                }
-            ],
-            "modules": [
-                {
-                    "name": "libcanberra",
-                    "config-opts": [
-                        "--disable-alsa",
-                        "--disable-null",
-                        "--disable-oss"
-                    ],
-                    "sources": [{
-                        "type": "archive",
-                        "url": "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz",
-                        "sha256": "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
-                    }]
-                }
-            ]
-        },
         {
             "name" : "iagno",
             "buildsystem": "meson",

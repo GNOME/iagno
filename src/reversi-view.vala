@@ -20,7 +20,7 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class ReversiView : Gtk.DrawingArea
+private class ReversiView : Gtk.Widget
 {
     private bool _show_playable_tiles = false;
     [CCode (notify = false)] internal bool show_playable_tiles
@@ -99,8 +99,6 @@ private class ReversiView : Gtk.DrawingArea
             if (!game_is_set)
             {
                 pixmaps = new int [game_size, game_size];
-                tile_xs = new int [game_size, game_size];
-                tile_ys = new int [game_size, game_size];
                 game_is_set = true;
             }
             init_possible_moves ();
@@ -168,13 +166,8 @@ private class ReversiView : Gtk.DrawingArea
         hexpand = true;
         vexpand = true;
 
-        set_events (Gdk.EventMask.EXPOSURE_MASK
-                  | Gdk.EventMask.BUTTON_PRESS_MASK
-                  | Gdk.EventMask.BUTTON_RELEASE_MASK
-                  | Gdk.EventMask.POINTER_MOTION_MASK
-                  | Gdk.EventMask.ENTER_NOTIFY_MASK
-                  | Gdk.EventMask.LEAVE_NOTIFY_MASK
-                  | Gdk.EventMask.STRUCTURE_MASK);
+        focusable = true;
+
         init_mouse ();
         init_keyboard ();
 
@@ -201,39 +194,22 @@ private class ReversiView : Gtk.DrawingArea
     private int paving_size;
     private int tile_size;
     private int board_size;
-    private int [,] tile_xs;
-    private int [,] tile_ys;
 
-    protected override bool configure_event (Gdk.EventConfigure e)
-        requires (game_is_set)
-    {
-        configure_theme ();
-        configuration_done = true;
-        return true;
-    }
     private void configure_theme ()
     {
-        int allocated_width  = get_allocated_width ();
-        int allocated_height = get_allocated_height ();
-        int size = int.min (allocated_width, allocated_height);
+        int width  = get_width ();
+        int height = get_height ();
+        int size = int.min (width, height);
         paving_size = (size - 2 * theme_manager.border_width + theme_manager.spacing_width) / game_size;
         tile_size = paving_size - theme_manager.spacing_width;
         board_size = paving_size * game_size - theme_manager.spacing_width + 2 * theme_manager.border_width;
-        board_x = (allocated_width  - board_size) / 2 + theme_manager.border_width;
-        board_y = (allocated_height - board_size) / 2 + theme_manager.border_width;
+        board_x = (width  - board_size) / 2 + theme_manager.border_width;
+        board_y = (height - board_size) / 2 + theme_manager.border_width;
 
         if (humans_opening_intensity != 0)
             configure_overture_origin ();
-
-        for (uint8 x = 0; x < game_size; x++)
-        {
-            for (uint8 y = 0; y < game_size; y++)
-            {
-                tile_xs [x, y] = paving_size * (int) x;
-                tile_ys [x, y] = paving_size * (int) y;
-            }
-        }
     }
+
     private inline void configure_overture_origin ()
     {
         if (game_size % 2 == 0)
@@ -268,10 +244,19 @@ private class ReversiView : Gtk.DrawingArea
         }
     }
 
-    protected override bool draw (Cairo.Context cr)
+    protected override void snapshot (Gtk.Snapshot snapshot)
     {
         if (!game_is_set)
-            return false;
+            return;
+
+        configure_theme ();
+
+        Graphene.Rect rect = Graphene.Rect () {
+            origin = { x: 0, y: 0 },
+            size = { width: get_width (), height: get_height ()  }
+        };
+
+        Cairo.Context cr = snapshot.append_cairo (rect);
 
         if (board_pattern == null || tiles_pattern == null || render_size != tile_size)
             init_patterns (cr);
@@ -298,8 +283,6 @@ private class ReversiView : Gtk.DrawingArea
             draw_playables (cr);
         else
             draw_overture_playables (cr);
-
-        return false;
     }
 
     private inline void init_patterns (Cairo.Context cr)
@@ -378,7 +361,7 @@ private class ReversiView : Gtk.DrawingArea
 
         for (uint8 x = 0; x < game_size; x++)
             for (uint8 y = 0; y < game_size; y++)
-                draw_tile_background (cr, ref noise_pattern, tile_xs [x, y], tile_ys [x, y]);
+                draw_tile_background (cr, ref noise_pattern, paving_size * x, paving_size * y);
     }
     private inline void draw_tile_background (Cairo.Context cr, ref Cairo.Pattern? noise_pattern, int tile_x, int tile_y)
     {
@@ -551,7 +534,7 @@ private class ReversiView : Gtk.DrawingArea
     {
         for (uint8 x = 0; x < game_size; x++)
             for (uint8 y = 0; y < game_size; y++)
-                draw_playable (cr, pixmaps [x, y], tile_xs [x, y], tile_ys [x, y]);
+                draw_playable (cr, pixmaps [x, y], paving_size * x, paving_size * y);
     }
     private inline void draw_playable (Cairo.Context cr, int pixmap, int tile_x, int tile_y)
     {
@@ -589,8 +572,8 @@ private class ReversiView : Gtk.DrawingArea
         {
             uint8 half_game_size = game_size / 2;
             draw_playable (cr, pixmaps [half_game_size, half_game_size],
-                               tile_xs [half_game_size, half_game_size],
-                               tile_ys [half_game_size, half_game_size]);
+                               paving_size * half_game_size,
+                               paving_size * half_game_size);
         }
     }
     private inline void draw_overture_indicator (Cairo.Context cr)
@@ -610,7 +593,7 @@ private class ReversiView : Gtk.DrawingArea
         {
             uint8 x, y;
             get_x_and_y (playable_id, out x, out y);
-            draw_playable (cr, pixmaps [x, y], tile_xs [x, y], tile_ys [x, y]);
+            draw_playable (cr, pixmaps [x, y], paving_size * x, paving_size * y);
             return;
         }
 
@@ -621,8 +604,8 @@ private class ReversiView : Gtk.DrawingArea
         {
             uint8 x, y;
             get_x_and_y (playable_id, out x, out y);
-            tile_x += (tile_xs [x, y] - tile_x) * overture_steps [playable_id] / OVERTURE_STEPS_MAX;
-            tile_y += (tile_ys [x, y] - tile_y) * overture_steps [playable_id] / OVERTURE_STEPS_MAX;
+            tile_x += (paving_size * x - tile_x) * overture_steps [playable_id] / OVERTURE_STEPS_MAX;
+            tile_y += (paving_size * y - tile_y) * overture_steps [playable_id] / OVERTURE_STEPS_MAX;
 
             overture_steps [playable_id]++;
             queue_draw ();
@@ -718,8 +701,8 @@ private class ReversiView : Gtk.DrawingArea
                                 theme_manager.highlight_hard_alpha);
         rounded_square (cr,
                         // TODO odd/even sizes problem
-                        tile_xs [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
-                        tile_ys [x, y] + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
+                        paving_size * x + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
+                        paving_size * y + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
                         tile_size * intensity / HIGHLIGHT_MAX,
                         0,
                         theme_manager.background_radius);
@@ -735,8 +718,8 @@ private class ReversiView : Gtk.DrawingArea
                             alpha);
         rounded_square (cr,
                         // TODO odd/even sizes problem
-                        tile_xs [x, y],
-                        tile_ys [x, y],
+                        paving_size * x,
+                        paving_size * y,
                         tile_size,
                         0,
                         theme_manager.background_radius);
@@ -747,10 +730,12 @@ private class ReversiView : Gtk.DrawingArea
         requires (x < game_size)
         requires (y < game_size)
     {
-        queue_draw_area (board_x + tile_xs [x, y],
+        Timeout.add_once(30, () => {
+            queue_draw (/* board_x + tile_xs [x, y],
                          board_y + tile_ys [x, y],
                          tile_size,
-                         tile_size);
+                         tile_size */);
+        });
     }
 
     /*\
@@ -1064,33 +1049,30 @@ private class ReversiView : Gtk.DrawingArea
     * * mouse user actions
     \*/
 
-    private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
-    private Gtk.GestureMultiPress click_controller;         // for keeping in memory
     private bool mouse_is_in = false;
 
     private void init_mouse ()  // called on construct
     {
-        motion_controller = new Gtk.EventControllerMotion (this);
+        var motion_controller = new Gtk.EventControllerMotion ();
         motion_controller.motion.connect (on_motion);
-//        motion_controller.enter.connect (on_mouse_in);    // FIXME should work                                //  1/10
-//        motion_controller.leave.connect (on_mouse_out);   // FIXME should work                                //  2/10
+        motion_controller.enter.connect (on_mouse_in);    // FIXME should work                                //  1/10
+        motion_controller.leave.connect (on_mouse_out);   // FIXME should work                                //  2/10
+        this.add_controller (motion_controller);
 
-        click_controller = new Gtk.GestureMultiPress (this);
+        var click_controller = new Gtk.GestureClick ();
         click_controller.set_button (/* all buttons */ 0);
         click_controller.pressed.connect (on_click);
+        this.add_controller (click_controller);
     }
 
-//    private void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)   //  3/10
-    protected override bool enter_notify_event (Gdk.EventCrossing event)                                        //  4/10
+    private void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)   //  3/10
     {
         uint8 x;
         uint8 y;
-        if (pointer_is_in_board (event.x, event.y, out x, out y))                                               //  5/10
-//        if (pointer_is_in_board (event_x, event_y, out x, out y))                                             //  6/10
+        if (pointer_is_in_board (event_x, event_y, out x, out y))                                             //  6/10
             on_cursor_moving_in (x, y);
         else if (mouse_is_in)
             assert_not_reached ();
-        return false;                                                                                           //  7/10
     }
 
     private void on_cursor_moving_in (uint8 x, uint8 y)
@@ -1102,13 +1084,11 @@ private class ReversiView : Gtk.DrawingArea
         _on_motion (x, y, /* force redraw */ true);
     }
 
-//    private void on_mouse_out (Gtk.EventControllerMotion _motion_controller)                                  //  8/10
-    protected override bool leave_notify_event (Gdk.EventCrossing event)                                        //  9/10
+    private void on_mouse_out (Gtk.EventControllerMotion _motion_controller)                                  //  8/10
     {
         mouse_is_in = false;
         if (mouse_position_set)
             queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
-        return false;                                                                                           // 10/10
     }
 
     private bool pointer_is_in_board (double pos_x, double pos_y, out uint8 x, out uint8 y)
@@ -1216,7 +1196,7 @@ private class ReversiView : Gtk.DrawingArea
         }
     }
 
-    private inline void on_click (Gtk.GestureMultiPress _click_controller, int n_press, double event_x, double event_y)
+    private inline void on_click (Gtk.GestureClick _click_controller, int n_press, double event_x, double event_y)
     {
         if (!game_is_set)
             return;
@@ -1245,12 +1225,11 @@ private class ReversiView : Gtk.DrawingArea
     * * keyboard user actions
     \*/
 
-    private Gtk.EventControllerKey key_controller;    // for keeping in memory
-
     private void init_keyboard ()  // called on construct
     {
-        key_controller = new Gtk.EventControllerKey (this);
+        var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
+        this.add_controller (key_controller);
     }
 
     private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)

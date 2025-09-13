@@ -18,38 +18,34 @@
   along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface domain="iagno">
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk" version="4.0"/>
   <object class="GtkShortcutsWindow" id="help_overlay">
     <child>
       <object class="GtkShortcutsSection">
-        <property name="visible">True</property>
         <property name="max-height">9</property>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">True</property>
             <!-- Translators: in the Keyboard Shortcuts window, name of a section; contains “New game” and “Undo last move” -->
-            <property name="title" translatable="yes" context="shortcut window">During a game</property>
+            <property name="title" translatable="1" context="shortcut window">During a game</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "During a game" -->
-                <property name="title" translatable="yes" context="shortcut window">New game</property>
+                <property name="title" translatable="1" context="shortcut window">New game</property>
                 <property name="accelerator">&lt;Primary&gt;n</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "During a game" -->
-                <property name="title" translatable="yes" context="shortcut window">Undo last move</property>
+                <property name="title" translatable="1" context="shortcut window">Undo last move</property>
                 <property name="accelerator">&lt;Primary&gt;z</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">False</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "During a game" -->
-                <property name="title" translatable="yes" context="shortcut window">Toggle game menu</property>
+                <property name="visible">0</property>
+                <property name="title" translatable="1" context="shortcut window">Toggle game menu</property>
                 <property name="accelerator">&lt;Primary&gt;F10</property>
               </object>
             </child>
@@ -57,38 +53,33 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">True</property>
             <!-- Translators: in the Keyboard Shortcuts window, name of a section; contains “Select where to play”, “Play on selected tile”, etc. -->
-            <property name="title" translatable="yes" context="shortcut window">Play with keyboard</property>
+            <property name="title" translatable="1" context="shortcut window">Play with keyboard</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Play with keyboard" -->
-                <property name="title" translatable="yes" context="shortcut window">Select where to play</property>
+                <property name="title" translatable="1" context="shortcut window">Select where to play</property>
                 <property name="accelerator">Left Right Up Down</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Play with keyboard" -->
-                <property name="title" translatable="yes" context="shortcut window">Select the given row</property>
+                <property name="title" translatable="1" context="shortcut window">Select the given row</property>
                 <property name="accelerator">1...8</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Play with keyboard" -->
-                <property name="title" translatable="yes" context="shortcut window">Select the given column</property>
+                <property name="title" translatable="1" context="shortcut window">Select the given column</property>
                 <property name="accelerator">a...h</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Play with keyboard" -->
-                <property name="title" translatable="yes" context="shortcut window">Play on selected tile</property>
+                <property name="title" translatable="1" context="shortcut window">Play on selected tile</property>
                 <property name="accelerator">Return space</property>
               </object>
             </child>
@@ -96,22 +87,19 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">True</property>
             <!-- Translators: in the Keyboard Shortcuts window, name of a section; contains “Start new game” and “Go back” -->
-            <property name="title" translatable="yes" context="shortcut window">During game selection</property>
+            <property name="title" translatable="1" context="shortcut window">During game selection</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "During game selection" -->
-                <property name="title" translatable="yes" context="shortcut window">Start new game</property>
+                <property name="title" translatable="1" context="shortcut window">Start new game</property>
                 <property name="accelerator">&lt;Primary&gt;&lt;Shift&gt;n</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "During game selection" -->
-                <property name="title" translatable="yes" context="shortcut window">Go back</property>
+                <property name="title" translatable="1" context="shortcut window">Go back</property>
                 <property name="accelerator">Escape</property>
               </object>
             </child>
@@ -119,46 +107,40 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">True</property>
             <!-- Translators: in the Keyboard Shortcuts window, name of a section; contains generic shortcuts like F1, F10, etc. -->
-            <property name="title" translatable="yes" context="shortcut window">Generic</property>
+            <property name="title" translatable="1" context="shortcut window">Generic</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Generic" -->
-                <property name="title" translatable="yes" context="shortcut window">Toggle main menu</property>
+                <property name="title" translatable="1" context="shortcut window">Toggle main menu</property>
                 <property name="accelerator">F10</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Generic" -->
-                <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
+                <property name="title" translatable="1" context="shortcut window">Keyboard shortcuts</property>
                 <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Generic" -->
-                <property name="title" translatable="yes" context="shortcut window">Help</property>
+                <property name="title" translatable="1" context="shortcut window">Help</property>
                 <property name="accelerator">F1</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Generic" -->
-                <property name="title" translatable="yes" context="shortcut window">About</property>
+                <property name="title" translatable="1" context="shortcut window">About</property>
                 <property name="accelerator">&lt;Shift&gt;F1</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <!-- Translators: in the Keyboard Shortcuts window, section "Generic" -->
-                <property name="title" translatable="yes" context="shortcut window">Quit</property>
+                <property name="title" translatable="1" context="shortcut window">Quit</property>
                 <property name="accelerator">&lt;Primary&gt;q</property>
               </object>
             </child>

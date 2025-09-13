@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This file is part of GNOME Reversi
+
+  GNOME Reversi is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  GNOME Reversi is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="GameWindow" parent="AdaptativeWindow">
+    <child>
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar" id="headerbar">
+            <property name="title-widget">
+              <object class="AdwWindowTitle" id="window_title" />
+            </property>
+            <child type="start">
+              <object class="GtkButton" id="new_game_button">
+                <property name="visible">0</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="action-name">ui.new-game</property>
+                <!-- Translators: during a game, tooltip text of the New Game button -->
+                <property name="tooltip-text" translatable="1">Start a new game</property>
+                <style>
+                  <class name="text-button"/>
+                  <class name="new-game-button"/>
+                </style>
+                <child>
+                  <object class="GtkLabel"> <!-- for ellipsizing, if the text shows a moves count that can grow -->
+                    <!-- Translators: during a game, label of the New Game button (with a mnemonic that appears pressing Alt) -->
+                    <property name="label" translatable="1">_New Game</property>
+                    <property name="ellipsize">end</property>
+                    <property name="mnemonic-widget">new_game_button</property>
+                    <property name="use-underline">1</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="start">
+              <object class="GtkButton" id="back_button">
+                <property name="visible">0</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <!-- Translators: when configuring a new game, if the user has a started game, tooltip text of the Go back button -->
+                <property name="tooltip-text" translatable="1">Go back to the current game</property>
+                <property name="use-underline">1</property>
+                <property name="action-name">base.escape</property>
+                <property name="focus-on-click">0</property>
+                <style>
+                  <class name="image-button"/>
+                </style>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">go-previous-symbolic</property>
+                    <property name="icon-size">normal</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="quit_button">
+                <property name="visible">0</property>
+                <property name="valign">center</property>
+                <property name="action-name">app.quit</property>
+                <style>
+                  <class name="titlebutton"/>
+                  <class name="close"/>
+                </style>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">window-close-symbolic</property>
+                    <property name="icon-size">normal</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkSeparator" id="ltr_right_separator">
+                <property name="visible">0</property>
+                <property name="orientation">vertical</property>
+                <style>
+                  <class name="titlebutton"/>
+                </style>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkMenuButton" id="info_button">
+                <style>
+                  <class name="image-button"/>
+                </style>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">open-menu-symbolic</property>
+                    <property name="icon-size">normal</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkBox" id="history_button1_box">
+                <property name="visible">0</property>
+                <child>
+                  <object class="HistoryButton" id="history_button1" />
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <property name="content">
+          <object class="AdwToastOverlay" id="toast_overlay">
+            <property name="vexpand">True</property>
+            <property name="child">
+              <object class="GtkStack" id="game_stack">
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">new-game</property>
+                    <property name="child">
+                      <object class="GtkScrolledWindow">
+                        <property name="hexpand">True</property>
+                        <property name="vexpand">True</property>
+                        <property name="child">
+                          <object class="GtkBox" id="new_game_box">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">6</property>
+                            <property name="halign">center</property>
+                            <property name="valign">center</property>
+                            <child>
+                              <object class="NewGameScreen" id="new_game_screen">
+                                <property name="vexpand">True</property>
+                                <property name="valign">fill</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="start_game_button">
+                                <property name="halign">center</property>
+                                <style>
+                                  <class name="suggested-action"/>
+                                </style>
+                                <property name="action-name">ui.start-game</property>
+                                <property name="child">
+                                  <object class="GtkLabel">
+                                    <!-- Translators: when configuring a new game, label of the blue Start button (with a mnemonic that appears pressing Alt) -->
+                                    <property name="label" translatable="1">_Start Game</property>
+                                    <property name="use_underline">True</property>
+                                    <property name="margin-top">12</property>
+                                    <property name="margin-bottom">12</property>
+                                    <property name="margin-start">24</property>
+                                    <property name="margin-end">24</property>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">game</property>
+                    <property name="child">
+                      <object class="GtkBox" id="game_box">
+                        <property name="orientation">vertical</property>
+                        <property name="hexpand">True</property>
+                        <property name="vexpand">True</property>
+                        <property name="margin-start">6</property>
+                        <property name="margin-end">6</property>
+                        <property name="margin-top">6</property>
+                        <property name="margin-bottom">6</property>
+                        <style>
+                          <class name="game-box"/>
+                        </style>
+                        <child>
+                          <object class="GtkBox" id="action_bar">
+                            <property name="visible">False</property>
+                            <property name="orientation">horizontal</property>
+                            <property name="margin-top">6</property>
+                            <child>
+                              <object class="GtkLabel" id="game_label">
+                                <property name="hexpand">True</property>
+                                <property name="halign">start</property>
+                                <property name="margin-start">12</property>
+                                <property name="margin-end">12</property>
+                                <attributes>
+                                  <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+                                </attributes>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="HistoryButton" id="history_button2" />
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </child>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 590px</condition>
+        <setter object="headerbar" property="show-start-title-buttons">False</setter>
+        <setter object="headerbar" property="show-end-title-buttons">False</setter>
+        <setter object="window_title" property="visible">False</setter>
+        <setter object="history_button1" property="visible">False</setter>
+        <setter object="ltr_right_separator" property="visible">True</setter>
+        <setter object="quit_button" property="visible">True</setter>
+        <setter object="action_bar" property="visible">True</setter>
+      </object>
+    </child>
+  </template>
+</interface>
