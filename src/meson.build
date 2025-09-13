@@ -85,7 +85,7 @@ executable(meson.project_name(),
         '-include', 'config.h'
     ],
     vala_args: [
-        '--target-glib', '2.44',
+        '--target-glib', '2.78',
         '--vapidir', join_paths(meson.current_source_dir(), 'vapi'),
         '--enable-experimental-non-null'
     ],

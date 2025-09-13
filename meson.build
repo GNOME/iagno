@@ -21,7 +21,6 @@ rsvg_dependency = dependency('librsvg-2.0', version: '>= 2.56.0')
 
 appstreamcli            = find_program('appstreamcli',          required: false)
 desktop_file_validate   = find_program('desktop-file-validate', required: false)
-glib_compile_schema     = find_program('glib-compile-schemas',  required: true) # useful?
 
 # Set gettext package name
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language: 'c')
@@ -43,7 +42,6 @@ conf.set_quoted ('SOUND_DIRECTORY', soundsdir)
 conf.set_quoted ('LOCALEDIR', localedir)
 
 configure_file(output: 'config.h', configuration: conf)
-config_h_dir = include_directories('.')
 
 subdir('data')
 subdir('po')
