@@ -57,9 +57,8 @@ private class ReversiView : Gtk.Widget
     /* Pre-rendered image */
     private uint render_size = 0;
     private Cairo.Pattern? tiles_pattern = null;
-    private Cairo.Pattern? board_pattern = null;
 
-    private bool noise_pixbuf_loaded = false;
+    private Gdk.Texture noise_texture;
 
     /* The images being showed on each location */
     private int [,] pixmaps;
@@ -177,6 +176,8 @@ private class ReversiView : Gtk.Widget
                     configure_theme ();
                 queue_draw ();
             });
+
+        noise_texture = Gdk.Texture.from_resource ("/org/gnome/Reversi/ui/noise.png");
     }
 
     [CCode (notify = false)] public Iagno           iagno_instance  { private get; protected construct; }
@@ -256,23 +257,23 @@ private class ReversiView : Gtk.Widget
             size = { width: get_width (), height: get_height ()  }
         };
 
-        Cairo.Context cr = snapshot.append_cairo (rect);
-
-        if (board_pattern == null || tiles_pattern == null || render_size != tile_size)
-            init_patterns (cr);
-
         // draw board
-        cr.translate (board_x - theme_manager.border_width, board_y - theme_manager.border_width);
+        snapshot.save ();
+        snapshot.translate (Graphene.Point () {
+            x = board_x - theme_manager.border_width,
+            y = board_y - theme_manager.border_width });
 
-        cr.set_source ((!) board_pattern);
-        cr.rectangle (/* x and y */ 0.0,
-                                    0.0,
-                      /* w and h */ board_size,
-                                    board_size);
-        cr.fill ();
+        draw_board_background (snapshot);
+        draw_tiles_background (snapshot);
+
+        snapshot.restore ();
 
         // draw tiles (and highlight)
-        cr.translate (theme_manager.border_width, theme_manager.border_width);
+        snapshot.translate (Graphene.Point () { x = board_x, y = board_y });
+
+        Cairo.Context cr = snapshot.append_cairo (rect);
+        if (tiles_pattern == null || render_size != tile_size)
+            init_patterns (cr);
 
         if (humans_opening_intensity != 0)
             draw_overture (cr);
@@ -301,82 +302,101 @@ private class ReversiView : Gtk.Widget
                        (double) tile_size * 4.0 / (double) size.height);
         theme_manager.tileset_handle.render_cairo (context);
         tiles_pattern = new Cairo.Pattern.for_surface (surface);
-
-        // noise pattern
-        Cairo.Pattern? noise_pattern = null;
-
-        if (theme_manager.apply_texture)
-        {
-            Gdk.Pixbuf? noise_pixbuf = null;
-
-            try
-            {
-                noise_pixbuf = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/Reversi/ui/noise.png",
-                                                                      /* x and y */ tile_size, tile_size,
-                                                                      /* preserve aspect ratio */ false);
-            }
-            catch (Error e) { warning (e.message); }
-            noise_pixbuf_loaded = noise_pixbuf != null;
-            if (noise_pixbuf_loaded)
-            {
-                surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size,
-                                                                                                  tile_size);
-                context = new Cairo.Context (surface);
-                Gdk.cairo_set_source_pixbuf (context, (!) noise_pixbuf, 0.0, 0.0);
-                context.paint_with_alpha (theme_manager.texture_alpha);
-                // or  surface = Gdk.cairo_surface_create_from_pixbuf ((!) noise_pixbuf, 0, null); ?
-
-                noise_pattern = new Cairo.Pattern.for_surface (surface);
-                // ((!) noise_pattern).set_extend (Cairo.Extend.REPEAT);
-            }
-        }
-
-        // board pattern
-        surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, board_size,
-                                                                                          board_size);
-        context = new Cairo.Context (surface);
-
-        draw_board_background (context);
-        draw_tiles_background (context, ref noise_pattern);
-
-        board_pattern = new Cairo.Pattern.for_surface (surface);
     }
 
-    private inline void draw_board_background (Cairo.Context cr)
+    private inline void draw_board_background (Gtk.Snapshot snapshot)
     {
-        cr.set_source_rgba (theme_manager.spacing_red, theme_manager.spacing_green, theme_manager.spacing_blue, 1.0);
-        cr.rectangle (/* x and y */ theme_manager.half_border_width,
-                                    theme_manager.half_border_width,
-                      /* w and h */ board_size - theme_manager.border_width,
-                                    board_size - theme_manager.border_width);
-        cr.fill_preserve ();
-        cr.set_source_rgba (theme_manager.border_red, theme_manager.border_green, theme_manager.border_blue, 1.0);
-        cr.set_line_width (theme_manager.border_width);
-        cr.stroke ();
+        var builder = new Gsk.PathBuilder ();
+        builder.add_rect (Graphene.Rect () {
+            origin = {
+                x: (float) theme_manager.half_border_width,
+                y: (float) theme_manager.half_border_width
+            },
+            size = {
+                width:  board_size - theme_manager.border_width,
+                height: board_size - theme_manager.border_width
+            }
+        });
+        var path = builder.to_path ();
+
+        snapshot.append_fill (
+            path,
+            Gsk.FillRule.WINDING,
+            Gdk.RGBA () {
+                red = (float) theme_manager.spacing_red,
+                green = (float) theme_manager.spacing_green,
+                blue = (float) theme_manager.spacing_blue,
+                alpha = 1.0f
+            });
+        snapshot.append_stroke (
+            path,
+            new Gsk.Stroke (theme_manager.border_width),
+            Gdk.RGBA () {
+                red = (float) theme_manager.border_red,
+                green = (float) theme_manager.border_green,
+                blue = (float) theme_manager.border_blue,
+                alpha = 1.0f
+            });
     }
 
-    private inline void draw_tiles_background (Cairo.Context cr, ref Cairo.Pattern? noise_pattern)
+    private inline void draw_tiles_background (Gtk.Snapshot snapshot)
     {
-        cr.translate (theme_manager.border_width, theme_manager.border_width);
+        snapshot.save ();
+        snapshot.translate (Graphene.Point () {
+            x = theme_manager.border_width,
+            y = theme_manager.border_width });
 
         for (uint8 x = 0; x < game_size; x++)
             for (uint8 y = 0; y < game_size; y++)
-                draw_tile_background (cr, ref noise_pattern, paving_size * x, paving_size * y);
+                draw_tile_background (snapshot, paving_size * x, paving_size * y);
+        snapshot.restore ();
     }
-    private inline void draw_tile_background (Cairo.Context cr, ref Cairo.Pattern? noise_pattern, int tile_x, int tile_y)
-    {
-        cr.set_source_rgba (theme_manager.background_red, theme_manager.background_green, theme_manager.background_blue, 1.0);
-        rounded_square (cr, tile_x, tile_y, tile_size, 0, theme_manager.background_radius);
-        if (theme_manager.apply_texture && noise_pixbuf_loaded)
-        {
-            cr.fill_preserve ();
 
-            Cairo.Matrix matrix = Cairo.Matrix.identity ();
-            matrix.translate (-tile_x, -tile_y);
-            ((!) noise_pattern).set_matrix (matrix);
-            cr.set_source ((!) noise_pattern);
+    private inline void draw_tile_background (Gtk.Snapshot snapshot, int tile_x, int tile_y)
+    {
+        var rect = Graphene.Rect () {
+            origin = {
+                x: (float) tile_x,
+                y: (float) tile_y
+            },
+            size = {
+                width:  tile_size,
+                height: tile_size
+            }
+        };
+        var corner = Graphene.Size () {
+            width = (float) tile_size * theme_manager.background_radius.clamp(0, 50) / 100.0f,
+            height = (float) tile_size * theme_manager.background_radius.clamp(0, 50) / 100.0f
+        };
+
+        var builder = new Gsk.PathBuilder ();
+        builder.add_rounded_rect (Gsk.RoundedRect () {
+            bounds = rect,
+            corner = { corner, corner, corner, corner }
+        });
+        var path = builder.to_path ();
+
+        if (theme_manager.apply_texture)
+        {
+            snapshot.push_mask (Gsk.MaskMode.ALPHA);
+            snapshot.append_texture (noise_texture, rect);
+            snapshot.pop ();
         }
-        cr.fill ();
+
+        snapshot.append_fill (
+            path,
+            Gsk.FillRule.WINDING,
+            Gdk.RGBA () {
+                red = (float) theme_manager.background_red,
+                green = (float) theme_manager.background_green,
+                blue = (float) theme_manager.background_blue,
+                alpha = 1.0f
+            });
+
+        if (theme_manager.apply_texture)
+        {
+            snapshot.pop ();
+        }
     }
 
     private inline void draw_overture (Cairo.Context cr)
