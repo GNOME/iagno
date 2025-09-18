@@ -34,13 +34,19 @@
     "modules" : [
         {
             "name" : "iagno",
-            "buildsystem": "meson",
+            "buildsystem" : "meson",
             "sources" : [
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/iagno.git"
                 }
+            ],
+            "config-opts" : [
+                "--libdir=lib"
             ]
         }
-    ]
+    ],
+    "build-options" : {
+        "env" : {        }
+    }
 }

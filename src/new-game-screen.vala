@@ -23,11 +23,25 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/new-game-screen.ui")]
 private class NewGameScreen : Box, AdaptativeWidget
 {
-    [GtkChild] private unowned GameSelectButton modelbutton_one;
-    [GtkChild] private unowned GameSelectButton modelbutton_two;
+    [GtkChild] private unowned Adw.Toggle toggle_classic;
+    [GtkChild] private unowned Adw.Toggle toggle_reverse;
+
+    private GameSelectButton modelbutton_one;
+    private GameSelectButton modelbutton_two;
 
     [GtkChild] private unowned Gtk.MenuButton menubutton_one;
     [GtkChild] private unowned Gtk.MenuButton menubutton_two;
+
+
+    construct {
+        modelbutton_one = new GameSelectButton ("classic");
+        modelbutton_two = new GameSelectButton ("reverse");
+        toggle_classic.child = modelbutton_one;
+        toggle_reverse.child = modelbutton_two;
+
+        var settings = new GLib.Settings ("org.gnome.Reversi");
+        settings.bind ("type", games_box, "active-name", SettingsBindFlags.DEFAULT);
+    }
 
     /*\
     * * options buttons
@@ -69,12 +83,12 @@ private class NewGameScreen : Box, AdaptativeWidget
     * * adaptative stuff
     \*/
 
-    [GtkChild] private unowned Box          games_box;
-    [GtkChild] private unowned Box          options_box;
+    [GtkChild] private unowned Adw.ToggleGroup  games_box;
+    [GtkChild] private unowned Box              options_box;
 
-    [GtkChild] private unowned Label        games_label;
-    [GtkChild] private unowned Label        options_label;
-    [GtkChild] private unowned Separator    options_separator;
+    [GtkChild] private unowned Label            games_label;
+    [GtkChild] private unowned Label            options_label;
+    [GtkChild] private unowned Separator        options_separator;
 
     private bool phone_size = false;
     private bool extra_thin = false;

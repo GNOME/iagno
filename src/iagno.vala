@@ -233,7 +233,15 @@ private class Iagno : Gtk.Application
             add_action (settings.create_action ("random-start-position"));
         add_action (settings.create_action ("sound"));
         add_action (settings.create_action ("theme"));
-        add_action (settings.create_action ("type"));        // TODO window action?
+
+        var css_provider = new CssProvider ();
+        css_provider.load_from_resource ("/org/gnome/Reversi/ui/style.css");
+
+        StyleContext.add_provider_for_display (
+            (!) Gdk.Display.get_default (),
+            css_provider,
+            STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
     }
 
     private void create_window () {

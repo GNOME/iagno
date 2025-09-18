@@ -9,6 +9,7 @@
     <file preprocess="xml-stripblanks" compressed="true" alias="history-button.ui"              >ui/history-button.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="new-game-screen.ui"             >ui/new-game-screen.ui</file>
     <file>noise.png</file>
+    <file>style.css</file>
   </gresource>
   <gresource prefix="/org/gnome/Reversi/gtk">
     <file preprocess="xml-stripblanks" compressed="true" alias="help-overlay.ui"                >ui/help-overlay.ui</file>

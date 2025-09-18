@@ -17,11 +17,21 @@
 
 using Gtk;
 
-private class GameSelectButton : ToggleButton
+private class GameSelectButton : Grid
 {
-    private Box box;
     private Label label;
     private Image image;
+
+    public GameSelectButton(string game_type) {
+        Object(
+            game_type: game_type,
+            margin_top: 6,
+            margin_bottom: 6,
+            margin_start: 6,
+            margin_end: 6,
+            row_homogeneous: false
+        );
+    }
 
     public string game_type
     {
@@ -43,7 +53,7 @@ private class GameSelectButton : ToggleButton
             {
                 assert_not_reached ();
             }
-            set_detailed_action_name ("app.type('" + value + "')");
+            image.add_css_class ("game-select");
         }
     }
 
@@ -64,12 +74,12 @@ private class GameSelectButton : ToggleButton
 
     construct
     {
-        box = new Box (Orientation.VERTICAL, 0);
-        set_child (box);
-        box.append (label);
+        label.vexpand = false;
+        attach (label, 0, 0, 1, 1);
+
+        image.halign = Align.CENTER;
+        image.valign = Align.START;
         image.vexpand = true;
-        image.width_request = 210;
-        image.height_request = 210;
-        box.append (image);
+        attach (image, 0, 1, 1, 1);
     }
 }

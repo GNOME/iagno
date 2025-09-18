@@ -14,7 +14,7 @@ valac = meson.get_compiler('vala')
 gio_dependency = dependency('gio-2.0', version: '>= 2.78.0')
 glib_dependency = dependency('glib-2.0', version: '>= 2.78.0')
 gtk_dependency = dependency('gtk4', version: '>= 4.12.0')
-adw_dependency = dependency('libadwaita-1', version: '>= 1.6')
+adw_dependency = dependency('libadwaita-1', version: '>= 1.7')
 libm_dependency = cc.find_library('m', required: false) # some platforms do not have libm separated from libc
 posix_dependency = valac.find_library('posix')
 rsvg_dependency = dependency('librsvg-2.0', version: '>= 2.56.0')

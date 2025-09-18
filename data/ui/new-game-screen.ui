@@ -17,6 +17,7 @@
 -->
 <interface>
   <requires lib="gtk" version="4.0"/>
+  <requires lib="adwaita" version="1.7"/>
   <template class="NewGameScreen" parent="GtkBox">
     <property name="orientation">vertical</property>
     <property name="spacing">6</property>
@@ -35,20 +36,19 @@
       </object>
     </child>
     <child>
-      <object class="GtkBox" id="games_box">
-        <property name="vexpand">1</property>
+      <object class="AdwToggleGroup" id="games_box">
+        <property name="active-name">classic</property>
         <property name="homogeneous">1</property>
-        <property name="spacing">6</property>
         <child>
-          <object class="GameSelectButton" id="modelbutton_one">
-            <property name="name">radio-one</property>
-            <property name="game-type">classic</property>
+          <object class="AdwToggle" id="toggle_classic">
+            <property name="label" translatable="yes">Classic Reversi</property>
+            <property name="name">classic</property>
           </object>
         </child>
         <child>
-          <object class="GameSelectButton" id="modelbutton_two">
-            <property name="name">radio-two</property>
-            <property name="game-type">reverse</property>
+          <object class="AdwToggle" id="toggle_reverse">
+            <property name="label" translatable="yes">Reverse Reversi</property>
+            <property name="name">reverse</property>
           </object>
         </child>
       </object>
