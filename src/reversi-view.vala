@@ -56,7 +56,7 @@ private class ReversiView : Gtk.Widget
 
     /* Pre-rendered image */
     private uint render_size = 0;
-    private Cairo.Pattern? tiles_pattern = null;
+    private Gdk.Texture? tiles_pattern = null;
 
     private Gdk.Texture noise_texture;
 
@@ -252,11 +252,6 @@ private class ReversiView : Gtk.Widget
 
         configure_theme ();
 
-        Graphene.Rect rect = Graphene.Rect () {
-            origin = { x: 0, y: 0 },
-            size = { width: get_width (), height: get_height ()  }
-        };
-
         // draw board
         snapshot.save ();
         snapshot.translate (Graphene.Point () {
@@ -271,37 +266,21 @@ private class ReversiView : Gtk.Widget
         // draw tiles (and highlight)
         snapshot.translate (Graphene.Point () { x = board_x, y = board_y });
 
-        Cairo.Context cr = snapshot.append_cairo (rect);
         if (tiles_pattern == null || render_size != tile_size)
-            init_patterns (cr);
+        {
+            tiles_pattern = theme_manager.tileset_for_size (tile_size);
+            render_size = tile_size;
+        }
 
         if (humans_opening_intensity != 0)
-            draw_overture (cr);
+            draw_overture (snapshot);
 
-        draw_highlight (cr);
-        add_highlights (cr);
+        draw_highlight (snapshot);
+        add_highlights (snapshot);
         if (humans_opening_intensity == 0)
-            draw_playables (cr);
+            draw_playables (snapshot);
         else
-            draw_overture_playables (cr);
-    }
-
-    private inline void init_patterns (Cairo.Context cr)
-    {
-        render_size = tile_size;
-
-        Cairo.Surface surface;
-        Cairo.Context context;
-
-        // tiles pattern
-        surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, tile_size * 8,
-                                                                                          tile_size * 4);
-        context = new Cairo.Context (surface);
-        Rsvg.DimensionData size = theme_manager.tileset_handle.get_dimensions ();
-        context.scale ((double) tile_size * 8.0 / (double) size.width,
-                       (double) tile_size * 4.0 / (double) size.height);
-        theme_manager.tileset_handle.render_cairo (context);
-        tiles_pattern = new Cairo.Pattern.for_surface (surface);
+            draw_overture_playables (snapshot);
     }
 
     private inline void draw_board_background (Gtk.Snapshot snapshot)
@@ -355,26 +334,11 @@ private class ReversiView : Gtk.Widget
     private inline void draw_tile_background (Gtk.Snapshot snapshot, int tile_x, int tile_y)
     {
         var rect = Graphene.Rect () {
-            origin = {
-                x: (float) tile_x,
-                y: (float) tile_y
-            },
-            size = {
-                width:  tile_size,
-                height: tile_size
-            }
-        };
-        var corner = Graphene.Size () {
-            width = (float) tile_size * theme_manager.background_radius.clamp(0, 50) / 100.0f,
-            height = (float) tile_size * theme_manager.background_radius.clamp(0, 50) / 100.0f
+            origin = { x: tile_x, y: tile_y },
+            size = { width: tile_size, height: tile_size }
         };
 
-        var builder = new Gsk.PathBuilder ();
-        builder.add_rounded_rect (Gsk.RoundedRect () {
-            bounds = rect,
-            corner = { corner, corner, corner, corner }
-        });
-        var path = builder.to_path ();
+        var path = rounded_square (tile_x, tile_y, tile_size, theme_manager.background_radius);
 
         if (theme_manager.apply_texture)
         {
@@ -399,7 +363,7 @@ private class ReversiView : Gtk.Widget
         }
     }
 
-    private inline void draw_overture (Cairo.Context cr)
+    private inline void draw_overture (Gtk.Snapshot snapshot)
      // requires (game_size % 2 == 0)
     {
         uint8 half_game_size = game_size / 2;
@@ -417,7 +381,7 @@ private class ReversiView : Gtk.Widget
                   || ((x == half_game_size + 1) && (y == half_game_size - 1 || y == half_game_size))))
                     continue;
 
-                darken_tile (cr, x, y);
+                darken_tile (snapshot, x, y);
             }
 
         if (game.opening != Opening.HUMANS)
@@ -427,7 +391,7 @@ private class ReversiView : Gtk.Widget
         }
     }
 
-    private inline void draw_highlight (Cairo.Context cr)
+    private inline void draw_highlight (Gtk.Snapshot snapshot)
     {
         if (game.is_complete)   // TODO highlight last played tile on game.is_complete, even if it's the opponent one...
             return;
@@ -448,13 +412,14 @@ private class ReversiView : Gtk.Widget
                                     && old_highlight_y != uint8.MAX;
 
         if (display_ghost_highlight)
-            draw_tile_highlight (cr, old_highlight_x, old_highlight_y);
+            draw_tile_highlight (snapshot, old_highlight_x, old_highlight_y);
         else if (display_mouse_highlight)
-            draw_tile_highlight (cr, mouse_highlight_x, mouse_highlight_y);
+            draw_tile_highlight (snapshot, mouse_highlight_x, mouse_highlight_y);
         else if (display_keybd_highlight)
-            draw_tile_highlight (cr, highlight_x, highlight_y);
+            draw_tile_highlight (snapshot, highlight_x, highlight_y);
     }
-    private inline void draw_tile_highlight (Cairo.Context cr, uint8 x, uint8 y)
+
+    private inline void draw_tile_highlight (Gtk.Snapshot snapshot, uint8 x, uint8 y)
     {
         unowned PossibleMove move;
         bool test_placing_tile = game.test_placing_tile (x, y, out move);
@@ -464,7 +429,7 @@ private class ReversiView : Gtk.Widget
         if (highlight_on && highlight_state != HIGHLIGHT_MAX)
         {
             highlight_state++;
-            queue_draw_tile (x, y);
+            queue_draw_idle ();
         }
         else if (!highlight_on && highlight_state != 0)
         {
@@ -473,38 +438,39 @@ private class ReversiView : Gtk.Widget
             // highlight state and redraw for the mouse highlight to re-animate when re-entering a playable
             // tile, or for the keyboard highlight to animate when disappearing; the first displays nothing
             highlight_state--;
-            queue_draw_tile (x, y);
+            queue_draw_idle ();
             if (old_highlight_x != x || old_highlight_y != y)   // is not a keyboard highlight disappearing
         // TODO && mouse_is_in) for having an animation when the cursor quits the board; currently causes glitches
                 return;
         }
-        highlight_tile (cr, x, y, highlight_state, /* soft highlight */ false);
+        highlight_tile (snapshot, x, y, highlight_state, /* soft highlight */ false);
         if (test_placing_tile
          && show_turnable_tiles
          && !(iagno_instance.computer != null && iagno_instance.player_one != game.current_color))
         {
-            highlight_turnable_tiles (cr, move.x, move.y,  0, -1, move.n_tiles_n );
-            highlight_turnable_tiles (cr, move.x, move.y,  1, -1, move.n_tiles_ne);
-            highlight_turnable_tiles (cr, move.x, move.y,  1,  0, move.n_tiles_e );
-            highlight_turnable_tiles (cr, move.x, move.y,  1,  1, move.n_tiles_se);
-            highlight_turnable_tiles (cr, move.x, move.y,  0,  1, move.n_tiles_s );
-            highlight_turnable_tiles (cr, move.x, move.y, -1,  1, move.n_tiles_so);
-            highlight_turnable_tiles (cr, move.x, move.y, -1,  0, move.n_tiles_o );
-            highlight_turnable_tiles (cr, move.x, move.y, -1, -1, move.n_tiles_no);
+            highlight_turnable_tiles (snapshot, move.x, move.y,  0, -1, move.n_tiles_n );
+            highlight_turnable_tiles (snapshot, move.x, move.y,  1, -1, move.n_tiles_ne);
+            highlight_turnable_tiles (snapshot, move.x, move.y,  1,  0, move.n_tiles_e );
+            highlight_turnable_tiles (snapshot, move.x, move.y,  1,  1, move.n_tiles_se);
+            highlight_turnable_tiles (snapshot, move.x, move.y,  0,  1, move.n_tiles_s );
+            highlight_turnable_tiles (snapshot, move.x, move.y, -1,  1, move.n_tiles_so);
+            highlight_turnable_tiles (snapshot, move.x, move.y, -1,  0, move.n_tiles_o );
+            highlight_turnable_tiles (snapshot, move.x, move.y, -1, -1, move.n_tiles_no);
         }
     }
-    private inline void highlight_turnable_tiles (Cairo.Context cr, uint8 x, uint8 y, int8 x_step, int8 y_step, uint8 count)
+
+    private inline void highlight_turnable_tiles (Gtk.Snapshot snapshot, uint8 x, uint8 y, int8 x_step, int8 y_step, uint8 count)
     {
         for (; count > 0; count--)
         {
             int8 _x = (int8) x + ((int8) count * x_step);
             int8 _y = (int8) y + ((int8) count * y_step);
-            queue_draw_tile (_x, _y);
-            highlight_tile (cr, _x, _y, highlight_state, /* soft highlight */ true);
+            queue_draw_idle ();
+            highlight_tile (snapshot, _x, _y, highlight_state, /* soft highlight */ true);
         }
     }
 
-    private inline void add_highlights (Cairo.Context cr)
+    private inline void add_highlights (Gtk.Snapshot snapshot)
     {
         if (!show_playable_tiles && playable_tiles_highlight_state == 0)
             return;
@@ -532,7 +498,7 @@ private class ReversiView : Gtk.Widget
 
         for (uint8 x = 0; x < game_size; x++)
             for (uint8 y = 0; y < game_size; y++)
-                add_highlight (cr, x, y, intensity);
+                add_highlight (snapshot, x, y, intensity);
 
         if (decreasing && intensity == 1)
             init_possible_moves ();
@@ -541,36 +507,52 @@ private class ReversiView : Gtk.Widget
         else if (playable_tiles_highlight_state < HIGHLIGHT_MAX)
             playable_tiles_highlight_state++;
     }
-    private inline void add_highlight (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity)
+
+    private inline void add_highlight (Gtk.Snapshot snapshot, uint8 x, uint8 y, uint8 intensity)
     {
         if (possible_moves [x, y] == false)
             return;
 
-        queue_draw_tile (x, y);
-        highlight_tile (cr, x, y, intensity, /* soft highlight */ true);
+        queue_draw_idle ();
+        highlight_tile (snapshot, x, y, intensity, /* soft highlight */ true);
     }
 
-    private inline void draw_playables (Cairo.Context cr)
+    private inline void draw_playables (Gtk.Snapshot snapshot)
     {
         for (uint8 x = 0; x < game_size; x++)
             for (uint8 y = 0; y < game_size; y++)
-                draw_playable (cr, pixmaps [x, y], paving_size * x, paving_size * y);
+                draw_playable (snapshot, pixmaps [x, y], paving_size * x, paving_size * y);
     }
-    private inline void draw_playable (Cairo.Context cr, int pixmap, int tile_x, int tile_y)
+
+    private inline void draw_playable (Gtk.Snapshot snapshot, int pixmap, int tile_x, int tile_y)
     {
-        if (pixmap == 0)
+        if (pixmap == 0 || tiles_pattern == null)
             return;
 
-        Cairo.Matrix matrix = Cairo.Matrix.identity ();
-        matrix.translate (/* texture x */ (pixmap % 8) * tile_size - /* x position */ tile_x,
-                          /* texture y */ (pixmap / 8) * tile_size - /* y position */ tile_y);
-        ((!) tiles_pattern).set_matrix (matrix);
-        cr.set_source ((!) tiles_pattern);
-        cr.rectangle (/* x and y */ tile_x,
-                                    tile_y,
-                      /* w and h */ tile_size,
-                                    tile_size);
-        cr.fill ();
+        var texture = (!) tiles_pattern;
+
+        snapshot.save();
+        snapshot.translate(Graphene.Point () { x = tile_x, y = tile_y });
+
+        var tile_rect = Graphene.Rect () {
+            origin = { x: 0, y: 0 },
+            size = {
+                width:  (float) tile_size,
+                height: (float) tile_size
+            }
+        };
+
+        snapshot.push_clip (tile_rect);
+        snapshot.save();
+        snapshot.translate(Graphene.Point () {
+            x = - /* texture x */ (pixmap % 8) * tile_size,
+            y = - /* texture y */ (pixmap / 8) * tile_size
+        });
+        texture.snapshot (snapshot, texture.get_width (), texture.get_height ());
+        snapshot.restore();
+        snapshot.pop();
+
+        snapshot.restore();
     }
 
     private const uint8 OVERTURE_STEPS_MAX = 10;
@@ -579,41 +561,56 @@ private class ReversiView : Gtk.Widget
     private uint8 [] overture_steps  = { 0, 0, 0, 0, 0, 0 };    // { 0, 0, 0, 0 } for even boards
     private uint8 [] overture_target = { 0, 0, 0, 0, 0, 0 };    // { 0, 0, 0, 0 } for even boards
     private uint8 current_overture_playable = 0;
-    private inline void draw_overture_playables (Cairo.Context cr)
+    private inline void draw_overture_playables (Gtk.Snapshot snapshot)
     {
         bool even_board = game_size % 2 == 0;
         if (current_overture_playable < (even_board ? 4 : 6))
-            draw_overture_indicator (cr);
+            draw_overture_indicator (snapshot);
 
         for (uint8 i = 0; i < (even_board ? 4 : 6); i++)
-            draw_overture_playable (cr, i);
+            draw_overture_playable (snapshot, i);
 
         if (!even_board)
         {
             uint8 half_game_size = game_size / 2;
-            draw_playable (cr, pixmaps [half_game_size, half_game_size],
+            draw_playable (snapshot, pixmaps [half_game_size, half_game_size],
                                paving_size * half_game_size,
                                paving_size * half_game_size);
         }
     }
-    private inline void draw_overture_indicator (Cairo.Context cr)
+
+    private inline void draw_overture_indicator (Gtk.Snapshot snapshot)
     {
-        double diameter_factor = game_size == 4 ? 1.95 : 1.8;
-        cr.set_source_rgba (theme_manager.background_red, theme_manager.background_green, theme_manager.background_blue, 1.0);
-        cr.arc ((double) overture_origin_xs [current_overture_playable] + (double) tile_size / 2.0,
-                (double) overture_origin_y + (double) tile_size / 2.0,
-                (double) tile_size / diameter_factor,
-                0.0,
-                Math.PI * 2.0);
-        cr.fill ();
+        float diameter_factor = game_size == 4 ? 1.95f : 1.8f;
+
+        var builder = new Gsk.PathBuilder ();
+        builder.add_circle (
+            Graphene.Point () {
+                x = (float) overture_origin_xs [current_overture_playable] + (float) tile_size / 2.0f,
+                y = (float) overture_origin_y + (float) tile_size / 2.0f
+            },
+            (float) tile_size / diameter_factor
+        );
+        var circle = builder.to_path ();
+
+        snapshot.append_fill (
+            circle,
+            Gsk.FillRule.WINDING,
+            Gdk.RGBA () {
+                red = (float) theme_manager.background_red,
+                green = (float) theme_manager.background_green,
+                blue = (float) theme_manager.background_blue,
+                alpha = 1.0f
+            });
     }
-    private inline void draw_overture_playable (Cairo.Context cr, uint8 playable_id)
+
+    private inline void draw_overture_playable (Gtk.Snapshot snapshot, uint8 playable_id)
     {
         if (overture_steps [playable_id] == OVERTURE_STEPS_MAX)
         {
             uint8 x, y;
             get_x_and_y (playable_id, out x, out y);
-            draw_playable (cr, pixmaps [x, y], paving_size * x, paving_size * y);
+            draw_playable (snapshot, pixmaps [x, y], paving_size * x, paving_size * y);
             return;
         }
 
@@ -630,24 +627,12 @@ private class ReversiView : Gtk.Widget
             overture_steps [playable_id]++;
             queue_draw ();
         }
-        if (game_size % 2 == 0)
-            _draw_overture_playable (cr, tile_x, tile_y, /* pixmap */ (playable_id % 2) * 30 + 1);
-        else
-            _draw_overture_playable (cr, tile_x, tile_y, /* pixmap */ ((playable_id / 2 + 1) % 2) * 30 + 1);
+        var pixmap = game_size % 2 == 0
+            ? (playable_id % 2) * 30 + 1
+            : ((playable_id / 2 + 1) % 2) * 30 + 1;
+        draw_playable (snapshot, pixmap, tile_x, tile_y);
     }
-    private void _draw_overture_playable (Cairo.Context cr, int tile_x, int tile_y, int pixmap)
-    {
-        Cairo.Matrix matrix = Cairo.Matrix.identity ();
-        matrix.translate (/* texture x */ (pixmap % 8) * tile_size - /* x position */ tile_x,
-                          /* texture y */ (pixmap / 8) * tile_size - /* y position */ tile_y);
-        ((!) tiles_pattern).set_matrix (matrix);
-        cr.set_source ((!) tiles_pattern);
-        cr.rectangle (/* x and y */ tile_x,
-                                    tile_y,
-                      /* w and h */ tile_size,
-                                    tile_size);
-        cr.fill ();
-    }
+
     private void get_x_and_y (uint8 playable_id, out uint8 x, out uint8 y)
     {
         uint8 half_game_size = game_size / 2;
@@ -679,82 +664,87 @@ private class ReversiView : Gtk.Widget
     * * drawing utilities
     \*/
 
-    private const double HALF_PI = Math.PI_2;
-    private void rounded_square (Cairo.Context cr, double x, double y, int size, double width, double radius_percent)
+    private inline Gsk.Path rounded_square (float x, float y, float size, int radius_percent)
     {
-        if (radius_percent <= 0.0)
-        {
-            cr.rectangle (/* x and y */ x + width / 2.0,
-                                        y + width / 2.0,
-                          /* w and h */ size + width,
-                                        size + width);
-            return;
-        }
+        var rect = Graphene.Rect () {
+            origin = {
+                x: x,
+                y: y
+            },
+            size = {
+                width:  size,
+                height: size
+            }
+        };
+        var corner = Graphene.Size () {
+            width = size * radius_percent.clamp(0, 50) / 100.0f,
+            height = size * radius_percent.clamp(0, 50) / 100.0f
+        };
 
-        if (radius_percent > 50.0)
-            radius_percent = 50.0;
-        double radius_border = radius_percent * size / 100.0;
-        double radius_arc = radius_border - width / 2.0;
-        double x1 = x + radius_border;
-        double y1 = y + radius_border;
-        double x2 = x + size - radius_border;
-        double y2 = y + size - radius_border;
-
-        cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
-        cr.arc (x2, y1, radius_arc, -HALF_PI,      0.0);
-        cr.arc (x2, y2, radius_arc,      0.0,  HALF_PI);
-        cr.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
-        cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
+        var builder = new Gsk.PathBuilder ();
+        builder.add_rounded_rect (Gsk.RoundedRect () {
+            bounds = rect,
+            corner = { corner, corner, corner, corner }
+        });
+        return builder.to_path ();
     }
 
-    private void highlight_tile (Cairo.Context cr, uint8 x, uint8 y, uint8 intensity, bool soft_highlight)
+    private void highlight_tile (Gtk.Snapshot snapshot, uint8 x, uint8 y, uint8 intensity, bool soft_highlight)
     {
-        if (soft_highlight)
-            cr.set_source_rgba (theme_manager.highlight_soft_red,
-                                theme_manager.highlight_soft_green,
-                                theme_manager.highlight_soft_blue,
-                                theme_manager.highlight_soft_alpha);
-        else
-            cr.set_source_rgba (theme_manager.highlight_hard_red,
-                                theme_manager.highlight_hard_green,
-                                theme_manager.highlight_hard_blue,
-                                theme_manager.highlight_hard_alpha);
-        rounded_square (cr,
-                        // TODO odd/even sizes problem
-                        paving_size * x + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
-                        paving_size * y + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
-                        tile_size * intensity / HIGHLIGHT_MAX,
-                        0,
-                        theme_manager.background_radius);
-        cr.fill ();
+        var path = rounded_square (
+            // TODO odd/even sizes problem
+            paving_size * x + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
+            paving_size * y + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
+            tile_size * intensity / HIGHLIGHT_MAX,
+            theme_manager.background_radius
+        );
+
+        var color = soft_highlight
+            ? Gdk.RGBA () {
+                red   = (float) theme_manager.highlight_soft_red,
+                green = (float) theme_manager.highlight_soft_green,
+                blue  = (float) theme_manager.highlight_soft_blue,
+                alpha = (float) theme_manager.highlight_soft_alpha
+            }
+            : Gdk.RGBA () {
+                red   = (float) theme_manager.highlight_hard_red,
+                green = (float) theme_manager.highlight_hard_green,
+                blue  = (float) theme_manager.highlight_hard_blue,
+                alpha = (float) theme_manager.highlight_hard_alpha
+            };
+
+        snapshot.append_fill (
+            path,
+            Gsk.FillRule.WINDING,
+            color);
     }
 
-    private void darken_tile (Cairo.Context cr, uint8 x, uint8 y)
+    private void darken_tile (Gtk.Snapshot snapshot, uint8 x, uint8 y)
     {
-        double alpha = theme_manager.highlight_hard_alpha * 1.6 * (double) humans_opening_intensity / (double) HUMANS_OPENING_INTENSITY_MAX;
-        cr.set_source_rgba (theme_manager.highlight_hard_red,
-                            theme_manager.highlight_hard_green,
-                            theme_manager.highlight_hard_blue,
-                            alpha);
-        rounded_square (cr,
-                        // TODO odd/even sizes problem
-                        paving_size * x,
-                        paving_size * y,
-                        tile_size,
-                        0,
-                        theme_manager.background_radius);
-        cr.fill ();
+        var path = rounded_square (
+            // TODO odd/even sizes problem
+            paving_size * x,
+            paving_size * y,
+            tile_size,
+            theme_manager.background_radius);
+
+        var color = Gdk.RGBA () {
+            red   = (float) theme_manager.highlight_hard_red,
+            green = (float) theme_manager.highlight_hard_green,
+            blue  = (float) theme_manager.highlight_hard_blue,
+            alpha = (float) theme_manager.highlight_hard_alpha * 1.6f * (float) humans_opening_intensity / (float) HUMANS_OPENING_INTENSITY_MAX
+        };
+
+        snapshot.append_fill (
+            path,
+            Gsk.FillRule.WINDING,
+            color);
     }
 
-    private void queue_draw_tile (uint8 x, uint8 y)
-        requires (x < game_size)
-        requires (y < game_size)
+    private void queue_draw_idle ()
     {
-        Timeout.add_once(30, () => {
-            queue_draw (/* board_x + tile_xs [x, y],
-                         board_y + tile_ys [x, y],
-                         tile_size,
-                         tile_size */);
+        Timeout.add_once(10, () => {
+            queue_draw ();
         });
     }
 
@@ -961,7 +951,7 @@ private class ReversiView : Gtk.Widget
                         }
                     });
         }
-        queue_draw_tile (x, y);
+        queue_draw_idle ();
     }
 
     private static int get_pixmap (Player color)
@@ -1108,7 +1098,7 @@ private class ReversiView : Gtk.Widget
     {
         mouse_is_in = false;
         if (mouse_position_set)
-            queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
+            queue_draw ();
     }
 
     private bool pointer_is_in_board (double pos_x, double pos_y, out uint8 x, out uint8 y)
@@ -1171,9 +1161,10 @@ private class ReversiView : Gtk.Widget
             mouse_is_in = false;
             show_mouse_highlight = false;
             if (mouse_position_set)
-                queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
+                queue_draw ();
         }
     }
+
     private void _on_motion (uint8 x, uint8 y, bool force_redraw)
     {
         if (!force_redraw
@@ -1201,18 +1192,18 @@ private class ReversiView : Gtk.Widget
         mouse_highlight_y = y;
 
         if (old_mouse_highlight_x != uint8.MAX && old_mouse_highlight_y != uint8.MAX)
-            queue_draw_tile (old_mouse_highlight_x, old_mouse_highlight_y);
+            queue_draw ();
         if (show_mouse_highlight && show_highlight)
         {
             show_highlight = false;
             if (highlight_x != x || highlight_y != y)
-                queue_draw_tile (highlight_x, highlight_y);
+                queue_draw ();
         }
         if ((show_mouse_highlight || force_redraw)
          // happens if the mouse is out of the board and the computer starts
          && (mouse_highlight_x != uint8.MAX && mouse_highlight_y != uint8.MAX))
         {
-            queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
+            queue_draw ();
         }
     }
 
@@ -1378,15 +1369,10 @@ private class ReversiView : Gtk.Widget
         else
             show_highlight = true;
 
-        queue_draw_tile (old_highlight_x, old_highlight_y);
-        if ((old_highlight_x != highlight_x)
-         || (old_highlight_y != highlight_y))
-            queue_draw_tile (highlight_x, highlight_y);
+        queue_draw ();
         if (key != "Escape")
         {
             show_mouse_highlight = false;
-            if (mouse_position_set)
-                queue_draw_tile (mouse_highlight_x, mouse_highlight_y);
         }
         else if (mouse_position_set && mouse_is_in)
         {
@@ -1619,7 +1605,7 @@ private class ReversiView : Gtk.Widget
                 uint8 x = ((!) move).x;
                 uint8 y = ((!) move).y;
                 possible_moves [x, y] = true;
-                queue_draw_tile (x, y);
             });
+        queue_draw ();
     }
 }

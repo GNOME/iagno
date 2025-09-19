@@ -32,7 +32,7 @@
           <object class="GtkStack" id="stack">
             <property name="visible-child">drawing</property>
             <child>
-              <object class="GtkDrawingArea" id="drawing"/>
+              <object class="HistoryButtonLabel" id="drawing"/>
             </child>
             <child>
               <object class="GtkStackPage">

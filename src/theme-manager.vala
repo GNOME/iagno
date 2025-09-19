@@ -222,4 +222,34 @@ private class ThemeManager : Object
         old_pieces_file = pieces_file;
         handle_loaded = true;
     }
+
+    public Gdk.MemoryTexture? tileset_for_size (int tile_size)
+    {
+        try
+        {
+            var width  = tile_size * 8;
+            var height = tile_size * 4;
+
+            var surface = new Cairo.ImageSurface (Cairo.Format.ARGB32, width, height);
+            var context = new Cairo.Context (surface);
+            tileset_handle.render_document (context, Rsvg.Rectangle () { x = 0, y = 0, width = width, height = height });
+            surface.flush ();
+
+            unowned uchar[] data = surface.get_data ();
+            data.length = surface.get_height () * surface.get_stride ();
+            var bytes = new Bytes (data);
+
+            return new Gdk.MemoryTexture (
+                surface.get_width (),
+                surface.get_height (),
+                Gdk.MemoryFormat.B8G8R8A8_PREMULTIPLIED,
+                bytes,
+                surface.get_stride ());
+        }
+        catch (Error e)
+        {
+            warning (e.message);
+            return null;
+        }
+    }
 }

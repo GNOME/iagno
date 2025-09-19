@@ -23,23 +23,15 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/history-button.ui")]
 private class HistoryButton : Widget
 {
-    private ThemeManager _theme_manager;
     [CCode (notify = false)] public ThemeManager theme_manager
     {
-        get { return _theme_manager; }
-        set
-        {
-            _theme_manager = value;
-            _theme_manager.theme_changed.connect (() => {
-                if (current_player != Player.NONE)
-                    drawing.queue_draw ();
-            });
-        }
+        get { return drawing.theme_manager; }
+        set { drawing.theme_manager = value; }
     }
 
     [GtkChild] private unowned MenuButton menu_button;
     [GtkChild] private unowned Stack stack;
-    [GtkChild] private unowned DrawingArea drawing;
+    [GtkChild] private unowned HistoryButtonLabel drawing;
 
     private GLib.Menu history_menu;
     private GLib.Menu finish_menu;
@@ -59,18 +51,16 @@ private class HistoryButton : Widget
         finish_menu.freeze ();
 
         menu_button.menu_model = history_menu;
-
-        drawing.set_draw_func (update_drawing);
     }
 
     internal void set_player (Player player)
     {
-        current_player = player;
         if (player == Player.NONE)
             stack.set_visible_child_name ("label");
         else
         {
             stack.set_visible_child (drawing);
+            drawing.current_player = player;
             drawing.queue_draw ();
         }
     }
@@ -84,83 +74,93 @@ private class HistoryButton : Widget
     {
         get { return menu_button.active; }
     }
+}
 
-    /*\
-    * * drawing
-    \*/
-
-    private int drawing_height      = int.MIN;
-    private int drawing_width       = int.MIN;
-    private double arrow_half_width = - double.MAX;
-    private int board_x             = int.MIN;
-    private int board_y             = int.MIN;
-    private const int pixbuf_margin = 1;
-
-    private Gdk.Pixbuf tileset_pixbuf;
-
-    private void configure_drawing ()
+private class HistoryButtonLabel : Widget
+{
+    private ThemeManager _theme_manager;
+    [CCode (notify = false)] public ThemeManager theme_manager
     {
-        int height          = drawing.get_allocated_height ();
-        int width           = drawing.get_allocated_width ();
-        int new_height      = (int) double.min (height, width / 2.0);
+        get { return _theme_manager; }
+        set
+        {
+            _theme_manager = value;
+            _theme_manager.theme_changed.connect (() => {
+                queue_draw ();
+            });
+        }
+    }
 
-        drawing_height      = new_height;
-        arrow_half_width    = ((double) drawing_height - 2.0 * pixbuf_margin) / 4.0;
-        tiles_pattern       = null;
+    public Player current_player = Player.NONE;
+
+    private const int pixbuf_margin = 1;
+    private const float arrow_margin_top = 3.0f;
+
+    private Gdk.Texture? tiles_pattern = null;
+
+    protected override void snapshot (Gtk.Snapshot snapshot)
+    {
+        int height = get_height ();
+        int width = get_width ();
+        int new_height = (int) double.min (height, width / 2.0);
+
+        int drawing_height = new_height;
 
         bool vertical_fill  = height == new_height;
-        drawing_width       =  vertical_fill ? (int) (new_height * 2.0) : width;
-        board_x             =  vertical_fill ? (int) ((width  - drawing_width)  / 2.0) : 0;
-        board_y             = !vertical_fill ? (int) ((height - drawing_height) / 2.0) : 0;
+        int drawing_width   =  vertical_fill ? (int) (new_height * 2.0) : width;
+        int board_x         =  vertical_fill ? (int) ((width  - drawing_width)  / 2.0) : 0;
+        int board_y         = !vertical_fill ? (int) ((height - drawing_height) / 2.0) : 0;
+
+        if (tiles_pattern == null || ((!) tiles_pattern).get_height () != drawing_height * 4)
+            tiles_pattern = theme_manager.tileset_for_size (drawing_height);
+
+        snapshot.save ();
+        snapshot.translate (Graphene.Point () {
+            x = board_x,
+            y = board_y
+        });
+        draw_arrow (snapshot, drawing_height);
+        snapshot.restore ();
+
+        snapshot.save ();
+        snapshot.translate (Graphene.Point () {
+            x = board_x + drawing_width - drawing_height,
+            y = board_y
+        });
+        draw_piece (snapshot, drawing_height);
+        snapshot.restore ();
     }
 
-    private Cairo.Pattern? tiles_pattern = null;
-    private void init_pattern (Cairo.Context cr)    // TODO unduplicate with ReversiView
+    private void draw_arrow (Gtk.Snapshot snapshot, int drawing_height)
     {
-        Cairo.Surface surface = new Cairo.Surface.similar (cr.get_target (), Cairo.Content.COLOR_ALPHA, drawing_height * 8,
-                                                                                                        drawing_height * 4);
-        Cairo.Context context = new Cairo.Context (surface);
-        Rsvg.DimensionData size = theme_manager.tileset_handle.get_dimensions ();
-        context.scale ((double) drawing_height * 8.0 / (double) size.width,
-                       (double) drawing_height * 4.0 / (double) size.height);
-        theme_manager.tileset_handle.render_cairo (context);
-        tiles_pattern = new Cairo.Pattern.for_surface (surface);
+        snapshot.save ();
+
+        float arrow_half_width = ((float) drawing_height - 2.0f * pixbuf_margin) / 4.0f;
+
+        var builder = new Gsk.PathBuilder ();
+        builder.move_to (      arrow_half_width, arrow_margin_top);
+        builder.line_to (3.0f * arrow_half_width, drawing_height / 2.0f);
+        builder.line_to (      arrow_half_width, drawing_height - arrow_margin_top);
+        var path = builder.to_path ();
+
+        var stroke = new Gsk.Stroke (2);
+        stroke.set_line_cap (Gsk.LineCap.ROUND);
+        stroke.set_line_join (Gsk.LineJoin.ROUND);
+
+        snapshot.append_stroke (
+            path,
+            stroke,
+            Gdk.RGBA () { red = 0.5f, green = 0.5f, blue = 0.5f, alpha = 1.0f });
+
+        snapshot.restore ();
     }
 
-    private void update_drawing (DrawingArea area, Cairo.Context cr, int w, int h)
+    private void draw_piece (Gtk.Snapshot snapshot, int drawing_height)
     {
-        configure_drawing ();
-
         if (tiles_pattern == null)
-            init_pattern (cr);
+            return;
+        var texture = (!) tiles_pattern;
 
-        draw_arrow (cr);
-        draw_piece (cr);
-    }
-
-    private const double arrow_margin_top = 3.0;
-    private void draw_arrow (Cairo.Context cr)
-    {
-        cr.save ();
-
-        cr.set_line_cap (Cairo.LineCap.ROUND);
-        cr.set_line_join (Cairo.LineJoin.ROUND);
-
-        cr.set_source_rgba (/* red */ 0.5, /* green */ 0.5, /* blue */ 0.5, 1.0);
-        cr.set_line_width (/* looks good */ 2.0);
-
-        cr.translate (board_x, board_y);
-        cr.move_to (      arrow_half_width, arrow_margin_top);
-        cr.line_to (3.0 * arrow_half_width, drawing_height / 2.0);
-        cr.line_to (      arrow_half_width, drawing_height - arrow_margin_top);
-        cr.stroke ();
-
-        cr.restore ();
-    }
-
-    private Player current_player = Player.NONE;
-    private void draw_piece (Cairo.Context cr)
-    {
         int pixmap;
         switch (current_player)
         {
@@ -170,17 +170,22 @@ private class HistoryButton : Widget
             default: assert_not_reached ();
         }
 
-        cr.save ();
-        Cairo.Matrix matrix = Cairo.Matrix.identity ();
-        int x = board_x + drawing_width - drawing_height;
-        matrix.translate (/* texture x */ (pixmap % 8) * drawing_height - /* x position */ x,
-                          /* texture y */ (pixmap / 8) * drawing_height - /* y position */ board_y);
-        ((!) tiles_pattern).set_matrix (matrix);
-        cr.set_source ((!) tiles_pattern);
-        cr.rectangle (x, board_y, drawing_height, drawing_height);
+        var tile_rect = Graphene.Rect () {
+            origin = { x: 0, y: 0 },
+            size = {
+                width:  (float) drawing_height,
+                height: (float) drawing_height
+            }
+        };
 
-        cr.clip ();
-        cr.paint ();
-        cr.restore ();
+        snapshot.push_clip (tile_rect);
+        snapshot.save();
+        snapshot.translate(Graphene.Point () {
+            x = - /* texture x */ (pixmap % 8) * drawing_height,
+            y = - /* texture y */ (pixmap / 8) * drawing_height
+        });
+        texture.snapshot (snapshot, texture.get_width (), texture.get_height ());
+        snapshot.restore();
+        snapshot.pop();
     }
 }
