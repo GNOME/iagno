@@ -163,7 +163,7 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
         if (!has_a_phone_size)
         {
             /* Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt) */
-            section.append (_("_Keyboard Shortcuts"), "win.show-help-overlay");
+            section.append (_("_Keyboard Shortcuts"), "base.show-shortcuts");
         }
     }
 
@@ -272,7 +272,8 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
     private const GLib.ActionEntry [] action_entries =
     {
         { "escape",             escape_pressed      },  // Escape
-        { "toggle-hamburger",   toggle_hamburger    }   // F10
+        { "toggle-hamburger",   toggle_hamburger    },  // F10
+        { "show-shortcuts",     show_shortcuts      }
     };
 
     internal signal void play ();
@@ -325,6 +326,13 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
     private void toggle_hamburger (/* SimpleAction action, Variant? variant */)
     {
         info_button.active = !info_button.active;
+    }
+
+    private void show_shortcuts (/* SimpleAction action, Variant? variant */)
+    {
+        Gtk.Builder builder = new Gtk.Builder.from_resource ("/org/gnome/Reversi/ui/help-overlay.ui");
+        Adw.Dialog dialog = (Adw.Dialog) builder.get_object ("help_overlay");
+        dialog.present (this);
     }
 
     private void new_game_cb (/* SimpleAction action, Variant? variant */)
