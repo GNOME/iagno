@@ -233,8 +233,8 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
 
     private void show_view ()
     {
-        back_button.hide ();        // TODO transition?
-        new_game_button.show ();    // TODO transition?
+        back_button.visible = false;        // TODO transition?
+        new_game_button.visible = true;     // TODO transition?
         history_button1_box.visible = true;
 
         bool grabs_focus;
@@ -406,8 +406,8 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
 
         configure_transition (StackTransitionType.SLIDE_LEFT, 800);
 
-        back_button.show ();
-        new_game_button.hide ();        // TODO transition?
+        back_button.visible = true;
+        new_game_button.visible = false;        // TODO transition?
 
         back_action_disabled = false;
         escape_action.set_enabled (true);
