@@ -2,8 +2,7 @@
 # Please keep this file in alphabetical order.
 data/org.gnome.Reversi.desktop.in
 data/org.gnome.Reversi.metainfo.xml.in
-data/ui/base-headerbar.ui
-data/ui/game-headerbar.ui
+data/ui/game-window.ui
 data/ui/help-overlay.ui
 data/ui/history-button.ui
 data/ui/new-game-screen.ui
@@ -12,13 +11,10 @@ data/themes/classic.theme.desktop.in
 data/themes/high_contrast.theme.desktop.in
 data/themes/sun_and_star.theme.desktop.in
 data/org.gnome.Reversi.gschema.xml
-src/about-list.vala
 src/adaptative-window.vala
-src/base-headerbar.vala
 src/computer-player.vala
-src/game-headerbar.vala
+src/game-select-button.vala
 src/game.vala
-src/game-view.vala
 src/game-window.vala
 src/history-button.vala
 src/iagno.vala

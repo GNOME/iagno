@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/Reversi/images">
-    <file alias="reverse.png">../data/reverse.png</file>
-    <file alias="reversi.png">../data/reversi.png</file>
+    <file>reverse.png</file>
+    <file>reversi.png</file>
   </gresource>
   <gresource prefix="/org/gnome/Reversi/ui">
     <file preprocess="xml-stripblanks" compressed="true" alias="game-window.ui"                 >ui/game-window.ui</file>

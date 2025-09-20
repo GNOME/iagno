@@ -1035,7 +1035,9 @@ private class Iagno : Gtk.Application
             /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
             _("Copyright \xc2\xa9 %u-%u – Michael Catanzaro").printf (2013, 2015) + "\n" +
             /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
-            _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2014, 2020)
+            _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2014, 2020) + "\n" +
+            /* Translators: text crediting a maintainer, in the about dialog text; the %u are replaced with the years of start and end */
+            _("Copyright \xc2\xa9 %u – Andrey Kutejko").printf (2025)
         );
         about_dialog.set_documenters ({
             /* Translators: text crediting a documenter, in the about dialog */
