@@ -55,9 +55,10 @@
     <value key="Purism::form_factor">mobile</value>
   </custom>
 
-  ​<releases>
+  <releases>
     <!-- should be kept in versioning inverted order -->
+    <release version="50.alpha" date="2025-11-12" type="development" urgency="low"/>
     <release version="3.38.1" date="2020-10-03" type="stable" urgency="medium"/>
-  ​  <release version="3.37.91" date="2020-08-28" type="development" urgency="low"/>
+    <release version="3.37.91" date="2020-08-28" type="development" urgency="low"/>
   </releases>
 </component>

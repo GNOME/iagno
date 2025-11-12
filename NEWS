@@ -1,3 +1,48 @@
+50.alpha – November 12, 2025
+=============================
+
+New release with a port to Gtk4 and libadwaita.
+Also GNOME branding was removed. It's just a Reversi from now on.
+
+Translations updated:
+  Abkhazian: Nart Tlisha
+  Basque: Asier Sarasua Garmendia
+  Belarusian: Vasil Pupkin
+  Brazilian Portuguese: Juliano de Souza Camargo
+  British English: Zander Brown
+  Bulgarian: Alexander Shopov
+  Catalan: Jordi Mas
+  Chinese (China): Luming Zh
+  Czech: Daniel Rusek
+  Danish: Alan Mortensen, Ask Hjorth Larsen
+  Finnish: Jiri Grönroos
+  French: Charles Monzat, Guillaume Bernard, Irénée THIRION
+  Galician: Fran Dieguez
+  Georgian: Ekaterine Papava, Zurab Kargareteli
+  German: Christian Kirbach, Jürgen Benvenuti, Tim Sabsch
+  Greek: Giannis Antypas
+  Hebrew: Yosef Or Boczko
+  Hindi: Scrambled 777
+  Hungarian: Balázs Úr
+  Icelandic: Sveinn í Felli
+  Indonesian: Andika Triwidada, Kukuh Syafaat
+  Kazakh: Baurzhan Muftakhidinov
+  Korean: DaeHyun Sung, Seong-ho Cho
+  Latvian: Rūdolfs Mazurs
+  Lithuanian: Aurimas Černius
+  Occitan: Quentin PAGÈS
+  Persian: Danial Behzadi
+  Polish: Piotr Drąg
+  Portuguese: Hugo Carvalho
+  Romanian: Florentina Mușat
+  Russian: Sergej A.
+  Slovak: Dušan Kazik
+  Slovenian: Martin
+  Spanish: Daniel Mustieles, Rodrigo Lledó
+  Swedish: Anders Jonsson
+  Turkish: Emin Tufan Çetin, Sabri Ünal
+  Ukrainian: Yuri Chornoivan
+
 3.38.1 – October 3, 2020
 =============================
 
