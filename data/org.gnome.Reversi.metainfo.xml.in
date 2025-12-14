@@ -37,6 +37,7 @@
   <url type="vcs-browser">https://gitlab.gnome.org/GNOME/iagno</url>
   <url type="donation">https://www.gnome.org/donate/</url>
   <url type="translate">https://l10n.gnome.org/module/iagno/</url>
+  <url type="help>https://help.gnome.org/iagno/</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
   <launchable type="desktop-id">org.gnome.Reversi.desktop</launchable>
