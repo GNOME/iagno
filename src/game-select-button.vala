@@ -74,11 +74,13 @@ private class GameSelectButton : Grid
 
     construct
     {
+        label.hexpand = true;
         label.vexpand = false;
         attach (label, 0, 0, 1, 1);
 
         image.halign = Align.CENTER;
         image.valign = Align.START;
+        image.hexpand = true;
         image.vexpand = true;
         attach (image, 0, 1, 1, 1);
     }
