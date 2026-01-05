@@ -23,22 +23,13 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/new-game-screen.ui")]
 private class NewGameScreen : Box, AdaptativeWidget
 {
-    [GtkChild] private unowned Adw.Toggle toggle_classic;
-    [GtkChild] private unowned Adw.Toggle toggle_reverse;
+    [GtkChild] private unowned GameSelectLabel reversi_label;
+    [GtkChild] private unowned GameSelectLabel reverse_label;
 
-    private GameSelectButton modelbutton_one;
-    private GameSelectButton modelbutton_two;
-
-    [GtkChild] private unowned Gtk.MenuButton menubutton_one;
-    [GtkChild] private unowned Gtk.MenuButton menubutton_two;
-
+    [GtkChild] private unowned Gtk.MenuButton game_type_button;
+    [GtkChild] private unowned Gtk.MenuButton level_button;
 
     construct {
-        modelbutton_one = new GameSelectButton ("classic");
-        modelbutton_two = new GameSelectButton ("reverse");
-        toggle_classic.child = modelbutton_one;
-        toggle_reverse.child = modelbutton_two;
-
         var settings = new GLib.Settings ("org.gnome.Reversi");
         settings.bind ("type", games_box, "active-name", SettingsBindFlags.DEFAULT);
     }
@@ -47,36 +38,24 @@ private class NewGameScreen : Box, AdaptativeWidget
     * * options buttons
     \*/
 
-    public enum MenuButton {
-        ONE,
-        TWO;
+    internal inline void update_game_type_label (string label)
+    {
+        game_type_button.set_label (label);
     }
 
-    internal inline void update_menubutton_label (MenuButton button, string label)
+    internal inline void update_level_label (string label)
     {
-        switch (button)
-        {
-            case MenuButton.ONE: menubutton_one.set_label (label); return;
-            case MenuButton.TWO: menubutton_two.set_label (label); return;
-        }
+        level_button.set_label (label);
     }
 
-    internal inline void update_menubutton_menu (MenuButton button, GLib.Menu menu)
+    internal inline void update_level_menu (GLib.Menu menu)
     {
-        switch (button)
-        {
-            case MenuButton.ONE: menubutton_one.set_menu_model (menu); return;
-            case MenuButton.TWO: menubutton_two.set_menu_model (menu); return;
-        }
+        level_button.set_menu_model (menu);
     }
 
-    internal inline void update_menubutton_sensitivity (MenuButton button, bool new_sensitivity)
+    internal inline void update_level_sensitivity (bool new_sensitivity)
     {
-        switch (button)
-        {
-            case MenuButton.ONE: menubutton_one.set_sensitive (new_sensitivity); return;
-            case MenuButton.TWO: menubutton_two.set_sensitive (new_sensitivity); return;
-        }
+        level_button.set_sensitive (new_sensitivity);
     }
 
     /*\
@@ -120,8 +99,8 @@ private class NewGameScreen : Box, AdaptativeWidget
                 options_separator.set_orientation (Orientation.VERTICAL);
                 options_separator.show ();
 
-                modelbutton_one.with_image = false;
-                modelbutton_two.with_image = false;
+                reversi_label.with_image = false;
+                reverse_label.with_image = false;
             }
             else
             {
@@ -132,8 +111,8 @@ private class NewGameScreen : Box, AdaptativeWidget
                 games_box.set_orientation (Orientation.HORIZONTAL);
                 options_box.set_orientation (Orientation.HORIZONTAL);
 
-                modelbutton_one.with_image = true;
-                modelbutton_two.with_image = true;
+                reversi_label.with_image = true;
+                reverse_label.with_image = true;
             }
         }
         else if (_phone_size)
@@ -146,8 +125,8 @@ private class NewGameScreen : Box, AdaptativeWidget
             options_separator.set_orientation (Orientation.HORIZONTAL);
             options_separator.show ();
 
-            modelbutton_one.with_image = false;
-            modelbutton_two.with_image = false;
+            reversi_label.with_image = false;
+            reverse_label.with_image = false;
         }
         else
         {
@@ -158,8 +137,8 @@ private class NewGameScreen : Box, AdaptativeWidget
             games_label.show ();
             options_label.show ();
 
-            modelbutton_one.with_image = false;
-            modelbutton_two.with_image = false;
+            reversi_label.with_image = false;
+            reverse_label.with_image = false;
         }
         queue_allocate ();
     }

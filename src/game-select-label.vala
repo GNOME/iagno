@@ -17,21 +17,10 @@
 
 using Gtk;
 
-private class GameSelectButton : Grid
+private class GameSelectLabel : Grid
 {
     private Label label;
     private Image image;
-
-    public GameSelectButton(string game_type) {
-        Object(
-            game_type: game_type,
-            margin_top: 6,
-            margin_bottom: 6,
-            margin_start: 6,
-            margin_end: 6,
-            row_homogeneous: false
-        );
-    }
 
     public string game_type
     {
@@ -74,6 +63,12 @@ private class GameSelectButton : Grid
 
     construct
     {
+        margin_top = 6;
+        margin_bottom = 6;
+        margin_start = 6;
+        margin_end = 6;
+        row_homogeneous = false;
+
         label.hexpand = true;
         label.vexpand = false;
         attach (label, 0, 0, 1, 1);

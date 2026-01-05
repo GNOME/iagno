@@ -297,33 +297,8 @@ private class Iagno : Gtk.Application
         view.move.connect (player_move_cb);
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
-        GLib.Menu type_menu = new GLib.Menu ();
-        GLib.Menu section = new GLib.Menu ();
-        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt) */
-        section.append (_("Play _first (Dark)"),  "app.game-type('dark')");
-
-
-        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt) */
-        section.append (_("Play _second (Light)"), "app.game-type('light')");
-        section.freeze ();
-        type_menu.append_section (null, section);
-
-        section = new GLib.Menu ();
-        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt) */
-        section.append (_("_Alternate who starts"), "app.alternate-who-starts");
-        section.freeze ();
-        type_menu.append_section (null, section);
-
-        section = new GLib.Menu ();
-        /* Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt) */
-        section.append (_("_Two players"), "app.game-type('two')");
-        section.freeze ();
-        type_menu.append_section (null, section);
-
-        type_menu.freeze ();
-
         GLib.Menu level_menu = new GLib.Menu ();
-        section = new GLib.Menu ();
+        GLib.Menu section = new GLib.Menu ();
         /* Translators: when configuring a new game, in the second menubutton's menu, label of the entry to choose an easy-level computer adversary (with a mnemonic that appears pressing Alt) */
         level_menu.append (_("_Easy"),   "app.change-level('1')");
 
@@ -421,8 +396,7 @@ private class Iagno : Gtk.Application
         /* window */
         window = new GameWindow (start_now, view, appearance_menu);
 
-        window.new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.ONE, type_menu);
-        window.new_game_screen.update_menubutton_menu (NewGameScreen.MenuButton.TWO, level_menu);
+        window.new_game_screen.update_level_menu (level_menu);
 
         window.history_button1.theme_manager = theme_manager;
         window.history_button2.theme_manager = theme_manager;
@@ -586,17 +560,20 @@ private class Iagno : Gtk.Application
         switch (type)
         {
             case "two":
-                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                window.new_game_screen.update_game_type_label (
                 /* Translators: when configuring a new game, button label if a two-players game is chosen */
-                                                         _("Two players"));             return;
+                                                         _("Two players"));
+                return;
             case "dark":
-                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                window.new_game_screen.update_game_type_label (
                 /* Translators: when configuring a new game, button label if the player choose to start */
-                                                         _("Color: Dark"));             return;
+                                                         _("Color: Dark"));
+                return;
             case "light":
-                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.ONE,
+                window.new_game_screen.update_game_type_label (
                 /* Translators: when configuring a new game, button label if the player choose let computer start */
-                                                         _("Color: Light"));            return;
+                                                         _("Color: Light"));
+                return;
             default: assert_not_reached ();
         }
     }
@@ -622,26 +599,32 @@ private class Iagno : Gtk.Application
                 change_level_action.set_enabled (false);
                 if (alternative_start || random_start || usual_start)
                 {
-                    window.new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, false);
+                    window.new_game_screen.update_level_sensitivity (false);
                     update_level_button_label ((uint8) settings.get_int ("computer-level"));
                 }
                 else
-                    update_level_button_label (0);                                                      return;
+                {
+                    update_level_button_label (0);
+                }
+                return;
 
             case 1:
                 change_level_action.set_enabled (true);
-                window.new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
-                update_level_button_label (1);                                                          return;
+                window.new_game_screen.update_level_sensitivity (true);
+                update_level_button_label (1);
+                return;
 
             case 2:
                 change_level_action.set_enabled (true);
-                window.new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
-                update_level_button_label (2);                                                          return;
+                window.new_game_screen.update_level_sensitivity (true);
+                update_level_button_label (2);
+                return;
 
             case 3:
                 change_level_action.set_enabled (true);
-                window.new_game_screen.update_menubutton_sensitivity (NewGameScreen.MenuButton.TWO, true);
-                update_level_button_label (3);                                                          return;
+                window.new_game_screen.update_level_sensitivity (true);
+                update_level_button_label (3);
+                return;
 
             default: assert_not_reached ();
         }
@@ -651,21 +634,25 @@ private class Iagno : Gtk.Application
         switch (level)
         {
             case 0:
-                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                window.new_game_screen.update_level_label (
                 /* Translators: when configuring a new game, second menubutton label, when configuring a two-player game */
-                                                         _("More options"));            return;
+                                                         _("More options"));
+                return;
             case 1:
-                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                window.new_game_screen.update_level_label (
                 /* Translators: when configuring a new game, button label for the AI level, if easy */
-                                                         _("Difficulty: Easy"));        return;
+                                                         _("Difficulty: Easy"));
+                return;
             case 2:
-                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                window.new_game_screen.update_level_label (
                 /* Translators: when configuring a new game, button label for the AI level, if medium */
-                                                         _("Difficulty: Medium"));      return;
+                                                         _("Difficulty: Medium"));
+                return;
             case 3:
-                window.new_game_screen.update_menubutton_label (NewGameScreen.MenuButton.TWO,
+                window.new_game_screen.update_level_label (
                 /* Translators: when configuring a new game, button label for the AI level, if hard */
-                                                         _("Difficulty: Hard"));        return;
+                                                         _("Difficulty: Hard"));
+                return;
             default: assert_not_reached ();
         }
     }

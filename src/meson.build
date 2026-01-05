@@ -77,7 +77,7 @@ executable(meson.project_name(),
         'history-button.vala',
         'iagno.vala',
         'new-game-screen.vala',
-        'game-select-button.vala',
+        'game-select-label.vala',
         'player.vala',
         'reversi-view.vala',
         'theme-manager.vala'

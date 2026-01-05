@@ -40,15 +40,25 @@
         <property name="active-name">classic</property>
         <property name="homogeneous">1</property>
         <child>
-          <object class="AdwToggle" id="toggle_classic">
+          <object class="AdwToggle">
             <property name="label" translatable="yes">Classic Reversi</property>
             <property name="name">classic</property>
+            <property name="child">
+              <object class="GameSelectLabel" id="reversi_label">
+                <property name="game_type">classic</property>
+              </object>
+            </property>
           </object>
         </child>
         <child>
-          <object class="AdwToggle" id="toggle_reverse">
+          <object class="AdwToggle">
             <property name="label" translatable="yes">Reverse Reversi</property>
             <property name="name">reverse</property>
+            <property name="child">
+              <object class="GameSelectLabel" id="reverse_label">
+                <property name="game_type">reverse</property>
+              </object>
+            </property>
           </object>
         </child>
       </object>
@@ -75,18 +85,50 @@
         <property name="homogeneous">1</property>
         <property name="spacing">6</property>
         <child>
-          <object class="GtkMenuButton" id="menubutton_one">
+          <object class="GtkMenuButton" id="game_type_button">
             <property name="hexpand">1</property>
             <property name="use-underline">1</property>
+            <property name="menu-model">game-type-menu</property>
           </object>
         </child>
         <child>
-          <object class="GtkMenuButton" id="menubutton_two">
+          <object class="GtkMenuButton" id="level_button">
             <property name="hexpand">1</property>
             <property name="use-underline">1</property>
           </object>
         </child>
       </object>
     </child>
+    <menu id="game-type-menu">
+      <section>
+        <item>
+          <!-- Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt) -->
+          <attribute name="label" translatable="yes">Play _first (Dark)</attribute>
+          <attribute name="action">app.game-type</attribute>
+          <attribute name="target">dark</attribute>
+        </item>
+        <item>
+          <!-- Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt) -->
+          <attribute name="label" translatable="yes">Play _second (Light)</attribute>
+          <attribute name="action">app.game-type</attribute>
+          <attribute name="target">light</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <!-- Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt) -->
+          <attribute name="label" translatable="yes">_Alternate who starts</attribute>
+          <attribute name="action">app.alternate-who-starts</attribute>
+        </item>
+      </section>
+      <section>
+        <item>
+          <!-- Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt) -->
+          <attribute name="label" translatable="yes">_Two players</attribute>
+          <attribute name="action">app.game-type</attribute>
+          <attribute name="target">two</attribute>
+        </item>
+      </section>
+    </menu>
   </template>
 </interface>
