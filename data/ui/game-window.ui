@@ -17,7 +17,11 @@
 -->
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="GameWindow" parent="AdaptativeWindow">
+  <template class="GameWindow" parent="AdwApplicationWindow">
+    <!-- 360px max for Purism Librem 5 portrait, for 648px height; update gschema also -->
+    <property name="width-request">350</property>
+    <!-- 288px max for Purism Librem 5 landscape, for 720px width; update gschema also -->
+    <property name="height-request">284</property>
     <child>
       <object class="AdwToolbarView">
         <child type="top">
@@ -137,9 +141,93 @@
                             <property name="halign">center</property>
                             <property name="valign">center</property>
                             <child>
-                              <object class="NewGameScreen" id="new_game_screen">
+                              <object class="GtkBox" id="new_game_screen">
                                 <property name="vexpand">True</property>
                                 <property name="valign">fill</property>
+                                <property name="orientation">vertical</property>
+                                <property name="spacing">6</property>
+                                <style>
+                                  <class name="new-game-screen"/>
+                                </style>
+                                <child>
+                                  <object class="GtkLabel" id="games_label">
+                                    <property name="visible">0</property>
+                                    <property name="halign">start</property>
+                                    <attributes>
+                                      <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+                                    </attributes>
+                                    <!-- Translators: when configuring a new game, header of the game type that appears on small screen -->
+                                    <property name="label" translatable="1">Game</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="AdwToggleGroup" id="games_box">
+                                    <property name="active-name">classic</property>
+                                    <property name="homogeneous">1</property>
+                                    <property name="orientation">horizontal</property>
+                                    <child>
+                                      <object class="AdwToggle">
+                                        <property name="label" translatable="yes">Classic Reversi</property>
+                                        <property name="name">classic</property>
+                                        <property name="child">
+                                          <object class="GameSelectLabel" id="reversi_label">
+                                            <property name="game_type">classic</property>
+                                            <property name="with-image">True</property>
+                                          </object>
+                                        </property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="AdwToggle">
+                                        <property name="label" translatable="yes">Reverse Reversi</property>
+                                        <property name="name">reverse</property>
+                                        <property name="child">
+                                          <object class="GameSelectLabel" id="reverse_label">
+                                            <property name="game_type">reverse</property>
+                                            <property name="with-image">True</property>
+                                          </object>
+                                        </property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkSeparator" id="options_separator">
+                                    <property name="visible">0</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="options_label">
+                                    <property name="visible">0</property>
+                                    <property name="halign">start</property>
+                                    <property name="margin-top">12</property>
+                                    <attributes>
+                                      <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+                                    </attributes>
+                                    <!-- Translators: when configuring a new game, header of the options that appears on small screen -->
+                                    <property name="label" translatable="1">Options</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="options_box">
+                                    <property name="homogeneous">1</property>
+                                    <property name="spacing">6</property>
+                                    <property name="orientation">horizontal</property>
+                                    <child>
+                                      <object class="GtkMenuButton" id="game_type_button">
+                                        <property name="hexpand">1</property>
+                                        <property name="use-underline">1</property>
+                                        <property name="menu-model">game-type-menu</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkMenuButton" id="level_button">
+                                        <property name="hexpand">1</property>
+                                        <property name="use-underline">1</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                             <child>
@@ -215,8 +303,10 @@
       </object>
     </child>
     <child>
+      <!-- small -->
       <object class="AdwBreakpoint">
-        <condition>max-width: 590px</condition>
+        <condition>max-width: 590px and max-height: 400px</condition>
+
         <setter object="headerbar" property="show-start-title-buttons">False</setter>
         <setter object="headerbar" property="show-end-title-buttons">False</setter>
         <setter object="window_title" property="visible">False</setter>
@@ -224,7 +314,82 @@
         <setter object="ltr_right_separator" property="visible">True</setter>
         <setter object="quit_button" property="visible">True</setter>
         <setter object="action_bar" property="visible">True</setter>
+
+        <setter object="games_box" property="orientation">vertical</setter>
+        <setter object="options_box" property="orientation">vertical</setter>
+        <setter object="reversi_label" property="with-image">False</setter>
+        <setter object="reverse_label" property="with-image">False</setter>
+
+        <setter object="options_separator" property="visible">True</setter>
       </object>
     </child>
+    <child>
+      <!-- narrow -->
+      <object class="AdwBreakpoint">
+        <condition>max-width: 590px and min-height: 401px</condition>
+
+        <setter object="headerbar" property="show-start-title-buttons">False</setter>
+        <setter object="headerbar" property="show-end-title-buttons">False</setter>
+        <setter object="window_title" property="visible">False</setter>
+        <setter object="history_button1" property="visible">False</setter>
+        <setter object="ltr_right_separator" property="visible">True</setter>
+        <setter object="quit_button" property="visible">True</setter>
+        <setter object="action_bar" property="visible">True</setter>
+
+        <setter object="games_box" property="orientation">vertical</setter>
+        <setter object="options_box" property="orientation">vertical</setter>
+        <setter object="reversi_label" property="with-image">False</setter>
+        <setter object="reverse_label" property="with-image">False</setter>
+
+        <setter object="games_label" property="visible">True</setter>
+        <setter object="options_label" property="visible">True</setter>
+     </object>
+    </child>
+    <child>
+      <!-- flat -->
+      <object class="AdwBreakpoint">
+        <condition>min-width: 591px and max-height: 400px</condition>
+
+        <setter object="new_game_screen" property="orientation">horizontal</setter>
+
+        <setter object="games_box" property="orientation">vertical</setter>
+        <setter object="options_box" property="orientation">vertical</setter>
+        <setter object="reversi_label" property="with-image">False</setter>
+        <setter object="reverse_label" property="with-image">False</setter>
+
+        <setter object="options_separator" property="visible">True</setter>
+      </object>
+    </child>
+    <menu id="game-type-menu">
+    <section>
+      <item>
+        <!-- Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play first/Dark (with a mnemonic that appears pressing Alt) -->
+        <attribute name="label" translatable="yes">Play _first (Dark)</attribute>
+        <attribute name="action">app.game-type</attribute>
+        <attribute name="target">dark</attribute>
+      </item>
+      <item>
+        <!-- Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to play second/Light (with a mnemonic that appears pressing Alt) -->
+        <attribute name="label" translatable="yes">Play _second (Light)</attribute>
+        <attribute name="action">app.game-type</attribute>
+        <attribute name="target">light</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <!-- Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose to alternate who starts between human and AI (with a mnemonic that appears pressing Alt) -->
+        <attribute name="label" translatable="yes">_Alternate who starts</attribute>
+        <attribute name="action">app.alternate-who-starts</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <!-- Translators: when configuring a new game, in the first menubutton's menu, label of the entry to choose a two-players game (with a mnemonic that appears pressing Alt) -->
+        <attribute name="label" translatable="yes">_Two players</attribute>
+        <attribute name="action">app.game-type</attribute>
+        <attribute name="target">two</attribute>
+      </item>
+    </section>
+    </menu>
   </template>
 </interface>

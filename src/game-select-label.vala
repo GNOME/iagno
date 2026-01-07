@@ -46,20 +46,7 @@ private class GameSelectLabel : Grid
         }
     }
 
-    private bool _with_image = true;
-    public bool with_image
-    {
-        get
-        {
-            return _with_image;
-        }
-        set
-        {
-            _with_image = value;
-            label.vexpand = !_with_image;
-            image.visible = _with_image;
-        }
-    }
+    public bool with_image { get; set; default = true; }
 
     construct
     {
@@ -78,5 +65,8 @@ private class GameSelectLabel : Grid
         image.hexpand = true;
         image.vexpand = true;
         attach (image, 0, 1, 1, 1);
+
+        bind_property ("with-image", image, "visible", GLib.BindingFlags.SYNC_CREATE);
+        bind_property ("with-image", label, "vexpand", GLib.BindingFlags.SYNC_CREATE | GLib.BindingFlags.INVERT_BOOLEAN);
     }
 }

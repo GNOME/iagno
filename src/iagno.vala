@@ -396,7 +396,7 @@ private class Iagno : Gtk.Application
         /* window */
         window = new GameWindow (start_now, view, appearance_menu);
 
-        window.new_game_screen.update_level_menu (level_menu);
+        window.update_level_menu (level_menu);
 
         window.history_button1.theme_manager = theme_manager;
         window.history_button2.theme_manager = theme_manager;
@@ -560,17 +560,17 @@ private class Iagno : Gtk.Application
         switch (type)
         {
             case "two":
-                window.new_game_screen.update_game_type_label (
+                window.update_game_type_label (
                 /* Translators: when configuring a new game, button label if a two-players game is chosen */
                                                          _("Two players"));
                 return;
             case "dark":
-                window.new_game_screen.update_game_type_label (
+                window.update_game_type_label (
                 /* Translators: when configuring a new game, button label if the player choose to start */
                                                          _("Color: Dark"));
                 return;
             case "light":
-                window.new_game_screen.update_game_type_label (
+                window.update_game_type_label (
                 /* Translators: when configuring a new game, button label if the player choose let computer start */
                                                          _("Color: Light"));
                 return;
@@ -599,7 +599,7 @@ private class Iagno : Gtk.Application
                 change_level_action.set_enabled (false);
                 if (alternative_start || random_start || usual_start)
                 {
-                    window.new_game_screen.update_level_sensitivity (false);
+                    window.update_level_sensitivity (false);
                     update_level_button_label ((uint8) settings.get_int ("computer-level"));
                 }
                 else
@@ -610,19 +610,19 @@ private class Iagno : Gtk.Application
 
             case 1:
                 change_level_action.set_enabled (true);
-                window.new_game_screen.update_level_sensitivity (true);
+                window.update_level_sensitivity (true);
                 update_level_button_label (1);
                 return;
 
             case 2:
                 change_level_action.set_enabled (true);
-                window.new_game_screen.update_level_sensitivity (true);
+                window.update_level_sensitivity (true);
                 update_level_button_label (2);
                 return;
 
             case 3:
                 change_level_action.set_enabled (true);
-                window.new_game_screen.update_level_sensitivity (true);
+                window.update_level_sensitivity (true);
                 update_level_button_label (3);
                 return;
 
@@ -634,22 +634,22 @@ private class Iagno : Gtk.Application
         switch (level)
         {
             case 0:
-                window.new_game_screen.update_level_label (
+                window.update_level_label (
                 /* Translators: when configuring a new game, second menubutton label, when configuring a two-player game */
                                                          _("More options"));
                 return;
             case 1:
-                window.new_game_screen.update_level_label (
+                window.update_level_label (
                 /* Translators: when configuring a new game, button label for the AI level, if easy */
                                                          _("Difficulty: Easy"));
                 return;
             case 2:
-                window.new_game_screen.update_level_label (
+                window.update_level_label (
                 /* Translators: when configuring a new game, button label for the AI level, if medium */
                                                          _("Difficulty: Medium"));
                 return;
             case 3:
-                window.new_game_screen.update_level_label (
+                window.update_level_label (
                 /* Translators: when configuring a new game, button label for the AI level, if hard */
                                                          _("Difficulty: Hard"));
                 return;

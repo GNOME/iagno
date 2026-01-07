@@ -21,7 +21,7 @@
 using Gtk;
 
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/game-window.ui")]
-private class GameWindow : AdaptativeWindow, AdaptativeWidget
+private class GameWindow : Adw.ApplicationWindow
 {
     [GtkChild] private unowned Adw.WindowTitle  window_title;
 
@@ -39,8 +39,18 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
     [GtkChild] private unowned Box              action_bar;
     [GtkChild] private unowned Label            game_label;
 
-    [GtkChild] public  unowned NewGameScreen    new_game_screen;
-    [GtkChild] public  unowned Box              history_button1_box;
+    [GtkChild] private unowned Box              new_game_screen;
+    [GtkChild] private unowned GameSelectLabel  reversi_label;
+    [GtkChild] private unowned GameSelectLabel  reverse_label;
+    [GtkChild] private unowned MenuButton       game_type_button;
+    [GtkChild] private unowned MenuButton       level_button;
+    [GtkChild] private unowned Adw.ToggleGroup  games_box;
+    [GtkChild] private unowned Box              options_box;
+    [GtkChild] private unowned Label            games_label;
+    [GtkChild] private unowned Label            options_label;
+    [GtkChild] private unowned Separator        options_separator;
+
+    [GtkChild] private unowned Box              history_button1_box;
     [GtkChild] public  unowned HistoryButton    history_button1;
     [GtkChild] public  unowned HistoryButton    history_button2;
 
@@ -70,9 +80,6 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
         game_content.margin_bottom = 6;
         game_box.prepend (game_content);
 
-        add_adaptative_child (this);
-        add_adaptative_child (new_game_screen);
-
         /* window actions */
         install_action_entries ();
         install_ui_action_entries ();
@@ -80,11 +87,22 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
         /* window config */
         set_title (name);
 
+        new_game_screen.bind_property ("orientation", options_separator, "orientation", GLib.BindingFlags.SYNC_CREATE,
+            (binding, srcval, ref targetval) => {
+                targetval.set_enum (srcval.get_enum () == Gtk.Orientation.HORIZONTAL
+                    ? Gtk.Orientation.VERTICAL
+                    : Gtk.Orientation.HORIZONTAL);
+                return true;
+            });
+
         /* remember window state */
         var settings = new GLib.Settings.with_path ("org.gnome.Reversi.Lib", "/org/gnome/iagno/");
         settings.bind ("window-width", this, "default-width", SettingsBindFlags.DEFAULT);
         settings.bind ("window-height", this, "default-height", SettingsBindFlags.DEFAULT);
         settings.bind ("window-is-maximized", this, "maximized", SettingsBindFlags.DEFAULT);
+
+        var settings_app = new GLib.Settings ("org.gnome.Reversi");
+        settings_app.bind ("type", games_box, "active-name", SettingsBindFlags.DEFAULT);
 
         /* start or not */
         if (start_now)
@@ -124,7 +142,9 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
             GLib.Menu section = new GLib.Menu ();
 
             append_or_not_night_mode_entry (ref section);
-            append_or_not_keyboard_shortcuts_entry (ref section);
+
+            /* Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt) */
+            section.append (_("_Keyboard Shortcuts"), "base.show-shortcuts");
 
             /* Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt) */
             section.append (_("_Help"), "app.help");
@@ -157,30 +177,28 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
             section.append (_("Use night mode"), "app.set-use-night-mode(true)");
     }
 
-    private inline void append_or_not_keyboard_shortcuts_entry (ref GLib.Menu section)
-    {
-        // TODO something in small windows
-        if (!has_a_phone_size)
-        {
-            /* Translators: usual menu entry of the hamburger menu (with a mnemonic that appears pressing Alt) */
-            section.append (_("_Keyboard Shortcuts"), "base.show-shortcuts");
-        }
-    }
-
     /*\
-    * * adaptative stuff
+    * * options buttons
     \*/
 
-    private bool is_extra_thin = true;
-    private bool is_quite_thin = false;
-    private bool has_a_phone_size = false;
-    protected override void set_window_size (AdaptativeWidget.WindowSize new_size)
+    internal inline void update_game_type_label (string label)
     {
-        is_extra_thin = AdaptativeWidget.WindowSize.is_extra_thin (new_size);
-        is_quite_thin = AdaptativeWidget.WindowSize.is_quite_thin (new_size);
-        has_a_phone_size = AdaptativeWidget.WindowSize.is_phone_size (new_size);
+        game_type_button.set_label (label);
+    }
 
-        update_hamburger_menu ();
+    internal inline void update_level_label (string label)
+    {
+        level_button.set_label (label);
+    }
+
+    internal inline void update_level_menu (GLib.Menu menu)
+    {
+        level_button.set_menu_model (menu);
+    }
+
+    internal inline void update_level_sensitivity (bool new_sensitivity)
+    {
+        level_button.set_sensitive (new_sensitivity);
     }
 
     /*\
@@ -426,10 +444,7 @@ private class GameWindow : AdaptativeWindow, AdaptativeWidget
 
         play ();        // FIXME lag (see in Taquin…)
 
-        if (is_quite_thin)
-            configure_transition (StackTransitionType.SLIDE_DOWN, 1000);
-        else
-            configure_transition (StackTransitionType.OVER_DOWN_UP, 1000);
+        configure_transition (StackTransitionType.SLIDE_DOWN, 1000);
         show_view ();
     }
 
