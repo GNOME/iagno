@@ -199,20 +199,20 @@ private class ThemeManager : Object
     * * loading handle
     \*/
 
-    private bool handle_loaded = false;
-    [CCode (notify = false)] internal Rsvg.Handle tileset_handle { internal get { if (!handle_loaded) assert_not_reached (); return _tileset_handle; }}
-
-    private Rsvg.Handle _tileset_handle;
+    private bool        image_loaded = false;
+    private Gly.Image   image;
 
     private string old_pieces_file = "";
     private inline void load_handle ()
     {
-        if (handle_loaded && old_pieces_file == pieces_file)
+        if (image_loaded && old_pieces_file == pieces_file)
             return;
 
         try
         {
-            _tileset_handle = new Rsvg.Handle.from_file (pieces_file);
+            var file = File.new_for_path (pieces_file);
+            var loader = new Gly.Loader (file);
+            image = loader.load ();
         }
         catch (Error e)
         {
@@ -220,31 +220,22 @@ private class ThemeManager : Object
         }
 
         old_pieces_file = pieces_file;
-        handle_loaded = true;
+        image_loaded = true;
     }
 
-    public Gdk.MemoryTexture? tileset_for_size (int tile_size)
+    public Gdk.Texture? tileset_for_size (int tile_size)
     {
         try
         {
             var width  = tile_size * 8;
             var height = tile_size * 4;
 
-            var surface = new Cairo.ImageSurface (Cairo.Format.ARGB32, width, height);
-            var context = new Cairo.Context (surface);
-            tileset_handle.render_document (context, Rsvg.Rectangle () { x = 0, y = 0, width = width, height = height });
-            surface.flush ();
+            var request = new Gly.FrameRequest ();
+            request.set_scale (width, height);
 
-            unowned uchar[] data = surface.get_data ();
-            data.length = surface.get_height () * surface.get_stride ();
-            var bytes = new Bytes (data);
+            var frame = image.get_specific_frame (request);
 
-            return new Gdk.MemoryTexture (
-                surface.get_width (),
-                surface.get_height (),
-                Gdk.MemoryFormat.B8G8R8A8_PREMULTIPLIED,
-                bytes,
-                surface.get_stride ());
+            return GlyGtk4.frame_get_texture (frame);
         }
         catch (Error e)
         {

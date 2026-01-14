@@ -96,6 +96,7 @@ executable(meson.project_name(),
         adw_dependency,
         libm_dependency,
         posix_dependency,
-        rsvg_dependency
+        glycin_dependency,
+        glycin_gtk4_dependency
     ]
 )
