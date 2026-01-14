@@ -1598,6 +1598,10 @@ private class ReversiView : Gtk.Widget
         if (!force_reload && playable_tiles_highlight_state != 0)
             return;
 
+        for (uint8 x = 0; x < game_size; x++)
+            for (uint8 y = 0; y < game_size; y++)
+                possible_moves [x, y] = false;
+
         SList<PossibleMove?> moves;
         game.get_possible_moves (out moves);
         playable_tiles_highlight_state = 1;
