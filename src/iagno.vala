@@ -351,9 +351,8 @@ private class Iagno : Gtk.Application
         window.update_level_menu (level_menu);
 
         view.notify_final_animation.connect ((undoing) => {
-                window.history_button1.set_game_finished (!undoing);
-                window.history_button2.set_game_finished (!undoing);
-            });
+            window.set_game_finished (!undoing);
+        });
 
         window.play.connect (start_game);
         window.wait.connect (wait_cb);
@@ -365,9 +364,8 @@ private class Iagno : Gtk.Application
         settings.bind ("highlight-turnable-tiles", view,            "show-turnable-tiles", SettingsBindFlags.GET);
         settings.bind ("theme",                    theme_manager,   "theme-name",          SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
+        theme_manager.bind_property ("theme", window, "theme", GLib.BindingFlags.SYNC_CREATE);
         theme_manager.bind_property ("theme", view, "theme", GLib.BindingFlags.SYNC_CREATE);
-        theme_manager.bind_property ("theme", window.history_button1, "theme", GLib.BindingFlags.SYNC_CREATE);
-        theme_manager.bind_property ("theme", window.history_button2, "theme", GLib.BindingFlags.SYNC_CREATE);
 
         string wanted_theme_id = settings.get_string ("theme");
         bool theme_name_found = false;
@@ -691,10 +689,8 @@ private class Iagno : Gtk.Application
         game.turn_ended.connect (turn_ended_cb);
         view.game = game;
 
-        window.history_button1.set_player (Player.DARK);
-        window.history_button2.set_player (Player.DARK);
-        window.history_button1.set_game_finished (false);
-        window.history_button2.set_game_finished (false);
+        window.set_player (Player.DARK);
+        window.set_game_finished (false);
 
         if (two_players)
             computer = null;
@@ -838,8 +834,7 @@ private class Iagno : Gtk.Application
         requires (game_is_set)
     {
         window.finish_game ();
-        window.history_button1.set_player (Player.NONE);
-        window.history_button2.set_player (Player.NONE);
+        window.set_player (Player.NONE);
 
         if ((!game.reverse && game.n_light_tiles > game.n_dark_tiles)
          || ( game.reverse && game.n_light_tiles < game.n_dark_tiles))
@@ -895,8 +890,7 @@ private class Iagno : Gtk.Application
     {
         /* for the move that just ended */
         play_sound (Sound.FLIP);
-        window.history_button1.set_player (game.current_color);
-        window.history_button2.set_player (game.current_color);
+        window.set_player (game.current_color);
     }
 
     private void set_window_title ()

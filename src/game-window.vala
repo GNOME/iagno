@@ -51,14 +51,16 @@ private class GameWindow : Adw.ApplicationWindow
     [GtkChild] private unowned Separator        options_separator;
 
     [GtkChild] private unowned Box              history_button1_box;
-    [GtkChild] public  unowned HistoryButton    history_button1;
-    [GtkChild] public  unowned HistoryButton    history_button2;
+    [GtkChild] private unowned HistoryButton    history_button1;
+    [GtkChild] private unowned HistoryButton    history_button2;
 
     private bool game_finished = false;
 
     /* private widgets */
     private GLib.Menu?      appearance_menu = null;
     private Widget          game_content;
+
+    public Theme theme { get; set; }
 
     internal GameWindow (bool start_now, Widget view_content, GLib.Menu? appearance_menu)
     {
@@ -94,6 +96,9 @@ private class GameWindow : Adw.ApplicationWindow
                     : Gtk.Orientation.HORIZONTAL);
                 return true;
             });
+
+        bind_property ("theme", history_button1, "theme", GLib.BindingFlags.SYNC_CREATE);
+        bind_property ("theme", history_button2, "theme", GLib.BindingFlags.SYNC_CREATE);
 
         /* remember window state */
         var settings = new GLib.Settings.with_path ("org.gnome.Reversi.Lib", "/org/gnome/iagno/");
@@ -483,5 +488,17 @@ private class GameWindow : Adw.ApplicationWindow
     {
         game_stack.set_transition_type (transition_type);
         game_stack.set_transition_duration (transition_duration);
+    }
+
+    public void set_game_finished (bool finished)
+    {
+        history_button1.set_game_finished (finished);
+        history_button2.set_game_finished (finished);
+    }
+
+    public void set_player (Player player)
+    {
+        history_button1.set_player (player);
+        history_button2.set_player (player);
     }
 }
