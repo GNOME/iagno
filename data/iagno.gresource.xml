@@ -6,7 +6,7 @@
   </gresource>
   <gresource prefix="/org/gnome/Reversi/ui">
     <file preprocess="xml-stripblanks" compressed="true" alias="game-window.ui"                 >ui/game-window.ui</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="history-button.ui"              >ui/history-button.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="history-button-label.ui"        >ui/history-button-label.ui</file>
     <file>noise.png</file>
     <file>style.css</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="help-overlay.ui"                >ui/help-overlay.ui</file>

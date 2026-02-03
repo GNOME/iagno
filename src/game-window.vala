@@ -51,8 +51,13 @@ private class GameWindow : Adw.ApplicationWindow
     [GtkChild] private unowned Separator        options_separator;
 
     [GtkChild] private unowned Box              history_button1_box;
-    [GtkChild] private unowned HistoryButton    history_button1;
-    [GtkChild] private unowned HistoryButton    history_button2;
+    [GtkChild] private unowned MenuButton       history_button1;
+    [GtkChild] private unowned MenuButton       history_button2;
+    [GtkChild] private unowned HistoryButtonLabel   history_button1_label;
+    [GtkChild] private unowned HistoryButtonLabel   history_button2_label;
+
+    private GLib.Menu history_menu;
+    private GLib.Menu finish_menu;
 
     private bool game_finished = false;
 
@@ -71,6 +76,16 @@ private class GameWindow : Adw.ApplicationWindow
 
         this.appearance_menu = appearance_menu;
         update_hamburger_menu ();
+
+        history_menu = new GLib.Menu ();
+        /* Translators: history menu entry (with a mnemonic that appears pressing Alt) */
+        history_menu.append (_("_Undo last move"), "ui.undo");
+        history_menu.freeze ();
+
+        finish_menu = new GLib.Menu ();
+        /* Translators: history menu entry, when game is finished, after final animation; undoes the animation (with a mnemonic that appears pressing Alt) */
+        finish_menu.append (_("_Show final board"), "ui.undo");
+        finish_menu.freeze ();
 
         game_content.hexpand = true;
         game_content.vexpand = true;
@@ -97,8 +112,8 @@ private class GameWindow : Adw.ApplicationWindow
                 return true;
             });
 
-        bind_property ("theme", history_button1, "theme", GLib.BindingFlags.SYNC_CREATE);
-        bind_property ("theme", history_button2, "theme", GLib.BindingFlags.SYNC_CREATE);
+        bind_property ("theme", history_button1_label, "theme", GLib.BindingFlags.SYNC_CREATE);
+        bind_property ("theme", history_button2_label, "theme", GLib.BindingFlags.SYNC_CREATE);
 
         /* remember window state */
         var settings = new GLib.Settings.with_path ("org.gnome.Reversi.Lib", "/org/gnome/iagno/");
@@ -492,13 +507,14 @@ private class GameWindow : Adw.ApplicationWindow
 
     public void set_game_finished (bool finished)
     {
-        history_button1.set_game_finished (finished);
-        history_button2.set_game_finished (finished);
+        var menu = finished ? finish_menu : history_menu;
+        history_button1.set_menu_model (menu);
+        history_button2.set_menu_model (menu);
     }
 
     public void set_player (Player player)
     {
-        history_button1.set_player (player);
-        history_button2.set_player (player);
+        history_button1_label.player = player;
+        history_button2_label.player = player;
     }
 }

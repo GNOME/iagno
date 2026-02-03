@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This file is part of GNOME Reversi, also known as Iagno.
+
+  Copyright 2026 Andrey Kutejko
+
+  GNOME Reversi is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  GNOME Reversi is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="HistoryButtonLabel" parent="GtkWidget">
+    <property name="layout-manager">
+      <object class="GtkBinLayout"/>
+    </property>
+    <child>
+      <object class="GtkStack" id="stack">
+        <property name="visible-child">end</property>
+        <child>
+          <object class="GtkBox" id="prompt">
+            <property name="orientation">horizontal</property>
+            <child>
+              <object class="GtkPicture">
+                <property name="hexpand">true</property>
+                <property name="halign">end</property>
+                <property name="paintable">
+                  <object class="Arrow" id="prompt_arrow" />
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkPicture">
+                <property name="hexpand">true</property>
+                <property name="paintable">
+                  <object class="Piece" id="prompt_piece" />
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="end">
+            <property name="ellipsize">end</property>
+            <!-- Translators: label of the game status button (in the headerbar, next to the hamburger button), when the game is finished; please keep the string as small as possible (3~5 characters) -->
+            <property name="label" translatable="1">End!</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

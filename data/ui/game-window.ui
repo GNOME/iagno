@@ -116,7 +116,14 @@
               <object class="GtkBox" id="history_button1_box">
                 <property name="visible">0</property>
                 <child>
-                  <object class="HistoryButton" id="history_button1" />
+                  <object class="GtkMenuButton" id="history_button1">
+                    <property name="valign">center</property>
+                    <property name="focusable">1</property>
+                    <property name="focus-on-click">0</property>
+                    <child>
+                      <object class="HistoryButtonLabel" id="history_button1_label" />
+                    </child>
+                  </object>
                 </child>
               </object>
             </child>
@@ -288,7 +295,14 @@
                               </object>
                             </child>
                             <child>
-                              <object class="HistoryButton" id="history_button2" />
+                              <object class="GtkMenuButton" id="history_button2">
+                                <property name="valign">center</property>
+                                <property name="focusable">1</property>
+                                <property name="focus-on-click">0</property>
+                                <child>
+                                  <object class="HistoryButtonLabel" id="history_button2_label" />
+                                </child>
+                              </object>
                             </child>
                           </object>
                         </child>
