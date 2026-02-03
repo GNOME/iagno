@@ -293,7 +293,7 @@ private class Iagno : Gtk.Application
         }
 
         /* UI parts */
-        view = new ReversiView (this, theme_manager);
+        view = new ReversiView (this);
         view.move.connect (player_move_cb);
         view.clear_impossible_to_move_here_warning.connect (clear_impossible_to_move_here_warning);
 
@@ -327,56 +327,8 @@ private class Iagno : Gtk.Application
         section = new GLib.Menu ();
         /* Translators: hamburger menu "Appearance" submenu entry; a name for the default theme */
         section.append (_("Default"), "app.theme('default')");
-        Dir dir;
-        string wanted_theme_id = settings.get_string ("theme");
-        bool theme_name_found = false;
-        try
-        {
-            dir = Dir.open (Path.build_filename (DATA_DIRECTORY, "themes", "key"));
-            while (true)
-            {
-                string? filename = dir.read_name ();
-                if (filename == null)
-                    break;
-                if (filename == "default")
-                {
-                    warning ("There should not be a theme filename named \"default\", ignoring it.");
-                    continue;
-                }
-
-                string path = Path.build_filename (DATA_DIRECTORY, "themes", "key", (!) filename);
-                GLib.KeyFile key = new GLib.KeyFile ();
-                string theme_name;
-                try
-                {
-                    key.load_from_file (path, GLib.KeyFileFlags.NONE);
-                    theme_name = key.get_locale_string ("Theme", "Name");
-                }
-                catch (GLib.KeyFileError e)
-                {
-                    warning ("oops: %s", e.message);
-                    continue;
-                }
-                section.append (theme_name, @"app.theme('$((!) filename)')");
-
-                if (wanted_theme_id == (!) filename)
-                {
-                    theme_name_found = true;
-                    theme_manager.theme = wanted_theme_id;
-                }
-            }
-        }
-        catch (FileError e)
-        {
-            warning ("Failed to load themes: %s", e.message);
-        }
-        if (!theme_name_found && wanted_theme_id != "default")
-        {
-            warning (@"Theme $wanted_theme_id not found, using default.");
-            settings.set_string ("theme", "default");
-            wanted_theme_id = "default";
-         // theme_manager.theme defaults on "default" (in fact, on null)
-        }
+        foreach (var theme in theme_manager.get_themes ())
+            section.append (theme.name, @"app.theme('$((!) theme.filename)')");
         section.freeze ();
         appearance_menu.append_section (null, section);
 
@@ -398,8 +350,6 @@ private class Iagno : Gtk.Application
 
         window.update_level_menu (level_menu);
 
-        window.history_button1.theme_manager = theme_manager;
-        window.history_button2.theme_manager = theme_manager;
         view.notify_final_animation.connect ((undoing) => {
                 window.history_button1.set_game_finished (!undoing);
                 window.history_button2.set_game_finished (!undoing);
@@ -410,12 +360,30 @@ private class Iagno : Gtk.Application
         window.back.connect (back_cb);
         window.undo.connect (undo_cb);
 
-        theme_manager.gtk_theme_changed ();
-
         /* Preferences */
         settings.bind ("highlight-playable-tiles", view,            "show-playable-tiles", SettingsBindFlags.GET);
         settings.bind ("highlight-turnable-tiles", view,            "show-turnable-tiles", SettingsBindFlags.GET);
-        settings.bind ("theme",                    theme_manager,   "theme",               SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+        settings.bind ("theme",                    theme_manager,   "theme-name",          SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+
+        theme_manager.bind_property ("theme", view, "theme", GLib.BindingFlags.SYNC_CREATE);
+        theme_manager.bind_property ("theme", window.history_button1, "theme", GLib.BindingFlags.SYNC_CREATE);
+        theme_manager.bind_property ("theme", window.history_button2, "theme", GLib.BindingFlags.SYNC_CREATE);
+
+        string wanted_theme_id = settings.get_string ("theme");
+        bool theme_name_found = false;
+        foreach (var theme in theme_manager.get_themes ())
+        {
+            if (wanted_theme_id == theme.filename)
+            {
+                theme_name_found = true;
+                theme_manager.theme_name = wanted_theme_id;
+            }
+        }
+        if (!theme_name_found && wanted_theme_id != "default")
+        {
+            warning (@"Theme $wanted_theme_id not found, using default.");
+            settings.set_string ("theme", "default");
+        }
 
         /* New-game screen signals */
         alternate_who_starts_action = (SimpleAction) lookup_action ("alternate-who-starts");
@@ -968,10 +936,10 @@ private class Iagno : Gtk.Application
         switch (sound)
         {
             case Sound.FLIP:
-                name = theme_manager.sound_flip;
+                name = theme_manager.theme.sound_flip;
                 break;
             case Sound.GAMEOVER:
-                name = theme_manager.sound_gameover;
+                name = theme_manager.theme.sound_gameover;
                 break;
             default:
                 return;

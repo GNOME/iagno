@@ -3,6 +3,7 @@
    This file is part of GNOME Reversi, also known as Iagno.
 
    Copyright 2020 Arnaud Bonatti
+   Copyright 2026 Andrey Kutejko
 
    GNOME Reversi is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -25,81 +26,125 @@ private class ThemeManager : Object
         var style_manager = Adw.StyleManager.get_default ();
         style_manager.notify ["dark"].connect (gtk_theme_changed);
         style_manager.notify ["high-contrast"].connect (gtk_theme_changed);
+
+        _themes = load_themes ();
+        theme_name = "default";
     }
 
-    internal signal void theme_changed ();
-
-    /*\
-    * * theme
-    \*/
-
-    internal void gtk_theme_changed ()
+    private void gtk_theme_changed ()
     {
-        if (!theme_set || _theme == "" || _theme == "default")
-            theme = "default";  // yes
+        if (!theme_set || _theme_name == "default")
+            theme_name = "default";  // yes
     }
+
+    private GenericArray<Theme> _themes;
 
     private bool theme_set = false;
-    private string _theme;
-    [CCode (notify = false)] internal string theme
+    private string _theme_name;
+    private Theme _theme;
+
+    public Theme theme
     {
-        private  get { if (!theme_set) assert_not_reached (); return _theme; }
+        get { if (!theme_set) assert_not_reached (); return _theme; }
+        set
+        {
+            _theme = value;
+            _theme_name = value.name;
+            theme_set = true;
+        }
+    }
+
+    [CCode (notify = false)] internal string theme_name
+    {
+        private  get { if (!theme_set) assert_not_reached (); return _theme_name; }
         internal set
         {
-            KeyFile key = new KeyFile ();
+            string name;
+            string filename;
             if (value == "" || value == "default")
-                set_default_theme (ref key);
+            {
+                name = "default";
+                filename = default_theme_file ();
+            }
             else
+            {
+                name = value;
+                filename = value;
+            }
+
+            foreach (var t in get_themes ())
+                if (t.filename == filename)
+                {
+                    theme = t;
+                    _theme_name = name;
+                    return;
+                }
+
+            warning ("Failed to load theme: %s", value);
+        }
+    }
+
+    private string default_theme_file ()
+    {
+        var style_manager = Adw.StyleManager.get_default ();
+        if (style_manager.high_contrast)
+            return "high_contrast.theme";
+        else if (style_manager.dark)
+            return "adwaita.theme";
+        else
+            return "classic.theme";
+    }
+
+    private static GenericArray<Theme> load_themes ()
+    {
+        var themes = new GenericArray<Theme> ();
+        try
+        {
+            string key_path = Path.build_filename (DATA_DIRECTORY, "themes", "key");
+
+            Dir dir = Dir.open (key_path);
+            while (true)
+            {
+                string? filename = dir.read_name ();
+                if (filename == null)
+                    break;
+                if (filename == "default")
+                {
+                    warning ("There should not be a theme filename named \"default\", ignoring it.");
+                    continue;
+                }
+
                 try
                 {
-                    string key_path = Path.build_filename (DATA_DIRECTORY, "themes", "key");
-                    string filepath = Path.build_filename (key_path, value);
-                    if (Path.get_dirname (filepath) != key_path)
-                        throw new FileError.FAILED ("Theme file is not in the \"key\" directory.");
-
-                    key.load_from_file (filepath, GLib.KeyFileFlags.NONE);
+                    var filepath = Path.build_filename (key_path, (!) filename);
+                    var theme = Theme.from_file (filepath);
+                    themes.add (theme);
                 }
                 catch (Error e)
                 {
-                    warning ("Failed to load theme: %s", e.message);
-                    set_default_theme (ref key);
-                    value = "default";
+                    warning ("Failed to load theme %s: %s", (!) filename, e.message);
                 }
-
-            load_theme (key);   // FIXME loading could (even partially) fail here also
-            _theme = value;
-            theme_set = true;
-
-            /* redraw all */
-            theme_changed ();
+            }
         }
-    }
-
-    private void set_default_theme (ref KeyFile key)
-    {
-        var style_manager = Adw.StyleManager.get_default ();
-
-        string filename;
-        if (style_manager.high_contrast)
-            filename = "high_contrast.theme";
-        else if (style_manager.dark)
-            filename = "adwaita.theme";
-        else
-            filename = "classic.theme";
-
-        string filepath = Path.build_filename (DATA_DIRECTORY, "themes", "key", filename);
-        try
+        catch (FileError e)
         {
-            key.load_from_file (filepath, GLib.KeyFileFlags.NONE);
+            warning ("Failed to load themes: %s", e.message);
         }
-        catch { assert_not_reached (); }
+        return themes;
     }
 
-    /*\
-    * * theme
-    \*/
+    public GenericArray<Theme> get_themes()
+    {
+        return _themes;
+    }
+}
 
-    private string pieces_file = "";
+private class Theme : Object
+{
+    public string filename;
+    public string name;
+
+    private Gly.Image image;
 
     [CCode (notify = false)] internal double background_red         { internal get; private set; default = 0.2; }
     [CCode (notify = false)] internal double background_green       { internal get; private set; default = 0.6; }
@@ -118,7 +163,6 @@ private class ThemeManager : Object
     [CCode (notify = false)] internal double border_green           { internal get; private set; default = 0.1; }
     [CCode (notify = false)] internal double border_blue            { internal get; private set; default = 0.1; }
     [CCode (notify = false)] internal int    border_width           { internal get; private set; default = 3;   }
-    [CCode (notify = false)] internal double half_border_width      { internal get; private set; default = 1.5; }
 
     [CCode (notify = false)] internal double spacing_red            { internal get; private set; default = 0.1; }
     [CCode (notify = false)] internal double spacing_green          { internal get; private set; default = 0.3; }
@@ -140,87 +184,68 @@ private class ThemeManager : Object
     [CCode (notify = false)] internal string sound_flip             { internal get; private set; default = ""; }
     [CCode (notify = false)] internal string sound_gameover         { internal get; private set; default = ""; }
 
-    private inline void load_theme (GLib.KeyFile key)
+    public static Theme from_file (string filepath) throws Error
     {
-        try
-        {
-            string svg_path = Path.build_filename (DATA_DIRECTORY, "themes", "svg");
-            pieces_file = Path.build_filename (svg_path, key.get_string ("Pieces", "File"));
-            if (Path.get_dirname (pieces_file) != svg_path)
-                pieces_file = Path.build_filename (svg_path, "black_and_white.svg");
-            load_handle ();
+        KeyFile key = new KeyFile ();
+        key.load_from_file (filepath, GLib.KeyFileFlags.NONE);
 
-            background_red       = key.get_double  ("Background", "Red");
-            background_green     = key.get_double  ("Background", "Green");
-            background_blue      = key.get_double  ("Background", "Blue");
-            background_radius    = key.get_integer ("Background", "Radius");
+        Theme theme = new Theme ();
 
-            texture_alpha        = key.get_double  ("Background", "TextureAlpha");
-            apply_texture        = (texture_alpha > 0.0) && (texture_alpha <= 1.0);
+        theme.filename             = Path.get_basename (filepath);
+        theme.name                 = key.get_locale_string ("Theme", "Name");
+        theme.image                = load_image (key.get_string ("Pieces", "File"));
 
-         // mark_red             = key.get_double  ("Mark", "Red");
-         // mark_green           = key.get_double  ("Mark", "Green");
-         // mark_blue            = key.get_double  ("Mark", "Blue");
-         // mark_width           = key.get_integer ("Mark", "Width");
+        theme.background_red       = key.get_double  ("Background", "Red");
+        theme.background_green     = key.get_double  ("Background", "Green");
+        theme.background_blue      = key.get_double  ("Background", "Blue");
+        theme.background_radius    = key.get_integer ("Background", "Radius");
 
-            border_red           = key.get_double  ("Border", "Red");
-            border_green         = key.get_double  ("Border", "Green");
-            border_blue          = key.get_double  ("Border", "Blue");
-            border_width         = key.get_integer ("Border", "Width");
-            half_border_width    = (double) border_width / 2.0;
+        theme.texture_alpha        = key.get_double  ("Background", "TextureAlpha");
+        theme.apply_texture        = (theme.texture_alpha > 0.0) && (theme.texture_alpha <= 1.0);
 
-            spacing_red          = key.get_double  ("Spacing", "Red");
-            spacing_green        = key.get_double  ("Spacing", "Green");
-            spacing_blue         = key.get_double  ("Spacing", "Blue");
-            spacing_width        = key.get_integer ("Spacing", "Width");
+        // theme.mark_red             = key.get_double  ("Mark", "Red");
+        // theme.mark_green           = key.get_double  ("Mark", "Green");
+        // theme.mark_blue            = key.get_double  ("Mark", "Blue");
+        // theme.mark_width           = key.get_integer ("Mark", "Width");
 
-            highlight_hard_red   = key.get_double  ("Highlight hard", "Red");
-            highlight_hard_green = key.get_double  ("Highlight hard", "Green");
-            highlight_hard_blue  = key.get_double  ("Highlight hard", "Blue");
-            highlight_hard_alpha = key.get_double  ("Highlight hard", "Alpha");
+        theme.border_red           = key.get_double  ("Border", "Red");
+        theme.border_green         = key.get_double  ("Border", "Green");
+        theme.border_blue          = key.get_double  ("Border", "Blue");
+        theme.border_width         = key.get_integer ("Border", "Width");
 
-            highlight_soft_red   = key.get_double  ("Highlight soft", "Red");
-            highlight_soft_green = key.get_double  ("Highlight soft", "Green");
-            highlight_soft_blue  = key.get_double  ("Highlight soft", "Blue");
-            highlight_soft_alpha = key.get_double  ("Highlight soft", "Alpha");
+        theme.spacing_red          = key.get_double  ("Spacing", "Red");
+        theme.spacing_green        = key.get_double  ("Spacing", "Green");
+        theme.spacing_blue         = key.get_double  ("Spacing", "Blue");
+        theme.spacing_width        = key.get_integer ("Spacing", "Width");
 
-         // margin_width         = key.get_integer ("Margin", "Width");
+        theme.highlight_hard_red   = key.get_double  ("Highlight hard", "Red");
+        theme.highlight_hard_green = key.get_double  ("Highlight hard", "Green");
+        theme.highlight_hard_blue  = key.get_double  ("Highlight hard", "Blue");
+        theme.highlight_hard_alpha = key.get_double  ("Highlight hard", "Alpha");
 
-            sound_flip           = key.get_string  ("Sound", "Flip");
-            sound_gameover       = key.get_string  ("Sound", "GameOver");
-        }
-        catch (KeyFileError e)      // TODO better
-        {
-            warning ("Errors when loading theme: %s", e.message);
-        }
+        theme.highlight_soft_red   = key.get_double  ("Highlight soft", "Red");
+        theme.highlight_soft_green = key.get_double  ("Highlight soft", "Green");
+        theme.highlight_soft_blue  = key.get_double  ("Highlight soft", "Blue");
+        theme.highlight_soft_alpha = key.get_double  ("Highlight soft", "Alpha");
+
+        // margin_width         = key.get_integer ("Margin", "Width");
+
+        theme.sound_flip           = key.get_string  ("Sound", "Flip");
+        theme.sound_gameover       = key.get_string  ("Sound", "GameOver");
+
+        return theme;
     }
 
-    /*\
-    * * loading handle
-    \*/
-
-    private bool        image_loaded = false;
-    private Gly.Image   image;
-
-    private string old_pieces_file = "";
-    private inline void load_handle ()
+    private static Gly.Image load_image (string name)
     {
-        if (image_loaded && old_pieces_file == pieces_file)
-            return;
+        string svg_path = Path.build_filename (DATA_DIRECTORY, "themes", "svg");
+        string pieces_file = Path.build_filename (svg_path, name);
+        if (Path.get_dirname (pieces_file) != svg_path)
+            pieces_file = Path.build_filename (svg_path, "black_and_white.svg");
 
-        try
-        {
-            var file = File.new_for_path (pieces_file);
-            var loader = new Gly.Loader (file);
-            image = loader.load ();
-        }
-        catch (Error e)
-        {
-            assert_not_reached ();
-        }
-
-        old_pieces_file = pieces_file;
-        image_loaded = true;
+        var file = File.new_for_path (pieces_file);
+        var loader = new Gly.Loader (file);
+        return loader.load ();
     }
 
     public Gdk.Texture? tileset_for_size (int tile_size)

@@ -170,21 +170,28 @@ private class ReversiView : Gtk.Widget
         init_mouse ();
         init_keyboard ();
 
-        theme_manager.theme_changed.connect (() => {
-                tiles_pattern = null;
-                if (configuration_done)
-                    configure_theme ();
-                queue_draw ();
-            });
-
         noise_texture = Gdk.Texture.from_resource ("/org/gnome/Reversi/ui/noise.png");
     }
 
     [CCode (notify = false)] public Iagno           iagno_instance  { private get; protected construct; }
-    [CCode (notify = false)] public ThemeManager    theme_manager   { private get; protected construct; }
-    internal ReversiView (Iagno iagno_instance, ThemeManager theme_manager)
+
+    private Theme _theme;
+    public Theme theme
     {
-        Object (iagno_instance: iagno_instance, theme_manager: theme_manager);
+        get { return _theme; }
+        set
+        {
+            _theme = value;
+            tiles_pattern = null;
+            if (configuration_done)
+                configure_theme ();
+            queue_draw ();
+        }
+    }
+
+    internal ReversiView (Iagno iagno_instance)
+    {
+        Object (iagno_instance: iagno_instance);
     }
 
     /*\
@@ -201,11 +208,11 @@ private class ReversiView : Gtk.Widget
         int width  = get_width ();
         int height = get_height ();
         int size = int.min (width, height);
-        paving_size = (size - 2 * theme_manager.border_width + theme_manager.spacing_width) / game_size;
-        tile_size = paving_size - theme_manager.spacing_width;
-        board_size = paving_size * game_size - theme_manager.spacing_width + 2 * theme_manager.border_width;
-        board_x = (width  - board_size) / 2 + theme_manager.border_width;
-        board_y = (height - board_size) / 2 + theme_manager.border_width;
+        paving_size = (size - 2 * theme.border_width + theme.spacing_width) / game_size;
+        tile_size = paving_size - theme.spacing_width;
+        board_size = paving_size * game_size - theme.spacing_width + 2 * theme.border_width;
+        board_x = (width  - board_size) / 2 + theme.border_width;
+        board_y = (height - board_size) / 2 + theme.border_width;
 
         if (humans_opening_intensity != 0)
             configure_overture_origin ();
@@ -215,33 +222,33 @@ private class ReversiView : Gtk.Widget
     {
         if (game_size % 2 == 0)
         {
-            overture_origin_xs [0] = (game_size - 3) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
-            overture_origin_xs [1] = (game_size - 1) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
-            overture_origin_xs [2] = (game_size + 1) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
-            overture_origin_xs [3] = (game_size + 3) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+            overture_origin_xs [0] = (game_size - 3) * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
+            overture_origin_xs [1] = (game_size - 1) * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
+            overture_origin_xs [2] = (game_size + 1) * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
+            overture_origin_xs [3] = (game_size + 3) * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
 
             if (game_size == 4)
                 // where we can
-                overture_origin_y  = (int) ((game_size + 2.6) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2);
+                overture_origin_y  = (int) ((game_size + 2.6) * board_size / (2 * game_size) - theme.border_width - tile_size / 2);
             else
                 // on the line under the center zone
-                overture_origin_y  = (game_size + 4) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+                overture_origin_y  = (game_size + 4) * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
         }
         else
         {
-            overture_origin_xs [0] = (game_size - 2) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
-            overture_origin_xs [2] =  game_size      * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
-            overture_origin_xs [4] = (game_size + 2) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+            overture_origin_xs [0] = (game_size - 2) * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
+            overture_origin_xs [2] =  game_size      * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
+            overture_origin_xs [4] = (game_size + 2) * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
             overture_origin_xs [1] = overture_origin_xs [0];
             overture_origin_xs [3] = overture_origin_xs [2];
             overture_origin_xs [5] = overture_origin_xs [4];
 
             if (game_size == 5)
                 // where we can
-                overture_origin_y  = (int) ((game_size + 3.6) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2);
+                overture_origin_y  = (int) ((game_size + 3.6) * board_size / (2 * game_size) - theme.border_width - tile_size / 2);
             else
                 // on the line under the center zone
-                overture_origin_y  = (game_size + 5) * board_size / (2 * game_size) - theme_manager.border_width - tile_size / 2;
+                overture_origin_y  = (game_size + 5) * board_size / (2 * game_size) - theme.border_width - tile_size / 2;
         }
     }
 
@@ -255,8 +262,8 @@ private class ReversiView : Gtk.Widget
         // draw board
         snapshot.save ();
         snapshot.translate (Graphene.Point () {
-            x = board_x - theme_manager.border_width,
-            y = board_y - theme_manager.border_width });
+            x = board_x - theme.border_width,
+            y = board_y - theme.border_width });
 
         draw_board_background (snapshot);
         draw_tiles_background (snapshot);
@@ -268,7 +275,7 @@ private class ReversiView : Gtk.Widget
 
         if (tiles_pattern == null || render_size != tile_size)
         {
-            tiles_pattern = theme_manager.tileset_for_size (tile_size);
+            tiles_pattern = theme.tileset_for_size (tile_size);
             render_size = tile_size;
         }
 
@@ -288,12 +295,12 @@ private class ReversiView : Gtk.Widget
         var builder = new Gsk.PathBuilder ();
         builder.add_rect (Graphene.Rect () {
             origin = {
-                x: (float) theme_manager.half_border_width,
-                y: (float) theme_manager.half_border_width
+                x: (float) theme.border_width / 2,
+                y: (float) theme.border_width / 2
             },
             size = {
-                width:  board_size - theme_manager.border_width,
-                height: board_size - theme_manager.border_width
+                width:  board_size - theme.border_width,
+                height: board_size - theme.border_width
             }
         });
         var path = builder.to_path ();
@@ -302,18 +309,18 @@ private class ReversiView : Gtk.Widget
             path,
             Gsk.FillRule.WINDING,
             Gdk.RGBA () {
-                red = (float) theme_manager.spacing_red,
-                green = (float) theme_manager.spacing_green,
-                blue = (float) theme_manager.spacing_blue,
+                red = (float) theme.spacing_red,
+                green = (float) theme.spacing_green,
+                blue = (float) theme.spacing_blue,
                 alpha = 1.0f
             });
         snapshot.append_stroke (
             path,
-            new Gsk.Stroke (theme_manager.border_width),
+            new Gsk.Stroke (theme.border_width),
             Gdk.RGBA () {
-                red = (float) theme_manager.border_red,
-                green = (float) theme_manager.border_green,
-                blue = (float) theme_manager.border_blue,
+                red = (float) theme.border_red,
+                green = (float) theme.border_green,
+                blue = (float) theme.border_blue,
                 alpha = 1.0f
             });
     }
@@ -322,8 +329,8 @@ private class ReversiView : Gtk.Widget
     {
         snapshot.save ();
         snapshot.translate (Graphene.Point () {
-            x = theme_manager.border_width,
-            y = theme_manager.border_width });
+            x = theme.border_width,
+            y = theme.border_width });
 
         for (uint8 x = 0; x < game_size; x++)
             for (uint8 y = 0; y < game_size; y++)
@@ -338,9 +345,9 @@ private class ReversiView : Gtk.Widget
             size = { width: tile_size, height: tile_size }
         };
 
-        var path = rounded_square (tile_x, tile_y, tile_size, theme_manager.background_radius);
+        var path = rounded_square (tile_x, tile_y, tile_size, theme.background_radius);
 
-        if (theme_manager.apply_texture)
+        if (theme.apply_texture)
         {
             snapshot.push_mask (Gsk.MaskMode.ALPHA);
             snapshot.append_texture (noise_texture, rect);
@@ -351,13 +358,13 @@ private class ReversiView : Gtk.Widget
             path,
             Gsk.FillRule.WINDING,
             Gdk.RGBA () {
-                red = (float) theme_manager.background_red,
-                green = (float) theme_manager.background_green,
-                blue = (float) theme_manager.background_blue,
+                red = (float) theme.background_red,
+                green = (float) theme.background_green,
+                blue = (float) theme.background_blue,
                 alpha = 1.0f
             });
 
-        if (theme_manager.apply_texture)
+        if (theme.apply_texture)
         {
             snapshot.pop ();
         }
@@ -597,9 +604,9 @@ private class ReversiView : Gtk.Widget
             circle,
             Gsk.FillRule.WINDING,
             Gdk.RGBA () {
-                red = (float) theme_manager.background_red,
-                green = (float) theme_manager.background_green,
-                blue = (float) theme_manager.background_blue,
+                red = (float) theme.background_red,
+                green = (float) theme.background_green,
+                blue = (float) theme.background_blue,
                 alpha = 1.0f
             });
     }
@@ -696,21 +703,21 @@ private class ReversiView : Gtk.Widget
             paving_size * x + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
             paving_size * y + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
             tile_size * intensity / HIGHLIGHT_MAX,
-            theme_manager.background_radius
+            theme.background_radius
         );
 
         var color = soft_highlight
             ? Gdk.RGBA () {
-                red   = (float) theme_manager.highlight_soft_red,
-                green = (float) theme_manager.highlight_soft_green,
-                blue  = (float) theme_manager.highlight_soft_blue,
-                alpha = (float) theme_manager.highlight_soft_alpha
+                red   = (float) theme.highlight_soft_red,
+                green = (float) theme.highlight_soft_green,
+                blue  = (float) theme.highlight_soft_blue,
+                alpha = (float) theme.highlight_soft_alpha
             }
             : Gdk.RGBA () {
-                red   = (float) theme_manager.highlight_hard_red,
-                green = (float) theme_manager.highlight_hard_green,
-                blue  = (float) theme_manager.highlight_hard_blue,
-                alpha = (float) theme_manager.highlight_hard_alpha
+                red   = (float) theme.highlight_hard_red,
+                green = (float) theme.highlight_hard_green,
+                blue  = (float) theme.highlight_hard_blue,
+                alpha = (float) theme.highlight_hard_alpha
             };
 
         snapshot.append_fill (
@@ -726,13 +733,13 @@ private class ReversiView : Gtk.Widget
             paving_size * x,
             paving_size * y,
             tile_size,
-            theme_manager.background_radius);
+            theme.background_radius);
 
         var color = Gdk.RGBA () {
-            red   = (float) theme_manager.highlight_hard_red,
-            green = (float) theme_manager.highlight_hard_green,
-            blue  = (float) theme_manager.highlight_hard_blue,
-            alpha = (float) theme_manager.highlight_hard_alpha * 1.6f * (float) humans_opening_intensity / (float) HUMANS_OPENING_INTENSITY_MAX
+            red   = (float) theme.highlight_hard_red,
+            green = (float) theme.highlight_hard_green,
+            blue  = (float) theme.highlight_hard_blue,
+            alpha = (float) theme.highlight_hard_alpha * 1.6f * (float) humans_opening_intensity / (float) HUMANS_OPENING_INTENSITY_MAX
         };
 
         snapshot.append_fill (

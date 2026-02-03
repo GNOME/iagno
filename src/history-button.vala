@@ -23,11 +23,7 @@ using Gtk;
 [GtkTemplate (ui = "/org/gnome/Reversi/ui/history-button.ui")]
 private class HistoryButton : Widget
 {
-    [CCode (notify = false)] public ThemeManager theme_manager
-    {
-        get { return drawing.theme_manager; }
-        set { drawing.theme_manager = value; }
-    }
+    public Theme theme { get; set; }
 
     [GtkChild] private unowned MenuButton menu_button;
     [GtkChild] private unowned Stack stack;
@@ -51,6 +47,8 @@ private class HistoryButton : Widget
         finish_menu.freeze ();
 
         menu_button.menu_model = history_menu;
+
+        bind_property ("theme", drawing, "theme", GLib.BindingFlags.SYNC_CREATE);
     }
 
     internal void set_player (Player player)
@@ -78,18 +76,7 @@ private class HistoryButton : Widget
 
 private class HistoryButtonLabel : Widget
 {
-    private ThemeManager _theme_manager;
-    [CCode (notify = false)] public ThemeManager theme_manager
-    {
-        get { return _theme_manager; }
-        set
-        {
-            _theme_manager = value;
-            _theme_manager.theme_changed.connect (() => {
-                queue_draw ();
-            });
-        }
-    }
+    public Theme theme { get; set; }
 
     public Player current_player = Player.NONE;
 
@@ -97,6 +84,14 @@ private class HistoryButtonLabel : Widget
     private const float arrow_margin_top = 3.0f;
 
     private Gdk.Texture? tiles_pattern = null;
+
+    construct
+    {
+        notify ["theme"].connect (() => {
+            tiles_pattern = null;
+            queue_draw ();
+        });
+    }
 
     protected override void snapshot (Gtk.Snapshot snapshot)
     {
@@ -112,7 +107,7 @@ private class HistoryButtonLabel : Widget
         int board_y         = !vertical_fill ? (int) ((height - drawing_height) / 2.0) : 0;
 
         if (tiles_pattern == null || ((!) tiles_pattern).get_height () != drawing_height * 4)
-            tiles_pattern = theme_manager.tileset_for_size (drawing_height);
+            tiles_pattern = theme.tileset_for_size (drawing_height);
 
         snapshot.save ();
         snapshot.translate (Graphene.Point () {
