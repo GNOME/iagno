@@ -41,6 +41,8 @@
             <child>
               <object class="GtkPicture">
                 <property name="hexpand">true</property>
+                <property name="width-request">24</property>
+                <property name="height-request">24</property>
                 <property name="paintable">
                   <object class="Piece" id="prompt_piece" />
                 </property>
