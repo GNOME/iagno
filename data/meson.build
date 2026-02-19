@@ -1,45 +1,49 @@
+conf = configuration_data()
+conf.set('app_id', app_id)
+conf.set('bindir', bindir)
+
 # Install icon
 install_data(
-        join_paths('icons', 'hicolor', 'scalable', '@0@.svg'.format(project_id)),
+    'icons' / 'hicolor' / 'scalable' / '@0@.svg'.format(app_id),
     install_dir: join_paths(icondir, 'scalable', 'apps')
 )
 
 # Install symbolic icon
 install_data(
-        join_paths('icons', 'hicolor', 'symbolic', '@0@-symbolic.svg'.format(project_id)),
+    'icons' / 'hicolor' / 'symbolic' / 'org.gnome.Reversi-symbolic.svg',
     install_dir: join_paths(icondir, 'symbolic', 'apps')
 )
 
 # Install gschema
 install_data(
-  '@0@.gschema.xml'.format(project_id),
-  install_dir : schemadir
+    'org.gnome.Reversi.gschema.xml',
+    install_dir: schemadir
 )
 
 # Compiling gresource
 resources = gnome.compile_resources(
-    'resources', '@0@.gresource.xml'.format(meson.project_name()),
+    'resources',
+    'iagno.gresource.xml',
     source_dir: '.'
 )
 
 # Make D-Bus activatable
-service_conf = configuration_data()
-service_conf.set('bindir', bindir)
-
-service = project_id + '.service'
-
 configure_file(
-  input: service + '.in',
-  output: service,
-  install: true,
-  install_dir: join_paths(datadir, 'dbus-1', 'services'),
-  configuration: service_conf
+    input: 'org.gnome.Reversi.service.in',
+    output: app_id + '.service',
+    install: true,
+    install_dir: datadir / 'dbus-1' / 'services',
+    configuration: conf
 )
 
 # Desktop file
 desktop_file = i18n.merge_file(
-    input: '@0@.desktop.in'.format(project_id),
-    output: '@0@.desktop'.format(project_id),
+    input: configure_file(
+        input: 'org.gnome.Reversi.desktop.in',
+        output: 'iagno.desktop', # intermediate file
+        configuration: conf,
+    ),
+    output: '@0@.desktop'.format(app_id),
     po_dir: join_paths(meson.project_source_root(), 'po'),
     type: 'desktop',
     install: true,
@@ -48,19 +52,23 @@ desktop_file = i18n.merge_file(
 
 # Validate desktop file
 if desktop_file_validate.found()
-  test(
-    'validate-desktop',
-    desktop_file_validate,
-    args: [
-      desktop_file.full_path()
-    ]
-  )
+    test(
+        'validate-desktop',
+        desktop_file_validate,
+        args: [
+            desktop_file.full_path()
+        ]
+    )
 endif
 
 # Metainfo file
 metainfo_file = i18n.merge_file(
-    input: '@0@.metainfo.xml.in'.format(project_id),
-    output: '@0@.metainfo.xml'.format(project_id),
+    input: configure_file(
+        input: 'org.gnome.Reversi.metainfo.xml.in',
+        output: 'iagno.metainfo.xml', # intermediate file
+        configuration: conf,
+    ),
+    output: '@0@.metainfo.xml'.format(app_id),
     po_dir: join_paths(meson.project_source_root(), 'po'),
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo')
@@ -68,12 +76,13 @@ metainfo_file = i18n.merge_file(
 
 # Validate AppData file
 if appstreamcli.found()
-  test(
-    'validate-metainfo', appstreamcli,
-    args: [
-      'validate', '--no-net', '--explain', metainfo_file.full_path()
-    ]
-  )
+    test(
+        'validate-metainfo',
+        appstreamcli,
+        args: [
+            'validate', '--no-net', '--explain', metainfo_file.full_path()
+        ]
+    )
 endif
 
 # Install man page

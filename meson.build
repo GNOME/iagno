@@ -1,7 +1,7 @@
 project('iagno', ['vala', 'c'],
         version: '50.alpha')
 
-project_id = 'org.gnome.Reversi'
+app_id = 'org.gnome.Reversi'
 
 # used to install help
 gnome = import('gnome')
@@ -36,6 +36,7 @@ schemadir   = join_paths(datadir, 'glib-2.0', 'schemas')
 appsdir     = join_paths(datadir, 'applications')
 
 conf = configuration_data ()
+conf.set_quoted ('APP_ID', app_id)
 conf.set_quoted ('VERSION', meson.project_version())
 conf.set_quoted ('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted ('DATA_DIRECTORY', pkgdatadir)

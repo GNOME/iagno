@@ -1,3 +1,3 @@
 [D-BUS Service]
-Name=org.gnome.Reversi
+Name=@app_id@
 Exec=@bindir@/iagno --gapplication-service

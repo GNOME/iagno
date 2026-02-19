@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Michael Catanzaro and contributors -->
 <component type="desktop-application">
-  <id>org.gnome.Reversi</id>
+  <id>@app_id@</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Reversi</name>
@@ -40,7 +40,7 @@
   <url type="help">https://help.gnome.org/iagno/</url>
   <update_contact>arnaud.bonatti_at_gmail.com</update_contact>
   <project_group>GNOME</project_group>
-  <launchable type="desktop-id">org.gnome.Reversi.desktop</launchable>
+  <launchable type="desktop-id">@app_id@.desktop</launchable>
   <kudos>
     <kudo>HiDpiIcon</kudo>
     <kudo>ModernToolkit</kudo>

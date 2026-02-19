@@ -138,18 +138,18 @@ private class Iagno : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (PROGRAM_NAME);
-        Environment.set_prgname ("org.gnome.Reversi");
+        Environment.set_prgname (APP_ID);
 
         Adw.init ();
 
-        Window.set_default_icon_name ("org.gnome.Reversi");
+        Window.set_default_icon_name (APP_ID);
 
         return new Iagno ().run (args);
     }
 
     private Iagno ()
     {
-        Object (application_id: "org.gnome.Reversi", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: APP_ID, flags: ApplicationFlags.FLAGS_NONE);
 
         add_main_option_entries (option_entries);
     }
@@ -956,10 +956,10 @@ private class Iagno : Gtk.Application
     {
         var about_dialog = new Adw.AboutDialog ();
         about_dialog.set_title (_("About"));
-        about_dialog.set_application_icon ("org.gnome.Reversi");
+        about_dialog.set_application_icon (APP_ID);
         about_dialog.set_application_name (PROGRAM_NAME);
         about_dialog.set_version (VERSION);
-        about_dialog.set_license_type (License.GPL_3_0);    // forced, 1/3
+        about_dialog.set_license_type (License.GPL_3_0);
         about_dialog.set_artists ({
             /* Translators: text crediting an artist, in the about dialog */
             _("Masuichi Ito (pieces)"),

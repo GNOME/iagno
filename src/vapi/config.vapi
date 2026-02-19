@@ -18,6 +18,7 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+public const string APP_ID;
 public const string VERSION;
 public const string GETTEXT_PACKAGE;
 public const string DATA_DIRECTORY;
