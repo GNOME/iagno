@@ -67,9 +67,10 @@ private class GameWindow : Adw.ApplicationWindow
 
     public Theme theme { get; set; }
 
-    internal GameWindow (bool start_now, Widget view_content, GLib.Menu? appearance_menu)
+    internal GameWindow (Adw.Application app, bool start_now, Widget view_content, GLib.Menu? appearance_menu)
     {
-        Object (title : Iagno.PROGRAM_NAME);
+        Object (application : app,
+                title : Iagno.PROGRAM_NAME);
 
         window_title.title = Iagno.PROGRAM_NAME;
         game_content = view_content;
@@ -100,9 +101,6 @@ private class GameWindow : Adw.ApplicationWindow
         /* window actions */
         install_action_entries ();
         install_ui_action_entries ();
-
-        /* window config */
-        set_title (name);
 
         new_game_screen.bind_property ("orientation", options_separator, "orientation", GLib.BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {

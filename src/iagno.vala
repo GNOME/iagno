@@ -22,7 +22,7 @@
 
 using Gtk;
 
-private class Iagno : Gtk.Application
+private class Iagno : Adw.Application
 {
     /* Translators: application name, as used in the window manager, the window title, the about dialog... */
     internal const string PROGRAM_NAME = _("Reversi");
@@ -138,11 +138,8 @@ private class Iagno : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (PROGRAM_NAME);
-        Environment.set_prgname (APP_ID);
 
         Adw.init ();
-
-        Window.set_default_icon_name (APP_ID);
 
         return new Iagno ().run (args);
     }
@@ -346,7 +343,7 @@ private class Iagno : Gtk.Application
         appearance_menu.freeze ();
 
         /* window */
-        window = new GameWindow (start_now, view, appearance_menu);
+        window = new GameWindow (this, start_now, view, appearance_menu);
 
         window.update_level_menu (level_menu);
 

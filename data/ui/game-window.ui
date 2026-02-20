@@ -17,6 +17,7 @@
 -->
 <interface>
   <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.8"/>
   <template class="GameWindow" parent="AdwApplicationWindow">
     <!-- 360px max for Purism Librem 5 portrait, for 648px height; update gschema also -->
     <property name="width-request">350</property>
