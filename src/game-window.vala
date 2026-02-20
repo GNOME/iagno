@@ -75,6 +75,9 @@ private class GameWindow : Adw.ApplicationWindow
         window_title.title = Iagno.PROGRAM_NAME;
         game_content = view_content;
 
+        if (APP_ID.has_suffix (".Devel"))
+            add_css_class ("devel");
+
         this.appearance_menu = appearance_menu;
         update_hamburger_menu ();
 

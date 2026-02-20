@@ -1,7 +1,7 @@
 project('iagno', ['vala', 'c'],
         version: '50.alpha')
 
-app_id = 'org.gnome.Reversi'
+app_id = 'org.gnome.Reversi' + get_option('app_id_suffix')
 
 # used to install help
 gnome = import('gnome')

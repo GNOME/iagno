@@ -11,7 +11,8 @@ install_data(
 # Install symbolic icon
 install_data(
     'icons' / 'hicolor' / 'symbolic' / 'org.gnome.Reversi-symbolic.svg',
-    install_dir: join_paths(icondir, 'symbolic', 'apps')
+    install_dir: join_paths(icondir, 'symbolic', 'apps'),
+    rename: '@0@-symbolic.svg'.format(app_id),
 )
 
 # Install gschema

@@ -1,9 +1,13 @@
 {
-    "app-id" : "org.gnome.Reversi",
+    "app-id" : "org.gnome.Reversi.Devel",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "49",
+    "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
     "command" : "iagno",
+    "tags" : [
+        "nightly"
+    ],
+    "desktop-file-name-prefix" : "(Nightly) ",
     "finish-args" : [
         "--share=ipc",
         "--socket=fallback-x11",
@@ -29,10 +33,12 @@
             "buildsystem" : "meson",
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/iagno.git",
-                    "branch" : "main"
+                    "type" : "dir",
+                    "path" : "."
                 }
+            ],
+            "config-opts" : [
+                "-Dapp_id_suffix=.Devel"
             ]
         }
     ]

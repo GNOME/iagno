@@ -11,10 +11,10 @@ variables:
 
 flatpak:
     variables:
-        MANIFEST_PATH: "org.gnome.Reversi.json"
+        MANIFEST_PATH: "org.gnome.Reversi.Devel.json"
         FLATPAK_MODULE: "iagno"
         RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
-        APP_ID: "org.gnome.Reversi"
+        APP_ID: "org.gnome.Reversi.Devel"
     extends: .flatpak
 
 nightly:
