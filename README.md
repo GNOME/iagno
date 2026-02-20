@@ -4,7 +4,7 @@ A reversi game for GNOME.
 
 ## Useful links
 
-- Homepage: <https://wiki.gnome.org/Apps/Reversi>
+- Homepage: <https://gitlab.gnome.org/GNOME/iagno>
 - Report issues: <https://gitlab.gnome.org/GNOME/iagno/issues/>
-- Translate: <https://wiki.gnome.org/TranslationProject>
+- Translate: <https://l10n.gnome.org/module/iagno/>
 - Code of Conduct: <https://gitlab.gnome.org/GNOME/iagno/blob/master/code-of-conduct.md>
