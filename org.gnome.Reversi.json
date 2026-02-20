@@ -10,14 +10,10 @@
     "desktop-file-name-prefix" : "(Nightly) ",
     "finish-args" : [
         "--share=ipc",
-        "--socket=x11",
+        "--socket=fallback-x11",
         "--socket=wayland",
         "--device=dri",
-        "--socket=pulseaudio",
-        "--filesystem=xdg-run/dconf",
-        "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf",
-        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        "--socket=pulseaudio"
     ],
     "cleanup" : [
         "/include",
@@ -38,15 +34,10 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/iagno.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/iagno.git",
+                    "branch" : "main"
                 }
-            ],
-            "config-opts" : [
-                "--libdir=lib"
             ]
         }
-    ],
-    "build-options" : {
-        "env" : {        }
-    }
+    ]
 }
