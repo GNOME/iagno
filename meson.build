@@ -1,5 +1,5 @@
 project('iagno', ['vala', 'c'],
-        version: '50.alpha')
+        version: '50.beta')
 
 app_id = 'org.gnome.Reversi' + get_option('app_id_suffix')
 
