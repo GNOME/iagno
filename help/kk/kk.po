@@ -1,0 +1,1921 @@
+# Kazakh translation for iagno.
+# Copyright (C) 2026 iagno's COPYRIGHT HOLDER
+# This file is distributed under the same license as the iagno package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>,  2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: iagno main\n"
+"POT-Creation-Date: 2026-03-14 08:57+0000\n"
+"PO-Revision-Date: 2026-03-17 23:45+0500\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <Kazakh>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
+
+#. (itstool) path: credit/name
+#: C/2player.page:10 C/ai-game.page:10 C/ai-level.page:10 C/alternate.page:10
+#: C/configure.page:10 C/develop.page:15 C/documentation.page:15
+#: C/example.page:11 C/highlights.page:10 C/index.page:17 C/play.page:15
+#: C/rules.page:25 C/select-game.page:10 C/start-position.page:11 C/theme.page:10
+#: C/translate.page:19
+msgid "Arnaud Bonatti"
+msgstr "Arnaud Bonatti"
+
+#. (itstool) path: credit/years
+#: C/2player.page:12 C/ai-game.page:12 C/ai-level.page:12 C/alternate.page:12
+#: C/configure.page:12 C/develop.page:17 C/documentation.page:17
+#: C/example.page:13 C/highlights.page:12 C/index.page:19 C/play.page:17
+#: C/rules.page:27 C/select-game.page:12 C/start-position.page:13 C/theme.page:12
+#: C/translate.page:21
+msgid "2020"
+msgstr "2020"
+
+#. (itstool) path: license/p
+#: C/2player.page:16 C/ai-game.page:16 C/ai-level.page:16 C/alternate.page:16
+#: C/bug-filing.page:16 C/configure.page:16 C/develop.page:21
+#: C/documentation.page:21 C/example.page:17 C/highlights.page:16 C/index.page:23
+#: C/play.page:21 C/rules.page:31 C/select-game.page:16 C/sound.page:17
+#: C/start-position.page:17 C/strategy.page:20 C/theme.page:16
+#: C/translate.page:25
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: page/title
+#: C/2player.page:20
+msgid "Play with another player"
+msgstr "Басқа ойыншымен ойнау"
+
+#. (itstool) path: page/p
+#: C/2player.page:22
+msgid ""
+"<app>Reversi</app> allows you to play against another human, instead of "
+"against the computer."
+msgstr ""
+"<app>Реверси</app> компьютерге қарсы емес, басқа адамға қарсы ойнауға "
+"мүмкіндік береді."
+
+#. (itstool) path: page/p
+#: C/2player.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter "
+"case, <app>Reversi</app> is already configured to start a two-player game, "
+"else it would start a game against the computer."
+msgstr ""
+"<link xref=\"configure\">Жаңа ойынды баптау</link> кезінде төмен қараған "
+"бағдаршасы бар бірінші батырмаға назар аударыңыз; ол <gui>Түсі: Күңгірт</gui>, "
+"<gui>Түсі: Ақшыл</gui> немесе <gui>Екі ойыншы</gui> деп белгіленуі тиіс. Соңғы "
+"жағдайда, <app>Реверси</app> екі ойыншылы ойынды бастауға дайындалған, әйтпесе "
+"ол компьютерге қарсы ойынды бастайды."
+
+#. (itstool) path: page/p
+#: C/2player.page:26
+msgid ""
+"If the button does not indicate <gui>Two players</gui>, select it, and in the "
+"menu that appears, select <gui>Two players</gui>. The button will change its "
+"label to <gui>Two players</gui>. You can then select the <gui>Start Game</gui> "
+"button to launch your game and <link xref=\"play\">play</link>."
+msgstr ""
+"Егер батырмада <gui>Екі ойыншы</gui> көрсетілмесе, оны таңдап, пайда болған "
+"мәзірден <gui>Екі ойыншы</gui> тармағын таңдаңыз. Батырманың атауы <gui>Екі "
+"ойыншы</gui> болып өзгереді. Содан кейін ойынды бастау үшін <gui>Ойынды "
+"бастау</gui> батырмасын басып, <link xref=\"play\">ойнауды</link> бастауға "
+"болады."
+
+#. (itstool) path: page/p
+#: C/2player.page:28
+msgid ""
+"If you asked the game to <link xref=\"start-position\">vary start position</"
+"link> and start a two-player game, you will start the game with a special "
+"<link xref=\"start-position#human-overture\">two-player game overture</link>."
+msgstr ""
+"Егер сіз ойынды <link xref=\"start-position\">бастапқы позицияны түрлендіруді</"
+"link> және екі ойыншылы ойынды бастауды сұрасаңыз, ойынды арнайы <link "
+"xref=\"start-position#human-overture\">екі ойыншылы ойын прелюдиясымен</link> "
+"бастайсыз."
+
+#. (itstool) path: page/title
+#: C/ai-game.page:20
+msgid "Play against the computer"
+msgstr "Компьютерге қарсы ойнау"
+
+#. (itstool) path: page/p
+#: C/ai-game.page:22
+msgid ""
+"<app>Reversi</app> allows you to play against the computer, with three "
+"different levels of difficulty. You can also decide which player, between the "
+"computer and you, will start."
+msgstr ""
+"<app>Реверси</app> сізге қиындықтың үш түрлі деңгейімен компьютерге қарсы "
+"ойнауға мүмкіндік береді. Сондай-ақ, сіз бен компьютердің қайсысы бірінші "
+"бастайтынын шеше аласыз."
+
+#. (itstool) path: page/p
+#: C/ai-game.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the two "
+"first cases, <app>Reversi</app> is already configured to start a game against "
+"the computer, else it would start a two-player game."
+msgstr ""
+"<link xref=\"configure\">Жаңа ойынды баптау</link> кезінде төмен қараған "
+"бағдаршасы бар бірінші батырмаға назар аударыңыз; ол <gui>Түсі: Күңгірт</gui>, "
+"<gui>Түсі: Ақшыл</gui> немесе <gui>Екі ойыншы</gui> деп белгіленуі тиіс. "
+"Алғашқы екі жағдайда, <app>Реверси</app> компьютерге қарсы ойынды бастауға "
+"дайындалған, әйтпесе ол екі ойыншылы ойынды бастайды."
+
+#. (itstool) path: page/p
+#: C/ai-game.page:26
+msgid ""
+"If the button is labelled <gui>Color: Dark</gui>, that means that you will do "
+"the first move. Of course, <gui>Color: Light</gui> means that it will be the "
+"computer."
+msgstr ""
+"Егер батырма <gui>Түсі: Күңгірт</gui> деп белгіленсе, бұл бірінші жүрісті сіз "
+"жасайтыныңызды білдіреді. Әрине, <gui>Түсі: Ақшыл</gui> болса, бірінші болып "
+"компьютер бастайды."
+
+#. (itstool) path: page/p
+#: C/ai-game.page:28
+msgid ""
+"If the button indicates <gui>Two players</gui>, select it, and in the menu "
+"that appears, select <gui>Play first (Dark)</gui> if you want to start the "
+"game, or <gui>Play second (Light)</gui> if you want the computer to start. The "
+"button will change its label to <gui>Color: Dark</gui> in the former case, and "
+"to <gui>Color: Light</gui> in the latter."
+msgstr ""
+"Егер батырмада <gui>Екі ойыншы</gui> көрсетілсе, оны таңдаңыз. Ойынды өзіңіз "
+"бастағыңыз келсе, ашылған мәзірден <gui>Бірінші ойнау (Күңгірт)</gui> "
+"тармағын, ал компьютер бастағанын қаласаңыз, <gui>Екінші ойнау (Ақшыл)</gui> "
+"тармағын таңдаңыз. Бірінші жағдайда батырма атауы <gui>Түсі: Күңгірт</gui>, ал "
+"екіншісінде <gui>Түсі: Ақшыл</gui> болып өзгереді."
+
+#. (itstool) path: page/p
+#: C/ai-game.page:30
+msgid ""
+"Once you have configured <app>Reversi</app> to play a game against the "
+"computer, you may <link xref=\"ai-level\">change the computer level</link>."
+msgstr ""
+"<app>Реверси</app> бағдарламасын компьютерге қарсы ойнауға баптағаннан кейін, "
+"сіз <link xref=\"ai-level\">компьютер деңгейін өзгерте</link> аласыз."
+
+#. (itstool) path: page/title
+#: C/ai-level.page:20
+msgid "Change the computer level"
+msgstr "Компьютер деңгейін өзгерту"
+
+#. (itstool) path: page/p
+#: C/ai-level.page:22
+msgid ""
+"<app>Reversi</app> offers you three level of difficulty if you want to play "
+"against the computer."
+msgstr ""
+"<app>Реверси</app> компьютерге қарсы ойнағыңыз келсе, қиындықтың үш деңгейін "
+"ұсынады."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:24
+msgid ""
+"These levels are called: <em>Easy</em>, <em>Medium</em>, and <em>Hard</em>. "
+"The first one is suitable for beginners, the second for casual players, and "
+"the last one should please regular players."
+msgstr ""
+"Бұл деңгейлер: <em>Оңай</em>, <em>Орташа</em> және <em>Қиын</em> деп аталады. "
+"Біріншісі жаңа бастаушыларға, екіншісі әуесқой ойыншыларға, ал соңғысы тұрақты "
+"ойыншыларға арналған."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:26
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the second button with a down arrow; it should either be labelled "
+"<gui>Difficulty: Easy</gui>, <gui>Difficulty: Medium</gui>, <gui>Difficulty: "
+"Hard</gui> or <gui>More options</gui>. The first three possibilities indicate "
+"which one of the three levels would be used if starting a new game. In the "
+"latter case, <app>Reversi</app> is currently configured for a two-player game, "
+"and you should first configure that you want to <link xref=\"ai-game\">play "
+"against the computer</link>."
+msgstr ""
+"<link xref=\"configure\">Жаңа ойынды баптау</link> кезінде төмен қараған "
+"бағдаршасы бар екінші батырмаға назар аударыңыз; ол <gui>Қиындығы: Оңай</gui>, "
+"<gui>Қиындығы: Орташа</gui>, <gui>Қиындығы: Қиын</gui> немесе <gui>Көбірек "
+"опциялар</gui> деп белгіленуі тиіс. Алғашқы үш нұсқа жаңа ойынды бастау "
+"кезінде үш деңгейдің қайсысы қолданылатынын көрсетеді. Соңғы жағдайда, "
+"<app>Реверси</app> қазіргі уақытта екі ойыншылы ойынға бапталған және сіз "
+"алдымен <link xref=\"ai-game\">компьютерге қарсы ойнауды</link> баптауыңыз "
+"керек."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:28
+msgid ""
+"Once that is done, if the indicated level is not the one you want, select the "
+"button, and in the menu that appears, select <gui>Easy</gui>, <gui>Medium</"
+"gui> or <gui>Hard</gui>, as you prefer. The button will change its label "
+"accordingly."
+msgstr ""
+"Бұл орындалғаннан кейін, егер көрсетілген деңгей сіз қалаған деңгей болмаса, "
+"батырманы басып, ашылған мәзірден қалауыңызша <gui>Оңай</gui>, <gui>Орташа</"
+"gui> немесе <gui>Қиын</gui> деңгейін таңдаңыз. Батырма атауы соған сәйкес "
+"өзгереді."
+
+#. (itstool) path: page/p
+#: C/ai-level.page:30
+msgid ""
+"When the indicated level is good for your, you can select the <gui>Start Game</"
+"gui> button to launch your game and <link xref=\"play\">play</link>."
+msgstr ""
+"Көрсетілген деңгей сізге сәйкес келсе, ойынды бастау үшін <gui>Ойынды бастау</"
+"gui> батырмасын басып, <link xref=\"play\">ойнауды</link> бастауға болады."
+
+#. (itstool) path: page/title
+#: C/alternate.page:20
+msgid "Alternate who starts"
+msgstr "Кім бастайтынын кезектестіру"
+
+#. (itstool) path: page/p
+#: C/alternate.page:22
+msgid ""
+"If you are playing multiple games in a row <link xref=\"ai-game\">against the "
+"computer</link>, <app>Reversi</app> allows you to automatically alternate who "
+"will start the next game between you and the computer."
+msgstr ""
+"Егер сіз компьютерге қарсы қатарынан бірнеше ойын <link xref=\"ai-game\">ойнап "
+"жатсаңыз</link>, <app>Реверси</app> келесі ойынды кім бастайтынын (сіз бе әлде "
+"компьютер ме) автоматты түрде кезектестіруге мүмкіндік береді."
+
+#. (itstool) path: page/p
+#: C/alternate.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, have a look to "
+"the first button with a down arrow; it should either be labelled <gui>Color: "
+"Dark</gui>, <gui>Color: Light</gui> or <gui>Two players</gui>. In the latter "
+"case, <app>Reversi</app> is configured to start a two-player game; if so, "
+"first, configure a game <link xref=\"ai-game\">against the computer</link>."
+msgstr ""
+"<link xref=\"configure\">Жаңа ойынды баптау</link> кезінде төмен қараған "
+"бағдаршасы бар бірінші батырмаға назар аударыңыз; ол <gui>Түсі: Күңгірт</gui>, "
+"<gui>Түсі: Ақшыл</gui> немесе <gui>Екі ойыншы</gui> деп белгіленуі тиіс. Соңғы "
+"жағдайда, <app>Реверси</app> екі ойыншылы ойынды бастауға бапталған; олай "
+"болса, алдымен <link xref=\"ai-game\">компьютерге қарсы</link> ойынды баптаңыз."
+
+#. (itstool) path: page/p
+#: C/alternate.page:26
+msgid ""
+"Select the button. In the menu that appears, there is an entry called "
+"<gui>Alternate who starts</gui>."
+msgstr ""
+"Батырманы таңдаңыз. Ашылған мәзірде <gui>Кім бастайтынын кезектестіру</gui> "
+"деген тармақ болады."
+
+#. (itstool) path: page/p
+#: C/alternate.page:28
+msgid ""
+"If the <gui>Alternate who starts</gui> option is disabled, every new game will "
+"be started by the same player: you will be the first player if the label of "
+"the button is <gui>Color: Dark</gui>, and it will be the computer if the label "
+"is <gui>Color: Light</gui>; to change who starts, see how to configure a game "
+"<link xref=\"ai-game\">against the computer</link>."
+msgstr ""
+"Егер <gui>Кім бастайтынын кезектестіру</gui> опциясы сөндірілген болса, әрбір "
+"жаңа ойынды сол бір ойыншы бастайды: егер батырма атауы <gui>Түсі: Күңгірт</"
+"gui> болса, сіз бірінші ойыншы боласыз, ал атауы <gui>Түсі: Ақшыл</gui> болса, "
+"компьютер бастайды; кім бастайтынын өзгерту үшін <link xref=\"ai-"
+"game\">компьютерге қарсы</link> ойынды қалай баптау керектігін қараңыз."
+
+#. (itstool) path: page/p
+#: C/alternate.page:30
+msgid ""
+"If the <gui>Alternate who starts</gui> option is enabled, then at each new "
+"game, who will be the first player will be automatically changed. So if you "
+"started a game, the next time you <link xref=\"configure\">configure a new "
+"game</link>, the button will be labelled <gui>Color: Light</gui>, and the "
+"computer will be starting the following game."
+msgstr ""
+"Егер <gui>Кім бастайтынын кезектестіру</gui> опциясы іске қосылған болса, онда "
+"әрбір жаңа ойында бірінші ойыншы автоматты түрде ауысып отырады. Сондықтан, "
+"егер сіз ойынды бастасаңыз, келесі жолы <link xref=\"configure\">жаңа ойынды "
+"баптағанда</link> батырмада <gui>Түсі: Ақшыл</gui> деп жазылып тұрады және "
+"келесі ойынды компьютер бастайды."
+
+#. (itstool) path: page/p
+#: C/alternate.page:32
+msgid ""
+"To enable or disable the option, just select the <gui>Alternate who starts</"
+"gui> entry."
+msgstr ""
+"Бұл опцияны іске қосу немесе сөндіру үшін <gui>Кім бастайтынын кезектестіру</"
+"gui> тармағын таңдау жеткілікті."
+
+#. (itstool) path: page/p
+#: C/alternate.page:34
+msgid "This option is selected by default."
+msgstr "Бұл опция бастапқыда таңдалған."
+
+#. (itstool) path: credit/name
+#: C/bug-filing.page:10 C/develop.page:10 C/documentation.page:10 C/index.page:13
+#: C/play.page:10 C/rules.page:11 C/sound.page:11 C/strategy.page:10
+#: C/translate.page:10
+msgid "Tiffany Antopolski"
+msgstr "Tiffany Antopolski"
+
+#. (itstool) path: credit/years
+#: C/bug-filing.page:12 C/develop.page:12 C/documentation.page:12
+#: C/strategy.page:12 C/translate.page:12
+msgid "2011"
+msgstr "2011"
+
+#. (itstool) path: page/title
+#: C/bug-filing.page:20
+msgid "Help make <app>Reversi</app> better"
+msgstr "<app>Реверси</app> ойынын жақсартуға көмектесіңіз"
+
+#. (itstool) path: section/title
+#: C/bug-filing.page:23
+msgid "Report a bug or suggest an improvement"
+msgstr "Қате туралы хабарлау немесе жақсартуды ұсыну"
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:24
+msgid ""
+"<app>Reversi</app> is maintained by a volunteer community. You are welcome to "
+"participate. If you notice a problem you can file a <em>bug report</em>. To "
+"file a bug, go to <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues/\"/"
+">."
+msgstr ""
+"<app>Реверси</app> бағдарламасын еріктілер қауымдастығы қолдайды. Қатысуыңызға "
+"болады. Егер сіз мәселені байқасаңыз, <em>қате туралы хабарлама</em> жібере "
+"аласыз. Қате туралы хабарлау үшін <link href=\"https://gitlab.gnome.org/GNOME/"
+"iagno/issues/\"/> сайтына өтіңіз."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:28
+msgid ""
+"This is a bug tracking system where users and developers can file details "
+"about bugs, crashes and request enhancements."
+msgstr ""
+"Бұл — пайдаланушылар мен әзірлеушілер қателер, істен шығулар туралы "
+"мәліметтерді жібере алатын және жақсартуларды сұрай алатын қателерді трекер "
+"жүйесі."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:32
+msgid ""
+"To participate you need an account which will give you the ability to gain "
+"access, file bugs, and make comments. Also, you need to register so you can "
+"receive updates by e-mail about the status of your bug. If you don't already "
+"have an account, just click on the <gui>Sign in / Register</gui> link to "
+"create one."
+msgstr ""
+"Қатысу үшін сізге жүйеге қол жеткізуге, қателерді жіберуге және пікір "
+"қалдыруға мүмкіндік беретін тіркелгі қажет. Сондай-ақ, қатеңіздің күйі туралы "
+"электрондық пошта арқылы жаңартуларды алу үшін тіркелуіңіз керек. Егер сізде "
+"тіркелгі болмаса, оны жасау үшін <gui>Кіру / Тіркелу</gui> сілтемесін басыңыз."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:36
+msgid ""
+"Once you have an account, log in, and click on <gui>New issue</gui>. Before "
+"reporting a bug, please read the <link href=\"https://wiki.gnome.org/Community/"
+"GettingInTouch/BugReportingGuidelines\">bug writing guidelines</link>, and "
+"please <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">browse</"
+"link> for the bug to see if it already exists."
+msgstr ""
+"Тіркелгіңіз болған соң, жүйеге кіріп, <gui>Жаңа мәселе</gui> батырмасын "
+"басыңыз. Қате туралы хабарламас бұрын, <link href=\"https://wiki.gnome.org/"
+"Community/GettingInTouch/BugReportingGuidelines\">қате жазу нұсқаулықтарын</"
+"link> оқып шығыңыз және қате бұрыннан бар-жоғын білу үшін оны <link "
+"href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">шолып</link> шығыңыз."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:40
+msgid ""
+"If you are requesting a new feature, choose <gui>1. Feature</gui> in the "
+"<gui>Labels</gui> menu. Fill in the Title and Description sections and click "
+"<gui>Submit Issue</gui>."
+msgstr ""
+"Егер сіз жаңа мүмкіндікті сұрап жатсаңыз, <gui>Белгілер</gui> мәзірінен "
+"<gui>1. Feature</gui> таңдаңыз. Тақырыбы мен Сипаттамасы бөлімдерін толтырып, "
+"<gui>Мәселені жіберу</gui> батырмасын басыңыз."
+
+#. (itstool) path: section/p
+#: C/bug-filing.page:45
+msgid ""
+"Your report will be given an ID number, and its status will be updated as it "
+"is being dealt with. Thanks for helping make <app>Reversi</app> better!"
+msgstr ""
+"Сіздің хабарламаңызға ID нөмірі беріледі және ол қаралған сайын оның күйі "
+"жаңартылып отырады. <app>Реверси</app> ойынын жақсартуға көмектескеніңіз үшін "
+"рақмет!"
+
+#. (itstool) path: page/title
+#: C/configure.page:20
+msgid "Configure a new game"
+msgstr "Жаңа ойынды баптау"
+
+#. (itstool) path: page/p
+#: C/configure.page:22
+msgid ""
+"When <app>Reversi</app> is opened, it displays a screen that allows you to "
+"configure a new game and to launch it."
+msgstr ""
+"<app>Реверси</app> ашылған кезде жаңа ойынды баптауға және оны бастауға "
+"мүмкіндік беретін экран көрсетіледі."
+
+#. (itstool) path: page/p
+#: C/configure.page:24
+msgid ""
+"This screen notably allows to select if you want to play <link xref=\"select-"
+"game\"><em>Classic Reversi</em> or <em>Reverse Reversi</em></link>, to choose "
+"if you are going to play <link xref=\"ai-game\">against the computer</link> or "
+"<link xref=\"2player\">with another player</link>, and in the former case to "
+"<link xref=\"ai-level\">change the computer level</link>."
+msgstr ""
+"Бұл экранда <link xref=\"select-game\"><em>Классикалық Реверси</em> немесе "
+"<em>Кері Реверси</em></link> ойнауды таңдауға, <link xref=\"ai-"
+"game\">компьютерге қарсы</link> немесе <link xref=\"2player\">басқа ойыншымен</"
+"link> ойнайтыныңызды шешуге және бірінші жағдайда <link xref=\"ai-"
+"level\">компьютер деңгейін өзгертуге</link> болады."
+
+#. (itstool) path: page/p
+#: C/configure.page:26
+msgid ""
+"If you are opening the application for the first time, <app>Reversi</app> "
+"defaults on an easy <em>Classic Reversi</em> against the computer. Else, it "
+"will have remembered you previous settings."
+msgstr ""
+"Егер сіз қолданбаны бірінші рет ашып тұрсаңыз, <app>Реверси</app> бастапқыда "
+"компьютерге қарсы оңай деңгейдегі <em>Классикалық Реверсиді</em> ұсынады. "
+"Әйтпесе, ол сіздің алдыңғы баптауларыңызды есте сақтайды."
+
+#. (itstool) path: page/p
+#: C/configure.page:28
+msgid ""
+"For launching a game from here, just click on the <gui>Start Game</gui> "
+"button. A game can also be launched with the <keyseq><key>Shift</"
+"key><key>Ctrl</key><key>N</key></keyseq> keyboard shortcut."
+msgstr ""
+"Ойынды осы жерден бастау үшін <gui>Ойынды бастау</gui> батырмасын басыңыз. "
+"Ойынды сондай-ақ <keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq> "
+"пернелер жарлығымен де бастауға болады."
+
+#. (itstool) path: page/p
+#: C/configure.page:30
+msgid ""
+"Once a game has been launched, you can always go back to this screen by "
+"clicking on the <gui>New Game</gui> button, or using the <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> keyboard shortcut."
+msgstr ""
+"Ойын басталған соң, сіз <gui>Жаңа ойын</gui> батырмасын басу немесе "
+"<keyseq><key>Ctrl</key><key>N</key></keyseq> пернелер жарлығын пайдалану "
+"арқылы әрқашан осы экранға қайта орала аласыз."
+
+#. (itstool) path: page/title
+#: C/develop.page:25
+msgid "Help develop"
+msgstr "Әзірлеуге көмектесу"
+
+#. (itstool) path: page/p
+#: C/develop.page:27
+msgid ""
+"The <app>GNOME Games</app> are developed and maintained by a volunteer "
+"community. You are welcome to participate."
+msgstr ""
+"<app>GNOME ойындарын</app> еріктілер қауымдастығы әзірлейді және қолдайды. "
+"Қатысуыңызға болады."
+
+#. (itstool) path: page/p
+#: C/develop.page:31
+msgid ""
+"If you would like to <link href=\"https://wiki.gnome.org/Apps/Games/"
+"Contribute\">help develop <app>GNOME Games</app></link>, you can get in touch "
+"with the developers <link href=\"https://wiki.gnome.org/Community/"
+"GettingInTouch/IRC\">using IRC</link> (on the <code>#gnome-games</code> "
+"channel). People on the channel are located worldwide, so you may not get an "
+"immediate response as a result of timezone differences."
+msgstr ""
+"Егер сіз <link href=\"https://wiki.gnome.org/Apps/Games/"
+"Contribute\"><app>GNOME ойындарын</app> әзірлеуге көмектескіңіз келсе</link>, "
+"әзірлеушілермен <link href=\"https://wiki.gnome.org/Community/GettingInTouch/"
+"IRC\">IRC арқылы</link> байланыса аласыз (<code>#gnome-games</code> "
+"арнасында). Арнадағы адамдар бүкіл әлемде орналасқан, сондықтан уақыт "
+"белдеулерінің айырмашылығына байланысты бірден жауап ала алмауыңыз мүмкін."
+
+#. (itstool) path: page/p
+#: C/develop.page:33
+msgid ""
+"Alternatively, you can contact GNOME games developers using <link "
+"href=\"https://discourse.gnome.org/tag/games\">GNOME Discourse</link>."
+msgstr ""
+"Балама ретінде, сіз GNOME ойындарын әзірлеушілермен <link href=\"https://"
+"discourse.gnome.org/tag/games\">GNOME Discourse</link> арқылы байланыса аласыз."
+
+#. (itstool) path: page/title
+#: C/documentation.page:25
+msgid "Help write documentation"
+msgstr "Құжаттама жазуға көмектесу"
+
+#. (itstool) path: page/p
+#: C/documentation.page:27
+msgid ""
+"The <app>GNOME Games</app> documentation is maintained by a volunteer "
+"community. You are welcome to participate."
+msgstr ""
+"<app>GNOME ойындарының</app> құжаттамасын еріктілер қауымдастығы жүргізеді. "
+"Қатысуыңызға болады."
+
+#. (itstool) path: page/p
+#: C/documentation.page:30
+msgid ""
+"To contribute to the Documentation Project, feel free to get in touch with us "
+"<link href=\"https://wiki.gnome.org/GettingInTouch/IRC\">using irc</link> (on "
+"the <code>#gnome-docs</code> channel). People on the channel are located "
+"worldwide, so you may not get an immediate response as a result of timezone "
+"differences."
+msgstr ""
+"Құжаттама жобасына үлес қосу үшін бізбен <link href=\"https://wiki.gnome.org/"
+"GettingInTouch/IRC\">IRC арқылы</link> байланысыңыз (<code>#gnome-docs</code> "
+"арнасында). Арнадағы адамдар бүкіл әлемде орналасқан, сондықтан уақыт "
+"белдеулерінің айырмашылығына байланысты бірден жауап ала алмауыңыз мүмкін."
+
+#. (itstool) path: page/p
+#: C/documentation.page:32
+msgid ""
+"Alternatively, you can contact the Documentation Project via <link "
+"href=\"https://discourse.gnome.org/tag/documentation\">GNOME Discourse</link>."
+msgstr ""
+"Балама ретінде, Құжаттама жобасымен <link href=\"https://discourse.gnome.org/"
+"tag/documentation\">GNOME Discourse</link> арқылы байланысуға болады."
+
+#. (itstool) path: page/p
+#: C/documentation.page:34
+msgid ""
+"Our <link href=\"https://wiki.gnome.org/DocumentationProject/"
+"Contributing\">wiki page</link> contains useful information."
+msgstr ""
+"Біздің <link href=\"https://wiki.gnome.org/DocumentationProject/"
+"Contributing\">вики-бетімізде</link> пайдалы ақпарат бар."
+
+#. (itstool) path: page/title
+#: C/example.page:21
+msgid "Example game first moves"
+msgstr "Ойынның алғашқы жүрістерінің мысалы"
+
+#. (itstool) path: media/p
+#: C/example.page:27
+msgid "Usual start position: E4 and D5 are dark, D4 and E5 are light."
+msgstr "Әдеттегі бастапқы позиция: E4 және D5 — күңгірт, D4 және E5 — ақшыл."
+
+#. (itstool) path: td/p
+#: C/example.page:31
+msgid "<em>Start position</em>"
+msgstr "<em>Бастапқы позиция</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:33
+msgid "This is the usual start position of the reversi game family."
+msgstr "Бұл — реверси ойын тобының әдеттегі бастапқы позициясы."
+
+#. (itstool) path: td/p
+#: C/example.page:35
+msgid ""
+"<app>Reversi</app> also allows you to <link xref=\"start-position\">use other "
+"start positions</link>."
+msgstr ""
+"<app>Реверси</app> сонымен қатар <link xref=\"start-position\">басқа бастапқы "
+"позицияларды пайдалануға</link> мүмкіндік береді."
+
+#. (itstool) path: media/p
+#: C/example.page:42
+msgid "Example first move: <em>Dark</em> plays D3, capturing D4 thanks to D5."
+msgstr ""
+"Алғашқы жүріс мысалы: <em>Күңгірт</em> D3-ке жүріп, D5-тің көмегімен D4-ті "
+"алады."
+
+#. (itstool) path: td/p
+#: C/example.page:46
+msgid "<em>Example first move</em>"
+msgstr "<em>Алғашқы жүріс мысалы</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:48
+msgid "<em>Dark</em> always starts in the reversi game family."
+msgstr "Реверси ойын тобында әрқашан <em>Күңгірт</em> бастайды."
+
+#. (itstool) path: td/p
+#: C/example.page:50
+msgid "Whatever start position is used, there are four possible first moves."
+msgstr ""
+"Қандай бастапқы позиция қолданылса да, алғашқы төрт жүрістің мүмкіндігі бар."
+
+#. (itstool) path: td/p
+#: C/example.page:52
+msgid ""
+"In the usual start position like here, the four possibilities are equivalent "
+"by symmetry."
+msgstr ""
+"Мұндағыдай әдеттегі бастапқы позицияда төрт мүмкіндік симметрия бойынша бірдей."
+
+#. (itstool) path: media/p
+#: C/example.page:59
+msgid "First <em>Light</em> move: playing E3 and capturing E4 thanks to E5."
+msgstr ""
+"<em>Ақшылдың</em> бірінші жүрісі: E3-ке жүріп, E5-тің көмегімен E4-ті алу."
+
+#. (itstool) path: td/p
+#: C/example.page:63
+msgid "<em>Possible second move</em>"
+msgstr "<em>Мүмкін болатын екінші жүріс</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:65
+msgid "<em>Light</em> has three possibilities of capturing one piece."
+msgstr "<em>Ақшылда</em> бір фигураны алудың үш мүмкіндігі бар."
+
+#. (itstool) path: td/p
+#: C/example.page:67
+msgid ""
+"The game will require to search for the <link xref=\"strategy\">best strategy</"
+"link>!"
+msgstr ""
+"Ойын <link xref=\"strategy\">ең жақсы стратегияны</link> іздеуді талап етеді!"
+
+#. (itstool) path: media/p
+#: C/example.page:74
+msgid ""
+"<em>Dark</em> turns multiple rows: playing F3, it captures both E3 due to D3 "
+"and E4 due to D5."
+msgstr ""
+"<em>Күңгірт</em> бірнеше қатарды аударады: F3-ке жүріп, ол D3 арқылы E3-ті "
+"және D5 арқылы E4-ті алады."
+
+#. (itstool) path: td/p
+#: C/example.page:78
+msgid "<em>Capturing multiple rows</em>"
+msgstr "<em>Бірнеше қатарды алу</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:80
+msgid "<em>Dark</em> has five possibilities to play, all on the sixth column."
+msgstr ""
+"<em>Күңгірттің</em> ойнауға бес мүмкіндігі бар, олардың бәрі алтыншы бағанда."
+
+#. (itstool) path: td/p
+#: C/example.page:82
+msgid ""
+"Two of these possibilities allow capturing in two directions at the same time, "
+"one piece in each."
+msgstr ""
+"Бұл мүмкіндіктердің екеуі бір уақытта екі бағытта алуға мүмкіндік береді, "
+"әрқайсысында бір фигурадан."
+
+#. (itstool) path: td/p
+#: C/example.page:84
+msgid ""
+"Capturing the higher number of tiles is not required in reversi, and may not "
+"be the best solution even. Only the number of owned tiles at the end of the "
+"game will count."
+msgstr ""
+"Реверсиде ең көп фигураны алу міндетті емес және бұл тіпті ең жақсы шешім "
+"болмауы мүмкін. Тек ойын соңындағы иеліктегі фигуралар саны ғана есептеледі."
+
+#. (itstool) path: media/p
+#: C/example.page:91
+msgid ""
+"<em>Light</em> turns a row of two pieces: playing E2, it turns E3 and E4 "
+"thanks to E5"
+msgstr ""
+"<em>Ақшыл</em> екі фигурадан тұратын қатарды аударады: E2-ге жүріп, ол E5-тің "
+"көмегімен E3 пен E4-ті аударады"
+
+#. (itstool) path: td/p
+#: C/example.page:95
+msgid "<em>Turning a two-pieces row</em>"
+msgstr "<em>Екі фигуралы қатарды аудару</em>"
+
+#. (itstool) path: td/p
+#: C/example.page:97
+msgid "<em>Light</em> has again three play possibilities."
+msgstr "<em>Ақшылда</em> тағы да үш ойнау мүмкіндігі бар."
+
+#. (itstool) path: td/p
+#: C/example.page:99
+msgid "One of them is to capture two dark pieces in a row."
+msgstr "Олардың бірі — қатардағы екі күңгірт фигураны алу."
+
+#. (itstool) path: td/p
+#: C/example.page:101
+msgid ""
+"Playing that way may allow <em>Dark</em> to play next on the board edge. Is "
+"that a good strategy? Who knows!"
+msgstr ""
+"Осылай ойнау <em>Күңгіртке</em> келесі жолы тақтаның жиегіне жүруге мүмкіндік "
+"беруі мүмкін. Бұл жақсы стратегия ма? Кім білсін!"
+
+#. (itstool) path: page/title
+#: C/highlights.page:20
+msgid "Display helpful highlights"
+msgstr "Пайдалы ерекшелеулерді көрсету"
+
+#. (itstool) path: page/p
+#: C/highlights.page:22
+msgid ""
+"<app>Reversi</app> can display some helpful highlights during a game, be it a "
+"<em>Classic Reversi</em> or a <em>Reverse Reversi</em>."
+msgstr ""
+"<app>Реверси</app> ойын кезінде (мейлі ол <em>Классикалық Реверси</em> немесе "
+"<em>Кері Реверси</em> болсын) кейбір пайдалы ерекшелеулерді көрсете алады."
+
+#. (itstool) path: section/title
+#: C/highlights.page:25
+msgid "Highlight playable tiles"
+msgstr "Жүруге болатын ұяшықтарды ерекшелеу"
+
+#. (itstool) path: section/p
+#: C/highlights.page:27
+msgid ""
+"<app>Reversi</app> can first highlight the tiles that can be played by the "
+"current player. This information could be quite useful for beginners notably, "
+"for learning the game."
+msgstr ""
+"<app>Реверси</app> алдымен ағымдағы ойыншы жүре алатын ұяшықтарды түспен "
+"ерекшелей алады. Бұл ақпарат әсіресе жаңа бастаушылар үшін ойынды үйренуде өте "
+"пайдалы болуы мүмкін."
+
+#. (itstool) path: section/p
+#: C/highlights.page:29 C/highlights.page:39
+msgid ""
+"This can be activated both in a <link xref=\"ai-game\">game against the "
+"computer</link> and in a <link xref=\"2player\">two-player game</link>. There "
+"is no way for only enabling this highlight for one of the players of a two-"
+"player game."
+msgstr ""
+"Бұны <link xref=\"ai-game\">компьютерге қарсы ойында</link> да, <link "
+"xref=\"2player\">екі ойыншылы ойында</link> да іске қосуға болады. Екі "
+"ойыншылы ойында бұл ерекшелеуді тек бір ойыншы үшін ғана іске қосу мүмкін емес."
+
+#. (itstool) path: section/p
+#: C/highlights.page:31
+msgid ""
+"To enable or disable this highlight, press the menu button in the top-right "
+"corner of the window, select <gui>Appearance</gui>, and in the "
+"<gui>Highlights</gui> section select <gui>Playable tiles</gui>."
+msgstr ""
+"Бұл ерекшелеуді іске қосу немесе сөндіру үшін терезенің жоғарғы оң жақ "
+"бұрышындағы мәзір батырмасын басып, <gui>Сыртқы түрі</gui> тармағын таңдаңыз "
+"және <gui>Түспен ерекшелеу</gui> бөлімінде <gui>Жүруге болатын ұяшықтар</gui> "
+"тармағын таңдаңыз."
+
+#. (itstool) path: section/title
+#: C/highlights.page:35
+msgid "Highlight capturable tiles"
+msgstr "Алынатын ұяшықтарды ерекшелеу"
+
+#. (itstool) path: section/p
+#: C/highlights.page:37
+msgid ""
+"<app>Reversi</app> can also highlight the tiles that would be captured by a "
+"given play. That might help for having a better visualisation of what the "
+"board would then look like."
+msgstr ""
+"<app>Реверси</app> сонымен қатар белгілі бір жүріс арқылы алынатын ұяшықтарды "
+"ерекшелей алады. Бұл тақтаның кейін қалай көрінетінін жақсырақ елестетуге "
+"көмектесуі мүмкін."
+
+#. (itstool) path: section/p
+#: C/highlights.page:41
+msgid ""
+"To enable or disable this highlight, press the menu button in the top-right "
+"corner of the window, select <gui>Appearance</gui>, and in the "
+"<gui>Highlights</gui> section select <gui>Capturable tiles</gui>."
+msgstr ""
+"Бұл ерекшелеуді іске қосу немесе сөндіру үшін терезенің жоғарғы оң жақ "
+"бұрышындағы мәзір батырмасын басып, <gui>Сыртқы түрі</gui> тармағын таңдаңыз "
+"және <gui>Түспен ерекшелеу</gui> бөлімінде <gui>Алынатын ұяшықтар</gui> "
+"тармағын таңдаңыз."
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "link:trail"
+msgid "Reversi"
+msgstr "Реверси"
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "link"
+msgid "Reversi"
+msgstr "Реверси"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "text"
+msgid "Reversi"
+msgstr "Реверси"
+
+#. (itstool) path: page/title
+#: C/index.page:27
+msgid "<_:media-1/> Reversi"
+msgstr "<_:media-1/> Реверси"
+
+#. (itstool) path: page/p
+#: C/index.page:29
+msgid ""
+"<app>Reversi</app> is a boardgame played with pieces dark on one side and "
+"light on the other. <em>Dark</em> and <em>Light</em> play one after each other "
+"by adding on an empty tile a new piece of their color, trapping at least one "
+"opponent row of pieces; when pieces are captured that way, they are turned "
+"over to join the capturing player's forces. See <link xref=\"rules\">reversi "
+"rules</link> to discover more about the game."
+msgstr ""
+"<app>Реверси</app> — бір жағы күңгірт, екінші жағы ақшыл фигуралармен "
+"ойналатын тақта ойыны. <em>Күңгірт</em> пен <em>Ақшыл</em> бос ұяшыққа өз "
+"түстеріндегі жаңа фигураны қосып, қарсыластың кем дегенде бір қатар фигурасын "
+"қоршау арқылы кезекпен ойнайды; фигуралар осылай қолға түскенде, олар басып "
+"алған ойыншының түсіне аударылады. Ойын туралы көбірек білу үшін <link "
+"xref=\"rules\">реверси ережелерін</link> қараңыз."
+
+#. (itstool) path: page/p
+#: C/index.page:31
+msgid ""
+"<app>Reversi</app> allows you to play <link xref=\"select-game\">two "
+"variations of the reversi game</link>: the classic version of reversi, where "
+"you try to dominate the board at the end, and the <em>Reverse Reversi</em>, "
+"where the goal is to finish with <em>less</em> pieces than your opponent. You "
+"can play both either <link xref=\"ai-game\">against the computer</link> or "
+"<link xref=\"2player\">with another player</link>. Check these options when "
+"you <link xref=\"configure\">configure a new game</link>. Have fun!"
+msgstr ""
+"<app>Реверси</app> сізге реверси ойынының <link xref=\"select-game\">екі "
+"нұсқасын</link> ойнауға мүмкіндік береді: ойын соңында тақтада басымдыққа ие "
+"болуға тырысатын классикалық нұсқа және мақсаты қарсыласқа қарағанда "
+"<em>азырақ</em> фигурамен аяқтау болатын <em>Кері Реверси</em>. Екеуін де "
+"<link xref=\"ai-game\">компьютерге қарсы</link> немесе <link "
+"xref=\"2player\">басқа ойыншымен</link> ойнауға болады. <link "
+"xref=\"configure\">Жаңа ойынды баптау</link> кезінде осы опцияларды "
+"тексеріңіз. Көңілді ойын тілейміз!"
+
+#. (itstool) path: section/title
+#: C/index.page:34
+msgid "Game Play"
+msgstr "Ойын барысы"
+
+#. (itstool) path: section/title
+#: C/index.page:38
+msgid "Game of reversi"
+msgstr "Реверси ойыны"
+
+#. (itstool) path: section/title
+#: C/index.page:42
+msgid "Useful tips"
+msgstr "Пайдалы кеңестер"
+
+#. (itstool) path: section/title
+#: C/index.page:46
+msgid "Get Involved"
+msgstr "Жобаға қатысу"
+
+#. (itstool) path: p/link
+#: C/legal.xml:3
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Бұл жұмыс <_:link-1/> аясында лицензияланған."
+
+#. (itstool) path: info/desc
+#: C/license.page:8
+msgid "Legal information."
+msgstr "Құқықтық ақпарат."
+
+#. (itstool) path: page/title
+#: C/license.page:11
+msgid "License"
+msgstr "Лицензия"
+
+#. (itstool) path: page/p
+#: C/license.page:12
+msgid ""
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
+msgstr ""
+"Бұл жұмыс CreativeCommons Attribution-Share Alike 3.0 Unported лицензиясы "
+"бойынша таратылады."
+
+#. (itstool) path: page/p
+#: C/license.page:20
+msgid "You are free:"
+msgstr "Сіз еркінсіз:"
+
+#. (itstool) path: item/title
+#: C/license.page:25
+msgid "<em>To share</em>"
+msgstr "<em>Бөлісуге</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:26
+msgid "To copy, distribute and transmit the work."
+msgstr "Жұмысты көшіруге, таратуға және беруге."
+
+#. (itstool) path: item/title
+#: C/license.page:29
+msgid "<em>To remix</em>"
+msgstr "<em>Өңдеуге</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:30
+msgid "To adapt the work."
+msgstr "Жұмысты бейімдеуге."
+
+#. (itstool) path: page/p
+#: C/license.page:33
+msgid "Under the following conditions:"
+msgstr "Келесі шарттар бойынша:"
+
+#. (itstool) path: item/title
+#: C/license.page:38
+msgid "<em>Attribution</em>"
+msgstr "<em>Атрибуция</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:39
+msgid ""
+"You must attribute the work in the manner specified by the author or licensor "
+"(but not in any way that suggests that they endorse you or your use of the "
+"work)."
+msgstr ""
+"Сіз жұмыстың авторы немесе лицензиары көрсеткен тәртіппен сілтеме жасауыңыз "
+"керек (бірақ бұл олар сізді немесе жұмысты пайдалануыңызды мақұлдайтындай әсер "
+"қалдырмауы тиіс)."
+
+#. (itstool) path: item/title
+#: C/license.page:46
+msgid "<em>Share Alike</em>"
+msgstr "<em>Бірдей шарттармен бөлісу</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:47
+msgid ""
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
+msgstr ""
+"Егер сіз осы жұмысты өзгертсеңіз, түрлендірсеңіз немесе оның негізінде жаңа "
+"жұмыс жасасаңыз, алынған жұмысты тек дәл осындай немесе ұқсас лицензия бойынша "
+"тарата аласыз."
+
+#. (itstool) path: page/p
+#: C/license.page:53
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-sa/"
+"3.0/\">Commons Deed</link>."
+msgstr ""
+"Лицензияның толық мәтінін <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/legalcode\">CreativeCommons веб-сайтынан</link> көріңіз немесе толық "
+"<link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons Deed</"
+"link> құжатын оқыңыз."
+
+#. (itstool) path: credit/years
+#: C/play.page:12 C/rules.page:13 C/sound.page:13
+msgid "2012"
+msgstr "2012"
+
+#. (itstool) path: page/title
+#: C/play.page:25
+msgid "Play with mouse or keyboard"
+msgstr "Тышқанмен немесе пернетақтамен ойнау"
+
+#. (itstool) path: page/p
+#: C/play.page:27
+msgid ""
+"<app>Reversi</app> allows you to easily play with a mouse or with the keyboard."
+msgstr ""
+"<app>Реверси</app> сізге тышқанмен немесе пернетақтамен оңай ойнауға мүмкіндік "
+"береді."
+
+#. (itstool) path: section/title
+#: C/play.page:30
+msgid "How to play with a mouse"
+msgstr "Тышқанмен қалай ойнау керек"
+
+#. (itstool) path: section/p
+#: C/play.page:32 C/play.page:57
+msgid "To make a move:"
+msgstr "Жүріс жасау үшін:"
+
+#. (itstool) path: item/p
+#: C/play.page:35
+msgid ""
+"Move the cursor on the tile you would like to place your piece in. The tile is "
+"highlighted if it is playable."
+msgstr ""
+"Курсорды фигураңызды қойғыңыз келетін ұяшыққа апарыңыз. Егер ол жүруге жарамды "
+"болса, ұяшық ерекшеленеді."
+
+#. (itstool) path: item/p
+#: C/play.page:38
+msgid "Click on the tile to drop the piece."
+msgstr "Фигураны қою үшін ұяшықты шертіңіз."
+
+#. (itstool) path: note/p
+#: C/play.page:40 C/play.page:65
+msgid ""
+"If you select a tile where you cannot move, the game notifies you that the "
+"move is impossible."
+msgstr ""
+"Егер сіз жүруге болмайтын ұяшықты таңдасаңыз, ойын сізге бұл жүрістің мүмкін "
+"еместігін хабарлайды."
+
+#. (itstool) path: item/p
+#: C/play.page:44 C/play.page:69
+msgid ""
+"To show possible moves, select a tile where there is already a piece, whatever "
+"its color is. Alternatively, you might want to <link "
+"xref=\"highlights#highlight-playable-tiles\">highlight playable tiles</link>."
+msgstr ""
+"Мүмкін болатын жүрістерді көру үшін түсіне қарамастан, фигурасы бар ұяшықты "
+"таңдаңыз. Балама ретінде, <link xref=\"highlights#highlight-playable-"
+"tiles\">жүруге болатын ұяшықтарды ерекшелеуді</link> қалауыңыз мүмкін."
+
+#. (itstool) path: item/p
+#: C/play.page:47
+msgid ""
+"You can always undo your move. For that, press the button with an arrow and a "
+"circle in the top-right corner (or in the bottom bar on small windows) and "
+"select <gui>Undo last move</gui>."
+msgstr ""
+"Сіз әрқашан жасаған жүрісіңізді болдырмай аласыз. Ол үшін жоғарғы оң жақ "
+"бұрыштағы (немесе шағын терезелердегі төменгі панельдегі) бағдаршасы мен "
+"шеңбері бар батырманы басып, <gui>Соңғы жүрісті болдырмау</gui> тармағын "
+"таңдаңыз."
+
+#. (itstool) path: section/p
+#: C/play.page:51
+msgid "You can also <link xref=\"#keyboard-play\">use the keyboard</link>."
+msgstr ""
+"Сондай-ақ <link xref=\"#keyboard-play\">пернетақтаны пайдалануға</link> болады."
+
+#. (itstool) path: section/title
+#: C/play.page:55
+msgid "How to play with the keyboard"
+msgstr "Пернетақтамен қалай ойнау керек"
+
+#. (itstool) path: item/p
+#: C/play.page:60
+msgid ""
+"Use the <key>Left</key>, <key>Right</key>, <key>Up</key> and <key>Down</key> "
+"arrows to go at the tile you want to move. The currently selected tile is "
+"indicated by a highlight on the board."
+msgstr ""
+"Жүріс жасағыңыз келетін ұяшыққа бару үшін <key>Солға</key>, <key>Оңға</key>, "
+"<key>Жоғары</key> және <key>Төмен</key> бағдаршаларын пайдаланыңыз. Қазіргі "
+"таңдалған ұяшық тақтада түспен ерекшеленеді."
+
+#. (itstool) path: item/p
+#: C/play.page:63
+msgid ""
+"Use the <key>Space</key> or the <key>Return</key> key to drop a piece on the "
+"selected tile."
+msgstr ""
+"Таңдалған ұяшыққа фигураны қою үшін <key>Бос орын</key> немесе <key>Enter</"
+"key> пернесін пайдаланыңыз."
+
+#. (itstool) path: item/p
+#: C/play.page:72
+msgid ""
+"You can always undo your move. For that, use <keyseq><key>Ctrl</key><key>Z</"
+"key></keyseq>."
+msgstr ""
+"Сіз әрқашан жасаған жүрісіңізді болдырмай аласыз. Ол үшін <keyseq><key>Ctrl</"
+"key><key>Z</key></keyseq> пернелерін басыңыз."
+
+#. (itstool) path: section/p
+#: C/play.page:76
+msgid ""
+"More shortcuts are available in the dialog that appears on <keyseq><key>Ctrl</"
+"key><key>F1</key></keyseq>."
+msgstr ""
+"Қосымша жарлықтарды <keyseq><key>Ctrl</key><key>F1</key></keyseq> басу арқылы "
+"шығатын сұхбат терезесінен көруге болады."
+
+#. (itstool) path: section/p
+#: C/play.page:78
+msgid "You can also <link xref=\"#mouse-play\">use a mouse</link>."
+msgstr "Сондай-ақ <link xref=\"#mouse-play\">тышқанды пайдалануға</link> болады."
+
+#. (itstool) path: credit/name
+#: C/rules.page:16 C/strategy.page:15 C/translate.page:15
+msgid "Michael Hill"
+msgstr "Michael Hill"
+
+#. (itstool) path: credit/name
+#: C/rules.page:20
+msgid "Stephen Pearce"
+msgstr "Stephen Pearce"
+
+#. (itstool) path: credit/years
+#: C/rules.page:22
+msgid "2015"
+msgstr "2015"
+
+#. (itstool) path: page/title
+#: C/rules.page:35
+msgid "Rules"
+msgstr "Ережелер"
+
+#. (itstool) path: page/p
+#: C/rules.page:37
+msgid ""
+"<em>Classic Reversi</em> and <em>Reverse Reversi</em> are boardgames opposing "
+"two players, called <em>Dark</em> and <em>Light</em>. Both games are using the "
+"same rules; only the end goal differs between them: in <em>Classic Reversi</"
+"em>, the goal is to finish with <em>more</em> pieces than the opponent; while "
+"in <em>Reverse Reversi</em>, it is to finish with <em>less</em> pieces."
+msgstr ""
+"<em>Классикалық Реверси</em> мен <em>Кері Реверси</em> — <em>Күңгірт</em> және "
+"<em>Ақшыл</em> деп аталатын екі ойыншыны бетпе-бет келтіретін тақта ойындары. "
+"Екі ойын да бірдей ережелерді қолданады; олардың арасында тек соңғы мақсат "
+"қана ерекшеленеді: <em>Классикалық Реверсиде</em> мақсат — қарсыластан "
+"<em>көбірек</em> фигурамен аяқтау; ал <em>Кері Реверсиде</em> — <em>азырақ</"
+"em> фигурамен аяқтау."
+
+#. (itstool) path: page/p
+#: C/rules.page:39
+msgid ""
+"Both are played with pieces that are dark on one side and light on the other. "
+"<em>Dark</em> and <em>Light</em> play one after each other by adding on an "
+"empty tile a new piece of their color, trapping at least one opponent row of "
+"pieces; when pieces are captured that way, they are turned over to join the "
+"capturing player's forces."
+msgstr ""
+"Екеуі де бір жағы күңгірт, екінші жағы ақшыл фигуралармен ойналады. "
+"<em>Күңгірт</em> пен <em>Ақшыл</em> бос ұяшыққа өз түстеріндегі жаңа фигураны "
+"қосып, қарсыластың кем дегенде бір қатар фигурасын қоршау арқылы кезекпен "
+"ойнайды; фигуралар осылай қолға түскенде, олар басып алған ойыншының түсіне "
+"аударылады."
+
+#. (itstool) path: section/title
+#: C/rules.page:42
+msgid "Game start"
+msgstr "Ойынның басталуы"
+
+#. (itstool) path: section/p
+#: C/rules.page:44
+msgid ""
+"Games from the reversi game family are usually played on an 8 by 8 board. The "
+"game begins with four pieces, two light and two dark, placed on the four "
+"central tiles of the board."
+msgstr ""
+"Реверси ойын тобының ойындары әдетте 8 де 8 тақтада ойналады. Ойын тақтаның "
+"орталық төрт ұяшығына қойылған екі ақшыл және екі күңгірт төрт фигурадан "
+"басталады."
+
+#. (itstool) path: section/p
+#: C/rules.page:46
+msgid ""
+"<app>Reversi</app> uses by default the most usual start position for the "
+"reversi game family, that is displayed on the following figure; but it also "
+"allows you to <link xref=\"start-position\">vary start position</link> if you "
+"prefer."
+msgstr ""
+"<app>Реверси</app> бастапқыда реверси ойын тобы үшін ең көп таралған бастапқы "
+"позицияны пайдаланады, ол келесі суретте көрсетілген; бірақ қаласаңыз, ол "
+"сізге <link xref=\"start-position\">бастапқы позицияны түрлендіруге</link> де "
+"мүмкіндік береді."
+
+#. (itstool) path: media/p
+#: C/rules.page:52 C/start-position.page:48
+msgid "Usual start position: light-dark, dark-light"
+msgstr "Әдеттегі бастапқы позиция: ақшыл-күңгірт, күңгірт-ақшыл"
+
+#. (itstool) path: td/p
+#: C/rules.page:58
+msgid "<em>The usual start position</em>"
+msgstr "<em>Әдеттегі бастапқы позиция</em>"
+
+#. (itstool) path: section/p
+#: C/rules.page:63
+msgid "<em>Dark</em> goes first."
+msgstr "<em>Күңгірт</em> бірінші бастайды."
+
+#. (itstool) path: section/title
+#: C/rules.page:67
+msgid "During the game"
+msgstr "Ойын барысында"
+
+#. (itstool) path: section/p
+#: C/rules.page:69
+msgid ""
+"One player after the other –<em>Dark</em> playing first– places a tile of its "
+"color on the board in such a way that at least one row of opponent tiles is "
+"trapped between the newly placed piece and an already placed one of the same "
+"color."
+msgstr ""
+"Ойыншылар кезекпен (<em>Күңгірт</em> бірінші болып) тақтаға өз түсіндегі "
+"фигураны жаңа қойылған фигура мен бұрын қойылған дәл сондай түсті фигураның "
+"арасында қарсыластың кем дегенде бір қатар фигурасы қалатындай етіп қояды."
+
+#. (itstool) path: note/p
+#: C/rules.page:71
+msgid "This placement can be horizontal, vertical or diagonal."
+msgstr "Бұл орналастыру горизонталды, вертикалды немесе диагоналды болуы мүмкін."
+
+#. (itstool) path: section/p
+#: C/rules.page:74
+msgid ""
+"When the tile is placed, the row of tiles between the newly placed tile and "
+"the other is flipped over, taking the players color. If multiple rows of tiles "
+"are trapped that way, they are all flipped over."
+msgstr ""
+"Фигура қойылған кезде, жаңа қойылған фигура мен екінші фигура арасындағы "
+"фигуралар қатары ойыншының түсіне аударылады. Егер осылай бірнеше қатар фигура "
+"қоршалса, олардың барлығы аударылады."
+
+#. (itstool) path: section/p
+#: C/rules.page:76
+msgid ""
+"If there is no possible moves in a turn, the player has to pass. A player "
+"cannot pass a turn if there is a possible move. If both players cannot move, "
+"notably when the board is full, the game is over."
+msgstr ""
+"Егер жүріс кезегінде мүмкін болатын жүріс болмаса, ойыншы кезекті өткізіп "
+"жіберуі керек. Егер мүмкін болатын жүріс болса, ойыншы кезекті өткізіп жібере "
+"алмайды. Егер екі ойыншы да жүре алмаса, әсіресе тақта толған кезде, ойын "
+"аяқталады."
+
+#. (itstool) path: section/title
+#: C/rules.page:80
+msgid "End of game"
+msgstr "Ойынның аяқталуы"
+
+#. (itstool) path: section/p
+#: C/rules.page:82
+msgid ""
+"The players alternate turns until no more legal moves can be made by either "
+"player. At this point the game is over."
+msgstr ""
+"Ойыншылар ешбір ойыншы заңды жүріс жасай алмайтын болғанша кезекпен ойнайды. "
+"Осы сәтте ойын аяқталады."
+
+#. (itstool) path: section/p
+#: C/rules.page:84
+msgid ""
+"The end of the game often results in a full board, but not necessarily. In "
+"either way, it is the number of pieces that will matter to decide who wins."
+msgstr ""
+"Ойынның аяқталуы көбінесе тақтаның толуына әкеледі, бірақ әрдайым емес. Қай "
+"жағдайда да, кімнің жеңгенін шешу үшін фигуралар саны маңызды болады."
+
+#. (itstool) path: section/p
+#: C/rules.page:86
+msgid ""
+"If you are playing <em>Classic Reversi</em>, the winner is the player with the "
+"<em>most</em> pieces of his color on the board; if you are in a <em>Reverse "
+"Reversi</em> game, it is the opposite: the winner is the player with the "
+"<em>least</em> pieces on the board."
+msgstr ""
+"Егер сіз <em>Классикалық Реверси</em> ойнап жатсаңыз, жеңімпаз — тақтада өз "
+"түсіндегі фигуралары <em>ең көп</em> болған ойыншы; егер <em>Кері Реверси</em> "
+"ойынында болсаңыз, керісінше: жеңімпаз — тақтада фигуралары <em>ең аз</em> "
+"болған ойыншы."
+
+#. (itstool) path: section/p
+#: C/rules.page:88
+msgid ""
+"If there is the same number of dark and light tiles, the game is declared a "
+"draw."
+msgstr ""
+"Егер күңгірт және ақшыл ұяшықтар саны бірдей болса, ойын тең аяқталды деп "
+"жарияланады."
+
+#. (itstool) path: page/title
+#: C/select-game.page:20
+msgid "<em>Classic Reversi</em> or <em>Reverse Reversi</em>"
+msgstr "<em>Классикалық Реверси</em> немесе <em>Кері Реверси</em>"
+
+#. (itstool) path: page/p
+#: C/select-game.page:22
+msgid ""
+"<app>Reversi</app> allows you to play two variants of the same game: "
+"<em>Classic Reversi</em> and <em>Reverse Reversi</em>."
+msgstr ""
+"<app>Реверси</app> сізге бір ойынның екі нұсқасын ойнауға мүмкіндік береді: "
+"<em>Классикалық Реверси</em> және <em>Кері Реверси</em>."
+
+#. (itstool) path: page/p
+#: C/select-game.page:24
+msgid ""
+"When <link xref=\"configure\">configuring a new game</link>, just choose the "
+"game you want to play by selecting the <gui>Classic Reversi</gui> or "
+"<gui>Reverse Reversi</gui> buttons."
+msgstr ""
+"<link xref=\"configure\">Жаңа ойынды баптау</link> кезінде <gui>Классикалық "
+"Реверси</gui> немесе <gui>Кері Реверси</gui> батырмаларын басу арқылы "
+"ойнағыңыз келетін ойынды таңдаңыз."
+
+#. (itstool) path: page/p
+#: C/select-game.page:26
+msgid ""
+"As you can imagine with its name, the <em>Classic Reversi</em> game is the "
+"reversi as it is known around the world."
+msgstr ""
+"Аты айтып тұрғандай, <em>Классикалық Реверси</em> ойыны — бұл бүкіл әлемге "
+"танымал реверси ойыны."
+
+#. (itstool) path: page/p
+#: C/select-game.page:28
+msgid ""
+"Both games are in fact using the same rules; only the end goal differs between "
+"them: in <em>Classic Reversi</em>, the goal is to finish with <em>more</em> "
+"pieces than the opponent; while in <em>Reverse Reversi</em>, it is to finish "
+"with <em>less</em> pieces."
+msgstr ""
+"Шын мәнінде, екі ойын да бірдей ережелерді қолданады; олардың арасында тек "
+"соңғы мақсат қана ерекшеленеді: <em>Классикалық Реверсиде</em> мақсат — "
+"қарсыластан <em>көбірек</em> фигурамен аяқтау; ал <em>Кері Реверсиде</em> — "
+"<em>азырақ</em> фигурамен аяқтау."
+
+#. (itstool) path: page/p
+#: C/select-game.page:30
+msgid ""
+"This variation in the goal makes <em>Reverse Reversi</em> a quite interesting "
+"game, as you have to elaborate a different <link xref=\"strategy\">strategy</"
+"link> to win. Try it!"
+msgstr ""
+"Мақсаттағы бұл айырмашылық <em>Кері Реверсиді</em> өте қызықты ойынға "
+"айналдырады, өйткені жеңіске жету үшін басқа <link "
+"xref=\"strategy\">стратегияны</link> құру керек. Байқап көріңіз!"
+
+#. (itstool) path: page/p
+#: C/select-game.page:32
+msgid ""
+"If you want to try other variations of the reversi game, you can also choose "
+"to <link xref=\"start-position\">vary start position</link>."
+msgstr ""
+"Егер сіз реверси ойынының басқа нұсқаларын байқап көргіңіз келсе, <link "
+"xref=\"start-position\">бастапқы позицияны түрлендіруді</link> де таңдай "
+"аласыз."
+
+#. (itstool) path: page/title
+#: C/sound.page:21
+msgid "Enable and disable sound"
+msgstr "Дыбысты іске қосу және сөндіру"
+
+#. (itstool) path: page/p
+#: C/sound.page:23
+msgid ""
+"To enable or disable the sound, press the menu button in the top-right corner "
+"of the window and select <gui>Sound</gui>."
+msgstr ""
+"Дыбысты іске қосу немесе сөндіру үшін терезенің жоғарғы оң жақ бұрышындағы "
+"мәзір батырмасын басып, <gui>Дыбыс</gui> тармағын таңдаңыз."
+
+#. (itstool) path: page/title
+#: C/start-position.page:21
+msgid "Vary start position"
+msgstr "Бастапқы позицияны түрлендіру"
+
+#. (itstool) path: page/p
+#: C/start-position.page:23
+msgid ""
+"<app>Reversi</app> allows to start a game with a different initial position "
+"than the usual one of the reversi game family."
+msgstr ""
+"<app>Реверси</app> ойынды реверси ойын тобының әдеттегі позициясынан басқаша "
+"бастапқы позициямен бастауға мүмкіндік береді."
+
+#. (itstool) path: section/title
+#: C/start-position.page:26
+msgid "Varying start position"
+msgstr "Бастапқы позицияны түрлендіру"
+
+#. (itstool) path: section/p
+#: C/start-position.page:28
+msgid ""
+"To enable or disable this option, while <link xref=\"configure\">configuring a "
+"new game</link>, click on the <gui>Difficulty</gui> button, and in the menu "
+"that appears, select <gui>Vary start position</gui>."
+msgstr ""
+"Бұл опцияны іске қосу немесе сөндіру үшін <link xref=\"configure\">жаңа ойынды "
+"баптау</link> кезінде <gui>Қиындық</gui> батырмасын басып, ашылған мәзірден "
+"<gui>Бастапқы позицияны түрлендіру</gui> тармағын таңдаңыз."
+
+#. (itstool) path: section/p
+#: C/start-position.page:30
+msgid ""
+"If you are playing a <link xref=\"ai-game\">game against the computer</link>, "
+"enabling this option will start new games with a random position in the six "
+"<link xref=\"#start-positions\">possible start positions</link>."
+msgstr ""
+"Егер сіз <link xref=\"ai-game\">компьютерге қарсы ойнасаңыз</link>, бұл "
+"опцияны іске қосу жаңа ойындарды алты <link xref=\"#start-positions\">мүмкін "
+"болатын бастапқы позициялардың</link> кездейсоқ біреуімен бастайды."
+
+#. (itstool) path: section/p
+#: C/start-position.page:32
+msgid ""
+"If you are <link xref=\"2player\">playing with another player</link>, enabling "
+"this option will start new games with the <link xref=\"#human-overture\">two-"
+"player game overture</link>."
+msgstr ""
+"Егер сіз <link xref=\"2player\">басқа ойыншымен ойнасаңыз</link>, бұл опцияны "
+"іске қосу жаңа ойындарды <link xref=\"#human-overture\">екі ойыншылы ойын "
+"прелюдиясымен</link> бастайды."
+
+#. (itstool) path: section/p
+#: C/start-position.page:34
+msgid ""
+"If the option is disabled, then the usual position of the reversi game family "
+"is always used for new games. See its description in the list of <link "
+"xref=\"#start-positions\">possible start positions</link>."
+msgstr ""
+"Егер опция сөндірулі болса, жаңа ойындар үшін әрқашан реверси ойын тобының "
+"әдеттегі позициясы қолданылады. Оның сипаттамасын <link xref=\"#start-"
+"positions\">мүмкін болатын бастапқы позициялар</link> тізімінен қараңыз."
+
+#. (itstool) path: section/title
+#: C/start-position.page:38
+msgid "Possible start positions"
+msgstr "Мүмкін болатын бастапқы позициялар"
+
+#. (itstool) path: section/p
+#: C/start-position.page:40
+msgid ""
+"There are really two possible start positions in <app>Reversi</app>, up to six "
+"as their symmetries can also be played."
+msgstr ""
+"<app>Реверси</app> ойынында негізінен екі бастапқы позиция бар, ал олардың "
+"симметрияларын ескергенде алтыға дейін барады."
+
+#. (itstool) path: section/p
+#: C/start-position.page:42
+msgid "The two main positions are the following:"
+msgstr "Екі негізгі позиция келесідей:"
+
+#. (itstool) path: media/p
+#: C/start-position.page:53
+msgid "Alternative position: dark-light, dark-light"
+msgstr "Баламалы позиция: күңгірт-ақшыл, күңгірт-ақшыл"
+
+#. (itstool) path: td/p
+#: C/start-position.page:59
+msgid "<em>Usual start position</em>"
+msgstr "<em>Әдеттегі бастапқы позиция</em>"
+
+#. (itstool) path: td/p
+#: C/start-position.page:62
+msgid "<em>Alternative position</em>"
+msgstr "<em>Баламалы позиция</em>"
+
+#. (itstool) path: section/p
+#: C/start-position.page:67
+msgid "Their allowed symmetries are the following:"
+msgstr "Олардың рұқсат етілген симметриялары келесідей:"
+
+#. (itstool) path: media/p
+#: C/start-position.page:73
+msgid "Only symmetry of the usual start position: dark-light, light-dark"
+msgstr ""
+"Әдеттегі бастапқы позицияның жалғыз симметриясы: күңгірт-ақшыл, ақшыл-күңгірт"
+
+#. (itstool) path: media/p
+#: C/start-position.page:78
+msgid "First symmetry of the alternative position: dark-dark, light-light"
+msgstr "Баламалы позицияның бірінші симметриясы: күңгірт-күңгірт, ақшыл-ақшыл"
+
+#. (itstool) path: media/p
+#: C/start-position.page:83
+msgid "Second symmetry of the alternative position: light-dark, light-dark"
+msgstr "Баламалы позицияның екінші симметриясы: ақшыл-күңгірт, ақшыл-күңгірт"
+
+#. (itstool) path: media/p
+#: C/start-position.page:88
+msgid "Last symmetry of the alternative position: light-light, dark-dark"
+msgstr "Баламалы позицияның соңғы симметриясы: ақшыл-ақшыл, күңгірт-күңгірт"
+
+#. (itstool) path: section/title
+#: C/start-position.page:96
+msgid "Two-player game overture"
+msgstr "Екі ойыншылы ойын прелюдиясы"
+
+#. (itstool) path: section/p
+#: C/start-position.page:98
+msgid ""
+"When <link xref=\"2player\">playing with another player</link> with the <link "
+"xref=\"#varying-start-position\"><gui>Vary start position</gui></link> option "
+"enabled, new games will start with a special two-player game overture."
+msgstr ""
+"<link xref=\"2player\">Басқа ойыншымен</link> <link xref=\"#varying-start-"
+"position\"><gui>Бастапқы позицияны түрлендіру</gui></link> опциясы іске "
+"қосылған күйде ойнағанда, жаңа ойындар арнайы екі ойыншылы ойын прелюдиясымен "
+"басталады."
+
+#. (itstool) path: section/p
+#: C/start-position.page:100
+msgid ""
+"The board is started empty. The two players are going to place the four "
+"initial pieces before starting the game."
+msgstr ""
+"Тақта бос күйде басталады. Ойынды бастамас бұрын екі ойыншы төрт бастапқы "
+"фигураны қояды."
+
+#. (itstool) path: item/p
+#: C/start-position.page:104
+msgid ""
+"<em>Dark</em> goes first, and places the first piece on one of the four "
+"central tiles of the board."
+msgstr ""
+"<em>Күңгірт</em> бірінші бастап, тақтаның орталық төрт ұяшығының біріне "
+"бірінші фигураны қояды."
+
+#. (itstool) path: item/p
+#: C/start-position.page:107
+msgid ""
+"<em>Light</em> places one piece in one of the two available positions next to "
+"the dark piece."
+msgstr ""
+"<em>Ақшыл</em> күңгірт фигураның қасындағы қолжетімді екі орынның біріне бір "
+"фигура қояды."
+
+#. (itstool) path: item/p
+#: C/start-position.page:110
+msgid ""
+"<em>Dark</em> then places a piece on one of the two remaining central tiles of "
+"the board."
+msgstr ""
+"Содан кейін <em>Күңгірт</em> тақтаның қалған екі орталық ұяшығының біріне "
+"фигура қояды."
+
+#. (itstool) path: item/p
+#: C/start-position.page:113
+msgid ""
+"<em>Light</em> finishes the opening by placing a second piece at the remaining "
+"place."
+msgstr ""
+"<em>Ақшыл</em> қалған орынға екінші фигураны қою арқылы прелюдияны аяқтайды."
+
+#. (itstool) path: item/p
+#: C/start-position.page:116
+msgid ""
+"The game is then started, following the <link xref=\"rules\">reversi rules</"
+"link>."
+msgstr ""
+"Осыдан кейін ойын <link xref=\"rules\">реверси ережелеріне</link> сәйкес "
+"басталады."
+
+#. (itstool) path: section/p
+#: C/start-position.page:120
+msgid ""
+"This opening allows the first player to choose if the game will start with a "
+"position “in cross” (the usual start position or its symmetry) or a “parallel” "
+"position (the alternative position or one of its symmetries)."
+msgstr ""
+"Бұл прелюдия бірінші ойыншыға ойынның «айқас» позициясымен (әдеттегі бастапқы "
+"позиция немесе оның симметриясы) немесе «параллель» позициясымен (баламалы "
+"позиция немесе оның симметрияларының бірі) басталуын таңдауға мүмкіндік береді."
+
+#. (itstool) path: page/title
+#: C/strategy.page:24
+msgid "Strategy"
+msgstr "Стратегия"
+
+#. (itstool) path: page/p
+#: C/strategy.page:26
+msgid ""
+"<app>Reversi</app> doesn't have one particular winning strategy. Rather it has "
+"strategic elements which can be used to help one gain advantage. Some "
+"strategies, such as trying to flip as many of your opponent's pieces early on "
+"in the game, should be avoided."
+msgstr ""
+"<app>Реверси</app> ойынының бір нақты жеңіс стратегиясы жоқ. Керісінше, оның "
+"артықшылыққа ие болу үшін қолданылатын стратегиялық элементтері бар. Ойынның "
+"басында қарсыластың мүмкіндігінше көп фигурасын аударуға тырысу сияқты кейбір "
+"стратегиялардан аулақ болу керек."
+
+#. (itstool) path: page/p
+#: C/strategy.page:31
+msgid ""
+"Much has been written on the topic of strategy for the games <em>Othello</em> "
+"and <em>Reversi</em>."
+msgstr ""
+"<em>Отелло</em> және <em>Реверси</em> ойындарына арналған стратегия "
+"тақырыбында көптеген еңбектер жазылған."
+
+#. (itstool) path: page/p
+#: C/strategy.page:38
+msgid ""
+"If you are interested in learning about specific strategies for the game, the "
+"following links may be of interest:"
+msgstr ""
+"Егер сіз ойынның арнайы стратегияларын үйренуге қызығушылық танытсаңыз, келесі "
+"сілтемелер пайдалы болуы мүмкін:"
+
+#. (itstool) path: item/p
+#: C/strategy.page:43
+msgid ""
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">An introduction to "
+"strategy and tactics</link>"
+msgstr ""
+"<link href=\"http://gaurang.org/gothello/guide/guide.html\">Стратегия мен "
+"тактикаға кіріспе</link>"
+
+#. (itstool) path: item/p
+#: C/strategy.page:47
+msgid "<link href=\"https://en.wikipedia.org/wiki/Reversi\">Wikipedia</link>"
+msgstr "<link href=\"https://en.wikipedia.org/wiki/Реверси\">Википедия</link>"
+
+#. (itstool) path: item/p
+#: C/strategy.page:50
+msgid ""
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">A strategy guide</"
+"link>"
+msgstr ""
+"<link href=\"http://radagast.se/othello/Help/strategy.html\">Стратегия бойынша "
+"нұсқаулық</link>"
+
+#. (itstool) path: page/title
+#: C/theme.page:20
+msgid "Change the board theme"
+msgstr "Тақта темасын өзгерту"
+
+#. (itstool) path: page/p
+#: C/theme.page:22
+msgid ""
+"<app>Reversi</app> supports various board themes, so that you can adjust its "
+"look to your taste."
+msgstr ""
+"<app>Реверси</app> сыртқы түрін өз талғамыңызға қарай реттеу үшін әртүрлі "
+"тақта темаларын қолдайды."
+
+#. (itstool) path: page/p
+#: C/theme.page:24
+msgid ""
+"Until the theme has been changed, the application tries to choose a theme "
+"adapted to your environment; see the section about the <link xref=\"#default-"
+"theme\"><em>Default</em> theme</link>."
+msgstr ""
+"Тема өзгертілгенге дейін, қолданба сіздің ортаңызға бейімделген теманы "
+"таңдауға тырысады; <link xref=\"#default-theme\"><em>Бастапқы</em> тема</link> "
+"туралы бөлімді қараңыз."
+
+#. (itstool) path: section/title
+#: C/theme.page:27
+msgid "Changing theme"
+msgstr "Теманы өзгерту"
+
+#. (itstool) path: section/p
+#: C/theme.page:29
+msgid ""
+"For changing theme, press the menu button in the top-right corner of the "
+"window, select <gui>Appearance</gui>, and select one of the items in the given "
+"list."
+msgstr ""
+"Теманы өзгерту үшін терезенің жоғарғы оң жақ бұрышындағы мәзір батырмасын "
+"басып, <gui>Сыртқы түрі</gui> тармағын таңдаңыз және берілген тізімнен "
+"элементтердің бірін таңдаңыз."
+
+#. (itstool) path: section/p
+#: C/theme.page:31
+msgid ""
+"The first item of the list is called <gui><em>Default</em></gui> and lets the "
+"application try to choose a theme adapted to your environment; see the section "
+"about the <link xref=\"#default-theme\"><em>Default</em> theme</link>. The "
+"following suggestions are described in the <link xref=\"#themes-list\">themes "
+"list</link>."
+msgstr ""
+"Тізімдегі бірінші элемент <gui><em>Бастапқы</em></gui> деп аталады және "
+"қолданбаға ортаңызға бейімделген теманы таңдауға мүмкіндік береді; <link "
+"xref=\"#default-theme\"><em>Бастапқы</em> тема</link> туралы бөлімді қараңыз. "
+"Келесі ұсыныстар <link xref=\"#themes-list\">темалар тізімінде</link> "
+"сипатталған."
+
+#. (itstool) path: section/p
+#: C/theme.page:33
+msgid ""
+"Following the themes list, the options of the section <gui>Highlights</gui> "
+"are for <link xref=\"highlights\">displaying helpful highlights</link>. These "
+"are working whatever theme you decide to use."
+msgstr ""
+"Темалар тізімінен кейін <gui>Түспен ерекшелеу</gui> бөлімінің опциялары <link "
+"xref=\"highlights\">пайдалы ерекшелеулерді көрсетуге</link> арналған. Олар сіз "
+"қолданатын кез келген темада жұмыс істейді."
+
+#. (itstool) path: section/title
+#: C/theme.page:37
+msgid "Themes list"
+msgstr "Темалар тізімі"
+
+#. (itstool) path: section/p
+#: C/theme.page:39
+msgid "<app>Reversi</app> comes with four themes installed:"
+msgstr "<app>Реверси</app> орнатылған төрт темамен бірге келеді:"
+
+#. (itstool) path: item/p
+#: C/theme.page:43
+msgid ""
+"<em>Classic</em>: this theme mimics the most usual reversi boards, with a "
+"green background and bicolor pieces;"
+msgstr ""
+"<em>Классикалық</em>: бұл тема жасыл фонымен және екі түсті фигураларымен ең "
+"көп таралған реверси тақталарына ұқсайды;"
+
+#. (itstool) path: item/p
+#: C/theme.page:46
+msgid ""
+"<em>Black and White</em>: this theme is more conceptual, featuring geometric "
+"shapes and a high black and white contrast;"
+msgstr ""
+"<em>Қара және ақ</em>: бұл тема көбірек концептуалды, геометриялық пішіндер "
+"мен жоғары қара-ақ контрастымен ерекшеленеді;"
+
+#. (itstool) path: item/p
+#: C/theme.page:49
+msgid ""
+"<em>Adwaita</em>: this theme uses a blue board, more suitable if the theme of "
+"your windows is a dark one;"
+msgstr ""
+"<em>Adwaita</em>: бұл тема көк тақтаны пайдаланады, егер терезелеріңіздің "
+"темасы күңгірт болса, қолайлырақ болады;"
+
+#. (itstool) path: item/p
+#: C/theme.page:52
+msgid ""
+"<em>Sun and Star</em>: this theme is a variant of the <em>Classic</em> one, "
+"with some decorations on the pieces."
+msgstr ""
+"<em>Sun and Star</em>: бұл тема <em>Классикалық</em> теманың нұсқасы болып "
+"табылады, фигураларында кейбір әшекейлері бар."
+
+#. (itstool) path: section/p
+#: C/theme.page:56
+msgid ""
+"The first entry in the themes list is called <em>Default</em> and has a "
+"special behavior; see the section about the <link xref=\"#default-"
+"theme\"><em>Default</em> theme</link>."
+msgstr ""
+"Темалар тізіміндегі бірінші жазба <em>Бастапқы</em> деп аталады және оның "
+"ерекше әрекеті бар; <link xref=\"#default-theme\"><em>Бастапқы</em> тема</"
+"link> туралы бөлімді қараңыз."
+
+#. (itstool) path: section/title
+#: C/theme.page:60
+msgid "<em>Default</em> theme"
+msgstr "<em>Бастапқы</em> тема"
+
+#. (itstool) path: section/p
+#: C/theme.page:62
+msgid ""
+"The first entry in the themes list is called <em>Default</em> and has a "
+"special behavior."
+msgstr ""
+"Темалар тізіміндегі бірінші жазба <em>Бастапқы</em> деп аталады және оның "
+"ерекше әрекеті бар."
+
+#. (itstool) path: section/p
+#: C/theme.page:64
+msgid ""
+"When this entry is selected, the application tries to choose a theme adapted "
+"to your environment:"
+msgstr ""
+"Бұл жазба таңдалған кезде, қолданба сіздің ортаңызға бейімделген теманы "
+"таңдауға тырысады:"
+
+#. (itstool) path: item/p
+#: C/theme.page:68
+msgid ""
+"if you are using a theme for your windows known for being dark –like "
+"<em>Adwaita Dark</em>– or if you have activated GNOME night mode, the board "
+"theme used will be the one called <em>Adwaita</em>, that is darker than the "
+"other themes thanks to its blue background;"
+msgstr ""
+"егер сіз <em>Adwaita Dark</em> сияқты күңгірт терезе темасын пайдалансаңыз "
+"немесе GNOME түнгі режимін іске қоссаңыз, қолданылатын тақта темасы "
+"<em>Adwaita</em> болады, ол көк фонының арқасында басқа темаларға қарағанда "
+"күңгірт болып келеді;"
+
+#. (itstool) path: item/p
+#: C/theme.page:71
+msgid ""
+"if you are using a theme for your windows created specially for having a high "
+"contrast, notably if you activated the “High Contrast” GNOME accessibility "
+"option, the board theme used will be the one called <em>Black and White</em>, "
+"that should be a perfect fit;"
+msgstr ""
+"егер сіз жоғары контраст үшін арнайы жасалған терезе темасын пайдалансаңыз, "
+"әсіресе GNOME «Жоғары контраст» арнайы мүмкіндіктер опциясын іске қоссаңыз, "
+"қолданылатын тақта темасы <em>Қара және ақ</em> болады, ол тамаша сәйкес келуі "
+"тиіс;"
+
+#. (itstool) path: item/p
+#: C/theme.page:74
+msgid ""
+"else, the theme used will be the one called <em>Classic</em>, that uses a "
+"green board quite common for reversi games."
+msgstr ""
+"әйтпесе, реверси ойындары үшін өте танымал жасыл тақтаны пайдаланатын "
+"<em>Классикалық</em> тема қолданылады."
+
+#. (itstool) path: section/p
+#: C/theme.page:78
+msgid "This behavior is of course the default one of the application."
+msgstr "Бұл әрекет, әрине, қолданбаның бастапқы әрекеті болып табылады."
+
+#. (itstool) path: section/title
+#: C/theme.page:82
+msgid "More information"
+msgstr "Қосымша ақпарат"
+
+#. (itstool) path: section/p
+#: C/theme.page:84
+msgid ""
+"There is no way to install a different theme than the ones described here."
+msgstr "Мұнда сипатталған темалардан басқа басқа теманы орнату мүмкін емес."
+
+#. (itstool) path: section/p
+#: C/theme.page:86
+msgid ""
+"These themes have been designed by Arnaud Bonatti, with pieces created by "
+"Masuichi Ito."
+msgstr ""
+"Бұл темаларды Arnaud Bonatti жасаған, фигуралардың авторы — Masuichi Ito."
+
+#. (itstool) path: section/p
+#: C/theme.page:88
+msgid ""
+"If you have a suggestion for a new theme, or if you are interested in "
+"contributing a new theme, please <link xref=\"bug-filing\">open an issue</"
+"link> about it."
+msgstr ""
+"Егер сізде жаңа тема бойынша ұсынысыңыз болса немесе жаңа тема жасауға үлес "
+"қосқыңыз келсе, бұл туралы <link xref=\"bug-filing\">мәселе ашыңыз</link>."
+
+#. (itstool) path: page/title
+#: C/translate.page:29
+msgid "Help translate"
+msgstr "Аударуға көмектесу"
+
+#. (itstool) path: page/p
+#: C/translate.page:31
+msgid ""
+"The <app>GNOME Games</app> user interface and documentation is being "
+"translated by a world-wide volunteer community. You are welcome to participate."
+msgstr ""
+"<app>GNOME ойындарының</app> пайдаланушы интерфейсі мен құжаттамасын бүкіл "
+"әлемдегі еріктілер қауымдастығы аударады. Қатысуыңызға болады."
+
+#. (itstool) path: page/p
+#: C/translate.page:35
+msgid ""
+"There are <link href=\"https://l10n.gnome.org/module/iagno/\">many languages</"
+"link> for which translations are still needed."
+msgstr ""
+"Әлі де аударманы қажет ететін <link href=\"https://l10n.gnome.org/module/iagno/"
+"\">көптеген тілдер</link> бар."
+
+#. (itstool) path: page/p
+#: C/translate.page:39
+msgid ""
+"To start translating you will need to <link href=\"https://"
+"l10n.gnome.org\">create an account</link> and join the <link href=\"https://"
+"l10n.gnome.org/teams/\">translation team</link> for your language. This will "
+"give you the ability to upload new translations."
+msgstr ""
+"Аударуды бастау үшін сізге <link href=\"https://l10n.gnome.org\">тіркелгі "
+"жасау</link> және өз тіліңіз үшін <link href=\"https://l10n.gnome.org/teams/"
+"\">аудару тобына</link> қосылу қажет болады. Бұл сізге жаңа аудармаларды "
+"жүктеп салу мүмкіндігін береді."
+
+#. (itstool) path: page/p
+#: C/translate.page:43
+msgid ""
+"You can chat with GNOME translators <link href=\"https://wiki.gnome.org/"
+"GettingInTouch/IRC\">using IRC</link> (on the <code>#gnome-i18n</code> "
+"channel). People on the channel are located worldwide, so you may not get an "
+"immediate response as a result of timezone differences."
+msgstr ""
+"GNOME аудармашыларымен <link href=\"https://wiki.gnome.org/GettingInTouch/"
+"IRC\">IRC арқылы</link> сөйлесе аласыз (<code>#gnome-i18n</code> арнасында). "
+"Арнадағы адамдар бүкіл әлемде орналасқан, сондықтан уақыт белдеулерінің "
+"айырмашылығына байланысты бірден жауап ала алмауыңыз мүмкін."
+
+#. (itstool) path: page/p
+#: C/translate.page:45
+msgid ""
+"Alternatively, you can contact the Internationalization Team using <link "
+"href=\"https://discourse.gnome.org/tag/i18n\">GNOME Discourse</link>."
+msgstr ""
+"Балама ретінде, Интернационализация тобымен <link href=\"https://"
+"discourse.gnome.org/tag/i18n\">GNOME Discourse</link> арқылы байланысуға "
+"болады."
