@@ -58,8 +58,9 @@
 
   <releases>
     <!-- should be kept in versioning inverted order -->
-    <release version="50.beta" date="2026-02-21" type="development" urgency="low"/>
-    <release version="50.alpha" date="2025-11-12" type="development" urgency="low"/>
+    <release version="50.0" date="2026-03-18" type="stable" urgency="low"/>
+    <release version="50~beta" date="2026-02-21" type="development" urgency="low"/>
+    <release version="50~alpha" date="2025-11-12" type="development" urgency="low"/>
     <release version="3.38.1" date="2020-10-03" type="stable" urgency="medium"/>
     <release version="3.37.91" date="2020-08-28" type="development" urgency="low"/>
   </releases>
