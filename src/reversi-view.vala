@@ -20,8 +20,12 @@
    along with GNOME Reversi.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+using GLib;
+
 private class ReversiView : Gtk.Widget
 {
+    private MethodCounter call_counter = new MethodCounter ();
+
     private bool _show_playable_tiles = false;
     [CCode (notify = false)] internal bool show_playable_tiles
     {
@@ -257,6 +261,8 @@ private class ReversiView : Gtk.Widget
 
     protected override void snapshot (Gtk.Snapshot snapshot)
     {
+        call_counter.monitored_method ();
+
         if (!game_is_set)
             return;
 
@@ -1612,5 +1618,125 @@ private class ReversiView : Gtk.Widget
 
         playable_tiles_highlight_animation.play ();
         queue_draw ();
+    }
+}
+
+public class MethodCounter : Object {
+    private uint call_count = 0;
+    private uint64 start_time;
+    private uint64 last_measure_time;
+    private double current_cps = 0.0;
+    private const uint MEASURE_INTERVAL_MS = 1000; // Measure every second
+    
+    public MethodCounter() {
+        start_time = get_monotonic_time();
+        last_measure_time = start_time;
+        
+        // Start a timer to calculate CPS periodically
+        Timeout.add(MEASURE_INTERVAL_MS, update_cps);
+    }
+    
+    // The method you want to monitor
+    public void monitored_method() {
+        call_count++;
+        // Your actual method logic here
+        stdout.printf("Method called! Total: %u\n", call_count);
+    }
+    
+    private bool update_cps() {
+        uint64 current_time = get_monotonic_time();
+        uint64 elapsed = current_time - last_measure_time;
+        
+        // Calculate CPS since last measurement
+        if (elapsed > 0) {
+            current_cps = (call_count / (elapsed / 1000000.0));
+        }
+        
+        // Reset counter for next interval
+        call_count = 0;
+        last_measure_time = current_time;
+        
+        stdout.printf("Current CPS: %.2f\n", current_cps);
+        return true; // Keep the timer running
+    }
+    
+    public double get_current_cps() {
+        return current_cps;
+    }
+    
+    public uint get_total_calls() {
+        return call_count;
+    }
+}
+
+public class AdvancedMethodCounter : Object {
+    private uint[] call_timestamps;
+    private const uint MAX_SAMPLES = 1000;
+    private Mutex mutex;
+    
+    public AdvancedMethodCounter() {
+        call_timestamps = new uint[0];
+        mutex = Mutex();
+        
+        // Start periodic reporting
+        Timeout.add(1000, () => {
+            report_cps();
+            return true;
+        });
+    }
+    
+    public void monitored_method() {
+        mutex.lock();
+        uint64 now = get_monotonic_time();
+        uint timestamp = (uint)(now / 1000000); // Convert to milliseconds
+        
+        call_timestamps += timestamp;
+        
+        // Keep only recent samples (last N seconds)
+        uint cutoff = timestamp - 5000; // Keep last 5 seconds
+        int keep_from = -1;
+        for (int i = (int)call_timestamps.length - 1; i >= 0; i--) {
+            if (call_timestamps[i] >= cutoff) {
+                keep_from = i;
+                break;
+            }
+        }
+        
+        if (keep_from > 0) {
+            call_timestamps = call_timestamps[keep_from:call_timestamps.length];
+        }
+        
+        mutex.unlock();
+        
+        // Your actual method logic
+        stdout.printf("Method called! Queue size: %u\n", call_timestamps.length);
+    }
+    
+    public double get_cps() {
+        mutex.lock();
+        uint64 now = get_monotonic_time();
+        uint current_time = (uint)(now / 1000000);
+        
+        // Count calls in last second
+        uint cutoff = current_time - 1000;
+        uint count = 0;
+        for (int i = (int)call_timestamps.length - 1; i >= 0; i--) {
+            if (call_timestamps[i] >= cutoff) {
+                count++;
+            } else {
+                break;
+            }
+        }
+        
+        mutex.unlock();
+        return count; // CPS over last second
+    }
+    
+    private void report_cps() {
+        double cps = get_cps();
+        stdout.printf("=== CPS Report ===\n");
+        stdout.printf("Calls per second: %.2f\n", cps);
+        stdout.printf("Total in buffer: %u\n", call_timestamps.length);
+        stdout.printf("==================\n\n");
     }
 }
