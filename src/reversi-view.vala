@@ -40,7 +40,7 @@ private class ReversiView : Gtk.Widget
     private uint8 highlight_y = uint8.MAX;
     private uint8 old_highlight_x = uint8.MAX;
     private uint8 old_highlight_y = uint8.MAX;
-    private uint8 highlight_state = 0;
+    private Adw.Animation highlight_animation;
     private const uint8 HIGHLIGHT_MAX = 5;
 
     /* Mouse */
@@ -122,7 +122,6 @@ private class ReversiView : Gtk.Widget
             highlight_y = highlight_x;
             old_highlight_x = uint8.MAX;
             old_highlight_y = uint8.MAX;
-            highlight_state = 0;
 
             show_mouse_highlight = false;
             mouse_position_set = false;
@@ -171,6 +170,10 @@ private class ReversiView : Gtk.Widget
         init_keyboard ();
 
         noise_texture = Gdk.Texture.from_resource ("/org/gnome/Reversi/ui/noise.png");
+
+        var target = new Adw.CallbackAnimationTarget (() => queue_draw ());
+        highlight_animation = new Adw.TimedAnimation (this, 0, 1, 100, target);
+        playable_tiles_highlight_animation = new Adw.TimedAnimation (this, 0, 1, 100, target);
     }
 
     [CCode (notify = false)] public Iagno           iagno_instance  { private get; protected construct; }
@@ -404,7 +407,7 @@ private class ReversiView : Gtk.Widget
             return;
 
         bool display_mouse_highlight = !show_highlight  // no mouse highlight if keyboard one
-                                    && (show_mouse_highlight || highlight_state != 0)
+                                    && (show_mouse_highlight || highlight_animation.state == Adw.AnimationState.PLAYING)
                                     // disable the hover if the computer is thinking; that should not happen with current AI
                                     && (iagno_instance.player_one == game.current_color || iagno_instance.computer == null);
 
@@ -414,7 +417,7 @@ private class ReversiView : Gtk.Widget
         // disappearing keyboard highlight after Escape pressed, if mouse hovered tile is not playable (else it is selected)
         bool display_ghost_highlight = !show_highlight
                                     && !show_mouse_highlight
-                                    && highlight_state != 0
+                                    && highlight_animation.state == Adw.AnimationState.PLAYING
                                     && old_highlight_x != uint8.MAX
                                     && old_highlight_y != uint8.MAX;
 
@@ -430,27 +433,8 @@ private class ReversiView : Gtk.Widget
     {
         unowned PossibleMove move;
         bool test_placing_tile = game.test_placing_tile (x, y, out move);
-        bool highlight_on = show_highlight || (mouse_is_in && show_mouse_highlight && test_placing_tile);
 
-        /* manage animated highlight */
-        if (highlight_on && highlight_state != HIGHLIGHT_MAX)
-        {
-            highlight_state++;
-            queue_draw_idle ();
-        }
-        else if (!highlight_on && highlight_state != 0)
-        {
-            // either we hit Escape with a keyboard highlight and the mouse does not hover a playable tile,
-            // or we moved mouse from a playable tile to a non playable one; in both cases, we decrease the
-            // highlight state and redraw for the mouse highlight to re-animate when re-entering a playable
-            // tile, or for the keyboard highlight to animate when disappearing; the first displays nothing
-            highlight_state--;
-            queue_draw_idle ();
-            if (old_highlight_x != x || old_highlight_y != y)   // is not a keyboard highlight disappearing
-        // TODO && mouse_is_in) for having an animation when the cursor quits the board; currently causes glitches
-                return;
-        }
-        highlight_tile (snapshot, x, y, highlight_state, /* soft highlight */ false);
+        highlight_tile (snapshot, x, y, (float) highlight_animation.value, /* soft highlight */ false);
         if (test_placing_tile
          && show_turnable_tiles
          && !(iagno_instance.computer != null && iagno_instance.player_one != game.current_color))
@@ -472,13 +456,14 @@ private class ReversiView : Gtk.Widget
         {
             int8 _x = (int8) x + ((int8) count * x_step);
             int8 _y = (int8) y + ((int8) count * y_step);
-            queue_draw_idle ();
-            highlight_tile (snapshot, _x, _y, highlight_state, /* soft highlight */ true);
+            highlight_tile (snapshot, _x, _y, (float) highlight_animation.value, /* soft highlight */ true);
         }
     }
 
     private inline void add_highlights (Gtk.Snapshot snapshot)
     {
+        var playable_tiles_highlight_state = (float) playable_tiles_highlight_animation.value;
+
         if (!show_playable_tiles && playable_tiles_highlight_state == 0)
             return;
         if (iagno_instance.computer != null && iagno_instance.player_one != game.current_color)
@@ -496,32 +481,18 @@ private class ReversiView : Gtk.Widget
                 return;
         }
 
-        bool decreasing = playable_tiles_highlight_state > HIGHLIGHT_MAX;
-        uint8 intensity;
+        bool decreasing = playable_tiles_highlight_state > 0.5;
+        float max_intensity = 1.2f;
+        float intensity;
         if (decreasing)
-            intensity = 2 * HIGHLIGHT_MAX + 1 - playable_tiles_highlight_state;
+            intensity = 2 * (1 - max_intensity) * playable_tiles_highlight_state + 2 * max_intensity - 1;
         else
-            intensity = playable_tiles_highlight_state;
+            intensity = 2 * max_intensity * playable_tiles_highlight_state;
 
         for (uint8 x = 0; x < game_size; x++)
             for (uint8 y = 0; y < game_size; y++)
-                add_highlight (snapshot, x, y, intensity);
-
-        if (decreasing && intensity == 1)
-            init_possible_moves ();
-        else if (!show_playable_tiles)
-            playable_tiles_highlight_state++;
-        else if (playable_tiles_highlight_state < HIGHLIGHT_MAX)
-            playable_tiles_highlight_state++;
-    }
-
-    private inline void add_highlight (Gtk.Snapshot snapshot, uint8 x, uint8 y, uint8 intensity)
-    {
-        if (possible_moves [x, y] == false)
-            return;
-
-        queue_draw_idle ();
-        highlight_tile (snapshot, x, y, intensity, /* soft highlight */ true);
+                if (possible_moves [x, y])
+                    highlight_tile (snapshot, x, y, intensity, /* soft highlight */ true);
     }
 
     private inline void draw_playables (Gtk.Snapshot snapshot)
@@ -696,13 +667,13 @@ private class ReversiView : Gtk.Widget
         return builder.to_path ();
     }
 
-    private void highlight_tile (Gtk.Snapshot snapshot, uint8 x, uint8 y, uint8 intensity, bool soft_highlight)
+    private void highlight_tile (Gtk.Snapshot snapshot, uint8 x, uint8 y, float intensity, bool soft_highlight)
     {
         var path = rounded_square (
             // TODO odd/even sizes problem
-            paving_size * x + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
-            paving_size * y + tile_size * (HIGHLIGHT_MAX - intensity) / (2 * HIGHLIGHT_MAX),
-            tile_size * intensity / HIGHLIGHT_MAX,
+            paving_size * x + tile_size * (1.0f - intensity) / 2.0f,
+            paving_size * y + tile_size * (1.0f - intensity) / 2.0f,
+            tile_size * intensity,
             theme.background_radius
         );
 
@@ -748,13 +719,6 @@ private class ReversiView : Gtk.Widget
             color);
     }
 
-    private void queue_draw_idle ()
-    {
-        Timeout.add_once(10, () => {
-            queue_draw ();
-        });
-    }
-
     /*\
     * * turning tiles
     \*/
@@ -771,34 +735,37 @@ private class ReversiView : Gtk.Widget
         get_missing_tile (out x, out y);
 
         // clear the previous highlight (if any)
-        if (show_highlight || show_mouse_highlight || (highlight_state != 0))
+        if (show_highlight || show_mouse_highlight || highlight_animation.state == Adw.AnimationState.PLAYING)
         {
-            highlight_state = 0;
+            highlight_animation.skip ();
+            bool animate = false;
             if (show_highlight)
-                set_square (highlight_x,
+                animate = animate | set_square (highlight_x,
                             highlight_y,
-                            get_pixmap (game.get_owner (highlight_x, highlight_y)),
-                            /* is final animation */ false,
-                            /* force redraw */ true);
+                            get_pixmap (game.get_owner (highlight_x, highlight_y)));
             if (show_mouse_highlight)
-                set_square (mouse_highlight_x,
+                animate = animate | set_square (mouse_highlight_x,
                             mouse_highlight_y,
-                            get_pixmap (game.get_owner (mouse_highlight_x, mouse_highlight_y)),
-                            /* is final animation */ false,
-                            /* force redraw */ true);
+                            get_pixmap (game.get_owner (mouse_highlight_x, mouse_highlight_y)));
+
+            queue_draw ();
+            if (animate)
+            {
+                start_animation (false);
+            }
 
             if (!game.is_complete)
             {
                 if (show_highlight
                  && x == highlight_x
                  && y == highlight_y)
-                    highlight_state = HIGHLIGHT_MAX;
+                    highlight_animation.skip ();
                 else if (show_mouse_highlight
                       && x == mouse_highlight_x
                       && y == mouse_highlight_y)
-                    highlight_state = HIGHLIGHT_MAX;
+                    highlight_animation.skip ();
                 else
-                    highlight_state = 1;
+                    highlight_animation.play ();
             }
         }
 
@@ -888,7 +855,7 @@ private class ReversiView : Gtk.Widget
         if (!no_draw)
         {
             update_squares ();
-            playable_tiles_highlight_state = 0;
+            //  playable_tiles_highlight_state = 0;
             if (undoing)
                 update_highlight_after_undo ();
             else if (show_playable_tiles)
@@ -900,65 +867,82 @@ private class ReversiView : Gtk.Widget
     }
 
     private inline void update_squares ()
-    {
-        for (uint8 x = 0; x < game_size; x++)
-            for (uint8 y = 0; y < game_size; y++)
-                update_square (x, y);
-    }
-
-    private inline void update_square (uint8 x, uint8 y)
         requires (game_is_set)
     {
-        set_square (x, y, get_pixmap (game.get_owner (x, y)), /* is final animation */ false);
+        bool animate = false;
+        for (uint8 x = 0; x < game_size; x++)
+            for (uint8 y = 0; y < game_size; y++)
+                animate = animate | set_square (x, y, get_pixmap (game.get_owner (x, y)));
+        if (animate)
+        {
+            start_animation (false);
+            queue_draw ();
+        }
     }
 
-    private void set_square (uint8 x, uint8 y, int pixmap, bool is_final_animation, bool force_redraw = false)
+    private bool set_square (uint8 x, uint8 y, int pixmap)
     {
-        if (!force_redraw && pixmaps [x, y] == pixmap)
-            return;
+        if (pixmaps [x, y] == pixmap)
+            return false;
 
         if (pixmap == 0 || pixmaps [x, y] == 0)
+        {
             pixmaps [x, y] = pixmap;
+            return false;
+        }
         else
         {
             if (pixmap > pixmaps [x, y])
                 pixmaps [x, y]++;
             else
                 pixmaps [x, y]--;
-            if (animate_timeout == 0)
-                animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, () => {
-                        bool animating = false;
-
-                        for (uint8 ix = 0; ix < game_size; ix++)
-                        {
-                            for (uint8 iy = 0; iy < game_size; iy++)
-                            {
-                                int old = pixmaps [ix, iy];
-
-                                if (is_final_animation  // do not rely only on flip_final_result_now, it fails randomly with hard IA (?!)
-                                 && flip_final_result_now
-                                 && game.is_complete)
-                                    flip_final_result_tile (ix, iy);
-                                else
-                                    update_square (ix, iy);
-
-                                if (pixmaps [ix, iy] != old)
-                                    animating = true;
-                            }
-                        }
-
-                        if (animating)
-                            return Source.CONTINUE;
-                        else
-                        {
-                            animate_timeout = 0;
-                            if (!show_highlight)
-                                _on_motion (mouse_position_x, mouse_position_y, /* force redraw */ true);
-                            return Source.REMOVE;
-                        }
-                    });
+            return true;
         }
-        queue_draw_idle ();
+    }
+
+    private void start_animation (bool is_final_animation)
+    {
+        if (animate_timeout != 0)
+            return;
+
+        animate_timeout = Timeout.add (PIXMAP_FLIP_DELAY, () => {
+            bool animating = false;
+
+            for (uint8 ix = 0; ix < game_size; ix++)
+            {
+                for (uint8 iy = 0; iy < game_size; iy++)
+                {
+                    int old = pixmaps [ix, iy];
+
+                    if (is_final_animation  // do not rely only on flip_final_result_now, it fails randomly with hard IA (?!)
+                        && flip_final_result_now
+                        && game.is_complete)
+                    {
+                        flip_final_result_tile (ix, iy);
+                    }
+                    else
+                    {
+                        set_square (ix, iy, get_pixmap (game.get_owner (ix, iy)));
+                    }
+
+                    if (pixmaps [ix, iy] != old)
+                        animating = true;
+                }
+            }
+
+            if (animating)
+            {
+                queue_draw ();
+                return Source.CONTINUE;
+            }
+            else
+            {
+                animate_timeout = 0;
+                if (!show_highlight)
+                    _on_motion (mouse_position_x, mouse_position_y, /* force redraw */ true);
+                return Source.REMOVE;
+            }
+        });
     }
 
     private static int get_pixmap (Player color)
@@ -1009,15 +993,20 @@ private class ReversiView : Gtk.Widget
                     notify_final_animation (/* undoing */ false);
                     set_winner_and_loser_variables ();
                     flip_final_result_now = true;
+                    bool animate = false;
                     for (uint8 x = 0; x < game_size; x++)
                         for (uint8 y = 0; y < game_size; y++)
-                            flip_final_result_tile (x, y);
-
+                            animate = animate | flip_final_result_tile (x, y);
+                    if (animate)
+                    {
+                        queue_draw ();
+                        start_animation (true);
+                    }
                     return Source.REMOVE;
                 });
     }
 
-    private void flip_final_result_tile (uint8 x, uint8 y)
+    private bool flip_final_result_tile (uint8 x, uint8 y)
     {
         int pixmap;
         uint8 n = y * game_size + x;
@@ -1027,7 +1016,7 @@ private class ReversiView : Gtk.Widget
             pixmap = get_pixmap (losing_color);
         else
             pixmap = get_pixmap (Player.NONE);
-        set_square (x, y, pixmap, /* is final animation */ true);
+        return set_square (x, y, pixmap);
     }
 
     private void set_winner_and_loser_variables ()
@@ -1212,6 +1201,11 @@ private class ReversiView : Gtk.Widget
         {
             queue_draw ();
         }
+
+        if (show_highlight || show_mouse_highlight)
+            highlight_animation.play ();
+        else
+            highlight_animation.skip ();
     }
 
     private inline void on_click (Gtk.GestureClick _click_controller, int n_press, double event_x, double event_y)
@@ -1372,7 +1366,7 @@ private class ReversiView : Gtk.Widget
         if (key == "Escape")
             show_highlight = false;
         else if (show_highlight)
-            highlight_state = HIGHLIGHT_MAX;
+            highlight_animation.skip ();
         else
             show_highlight = true;
 
@@ -1578,12 +1572,11 @@ private class ReversiView : Gtk.Widget
     * * testing move
     \*/
 
-    private uint8 playable_tiles_highlight_state;
+    private Adw.Animation playable_tiles_highlight_animation;
     private bool [,] possible_moves;
 
     private void init_possible_moves ()
     {
-        playable_tiles_highlight_state = 0;
         possible_moves = new bool [game_size, game_size];
 
         for (uint8 x = 0; x < game_size; x++)
@@ -1602,7 +1595,7 @@ private class ReversiView : Gtk.Widget
 
     private inline void highlight_playable_tiles (bool force_reload = false)
     {
-        if (!force_reload && playable_tiles_highlight_state != 0)
+        if (!force_reload && playable_tiles_highlight_animation.state == Adw.AnimationState.PLAYING)
             return;
 
         for (uint8 x = 0; x < game_size; x++)
@@ -1611,12 +1604,13 @@ private class ReversiView : Gtk.Widget
 
         SList<PossibleMove?> moves;
         game.get_possible_moves (out moves);
-        playable_tiles_highlight_state = 1;
         moves.@foreach ((move) => {
                 uint8 x = ((!) move).x;
                 uint8 y = ((!) move).y;
                 possible_moves [x, y] = true;
             });
+
+        playable_tiles_highlight_animation.play ();
         queue_draw ();
     }
 }
