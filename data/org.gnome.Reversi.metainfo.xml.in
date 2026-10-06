@@ -33,7 +33,7 @@
     <id>org.gnome.iagno.desktop</id>
   </provides>
   <url type="homepage">https://gitlab.gnome.org/GNOME/iagno</url>
-  <url type="bugtracker">https://gitlab.gnome.org/GNOME/iagno/issues</url>
+  <url type="bugtracker">https://gitlab.gnome.org/GNOME/iagno/-/work_items</url>
   <url type="vcs-browser">https://gitlab.gnome.org/GNOME/iagno</url>
   <url type="donation">https://www.gnome.org/donate/</url>
   <url type="translate">https://l10n.gnome.org/module/iagno/</url>
