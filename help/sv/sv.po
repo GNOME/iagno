@@ -1,12 +1,12 @@
 # Daniel Nylander <po@danielnylander.se>, 2007, 2009.
 # Erik Sköldås <erik.skoldas@tele2.se>, 2015.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2017, 2018, 2023, 2024.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2017, 2018, 2023, 2024, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: iagno doc\n"
-"POT-Creation-Date: 2024-03-05 14:22+0000\n"
-"PO-Revision-Date: 2024-03-05 20:46+0100\n"
+"POT-Creation-Date: 2026-10-07 09:37+0000\n"
+"PO-Revision-Date: 2026-10-12 22:18+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -22,6 +22,7 @@ msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>, 2007, 2009\n"
 "Erik Sköldås <erik.skoldas@tele2.se>, 2015\n"
+"Anders Jonsson <anders.jonsson@norsjovallen.se>, 2026\n"
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>"
 
@@ -359,8 +360,8 @@ msgid ""
 msgstr ""
 "<app>Reversi</app> underhålls av en frivillig gemenskap. Du är välkommen att "
 "delta. Om du upptäcker ett problem kan du sända in en <em>felrapport</em>. "
-"För att sända in en felrapport, gå till <link href=\"https://gitlab.gnome."
-"org/GNOME/iagno/issues/\"/>."
+"För att sända in en felrapport, gå till <link href=\"https://"
+"gitlab.gnome.org/GNOME/iagno/issues/\"/>."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:28
@@ -390,16 +391,16 @@ msgstr ""
 #: C/bug-filing.page:36
 msgid ""
 "Once you have an account, log in, and click on <gui>New issue</gui>. Before "
-"reporting a bug, please read the <link href=\"https://wiki.gnome.org/"
-"Community/GettingInTouch/BugReportingGuidelines\">bug writing guidelines</"
-"link>, and please <link href=\"https://gitlab.gnome.org/GNOME/iagno/"
-"issues\">browse</link> for the bug to see if it already exists."
+"reporting a bug, please read the <link href=\"https://handbook.gnome.org/"
+"issues/reporting.html\">bug writing guidelines</link>, and please <link "
+"href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">browse</link> for the "
+"bug to see if it already exists."
 msgstr ""
-"När du har ett konto, logga in, klicka på <gui>New Issue</gui>. Innan du "
-"rapporterar ett fel, läs <link href=\"https://wiki.gnome.org/Community/"
-"GettingInTouch/BugReportingGuidelines\">riktlinjer för felrapporter</link>, "
-"och <link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">sök</link> "
-"för att se om felet redan är rapporterat."
+"När du har ett konto, logga in och klicka på <gui>New Issue</gui>. Innan du "
+"rapporterar ett fel, läs <link href=\"https://handbook.gnome.org/issues/"
+"reporting.html\">riktlinjerna för hur man skriver en felrapport</link> och "
+"<link href=\"https://gitlab.gnome.org/GNOME/iagno/issues\">sök</link> för "
+"att se om felet redan rapporterats."
 
 #. (itstool) path: section/p
 #: C/bug-filing.page:40
@@ -987,8 +988,8 @@ msgid ""
 msgstr ""
 "För den fullständiga lydelsen av licensen, se <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons webbsida</"
-"link>, eller läs hela <link href=\"http://creativecommons.org/licenses/by-"
-"sa/3.0/\">Commons Deed</link>."
+"link>, eller läs hela <link href=\"http://creativecommons.org/licenses/by-sa/"
+"3.0/\">Commons Deed</link>."
 
 #. (itstool) path: credit/years
 #: C/play.page:12 C/rules.page:13 C/sound.page:13
@@ -1896,10 +1897,10 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/translate.page:39
 msgid ""
-"To start translating you will need to <link href=\"https://l10n.gnome."
-"org\">create an account</link> and join the <link href=\"https://l10n.gnome."
-"org/teams/\">translation team</link> for your language. This will give you "
-"the ability to upload new translations."
+"To start translating you will need to <link href=\"https://"
+"l10n.gnome.org\">create an account</link> and join the <link href=\"https://"
+"l10n.gnome.org/teams/\">translation team</link> for your language. This will "
+"give you the ability to upload new translations."
 msgstr ""
 "För att börja översätta måste du <link href=\"https://l10n.gnome.org\">skapa "
 "ett konto</link> och gå med i <link href=\"https://l10n.gnome.org/teams/"
@@ -1914,10 +1915,11 @@ msgid ""
 "channel). People on the channel are located worldwide, so you may not get an "
 "immediate response as a result of timezone differences."
 msgstr ""
-"Du kan chatta med GNOME-översättare genom <link href=\"https://wiki.gnome."
-"org/GettingInTouch/IRC\">genom IRC</link> (på kanalen <code>#gnome-i18n</"
-"code>). Personerna på kanalen finns över hela världen, så du kommer kanske "
-"inte få en omedelbar respons på grund av skillnader i tidszon."
+"Du kan chatta med GNOME-översättare genom <link href=\"https://"
+"wiki.gnome.org/GettingInTouch/IRC\">genom IRC</link> (på kanalen "
+"<code>#gnome-i18n</code>). Personerna på kanalen finns över hela världen, så "
+"du kommer kanske inte få en omedelbar respons på grund av skillnader i "
+"tidszon."
 
 #. (itstool) path: page/p
 #: C/translate.page:45
